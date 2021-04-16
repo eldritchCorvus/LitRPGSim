@@ -32,7 +32,7 @@ export  class Aspect{
     }
 
 }
-
+s
 export function initAspects(seeded_random: SeededRandom){
-    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality", ""], seeded_random, [all_themes.healing]);
+    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, [all_themes.healing, all_themes.plants]);
 }

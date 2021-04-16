@@ -10,10 +10,12 @@ export   class Theme{
     solo_name_possibilities:string[];
     first_name_possibilities:string[];
     second_name_possibilities:string[];
+    tier: number;
 
 
-    constructor(key: string, solo_name_possibilities: string[],first_name_possibilities: string[], second_name_possibilities: string[] ){
+    constructor(key: string, tier: number, solo_name_possibilities: string[],first_name_possibilities: string[], second_name_possibilities: string[] ){
         this.key = key;
+        this.tier = tier;
         this.solo_name_possibilities = solo_name_possibilities;
         this.first_name_possibilities = first_name_possibilities;
         this.second_name_possibilities = second_name_possibilities;
@@ -27,7 +29,8 @@ export   class Theme{
 }
 
 export function initThemes(){
-    new Theme("Healing", ["Heal", "Cure", "Regeneration"],["Healing", "Curing", "Restoring"],["Healing", "Curative", "Restorative"]);
+    new Theme("healing", 1,["Heal", "Cure", "Regeneration"],["Healing", "Curing", "Restoring"],["Healing", "Curative", "Restorative"]);
+    new Theme("plants", 1,["Growth", "Summon Plants", "Overgrow"],["Forest", "Field", "Meadow"],["Growth", "Plants", "Leaves", "Branches", "Flowers"]);
 
 }
 
