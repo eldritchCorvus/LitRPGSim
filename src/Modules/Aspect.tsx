@@ -15,7 +15,7 @@ import {Theme, all_themes} from "./Theme";
     Light: Lore page (part of kingdom system?)
     Void: any hidden content on any other stat page is now highlighted.
     Rage: Developer screen/Opens up the console log?
-    Hope: ???
+    Hope: role play backstory bs (do people in this setting think you have amnesia, or are you some specific person?)
     Life: Your elemental resistances/weaknesses etc. (sharp /blunt etc is an element thems the breaks)
 
 

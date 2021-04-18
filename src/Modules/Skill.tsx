@@ -9,6 +9,7 @@ export   class Skill{
     name: string;
     tier: number;
     theme_keys: string[];
+    unlocked:boolean = true; //todo make this default to false
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
        if(themes.length == 1){
@@ -16,7 +17,8 @@ export   class Skill{
        }else if(themes.length == 2){
            const first =  seeded_random.getRandomElementFromArray(themes[0].first_name_possibilities);
            const second =  seeded_random.getRandomElementFromArray(themes[1].second_name_possibilities);
-           return `${first} of ${second}`;
+           const options = [`${first} of ${second}`,`${first} ${second}`];
+           return seeded_random.getRandomElementFromArray(options);
        }else if (themes.length == 0){
            return "ERROR: no themes found";
        }else
@@ -24,15 +26,33 @@ export   class Skill{
        }
 
 
-    constructor(themes: Theme[],seeded_random:SeededRandom){
+    constructor(themes: Theme[] =[],seeded_random:SeededRandom){
         console.log("Constructing new skill with themes", themes)
         this.name = this.generateName(themes, seeded_random);
+        if(themes && themes.length >0){
         this.theme_keys = themes.map((x)=> x.key);
         interface ThemeReducer{
             tier: number;
         }
         const theme_tiers: ThemeReducer[] = themes.map((x)=> {return{tier: x.tier}});
         this.tier = theme_tiers.reduce((a:ThemeReducer, c:ThemeReducer) => {return{tier: a ? a.tier + c.tier : c.tier}}).tier;
+        }else{
+            this.theme_keys = [];
+            this.tier = 0;
+        }
     }
+
+}
+
+export class CoreSkill extends Skill{
+    name: string;
+    tier: number;
+    theme_keys: string[] = [];
+    constructor(name: string, tier: number, rand: SeededRandom){
+        super([], rand);
+        this.name = name;
+        this.tier = tier;
+    }
+
 
 }
