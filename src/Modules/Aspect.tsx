@@ -40,6 +40,9 @@ export  class Aspect{
         this.seeded_random = seeded_random;
         this.chosen_name = seeded_random.getRandomElementFromArray(this.name_possibilities);
         this.themes = themes;
+        themes.forEach((theme) => {
+            theme.initializeIfNecessary(2);
+        });
         this.key = key;
         all_aspects[key]= this;
 
