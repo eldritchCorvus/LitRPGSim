@@ -3,6 +3,23 @@ import {Theme, all_themes} from "./Theme";
 //TODO aspects also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
 //or see/upgrade your allies (blood would especially be good at this)
+//maybe have each aspect unlock a specific stat screen?  (but not be the ONLY way to get it, classes/interests can throw shit in as appropriate)
+/*
+    Time: Stats during time played (skills unlocked, button presses, etc)
+    Breath: Quests (name and desc)
+    Doom: Upgrades to Skill Tree (see progressively more than just skills that touch skills you've unlocked.)
+    Blood: See Ally page (and allies of allies?)
+    Heart: See your own core stats and facts (classpect, interests, species, etc)
+    Space: World Map (if not visually, at least a list of places (could have a core kingdom system that quests and allies and this page refer to))
+    Mind: Upgrade to skill tree, any skills that if you chose eliminate other parts of the tree are now marked
+    Light: Lore page (part of kingdom system?)
+    Void: any hidden content on any other stat page is now highlighted.
+    Rage: Developer screen/Opens up the console log?
+    Hope: ???
+    Life: Your elemental resistances/weaknesses etc. (sharp /blunt etc is an element thems the breaks)
+
+
+*/
 interface AspectMap {
     [details: string] : Aspect;
 }
@@ -34,7 +51,7 @@ export  class Aspect{
     }
 
 }
-s
+
 export function initAspects(seeded_random: SeededRandom){
     new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, [all_themes.healing, all_themes.plants]);
 }
