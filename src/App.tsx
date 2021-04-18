@@ -4,21 +4,22 @@ import { Skill } from "./Modules/Skill";
 import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
 import {Player} from "./Modules/Player";
-import {Status} from "./Screens/Status";
-import { all_interests } from "./Modules/Interest";
+import {StatusScreen} from "./Screens/Status";
+import { all_interests, initInterests } from "./Modules/Interest";
 function App() {
   //order matters, themes are needed for aspects, etc;
   const rand = new SeededRandom(13);
   initThemes();
   initAspects(rand);
   initClasses(rand);
+  initInterests(rand);
+  console.log("All Interests are", all_interests);
   const player = new Player(all_classes.seer, all_aspects.life, [all_interests.crafting, all_interests.language], rand);
   return (
     <div>
-    <Status player={player}></Status>
+    <StatusScreen player={player}></StatusScreen>
     Fast TODO
     <ul>
-      <li>stub out interests</li>
       <li>abilityt to player skills and turn it into a directed acylcic graph</li>
       <li>ability to visualize said graph</li>
       <li>player object (has stats, skills, etc) (stats are just from wigglersim)</li>
