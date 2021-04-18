@@ -1,4 +1,5 @@
 import {all_aspects, initAspects} from "./Modules/Aspect";
+import { Skill } from "./Modules/Skill";
 import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
 function App() {
@@ -6,9 +7,16 @@ function App() {
   const rand = new SeededRandom(13);
   initThemes(rand);
   initAspects(rand);
+  const skill_1_test = new Skill(all_aspects.life.themes[0]);
+  const skill_2_test = new Skill(all_aspects.life.themes);
+
   return (
     <div>
     <div>{all_aspects["life"].name_possibilities.join(",")}but i chose {all_aspects["life"].chosen_name}</div>
+    <div>
+      <div>Skill 1: {skill_1_test.name}: Themes: [${skill_1_test.theme_keys.join(",")}]</div>
+      <div>Skill 1: {skill_2_test.name}: Themes: [${skill_2_test.theme_keys.join(",")}]</div>
+    </div>
     Fast TODO<Br></Br>
     <ul>
       <li>Skill object that has a name and the keys of its themes. its tier is sum of its theme's tiers</li>

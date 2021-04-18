@@ -1,6 +1,8 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
-
+//TODO aspects also have hardcoded skills (with or without themes)
+//some skills are special purpose, for example, the ability to see/upgrade the status screen
+//or see/upgrade your allies (blood would especially be good at this)
 interface AspectMap {
     [details: string] : Aspect;
 }
