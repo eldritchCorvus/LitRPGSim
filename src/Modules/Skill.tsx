@@ -27,7 +27,6 @@ export   class Skill{
 
 
     constructor(themes: Theme[] =[],seeded_random:SeededRandom){
-        console.log("Constructing new skill with themes", themes)
         this.name = this.generateName(themes, seeded_random);
         if(themes && themes.length >0){
         this.theme_keys = themes.map((x)=> x.key);

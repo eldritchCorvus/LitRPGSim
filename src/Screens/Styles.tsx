@@ -9,6 +9,7 @@ export const StatusBlock = styled.table`
 
 export const StatusHeader = styled.td`
     font-weight: bold;
+    width: 200px;
 `
 
 export const StatusContent = styled.td`

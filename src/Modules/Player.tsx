@@ -19,11 +19,11 @@ export   class Player{
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
-        const themes:Theme[] = [];
-        themes.concat(class_name.themes)
-        themes.concat(aspect.themes);
+        let themes:Theme[] = [];
+        themes = themes.concat(class_name.themes)
+        themes = themes.concat(aspect.themes);
+        interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         this.theme_keys = themes.map((x)=> x.key);
-        this.interests.forEach((interest) => themes.concat(interest.themes));
         this.skills = generateSkills(class_name, aspect, interests,rand);
         this.rand = rand;
 
@@ -38,10 +38,21 @@ export const generateSkills = (class_name: RPGClass, aspect: Aspect, interests: 
    const generate_skill_x_times = (x: number, themes: Theme[], rand:SeededRandom) =>{
        const ret:Skill[] = [];
        for(let i = 0; i<x; i++){
-           console.log("generating skill ", i,x);
            ret.push(new Skill(themes, rand));
        }
-       console.log("going to return ", ret)
+       return ret;
+   }
+
+   const only_leave_unique_names = (skills: Skill[]) => {
+       let ret:Skill[] = [];
+       let ret_names:string[] = [];
+       for(const skill of skills){
+           if(ret_names.indexOf(skill.name) === -1){
+               ret.push(skill);
+               ret_names.push(skill.name);
+           }
+
+       }
        return ret;
    }
 
@@ -66,5 +77,5 @@ export const generateSkills = (class_name: RPGClass, aspect: Aspect, interests: 
        }
    }
    console.log("generate skill is about to return", ret)
-   return ret;
+   return only_leave_unique_names(ret);
 }
