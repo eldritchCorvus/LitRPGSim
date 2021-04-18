@@ -37,7 +37,7 @@ export  class Interest{
 }
 
 export function initInterests(seeded_random: SeededRandom){
-    new Interest("crafting", ["Crafting", "Creating", "Blue-collarly Pursuits"], seeded_random, [all_themes.crafting]);
-    new Interest("language", ["Communication", "Language", "Speech", "Writing", "Scribing", "Runes"], seeded_random, [all_themes.language]);
+    new Interest("crafting", ["Craftor", "Creator", "Blue-collarly Pursuer", "Omnismith"], seeded_random, [all_themes.crafting]);
+    new Interest("language", ["Communicator", "Language Lover", "Speaker", "Writor", "Scribe", "Author","Rune Researcher"], seeded_random, [all_themes.language]);
 
 }
