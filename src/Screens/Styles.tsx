@@ -5,6 +5,10 @@ export const StatusBlock = styled.table`
     margin: 10px;
     border: 3px solid black;
     border-radius: 3px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1000px;
 `
 
 export const StatusHeader = styled.td`
@@ -14,6 +18,11 @@ export const StatusHeader = styled.td`
 
 export const StatusContent = styled.td`
     color: black;
+`
+
+export const TreeContent = styled.td`
+    color: black;
+    height: 1000px;
 `
 
 export const StatusRow = styled.tr `
