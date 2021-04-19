@@ -1,3 +1,4 @@
+import { RawNodeDatum } from "react-d3-tree/lib/types/common";
 import SeededRandom from "../Utils/SeededRandom";
 import {Theme} from "./Theme";
 /*TODO
@@ -41,6 +42,10 @@ export   class Skill{
             this.theme_keys = [];
             this.tier = 0;
         }
+    }
+
+    convertToTree =():RawNodeDatum=> {
+        return {name: this.name, children: this.children.map((child)=>child.convertToTree())};
     }
 
 }
