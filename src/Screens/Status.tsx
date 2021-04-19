@@ -46,7 +46,7 @@ export const  StatusScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Unlocked Skills:</StatusHeader>
                 <StatusContent>   
-                    {props.player.unlocked_skills().map((skill,i) => {return ( <div key={skill.name + i}>Skill {i}: {skill.name} (Rank {skill.tier}): Themes: [{skill.theme_keys.join(",")}]</div>  )})}
+                    {props.player.skills.map((skill,i) => {return ( <div key={skill.name + i}>Skill {i}: {skill.name} (Rank {skill.tier}): Themes: [{skill.theme_keys.join(",")}] Children: [{skill.children.map((child)=>child.name).join(",")}]</div>  )})}
                 </StatusContent>
             </StatusRow>
     </tbody>
