@@ -1,55 +1,71 @@
 import {Player} from "../Modules/Player";
 import {StatusRow, StatusBlock,TreeContent} from "./Styles";
 import Tree from 'react-d3-tree';
+import {useState} from 'react';
 interface SkillProps{
     player: Player;
 }
 
-const orgChart = {
-    name: 'CEO',
-    children: [
-      {
-        name: 'Manager',
-        attributes: {
-          department: 'Production',
-        },
+
+
+
+
+
+export const  SkillScreen = (props: SkillProps)=> {
+
+    const exampleData = {
+        name: 'CEO',
         children: [
           {
-            name: 'Foreman',
+            name: 'Manager',
             attributes: {
-              department: 'Fabrication',
+              department: 'Production',
             },
             children: [
               {
-                name: 'Worker',
+                name: 'Foreman',
+                attributes: {
+                  department: 'Fabrication',
+                },
+                children: [
+                  {
+                    name: 'Worker',
+                  },
+                ],
               },
-            ],
-          },
-          {
-            name: 'Foreman',
-            attributes: {
-              department: 'Assembly',
-            },
-            children: [
               {
-                name: 'Worker',
+                name: 'Foreman',
+                attributes: {
+                  department: 'Assembly',
+                },
+                children: [
+                  {
+                    name: 'Worker',
+                  },
+                ],
               },
             ],
           },
         ],
-      },
-    ],
-  };
+      };
 
+    const [treeData, setTreeData] = useState(exampleData);
 
-export const  SkillScreen = (props: SkillProps)=> {
+    const extractGraphFromSkills =() =>{
+
+    }
+
+    if(treeData === exampleData){
+       // extractGraphFromSkills();
+    }
+
     return(
         <StatusBlock>
             <tbody>
                 <StatusRow>
                     <TreeContent>
                         <div id="treeWrapper" style={{ width: '950px', height: '1000px' }}>
-                            <Tree data={orgChart} />
+                            <Tree data={treeData} />
                         </div>
                     </TreeContent>
                 </StatusRow>
