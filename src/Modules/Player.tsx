@@ -25,7 +25,8 @@ export   class Player{
         interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         this.theme_keys = themes.map((x)=> x.key);
         this.skills = generateSkills(class_name, aspect, interests,rand);
-        assignSkillChildren(this.skills);
+        assignSkillChildren(this.skills, null);
+        console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
 
     }
@@ -33,7 +34,7 @@ export   class Player{
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
 }
 
-const assignSkillChildren =(skills: Skill[], parent: Skill | undefined, num_tries = 0) =>{
+const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, num_tries = 0) =>{
     /*
         * The first skill is the root. Then, grab one skill from each theme to be its children.
         * for each child, grab 0-5 skills that share either all its themes or at least one (prefer all) to be its children. 
@@ -121,7 +122,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined, num_trie
     }
     //okay at this point we're at a root somewhere, so lets sprinkle in any other themeless skills we have here.
     for(const skill of skills){
-        if(skill.theme_keys.length == 0 && && !skill.parent)){
+        if(skill.theme_keys.length == 0 && !skill.parent){
             children.push(skill);
         }
     }
