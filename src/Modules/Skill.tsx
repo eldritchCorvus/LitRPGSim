@@ -49,6 +49,7 @@ export class CoreSkill extends Skill{
     name: string;
     tier: number;
     theme_keys: string[] = [];
+    unlocked:boolean = true; //todo make this default to false
     constructor(name: string, tier: number, rand: SeededRandom){
         super([], rand);
         this.name = name;

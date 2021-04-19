@@ -40,39 +40,46 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
         * for each child, grab 0-5 skills that share either all its themes or at least one (prefer all) to be its children. 
         *recurse
     */
-   console.log("num tries is ", num_tries);
+   console.log("num tries is ", num_tries, " parent is", parent);
    num_tries ++;
+   let orphans = skills.filter((skill)=>!skill.parent);
+   console.log("orphans is", orphans);
    if(skills.length === 0){
+       console.log("returning because no more skills");
        return;
    }
    //first thing in the list is the parent
    if(!parent){
        const p = skills[0];
        skills.shift();
-       assignSkillChildren(skills, parent, num_tries);
+       assignSkillChildren(skills, p, num_tries);
+       console.log("returning because there wasn't a parent");
        return;
    }
    //you already have children? done
    if(parent.children.length > 0){
+       console.log("returning because the parent already has children");
        return;
    }
    let children:Skill[] = [];
 
-   const submitChildren = () =>{
-        let remainder:Skill[] =skills.filter((skill  => children.includes(skill)));
+   const submitChildren = (children: Skill[]) =>{
+        let remainder:Skill[] =skills.filter((skill  => !children.includes(skill)));
         console.log("submitting children, remainder is", remainder, "and children are", children);
 
         parent.children = children;
         //look for subchildren for all children
         for(const child of children){
+            child.parent = parent;
             assignSkillChildren(remainder, child,num_tries);
         }
    }
 
-   const checkIfEnoughChildren = ()=>{
+   const checkIfEnoughChildren = (children: Skill[])=>{
         //thats enough children plz
-        if(children.length > 5){
-           submitChildren();
+        if(children.length >= 5){
+           submitChildren(children);
+           console.log("there is enough children", children);
             return true;
         }
         return false;
@@ -80,54 +87,67 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
 
     //special case if its the root, look for single theme children, but don't double up
     if(!parent.parent){
-        for(const skill of skills){
+        console.log("I am a root node");
+        for(const skill of orphans){
             if(skill.theme_keys.length === 1 && !skill.parent){
                 const doubles = children.filter((child) => child.theme_keys === skill.theme_keys);
-                if(doubles.length === 0){
+                if(doubles.length === 0&& children.length < 5){
                      children.push(skill);
                 }
             }
-        }
-            
+        }  
     }
 
-    if(checkIfEnoughChildren()){
+    console.log("after checking for single themes, children are", children);
+
+    if(checkIfEnoughChildren(children)){
         return;
     }
 
     //highest priority is exact matches (upgrades)
-    for(const skill of skills){
-       //you can be my child if you match my themes exactly    
-       if(skill.theme_keys === parent.theme_keys && !skill.parent){
+    for(const skill of orphans){
+       //you can be my child if you match my themes exactly  
+       console.log("Comparing exact match of", skill.theme_keys, parent.theme_keys);  
+       if(skill.theme_keys.join("") == parent.theme_keys.join("") && !skill.parent && children.length <5){
+           console.log("i believe that match", skill.theme_keys,parent.theme_keys)
            children.push(skill);
+       }else{
+        console.log("i believe that they do NOT match", skill.theme_keys,parent.theme_keys, "or there is a parent already for this skill: ", skill.parent)
        }
     }
-    if(checkIfEnoughChildren()){
+    console.log("after checking exact theme matches, children are", children);
+
+    if(checkIfEnoughChildren(children)){
         return;
     }
 
     //secondary priority is 
-    for(const skill of skills){
+    for(const skill of orphans){
         // you can be my child if you have however many themes but at least one of mine
-        for(const key in parent.theme_keys){
-            if(skill.theme_keys.includes(key) && !skill.parent){
+        for(const key of parent.theme_keys){
+            console.log("comparing partial match of skill theme keys are", skill.theme_keys, "and key i'm checking is", key);
+            if(skill.theme_keys.includes(key) && !skill.parent && children.length <5){
+                console.log("I think they match")
                 children.push(skill); 
             }
         }
         
     }
+    console.log("after checking for any theme matches, children are", children);
 
-    if(checkIfEnoughChildren()){
+    if(checkIfEnoughChildren(children)){
         return;
     }
     //okay at this point we're at a root somewhere, so lets sprinkle in any other themeless skills we have here.
-    for(const skill of skills){
-        if(skill.theme_keys.length == 0 && !skill.parent){
+    for(const skill of orphans){
+        if(skill.theme_keys.length == 0 && !skill.parent && children.length <5){
             children.push(skill);
         }
     }
+    console.log("after checking for empty themes, children are", children);
+
     //even if its not enough.
-    submitChildren();
+    submitChildren(children);
     return;
 }
 
