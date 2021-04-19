@@ -2,61 +2,30 @@ import {Player} from "../Modules/Player";
 import {StatusRow, StatusBlock,TreeContent} from "./Styles";
 import Tree from 'react-d3-tree';
 import {useState} from 'react';
+import { RawNodeDatum } from "react-d3-tree/lib/types/common";
 interface SkillProps{
     player: Player;
 }
 
 
 
-
-
-
 export const  SkillScreen = (props: SkillProps)=> {
 
     const exampleData = {
-        name: 'CEO',
-        children: [
-          {
-            name: 'Manager',
-            attributes: {
-              department: 'Production',
-            },
-            children: [
-              {
-                name: 'Foreman',
-                attributes: {
-                  department: 'Fabrication',
-                },
-                children: [
-                  {
-                    name: 'Worker',
-                  },
-                ],
-              },
-              {
-                name: 'Foreman',
-                attributes: {
-                  department: 'Assembly',
-                },
-                children: [
-                  {
-                    name: 'Worker',
-                  },
-                ],
-              },
-            ],
-          },
-        ],
+        name: ':) :) :)',
+        children: [],
       };
 
-    const [treeData, setTreeData] = useState(exampleData);
+    const [treeData, setTreeData] = useState<RawNodeDatum >(exampleData);
 
     const extractGraphFromSkills =() =>{
-
+        console.log("first skill is", props.player.skills[0]);
+        const tempData = props.player.skills[0].convertToTree();
+        setTreeData(tempData);
     }
 
     if(treeData === exampleData){
-       // extractGraphFromSkills();
+        extractGraphFromSkills();
     }
 
     return(
