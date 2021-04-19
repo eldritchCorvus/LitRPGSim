@@ -4,6 +4,7 @@ import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
 import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
+import {SkillScreen} from "./Screens/Skills";
 import { all_interests, initInterests } from "./Modules/Interest";
 function App() {
   //order matters, themes are needed for aspects, etc;
@@ -17,6 +18,8 @@ function App() {
   return (
     <div>
     <StatusScreen player={player}></StatusScreen>
+    <SkillScreen player={player}></SkillScreen>
+
     Fast TODO
     <ul>
       <li>ability to display player skills as graph (tweaking tier if needed)</li>
@@ -24,7 +27,7 @@ function App() {
       <li>can click on skill to unlock it</li>
       <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
       <li>player stats (stats are just from wigglersim but with lists of names)</li>
-      <li>special skill types that unlock other stat pages</li>
+      <li>special skill types that unlock other stat pages or upgrade stats</li>
       <li>sassy achievement system</li>
     </ul>
     </div>
