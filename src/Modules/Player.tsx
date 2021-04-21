@@ -11,6 +11,7 @@ export   class Player{
     theme_keys: string[];
     skills: Skill[];
     rand: SeededRandom;
+    rootSkill: Skill;
 
 
 
@@ -25,7 +26,8 @@ export   class Player{
         interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         this.theme_keys = themes.map((x)=> x.key);
         this.skills = generateSkills(class_name, aspect, interests,rand);
-        assignSkillChildren(this.skills, null);
+        this.rootSkill = this.skills[0];
+        assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, [], 0, rand);
         console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
 
@@ -34,24 +36,28 @@ export   class Player{
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
 }
 
-const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, num_tries = 0) =>{
+const assignSkillChildren =(prop_skills: Skill[], parent: Skill | undefined |null, nextParents:Skill[],num_tries = 0, rand: SeededRandom) =>{
     /*
         * The first skill is the root. Then, grab one skill from each theme to be its children.
         * for each child, grab 0-5 skills that share either all its themes or at least one (prefer all) to be its children. 
         *recurse
     */
+   let skills: Skill[]  = [];
+   skills = prop_skills.sort((a,b) => a.tier < b.tier ? -1:1);
+   console.log("after shuffling skills its", skills)
    num_tries ++;
+   const max_children = rand.getRandomNumberBetween(3,10);
    let orphans = skills.filter((skill)=>!skill.parent);
    if(skills.length === 0){
        return;
    }
-   //first thing in the list is the parent
    if(!parent){
-       const p = skills[0];
-       skills.shift();
-       assignSkillChildren(skills, p, num_tries);
+       //for breadth first its a queue, grab last out
+       parent = nextParents[nextParents.length-1];
+       assignSkillChildren(skills, parent, nextParents.filter((skill) => skill === parent),num_tries,rand);
        return;
    }
+
    //you already have children? done
    if(parent.children.length > 0){
        return;
@@ -61,17 +67,24 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
    const submitChildren = (children: Skill[]) =>{
         let remainder:Skill[] =skills.filter((skill  => !children.includes(skill)));
 
+        if(!parent){
+            return; //shouldn't happen
+        }
         parent.children = children;
         //look for subchildren for all children
+        
         for(const child of children){
             child.parent = parent;
-            assignSkillChildren(remainder, child,num_tries);
+            nextParents.push(child);
         }
+        //this keeps it breadth first
+        assignSkillChildren(remainder, null,nextParents,num_tries,rand);
+
    }
 
    const checkIfEnoughChildren = (children: Skill[])=>{
         //thats enough children plz
-        if(children.length >= 5){
+        if(children.length >= max_children){
            submitChildren(children);
             return true;
         }
@@ -83,7 +96,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
         for(const skill of orphans){
             if(skill.theme_keys.length === 1 && !skill.parent){
                 const doubles = children.filter((child) => child.theme_keys === skill.theme_keys);
-                if(doubles.length === 0&& children.length < 5){
+                if(doubles.length === 0&& children.length < 10){
                      children.push(skill);
                 }
             }
@@ -98,7 +111,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
     //highest priority is exact matches (upgrades)
     for(const skill of orphans){
        //you can be my child if you match my themes exactly  
-       if(skill.theme_keys.join("") == parent.theme_keys.join("") && !skill.parent && children.length <5 && !children.includes(skill)){
+       if(skill.theme_keys.join("") == parent.theme_keys.join("") && !skill.parent && children.length <max_children && !children.includes(skill)){
            children.push(skill);
        }
     }
@@ -111,7 +124,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
     for(const skill of orphans){
         // you can be my child if you have however many themes but at least one of mine
         for(const key of parent.theme_keys){
-            if(skill.theme_keys.includes(key) && !skill.parent && children.length <5 && !children.includes(skill)){
+            if(skill.theme_keys.includes(key) && !skill.parent && children.length <max_children && !children.includes(skill)){
                 children.push(skill); 
             }
         }
@@ -123,7 +136,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
     }
     //okay at this point we're at a root somewhere, so lets sprinkle in any other themeless skills we have here.
     for(const skill of orphans){
-        if(skill.theme_keys.length == 0 && !skill.parent && children.length <5 && !children.includes(skill)){
+        if(skill.theme_keys.length == 0 && !skill.parent && children.length <max_children && !children.includes(skill)){
             children.push(skill);
         }
     }

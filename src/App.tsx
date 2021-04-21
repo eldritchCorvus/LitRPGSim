@@ -22,7 +22,7 @@ function App() {
 
     Fast TODO
     <ul>
-      <li>BUg: figure out why children duplicate even from teh same parent: Skill 65: Curing Speech (Rank 3): Themes: [healing,language] Children: [Restoring of Words,Curing of Speech,Restoring of Words,Restoring of Words,Curing of Speech]</li>
+      <li>my attempt to do recursive bredth first failed, its just doing depth first but bottom ways. ACTUALLY fix it to distribute edges bredth first (be iterative if you have to(how???)) </li>
       <li>tweak graph till it looks robust? kinda radial?</li>
       <li>only display unlocked skills and skills adjacent to them</li>
       <li>can click on skill to unlock it</li>
