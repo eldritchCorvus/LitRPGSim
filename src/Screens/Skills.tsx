@@ -20,7 +20,8 @@ export const  SkillScreen = (props: SkillProps)=> {
 
     const extractGraphFromSkills =() =>{
         console.log("first skill is", props.player.skills[0]);
-        const tempData = props.player.skills[0].convertToTree();
+        const tempData = props.player.rootSkill.convertToTree();
+        console.log("tempData is", tempData);
         setTreeData(tempData);
     }
 
