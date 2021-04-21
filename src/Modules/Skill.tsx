@@ -44,6 +44,10 @@ export   class Skill{
         }
     }
 
+    toString = () => {
+        return this.name;
+    }
+
     convertToTree =():RawNodeDatum=> {
         return {name: this.name, children: this.children.map((child)=>child.convertToTree())};
     }
