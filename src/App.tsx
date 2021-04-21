@@ -22,7 +22,8 @@ function App() {
 
     Fast TODO
     <ul>
-      <li>ability to display player skills as graph (tweaking tier if needed)</li>
+      <li>BUg: figure out why children duplicate even from teh same parent: Skill 65: Curing Speech (Rank 3): Themes: [healing,language] Children: [Restoring of Words,Curing of Speech,Restoring of Words,Restoring of Words,Curing of Speech]</li>
+      <li>tweak graph till it looks robust? kinda radial?</li>
       <li>only display unlocked skills and skills adjacent to them</li>
       <li>can click on skill to unlock it</li>
       <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>

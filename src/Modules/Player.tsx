@@ -98,7 +98,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
     //highest priority is exact matches (upgrades)
     for(const skill of orphans){
        //you can be my child if you match my themes exactly  
-       if(skill.theme_keys.join("") == parent.theme_keys.join("") && !skill.parent && children.length <5){
+       if(skill.theme_keys.join("") == parent.theme_keys.join("") && !skill.parent && children.length <5 && !children.includes(skill)){
            children.push(skill);
        }
     }
@@ -111,7 +111,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
     for(const skill of orphans){
         // you can be my child if you have however many themes but at least one of mine
         for(const key of parent.theme_keys){
-            if(skill.theme_keys.includes(key) && !skill.parent && children.length <5){
+            if(skill.theme_keys.includes(key) && !skill.parent && children.length <5 && !children.includes(skill)){
                 children.push(skill); 
             }
         }
@@ -123,7 +123,7 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
     }
     //okay at this point we're at a root somewhere, so lets sprinkle in any other themeless skills we have here.
     for(const skill of orphans){
-        if(skill.theme_keys.length == 0 && !skill.parent && children.length <5){
+        if(skill.theme_keys.length == 0 && !skill.parent && children.length <5 && !children.includes(skill)){
             children.push(skill);
         }
     }
@@ -135,6 +135,8 @@ const assignSkillChildren =(skills: Skill[], parent: Skill | undefined |null, nu
 
 export const generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom)=>{
    let ret:Skill[] = [new CoreSkill("Status", 0, rand)];
+   const max = 10;
+   const min = 3;
 
    const generate_skill_x_times = (x: number, themes: Theme[], rand:SeededRandom) =>{
        const ret:Skill[] = [];
@@ -158,22 +160,22 @@ export const generateSkills = (class_name: RPGClass, aspect: Aspect, interests: 
    }
 
    for(const class_theme of class_name.themes ){
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(3,5),[class_theme], rand));
+        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme], rand));
        for(const aspect_theme of aspect.themes ){
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(3,5),[aspect_theme], rand));
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(1,5),[aspect_theme, class_theme], rand));
+        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme], rand));
+        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme, class_theme], rand));
        }
    }
 
    for(const interest of interests){
        for(const interest_theme of interest.themes){
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(1,3),[interest_theme], rand));
+        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[interest_theme], rand));
         for(const aspect_theme of aspect.themes ){
-            ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(1,5),[aspect_theme, interest_theme], rand));
+            ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme, interest_theme], rand));
         }
 
         for(const class_theme of class_name.themes ){
-           ret =  ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(1,5),[class_theme, interest_theme], rand));
+           ret =  ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme, interest_theme], rand));
         }
        }
    }
