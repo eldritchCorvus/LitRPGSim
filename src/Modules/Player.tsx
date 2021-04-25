@@ -4,6 +4,7 @@ import { Skill, CoreSkill } from "./Skill";
 import {Interest} from "./Interest";
 import {initThemes, Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
+import { SkillScreen } from "../Screens/Skills";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -27,7 +28,7 @@ export   class Player{
         this.theme_keys = themes.map((x)=> x.key);
         this.skills = generateSkills(class_name, aspect, interests,rand);
         this.rootSkill = this.skills[0];
-        assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, [], 0, rand);
+        assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
 
@@ -36,115 +37,89 @@ export   class Player{
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
 }
 
-const assignSkillChildren =(prop_skills: Skill[], parent: Skill | undefined |null, nextParents:Skill[],num_tries = 0, rand: SeededRandom) =>{
-    /*
-        * The first skill is the root. Then, grab one skill from each theme to be its children.
-        * for each child, grab 0-5 skills that share either all its themes or at least one (prefer all) to be its children. 
-        *recurse
+const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRandom )=>{
+    /*  
+        do this non recursively. 
+        while there are nodes without children and theres still children to go
+        check all still unassigned children for assignmen to the current node
+        if you find nothing, yeet it, else add the children for realsies.
     */
-   let skills: Skill[]  = [];
-   skills = prop_skills.sort((a,b) => a.tier < b.tier ? -1:1);
-   console.log("after shuffling skills its", skills)
-   num_tries ++;
-   const max_children = rand.getRandomNumberBetween(3,10);
-   let orphans = skills.filter((skill)=>!skill.parent);
-   if(skills.length === 0){
-       return;
-   }
-   if(!parent){
-       //for breadth first its a queue, grab last out
-       parent = nextParents[nextParents.length-1];
-       assignSkillChildren(skills, parent, nextParents.filter((skill) => skill === parent),num_tries,rand);
-       return;
+   const todo = [root];//remember to be FIFO about it, is a pretend queue
+   let orphans: Skill[]  = [];
+   orphans = prop_skills.sort((a,b) => a.tier < b.tier ? -1:1);
+
+   const assignChild =(parent: Skill, child: Skill)=>{
+       if(child.parent != null || parent.children.includes(child))
+       {
+           return;
+       }
+       child.parent = parent;
+       parent.children.push(child);
+       todo.push(child);
+       //JR NOTE: this might cause a concurrent modification error. 
+       //if so, add it to a "to delete" array and evaluate it between each step
+       orphans.filter((skill)=> skill === child);
+       console.log("After assigning todo is", todo, "and orphans is", orphans)
    }
 
-   //you already have children? done
-   if(parent.children.length > 0){
-       return;
-   }
-   let children:Skill[] = [];
-
-   const submitChildren = (children: Skill[]) =>{
-        let remainder:Skill[] =skills.filter((skill  => !children.includes(skill)));
-
-        if(!parent){
-            return; //shouldn't happen
+    //special case for root
+    const assignSingleThemeChildren =(potential_parent:Skill,max_children:number)=>{
+        if(potential_parent !== root){
+            return;
         }
-        parent.children = children;
-        //look for subchildren for all children
-        
-        for(const child of children){
-            child.parent = parent;
-            nextParents.push(child);
-        }
-        //this keeps it breadth first
-        assignSkillChildren(remainder, null,nextParents,num_tries,rand);
-
-   }
-
-   const checkIfEnoughChildren = (children: Skill[])=>{
-        //thats enough children plz
-        if(children.length >= max_children){
-           submitChildren(children);
-            return true;
-        }
-        return false;
-    }
-
-    //special case if its the root, look for single theme children, but don't double up
-    if(!parent.parent){
         for(const skill of orphans){
             if(skill.theme_keys.length === 1 && !skill.parent){
-                const doubles = children.filter((child) => child.theme_keys === skill.theme_keys);
-                if(doubles.length === 0&& children.length < 10){
-                     children.push(skill);
-                }
+                //no limit, just grab ALL root skills plz
+                assignChild(potential_parent, skill);
             }
         }  
     }
 
-
-    if(checkIfEnoughChildren(children)){
-        return;
-    }
-
-    //highest priority is exact matches (upgrades)
-    for(const skill of orphans){
-       //you can be my child if you match my themes exactly  
-       if(skill.theme_keys.join("") == parent.theme_keys.join("") && !skill.parent && children.length <max_children && !children.includes(skill)){
-           children.push(skill);
-       }
-    }
-
-    if(checkIfEnoughChildren(children)){
-        return;
-    }
-
-    //secondary priority is 
-    for(const skill of orphans){
-        // you can be my child if you have however many themes but at least one of mine
-        for(const key of parent.theme_keys){
-            if(skill.theme_keys.includes(key) && !skill.parent && children.length <max_children && !children.includes(skill)){
-                children.push(skill); 
+    const assignExactMatchChildren =(potential_parent:Skill, max_children:number)=>{
+        //highest priority is exact matches (upgrades)
+        for(const skill of orphans){
+            //you can be my child if you match my themes exactly  
+            if(skill.theme_keys.join("") == potential_parent.theme_keys.join("") && potential_parent.children.length <max_children){
+                assignChild(potential_parent, skill);
             }
         }
-        
     }
 
-    if(checkIfEnoughChildren(children)){
-        return;
-    }
-    //okay at this point we're at a root somewhere, so lets sprinkle in any other themeless skills we have here.
-    for(const skill of orphans){
-        if(skill.theme_keys.length == 0 && !skill.parent && children.length <max_children && !children.includes(skill)){
-            children.push(skill);
+    const assignPartialMatchChildren =(potential_parent:Skill, max_children:number)=>{
+         //secondary priority is 
+        for(const skill of orphans){
+            // you can be my child if you have however many themes but at least one of mine
+            for(const key of potential_parent.theme_keys){
+                if(skill.theme_keys.includes(key) && !skill.parent && potential_parent.children.length <max_children){
+                    assignChild(potential_parent, skill);
+                }
+            }
+            
         }
     }
 
-    //even if its not enough.
-    submitChildren(children);
-    return;
+    const assignSpecialSkills = (potential_parent:Skill, max_children:number)=>{
+        //okay at this point we're at a tip somewhere, so lets sprinkle in any other themeless skills we have here.
+        for(const skill of orphans){
+            if(skill.theme_keys.length == 0 && potential_parent.children.length <max_children){
+                assignChild(potential_parent, skill);
+            }
+        }
+    }
+
+   while(todo.length >0 && orphans.length >0 ){
+        const potential_parent = todo.shift()!;
+        const max_children = rand.getRandomNumberBetween(3,10);
+        assignSingleThemeChildren(potential_parent,max_children);
+        assignExactMatchChildren(potential_parent,max_children);
+        assignPartialMatchChildren(potential_parent,max_children);
+        assignSpecialSkills(potential_parent,max_children);
+   }
+
+
+
 }
+
 
 export const generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom)=>{
    let ret:Skill[] = [new CoreSkill("Status", 0, rand)];
