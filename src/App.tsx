@@ -20,7 +20,7 @@ function App() {
     <StatusScreen player={player}></StatusScreen>
     <SkillScreen player={player}></SkillScreen>
 
-    Fast TODO
+    Fast TODO (yeah)
     <ul>
       <li>my attempt to do recursive bredth first failed, its just doing depth first but bottom ways. ACTUALLY fix it to distribute edges bredth first (be iterative if you have to(how???)) </li>
       <li>tweak graph till it looks robust? kinda radial?</li>
