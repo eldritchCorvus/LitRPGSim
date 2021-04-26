@@ -37,7 +37,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
         extractGraphFromSkills();
     }
 
-     const layout = { name: 'cose-bilkent' }; //TODO i can't get this working
+     const layout = { name: 'cose-bilkent',idealEdgeLength:200 }; //TODO i can't get this working
 
     return(
         <StatusBlock>
