@@ -48,7 +48,7 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
    orphans = prop_skills.sort((a,b) => a.tier < b.tier ? -1:1);
 
    const assignChild =(parent: Skill, child: Skill)=>{
-       if(child.parents.includes(parent) || parent.children.includes(child) || child.parents.length >=2)
+       if(child === parent || child.parents.includes(parent) || parent.children.includes(child) || child.parents.length >=2)
        {
            return;
        }
