@@ -48,6 +48,14 @@ export   class Skill{
         return this.name;
     }
 
+    convertToCytoscape = ()=>{
+        const ret:any[] = [{ data: { id: this.name, label: this.name } }];
+        for(const child of this.children){
+            ret.push({ data: { source: this.name, target: child.name, label: '' } });
+        }
+        return ret;
+    }
+
     convertToTree =():RawNodeDatum=> {
         return {name: this.name, children: this.children.map((child)=>child.convertToTree())};
     }
