@@ -1,4 +1,6 @@
 import {Player} from "../Modules/Player";
+import Cytoscape from 'cytoscape';
+import COSEBilkent from 'cytoscape-cose-bilkent';
 import {StatusRow, StatusBlock,TreeContent} from "./Styles";
 import {useState} from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
@@ -6,6 +8,7 @@ import { Skill } from "../Modules/Skill";
 interface SkillProps{
     player: Player;
 }
+Cytoscape.use( COSEBilkent );
 
 export const  SkillGraphScreen = (props: SkillProps)=> {
     const exampleData = [
@@ -34,14 +37,14 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
         extractGraphFromSkills();
     }
 
-     const layout = { name: 'euler' }; //TODO i can't get this working
+     const layout = { name: 'cose-bilkent' }; //TODO i can't get this working
 
     return(
         <StatusBlock>
             <tbody>
                 <StatusRow>
                     <TreeContent>
-                    <CytoscapeComponent elements={graphData}  style={ { width: '1000px', height: '1000px' } }/>
+                    <CytoscapeComponent elements={graphData} layout={layout}  style={ { width: '1000px', height: '1000px' } }/>
                     </TreeContent>
                 </StatusRow>
             </tbody>
