@@ -9,7 +9,7 @@ import {Theme} from "./Theme";
 export   class Skill{
     name: string;
     tier: number;
-    parent: Skill | null | undefined; //will be set by player
+    parents: Skill[] = []; //will be set by player
     children: Skill[] = []; //will be set by player
     theme_keys: string[];
     unlocked:boolean = true; //todo make this default to false

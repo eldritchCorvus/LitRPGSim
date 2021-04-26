@@ -4,7 +4,7 @@ import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
 import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
-import {SkillScreen} from "./Screens/Skills";
+import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import { all_interests, initInterests } from "./Modules/Interest";
 function App() {
   //order matters, themes are needed for aspects, etc;
@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
     <StatusScreen player={player}></StatusScreen>
-    <SkillScreen player={player}></SkillScreen>
+    <SkillGraphScreen player={player}></SkillGraphScreen>
 
     Fast TODO (yeah)
     <ul>

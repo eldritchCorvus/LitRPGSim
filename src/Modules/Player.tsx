@@ -4,7 +4,6 @@ import { Skill, CoreSkill } from "./Skill";
 import {Interest} from "./Interest";
 import {initThemes, Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
-import { SkillScreen } from "../Screens/Skills";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -49,16 +48,19 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
    orphans = prop_skills.sort((a,b) => a.tier < b.tier ? -1:1);
 
    const assignChild =(parent: Skill, child: Skill)=>{
-       if(child.parent != null || parent.children.includes(child))
+       if(child.parents.includes(parent) || parent.children.includes(child) || child.parents.length >=2)
        {
            return;
        }
-       child.parent = parent;
+       console.log("before assigning told is", todo, "and orphans is", orphans)
+       child.parents.push(parent);
        parent.children.push(child);
        todo.push(child);
        //JR NOTE: this might cause a concurrent modification error. 
        //if so, add it to a "to delete" array and evaluate it between each step
-       orphans.filter((skill)=> skill === child);
+       if(child.parents.length >=2){
+           orphans.filter((skill)=> skill === child);
+       }
        console.log("After assigning todo is", todo, "and orphans is", orphans)
    }
 
@@ -68,7 +70,7 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
             return;
         }
         for(const skill of orphans){
-            if(skill.theme_keys.length === 1 && !skill.parent){
+            if(skill.theme_keys.length === 1){
                 //no limit, just grab ALL root skills plz
                 assignChild(potential_parent, skill);
             }
@@ -90,7 +92,7 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
         for(const skill of orphans){
             // you can be my child if you have however many themes but at least one of mine
             for(const key of potential_parent.theme_keys){
-                if(skill.theme_keys.includes(key) && !skill.parent && potential_parent.children.length <max_children){
+                if(skill.theme_keys.includes(key) && potential_parent.children.length <max_children){
                     assignChild(potential_parent, skill);
                 }
             }
