@@ -22,8 +22,7 @@ function App() {
 
     Fast TODO (yeah)
     <ul>
-      <li>my attempt to do recursive bredth first failed, its just doing depth first but bottom ways. ACTUALLY fix it to distribute edges bredth first (be iterative if you have to(how???)) </li>
-      <li>tweak graph till it looks robust? kinda radial?</li>
+      <li>experiment with different graph layouts (gotta install them)?</li>
       <li>only display unlocked skills and skills adjacent to them</li>
       <li>can click on skill to unlock it</li>
       <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>

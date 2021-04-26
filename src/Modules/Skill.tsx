@@ -50,6 +50,7 @@ export   class Skill{
 
     convertToCytoscape = ()=>{
         const ret:any[] = [{ data: { id: this.name, label: this.name } }];
+        
         for(const child of this.children){
             ret.push({ data: { source: this.name, target: child.name, label: '' } });
         }
