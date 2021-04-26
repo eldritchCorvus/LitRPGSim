@@ -114,7 +114,7 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
 
    while(todo.length >0 && orphans.length >0 ){
         const potential_parent = todo.shift()!;
-        const max_children = rand.getRandomNumberBetween(2,5);
+        const max_children = rand.getRandomNumberBetween(1,3);
         assignSingleThemeChildren(potential_parent,max_children);
         assignExactMatchChildren(potential_parent,max_children);
         assignPartialMatchChildren(potential_parent,max_children);
@@ -128,7 +128,7 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
 
 export const generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom)=>{
    let ret:Skill[] = [new CoreSkill("Status", 0, rand)];
-   const max = 5;
+   const max = 7;
    const min = 3;
 
    const generate_skill_x_times = (x: number, themes: Theme[], rand:SeededRandom) =>{
