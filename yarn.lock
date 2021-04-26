@@ -2623,6 +2623,13 @@ autoprefixer@^9.6.1:
     postcss "^7.0.32"
     postcss-value-parser "^4.1.0"
 
+avsdf-base@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/avsdf-base/-/avsdf-base-1.0.0.tgz#80c437d7d15d2bd201d9c31804e7b7a15a84781a"
+  integrity sha512-APhZNUFJwIwrLsSfE95QjobEntdUhFQgfNtC/BrYmjUpwHh5Y2fbRv8lxAlMr1hdf/CuQYsqJxK3dRzcCL77qw==
+  dependencies:
+    layout-base "^1.0.0"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -3983,6 +3990,21 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+cytoscape-avsdf@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/cytoscape-avsdf/-/cytoscape-avsdf-1.0.0.tgz#6f079948021433e32fc30b1b0bcbf595f4b65ab0"
+  integrity sha512-Wzd2wmJgr4dK5avHy4nKHp3D8TBZ8H/+5Hq5o24bRdVTvXlhSDzQhAMtzOuhRPYwHcWB+cBhEAXboAK8n7zPTQ==
+  dependencies:
+    avsdf-base "^1.0.0"
+
+cytoscape-cise@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/cytoscape-cise/-/cytoscape-cise-1.0.0.tgz#29ac061c74e036441c0b5687e7ebc25e919d507c"
+  integrity sha512-Y1NPaUo4fN992XJTEIDd4oPVkv8BsDSrFBHSB38caDu8PcmHUyl8/Q8K5wvqdTeti1mLR9IX4/o2RyuObh+P7Q==
+  dependencies:
+    avsdf-base "^1.0.0"
+    cose-base "^1.0.0"
+
 cytoscape-cose-bilkent@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/cytoscape-cose-bilkent/-/cytoscape-cose-bilkent-4.1.0.tgz#762fa121df9930ffeb51a495d87917c570ac209b"
@@ -3994,6 +4016,13 @@ cytoscape-euler@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/cytoscape-euler/-/cytoscape-euler-1.2.2.tgz#d599aa0656c022216f93a5c3ac8fce1ad69ef9b4"
   integrity sha512-A24ZGrFpqCOutTIlGoXA5kmjFj68iy7HvqXuhcZUL1a7Z8bL59Bl2bB7hkSvFcCZBVCNcArxKr+YlB8bJo9Ftw==
+
+cytoscape-spread@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/cytoscape-spread/-/cytoscape-spread-3.0.0.tgz#9d2cf43eee9a3b92dd518a4a2db8567584a1dd2e"
+  integrity sha512-ekuo4ByFRTZ4TOJylE2bPOMcVVyi8rD+qjvEjMWS2BHcyan40pmhlA4ramz/nTxZR+EtlxEa1asnmfiN8R5HyQ==
+  dependencies:
+    weaverjs "^1.2.0"
 
 cytoscape@^3.18.2, cytoscape@^3.2.19:
   version "3.18.2"
@@ -11277,6 +11306,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+weaverjs@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/weaverjs/-/weaverjs-1.2.0.tgz#654c15cc735b660a1dae4c7c263cd7c746512fa0"
+  integrity sha1-ZUwVzHNbZgodrkx8JjzXx0ZRL6A=
 
 web-vitals@^1.0.1:
   version "1.1.1"

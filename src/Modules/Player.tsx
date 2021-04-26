@@ -52,13 +52,16 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
        {
            return;
        }
+       //i really don't want the early skills all linking to each other, thats pointless.
+       if(child.theme_keys.length == 1 && parent.theme_keys.length == 1){
+           return;
+       }
        console.log("before assigning told is", todo, "and orphans is", orphans)
        child.parents.push(parent);
        parent.children.push(child);
        todo.push(child);
-       //JR NOTE: this might cause a concurrent modification error. 
-       //if so, add it to a "to delete" array and evaluate it between each step
-       if(child.parents.length >=2){
+       //JR NOTE: some are allowed to have multiple parents but mostly they don't
+       if(child.parents.length >=2 || rand.nextDouble() <0.9){
            orphans.filter((skill)=> skill === child);
        }
        console.log("After assigning todo is", todo, "and orphans is", orphans)

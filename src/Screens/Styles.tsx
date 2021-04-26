@@ -23,6 +23,8 @@ export const StatusContent = styled.td`
 export const TreeContent = styled.td`
     color: black;
     height: 1000px;
+    width: 1000px;
+    overflow: hidden;
 `
 
 export const StatusRow = styled.tr `
