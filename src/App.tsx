@@ -22,7 +22,7 @@ function App() {
 
     Fast TODO (yeah)
     <ul>
-      <li>experiment with different graph layouts (gotta install them)?</li>
+      <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
       <li>only display unlocked skills and skills adjacent to them</li>
       <li>can click on skill to unlock it</li>
       <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
