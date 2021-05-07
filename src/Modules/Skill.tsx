@@ -52,7 +52,7 @@ export   class Skill{
         let styles:any = {'background-color':'green'};
         if(!this.unlocked){
             if(this.parents.filter((parent) => parent.unlocked).length > 0){
-                styles["opacity"] = "50%";
+                styles["opacity"] = "0.33";
             }else{
                 styles["display"] = "none";
             }
