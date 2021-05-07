@@ -27,6 +27,7 @@ export   class Player{
         this.theme_keys = themes.map((x)=> x.key);
         this.skills = generateSkills(class_name, aspect, interests,rand);
         this.rootSkill = this.skills[0];
+        this.rootSkill.unlocked = true;
         assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;

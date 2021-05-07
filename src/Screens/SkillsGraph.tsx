@@ -10,6 +10,7 @@ interface SkillProps{
 }
 Cytoscape.use( cise );
 
+
 export const  SkillGraphScreen = (props: SkillProps)=> {
     const exampleData = [
         { data: { id: 'one', label: 'Node 1' } },
@@ -68,13 +69,32 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
          maxRatioOfNodesInsideCircle: .3,
          idealInterClusterEdgeLengthCoefficient: 2.4,
          }; //cose-bilkent and spread work but are ugly
+         
+         //todo can use this with  stylesheet={stylesheet} in the compononent 
+         //but for some reason it gets rid of labels.
+         const stylesheet = [
+            {
+              selector: 'node',
+              style: {
+                width: 20,
+                height: 20,
+                shape: 'circle'
+              }
+            },
+            {
+              selector: 'edge',
+              style: {
+                width: 2
+              }
+            }
+          ];
 
     return(
         <StatusBlock>
             <tbody>
                 <StatusRow>
                     <TreeContent>
-                    <CytoscapeComponent elements={graphData} layout={layout}  style={ { width: '2000px', height: '2000px' } }/>
+                    <CytoscapeComponent elements={graphData} layout={layout}  style={ { width: '2000px', height: '2000px' }  }/>
                     </TreeContent>
                 </StatusRow>
             </tbody>

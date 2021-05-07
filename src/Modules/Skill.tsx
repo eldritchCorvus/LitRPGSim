@@ -12,7 +12,7 @@ export   class Skill{
     parents: Skill[] = []; //will be set by player
     children: Skill[] = []; //will be set by player
     theme_keys: string[];
-    unlocked:boolean = true; //todo make this default to false
+    unlocked:boolean = false; 
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
        if(themes.length == 1){
@@ -49,10 +49,20 @@ export   class Skill{
     }
 
     convertToCytoscape = ()=>{
-        const ret:any[] = [{ data: { id: this.name, label: this.name } }];
-        
+        let styles:any = {'background-color':'green'};
+        if(!this.unlocked){
+            if(this.parents.filter((parent) => parent.unlocked).length > 0){
+                styles["opacity"] = "50%";
+            }else{
+                styles["display"] = "none";
+            }
+        }
+        const ret:any[] = [{ data: { id: this.name, label: this.name },grabbable: false, style: styles}];
+
+
+
         for(const child of this.children){
-            ret.push({ data: { source: this.name, target: child.name, label: '' } });
+            ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"] } );
         }
         return ret;
     }
