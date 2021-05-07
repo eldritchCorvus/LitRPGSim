@@ -22,9 +22,9 @@ function App() {
 
     Fast TODO (yeah)
     <ul>
-      <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
-      <li>only display unlocked skills and skills adjacent to them</li>
       <li>can click on skill to unlock it</li>
+      <li>add skills that just buff stats (for now just hp), they should auto be leave nodes</li>
+      <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
       <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
       <li>player stats (stats are just from wigglersim but with lists of names)</li>
       <li>special skill types that unlock other stat pages or upgrade stats</li>
