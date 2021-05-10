@@ -31,6 +31,8 @@ export   class Player{
         assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
+        //JR NOTE: FOR TESTING
+        this.unlockSkill("Goal Path");
 
     }
 
@@ -67,7 +69,6 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
        if(child.theme_keys.length == 1 && parent.theme_keys.length == 1){
            return;
        }
-       console.log("before assigning told is", todo, "and orphans is", orphans)
        child.parents.push(parent);
        parent.children.push(child);
        todo.push(child);
@@ -75,7 +76,6 @@ const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRand
        if(child.parents.length >=2 || rand.nextDouble() <0.9){
            orphans.filter((skill)=> skill === child);
        }
-       console.log("After assigning todo is", todo, "and orphans is", orphans)
    }
 
     //special case for root

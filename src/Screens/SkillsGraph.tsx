@@ -5,8 +5,11 @@ import {StatusRow, StatusBlock,TreeContent} from "./Styles";
 import {useState, useEffect} from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
 import { Skill } from "../Modules/Skill";
+import { SKILLGRAPH} from "../Utils/constants";
+
 interface SkillProps{
     player: Player;
+    loadScreen: any; //function feeling lazy
 }
 Cytoscape.use( cise );
 
@@ -24,9 +27,10 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      useEffect(()=>{
          if(cy){
             cy.on('click', 'node', (event:any) => {
-                console.log(event.target.id())
+                console.log(event.target)
                 props.player.unlockSkill(event.target.id());
-                extractGraphFromSkills();
+                props.loadScreen(SKILLGRAPH)
+                //extractGraphFromSkills(); //JR NOTE: both slow and buggy, doesn't actually show newly unlocked skills as changing despite rerendering
             })
         }
      }, [cy])
