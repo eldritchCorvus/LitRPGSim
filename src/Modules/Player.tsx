@@ -35,7 +35,17 @@ export   class Player{
     }
 
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
+
+    unlockSkill = (skill_id: string) =>{
+        const found = this.skills.find((skill) =>{return skill.name===skill_id});
+        if(found){
+            console.log("JR NOTE: found was unlocked originally", found.unlocked, "and now setting it to true");
+            found.unlocked = true;
+        }
+    }
 }
+
+
 
 const assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRandom )=>{
     /*  
