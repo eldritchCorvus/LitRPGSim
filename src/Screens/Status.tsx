@@ -2,6 +2,7 @@ import {Player} from "../Modules/Player";
 import {StatusHeader,StatusRow, StatusBlock,StatusContent} from "./Styles";
 interface StatusProps{
     player: Player;
+    loadScreen: any; //function
 }
 /*
     TODO: just what is displayed here will change based on player stats on gnosis.

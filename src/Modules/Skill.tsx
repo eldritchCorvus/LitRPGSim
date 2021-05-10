@@ -49,6 +49,7 @@ export   class Skill{
     }
 
     convertToCytoscape = ()=>{
+        console.log(`JR NOTE: converting ${this.name} to cytoscape, is unlocked is ${this.unlocked}`)
         let styles:any = {'background-color':'green'};
         if(!this.unlocked){
             if(this.parents.filter((parent) => parent.unlocked).length > 0){
