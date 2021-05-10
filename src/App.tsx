@@ -5,6 +5,7 @@ import SeededRandom from "./Utils/SeededRandom";
 import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
+import TestGraph from "./Screens/TestGraph";
 import { all_interests, initInterests } from "./Modules/Interest";
 function App() {
   //order matters, themes are needed for aspects, etc;
@@ -19,6 +20,7 @@ function App() {
     <div>
     <StatusScreen player={player}></StatusScreen>
     <SkillGraphScreen player={player}></SkillGraphScreen>
+    <TestGraph></TestGraph>
 
     Fast TODO (yeah)
     <ul>

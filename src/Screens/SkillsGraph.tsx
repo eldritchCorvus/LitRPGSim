@@ -2,7 +2,7 @@ import {Player} from "../Modules/Player";
 import Cytoscape from 'cytoscape';
 import cise from 'cytoscape-cise';
 import {StatusRow, StatusBlock,TreeContent} from "./Styles";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
 import { Skill } from "../Modules/Skill";
 interface SkillProps{
@@ -19,6 +19,17 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      ];
      //do type this
      const [graphData, setGraphData] = useState<any >(exampleData);
+     const [cy, setCy] = useState<any>();
+
+     useEffect(()=>{
+         if(cy){
+            cy.on('click', 'node', (event:any) => {
+                console.log(event.target.id())
+                props.player.unlockSkill(event.target.id());
+                extractGraphFromSkills();
+            })
+        }
+     }, [cy])
 
      let clusterInfo;
      const extractClusterInfo = () => {
@@ -94,7 +105,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
             <tbody>
                 <StatusRow>
                     <TreeContent>
-                    <CytoscapeComponent elements={graphData} layout={layout}  style={ { width: '2000px', height: '2000px' }  }/>
+                    <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '2000px', height: '2000px' }  }/>
                     </TreeContent>
                 </StatusRow>
             </tbody>
