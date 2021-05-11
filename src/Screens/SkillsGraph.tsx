@@ -6,12 +6,13 @@ import {useState, useEffect} from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
 import { Skill } from "../Modules/Skill";
 import { SKILLGRAPH} from "../Utils/constants";
+import avsdf from 'cytoscape-avsdf';
 
 interface SkillProps{
     player: Player;
     loadScreen: any; //function feeling lazy
 }
-Cytoscape.use( cise );
+//Cytoscape.use( avsdf );
 
 
 export const  SkillGraphScreen = (props: SkillProps)=> {
@@ -78,8 +79,9 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
     }
 
      const layout = { 
-         name: 'cise',
+         name: 'breadthfirst',
          nodeRepulsion: 1000000,
+         circle: true,
          seed: 13,
          allowNodesInsideCircle: true,
          maxRatioOfNodesInsideCircle: .3,

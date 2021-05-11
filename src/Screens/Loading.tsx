@@ -12,7 +12,7 @@ export const  LoadingScreen = (props: LoadingProps)=> {
         setTimeout(()=>{
             console.log("JR NOTE: Timeout firing, going to try to change to", props.nextScreen);
              props.loadScreen(props.nextScreen)
-             }, 1000);
+             }, 500);
 
     },[])
     return (
