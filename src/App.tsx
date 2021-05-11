@@ -50,6 +50,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
+        <li>as per the next two try a different layout thats faster/more deterministic (non force directed?)</li>
         <li>can i speed renders up, or make it so the loading screen waits for the graph to actually be ready?</li>
         <li>can i get a determinsitc graph layout plz? (or is it that the order of the first skills are is somehow true random?) </li>
         <li>add skills that just buff stats (for now just hp), they should auto be leave nodes</li>
