@@ -36,7 +36,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      }, [cy])
 
      let clusterInfo;
-     const extractClusterInfo = () => {
+     const extractClusterInfoDeprecated = () => {
          return []; //NOTE this makes it look dumb.
          const all_seen:string[] = [];
          const ret:string[][] = []; //todo array of arrays where each array is the names of skills that are organized around a theme
@@ -62,9 +62,11 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
         
         const temp_data = props.player.rootSkill.convertToCytoscape();
         for(const skill of props.player.skills){
-            const temp_data2 = skill.convertToCytoscape();
-            for(const item of temp_data2){
-                temp_data.push(item);
+            if(skill != props.player.rootSkill){
+                const temp_data2 = skill.convertToCytoscape();
+                for(const item of temp_data2){
+                    temp_data.push(item);
+                }
             }
         }
         console.log("tempData is", temp_data);
@@ -73,13 +75,12 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
 
      if(graphData === exampleData){
         extractGraphFromSkills();
-        extractClusterInfo();
     }
 
      const layout = { 
          name: 'cise',
          nodeRepulsion: 1000000,
-         clusters: extractClusterInfo(),
+         seed: 13,
          allowNodesInsideCircle: true,
          maxRatioOfNodesInsideCircle: .3,
          idealInterClusterEdgeLengthCoefficient: 2.4,

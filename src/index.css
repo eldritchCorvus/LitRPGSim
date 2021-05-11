@@ -12,3 +12,8 @@ code {
     monospace;
 }
 
+.link{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
