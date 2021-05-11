@@ -1,1 +1,1 @@
-declare module 'cytoscape-spread'; 
+declare module 'cytoscape-avsdf'; 
