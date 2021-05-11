@@ -39,8 +39,8 @@ function App() {
     return (
       <div>
         <div>TODO design this better</div>
-        <a onClick={() => setCurrentScreen(STATUS)}>STATUS</a> | 
-        <a onClick={() => setCurrentScreen(SKILLGRAPH)}>SKILLS</a>
+        <a className="link" onClick={() => setCurrentScreen(STATUS)}>STATUS</a> | 
+        <a className="link" onClick={() => setCurrentScreen(SKILLGRAPH)}>SKILLS</a>
 
       {currentScreen === STATUS?<StatusScreen loadScreen={handleLoading} player={player}></StatusScreen>:null}
       {currentScreen === SKILLGRAPH?<SkillGraphScreen  loadScreen={handleLoading} player={player}></SkillGraphScreen>:null}
@@ -51,7 +51,7 @@ function App() {
       Fast TODO (yeah)
       <ul>
         <li>can i speed renders up, or make it so the loading screen waits for the graph to actually be ready?</li>
-        <li>can i get a determinsitc graph layout plz?</li>
+        <li>can i get a determinsitc graph layout plz? (or is it that the order of the first skills are is somehow true random?) </li>
         <li>add skills that just buff stats (for now just hp), they should auto be leave nodes</li>
         <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
         <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
