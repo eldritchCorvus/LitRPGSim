@@ -5,7 +5,7 @@ import {Interest} from "./Interest";
 import {initThemes, Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
-import { ShittyFirstVersion } from "./SkillGenerationAlgorithms/ShittyFirstVersion";
+import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -23,13 +23,13 @@ export   class Player{
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
-        this.skillGenAlg = new ShittyFirstVersion();
+        this.skillGenAlg = new BonesFirstAlg();
         let themes:Theme[] = [];
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
         interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         this.theme_keys = themes.map((x)=> x.key);
-        this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests,rand);
+        this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests,themes,rand);
         this.rootSkill = this.skills[0];
         this.rootSkill.unlocked = true;
         this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);

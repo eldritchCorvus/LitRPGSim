@@ -6,8 +6,8 @@ import { CoreSkill, Skill } from "../Skill";
 import { Theme } from "../Theme";
 import { SkillGenAlg } from "./SkillGenAlg";
 
+//JR NOTE: use this for waste glitches etc, a WRONG version of something familiar
 export   class ShittyFirstVersion extends SkillGenAlg{
-    
 
 assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRandom )=>{
     /*  
@@ -97,54 +97,34 @@ assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRandom )=>
 }
 
 
-generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom)=>{
+generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
    let ret:Skill[] = [new CoreSkill("Status", 0, rand)];
    const max = 7;
    const min = 3;
 
-   const generate_skill_x_times = (x: number, themes: Theme[], rand:SeededRandom) =>{
-       const ret:Skill[] = [];
-       for(let i = 0; i<x; i++){
-           ret.push(new Skill(themes, rand));
-       }
-       return ret;
-   }
-
-   const only_leave_unique_names = (skills: Skill[]) => {
-       let ret:Skill[] = [];
-       let ret_names:string[] = [];
-       for(const skill of skills){
-           if(ret_names.indexOf(skill.name) === -1){
-               ret.push(skill);
-               ret_names.push(skill.name);
-           }
-
-       }
-       return ret;
-   }
 
    for(const class_theme of class_name.themes ){
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme], rand));
+        ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme], rand));
        for(const aspect_theme of aspect.themes ){
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme], rand));
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme, class_theme], rand));
+        ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme], rand));
+        ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme, class_theme], rand));
        }
    }
 
    for(const interest of interests){
        for(const interest_theme of interest.themes){
-        ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[interest_theme], rand));
+        ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[interest_theme], rand));
         for(const aspect_theme of aspect.themes ){
-            ret = ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme, interest_theme], rand));
+            ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme, interest_theme], rand));
         }
 
         for(const class_theme of class_name.themes ){
-           ret =  ret.concat(generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme, interest_theme], rand));
+           ret =  ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme, interest_theme], rand));
         }
        }
    }
    console.log("generate skill is about to return", ret)
-   return only_leave_unique_names(ret);
+   return this.only_leave_unique_names(ret);
 }
 
 }
