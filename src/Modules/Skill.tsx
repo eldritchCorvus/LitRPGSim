@@ -29,7 +29,18 @@ export   class Skill{
        }
 
 
+
     constructor(themes: Theme[] =[],seeded_random:SeededRandom){
+        this.name = "Debug";
+        this.tier = -13;
+        this.theme_keys = [];
+        if(themes && seeded_random){
+            this.init(themes, seeded_random);
+        }
+    }
+
+    //separated so we can pass null in to both
+    init = (themes: Theme[] =[],seeded_random:SeededRandom)=>{
         this.name = this.generateName(themes, seeded_random);
         if(themes && themes.length >0){
         this.theme_keys = themes.map((x)=> x.key);

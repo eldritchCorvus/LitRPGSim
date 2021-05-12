@@ -85,6 +85,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
          seed: 13,
          allowNodesInsideCircle: true,
          maxRatioOfNodesInsideCircle: .3,
+         nodeDimensionsIncludeLabels: true,
          idealInterClusterEdgeLengthCoefficient: 2.4,
          }; //cose-bilkent and spread work but are ugly
          
