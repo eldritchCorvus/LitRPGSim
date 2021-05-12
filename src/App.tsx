@@ -50,13 +50,15 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
+        <li>why the hell are tier 1 nodes linking to each other? where did tier 2 go?</li>
+        <li>experiment with bones first skill generation </li>
         <li>make default pan/zoom sane</li>
         <li>add wigglersim stats to status screen/player</li>
         <li>classpect system changes how they init</li>
         <li>classpect system adds skills that change stats (unlocking the skill buffs your stat)</li>
         <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
         <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
-        <li>special skill types that unlock other stat pages or upgrade stats</li>
+        <li>seed in url</li>
         <li>sassy achievement/loading system (ab?) (voice act?)</li>
         <li>skills that unlock other menu screens/upgrade them</li>
       </ul>

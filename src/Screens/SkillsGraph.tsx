@@ -80,13 +80,10 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
 
      const layout = { 
          name: 'breadthfirst',
-         nodeRepulsion: 1000000,
          circle: true,
          seed: 13,
          allowNodesInsideCircle: true,
-         maxRatioOfNodesInsideCircle: .3,
          nodeDimensionsIncludeLabels: true,
-         idealInterClusterEdgeLengthCoefficient: 2.4,
          }; //cose-bilkent and spread work but are ugly
          
          //todo can use this with  stylesheet={stylesheet} in the compononent 
