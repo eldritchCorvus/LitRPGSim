@@ -80,9 +80,9 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
 
      const layout = { 
          name: 'breadthfirst',
-         circle: false,
+         circle: true,
          seed: 13,
-         spacingFactor: -0.5,
+         spacingFactor: 0.75,
          fit: true,
          nodeDimensionsIncludeLabels: true,
          }; //cose-bilkent and spread work but are ugly
@@ -111,7 +111,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
             <tbody>
                 <StatusRow>
                     <TreeContent>
-                    <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '2000px', height: '2000px' }  }/>
+                    <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '1000px', height: '1000px' }  }/>
                     </TreeContent>
                 </StatusRow>
             </tbody>
