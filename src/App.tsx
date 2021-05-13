@@ -13,7 +13,7 @@ import {STATUS, LOADING, SKILLGRAPH} from "./Utils/constants";
 function App() {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
-  const [nextScreen, setNextScreen] = useState(STATUS);
+  const [nextScreen, setNextScreen] = useState(SKILLGRAPH);
   const [player, setPlayer] = useState<Player>();
 
   initThemes();
