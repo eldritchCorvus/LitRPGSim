@@ -36,10 +36,10 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         //this should happen TWICE. ~MAYBE~ three times.
         //skip root for this. (slice)
         console.log("JR NOTE: after generate root and base ret is", ret)
-        console.log("JR NOTE: turned off tier 2 cuz its bugged, for some reason makes tier 1 link to ITSELF and then tier 2 never shows up.")
-        /*const tierTwo = this.generateTierTwo(ret[0], ret.slice(1), themes, rand);
+        const tierTwo = this.generateTierTwo(ret[0], ret.slice(1), themes, rand);
+        console.log("JR NOTE: tier two is ", tierTwo)
         ret = ret.concat(tierTwo);
-        */
+        
         console.log("JR NOTE: after generateTierTwo ret is", ret)
 
         return this.only_leave_unique_names(ret);
@@ -59,8 +59,11 @@ export   class  BonesFirstAlg extends SkillGenAlg{
                 let tmp = (this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[theme], rand));
                 tmp = this.only_leave_unique_names(tmp);
                 for(const new_skill of tmp){
-                    ret.push(new_skill);
-                    this.assignChild(skill, new_skill);
+                    //no doubles
+                    if(ret.filter((s) =>s.name === new_skill.name).length ===0){
+                        ret.push(new_skill);
+                        this.assignChild(skill, new_skill);
+                    }
                 }
 
             }
