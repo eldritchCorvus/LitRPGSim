@@ -81,9 +81,11 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      const layout = { 
          name: 'breadthfirst',
          circle: true,
+         directed: true,
          seed: 13,
          spacingFactor: 0.75,
-         fit: true,
+         fit: false,
+         roots: ["Status"],
          nodeDimensionsIncludeLabels: true,
          }; //cose-bilkent and spread work but are ugly
          
@@ -101,7 +103,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
             {
               selector: 'edge',
               style: {
-                width: 2
+                width: 2,
               }
             }
           ];

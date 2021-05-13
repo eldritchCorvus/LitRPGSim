@@ -60,9 +60,10 @@ export   class Skill{
     }
 
     convertToCytoscape = ()=>{
+        console.log("JR NOTE: converting ", this.name, "to graph with children" , this.children);
         let styles:any = {'background-color':'green'};
         if(!this.unlocked){
-            if(this.parents.filter((parent) => parent.unlocked).length > 0){
+            if(this.parents.filter((parent) => parent.unlocked).length === this.parents.length){
                 styles["opacity"] = "0.33";
             }else{
                 styles["display"] = "none";
@@ -73,7 +74,11 @@ export   class Skill{
 
 
         for(const child of this.children){
-            ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"] } );
+            if(this.unlocked && !child.unlocked){
+                ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"] } );
+            }else{
+                ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"], style:{opacity:"0.1"} } );
+            }
         }
         return ret;
     }
