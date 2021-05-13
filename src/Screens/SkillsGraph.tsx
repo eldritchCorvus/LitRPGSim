@@ -80,9 +80,10 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
 
      const layout = { 
          name: 'breadthfirst',
-         circle: true,
+         circle: false,
          seed: 13,
-         allowNodesInsideCircle: true,
+         spacingFactor: -0.5,
+         fit: true,
          nodeDimensionsIncludeLabels: true,
          }; //cose-bilkent and spread work but are ugly
          
