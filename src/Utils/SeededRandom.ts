@@ -3,8 +3,10 @@
 
 export default class SeededRandom{
     internal_seed: number;
+    initial_seed: number;
 
     constructor(seed: number) {
+      this.initial_seed = seed;
         this.internal_seed = seed;
     }
 

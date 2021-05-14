@@ -35,9 +35,6 @@ export   class Player{
         this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
-        //JR NOTE: FOR TESTING
-        this.unlockSkill("Goal Path");
-
     }
 
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
