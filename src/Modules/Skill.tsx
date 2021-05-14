@@ -77,7 +77,7 @@ export   class Skill{
             if(this.unlocked && !child.unlocked){
                 ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"] } );
             }else{
-                ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"], style:{opacity:"0.1"} } );
+                ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"], style:{opacity:"0.2"} } );
             }
         }
         return ret;
