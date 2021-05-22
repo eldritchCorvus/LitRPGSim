@@ -30,7 +30,7 @@ export const  StatusScreen = (props: StatusProps)=> {
 
     const StatSection = (props: StatProps)=> {
         return(
-            <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value()} </div>
+            <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value().toFixed(1)} </div>
         )
     }
 

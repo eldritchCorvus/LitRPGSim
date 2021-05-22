@@ -54,7 +54,6 @@ export  class Aspect{
 
     initStats = (stats: Stat.StatMap) =>{
         for(const key of Object.keys(stats)){
-            console.log("JR NOTE: checking key", key, "in stats", stats, " Stat.all_stats is", Stat.all_stats)
             //whatever direction and magnitude the sample stat is, do it too
             const skill = stats[key].copy(null);
             this.stats[skill.positiveName] = skill;
@@ -70,7 +69,7 @@ export  class Aspect{
 
 export function initAspects(seeded_random: SeededRandom){
 
-    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, {"Energetic": Stat.all_stats["Energetic"].copy(3)}, [all_themes.healing, all_themes.plants]);
-    new Aspect("doom", ["Life", "Decay", "Fate", "Destiny", "Inevitability"], seeded_random, {"Calm": Stat.all_stats["Energetic"].copy(-3)}, [all_themes.decay, all_themes.web]);
+    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, Stat.StatMapWithJustOne(Stat.ENERGETIC,3), [all_themes.healing, all_themes.plants]);
+    new Aspect("doom", ["Life", "Decay", "Fate", "Destiny", "Inevitability"], seeded_random, Stat.StatMapWithJustOne(Stat.ENERGETIC,-3), [all_themes.decay, all_themes.web]);
 
 }

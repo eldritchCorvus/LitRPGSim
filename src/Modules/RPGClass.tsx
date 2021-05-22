@@ -19,6 +19,7 @@ import {Theme, all_themes} from "./Theme";
     Witch:
 
 */
+
 interface ClassMap {
     [details: string] : RPGClass;
 }
@@ -32,10 +33,12 @@ export  class RPGClass{
     chosen_name:string;
     themes:Theme[];
     seeded_random: SeededRandom;
+    stat_multiplier:number;
 
 
-    constructor(key: string,name_possibilities: string[], seeded_random:SeededRandom, themes: Theme[] ){
+    constructor(key: string,name_possibilities: string[],stat_multiplier:number, seeded_random:SeededRandom, themes: Theme[] ){
         this.name_possibilities = name_possibilities;
+        this.stat_multiplier = stat_multiplier;
         this.seeded_random = seeded_random;
         this.chosen_name = seeded_random.getRandomElementFromArray(this.name_possibilities);
         this.themes = themes;
@@ -55,5 +58,7 @@ export  class RPGClass{
 }
 
 export function initClasses(seeded_random: SeededRandom){
-    new RPGClass("seer", ["Seer", "Watcher", "Guide", "Sherpa", "Eye"], seeded_random, [all_themes.knowing, all_themes.guiding]);
+    new RPGClass("seer", ["Seer", "Watcher", "Guide", "Sherpa", "Eye"],1.3, seeded_random, [all_themes.knowing, all_themes.guiding]);
+    new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
+
 }
