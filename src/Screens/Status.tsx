@@ -1,14 +1,38 @@
+import React, { Fragment } from "react";
 import {Player} from "../Modules/Player";
+import { Stat, StatMap } from "../Modules/Stat";
 import {StatusHeader,StatusRow, StatusBlock,StatusContent} from "./Styles";
 interface StatusProps{
     player: Player;
     loadScreen: any; //function
+}
+
+interface StatsProps{
+    stats: StatMap;
+}
+
+interface StatProps{
+    stat: Stat;
 }
 /*
     TODO: just what is displayed here will change based on player stats on gnosis.
     whether you can get to this screen or not is controlled by skills
 */
 export const  StatusScreen = (props: StatusProps)=> {
+
+    const StatsSection = (props: StatsProps)=> {
+        return(
+            <Fragment>
+                {Object.keys(props.stats).map((key)=>{return <StatSection stat={props.stats[key]}/>})}
+            </Fragment>
+        )
+    }
+
+    const StatSection = (props: StatProps)=> {
+        return(
+            <div>{props.stat.name()}: {props.stat.absolute_value()} </div>
+        )
+    }
 
 
     return (
@@ -36,7 +60,7 @@ export const  StatusScreen = (props: StatusProps)=> {
 
             <StatusRow>
                 <StatusHeader>Stats:</StatusHeader>
-                <StatusContent>Unknown TODO</StatusContent>
+                <StatusContent><StatsSection stats={props.player.stats}/></StatusContent>
             </StatusRow>
 
             <StatusRow>

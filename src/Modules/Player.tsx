@@ -6,6 +6,7 @@ import {initThemes, Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
 import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
+import { all_stats, initStats, Stat, StatMap } from "./Stat";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -14,15 +15,18 @@ export   class Player{
     skills: Skill[];
     rand: SeededRandom;
     rootSkill: Skill;
+    stats: StatMap = {};
     skillGenAlg: SkillGenAlg;
 
 
 
     constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom){
         console.log("JR NOTE: trying to make a playe rof class", class_name, "and aspect", aspect, "and interests", interests)
+        
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
+        this.initStats();
         this.skillGenAlg = new BonesFirstAlg();
         let themes:Theme[] = [];
         themes = themes.concat(class_name.themes)
@@ -35,6 +39,20 @@ export   class Player{
         this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
+    }
+
+    initStats = () =>{
+        for(const key of Object.keys(all_stats)){
+            //0 is baseline neutral human
+            const skill = all_stats[key].copy(0);
+            this.stats[skill.positiveName] = skill;
+        }
+        console.log("JR NOTE: after initing stats they are", this.stats)
+    }
+
+    //for each stat in the new map, add its value to your stats.
+    addStats = (stats:StatMap) =>{
+
     }
 
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
