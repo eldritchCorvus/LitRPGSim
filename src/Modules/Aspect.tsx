@@ -1,4 +1,5 @@
 import SeededRandom from '../Utils/SeededRandom';
+import * as Stat from './Stat';
 import {Theme, all_themes} from "./Theme";
 //TODO aspects also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
@@ -29,15 +30,17 @@ export const all_aspects:AspectMap = {};
 
 export  class Aspect{
     key: string;
+    stats: Stat.StatMap={};
     name_possibilities:string[];
     chosen_name:string;
     themes:Theme[];
     seeded_random: SeededRandom;
 
 
-    constructor(key: string,name_possibilities: string[], seeded_random:SeededRandom, themes: Theme[] ){
+    constructor(key: string,name_possibilities: string[], seeded_random:SeededRandom, stats: Stat.StatMap,themes: Theme[] ){
         this.name_possibilities = name_possibilities;
         this.seeded_random = seeded_random;
+        this.initStats(stats);
         this.chosen_name = seeded_random.getRandomElementFromArray(this.name_possibilities);
         this.themes = themes;
         themes.forEach((theme) => {
@@ -49,6 +52,15 @@ export  class Aspect{
 
     }
 
+    initStats = (stats: Stat.StatMap) =>{
+        for(const key of Object.keys(stats)){
+            //aspects change skills by 3 at a time.
+            const skill = stats[key].copy(3);
+            this.stats[skill.positiveName] = skill;
+        }
+    }
+
+
     debug = ()=>{
         console.log("debug aspect");
     }
@@ -56,5 +68,6 @@ export  class Aspect{
 }
 
 export function initAspects(seeded_random: SeededRandom){
-    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, [all_themes.healing, all_themes.plants]);
+
+    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, {}, [all_themes.healing, all_themes.plants]);
 }

@@ -10,16 +10,18 @@ import TestGraph from "./Screens/TestGraph";
 import { all_interests, initInterests } from "./Modules/Interest";
 import {useEffect, useState} from 'react';
 import {STATUS, LOADING, SKILLGRAPH} from "./Utils/constants";
+import { initStats } from "./Modules/Stat";
 function App() {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
-  const [nextScreen, setNextScreen] = useState(SKILLGRAPH);
+  const [nextScreen, setNextScreen] = useState(STATUS);
   const [player, setPlayer] = useState<Player>();
 
   initThemes();
   useEffect(()=>{
     if(!player){
       const rand = new SeededRandom(13);
+      initStats();
       initAspects(rand);
       initClasses(rand);
       initInterests(rand);
@@ -51,15 +53,16 @@ function App() {
       Fast TODO (yeah)
       <ul>
         <li>add wigglersim stats to status screen/player</li>
-        <li>classpect system changes how they init</li>
+        <li>add stats to interest same as aspect (but don't add stats to class??? or not)</li>
         <li>classpect system adds skills that change stats (unlocking the skill buffs your stat)</li>
-        <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
         <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
         <li>level up system: set thresholds you are awarded skill poins</li>
         <li>seed in url</li>
         <li>sassy achievement/loading system (ab?) (voice act?)</li>
         <li>skills that unlock other menu screens/upgrade them</li>
+        <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
+
       </ul>
       </div>
     );
