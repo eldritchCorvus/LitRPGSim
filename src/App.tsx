@@ -52,9 +52,8 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>prince/bard invert aspect values?</li>
         <li>classpect system adds skills that change stats (unlocking the skill buffs your stat)</li>
-        <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
+        <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
         <li>level up system: set thresholds you are awarded skill poins</li>
         <li>seed in url</li>
