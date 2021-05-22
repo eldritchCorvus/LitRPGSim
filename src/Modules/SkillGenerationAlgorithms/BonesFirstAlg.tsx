@@ -43,12 +43,31 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         console.log("JR NOTE: after generateTierTwo ret is", ret)
 
         const tierThree = this.generateTierTwo(tierTwo, themes, rand);
-        console.log("JR NOTE: tier two is ", tierThree)
+        console.log("JR NOTE: tier three is ", tierThree)
         ret = ret.concat(tierThree);
+
+        const finalTier = this.generateFinalTier(tierThree, rand);
+        console.log("JR NOTE: tier finalTier is ", finalTier)
+        ret = ret.concat(finalTier);
         
         console.log("JR NOTE: after generateTierThree ret is", ret)
 
         return this.only_leave_unique_names(ret);
+    }
+
+    generateFinalTier=(skills: Skill[],rand: SeededRandom)=>{
+        let ret:Skill[] = [];
+        //pick three skills. generate max versions. don't care about repeats yet
+        const possible = [rand.getRandomElementFromArray(skills),rand.getRandomElementFromArray(skills),rand.getRandomElementFromArray(skills)];
+        for(const skill of possible){
+            const theme = all_themes[rand.getRandomElementFromArray(skill.theme_keys)];
+            const created_skill = new Skill([theme], rand)
+            created_skill.name = rand.getRandomElementFromArray(theme.super_name_possibilities);
+            this.assignChild(skill,created_skill);
+            ret.push(created_skill);
+        }
+
+        return ret;
     }
 
     // there are three nodes from "Summon Plant".  for each node generate a new skill that has plant as a theme and 0-1 others from the players theme list
