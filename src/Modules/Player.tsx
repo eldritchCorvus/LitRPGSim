@@ -47,12 +47,20 @@ export   class Player{
             const skill = all_stats[key].copy(0);
             this.stats[skill.positiveName] = skill;
         }
+        this.addStats(this.aspect.stats);
+        //TODO also add interests.
+        //TODO class does a multiplier for aspect stats (might be negative)
         console.log("JR NOTE: after initing stats they are", this.stats)
     }
 
     //for each stat in the new map, add its value to your stats.
     addStats = (stats:StatMap) =>{
-
+        for(const key of Object.keys(stats)){
+            const newSkill = stats[key];
+            console.log("JR NOTE: trying to add key ", key, "to this.stats", this.stats, "from", newSkill, "which i got from",stats);
+            const  oldSkill = this.stats[key];
+            oldSkill.add(newSkill.value);
+        }
     }
 
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
