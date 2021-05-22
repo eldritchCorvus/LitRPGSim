@@ -23,14 +23,14 @@ export const  StatusScreen = (props: StatusProps)=> {
     const StatsSection = (props: StatsProps)=> {
         return(
             <Fragment>
-                {Object.keys(props.stats).map((key)=>{return <StatSection stat={props.stats[key]}/>})}
+                {Object.keys(props.stats).map((key)=>{return <StatSection key={key} stat={props.stats[key]}/>})}
             </Fragment>
         )
     }
 
     const StatSection = (props: StatProps)=> {
         return(
-            <div>{props.stat.name()}: {props.stat.absolute_value()} </div>
+            <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value()} </div>
         )
     }
 

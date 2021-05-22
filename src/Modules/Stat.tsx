@@ -29,15 +29,22 @@ export class Stat{
         this.value = value;
         this.positiveName = positiveName;
         this.negativeName = negativeName;
-        all_stats[positiveName] = this;
+        if(!all_stats[positiveName]){
+            all_stats[positiveName] = this;
+        }
     }
 
     name=()=>{
         return this.value >= 0 ? this.positiveName:this.negativeName; 
     }
-    
+
     absolute_value=() =>{
         return Math.abs(this.value);
+    }
+
+    add=(newValue:number)=>{
+        console.log("JR NOTE: adding", newValue, "to ", this.value)
+        this.value += newValue;
     }
 
     //might want copies of the "same" state, whatever. the singleton thing wigglersim does is weird here.
