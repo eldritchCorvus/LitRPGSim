@@ -26,7 +26,7 @@ export   class Player{
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
-        this.initStats();
+        this.initStats(rand);
         this.skillGenAlg = new BonesFirstAlg();
         let themes:Theme[] = [];
         themes = themes.concat(class_name.themes)
@@ -41,13 +41,17 @@ export   class Player{
         this.rand = rand;
     }
 
-    initStats = () =>{
+    initStats = (rand: SeededRandom) =>{
         for(const key of Object.keys(all_stats)){
             //0 is baseline neutral human
-            const skill = all_stats[key].copy(0);
+            let values = [1,0,-1];
+            const skill = all_stats[key].copy(rand.getRandomElementFromArray(values));
             this.stats[skill.positiveName] = skill;
         }
         this.addStats(this.aspect.stats);
+        for(const interest of this.interests){
+            this.addStats(interest.stats);
+        }
         //TODO also add interests.
         //TODO class does a multiplier for aspect stats (might be negative)
         console.log("JR NOTE: after initing stats they are", this.stats)
@@ -59,7 +63,7 @@ export   class Player{
             const newSkill = stats[key];
             console.log("JR NOTE: trying to add key ", key, "to this.stats", this.stats, "from", newSkill, "which i got from",stats);
             const  oldSkill = this.stats[key];
-            oldSkill.add(newSkill.value);
+            oldSkill.add(newSkill.value * this.class_name.stat_multiplier);
         }
     }
 

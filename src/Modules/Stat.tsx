@@ -18,6 +18,18 @@ export const FREESPIRITED = "Free-Spirited";
 export const ENERGETIC = "Energetic";
 export const CALM = "Calm";
 
+export const HEART = INTERNAL;
+export const MIND = INTERNAL;
+export const SPACE = PATIENT;
+export const TIME = PATIENT;
+export const HOPE = IDEALISTIC;
+export const RAGE = IDEALISTIC;
+export const LIGHT = CURIOUS;
+export const VOID = CURIOUS;
+export const BLOOD = LOYAL;
+export const BREATH = LOYAL;
+export const LIFE = ENERGETIC;
+export const DOOM = ENERGETIC;
 export class Stat{
     value: number;
     positiveName: string;
@@ -68,6 +80,16 @@ export const initStats =() =>{
 
 }
 
-export const StatMapWithJustOne = (key: string) =>{
-    return {key: all_stats[key]};
+export const StatMapWithJustOne = (key: string, value:number) =>{
+    return {key: all_stats[key].copy(value)};
+}
+
+export const StatMapWithMultiple = (keys: string[], values:number[]) =>{
+    let ret:StatMap = {};
+    let index = 0;
+    for(const key of keys){
+        ret[key] = all_stats[key].copy(values[index]);
+        index ++;
+    }
+    return ret;
 }

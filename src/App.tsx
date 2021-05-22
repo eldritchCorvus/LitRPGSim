@@ -25,7 +25,7 @@ function App() {
       initAspects(rand);
       initClasses(rand);
       initInterests(rand);
-      setPlayer(new Player(all_classes.seer, all_aspects.life, [all_interests.crafting, all_interests.language], rand) ); 
+      setPlayer(new Player(all_classes.prince, all_aspects.doom, [all_interests.crafting, all_interests.language], rand) ); 
   }
   },[player])
 
@@ -52,8 +52,6 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>add wigglersim stats to status screen/player</li>
-        <li>add stats to interest same as aspect (but don't add stats to class??? or not)</li>
         <li>prince/bard invert aspect values?</li>
         <li>classpect system adds skills that change stats (unlocking the skill buffs your stat)</li>
         <li>player has skill points, can only click on skill if you can afford it ("are you sure" popup)</li>
