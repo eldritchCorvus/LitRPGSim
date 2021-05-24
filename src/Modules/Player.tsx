@@ -1,6 +1,6 @@
 import {all_aspects, initAspects, Aspect} from "./Aspect";
 import { all_classes, initClasses, RPGClass } from "./RPGClass";
-import { Skill, CoreSkill } from "./Skill";
+import { Skill, CoreSkill, StatSkill } from "./Skill";
 import {Interest} from "./Interest";
 import {initThemes, Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
@@ -60,20 +60,29 @@ export   class Player{
     //for each stat in the new map, add its value to your stats.
     addStats = (stats:StatMap) =>{
         for(const key of Object.keys(stats)){
-            const newSkill = stats[key];
-            console.log("JR NOTE: trying to add key ", key, "to this.stats", this.stats, "from", newSkill, "which i got from",stats);
-            const  oldSkill = this.stats[key];
-            oldSkill.add(newSkill.value * this.class_name.stat_multiplier);
+            const newStat = stats[key];
+           this.addStat(newStat);
         }
     }
+
+    addStat= (stat: Stat) =>{
+        this.stats[stat.positiveName].add(stat.value * this.class_name.stat_multiplier);
+    }
+
+    unlocked_skills_no_stats = () =>{return this.skills.filter((skill) =>  {return skill.unlocked && (skill.type !== "StatSkill") })};
 
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
 
     unlockSkill = (skill_id: string) =>{
-        const found = this.skills.find((skill) =>{return skill.name===skill_id});
+        const found = this.skills.find((skill) =>{return skill.cytoscapeID()===skill_id});
         if(found){
-            console.log("JR NOTE: found was unlocked originally", found.unlocked, "and now setting it to true");
+            console.log("JR NOTE: found was unlocked originally", found.unlocked, "and now setting it to true", "its type is", found.type);
             found.unlocked = true;
+            if(found.type === "StatSkill"){
+                const stat = (found as StatSkill).stat;
+                console.log("JR NOTE: its a stat",stat);
+                this.addStat(stat);
+            }
         }
     }
 }

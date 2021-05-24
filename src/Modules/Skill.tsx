@@ -8,12 +8,13 @@ import {Theme} from "./Theme";
     * subtype of skill that IS procedurally generated and also has core functionality (buffing stat etc)
 */
 export   class Skill{
+    type = "Skill";
     name: string;
     tier: number; //TODO should map to cost
     parents: Skill[] = []; //will be set by player
     children: Skill[] = []; //will be set by player
     theme_keys: string[];
-    unlocked:boolean = true; 
+    unlocked:boolean = false; 
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
        if(themes.length == 1){
@@ -91,6 +92,7 @@ export   class Skill{
 }
 
 export class CoreSkill extends Skill{
+    type = "CoreSkill";
     name: string;
     tier: number;
     theme_keys: string[] = [];
@@ -107,12 +109,13 @@ export class CoreSkill extends Skill{
 let numStatSkills = 0;
 
 export class StatSkill extends Skill{
+    type = "StatSkill";
     name: string;
     tier: number;
     stat: Stat;
     key: number;
     theme_keys: string[] = [];
-    unlocked:boolean = true; //todo make this default to false
+    unlocked:boolean = false; //todo make this default to false
     constructor(stat: Stat, tier: number){
         super([],null);
         numStatSkills ++;
