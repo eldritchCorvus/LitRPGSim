@@ -70,8 +70,6 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
                 }
             }
         }
-        console.log("tempData is", temp_data);
-        console.table(temp_data.map((x)=>x.data));
         setGraphData(temp_data);
     }
 
