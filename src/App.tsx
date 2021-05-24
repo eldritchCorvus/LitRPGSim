@@ -52,9 +52,8 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>BUG: why the hell is there only one statskill per stat and everyone shares???</li>
-        <li>classpect system adds skills that change stats (unlocking the skill buffs your stat)</li>
-        <li>themes should have associated stats as well</li>
+        <li>clicking a stat skill that is locked adds that stat to the player</li>
+        <li>themes should have associated stats as well, use them to pick stats for statskills instead of random</li>
         <li>stat skills diff color based on what stat (aspect shit man, add to init)</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
