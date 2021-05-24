@@ -1,8 +1,11 @@
+import { removeItemOnce } from "../../Utils/ArrayUtils"
+import { getRandomElementFromArray } from "../../Utils/NonSeededRandUtils"
 import SeededRandom from "../../Utils/SeededRandom"
 import { Aspect } from "../Aspect"
 import { Interest } from "../Interest"
 import { RPGClass } from "../RPGClass"
-import { CoreSkill, Skill } from "../Skill"
+import { CoreSkill, Skill, StatSkill } from "../Skill"
+import { all_stats } from "../Stat"
 import { all_themes, Theme } from "../Theme"
 import { SkillGenAlg } from "./SkillGenAlg"
 
@@ -12,10 +15,24 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         //TODO this might be irrelevant how this works.
     }
 
-    assignChild =(parent: Skill, child: Skill)=>{
+    assignChild =(skills: Skill[],parent: Skill, child: Skill)=>{
         console.log("JR NOTE: assigning child", child.name, "to parent", parent.name);
-        child.parents.push(parent);
-        parent.children.push(child);      
+
+        if(skills.length > 0){
+            const pickStat = (parent: Skill) =>{
+                return getRandomElementFromArray(Object.values(all_stats)).copy(parent.tier +1);
+            }
+            const inBetween = new StatSkill(pickStat(parent),parent.tier+1);
+            console.log("JR NOTE: inBetween is", inBetween.cytoscapeID())
+            parent.children.push(inBetween); 
+            inBetween.parents.push(parent); 
+            inBetween.children.push(child);
+            child.parents.push(inBetween);
+            skills.push(inBetween);
+        }else{
+            parent.children.push(child); 
+            child.parents.push(parent); 
+        }
     }
 
     generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
@@ -42,18 +59,20 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         
         console.log("JR NOTE: after generateTierTwo ret is", ret)
 
-        const tierThree = this.generateTierTwo(tierTwo, themes, rand);
+        //only pass in real skills, not stat skills or status skills
+        const tierThree = this.generateTierTwo(tierTwo.filter((x)=>{return !(x instanceof StatSkill)}), themes, rand);
         console.log("JR NOTE: tier three is ", tierThree)
         ret = ret.concat(tierThree);
 
-        const finalTier = this.generateFinalTier(tierThree, rand);
+        const finalTier = this.generateFinalTier(tierThree.filter((x)=>{return !(x instanceof StatSkill)}), rand);
         console.log("JR NOTE: tier finalTier is ", finalTier)
         ret = ret.concat(finalTier);
         
         console.log("JR NOTE: after generateTierThree ret is", ret)
-
         return this.only_leave_unique_names(ret);
     }
+
+    
 
     generateFinalTier=(skills: Skill[],rand: SeededRandom)=>{
         let ret:Skill[] = [];
@@ -63,7 +82,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             const theme = all_themes[rand.getRandomElementFromArray(skill.theme_keys)];
             const created_skill = new Skill([theme], rand)
             created_skill.name = rand.getRandomElementFromArray(theme.super_name_possibilities);
-            this.assignChild(skill,created_skill);
+            this.assignChild(ret, skill,created_skill);
             ret.push(created_skill);
         }
 
@@ -92,8 +111,8 @@ export   class  BonesFirstAlg extends SkillGenAlg{
                     //no doubles
                     if(ret.filter((s) =>s.name === new_skill.name).length ===0){
                         ret.push(new_skill);
-                        this.assignChild(skill, new_skill);
-                        this.assignChild(second_skill, new_skill);
+                        this.assignChild(ret, skill, new_skill);
+                        this.assignChild(ret, second_skill, new_skill);
 
                     }
                 }
@@ -106,7 +125,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
     generateRootAndBase =(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom) =>{
         console.log("JR NOTE: generating root and base");
         const root = new CoreSkill("Status", 0, rand);
-        const max = 3;
+        const max = 1;
         const min = 1;
         let ret:Skill[] = [];
 
@@ -126,7 +145,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         //important to do before assigning children
         ret = this.only_leave_unique_names(ret);
         for(const skill of ret){
-            this.assignChild(root, skill);
+            this.assignChild([], root, skill);
         }
         ret.unshift(root);
         

@@ -52,12 +52,16 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
+        <li>BUG: why the hell is there only one statskill per stat and everyone shares???</li>
         <li>classpect system adds skills that change stats (unlocking the skill buffs your stat)</li>
+        <li>themes should have associated stats as well</li>
+        <li>stat skills diff color based on what stat (aspect shit man, add to init)</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
         <li>level up system: set thresholds you are awarded skill poins</li>
         <li>seed in url</li>
         <li>sassy achievement/loading system (ab?) (voice act?)</li>
+        <li>deploy</li>
         <li>skills that unlock other menu screens/upgrade them</li>
         <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
 
