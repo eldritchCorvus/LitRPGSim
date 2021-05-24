@@ -1,5 +1,6 @@
 import { RawNodeDatum } from "react-d3-tree/lib/types/common";
 import SeededRandom from "../Utils/SeededRandom";
+import { Stat } from "./Stat";
 import {Theme} from "./Theme";
 /*TODO
     * subtype of skill that isn't procedurally generated and instead has core functionality
@@ -8,11 +9,11 @@ import {Theme} from "./Theme";
 */
 export   class Skill{
     name: string;
-    tier: number;
+    tier: number; //TODO should map to cost
     parents: Skill[] = []; //will be set by player
     children: Skill[] = []; //will be set by player
     theme_keys: string[];
-    unlocked:boolean = false; 
+    unlocked:boolean = true; 
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
        if(themes.length == 1){
@@ -30,7 +31,7 @@ export   class Skill{
 
 
 
-    constructor(themes: Theme[] =[],seeded_random:SeededRandom){
+    constructor(themes: Theme[] =[],seeded_random:SeededRandom | null){
         this.name = "Debug";
         this.tier = -13;
         this.theme_keys = [];
@@ -59,8 +60,11 @@ export   class Skill{
         return this.name;
     }
 
+    cytoscapeID = () =>{
+        return `${this.name}`;
+    }
+
     convertToCytoscape = ()=>{
-        console.log("JR NOTE: converting ", this.name, "to graph with children" , this.children);
         let styles:any = {'background-color':'green'};
         if(!this.unlocked){
             if(this.parents.filter((parent) => parent.unlocked).length === this.parents.length){
@@ -69,15 +73,15 @@ export   class Skill{
                 styles["display"] = "none";
             }
         }
-        const ret:any[] = [{ data: { id: this.name, label: this.name },grabbable: false, style: styles}];
+        const ret:any[] = [{ data: { id: this.cytoscapeID(), label: this.name },grabbable: false, style: styles}];
 
 
 
         for(const child of this.children){
             if(this.unlocked && !child.unlocked){
-                ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"] } );
+                ret.push({ data: { source: this.cytoscapeID(), target: child.cytoscapeID(), label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"] } );
             }else{
-                ret.push({ data: { source: this.name, target: child.name, label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"], style:{opacity:"0.2"} } );
+                ret.push({ data: { source: this.cytoscapeID(), target: child.cytoscapeID(), label: '' },classes:[(this.unlocked && child.unlocked)?"visible":"void"], style:{opacity:"0.2"} } );
             }
         }
         return ret;
@@ -90,11 +94,38 @@ export class CoreSkill extends Skill{
     name: string;
     tier: number;
     theme_keys: string[] = [];
-    unlocked:boolean = true; //todo make this default to false
+    unlocked:boolean = true;
     constructor(name: string, tier: number, rand: SeededRandom){
         super([], rand);
         this.name = name;
         this.tier = tier;
+    }
+
+
+}
+
+let numStatSkills = 0;
+
+export class StatSkill extends Skill{
+    name: string;
+    tier: number;
+    stat: Stat;
+    key: number;
+    theme_keys: string[] = [];
+    unlocked:boolean = true; //todo make this default to false
+    constructor(stat: Stat, tier: number){
+        super([],null);
+        numStatSkills ++;
+        this.key = numStatSkills;
+        this.stat = stat;
+        this.tier = tier;
+        const dir = stat.value > 0? "+":"-";
+        this.name = `${stat.name()} ${dir} ${stat.absolute_value()}`;
+        this.tier = tier;
+    }
+
+    cytoscapeID = () =>{
+        return `${this.stat.name()}${this.key}`;
     }
 
 
