@@ -17,11 +17,11 @@ function App() {
   const [nextScreen, setNextScreen] = useState(STATUS);
   const [player, setPlayer] = useState<Player>();
 
-  initThemes();
   useEffect(()=>{
     if(!player){
       const rand = new SeededRandom(13);
       initStats();
+      initThemes();
       initAspects(rand);
       initClasses(rand);
       initInterests(rand);
@@ -52,7 +52,6 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>(BUG: unlockSkill doesn't work for stats) clicking a stat skill that is locked adds that stat to the player</li>
         <li>themes should have associated stats as well, use them to pick stats for statskills instead of random</li>
         <li>stat skills diff color based on what stat (aspect shit man, add to init)</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
