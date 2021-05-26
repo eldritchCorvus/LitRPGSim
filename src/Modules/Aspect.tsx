@@ -69,7 +69,7 @@ export  class Aspect{
 
 export function initAspects(seeded_random: SeededRandom){
 
-    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, Stat.StatMapWithJustOne(Stat.ENERGETIC,3), [all_themes.healing, all_themes.plants]);
-    new Aspect("doom", ["Life", "Decay", "Fate", "Destiny", "Inevitability"], seeded_random, Stat.StatMapWithJustOne(Stat.ENERGETIC,-3), [all_themes.decay, all_themes.web]);
+    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(3)]), [all_themes.healing, all_themes.plants]);
+    new Aspect("doom", ["Life", "Decay", "Fate", "Destiny", "Inevitability"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(3)]), [all_themes.decay, all_themes.web]);
 
 }

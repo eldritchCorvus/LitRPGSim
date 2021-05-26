@@ -49,7 +49,7 @@ export  class Interest{
 }
 
 export function initInterests(seeded_random: SeededRandom){
-    new Interest("crafting", ["Craftor", "Creator", "Blue-collarly Pursuer", "Omnismith"], seeded_random,Stat.StatMapWithMultiple([Stat.SPACE, Stat.HOPE],[3,-3]), [all_themes.crafting]);
-    new Interest("language", ["Communicator", "Language Lover", "Speaker", "Writor", "Scribe", "Author","Rune Researcher"], seeded_random, Stat.StatMapWithMultiple([Stat.LIFE, Stat.SPACE],[-3,3]),[all_themes.language]);
+    new Interest("crafting", ["Craftor", "Creator", "Blue-collarly Pursuer", "Omnismith"], seeded_random,Stat.WrapStatsToStatMap([Stat.SPACE(1), Stat.HOPE(1)]), [all_themes.crafting]);
+    new Interest("language", ["Communicator", "Language Lover", "Speaker", "Writor", "Scribe", "Author","Rune Researcher"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(1), Stat.LIFE(1)]),[all_themes.language]);
 
 }

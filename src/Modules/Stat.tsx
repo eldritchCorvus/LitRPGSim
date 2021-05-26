@@ -17,19 +17,27 @@ export const LOYAL = "Loyal";
 export const FREESPIRITED = "Free-Spirited";
 export const ENERGETIC = "Energetic";
 export const CALM = "Calm";
+/*
+    new Stat(EXTERNAL,INTERNAL,0);
+    new Stat(PATIENT,IMPATIENT,0);
+    new Stat(IDEALISTIC,REALISTIC,0);
+    new Stat(CURIOUS,ACCEPTING,0);
+    new Stat(LOYAL,FREESPIRITED,0);
+    new Stat(ENERGETIC,CALM,0);
+    */
 
-export const HEART = INTERNAL;
-export const MIND = INTERNAL;
-export const SPACE = PATIENT;
-export const TIME = PATIENT;
-export const HOPE = IDEALISTIC;
-export const RAGE = IDEALISTIC;
-export const LIGHT = CURIOUS;
-export const VOID = CURIOUS;
-export const BLOOD = LOYAL;
-export const BREATH = LOYAL;
-export const LIFE = ENERGETIC;
-export const DOOM = ENERGETIC;
+export const HEART = (value=1) =>all_stats[EXTERNAL].copy(value);
+export const MIND = (value=1) =>all_stats[EXTERNAL].copy(-1 * value);
+export const SPACE =  (value=1) =>all_stats[PATIENT].copy(value);
+export const TIME = (value=1) =>all_stats[PATIENT].copy(-1 * value);
+export const HOPE = (value=1) =>all_stats[IDEALISTIC].copy(value);
+export const RAGE = (value=1) =>all_stats[IDEALISTIC].copy(-1 * value);
+export const LIGHT = (value=1) =>all_stats[CURIOUS].copy(value);
+export const VOID = (value=1) =>all_stats[CURIOUS].copy(-1 * value);
+export const BLOOD = (value=1) =>all_stats[LOYAL].copy(value);
+export const BREATH = (value=1) =>all_stats[LOYAL].copy(-1 * value);
+export const LIFE = (value=1) =>all_stats[ENERGETIC].copy(value);
+export const DOOM = (value=1) =>all_stats[ENERGETIC].copy(-1 * value);
 export class Stat{
     value: number;
     positiveName: string;
@@ -78,6 +86,14 @@ export const initStats =() =>{
     new Stat(LOYAL,FREESPIRITED,0);
     new Stat(ENERGETIC,CALM,0);
 
+}
+
+export const WrapStatsToStatMap = (stats: Stat[]) =>{
+    let ret:StatMap = {};
+    for(const stat of stats){
+        ret[stat.positiveName] = stat;
+    }
+    return ret;
 }
 
 export const StatMapWithJustOne = (key: string, value:number) =>{
