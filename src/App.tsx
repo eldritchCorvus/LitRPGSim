@@ -52,8 +52,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>themes should have associated stats as well, use them to pick stats for statskills instead of random</li>
-        <li>stat skills diff color based on what stat (aspect shit man, add to init)</li>
+        <li>stat skills diff color based on what stat (aspect shit man, add to init of stat)</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
         <li>level up system: set thresholds you are awarded skill poins</li>

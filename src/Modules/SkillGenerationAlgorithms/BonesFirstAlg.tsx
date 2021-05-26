@@ -15,12 +15,13 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         //TODO this might be irrelevant how this works.
     }
 
-    assignChild =(skills: Skill[],parent: Skill, child: Skill)=>{
-        console.log("JR NOTE: assigning child", child.name, "to parent", parent.name);
+    assignChild =(skills: Skill[],parent: Skill, child: Skill, rand: SeededRandom)=>{
+        console.log("JR NOTE: assigning child", child.name, "to parent", parent.name, "with rand",rand);
 
         if(skills.length > 0){
             const pickStat = (parent: Skill) =>{
-                return getRandomElementFromArray(Object.values(all_stats)).copy(parent.tier +1);
+                const theme = all_themes[rand.getRandomElementFromArray(parent.theme_keys)];
+                return rand.getRandomElementFromArray(Object.values(theme.stats)).copy(parent.tier +1);
             }
             const inBetween = new StatSkill(pickStat(parent),parent.tier+1);
             console.log("JR NOTE: inBetween is", inBetween.cytoscapeID())
@@ -82,7 +83,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             const theme = all_themes[rand.getRandomElementFromArray(skill.theme_keys)];
             const created_skill = new Skill([theme], rand)
             created_skill.name = rand.getRandomElementFromArray(theme.super_name_possibilities);
-            this.assignChild(ret, skill,created_skill);
+            this.assignChild(ret, skill,created_skill,rand);
             ret.push(created_skill);
         }
 
@@ -111,8 +112,8 @@ export   class  BonesFirstAlg extends SkillGenAlg{
                     //no doubles
                     if(ret.filter((s) =>s.name === new_skill.name).length ===0){
                         ret.push(new_skill);
-                        this.assignChild(ret, skill, new_skill);
-                        this.assignChild(ret, second_skill, new_skill);
+                        this.assignChild(ret, skill, new_skill,rand);
+                        this.assignChild(ret, second_skill, new_skill,rand);
 
                     }
                 }
@@ -145,7 +146,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         //important to do before assigning children
         ret = this.only_leave_unique_names(ret);
         for(const skill of ret){
-            this.assignChild([], root, skill);
+            this.assignChild([], root, skill,rand);
         }
         ret.unshift(root);
         
