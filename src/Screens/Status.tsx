@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import {Player} from "../Modules/Player";
 import { Stat, StatMap } from "../Modules/Stat";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent} from "./Styles";
+import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox} from "./Styles";
 interface StatusProps{
     player: Player;
     loadScreen: any; //function
@@ -71,7 +71,7 @@ export const  StatusScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Unlocked Skills:</StatusHeader>
                 <StatusContent>  
-                    {props.player.unlocked_skills().map((skill,i) => {return ( <div key={skill.name + i}>Skill {i}: {skill.name} (Rank {skill.tier}): Themes: [{skill.theme_keys.join(",")}] </div>  )})}
+                    <SkillBox>{props.player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill key={skill.name + i}>Skill {i}: {skill.name} </Skill>  )})}</SkillBox>
                 </StatusContent>
             </StatusRow>
     </tbody>

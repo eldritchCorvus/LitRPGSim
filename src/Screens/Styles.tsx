@@ -1,5 +1,21 @@
 import styled from "@emotion/styled";
 
+export const SkillBox = styled.div`
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+`
+
+export const Skill = styled.div`
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+`
+
 export const StatusBlock = styled.table`
     padding: 10px;
     margin: 10px;
