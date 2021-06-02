@@ -62,6 +62,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
+        <li>instead of  HEALING: [Stat.LIFE(1)] i need to do stats_map[HEALING]=[Stat.LIFE(1)] for each</li>
         <li>refactor theme to instead of first/second etc name to have parts of speech like ing/plural/ed/possessive etc. don't REPLACE current maps, insead make new ones and then remove the old ones, indiana jones style</li>
         <li>actually compile this and put an experimental version on the web</li>
         <li>stat skills diff color based on what stat (aspect shit man, add to init of stat)</li>
