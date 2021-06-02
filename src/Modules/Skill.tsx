@@ -14,7 +14,7 @@ export   class Skill{
     parents: Skill[] = []; //will be set by player
     children: Skill[] = []; //will be set by player
     theme_keys: string[];
-    unlocked:boolean = false; 
+    unlocked:boolean = true;  //TODO this should default to false once no longer developing.
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
        if(themes.length == 1){
@@ -115,7 +115,7 @@ export class StatSkill extends Skill{
     stat: Stat;
     key: number;
     theme_keys: string[] = [];
-    unlocked:boolean = false; //todo make this default to false
+    unlocked:boolean = true; //todo make this default to false
     constructor(stat: Stat, tier: number){
         super([],null);
         numStatSkills ++;

@@ -1,16 +1,16 @@
-import {all_aspects, initAspects} from "./Modules/Aspect";
-import { all_classes, initClasses } from "./Modules/RPGClass";
+import {initAspects} from "./Modules/Aspect";
+import {initClasses } from "./Modules/RPGClass";
 import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
-import {Player} from "./Modules/Player";
+import {Player, randomPlayer} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
-import TestGraph from "./Screens/TestGraph";
-import { all_interests, initInterests } from "./Modules/Interest";
+import {initInterests } from "./Modules/Interest";
 import {useEffect, useState} from 'react';
 import {STATUS, LOADING, SKILLGRAPH} from "./Utils/constants";
 import { initStats } from "./Modules/Stat";
+import { getRandomSeed } from "./Utils/NonSeededRandUtils";
 function App() {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
@@ -19,13 +19,14 @@ function App() {
 
   useEffect(()=>{
     if(!player){
-      const rand = new SeededRandom(13);
+      const rand = new SeededRandom(getRandomSeed());
       initStats();
       initThemes();
       initAspects(rand);
       initClasses(rand);
       initInterests(rand);
-      setPlayer(new Player(all_classes.prince, all_aspects.doom, [all_interests.crafting, all_interests.language], rand) ); 
+
+      setPlayer(randomPlayer(rand) ); 
   }
   },[player])
 
@@ -33,7 +34,6 @@ function App() {
     setNextScreen(screen);
     setCurrentScreen(LOADING);
   }
-  console.log("All Interests are", all_interests);
   if(!player){
     return <div>LOADING FOR REALSIES</div>
   }else{
@@ -52,11 +52,14 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
+        <li>random start seed</li>
+        <li>random start player</li>
+        <li>seed in url</li>
+        <li>14 fear aspects</li>
         <li>stat skills diff color based on what stat (aspect shit man, add to init of stat)</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
         <li>level up system: set thresholds you are awarded skill poins</li>
-        <li>seed in url</li>
         <li>sassy achievement/loading system (ab?) (voice act?)</li>
         <li>deploy</li>
         <li>skills that unlock other menu screens/upgrade them</li>
