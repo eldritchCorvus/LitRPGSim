@@ -10,7 +10,8 @@ import {initInterests } from "./Modules/Interest";
 import {useEffect, useState} from 'react';
 import {STATUS, LOADING, SKILLGRAPH} from "./Utils/constants";
 import { initStats } from "./Modules/Stat";
-import { getRandomSeed } from "./Utils/NonSeededRandUtils";
+import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
+import { getParameterByName } from "./Utils/URLUtils";
 function App() {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
@@ -19,7 +20,16 @@ function App() {
 
   useEffect(()=>{
     if(!player){
-      const rand = new SeededRandom(getRandomSeed());
+      let urlseed:string|number|null = getParameterByName("seed",null);
+      let initial_seed;
+      if (urlseed){
+        initial_seed = numbertoseed(urlseed);
+      }
+
+      if(!initial_seed){
+        initial_seed= getRandomSeed();
+      }
+      const rand = new SeededRandom(initial_seed);
       initStats();
       initThemes();
       initAspects(rand);
@@ -52,8 +62,6 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>random start seed</li>
-        <li>random start player</li>
         <li>seed in url</li>
         <li>14 fear aspects</li>
         <li>stat skills diff color based on what stat (aspect shit man, add to init of stat)</li>
@@ -63,6 +71,7 @@ function App() {
         <li>sassy achievement/loading system (ab?) (voice act?)</li>
         <li>deploy</li>
         <li>skills that unlock other menu screens/upgrade them</li>
+        <li>zero player game where you get little mini stories about what you 'did', like "used Medical Crown to heal a king" or whatever.</li>
         <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
 
       </ul>
