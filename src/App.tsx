@@ -62,9 +62,9 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>seed in url</li>
         <li>14 fear aspects</li>
         <li>stat skills diff color based on what stat (aspect shit man, add to init of stat)</li>
+        <li>skill color based on theme???</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
         <li>level up system: set thresholds you are awarded skill poins</li>
