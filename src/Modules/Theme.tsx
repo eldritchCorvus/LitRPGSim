@@ -60,6 +60,7 @@ export function initThemes(){
     ThemeStorage.initThemes();
     ThemeStorage.checkIfAllKeysPresent();
     for(let key of ThemeStorage.keys){
+        console.log("JR NOTE: key is", key, "ThemeStorage.stats_map is", ThemeStorage.stats_map)
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),ThemeStorage.solo_name_possibilities_map[key],ThemeStorage.first_name_possibilities_map[key],ThemeStorage.second_name_possibilities_map[key],ThemeStorage.super_name_possibilities_map[key]);
     }
 
