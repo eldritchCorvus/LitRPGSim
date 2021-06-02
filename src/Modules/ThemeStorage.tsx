@@ -1,3 +1,5 @@
+import * as Stat from './Stat';
+
 export const ADDICTION = "addiction";
 export const SPYING = "spying";
 export const HEALING = "healing";
@@ -25,7 +27,6 @@ export const DECAY = "decay";
 export const PLANTS = "plants";
 export const keys = [PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
-import * as Stat from './Stat';
 
 interface ThemeStatMap {
     [details: string] : Stat.Stat[];
