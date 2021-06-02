@@ -71,5 +71,15 @@ export function initAspects(seeded_random: SeededRandom){
 
     new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(3)]), [all_themes.healing, all_themes.plants]);
     new Aspect("doom", ["Life", "Decay", "Fate", "Destiny", "Inevitability"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(3)]), [all_themes.decay, all_themes.web]);
+    new Aspect("mind", ["Mind", "Choices", "Thought", "Decisions", "Alternates","Facets"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(3)]), [all_themes.choices, all_themes.zap]);
+    new Aspect("heart", ["Heart", "Soul", "Identity", "Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(3)]), [all_themes.soul, all_themes.love]);
+    new Aspect("void", ["Dark", "Darkness", "Nothingness", "Emptiness","Void","Lack"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(3)]), [all_themes.obfuscation,all_themes.darkness]);
+    new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger]);
+
+    new Aspect("corruption", ["Love", "Corruption", "Toxicity", "Inserts", "Plague","Rot","Disgust","Bugs","Maggots","Worms"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.LIFE(1),Stat.HEART(1)]), [all_themes.decay, all_themes.bugs,all_themes.love]);
+    new Aspect("web", ["Webs", "Spiders", "Fate", "Addiction"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.VOID(1),Stat.HEART(1)]), [all_themes.addiction, all_themes.web]);
+    new Aspect("eye", ["Eye", "Watching", "Seeing", "Observing"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(1),Stat.MIND(1),Stat.RAGE(1)]), [all_themes.knowing, all_themes.spying]);
+    new Aspect("stranger", ["Strangers", "Clowns", "Dolls", "Mannequins"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(2),Stat.RAGE(1)]), [all_themes.clowns, all_themes.obfuscation,all_themes.dolls]);
+    new Aspect("slaughter", ["Slaughter", "Massacre", "Killing", "Violence","Butchery"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.anger, all_themes.killing,all_themes.music]);
 
 }

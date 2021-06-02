@@ -11,8 +11,10 @@ export const SkillBox = styled.div`
 
 export const Skill = styled.div`
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 13px;
     padding: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
     margin: 10px;
 `
 
