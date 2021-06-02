@@ -5,3 +5,9 @@ export const getRandomNumberBetween =(min: number, max:number) =>{
 export const getRandomElementFromArray=(array: any[])=>{
     return array[getRandomNumberBetween(0, array.length -1)];
 }
+
+export const  getRandomSeed =()=> {
+	var min = 0;
+	var max = 413*612*1025;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

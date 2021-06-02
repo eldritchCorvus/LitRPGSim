@@ -1,7 +1,7 @@
 import {all_aspects, initAspects, Aspect} from "./Aspect";
 import { all_classes, initClasses, RPGClass } from "./RPGClass";
 import { Skill, CoreSkill, StatSkill } from "./Skill";
-import {Interest} from "./Interest";
+import {all_interests, Interest} from "./Interest";
 import {initThemes, Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
@@ -87,3 +87,12 @@ export   class Player{
     }
 }
 
+export function randomPlayer(rand: SeededRandom){
+    const cl = rand.getRandomElementFromArray(Object.values(all_classes));
+    const ap= rand.getRandomElementFromArray(Object.values(all_aspects));
+    const i1 = rand.getRandomElementFromArray(Object.values(all_interests));
+    const i2 = rand.getRandomElementFromArray(Object.values(all_interests));
+
+    const ret = new Player(cl, ap, [i1,i2], rand);
+    return ret;
+}
