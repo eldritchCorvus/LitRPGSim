@@ -57,6 +57,7 @@ export   class Theme{
 //(YES this means that if the first player to use "Healing" theme has it high tier it will be high for EVERYONE. deal with tihs. )
 export function initThemes(){
     //TODO eventually have each of these maps be a separate json file by key
+    ThemeStorage.initThemes();
     ThemeStorage.checkIfAllKeysPresent();
     for(let key of ThemeStorage.keys){
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),ThemeStorage.solo_name_possibilities_map[key],ThemeStorage.first_name_possibilities_map[key],ThemeStorage.second_name_possibilities_map[key],ThemeStorage.super_name_possibilities_map[key]);
