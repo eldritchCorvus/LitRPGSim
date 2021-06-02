@@ -22,7 +22,7 @@ export   class Skill{
        }else if(themes.length == 2){
            const first =  seeded_random.getRandomElementFromArray(themes[0].first_name_possibilities);
            const second =  seeded_random.getRandomElementFromArray(themes[1].second_name_possibilities);
-           const options = [`${first} of ${second}`,`${first} ${second}`];
+           const options = [`${first} of ${second}`,`${first} ${second}`,`${first} ${second}`,`${first} ${second}`];
            return seeded_random.getRandomElementFromArray(options);
        }else if (themes.length == 0){
            return "ERROR: no themes found";

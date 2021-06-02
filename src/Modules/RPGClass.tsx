@@ -58,7 +58,7 @@ export  class RPGClass{
 }
 
 export function initClasses(seeded_random: SeededRandom){
-    new RPGClass("seer", ["Seer", "Watcher", "Guide", "Sherpa", "Eye"],1.3, seeded_random, [all_themes.knowing, all_themes.guiding]);
+    new RPGClass("seer", ["Seer", "Watcher", "Guide", "Sherpa", "Eye","Observer"],1.3, seeded_random, [all_themes.knowing, all_themes.guiding]);
     new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
 
 }
