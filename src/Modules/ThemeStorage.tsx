@@ -179,7 +179,7 @@ const initSuperNames = () =>{
     super_name_possibilities_map[DOLLS] = ["Automatonophobia "] ;
     super_name_possibilities_map[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     super_name_possibilities_map[DARKNESS] =  ["Night Eternal"] ;
-    super_name_possibilities_map[KILLING] =  ["Total War"], ;
+    super_name_possibilities_map[KILLING] =  ["Total War"];
     super_name_possibilities_map[MUSIC] =  ["Symphonic Synthesia"] ;
     super_name_possibilities_map[DEFENSE] =  ["Excalibur"] ;
     super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
