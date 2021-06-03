@@ -1,5 +1,6 @@
 import { RawNodeDatum } from "react-d3-tree/lib/types/common";
 import SeededRandom from "../Utils/SeededRandom";
+import { titleCase } from "../Utils/StringUtils";
 import { Stat } from "./Stat";
 import {Theme} from "./Theme";
 /*TODO
@@ -19,22 +20,20 @@ export   class Skill{
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
         const generic_bits = ["beam","touch","ray","aura","signal"];
        if(themes.length == 1){
-        const noun =  seeded_random.getRandomElementFromArray(themes[0].noun_possibilities);
-        const adj =  seeded_random.getRandomElementFromArray(themes[0].adj_possibilities);
-        const generic = seeded_random.getRandomElementFromArray(generic_bits);
-        const options = [`${noun} ${generic}`,`${adj} ${generic}`,`${generic} of ${noun}`];
+        const noun =  titleCase(seeded_random.getRandomElementFromArray(themes[0].noun_possibilities));
+        const adj =  titleCase(seeded_random.getRandomElementFromArray(themes[0].adj_possibilities));
+        const generic = titleCase(seeded_random.getRandomElementFromArray(generic_bits));
+        const options = [`${adj} ${noun}`,`${noun}`,`${noun} ${generic}`,`${adj} ${generic}`,`${generic} of ${noun}`];
 
-        return "";
+        return seeded_random.getRandomElementFromArray(options);
     }else if(themes.length == 2){
-           //TODO noun of nouns, noun noun, adj noun, noun's noun
-           const first_noun =  seeded_random.getRandomElementFromArray(themes[0].noun_possibilities);
-           const first_adj =  seeded_random.getRandomElementFromArray(themes[0].adj_possibilities);
+           const first_noun =  titleCase(seeded_random.getRandomElementFromArray(themes[0].noun_possibilities));
+           const first_adj =  titleCase(seeded_random.getRandomElementFromArray(themes[0].adj_possibilities));
 
-           const second_noun =  seeded_random.getRandomElementFromArray(themes[1].noun_possibilities);
-           const second_adj =  seeded_random.getRandomElementFromArray(themes[1].adj_possibilities);
+           const second_noun =  titleCase(seeded_random.getRandomElementFromArray(themes[1].noun_possibilities));
+           const second_adj =  titleCase(seeded_random.getRandomElementFromArray(themes[1].adj_possibilities));
 
-           const options = [`${first_noun}'s ${second_noun}`,`${first_noun} ${second_noun}`,`${first_noun} of ${second_noun}`,`${first_adj} ${second_noun}`,`${first_noun} of ${second_noun}s`];
-
+           const options = [`${first_noun}'s ${second_noun}`,`${first_noun} ${second_noun}`,`${first_noun} of ${second_noun}`,`${first_adj} ${second_noun}`,`${second_adj} ${first_noun}`,`${first_noun} of ${second_noun}s`];
            return seeded_random.getRandomElementFromArray(options);
        }else if (themes.length == 0){
            return "ERROR: no themes found";

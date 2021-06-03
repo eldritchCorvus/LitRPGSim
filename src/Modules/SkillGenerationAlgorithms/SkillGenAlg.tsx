@@ -10,6 +10,7 @@ export   class SkillGenAlg{
     
     generate_skill_x_times = (x: number, themes: Theme[], rand:SeededRandom) =>{
         const ret:Skill[] = [];
+        console.log("JR NOTE: generating skill with themes",themes,"x is ", x)
         for(let i = 0; i<x; i++){
             ret.push(new Skill(themes, rand));
         }
@@ -20,7 +21,7 @@ export   class SkillGenAlg{
         let ret:Skill[] = [];
         let ret_names:string[] = [];
         for(const skill of skills){
-            console.log("JR NOTE: is " +skill.cytoscapeID() +" in ", ret_names);
+            console.log("JR NOTE: skill is ",skill,", is " +skill.cytoscapeID() +" in ", ret_names);
             //stat skills won't have unique names, its okay, don't worry
             if(ret_names.indexOf(skill.cytoscapeID()) === -1){
                 console.log("JR NOTE: no");

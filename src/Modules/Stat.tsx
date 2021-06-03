@@ -89,7 +89,6 @@ export const initStats =() =>{
 }
 
 export const WrapStatsToStatMap = (stats: Stat[]) =>{
-    console.log("JR NOTE stats is", stats)
     let ret:StatMap = {};
     for(const stat of stats){
         ret[stat.positiveName] = stat;

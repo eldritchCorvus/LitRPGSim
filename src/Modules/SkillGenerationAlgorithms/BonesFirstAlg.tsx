@@ -129,6 +129,9 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         const max = 1;
         const min = 1;
         let ret:Skill[] = [];
+        console.log("JR NOTE: class_name themes are", class_name.themes);
+        console.log("JR NOTE: aspect themes are", aspect.themes);
+        console.log("JR NOTE: interests are",interests);
 
         for(const theme of class_name.themes ){
             ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[theme], rand));
