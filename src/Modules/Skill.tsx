@@ -17,12 +17,24 @@ export   class Skill{
     unlocked:boolean = true;  //TODO this should default to false once no longer developing.
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
+        const generic_bits = ["beam","touch","ray","aura","signal"];
        if(themes.length == 1){
-        return seeded_random.getRandomElementFromArray(themes[0].solo_name_possibilities);
-       }else if(themes.length == 2){
-           const first =  seeded_random.getRandomElementFromArray(themes[0].first_name_possibilities);
-           const second =  seeded_random.getRandomElementFromArray(themes[1].second_name_possibilities);
-           const options = [`${first} of ${second}`,`${first} ${second}`,`${first} ${second}`,`${first} ${second}`];
+        const noun =  seeded_random.getRandomElementFromArray(themes[0].noun_possibilities);
+        const adj =  seeded_random.getRandomElementFromArray(themes[0].adj_possibilities);
+        const generic = seeded_random.getRandomElementFromArray(generic_bits);
+        const options = [`${noun} ${generic}`,`${adj} ${generic}`,`${generic} of ${noun}`];
+
+        return "";
+    }else if(themes.length == 2){
+           //TODO noun of nouns, noun noun, adj noun, noun's noun
+           const first_noun =  seeded_random.getRandomElementFromArray(themes[0].noun_possibilities);
+           const first_adj =  seeded_random.getRandomElementFromArray(themes[0].adj_possibilities);
+
+           const second_noun =  seeded_random.getRandomElementFromArray(themes[1].noun_possibilities);
+           const second_adj =  seeded_random.getRandomElementFromArray(themes[1].adj_possibilities);
+
+           const options = [`${first_noun}'s ${second_noun}`,`${first_noun} ${second_noun}`,`${first_noun} of ${second_noun}`,`${first_adj} ${second_noun}`,`${first_noun} of ${second_noun}s`];
+
            return seeded_random.getRandomElementFromArray(options);
        }else if (themes.length == 0){
            return "ERROR: no themes found";
