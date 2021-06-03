@@ -25,7 +25,8 @@ export const ZAP = "zap";
 export const CHOICES = "choices";
 export const DECAY = "decay";
 export const PLANTS = "plants";
-export const keys = [PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const CLOWNS = "clowns";
+export const keys = [CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 
 interface ThemeStatMap {
@@ -36,168 +37,162 @@ interface ThemePossibilitiesMap {
     [details: string] : string[];
 }
 
-
+//noun_possibility, adj_possibility (glowing, shimmering, walking, ceasing)
 export let stats_map:ThemeStatMap = {};
-export let solo_name_possibilities_map:ThemePossibilitiesMap = {};
-export let first_name_possibilities_map:ThemePossibilitiesMap = {};
-export let second_name_possibilities_map:ThemePossibilitiesMap = {};
+export let noun_possibilities:ThemePossibilitiesMap = {};
+export let adj_possibilities:ThemePossibilitiesMap = {};
+
 export let super_name_possibilities_map:ThemePossibilitiesMap = {};
 
 
 export const checkIfAllKeysPresent = ()=>{
-    console.error("TODO: check all hashes in this file for having all keys in the key list")
+    for(let key of keys){
+        if(!(key in stats_map)){
+           console.error("JR NOTE: key", key, "not found in stats_map");
+        }
+        
+        if(!(key in noun_possibilities)){
+            console.error("JR NOTE: key", key, "not found in noun_possibilities");
+        }
+
+        if(!(key in adj_possibilities)){
+            console.error("JR NOTE: key", key, "not found in adj_possibilities");
+        }
+
+        if(!(key in super_name_possibilities_map)){
+            console.error("JR NOTE: key", key, "not found in super_name_possibilities_map");
+        }
+    }
+
+
+    
 }
+
+ const initStatsMap = () =>{
+    stats_map[HEALING] = [Stat.LIFE(1)] ;
+    stats_map[PLANTS] = [Stat.LIFE(1)] ;
+    stats_map[DECAY] = [Stat.DOOM(1)] ;
+    stats_map[CHOICES] = [Stat.MIND(1)] ;
+    stats_map[ZAP] = [Stat.MIND(1)] ;
+    stats_map[LOVE] = [Stat.HEART(1)] ;
+    stats_map[SOUL] = [Stat.HEART(1)] ;
+    stats_map[ANGER] = [Stat.RAGE(1)] ;
+    stats_map[WEB] = [Stat.DOOM(1)] ;
+    stats_map[ROYALTY] = [Stat.HOPE(1)] ;
+    stats_map[ENDINGS] = [Stat.TIME(1)] ;
+    stats_map[KNOWING] = [Stat.LIGHT(1)] ;
+    stats_map[GUIDING] = [Stat.LIGHT(1)] ;
+    stats_map[CRAFTING] = [Stat.SPACE(1)] ;
+    stats_map[LANGUAGE] = [Stat.LIGHT(1)] ;
+    stats_map[BUGS] = [Stat.LIFE(1)] ;
+    stats_map[ADDICTION] = [Stat.HEART(1)] ;
+    stats_map[SPYING] = [Stat.LIGHT(1)] ;
+    stats_map[CLOWNS] = [Stat.RAGE(1)] ;
+    stats_map[DOLLS] = [Stat.HEART(1)] ;
+    stats_map[OBFUSCATION] = [Stat.VOID(1)] ;
+    stats_map[DARKNESS] = [Stat.VOID(1)] ;
+    stats_map[KILLING] = [Stat.RAGE(1)] ;
+    stats_map[MUSIC] = [Stat.HOPE(1)] ;
+    stats_map[DEFENSE] = [Stat.HOPE(1)] ;
+    stats_map[QUESTING] = [Stat.HOPE(1)] ;
+}
+
+const initNouns = () =>{
+    noun_possibilities[HEALING] = ["potion","bandage","doctor","nurse","healer","panacea","curative"];
+    noun_possibilities[PLANTS] =["leaf","flower","root","vine","branch","tree","meadow","forest"];
+    noun_possibilities[DECAY] = ["rot","decay","corruption","entropy"];
+    noun_possibilities[CHOICES] = ["choice","selection","option","janus","facet","aspect"];
+    noun_possibilities[ZAP] = ["zap","bolt","stroke","lightning"];
+    noun_possibilities[LOVE] = ["love","heart","soulmate","kiss","hug","caress","touch","romance"];
+    noun_possibilities[SOUL] = ["self","soulmate","core","soul","heart","spirit","essence"];
+    noun_possibilities[ANGER] = ["beserker","rebel",""];
+    noun_possibilities[WEB] = ["destiny","web","spider","fate","tapestry","promise","providence","arachnid","puppet"];
+    noun_possibilities[ROYALTY] = ["decree","doctrine","law","king","queen","lord","crown","empire"];
+    noun_possibilities[ENDINGS] =["finale","coda","epilogue","curtain","applause","bow"];
+    noun_possibilities[KNOWING] = ["instinct","knowledge","truth","gnosis","awareness","sense","idea"];
+    noun_possibilities[GUIDING] = ["path","road","journey","guide","destination","trip"];
+    noun_possibilities[CRAFTING] = ["wood","metal","ore","crystal","rock","log","cloth","ax","pickax","gem","anvil","crucible","hammer","needle"];
+    noun_possibilities[LANGUAGE] = ["word","rune","speech","book","scroll","tongue","ink","paper","letter"];
+    noun_possibilities[BUGS] = ["bug","worm","fly","maggot","roach","swarm","plague","hive","locusts"];
+    noun_possibilities[ADDICTION] = ["compulsion","habit","high","addiction","dependence"];
+    noun_possibilities[SPYING] = ["eye","watcher","observer","ear","spy","camera","recording"];
+    noun_possibilities[CLOWNS] = ["clown","mime","jester","acrobat","circus","harlequin"];
+    noun_possibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
+    noun_possibilities[OBFUSCATION] = ["cover","blanket","cloak","disguise","costume"];
+    noun_possibilities[DARKNESS] = ["darkness","night","void","nocturne","shadow","nothing"];
+    noun_possibilities[KILLING] = ["murderer","blade","gun","assasin","killer"];
+    noun_possibilities[MUSIC] = ["orchestra","overture","reprise","dirge","requiem","nocturne","concert","waltz","chant","hymn","fugue","note","instrument","song","serenade","leitmotif","anthem","encore","choir"];
+    noun_possibilities[DEFENSE] = ["shield","armor","knight","paladin","defender","protector","page","soldier","warrior"];
+    noun_possibilities[QUESTING] = ["quest","goal","journey"];
+
+}
+
+const initAdjs = () =>{
+    adj_possibilities[HEALING] = ["curative","medical","healing","curing","medicinal","restoring","fixing","mending","regenerating"];
+    adj_possibilities[PLANTS] =["growing","sprouting","blossoming"];
+    adj_possibilities[DECAY] = ["decaying","rotting","crumbling","decomposing","festering","languishing","corrupting"];
+    adj_possibilities[CHOICES] = ["choosing","branching","selecting"];
+    adj_possibilities[ZAP] = ["zapping","jolting","shocking","electrical"];
+    adj_possibilities[LOVE] = ["loving","caring","embracing"];
+    adj_possibilities[SOUL] = ["defining","delineating","pure"];
+    adj_possibilities[ANGER] = ["raging","hating","rebelling","glaring","stampeding","furious"];
+    adj_possibilities[WEB] = ["controlling","puppeting","trapping"];
+    adj_possibilities[ROYALTY] = ["ruling","mandating","decreeing","royal","commanding"];
+    adj_possibilities[ENDINGS] =["ending","final","ultimate"];
+    adj_possibilities[KNOWING] = ["knowing","understanding","learning"];
+    adj_possibilities[GUIDING] = ["guiding","showing","explaining"];
+    adj_possibilities[CRAFTING] = ["crafting","mining","logging","building","constructing","carving","smitting"];
+    adj_possibilities[LANGUAGE] = ["reading","writing","speaking"];
+    adj_possibilities[BUGS] = ["swarming","buzzing","squirming"];
+    adj_possibilities[ADDICTION] = ["craving","addicting","compelling"];
+    adj_possibilities[SPYING] = ["spying","observing","watching","voyeuristic","seeking"];
+    adj_possibilities[CLOWNS] = ["honking","funny","prancing","tumbling","joking","jeering","dancing","performing","jesting"];
+    adj_possibilities[DOLLS] = ["delicate","beautiful","unsettling","playing","dressing"];
+    adj_possibilities[OBFUSCATION] = ["hiding","hidden","obscured","confusing","blinding"];
+    adj_possibilities[DARKNESS] = ["darkened","blackened","midnight","blinding"];
+    adj_possibilities[KILLING] = ["killing","murderous","massacred"];
+    adj_possibilities[MUSIC] = ["singing","dancing","playing"];
+    adj_possibilities[DEFENSE] = ["defending","gallant","protecting"];
+    adj_possibilities[QUESTING] = ["questing","searching","exploring"];
+}
+
+const initSuperNames = () =>{
+    super_name_possibilities_map[HEALING] =  ["Summon Phoenix"];
+    super_name_possibilities_map[PLANTS] = ["Forest's March"];
+    super_name_possibilities_map[DECAY] = ["Mass Grave"] ;
+    super_name_possibilities_map[CHOICES] =  ["Alternate Timeline"] ;
+    super_name_possibilities_map[ZAP] = ["Thor's Banana"] ;
+    super_name_possibilities_map[LOVE] = ["Mandatory Shipping Grid"];
+    super_name_possibilities_map[SOUL] = ["Know thyself."] ;
+    super_name_possibilities_map[ANGER] = ["Dethrone Creation"] ;
+    super_name_possibilities_map[WEB] =  ["Puppet Master"] ;
+    super_name_possibilities_map[ROYALTY] =  ["Excalibur"] ;
+    super_name_possibilities_map[ENDINGS] =  ["The End"] ;
+    super_name_possibilities_map[KNOWING] = ["Omniscience"] ;
+    super_name_possibilities_map[GUIDING] = ["Path To Victory"] ;
+    super_name_possibilities_map[CRAFTING] =  ["Legendary Forge"];
+    super_name_possibilities_map[LANGUAGE] = ["Topple the Tower"] ;
+    super_name_possibilities_map[BUGS] =  ["Hivemother"];
+    super_name_possibilities_map[ADDICTION] = ["Dealer's Delight"];
+    super_name_possibilities_map[SPYING] =["Surveillance State"] ;
+    super_name_possibilities_map[CLOWNS] =["Ringmaster"] ;
+    super_name_possibilities_map[DOLLS] = ["Automatonophobia "] ;
+    super_name_possibilities_map[OBFUSCATION] = ["Knowledge Forever Lost"] ;
+    super_name_possibilities_map[DARKNESS] =  ["Night Eternal"] ;
+    super_name_possibilities_map[KILLING] =  ["Total War"], ;
+    super_name_possibilities_map[MUSIC] =  ["Symphonic Synthesia"] ;
+    super_name_possibilities_map[DEFENSE] =  ["Excalibur"] ;
+    super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
+}
+
+
+
 
 export const initThemes = ()=>{
     //TODO instead of  HEALING: [Stat.LIFE(1)] i need to do stats_map[HEALING]=[Stat.LIFE(1)] for each
-    stats_map[HEALING] = [Stat.LIFE(1)] ;
-    stats_map = {
-        HEALING: [Stat.LIFE(1)],
-        PLANTS: [Stat.LIFE(1)],
-        DECAY: [Stat.DOOM(1)],
-        CHOICES: [Stat.MIND(1)],
-        ZAP: [Stat.MIND(1)],
-        LOVE: [Stat.HEART(1)],
-        SOUL: [Stat.HEART(1)],
-        ANGER: [Stat.RAGE(1)],
-        WEB: [Stat.DOOM(1)],
-        ROYALTY: [Stat.HOPE(1)],
-        ENDINGS: [Stat.TIME(1)],
-        KNOWING: [Stat.LIGHT(1)],
-        GUIDING: [Stat.LIGHT(1)],
-        CRAFTING: [Stat.SPACE(1)],
-        LANGUAGE: [Stat.LIGHT(1)],
-        BUGS: [Stat.LIFE(1)],
-        ADDICTION: [Stat.HEART(1)],
-        SPYING: [Stat.LIGHT(1)],
-        CLOWNS: [Stat.RAGE(1)],
-        DOLLS: [Stat.HEART(1)],
-        OBFUSCATION: [Stat.VOID(1)],
-        DARKNESS: [Stat.VOID(1)],
-        KILLING: [Stat.RAGE(1)],
-        MUSIC: [Stat.HOPE(1)],
-        DEFENSE: [Stat.HOPE(1)],
-        QUESTING: [Stat.HOPE(1)],
-    };
-    
-    
-    solo_name_possibilities_map = {
-        HEALING: ["Heal", "Cure", "Regeneration"],
-        PLANTS:["Growth", "Summon Plants", "Overgrow"],
-        DECAY: ["Inevitable Rot", "Festering Growth", "Destroy Plants"],
-        CHOICES: ["Consider Choices", "Two Paths", "Ironically Flip Coin"],
-        ZAP: ["Sparking Bolt", "Magic Missle", "Zap"],
-        LOVE:["Cupid's Arrow"],
-        SOUL: ["Soul Music"],
-        ANGER: ["Beserk Rage"],
-        WEB: ["Web of Fate", "Destiny Bond", "Show Destiny"],
-        ROYALTY:["Royal Decree", "Royal Perogative", "Royal Right", "Royal Command"],
-        ENDINGS: ["Final Finale", "Coda", "Postscript"],
-        KNOWING: ["Identify Item", "Detect Magic", "See Life", "Appraisal"],
-        GUIDING: ["Goal Path", "Summon Tutorial", "Pathfinding", "Forestry", "Hiking"],
-        CRAFTING:["Mining", "Wood Carving", "Fiber Arts", "Logging", "Jewlery Making"],
-        LANGUAGE:  ["Language", "Speech", "Writing", "Scribing"],
-        BUGS: ["Summon Swarm"],
-        ADDICTION: ["Addicting Personality","Gamblers Fallacy"],
-        SPYING: ["Binoculars","Clairvoyance"],
-        CLOWNS: ["Circus Time","Clown Car"],
-        DOLLS: ["Tea Party"],
-        OBFUSCATION:["Befuddlement","Obscuring Aura"],
-        DARKNESS: ["Nightfall","Voidfall"],
-        KILLING:["Assasin's Stance","Bloodlust"],
-        MUSIC: ["Starting Sonata","Dancing Ditty"],
-        DEFENSE: ["Something to Protect"],
-        QUESTING: ["Remember Quest","Show Quests","X Marks the Spot"],
-    };
-    
-    first_name_possibilities_map= {
-        HEALING: ["Healing", "Curing", "Restoring","Fixing","Mending","Doctoring","Medical"],
-        PLANTS: ["Forest", "Field", "Meadow","Plant","Flower","Blossom","Root","Leaf","Growth"],
-        DECAY: ["Rot", "Decay", "Fester","Languish","Entropy"],
-        CHOICES: ["Janus", "Choice", "Selection"],
-        ZAP: ["Zap", "Bolt", "Spark","Electrical","Buzzing"],
-        LOVE: ["Kiss", "Hug", "Caress","Touch"],
-        SOUL: ["Core", "Soul", "Spirit","Essence"],
-        ANGER: ["Beserker's", "Stampeding", "Raging","Furious","Rebel's"],
-        WEB: ["Destiny", "Fate", "Web","Tapestry","Providence","Promise"],
-        ROYALTY: ["Royal", "King", "Queen", "Lord", "Crown","Commanding","Empire"],
-        ENDINGS: ["Finale", "Coda", "Epilogue", "Ending","Curtain", "Applause"],
-        KNOWING: ["Knowledge", "Instinct", "Truth","Idea","Gnosis","Awareness","Sense"],
-        GUIDING:["Path", "Road", "Journey","Destination","Trip","Guide"],
-        CRAFTING:["Crystal", "Rock", "Log", "Carving", "Cloth", "Ax", "Pickax", "Gem", "Anvil", "Crucible","Hammer","Ax","Needle"],
-        LANGUAGE: ["Words", "Runes", "Speech", "Tongue"],
-        BUGS: ["Plague", "Swarm","Hive"],
-        ADDICTION: ["Craving", "Addiction","High","Habit","Compulsion"],
-        SPYING: ["Voyeuristic", "Watching","Observing","Spying","Seeking"],
-        CLOWNS: ["Tumble", "Flip","Joke","Pratfall","Dance","Performance","Clown","Jester","Mime"],
-        DOLLS: ["Doll", "Mannequin","Statue","Dressform","Dummy"],
-        OBFUSCATION:["Hiding", "Obscuring","Confounding","Confusing","Blinding"],
-        DARKNESS: ["Darkness", "Black","Inky","Night","Midnight"],
-        KILLING: ["Killing", "Murder","Slaughter","Massacre","Blade","Gun"],
-        MUSIC: ["Fortississimo", "Leitmotif", "Liberetto", "Sarabande", "Serenade", "Anthem", "Crescendo", "Vivace", "Encore", "Vivante", "Allegretto", "Fugue", "Choir", "Nobilmente", "Hymn", "Eroico", "Chant", "Mysterioso", "Diminuendo", "Perdendo", "Staccato", "Allegro", "Caloroso", "Nocturne","Cadenza", "Cadence", "Waltz", "Concerto", "Finale", "Requiem", "Coda", "Dirge", "Battaglia", "Leggiadro", "Capriccio", "Presto", "Largo", "Accelerando", "Polytempo", "Overture", "Reprise", "Orchestra"],
-        DEFENSE: ["Shield", "Defense","Protection","Armor"],
-        QUESTING: ["Quest", "Seeking","Questing"],
-    };
-    
-    
-    
-    
-    second_name_possibilities_map = {
-        HEALING:["Healing","Doctor", "Medical","Fix","Mend","Curative", "Restorative"],
-        PLANTS: ["Growth", "Plants", "Leaves", "Branches", "Flowers","Blossoms","Forests","Roots","Green"],
-        DECAY: ["Decaying","Festering", "Rotting","Languishing"],
-        CHOICES: ["Choice","Janus", "Options","Alternatives"],
-        ZAP: ["Electricity","Zap", "Bolt","Spark"],
-        LOVE: ["Fondness","Love","Hearts", "Devotion","Romance"],
-        SOUL: ["Self","Soul", "Spirit","Identity"],
-        ANGER:["Temper","Rage", "Anger","Rebellion","Refusal"],
-        WEB: ["Destiny", "Providence", "Fated", "Promised", "Threads","Webs"],
-        ROYALTY: ["Decree", "Doctrine", "Crown","Kingdom"],
-        ENDINGS: ["Finality", "Endings", "Finales","Curtains"],
-        KNOWING: ["Sight", "Book", "Scroll", "Facts", "Gnosis","Idea","Knowledge"],
-        GUIDING: ["Path", "Road", "Journey","Destinations","Travel"],
-        CRAFTING: ["Rock", "Crystal", "Gem","Carving","Wood","Metal","Ore","Ingots"],
-        LANGUAGE: ["Speech", "Words", "Runes","Letters","Characters","Ink","Paper"],
-        BUGS: ["Bugs", "Maggots", "Flies", "Worms","Locusts"],
-        ADDICTION:["Cravings", "Compulsion", "Dependence","Habit"],
-        SPYING: ["Eyes", "Cameras", "Spies","Recordings"],
-        CLOWNS: ["Jesters","Clowns", "Harlequins", "Mimes"],
-        DOLLS: ["Dolls", "Statues", "Mannequins","Plastic","Wax Figures"],
-        OBFUSCATION: ["Confusion", "Befuddlement","Obscura"],
-        DARKNESS: ["Shadows", "Void", "Darkness","Nothingness"],
-        KILLING: ["Death", "Violence", "Blades","Guns"],
-        MUSIC: ["Song", "Oveture", "Orchestra","Notes"],
-        DEFENSE: ["Shields", "Armor","Protection"],
-        QUESTING: ["Quest", "Attainment","Goal"],
-    };
-    
-    super_name_possibilities_map = {
-        HEALING: ["Summon Phoenix"],
-        PLANTS: ["Forest's March"],
-        DECAY: ["Mass Grave"],
-        CHOICES: ["Alternate Timeline"],
-        ZAP: ["Thor's Banana"],
-        LOVE: ["Mandatory Shipping Grid"],
-        SOUL: ["Know thyself."],
-        ANGER: ["Dethrone Creation"],
-        WEB: ["Puppet Master"],
-        ROYALTY: ["Excalibur"],
-        ENDINGS: ["The End"],
-        KNOWING: ["Omniscience"],
-        GUIDING:["Path To Victory"],
-        CRAFTING: ["Legendary Forge"],
-        LANGUAGE: ["Topple the Tower"],
-        BUGS: ["Hivemother"],
-        ADDICTION: ["Dealer's Delight"],
-        SPYING: ["Surveillance State"],
-        CLOWNS:["Ringmaster"],
-        DOLLS: ["Automatonophobia "],
-        OBFUSCATION: ["Knowledge Forever Lost"],
-        DARKNESS: ["Eternal Night"],
-        KILLING: ["Total War"],
-        MUSIC: ["Symphonic Synthesia"],
-        DEFENSE: ["Excalibur"],
-        QUESTING: ["Satisfaction"],
-    };
+    initStatsMap();
+    initNouns();
+    initAdjs();
+    initSuperNames();
     
 }

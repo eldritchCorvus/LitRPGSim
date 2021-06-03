@@ -12,21 +12,19 @@ export   class Theme{
     //TODO ing, 's, ed, etc.
     key: string;
     stats: Stat.StatMap={};
-    solo_name_possibilities:string[];
-    first_name_possibilities:string[];
-    second_name_possibilities:string[];
+    noun_possibilities:string[];
+    adj_possibilities:string[];
     super_name_possibilities:string[];
 
     tier: number;
 
 
-    constructor(key: string, tier: number,stats: Stat.StatMap, solo_name_possibilities: string[],first_name_possibilities: string[], second_name_possibilities: string[], super_name_possibilities: string[] ){
+    constructor(key: string, tier: number,stats: Stat.StatMap,noun_possibilities: string[], adj_possibilities: string[], super_name_possibilities: string[] ){
         this.key = key;
         this.tier = tier;
         this.initStats(stats);
-        this.solo_name_possibilities = solo_name_possibilities;
-        this.first_name_possibilities = first_name_possibilities;
-        this.second_name_possibilities = second_name_possibilities;
+        this.noun_possibilities = noun_possibilities;
+        this.adj_possibilities = adj_possibilities;
         this.super_name_possibilities = super_name_possibilities;
         all_themes[key] = this;
     }
@@ -61,7 +59,7 @@ export function initThemes(){
     ThemeStorage.checkIfAllKeysPresent();
     for(let key of ThemeStorage.keys){
         console.log("JR NOTE: key is", key, "ThemeStorage.stats_map is", ThemeStorage.stats_map)
-        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),ThemeStorage.solo_name_possibilities_map[key],ThemeStorage.first_name_possibilities_map[key],ThemeStorage.second_name_possibilities_map[key],ThemeStorage.super_name_possibilities_map[key]);
+        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),ThemeStorage.noun_possibilities[key],ThemeStorage.adj_possibilities[key],ThemeStorage.super_name_possibilities_map[key]);
     }
 
 
