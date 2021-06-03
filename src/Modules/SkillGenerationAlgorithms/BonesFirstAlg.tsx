@@ -16,7 +16,6 @@ export   class  BonesFirstAlg extends SkillGenAlg{
     }
 
     assignChild =(skills: Skill[],parent: Skill, child: Skill, rand: SeededRandom)=>{
-        console.log("JR NOTE: assigning child", child.name, "to parent", parent.name, "with rand",rand);
 
         if(skills.length > 0){
             const pickStat = (parent: Skill) =>{
@@ -24,7 +23,6 @@ export   class  BonesFirstAlg extends SkillGenAlg{
                 return rand.getRandomElementFromArray(Object.values(theme.stats)).copy(parent.tier +1);
             }
             const inBetween = new StatSkill(pickStat(parent),parent.tier+1);
-            console.log("JR NOTE: inBetween is", inBetween.cytoscapeID())
             parent.children.push(inBetween); 
             inBetween.parents.push(parent); 
             inBetween.children.push(child);
@@ -37,7 +35,6 @@ export   class  BonesFirstAlg extends SkillGenAlg{
     }
 
     generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
-        console.log("JR NOTE: generating skills");
 
         /*
         "there are 8 nodes from "status".  for each node pick a single theme from the player and generate a skill.
@@ -129,9 +126,6 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         const max = 1;
         const min = 1;
         let ret:Skill[] = [];
-        console.log("JR NOTE: class_name themes are", class_name.themes);
-        console.log("JR NOTE: aspect themes are", aspect.themes);
-        console.log("JR NOTE: interests are",interests);
 
         for(const theme of class_name.themes ){
             ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[theme], rand));

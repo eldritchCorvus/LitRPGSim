@@ -63,7 +63,6 @@ export class Stat{
     }
 
     add=(newValue:number)=>{
-        console.log("JR NOTE: adding", newValue, "to ", this.value)
         this.value += newValue;
     }
 

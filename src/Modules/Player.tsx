@@ -7,6 +7,7 @@ import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
 import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, initStats, Stat, StatMap } from "./Stat";
+import { ObserverBot } from "./ObserverBot/ObserverBot";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -17,12 +18,12 @@ export   class Player{
     rootSkill: Skill;
     stats: StatMap = {};
     skillGenAlg: SkillGenAlg;
+    observer: ObserverBot;
 
 
 
     constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom){
         console.log("JR NOTE: trying to make a playe rof class", class_name, "and aspect", aspect, "and interests", interests)
-        
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
@@ -39,6 +40,10 @@ export   class Player{
         this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
+        //JR NOTE: i'm worried theres some weird decoupling here, if i make OB up top they get a player without anything set which is WEIRD.
+        //is it a copy and not a reference?
+        this.observer = new ObserverBot(this);
+        this.observer.checkForAchievements();
     }
 
     initStats = (rand: SeededRandom) =>{
