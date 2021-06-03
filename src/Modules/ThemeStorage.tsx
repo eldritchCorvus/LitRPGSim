@@ -28,6 +28,10 @@ export const PLANTS = "plants";
 export const CLOWNS = "clowns";
 export const keys = [CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
+/*
+todo add keys for insults/compliments for each theme ObserverBot can apply to you.
+single word things like gross, predictable, boring, pretentious, etc.
+*/
 
 interface ThemeStatMap {
     [details: string] : Stat.Stat[];
@@ -105,7 +109,7 @@ const initNouns = () =>{
     noun_possibilities[ZAP] = ["zap","bolt","stroke","lightning"];
     noun_possibilities[LOVE] = ["love","heart","soulmate","kiss","hug","caress","touch","romance"];
     noun_possibilities[SOUL] = ["self","soulmate","core","soul","heart","spirit","essence"];
-    noun_possibilities[ANGER] = ["beserker","rebel",""];
+    noun_possibilities[ANGER] = ["beserker","rebel","hater"];
     noun_possibilities[WEB] = ["destiny","web","spider","fate","tapestry","promise","providence","arachnid","puppet"];
     noun_possibilities[ROYALTY] = ["decree","doctrine","law","king","queen","lord","crown","empire"];
     noun_possibilities[ENDINGS] =["finale","coda","epilogue","curtain","applause","bow"];
@@ -133,7 +137,7 @@ const initAdjs = () =>{
     adj_possibilities[DECAY] = ["decaying","rotting","crumbling","decomposing","festering","languishing","corrupting"];
     adj_possibilities[CHOICES] = ["choosing","branching","selecting"];
     adj_possibilities[ZAP] = ["zapping","jolting","shocking","electrical"];
-    adj_possibilities[LOVE] = ["loving","caring","embracing"];
+    adj_possibilities[LOVE] = ["loving","caring","embracing","smitten"];
     adj_possibilities[SOUL] = ["defining","delineating","pure"];
     adj_possibilities[ANGER] = ["raging","hating","rebelling","glaring","stampeding","furious"];
     adj_possibilities[WEB] = ["controlling","puppeting","trapping"];

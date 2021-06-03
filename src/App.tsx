@@ -62,14 +62,18 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
+        <li>use reactdom render to make popups for above achivements</li>
+        <li>have it so any time the player does ANYTHING it records it and checks for achivements</li>
+        <li>achivements award skill points</li>
+        <li>implement more achivment trigger types</li>
         <li>actually compile this and put an experimental version on the web</li>
+        <li>store hacking methods in the window.</li>
         <li>stat skills diff color based on what stat (aspect shit man, add to init of stat)</li>
         <li>skill color based on theme???</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
         <li>level up system: set thresholds you are awarded skill poins</li>
         <li>sassy achievement/loading system (ab?) (voice act?)</li>
-        <li>deploy</li>
         <li>skills that unlock other menu screens/upgrade them</li>
         <li>zero player game where you get little mini stories about what you 'did', like "used Medical Crown to heal a king" or whatever.  if the game were working PROPERLY it should praise you for whatever skill you've used the most, but obviously you've never used a single skill so it just picks one at random or glitches out. have console logs about ERORR NO FAVORIE SKILL FOUND etc.</li>
         <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>

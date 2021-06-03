@@ -33,7 +33,7 @@ export   class Skill{
            const second_noun =  titleCase(seeded_random.getRandomElementFromArray(themes[1].noun_possibilities));
            const second_adj =  titleCase(seeded_random.getRandomElementFromArray(themes[1].adj_possibilities));
 
-           const options = [`${first_noun}'s ${second_noun}`,`${first_noun} ${second_noun}`,`${first_noun} of ${second_noun}`,`${first_adj} ${second_noun}`,`${second_adj} ${first_noun}`,`${first_noun} of ${second_noun}s`];
+           const options = [`${first_noun}'s ${second_noun}`,`${first_noun} ${second_noun}`,`${first_noun} of ${second_adj}`,`${first_adj} ${second_noun}`,`${second_adj} ${first_noun}`,`${first_noun} of ${second_noun}s`];
            return seeded_random.getRandomElementFromArray(options);
        }else if (themes.length == 0){
            return "ERROR: no themes found";
