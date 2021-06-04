@@ -1,4 +1,5 @@
 import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
+import AchivementPopupKickoff from "./AchivementPopup";
 import { ObserverBot } from "./ObserverBot";
 
 export  class Achievement{
@@ -22,7 +23,7 @@ export  class Achievement{
     checkForUnlock = (observer:ObserverBot)=>{
         if(this.trigger.triggered(observer)){
             this.unlocked = true;
-            console.log("JR NOTE: TODO IMPLEMENT ABOVE COMMENT WITH TITLE")
+            AchivementPopupKickoff({title: this.title, text: this.aboveComment});
             observer.belowComment(this.title, this.belowComment);
         }
     }

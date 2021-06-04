@@ -62,7 +62,6 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>use reactdom render to make popups for above achivements</li>
         <li>have it so any time the player does ANYTHING it records it and checks for achivements</li>
         <li>achivements award skill points</li>
         <li>implement more achivment trigger types</li>
