@@ -9,6 +9,12 @@ export const SkillBox = styled.div`
     margin: 10px;
 `
 
+export const Observer = styled.span`
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: red;
+`;
+
 export const Skill = styled.div`
     border: 2px solid black;
     border-radius: 13px;
