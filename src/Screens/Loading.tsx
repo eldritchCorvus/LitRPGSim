@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import {Player} from "../Modules/Player";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent} from "./Styles";
+import {StatusHeader,StatusRow, StatusBlock,StatusContent, Observer} from "./Styles";
 interface LoadingProps{
     nextScreen: String;
     loadScreen: any; //function, feeling lazy
@@ -16,16 +16,18 @@ export const  LoadingScreen = (props: LoadingProps)=> {
 
     },[])
     return (
-    <StatusBlock>
-        <tbody>
-            <StatusRow>
-                <StatusHeader>Loading:</StatusHeader>
-                <StatusContent>Insert Procedural Hot tips here. (from themes etc???) (some sassy system messages???)</StatusContent>
-            </StatusRow>
+      
+        <StatusBlock>
+            <tbody>
+                <StatusRow>
+                    <StatusHeader>Loading:</StatusHeader>
+                    <StatusContent><Observer> Insert Procedural Hot tips here. (from themes etc???) (some sassy system messages???)</Observer></StatusContent>
+                </StatusRow>
 
-    </tbody>
+        </tbody>
 
 
 
-  </StatusBlock>);
+    </StatusBlock>
+  );
   }
