@@ -34,9 +34,9 @@ export class ObserverBot{
     initAchievements = () =>{
         //you get this one just for playing.
         //TODO have observer bot have custom insults/compliments based on your themes.
-        console.log("JR NOTE ob's player is ", this.player)
-        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),"Congratulations and Welcome to your new life in the wonderful world of Zampano! ",`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How droll. `);
+        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),"Congratulations and welcome to your new life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! ",`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How droll. `);
         this.possibleAchievements.push(tmp);
+        //TODO set up rest of achivements
     }
 
     /*
@@ -58,7 +58,7 @@ export class ObserverBot{
    }
 
    belowComment = (title: string, text: string)=>{
-       console.log(`%c${title}:%c  ${text}`, "color:red; font-size:25px;text-decoration:underline;","color:red; font-size:13px;");
+       console.log(`%c${title}:%c  ${text}`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;","font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
    }
 
 }

@@ -98,7 +98,6 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             //combine a skill with its neighbor, loop if necessary
             const skill = skills[i];
             const second_skill = i<skills.length-1? skills[i+1]:skills[0];
-            console.log("JR NOTE: combining", skill.name, "with", second_skill.name);
             const theme1 = all_themes[rand.getRandomElementFromArray(second_skill.theme_keys)];
             const theme2 = all_themes[rand.getRandomElementFromArray(skill.theme_keys)];
 

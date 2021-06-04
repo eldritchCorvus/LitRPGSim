@@ -21,6 +21,7 @@ export  class AchievementTrigger{
    * time spent in skill screen
    * time spent in achievement screen
    * time spent "walking" (it thinks holding wasd or arrows is walking)
+   * calling any of the hack methods in window
    */
 
    triggered = (observer: ObserverBot )=>{

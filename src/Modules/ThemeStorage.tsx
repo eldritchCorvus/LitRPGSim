@@ -31,6 +31,7 @@ export const keys = [CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY
 /*
 todo add keys for insults/compliments for each theme ObserverBot can apply to you.
 single word things like gross, predictable, boring, pretentious, etc.
+plus loading quips, mostly mundane, sometimes unsettling or aggressive
 */
 
 interface ThemeStatMap {
