@@ -27,6 +27,7 @@ export const Skill = styled.div`
 export const StatusBlock = styled.table`
     padding: 10px;
     margin: 10px;
+    background: white;
     border: 3px solid black;
     border-radius: 3px;
     width: 1000px;
