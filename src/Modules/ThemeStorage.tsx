@@ -139,14 +139,14 @@ const initNouns = () =>{
     noun_possibilities[BUGS] = ["bug","worm","fly","maggot","roach","swarm","plague","hive","locusts"];
     noun_possibilities[ADDICTION] = ["compulsion","habit","high","addiction","dependence"];
     noun_possibilities[SPYING] = ["eye","watcher","observer","ear","spy","camera","recording"];
-    noun_possibilities[CLOWNS] = ["clown","mime","jester","acrobat","circus","harlequin"];
+    noun_possibilities[CLOWNS] = ["clown","mime","jester","acrobat","circus","harlequin","ringmaster"];
     noun_possibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
     noun_possibilities[OBFUSCATION] = ["cover","blanket","cloak","disguise","costume"];
     noun_possibilities[DARKNESS] = ["darkness","night","void","nocturne","shadow","nothing"];
     noun_possibilities[KILLING] = ["murderer","blade","gun","assasin","killer"];
     noun_possibilities[MUSIC] = ["orchestra","overture","reprise","dirge","requiem","nocturne","concert","waltz","chant","hymn","fugue","note","instrument","song","serenade","leitmotif","anthem","encore","choir"];
     noun_possibilities[DEFENSE] = ["shield","armor","knight","paladin","defender","protector","page","soldier","warrior"];
-    noun_possibilities[QUESTING] = ["quest","goal","journey"];
+    noun_possibilities[QUESTING] = ["quest","goal","journey","seeker","adventure"];
 
 }
 
@@ -176,7 +176,7 @@ const initAdjs = () =>{
     adj_possibilities[KILLING] = ["killing","murderous","massacred"];
     adj_possibilities[MUSIC] = ["singing","dancing","playing"];
     adj_possibilities[DEFENSE] = ["defending","gallant","protecting"];
-    adj_possibilities[QUESTING] = ["questing","searching","exploring"];
+    adj_possibilities[QUESTING] = ["questing","searching","exploring","seeking"];
 }
 
 const initSuperNames = () =>{

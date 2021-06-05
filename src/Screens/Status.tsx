@@ -49,7 +49,7 @@ export const  StatusScreen = (props: StatusProps)=> {
             </StatusRow>
 
             <StatusRow>
-                <StatusHeader>Sub Titles:</StatusHeader>
+                <StatusHeader>Sub Titles:(TODO have these unlock later)</StatusHeader>
                 <StatusContent> {props.player.interests.map((interest)=>interest.chosen_name).join(",")}</StatusContent>
             </StatusRow>
 
