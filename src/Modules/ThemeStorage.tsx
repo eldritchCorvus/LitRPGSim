@@ -1,5 +1,13 @@
 import * as Stat from './Stat';
 
+//categories within a theme
+export const NOUN="noun";
+export const ADJ = "adj";
+export const COMPLIMENT = "compliment";
+export const INSULT = "insult";
+export const SUPERMOVE = "supermove";
+
+//themes
 export const ADDICTION = "addiction";
 export const SPYING = "spying";
 export const HEALING = "healing";
@@ -38,7 +46,7 @@ interface ThemeStatMap {
     [details: string] : Stat.Stat[];
 }
 
-interface ThemePossibilitiesMap {
+export interface ThemePossibilitiesMap {
     [details: string] : string[];
 }
 
@@ -46,6 +54,8 @@ interface ThemePossibilitiesMap {
 export let stats_map:ThemeStatMap = {};
 export let noun_possibilities:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
+export let insult_possibilities:ThemePossibilitiesMap = {};
+export let compliment_possibilities:ThemePossibilitiesMap = {};
 
 export let super_name_possibilities_map:ThemePossibilitiesMap = {};
 
@@ -66,6 +76,14 @@ export const checkIfAllKeysPresent = ()=>{
 
         if(!(key in super_name_possibilities_map)){
             console.error("JR NOTE: key", key, "not found in super_name_possibilities_map");
+        }
+
+        if(!(key in insult_possibilities)){
+            console.error("JR NOTE: key", key, "not found in insult_possibilities");
+        }
+
+        if(!(key in compliment_possibilities)){
+            console.error("JR NOTE: key", key, "not found in compliment_possibilities");
         }
     }
 
@@ -190,14 +208,73 @@ const initSuperNames = () =>{
     super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
 }
 
+//i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
+const initCompliments = () =>{
+    compliment_possibilities[HEALING] =  ["compassionate"];
+    compliment_possibilities[PLANTS] = ["nature loving"];
+    compliment_possibilities[DECAY] = ["practical"] ;
+    compliment_possibilities[CHOICES] =  ["considerate"] ;
+    compliment_possibilities[ZAP] = ["electifying"] ;
+    compliment_possibilities[LOVE] = ["loving"];
+    compliment_possibilities[SOUL] = ["introspective"] ;
+    compliment_possibilities[ANGER] = ["passionate"] ;
+    compliment_possibilities[WEB] =  ["strategic"] ;
+    compliment_possibilities[ROYALTY] =  ["prestigious"] ;
+    compliment_possibilities[ENDINGS] =  ["calm"] ;
+    compliment_possibilities[KNOWING] = ["intelligent"] ;
+    compliment_possibilities[GUIDING] = ["caring"] ;
+    compliment_possibilities[CRAFTING] =  ["creative"];
+    compliment_possibilities[LANGUAGE] = ["communicative"] ;
+    compliment_possibilities[BUGS] =  ["gentle"];
+    compliment_possibilities[ADDICTION] = ["compelling"];
+    compliment_possibilities[SPYING] =["observant"] ;
+    compliment_possibilities[CLOWNS] =["funny"] ;
+    compliment_possibilities[DOLLS] = ["playful "] ;
+    compliment_possibilities[OBFUSCATION] = ["mysterious"] ;
+    compliment_possibilities[DARKNESS] =  ["quiet"] ;
+    compliment_possibilities[KILLING] =  ["forthright"];
+    compliment_possibilities[MUSIC] =  ["talented"] ;
+    compliment_possibilities[DEFENSE] =  ["protective"] ;
+    compliment_possibilities[QUESTING] = ["goal-oriented"] ;
+}
+
+const initInsults = () =>{
+    insult_possibilities[HEALING] =  ["self-sacrificing"];
+    insult_possibilities[PLANTS] = ["awkward"];
+    insult_possibilities[DECAY] = ["morbid"] ;
+    insult_possibilities[CHOICES] =  ["indecisive"] ;
+    insult_possibilities[ZAP] = ["shocking"] ;
+    insult_possibilities[LOVE] = ["suffocating"];
+    insult_possibilities[SOUL] = ["self-obsessed"] ;
+    insult_possibilities[ANGER] = ["violent"] ;
+    insult_possibilities[WEB] =  ["controlling"] ;
+    insult_possibilities[ROYALTY] =  ["pompous"] ;
+    insult_possibilities[ENDINGS] =  ["dour"] ;
+    insult_possibilities[KNOWING] = ["paranoid"] ;
+    insult_possibilities[GUIDING] = ["condescending"] ;
+    insult_possibilities[CRAFTING] =  ["obsessive"];
+    insult_possibilities[LANGUAGE] = ["pendantic"] ;
+    insult_possibilities[BUGS] =  ["creepy"];
+    insult_possibilities[ADDICTION] = ["addled"];
+    insult_possibilities[SPYING] =["spying"] ;
+    insult_possibilities[CLOWNS] =["foolish"] ;
+    insult_possibilities[DOLLS] = ["childish "] ;
+    insult_possibilities[OBFUSCATION] = ["mysterious"] ;
+    insult_possibilities[DARKNESS] =  ["edgy"] ;
+    insult_possibilities[KILLING] =  ["murderous"];
+    insult_possibilities[MUSIC] =  ["tone-deaf"] ;
+    insult_possibilities[DEFENSE] =  ["helicoptering"] ;
+    insult_possibilities[QUESTING] = ["obsessive"] ;
+}
 
 
 
 export const initThemes = ()=>{
-    //TODO instead of  HEALING: [Stat.LIFE(1)] i need to do stats_map[HEALING]=[Stat.LIFE(1)] for each
     initStatsMap();
     initNouns();
     initAdjs();
     initSuperNames();
+    initInsults();
+    initCompliments();
     
 }

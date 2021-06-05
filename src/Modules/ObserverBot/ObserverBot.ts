@@ -1,6 +1,8 @@
 //It seems my reporting abilities are needed.
 
 import { Player } from "../Player";
+import { all_themes } from "../Theme";
+import { COMPLIMENT, INSULT } from "../ThemeStorage";
 import { Achievement } from "./Achievement";
 import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
 
@@ -18,9 +20,10 @@ export class ObserverBot{
     timePlayed = 0;
     timeWalking = 0; //wasd or arrows
     timesJumped = 0; //space bar
-    timesSkippedCutscene = 0; //esc
+    timesSkippedCutscene = 0; //enter
     friendsMade = 0;
     skillsUnlocked = 0;
+    errors = 0; //:) :) :) 
     possibleAchievements:Achievement[] = [];
     player: Player;
     unlocked_achivements = () =>{return this.possibleAchievements.filter((achievement) =>  {return achievement.unlocked })};
@@ -34,7 +37,11 @@ export class ObserverBot{
     initAchievements = () =>{
         //you get this one just for playing.
         //TODO have observer bot have custom insults/compliments based on your themes.
-        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),"Congratulations and welcome to your new life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! ",`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How droll. `);
+        const rand = this.player.rand;
+        const themes = this.player.theme_keys;
+        let compliment = all_themes[rand.getRandomElementFromArray(themes)].getPossibilitiesFor(COMPLIMENT);
+        let insult = all_themes[rand.getRandomElementFromArray(themes)].getPossibilitiesFor(INSULT);
+        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),`Congratulations and welcome to your new, ${compliment} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How ${insult}. Do try to keep me entertained. `);
         this.possibleAchievements.push(tmp);
         //TODO set up rest of achivements
     }
