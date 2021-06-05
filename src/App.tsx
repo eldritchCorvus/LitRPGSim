@@ -62,10 +62,12 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
+        <li>secondary titles pick an adjactive from your theme list to pair? something either saved or stable. Blazing Knight, etc.</li>
         <li>have it so any time the player does ANYTHING it records it and checks for achivements</li>
         <li>record every time you hit ESC as an error, make up a convincing error about menu.close not found.</li>
         <li>if errors build up enough, swap above and below text, regenerate skills filled with insults instead of nouns or adjs</li>
         <li>achivements award skill points</li>
+        <li>sub titles unlock only when you unlock skills related to them. you have to discover them, essentially</li>
         <li>implement more achivment trigger types</li>
         <li>actually compile this and put an experimental version on the web</li>
         <li>store hacking methods in the window.</li>
