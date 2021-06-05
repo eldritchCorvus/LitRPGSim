@@ -1,6 +1,10 @@
 import React, { Fragment } from "react";
 import {Player} from "../Modules/Player";
 import { Stat, StatMap } from "../Modules/Stat";
+import { all_themes } from "../Modules/Theme";
+import { ADJ } from "../Modules/ThemeStorage";
+import SeededRandom from "../Utils/SeededRandom";
+import { titleCase } from "../Utils/StringUtils";
 import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox} from "./Styles";
 interface StatusProps{
     player: Player;
@@ -50,7 +54,15 @@ export const  StatusScreen = (props: StatusProps)=> {
 
             <StatusRow>
                 <StatusHeader>Sub Titles:(TODO have these unlock later)</StatusHeader>
-                <StatusContent> {props.player.interests.map((interest)=>interest.chosen_name).join(",")}</StatusContent>
+                <StatusContent> {props.player.interests.map((interest)=>{
+                    let seed = 0; //todo sum all chars
+                    for(let i = 0; i<interest.chosen_name.length; i++){
+                        seed += interest.chosen_name.charCodeAt(i);
+                    }
+                    const rand = new SeededRandom(seed); //want it to be stable per interest but changing
+                    const theme = all_themes[rand.getRandomElementFromArray(props.player.theme_keys)];
+                return `${titleCase(theme.pickPossibilityFor(rand,ADJ))} ${interest.chosen_name}`;
+                }).join(",")}</StatusContent>
             </StatusRow>
 
             <StatusRow>
