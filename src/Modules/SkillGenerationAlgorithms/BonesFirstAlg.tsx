@@ -7,6 +7,7 @@ import { RPGClass } from "../RPGClass"
 import { CoreSkill, Skill, StatSkill } from "../Skill"
 import { all_stats } from "../Stat"
 import { all_themes, Theme } from "../Theme"
+import { SUPERMOVE } from "../ThemeStorage"
 import { SkillGenAlg } from "./SkillGenAlg"
 
 //generates the structure of the graph first, then fills it in
@@ -79,7 +80,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         for(const skill of possible){
             const theme = all_themes[rand.getRandomElementFromArray(skill.theme_keys)];
             const created_skill = new Skill([theme], rand)
-            created_skill.name = rand.getRandomElementFromArray(theme.super_name_possibilities);
+            created_skill.name = theme.pickPossibilityFor(rand,SUPERMOVE);
             this.assignChild(ret, skill,created_skill,rand);
             ret.push(created_skill);
         }
