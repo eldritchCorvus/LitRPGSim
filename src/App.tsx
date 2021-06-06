@@ -8,12 +8,14 @@ import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {initInterests } from "./Modules/Interest";
 import React, {useEffect, useState,Fragment} from 'react';
-import {STATUS, LOADING, SKILLGRAPH} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS} from "./Utils/constants";
 import { initStats } from "./Modules/Stat";
 import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { MenuBox } from "./Screens/Styles";
+import { StatisticsScreen } from "./Screens/Achivements";
+import { AchivementsScreen } from "./Screens/Statisics";
 
 
 const selectedTab = {
@@ -73,12 +75,6 @@ function App() {
     setNextScreen(screen);
     setCurrentScreen(LOADING);
   }
-  /*
-        {currentScreen === STATUS?<StatusScreen loadScreen={handleLoading} player={player}></StatusScreen>:null}
-      {currentScreen === SKILLGRAPH?<SkillGraphScreen  loadScreen={handleLoading} player={player}></SkillGraphScreen>:null}
-      {currentScreen === LOADING?<LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>:null}
-      
-  */
 
 
   if(!player){
@@ -110,11 +106,28 @@ function App() {
           setNextScreen(STATUS);
           setCurrentScreen(LOADING)}
           }>Status</Tab>
-              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>{
-          setNextScreen(SKILLGRAPH);
-      setCurrentScreen(LOADING)}
-      } {...tab}>
+              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>
+                {
+                  setNextScreen(SKILLGRAPH);
+                  setCurrentScreen(LOADING)}
+                } {...tab}>
                 Skills
+              </Tab>
+
+              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
+                {
+                  setNextScreen(STATISTICS);
+                  setCurrentScreen(LOADING)}
+                } {...tab}>
+                Statistics
+              </Tab>
+
+              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
+                {
+                  setNextScreen(ACHIEVEMENTS);
+                  setCurrentScreen(LOADING)}
+                } {...tab}>
+                Achivements
               </Tab>
             </TabList>
             <TabPanel {...tab}>
@@ -122,6 +135,16 @@ function App() {
             </TabPanel>
             <TabPanel {...tab}>
               {currentScreen === SKILLGRAPH?<SkillGraphScreen  loadScreen={handleLoading} player={player}></SkillGraphScreen>:null}
+
+            </TabPanel>
+
+            <TabPanel {...tab}>
+              {currentScreen === STATISTICS?<StatisticsScreen  loadScreen={handleLoading} player={player}></StatisticsScreen>:null}
+
+            </TabPanel>
+
+            <TabPanel {...tab}>
+              {currentScreen === ACHIEVEMENTS?<AchivementsScreen  loadScreen={handleLoading} player={player}></AchivementsScreen>:null}
 
             </TabPanel>
           </Fragment>
@@ -133,6 +156,7 @@ function App() {
       Fast TODO (yeah)
       <ul>
         <li>Achievements screen</li>
+        <li>statistics screen</li>
         <li>implement more achivment trigger types</li>
         <li>achivements award skill points</li>
         <li>record every time you hit ESC as an error, make up a convincing error about menu.close not found.</li>
