@@ -27,16 +27,18 @@ export const Skill = styled.div`
 export const StatusBlock = styled.div`
     padding: 10px;
     margin: 10px;
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
     background: white;
     border: 3px solid black;
-    border-radius: 3px;
+    border-radius: 13px;
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
     position: fixed;
     overflow: scroll;
     left: 25%;
-    height: 800px;
+    top: 5%;
+    height: 750px;
 `
 
 export const StatusHeader = styled.div`
