@@ -24,7 +24,7 @@ export const Skill = styled.div`
     margin: 10px;
 `
 
-export const StatusBlock = styled.table`
+export const StatusBlock = styled.div`
     padding: 10px;
     margin: 10px;
     background: white;
@@ -39,23 +39,23 @@ export const StatusBlock = styled.table`
     height: 800px;
 `
 
-export const StatusHeader = styled.td`
+export const StatusHeader = styled.div`
     font-weight: bold;
     width: 200px;
 `
 
-export const StatusContent = styled.td`
+export const StatusContent = styled.div`
     color: black;
 `
 
-export const TreeContent = styled.td`
+export const TreeContent = styled.div`
     color: black;
     height: 1000px;
     width: 1000px;
     overflow: hidden;
 `
 
-export const StatusRow = styled.tr `
+export const StatusRow = styled.div `
     display: flex;
     padding: 10px;
 `
