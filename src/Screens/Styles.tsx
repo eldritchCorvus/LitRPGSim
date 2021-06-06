@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+
 export const SkillBox = styled.div`
     border: 2px solid black;
     border-radius: 5px;
@@ -24,7 +25,7 @@ export const Skill = styled.div`
     margin: 10px;
 `
 
-export const StatusBlock = styled.div`
+export const MenuBox = styled.div`
     padding: 10px;
     margin: 10px;
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
@@ -38,6 +39,16 @@ export const StatusBlock = styled.div`
     overflow: scroll;
     left: 25%;
     top: 5%;
+    height: 750px;
+`
+
+export const StatusBlock = styled.div`
+    padding: 10px;
+    margin: 10px;
+    background: white;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     height: 750px;
 `
 

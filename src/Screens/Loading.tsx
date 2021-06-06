@@ -20,13 +20,13 @@ export const  LoadingScreen = (props: LoadingProps)=> {
     return (
       
         <StatusBlock>
-            <tbody>
+            <span>
                 <StatusRow>
                     <StatusHeader>Loading:</StatusHeader>
                     <StatusContent><Observer> Insert Procedural Hot tips here. (from themes etc???) (some sassy system messages???)</Observer></StatusContent>
                 </StatusRow>
 
-        </tbody>
+        </span>
 
 
 

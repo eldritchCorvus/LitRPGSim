@@ -31,7 +31,7 @@ export const  SkillTreeScreen = (props: SkillProps)=> {
 
     return(
         <StatusBlock>
-            <tbody>
+            <span>
                 <StatusRow>
                     <TreeContent>
                         <div id="treeWrapper" style={{ width: '950px', height: '1000px' }}>
@@ -39,7 +39,7 @@ export const  SkillTreeScreen = (props: SkillProps)=> {
                         </div>
                     </TreeContent>
                 </StatusRow>
-            </tbody>
+            </span>
         </StatusBlock>
     )
 }
