@@ -41,7 +41,7 @@ export const  StatusScreen = (props: StatusProps)=> {
 
     return (
     <StatusBlock>
-        <tbody>
+        <span>
             <StatusRow>
                 <StatusHeader>Name:</StatusHeader>
                 <StatusContent>Unknown (make this editable once)</StatusContent>
@@ -86,7 +86,7 @@ export const  StatusScreen = (props: StatusProps)=> {
                     <SkillBox>{props.player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill key={skill.name + i}>Skill {i}: {skill.name} </Skill>  )})}</SkillBox>
                 </StatusContent>
             </StatusRow>
-    </tbody>
+    </span>
 
 
 

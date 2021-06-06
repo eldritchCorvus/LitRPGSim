@@ -153,13 +153,13 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
 
     return(
         <StatusBlock>
-            <tbody>
+            <span>
                 <StatusRow>
                     <TreeContent>
                     <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '1000px', height: '1000px' }  }/>
                     </TreeContent>
                 </StatusRow>
-            </tbody>
+            </span>
         </StatusBlock>
     )
 }

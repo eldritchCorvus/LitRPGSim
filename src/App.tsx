@@ -7,11 +7,30 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {initInterests } from "./Modules/Interest";
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState,Fragment} from 'react';
 import {STATUS, LOADING, SKILLGRAPH} from "./Utils/constants";
 import { initStats } from "./Modules/Stat";
 import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
+import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
+import { MenuBox } from "./Screens/Styles";
+
+
+const selectedTab = {
+  "border": "1px solid black",
+  "background": "white",
+  "borderBottom": "none",
+  "borderRadius": "5px",
+  "borderBottomLeftRadius": "0px",
+  "borderBottomRightRadius": "0px",
+}
+
+const unSelectedTab = {
+  "border": "none",
+  "background": "white",
+  "borderBottom": "1px solid black",
+}
+
 function App() {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
@@ -40,10 +59,26 @@ function App() {
   }
   },[player])
 
+
+  const tab = useTabState();
+
+  //screen and tab should stay in sync plz
+  useEffect(()=>{
+    tab.setSelectedId(currentScreen);
+  }, [currentScreen])
+
   const handleLoading = (screen:string) =>{
     setNextScreen(screen);
     setCurrentScreen(LOADING);
   }
+  /*
+        {currentScreen === STATUS?<StatusScreen loadScreen={handleLoading} player={player}></StatusScreen>:null}
+      {currentScreen === SKILLGRAPH?<SkillGraphScreen  loadScreen={handleLoading} player={player}></SkillGraphScreen>:null}
+      {currentScreen === LOADING?<LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>:null}
+      
+  */
+
+
   if(!player){
     return <div>LOADING FOR REALSIES</div>
   }else{
@@ -61,9 +96,35 @@ function App() {
       setCurrentScreen(LOADING)}
       }>SKILLS</a>
 
-      {currentScreen === STATUS?<StatusScreen loadScreen={handleLoading} player={player}></StatusScreen>:null}
-      {currentScreen === SKILLGRAPH?<SkillGraphScreen  loadScreen={handleLoading} player={player}></SkillGraphScreen>:null}
-      {currentScreen === LOADING?<LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>:null}
+      <MenuBox>
+        {
+          currentScreen === LOADING?
+            <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>
+          :
+          <Fragment>
+            <TabList {...tab} aria-label="My tabs">
+              <Tab style={tab.selectedId == STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
+          //warning: since these are async this might not be the best idea.
+          setNextScreen(STATUS);
+          setCurrentScreen(LOADING)}
+          }>Status</Tab>
+              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>{
+          setNextScreen(SKILLGRAPH);
+      setCurrentScreen(LOADING)}
+      } {...tab}>
+                Skills
+              </Tab>
+            </TabList>
+            <TabPanel {...tab}>
+              {currentScreen === STATUS?<StatusScreen loadScreen={handleLoading} player={player}></StatusScreen>:null}
+            </TabPanel>
+            <TabPanel {...tab}>
+              {currentScreen === SKILLGRAPH?<SkillGraphScreen  loadScreen={handleLoading} player={player}></SkillGraphScreen>:null}
+
+            </TabPanel>
+          </Fragment>
+        }
+      </MenuBox>
 
       
 
