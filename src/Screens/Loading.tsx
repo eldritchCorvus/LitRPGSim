@@ -11,6 +11,8 @@ export const  LoadingScreen = (props: LoadingProps)=> {
         console.log("JR NOTE: use effect doing a timeout");
         setTimeout(()=>{
             console.log("JR NOTE: Timeout firing, going to try to change to", props.nextScreen);
+            (window as any).menuClick("LOADING");
+            (window as any).menuClick(props.nextScreen);
              props.loadScreen(props.nextScreen)
              }, 500);
 
