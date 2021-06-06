@@ -70,19 +70,14 @@ function App() {
       Fast TODO (yeah)
       <ul>
         <li>Achievements screen</li>
+        <li>implement more achivment trigger types</li>
+        <li>achivements award skill points</li>
         <li>record every time you hit ESC as an error, make up a convincing error about menu.close not found.</li>
         <li>if errors build up enough, swap above and below text, regenerate skills filled with insults instead of nouns or adjs</li>
-        <li>achivements award skill points</li>
         <li>sub titles unlock only when you unlock skills related to them. you have to discover them, essentially</li>
-        <li>implement more achivment trigger types</li>
         <li>actually compile this and put an experimental version on the web</li>
         <li>murder yellow text</li>
-        <li>stat skills diff color based on what stat (aspect shit man, add to init of stat)</li>
-        <li>skill color based on theme???</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
-        <li>experience system: clicking anything you have never clicked before (local storage?) gains you exp</li>
-        <li>level up system: set thresholds you are awarded skill poins</li>
-        <li>sassy achievement/loading system (ab?) (voice act?)</li>
         <li>skills that unlock other menu screens/upgrade them</li>
         <li>zero player game where you get little mini stories about what you 'did', like "used Medical Crown to heal a king" or whatever.  if the game were working PROPERLY it should praise you for whatever skill you've used the most, but obviously you've never used a single skill so it just picks one at random or glitches out. have console logs about ERORR NO FAVORIE SKILL FOUND etc.</li>
         <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
