@@ -23,7 +23,7 @@ export  class Interest{
         this.name_possibilities = name_possibilities;
         this.seeded_random = seeded_random;
         this.initStats(stats);
-        this.chosen_name = seeded_random.getRandomElementFromArray(this.name_possibilities);
+        this.chosen_name = seeded_random.pickFrom(this.name_possibilities);
         this.themes = themes;
         themes.forEach((theme) => {
             theme.initializeIfNecessary(1);

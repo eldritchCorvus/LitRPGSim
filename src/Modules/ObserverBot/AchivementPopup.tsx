@@ -44,6 +44,7 @@ export const PopupContent = styled.div`
 const  AchivementPopup = (props: AchivementProps)=> {
     const dialog = useDialogState();
     const [initialShowing, setInitialShowing] = useState(true);
+    const {title, text} = props;
     useEffect(()=>{
         if(initialShowing){
             dialog.setVisible(true);
@@ -51,13 +52,17 @@ const  AchivementPopup = (props: AchivementProps)=> {
         }
     },[initialShowing])
 
+    useEffect(()=>{
+            dialog.setVisible(true);    
+    },[title, text])
+
     return(
         <>
       <DialogDisclosure {...dialog}>Achivement Unlocked!!!</DialogDisclosure>
       <Dialog {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "50%", left:"28%", width: "800px" }}>
         <Popup>
-            <PopupTitle>{props.title}</PopupTitle>
-            <PopupContent>{props.text}</PopupContent>
+            <PopupTitle>{title}</PopupTitle>
+            <PopupContent>{text}</PopupContent>
         </Popup>
       </Dialog>
     </>

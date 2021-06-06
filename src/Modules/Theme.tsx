@@ -40,7 +40,7 @@ export   class Theme{
     }
 
     pickPossibilityFor=(rand: SeededRandom, key: string)=>{
-        return rand.getRandomElementFromArray(this.getPossibilitiesFor(key));
+        return rand.pickFrom(this.getPossibilitiesFor(key));
     }
 
     //takes in things like noun, adj, insult etc etc

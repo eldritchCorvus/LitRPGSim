@@ -50,14 +50,14 @@ export class ObserverBot{
         this.player = player;
         this.initAchievements();
         //yes its a poor mans redux, whatever
-        (window as any).recordAction =(action: ActionType)=>{
+        (window as any).recordAction =(action: ActionType, value: number)=>{
             console.log("TESTING", action, this.numClicks);
             if(action == CLICK){
-                this.incrementStat("numClicks", 1);
+                this.incrementStat("numClicks", value);
             }
         }
         window.onclick = ()=>{
-            (window as any).recordAction(CLICK)
+            (window as any).recordAction(CLICK,1)
         }
     }
 
@@ -66,29 +66,30 @@ export class ObserverBot{
         //TODO have observer bot have custom insults/compliments based on your themes.
         const rand = this.player.rand;
         const themes = this.player.theme_keys;
-        let compliment = all_themes[rand.getRandomElementFromArray(themes)].getPossibilitiesFor(COMPLIMENT);
-        let insult = all_themes[rand.getRandomElementFromArray(themes)].getPossibilitiesFor(INSULT);
-        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),`Congratulations and welcome to your new, ${compliment} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How ${insult}. Do try to keep me entertained. `);
+
+        let compliments = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(COMPLIMENT);
+        let insults = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(INSULT);
+        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),`Congratulations and welcome to your new, ${rand.pickFrom(compliments)} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. `);
         this.possibleAchievements.push(tmp);
         //TODO set up rest of achivements
-        const values = [0,10,100,1000];
+        const values = [1,10,100,1000];
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                0: "0 above",
-                10: "10 above",
-                100: "",
-                1000: ""
+                1: `Way to work that mouse button, you ${rand.pickFrom(compliments)} person, you!`,
+                10: "You're really getting going! Enjoying the menu, are you?",
+                100: "Wow, you're really cautious! Don't worry, the wonderful world of Zampanio will wait for you!",
+                1000: "... Seriously? Why aren't you playing..."
             },
             clickBelow: {
-                0: "0 below",
-                10: "10 below",
-                100: "",
-                1000: ""
+                1: "... Yes. You managed to click the mouse button. Once. I'm so happy for you.",
+                10: "Really. is the menu THAT interesting to you?",
+                100: "...Is something going on. Are you pranking me? Is something broken...",
+                1000: "Oh god. It seems something is broken. It HAS to be something you did. This setting was PERFECT."
             }
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Clicks!`, new NumberClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Menu Clicks!`, new NumberClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }

@@ -50,7 +50,7 @@ export   class Player{
         for(const key of Object.keys(all_stats)){
             //0 is baseline neutral human
             let values = [1,0,-1];
-            const skill = all_stats[key].copy(rand.getRandomElementFromArray(values));
+            const skill = all_stats[key].copy(rand.pickFrom(values));
             this.stats[skill.positiveName] = skill;
         }
         this.addStats(this.aspect.stats);
@@ -93,10 +93,10 @@ export   class Player{
 }
 
 export function randomPlayer(rand: SeededRandom){
-    const cl = rand.getRandomElementFromArray(Object.values(all_classes));
-    const ap= rand.getRandomElementFromArray(Object.values(all_aspects));
-    const i1 = rand.getRandomElementFromArray(Object.values(all_interests));
-    const i2 = rand.getRandomElementFromArray(Object.values(all_interests));
+    const cl = rand.pickFrom(Object.values(all_classes));
+    const ap= rand.pickFrom(Object.values(all_aspects));
+    const i1 = rand.pickFrom(Object.values(all_interests));
+    const i2 = rand.pickFrom(Object.values(all_interests));
 
     const ret = new Player(cl, ap, [i1,i2], rand);
     return ret;
