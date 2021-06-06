@@ -38,9 +38,11 @@ export const HUNTING = "hunting";
 export const ANGELS = "angels";
 export const LIGHT = "light";
 export const MAGIC = "magic";
+export const FAMILY = "family";
+export const SERVICE = "service";
 
 
-export const keys = [MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const keys = [SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 /*
 todo add keys for insults/compliments for each theme ObserverBot can apply to you.
@@ -98,6 +100,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
  const initStatsMap = () =>{
+    stats_map[SERVICE] = [Stat.HEART(1)] ;
+    stats_map[FAMILY] = [Stat.LIFE(1)] ;
     stats_map[MAGIC] = [Stat.HOPE(1)] ;
     stats_map[HUNTING] = [Stat.MIND(1)] ;
     stats_map[HEALING] = [Stat.LIFE(1)] ;
@@ -132,8 +136,10 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initNouns = () =>{
+    noun_possibilities[SERVICE] = ["butler","maid","lackey","minion","attendant","cleaner"];
     noun_possibilities[ANGELS] = ["angel","feather","guardian","cherub","arch-angel","messenger","spirit","blessing"];
     noun_possibilities[LIGHT] = ["light","glow","glare","illumination","gleam"];
+    noun_possibilities[FAMILY] = ["ancestor","father","mother","brother","sister","aunt","uncle","cousin","family"];
     noun_possibilities[MAGIC] = ["spell-circle","ritual","magic","spell","witchcraft","enchantment","incantation","spellbook","tome","incantation","glamour"];
     noun_possibilities[HUNTING] = ["hunter","stalker","predator","pursuer"];
     noun_possibilities[HEALING] = ["potion","bandage","doctor","nurse","healer","panacea","curative"];
@@ -158,7 +164,7 @@ const initNouns = () =>{
     noun_possibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
     noun_possibilities[OBFUSCATION] = ["cover","blanket","cloak","disguise","costume"];
     noun_possibilities[DARKNESS] = ["darkness","night","void","nocturne","shadow","nothing"];
-    noun_possibilities[KILLING] = ["murderer","blade","gun","assasin","killer"];
+    noun_possibilities[KILLING] = ["murderer","blade","gun","assasin","killer","blood","gore"];
     noun_possibilities[MUSIC] = ["orchestra","overture","reprise","dirge","requiem","nocturne","concert","waltz","chant","hymn","fugue","note","instrument","song","serenade","leitmotif","anthem","encore","choir"];
     noun_possibilities[DEFENSE] = ["shield","armor","knight","paladin","defender","protector","page","soldier","warrior"];
     noun_possibilities[QUESTING] = ["quest","goal","journey","seeker","adventure","hope","belief","faith","pilgrim"];
@@ -166,8 +172,10 @@ const initNouns = () =>{
 }
 
 const initAdjs = () =>{
+    adj_possibilities[SERVICE] =["service","serving","helping","obedient","humble","menial","servants"];
     adj_possibilities[ANGELS] =["angelic","feathery","holy","blessed"];
     adj_possibilities[MAGIC] =["magical","occult","enchanted","glamorous"];
+    adj_possibilities[FAMILY] =["father's","mothers's","brother's","sister's","aunt's","uncle's","family's","familial","ancestral","hereditary"];
     adj_possibilities[LIGHT] =["glowing","bright","shining","radiating","illuminating","gleaming","flickering","lusterous"];
     adj_possibilities[HEALING] = ["curative","medical","healing","curing","medicinal","restoring","fixing","mending","regenerating"];
     adj_possibilities[PLANTS] =["growing","sprouting","blossoming"];
@@ -192,7 +200,7 @@ const initAdjs = () =>{
     adj_possibilities[DOLLS] = ["delicate","beautiful","unsettling","playing","dressing"];
     adj_possibilities[OBFUSCATION] = ["hiding","hidden","obscured","confusing","blinding"];
     adj_possibilities[DARKNESS] = ["darkened","blackened","midnight","blinding"];
-    adj_possibilities[KILLING] = ["killing","murderous","massacred"];
+    adj_possibilities[KILLING] = ["killing","murderous","massacred","bloody","savage","blood-stained","gory","brutal"];
     adj_possibilities[MUSIC] = ["singing","dancing","playing"];
     adj_possibilities[DEFENSE] = ["defending","gallant","protecting"];
     adj_possibilities[QUESTING] = ["questing","searching","exploring","seeking","hopeful","faithful"];
@@ -200,6 +208,8 @@ const initAdjs = () =>{
 
 const initSuperNames = () =>{
     super_name_possibilities_map[ANGELS] =  ["End of Days"];
+    super_name_possibilities_map[SERVICE] =  ["Special Service"];
+    super_name_possibilities_map[FAMILY] =  ["Sins of the Father"];
     super_name_possibilities_map[MAGIC] =  ["Ritual of Ragnarok"];
     super_name_possibilities_map[LIGHT] =  ["Flash Bang"];
     super_name_possibilities_map[HEALING] =  ["Summon Phoenix"];
@@ -225,7 +235,7 @@ const initSuperNames = () =>{
     super_name_possibilities_map[DOLLS] = ["Automatonophobia "] ;
     super_name_possibilities_map[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     super_name_possibilities_map[DARKNESS] =  ["Night Eternal"] ;
-    super_name_possibilities_map[KILLING] =  ["Total War"];
+    super_name_possibilities_map[KILLING] =  ["Bloodbath"];
     super_name_possibilities_map[MUSIC] =  ["Symphonic Synthesia"] ;
     super_name_possibilities_map[DEFENSE] =  ["Excalibur"] ;
     super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
@@ -235,6 +245,9 @@ const initSuperNames = () =>{
 const initCompliments = () =>{
     compliment_possibilities[ANGELS] =  ["righteous"];
     compliment_possibilities[LIGHT] =  ["illuminating"];
+    compliment_possibilities[SERVICE] =  ["helpful"];
+    compliment_possibilities[FAMILY] =  ["loyal"];
+    compliment_possibilities[MAGIC] =  ["magical"];
     compliment_possibilities[HEALING] =  ["compassionate"];
     compliment_possibilities[PLANTS] = ["nature loving"];
     compliment_possibilities[HUNTING] = ["skilled"];
@@ -267,10 +280,13 @@ const initCompliments = () =>{
 const initInsults = () =>{
     insult_possibilities[ANGELS] =  ["self-righteous"];
     insult_possibilities[LIGHT] =  ["blinding"];
+    insult_possibilities[SERVICE] =  ["boot-licking"];
+    insult_possibilities[FAMILY] =  ["unstable"];
+    insult_possibilities[MAGIC] =  ["deluded"];
     insult_possibilities[HEALING] =  ["self-sacrificing"];
     insult_possibilities[PLANTS] = ["awkward"];
     insult_possibilities[HUNTING] = ["creepy stalker"];
-    insult_possibilities[DECAY] = ["morbid"] ;
+    insult_possibilities[DECAY] = ["corrupted"] ;
     insult_possibilities[CHOICES] =  ["indecisive"] ;
     insult_possibilities[ZAP] = ["shocking"] ;
     insult_possibilities[LOVE] = ["suffocating"];

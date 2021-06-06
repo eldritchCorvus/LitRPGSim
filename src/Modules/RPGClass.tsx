@@ -1,6 +1,6 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
-import { KNOWING, MAGIC, QUESTING } from './ThemeStorage';
+import { DEFENSE, FAMILY, KNOWING, MAGIC, QUESTING, ROYALTY, SERVICE } from './ThemeStorage';
 //TODO classes also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
 //or see stats (seer would especially be good at this)
@@ -63,7 +63,9 @@ export function initClasses(seeded_random: SeededRandom){
     new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
     new RPGClass("bard", ["Bard", "Singer", "Skald", "Teller", "Raconteur"],-2.0, seeded_random, [all_themes.clowns, all_themes.language,all_themes.music]);
     new RPGClass("knight", ["Angel","Guardian","Knight", "Warrior", "Protector", "Defender", "Swordsman","Soldier","Paladin"],-2.0, seeded_random, [all_themes.defense, all_themes.questing]);
-    new RPGClass("page", ["Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],-2.0, seeded_random, [all_themes[QUESTING],all_themes[KNOWING]]);
+    new RPGClass("page", ["Minion","Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],-2.0, seeded_random, [all_themes[QUESTING],all_themes[SERVICE]]);
     new RPGClass("mage", ["Mage","Wizard","Sorcerer", "Scholar", "Magus", "Enchanter","Warlock"],-2.0, seeded_random, [all_themes[MAGIC],all_themes[KNOWING]]);
+    new RPGClass("heir", ["Heir","Succesor","Inheiritor", "Scion", "Descendant"],-2.0, seeded_random, [all_themes[FAMILY],all_themes[ROYALTY]]);
+    new RPGClass("maid", ["Maid","Butler","Servant", "Shield-Maiden", "Valkyrie","Einherjar"],-2.0, seeded_random, [all_themes[SERVICE],all_themes[DEFENSE]]);
 
 }

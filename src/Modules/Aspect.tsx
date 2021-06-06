@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import * as Stat from './Stat';
 import {Theme, all_themes} from "./Theme";
-import { ANGELS, HUNTING, KILLING, KNOWING, LIGHT, QUESTING } from './ThemeStorage';
+import { ANGELS, FAMILY, HUNTING, KILLING, KNOWING, LIGHT, QUESTING } from './ThemeStorage';
 //TODO aspects also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
 //or see/upgrade your allies (blood would especially be good at this)
@@ -78,6 +78,7 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger]);
     new Aspect("hope", ["Hope", "Belief", "Faith", "Yearning"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(3)]), [all_themes[ANGELS],all_themes[QUESTING]]);
     new Aspect("light", ["Light", "Knowledge", "Attention", "Exposition"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(3)]), [all_themes[KNOWING],all_themes[LIGHT]]);
+    new Aspect("blood", ["Blood", "Bonds", "Family", "Chains","Connections","Fellowship","Ties","Union"], seeded_random, Stat.WrapStatsToStatMap([Stat.BLOOD(3)]), [all_themes[KILLING],all_themes[FAMILY]]);
 
     new Aspect("corruption", ["Love", "Corruption", "Toxicity", "Inserts", "Plague","Rot","Disgust","Bugs","Maggots","Worms"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.LIFE(1),Stat.HEART(1)]), [all_themes.decay, all_themes.bugs,all_themes.love]);
     new Aspect("web", ["Webs", "Spiders", "Fate", "Addiction"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.VOID(1),Stat.HEART(1)]), [all_themes.addiction, all_themes.web]);

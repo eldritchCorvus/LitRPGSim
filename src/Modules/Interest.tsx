@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
 import * as Stat from './Stat';
-import { ADDICTION, ANGELS, ANGER, BUGS, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, GUIDING, HEALING, KILLING, LIGHT, LOVE, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
+import { ADDICTION, ANGELS, ANGER, BUGS, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, GUIDING, HEALING, KILLING, LIGHT, LOVE, MAGIC, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
 
 interface InterestMap {
     [details: string] : Interest;
@@ -77,8 +77,10 @@ export function initInterests(seeded_random: SeededRandom){
     new Interest("decay", ["Zombie", "Corpse", "Ghoul","Lich","Undertaker","Mortician"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2)]),[all_themes[DECAY]]);
     new Interest("clown", ["Clown", "Mime", "Ringmaster","Acrobat","Jester","Harlequin"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(2)]),[all_themes[CLOWNS]]);
     new Interest("hunting", ["Hunter", "Nimrod", "Stalker","Hunstman","Predator"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(1), Stat.RAGE(1)]),[all_themes[CLOWNS]]);
-    new Interest("religion", ["ANGEL","Demi-God","Preacher", "Priest", "Chaplain","Rabbi","Monk","Nun","Abbot","Pastor","Reverend","Yogi","Druid"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(2)]),[all_themes[ANGELS]]);
+    new Interest("religion", ["Angel","Demi-God","Preacher", "Priest", "Chaplain","Rabbi","Monk","Nun","Abbot","Pastor","Reverend","Yogi","Druid"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(2)]),[all_themes[ANGELS]]);
     new Interest("light", ["Torch", "Spotlight", "Focus"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(2)]),[all_themes[LIGHT]]);
+    new Interest("magic", ["Magician", "Mage", "Illusionist","Wizard","Larper"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(2)]),[all_themes[MAGIC]]);
+    new Interest("family", ["Mother", "Father", "Brother","Sister","Aunt","Uncle"], seeded_random, Stat.WrapStatsToStatMap([Stat.BLOOD(2)]),[all_themes[FAMILY]]);
 
     /*
 export const CLOWNS = "clowns";*/
