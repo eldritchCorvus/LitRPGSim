@@ -21,7 +21,7 @@ export default class SeededRandom{
         return Math.floor(this.nextDouble() * (max - min + 1)) + min;
    }
 
-   getRandomElementFromArray=(array: any[])=>{
+   pickFrom=(array: any[])=>{
        return array[this.getRandomNumberBetween(0, array.length -1)];
    }
 

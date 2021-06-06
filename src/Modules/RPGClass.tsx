@@ -40,7 +40,7 @@ export  class RPGClass{
         this.name_possibilities = name_possibilities;
         this.stat_multiplier = stat_multiplier;
         this.seeded_random = seeded_random;
-        this.chosen_name = seeded_random.getRandomElementFromArray(this.name_possibilities);
+        this.chosen_name = seeded_random.pickFrom(this.name_possibilities);
         this.themes = themes;
         themes.forEach((theme) => {
             theme.initializeIfNecessary(3);

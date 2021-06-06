@@ -1,5 +1,5 @@
 import { removeItemOnce } from "../../Utils/ArrayUtils"
-import { getRandomElementFromArray } from "../../Utils/NonSeededRandUtils"
+import { pickFrom } from "../../Utils/NonSeededRandUtils"
 import SeededRandom from "../../Utils/SeededRandom"
 import { Aspect } from "../Aspect"
 import { Interest } from "../Interest"
@@ -20,8 +20,8 @@ export   class  BonesFirstAlg extends SkillGenAlg{
 
         if(skills.length > 0){
             const pickStat = (parent: Skill) =>{
-                const theme = all_themes[rand.getRandomElementFromArray(parent.theme_keys)];
-                return rand.getRandomElementFromArray(Object.values(theme.stats)).copy(parent.tier +1);
+                const theme = all_themes[rand.pickFrom(parent.theme_keys)];
+                return rand.pickFrom(Object.values(theme.stats)).copy(parent.tier +1);
             }
             const inBetween = new StatSkill(pickStat(parent),parent.tier+1);
             parent.children.push(inBetween); 
@@ -76,9 +76,9 @@ export   class  BonesFirstAlg extends SkillGenAlg{
     generateFinalTier=(skills: Skill[],rand: SeededRandom)=>{
         let ret:Skill[] = [];
         //pick three skills. generate max versions. don't care about repeats yet
-        const possible = [rand.getRandomElementFromArray(skills),rand.getRandomElementFromArray(skills),rand.getRandomElementFromArray(skills)];
+        const possible = [rand.pickFrom(skills),rand.pickFrom(skills),rand.pickFrom(skills)];
         for(const skill of possible){
-            const theme = all_themes[rand.getRandomElementFromArray(skill.theme_keys)];
+            const theme = all_themes[rand.pickFrom(skill.theme_keys)];
             const created_skill = new Skill([theme], rand)
             created_skill.name = theme.pickPossibilityFor(rand,SUPERMOVE);
             this.assignChild(ret, skill,created_skill,rand);
@@ -99,8 +99,8 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             //combine a skill with its neighbor, loop if necessary
             const skill = skills[i];
             const second_skill = i<skills.length-1? skills[i+1]:skills[0];
-            const theme1 = all_themes[rand.getRandomElementFromArray(second_skill.theme_keys)];
-            const theme2 = all_themes[rand.getRandomElementFromArray(skill.theme_keys)];
+            const theme1 = all_themes[rand.pickFrom(second_skill.theme_keys)];
+            const theme2 = all_themes[rand.pickFrom(skill.theme_keys)];
 
             if(theme1.key !== theme2.key){
                 let tmp = (this.generate_skill_x_times(2,[theme1, theme2], rand));
