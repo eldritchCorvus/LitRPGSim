@@ -5,6 +5,22 @@ import { all_themes } from "../Theme";
 import { COMPLIMENT, INSULT } from "../ThemeStorage";
 import { Achievement } from "./Achievement";
 import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
+import { NumberClicksTrigger } from "./AchievementTriggers/NumberClicks";
+
+export const CLICK = "CLICK";
+export const WALK = "WALK";
+export const JUMP = "JUMP";
+export const SKIP = "SKIP";
+export const UNLOCK_SKILL = "UNLOCK_SKILL";
+export const ERROR = "ERROR";
+
+export type ActionType = 'CLICK'|'WALK'|'JUMP'|'SKIP'|'UNLOCK_SKILL'|'ERROR';
+interface AchievementTextMapInner {
+    [details: number] : string;
+}
+interface AchievementTextMapOuter {
+    [details: string] : AchievementTextMapInner;
+}
 
 /* absolutely am going to lean on things like this.
  Jump skill has increased to _ERROR_ (“Jump skill not found”). You have earned the skill: Jump (Novice _ERROR_)! While others take the boring route, you hop, skip, and especially jump
@@ -26,12 +42,23 @@ export class ObserverBot{
     errors = 0; //:) :) :) 
     possibleAchievements:Achievement[] = [];
     player: Player;
+    
     unlocked_achivements = () =>{return this.possibleAchievements.filter((achievement) =>  {return achievement.unlocked })};
 
 
     constructor(player: Player){
         this.player = player;
         this.initAchievements();
+        //yes its a poor mans redux, whatever
+        (window as any).recordAction =(action: ActionType)=>{
+            console.log("TESTING", action, this.numClicks);
+            if(action == CLICK){
+                this.incrementStat("numClicks", 1);
+            }
+        }
+        window.onclick = ()=>{
+            (window as any).recordAction(CLICK)
+        }
     }
 
     initAchievements = () =>{
@@ -44,6 +71,27 @@ export class ObserverBot{
         const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),`Congratulations and welcome to your new, ${compliment} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How ${insult}. Do try to keep me entertained. `);
         this.possibleAchievements.push(tmp);
         //TODO set up rest of achivements
+        const values = [0,10,100,1000];
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                0: "0 above",
+                10: "10 above",
+                100: "",
+                1000: ""
+            },
+            clickBelow: {
+                0: "0 below",
+                10: "10 below",
+                100: "",
+                1000: ""
+            }
+
+        }
+        for(const value of values){
+            const tmp = new Achievement(`${value} Clicks!`, new NumberClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+         
+        }
     }
 
     /*
@@ -51,6 +99,7 @@ export class ObserverBot{
     */
     incrementStat = (statName:string, value: number)=>{
         (this as any)[statName] += value;
+        this.checkForAchievements();
    }
 
    checkForAchievements = ()=>{

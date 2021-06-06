@@ -34,7 +34,9 @@ export const CHOICES = "choices";
 export const DECAY = "decay";
 export const PLANTS = "plants";
 export const CLOWNS = "clowns";
-export const keys = [CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const HUNTING = "hunting";
+
+export const keys = [HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 /*
 todo add keys for insults/compliments for each theme ObserverBot can apply to you.
@@ -92,6 +94,7 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
  const initStatsMap = () =>{
+    stats_map[HUNTING] = [Stat.MIND(1)] ;
     stats_map[HEALING] = [Stat.LIFE(1)] ;
     stats_map[PLANTS] = [Stat.LIFE(1)] ;
     stats_map[DECAY] = [Stat.DOOM(1)] ;
@@ -121,6 +124,7 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initNouns = () =>{
+    noun_possibilities[HUNTING] = ["hunter","stalker","predator","pursuer"];
     noun_possibilities[HEALING] = ["potion","bandage","doctor","nurse","healer","panacea","curative"];
     noun_possibilities[PLANTS] =["leaf","flower","root","vine","branch","tree","meadow","forest"];
     noun_possibilities[DECAY] = ["rot","decay","corruption","entropy"];
@@ -153,6 +157,7 @@ const initNouns = () =>{
 const initAdjs = () =>{
     adj_possibilities[HEALING] = ["curative","medical","healing","curing","medicinal","restoring","fixing","mending","regenerating"];
     adj_possibilities[PLANTS] =["growing","sprouting","blossoming"];
+    adj_possibilities[HUNTING] =["hunting","chasing","following","stalking"];
     adj_possibilities[DECAY] = ["decaying","rotting","crumbling","decomposing","festering","languishing","corrupting"];
     adj_possibilities[CHOICES] = ["choosing","branching","selecting"];
     adj_possibilities[ZAP] = ["zapping","jolting","shocking","electrical"];
@@ -182,6 +187,7 @@ const initAdjs = () =>{
 const initSuperNames = () =>{
     super_name_possibilities_map[HEALING] =  ["Summon Phoenix"];
     super_name_possibilities_map[PLANTS] = ["Forest's March"];
+    super_name_possibilities_map[HUNTING] = ["Nimrod's Chase"];
     super_name_possibilities_map[DECAY] = ["Mass Grave"] ;
     super_name_possibilities_map[CHOICES] =  ["Alternate Timeline"] ;
     super_name_possibilities_map[ZAP] = ["Thor's Banana"] ;
@@ -212,6 +218,7 @@ const initSuperNames = () =>{
 const initCompliments = () =>{
     compliment_possibilities[HEALING] =  ["compassionate"];
     compliment_possibilities[PLANTS] = ["nature loving"];
+    compliment_possibilities[HUNTING] = ["skilled"];
     compliment_possibilities[DECAY] = ["practical"] ;
     compliment_possibilities[CHOICES] =  ["considerate"] ;
     compliment_possibilities[ZAP] = ["electifying"] ;
@@ -241,6 +248,7 @@ const initCompliments = () =>{
 const initInsults = () =>{
     insult_possibilities[HEALING] =  ["self-sacrificing"];
     insult_possibilities[PLANTS] = ["awkward"];
+    insult_possibilities[HUNTING] = ["creepy stalker"];
     insult_possibilities[DECAY] = ["morbid"] ;
     insult_possibilities[CHOICES] =  ["indecisive"] ;
     insult_possibilities[ZAP] = ["shocking"] ;
