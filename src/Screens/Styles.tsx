@@ -33,7 +33,10 @@ export const StatusBlock = styled.table`
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    height: 1000px;
+    position: fixed;
+    overflow: scroll;
+    left: 25%;
+    height: 800px;
 `
 
 export const StatusHeader = styled.td`
