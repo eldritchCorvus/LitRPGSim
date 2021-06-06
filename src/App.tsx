@@ -18,6 +18,7 @@ import { MenuBox } from "./Screens/Styles";
 
 const selectedTab = {
   "border": "1px solid black",
+  "fontSize":"24px",
   "background": "white",
   "borderBottom": "none",
   "borderRadius": "5px",
@@ -27,6 +28,7 @@ const selectedTab = {
 
 const unSelectedTab = {
   "border": "none",
+  "fontSize":"24px",
   "background": "white",
   "borderBottom": "1px solid black",
 }

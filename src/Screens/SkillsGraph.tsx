@@ -27,6 +27,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
 
      useEffect(()=>{
          if(cy){
+            cy.pan({ x: 50, y: -1000 });
             cy.on('click', 'node', (event:any) => {
                 console.log(event.target)
                 props.player.unlockSkill(event.target.id());
