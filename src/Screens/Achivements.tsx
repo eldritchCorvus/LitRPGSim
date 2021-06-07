@@ -5,7 +5,7 @@ import { all_themes } from "../Modules/Theme";
 import { ADJ } from "../Modules/ThemeStorage";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox} from "./Styles";
+import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, Achivement, UnlockedAchivement} from "./Styles";
 interface StatusProps{
     player: Player;
     loadScreen: any; //function
@@ -20,13 +20,20 @@ interface StatProps{
 }
 
 export const  AchivementsScreen = (props: StatusProps)=> {
+    const observer = props.player.observer;
 
     return (
     <StatusBlock>
         <span>
-            <StatusRow>
-                <StatusHeader>TODO:</StatusHeader>
-                <StatusContent>Achivements</StatusContent>
+        <StatusRow>
+                <StatusHeader>Achivements:</StatusHeader>
+                <StatusContent>  
+                    <SkillBox>{observer.possibleAchievements.map((achivement,i) => {return ( 
+                        achivement.unlocked ?                      
+                            <UnlockedAchivement onClick={()=>{achivement.display(observer)}} key={achivement.title + i}>{i}: {achivement.title} </UnlockedAchivement>
+                            :  <Achivement key={achivement.title + i}><span style={{"visibility":"hidden"}} >{i}: {achivement.title} </span></Achivement>
+                      )})}</SkillBox>
+                </StatusContent>
             </StatusRow>
 
 

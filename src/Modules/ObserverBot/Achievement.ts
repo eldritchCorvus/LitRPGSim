@@ -20,11 +20,15 @@ export  class Achievement{
         this.belowComment = belowComment;
     }
 
+    display = (observer:ObserverBot) =>{
+        AchivementPopupKickoff({title: this.title, text: this.aboveComment});
+        observer.belowComment(this.title, this.belowComment);
+    }
+
     checkForUnlock = (observer:ObserverBot)=>{
         if(this.trigger.triggered(observer)){
             this.unlocked = true;
-            AchivementPopupKickoff({title: this.title, text: this.aboveComment});
-            observer.belowComment(this.title, this.belowComment);
+            this.display(observer);
         }
     }
 

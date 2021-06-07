@@ -16,6 +16,26 @@ export const Observer = styled.span`
     color: red;
 `;
 
+export const Achivement = styled.div`
+    border: 2px solid #eee;
+    border-radius: 13px;
+    padding: 5px;
+    background: #eee;
+    color: #eee;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin: 10px;
+`
+
+export const UnlockedAchivement = styled.div`
+    border: 2px solid black;
+    border-radius: 13px;
+    padding: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin: 10px;
+`
+
 export const Skill = styled.div`
     border: 2px solid black;
     border-radius: 13px;
@@ -32,12 +52,12 @@ export const MenuBox = styled.div`
     background: white;
     border: 3px solid black;
     border-radius: 13px;
-    width: 1000px;
+    width: 1200px;
     margin-left: auto;
     margin-right: auto;
     position: fixed;
     overflow: scroll;
-    left: 25%;
+    left: 15%;
     top: 5%;
     height: 750px;
 `
