@@ -14,8 +14,8 @@ import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { MenuBox } from "./Screens/Styles";
-import { StatisticsScreen } from "./Screens/Achivements";
-import { AchivementsScreen } from "./Screens/Statisics";
+import { StatisticsScreen } from "./Screens/Statisics";
+import { AchivementsScreen } from "./Screens/Achivements";
 
 
 const selectedTab = {

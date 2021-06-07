@@ -19,17 +19,14 @@ interface StatProps{
     stat: Stat;
 }
 
-export const  StatisticsScreen = (props: StatusProps)=> {
-
-
-
+export const  AchivementsScreen = (props: StatusProps)=> {
 
     return (
     <StatusBlock>
         <span>
             <StatusRow>
                 <StatusHeader>TODO:</StatusHeader>
-                <StatusContent>Stats</StatusContent>
+                <StatusContent>Achivements</StatusContent>
             </StatusRow>
 
 
