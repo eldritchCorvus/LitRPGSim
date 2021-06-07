@@ -22,7 +22,7 @@ const selectedTab = {
   "border": "1px solid black",
   "fontSize":"24px",
   "background": "white",
-  "borderBottom": "none",
+  "borderBottom": "2px solid white",
   "borderRadius": "5px",
   "borderBottomLeftRadius": "0px",
   "borderBottomRightRadius": "0px",
@@ -32,7 +32,6 @@ const unSelectedTab = {
   "border": "none",
   "fontSize":"24px",
   "background": "white",
-  "borderBottom": "1px solid black",
 }
 
 function App() {
@@ -100,7 +99,7 @@ function App() {
             <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>
           :
           <Fragment>
-            <TabList {...tab} aria-label="My tabs">
+            <TabList style={{borderBottom:"1px solid black"}} {...tab} aria-label="My tabs">
               <Tab style={tab.selectedId == STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
           //warning: since these are async this might not be the best idea.
           setNextScreen(STATUS);
@@ -114,7 +113,7 @@ function App() {
                 Skills
               </Tab>
 
-              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
+              <Tab style={tab.selectedId == STATISTICS?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
                 {
                   setNextScreen(STATISTICS);
                   setCurrentScreen(LOADING)}
@@ -122,7 +121,7 @@ function App() {
                 Statistics
               </Tab>
 
-              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
+              <Tab style={tab.selectedId == ACHIEVEMENTS?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
                 {
                   setNextScreen(ACHIEVEMENTS);
                   setCurrentScreen(LOADING)}

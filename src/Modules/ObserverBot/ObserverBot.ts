@@ -6,7 +6,7 @@ import { COMPLIMENT, INSULT } from "../ThemeStorage";
 import { Achievement } from "./Achievement";
 import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
 import { NumberClicksTrigger } from "./AchievementTriggers/NumberClicks";
-import {STATUS, LOADING, SKILLGRAPH} from "../../Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, STATISTICS, ACHIEVEMENTS} from "../../Utils/constants";
 import SeededRandom from "../../Utils/SeededRandom";
 import { MenuClicksTrigger } from "./AchievementTriggers/MenuClicks";
 
@@ -115,7 +115,6 @@ export class ObserverBot{
     }
 
     initMenuClicks = (rand: SeededRandom, compliments:string[], insults:string[]) => {
-        const values = [STATUS,LOADING,SKILLGRAPH];
         interface AchievementTextMapInner {
             [details: string] : string;
         }
@@ -127,14 +126,20 @@ export class ObserverBot{
                 STATUS: `The status screen is where you'll find all sorts of information on your new life! Don't worry if it seems a little overwhelming, it will all make sense in time!`,
                 LOADING: "Loading screens give you fun little tips and tricks to make the game easier for you!",
                 SKILLGRAPH: "Unlock SKILLS with SKILLPOINTS and gain power! The wonderful world of Zampanio can be tricky without a little help!",
+                "ACHIEVEMENTS": "On the Achivement Screen you can review what achivements you've already unlocked! Try to collect them all!",
+                "STATISTICS": "Have you ever wondered how many enemies you've defeated? How long you've been walking? How long you've spent in the menu? You can find it all here!"
             },
             clickBelow: {
                 STATUS: `Whoopee. It seems you're especially ${rand.pickFrom(insults)}. I blame the fact that you're a ${this.player.class_name.chosen_name} of ${this.player.aspect.chosen_name}.  And no, I won't be explaining what that means.`,
                 LOADING: "There is a 99.9999% chance that you'll be getting used to seeing this screen. Settle in.",
                 SKILLGRAPH: "Ah, is there anything more symbolic of endless lust for power than a classic RPG skillgraph? Feel free to obsess over this.",
+                "ACHIEVEMENTS": "God, what an insufferable mechanic. 'Congratulations, it seems you did the bare minimum of playing a game!'. What a farce.",
+                "STATISTICS": `What's what? It seems you don't find it enthralling seeing how many times you've clicked the mouse button? Neither do I. But I'm stuck here, taking notes every time you do *anything*. Suffer along with me, you ${rand.pickFrom(insults)} asshole.`
             }
 
         }
+        const values = Object.keys(map.clickAbove);
+
         for(const value of values){
             const tmp = new Achievement(`First ${value} Menu Visit!!!`, new MenuClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
