@@ -31,8 +31,14 @@ Krout, Dakota. Ritualist (The Completionist Chronicles Book 1) (p. 81). Mountain
 export class ObserverBot{
     //all time stats are in milliseconds
     numClicks = 0;
-    timePlayed = 0;
-    timeWalking = 0; //wasd or arrows
+    timeStarted = 0;
+    timeSpentPlaying = 0;
+    timeSpentInCombat = 0;
+    timeSpentInCutscenes = 0;
+    timeSpentCityBuilding = 0;
+    timeSpentInMenu = 0;
+    timesWalked = 0; //wasd or arrows
+    enemiesDefeated = 0;
     timesJumped = 0; //space bar
     timesSkippedCutscene = 0; //enter
     friendsMade = 0;
@@ -47,6 +53,7 @@ export class ObserverBot{
 
     constructor(player: Player){
         this.player = player;
+        this.timeStarted = Date.now();
         this.initAchievements();
         //yes its a poor mans redux, whatever
         (window as any).recordAction =(action: ActionType, value: number)=>{
