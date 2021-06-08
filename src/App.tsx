@@ -74,6 +74,15 @@ function App() {
     setNextScreen(screen);
     setCurrentScreen(LOADING);
   }
+  /*
+  The Layers:
+
+* A normal RPG :) :) :)
+* okay so you can't close the menu but you CAN unlock skills and new menus and that's kind of fun. Hey look, you got the credits for finishing your skill tree!
+* uh. What's this glitchy looking thing?  (on first playthrough if you proc waste it instead picks something else, subsequent playthroughs  you can access it) (can call skills from window directly as a waste or when unlocking them they fire for non wastes)
+* OH GOD WHY IS IT ANGRY.
+*  hack react to be broken (put the screens or something into window so they can be deleted/fucked up?), allows some force that likes you to contact you, when instead they were being drowned out by the achivement system that hates you.
+  */
 
 
   if(!player){
@@ -154,8 +163,13 @@ function App() {
 
       Fast TODO (yeah)
       <ul>
-        <li>wire up more of the stats. why is time started not working? display time correctly</li>
+        <li>wire up more of the stats. why isn't achivements unlocked working? why is time started not working? display time correctly</li>
         <li>record every time you hit ESC as an error, make up a convincing error about menu.close not found.</li>
+        <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
+        <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
+        <li>rage mode inverts above and below, has fractal sim as bg, no longer pretending to be a game (css filters, fuck up the layout, etc. the PARTS of the game are all there but assembled and twisted and stretched out and WRONG, unfolding elongated and distorting) it HATES you</li>
+        <li>option menu with menu opacity slider (blurring effect)</li>
+        <li>later, make it so if its your first playthrough (check local storage) and you get waste class it changes to something else.</li>
         <li>implement more achivment trigger types</li>
         <li>achivements award skill points</li>
         <li>if errors build up enough, swap above and below text, regenerate skills filled with insults instead of nouns or adjs</li>
