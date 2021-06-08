@@ -83,7 +83,7 @@ export const  StatusScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Unlocked Skills:</StatusHeader>
                 <StatusContent>  
-                    <SkillBox>{props.player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill key={skill.name + i}>Skill {i}: {skill.name} </Skill>  )})}</SkillBox>
+                    <SkillBox>{props.player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill key={skill.name + i}>{i}: {skill.name} </Skill>  )})}</SkillBox>
                 </StatusContent>
             </StatusRow>
     </span>
