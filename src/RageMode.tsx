@@ -7,6 +7,7 @@ function RageMode() {
 /*
   fractals and glitches and warping and elongating and everything is *wrong*  
 */
+
   
   /*
   rather than procedural css sbajifying everything, take EXISTING things that look okay and start 
@@ -40,14 +41,21 @@ function RageMode() {
     }
 
     const beginFuckingShitUp = (numCalls = 0)=>{
-      const root = document.querySelector('body');
+      const root = document.querySelector('#root');
       if(root){
         const children = root.querySelectorAll("*");
-        fuckShitUp(root, numCalls);
+        fuckShitUp(root as HTMLElement, numCalls);
         children.forEach((child)=>fuckShitUp(child as HTMLElement, numCalls));
         setTimeout(()=>{
           window.requestAnimationFrame(()=>{beginFuckingShitUp(numCalls+1)})}, 500);
       }
+
+      const body = document.querySelector('body') as HTMLElement;
+      if(body){
+        body.style.background = "black";
+        body.style.color = "red";    
+      }
+
     }
     useEffect(()=>{
       (window as any).rageMode = true;
