@@ -45,6 +45,7 @@ const  AchivementPopup = (props: AchivementProps)=> {
     const dialog = useDialogState();
     const [initialShowing, setInitialShowing] = useState(true);
     const {title, text} = props;
+    const {visible} = dialog;
     useEffect(()=>{
         if(initialShowing){
             dialog.setVisible(true);
@@ -55,6 +56,15 @@ const  AchivementPopup = (props: AchivementProps)=> {
     useEffect(()=>{
             dialog.setVisible(true);    
     },[title, text])
+
+    useEffect(()=>{
+        const root = document.querySelector("#root")
+        if(visible && root){
+            (root as HTMLElement).style.filter = "blur(3px)";
+        }else{
+            (root as HTMLElement).style.filter = "blur(0px)";
+        }
+    },[visible])
 
     return(
         <>
