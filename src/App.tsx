@@ -82,7 +82,6 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>SET UP DEPLOYS SO PPL CAN SEE RAGE MODE</li>
         <li>wire up more of the stats. why isn't achivements unlocked working? why is time started not working? display time correctly</li>
         <li>record every time you hit ESC as an error, make up a convincing error about menu.close not found.</li>
         <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
@@ -94,7 +93,6 @@ function App() {
         <li>achivements award skill points</li>
         <li>if errors build up enough, swap above and below text, regenerate skills filled with insults instead of nouns or adjs</li>
         <li>sub titles unlock only when you unlock skills related to them. you have to discover them, essentially</li>
-        <li>actually compile this and put an experimental version on the web</li>
         <li>murder yellow text</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
         <li>skills that unlock other menu screens/upgrade them</li>

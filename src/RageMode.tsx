@@ -15,10 +15,11 @@ function RageMode() {
     const fuckShitUp = (shit:HTMLElement, numCalls: number )=>{
       shit.style.background = "black";
       shit.style.color = "red";
+    
       const children = shit.querySelectorAll("*");
 
       const ratio = Math.min(255,numCalls)/255; //get worse over time :) :) :)
-      const filters = [`saturate(${getRandomNumberBetween(0,100*ratio)}%)`,`opacity(${getRandomNumberBetween(10,99*ratio)}%)`,`invert(${getRandomNumberBetween(0,100*ratio)}%)`,`blur(${getRandomNumberBetween(1,3)}px)`,`contrast(${getRandomNumberBetween(0,300*ratio)}%)`,`grayscale(${getRandomNumberBetween(0,100*ratio)}%)`,`hue-rotate(${getRandomNumberBetween(1,360*ratio)}deg)`,"drop-shadow(2px 2px 2px red)"];
+      const filters = [`saturate(${getRandomNumberBetween(0,100*ratio)}%)`,`opacity(${getRandomNumberBetween(10,99*ratio)}%)`,`invert(${getRandomNumberBetween(0,100*ratio)}%)`,`blur(${getRandomNumberBetween(1,3)}px)`,`grayscale(${getRandomNumberBetween(0,100*ratio)}%)`,`hue-rotate(${getRandomNumberBetween(1,360*ratio)}deg)`,"drop-shadow(2px 2px 2px red)"];
       const mildFilters = [`opacity(${getRandomNumberBetween(80,99)}%)`,`blur(${getRandomNumberBetween(0,5)}px)`,`grayscale(${getRandomNumberBetween(0,10)}%)`,`hue-rotate(${getRandomNumberBetween(1,2)}deg)`,"drop-shadow(2px 2px 2px red)"];
 
       const transforms = [`scale(${getRandomNumberBetween(1,3*ratio)}, ${Math.random()*ratio})`,`rotate(${Math.random()*ratio}turn)`,`skew(${getRandomNumberBetween(1,360*ratio)}deg, ${getRandomNumberBetween(1,360*ratio)}deg)`];
@@ -44,7 +45,8 @@ function RageMode() {
         const children = root.querySelectorAll("*");
         fuckShitUp(root, numCalls);
         children.forEach((child)=>fuckShitUp(child as HTMLElement, numCalls));
-        setTimeout(()=>{beginFuckingShitUp(numCalls+1)}, 500);
+        setTimeout(()=>{
+          window.requestAnimationFrame(()=>{beginFuckingShitUp(numCalls+1)})}, 500);
       }
     }
     useEffect(()=>{

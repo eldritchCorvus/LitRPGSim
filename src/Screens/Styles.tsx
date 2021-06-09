@@ -6,6 +6,17 @@ export const SkillBox = styled.div`
     border-radius: 5px;
     padding: 5px;
     display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+    margin: 10px;
+`
+
+export const AchivementBox = styled.div`
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    width: 600px;
     flex-wrap: wrap;
     margin: 10px;
 `
@@ -52,24 +63,23 @@ export const MenuBox = styled.div`
     background: white;
     border: 3px solid black;
     border-radius: 13px;
-    width: 1200px;
+    width: 900px;
     margin-left: auto;
     margin-right: auto;
     position: fixed;
-    overflow: scroll;
+    overflow: auto;
     left: 15%;
     top: 5%;
-    height: 750px;
+    height: 600px;
 `
 
 export const StatusBlock = styled.div`
     padding: 10px;
     margin: 10px;
     background: white;
-    width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    height: 750px;
+    height: 500px;
 `
 
 export const StatusHeader = styled.div`
