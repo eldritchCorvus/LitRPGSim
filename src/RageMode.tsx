@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { MenuBox } from "./Screens/Styles";
+import { pickFrom } from "./Utils/NonSeededRandUtils";
 
 function RageMode() {
   
@@ -15,6 +16,8 @@ function RageMode() {
       shit.style.background = "black";
       shit.style.color = "red";
 
+      const filters = ["blur(5px)","contrast(200%)","grayscale(80%)","hue-rotate(90deg)","drop-shadow(16px 16px 20px red) invert(75%)"];
+      shit.style.filter = pickFrom(filters);
     }
     useEffect(()=>{
       const root = document.querySelector('body');
