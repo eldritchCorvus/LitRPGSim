@@ -82,7 +82,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>RAGE MODE</li>
+        <li>SET UP DEPLOYS SO PPL CAN SEE RAGE MODE</li>
         <li>wire up more of the stats. why isn't achivements unlocked working? why is time started not working? display time correctly</li>
         <li>record every time you hit ESC as an error, make up a convincing error about menu.close not found.</li>
         <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
