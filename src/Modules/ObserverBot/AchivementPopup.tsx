@@ -58,8 +58,8 @@ const  AchivementPopup = (props: AchivementProps)=> {
 
     return(
         <>
-      <DialogDisclosure {...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "50%", left:"28%", width: "800px" }}>
+      <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
+      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px" }}>
         <Popup>
             <PopupTitle>{title}</PopupTitle>
             <PopupContent>{text}</PopupContent>
