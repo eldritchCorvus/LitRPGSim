@@ -46,6 +46,7 @@ const  AchivementPopup = (props: AchivementProps)=> {
     const [initialShowing, setInitialShowing] = useState(true);
     const {title, text} = props;
     const {visible} = dialog;
+    const bg = (window as any).rageMode?"black":"white";
     useEffect(()=>{
         if(initialShowing){
             dialog.setVisible(true);
@@ -69,8 +70,8 @@ const  AchivementPopup = (props: AchivementProps)=> {
     return(
         <>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px" }}>
-        <Popup>
+      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
+        <Popup style={{background: bg}}>
             <PopupTitle>{title}</PopupTitle>
             <PopupContent>{text}</PopupContent>
         </Popup>
