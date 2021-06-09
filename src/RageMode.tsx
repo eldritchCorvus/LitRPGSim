@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { MenuBox } from "./Screens/Styles";
-import { pickFrom } from "./Utils/NonSeededRandUtils";
+import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
 
 function RageMode() {
   
@@ -16,16 +16,25 @@ function RageMode() {
       shit.style.background = "black";
       shit.style.color = "red";
 
-      const filters = ["blur(5px)","contrast(200%)","grayscale(80%)","hue-rotate(90deg)","drop-shadow(16px 16px 20px red) invert(75%)"];
-      shit.style.filter = pickFrom(filters);
+      const filters = [`invert(${getRandomNumberBetween(0,100)}%)`,`blur(${getRandomNumberBetween(1,5)}px)`,`contrast(${getRandomNumberBetween(0,300)}%)`,`grayscale(${getRandomNumberBetween(0,100)}%)`,`hue-rotate(${getRandomNumberBetween(1,360)}deg)`,"drop-shadow(2px 2px 2px red)"];
+      if(Math.random() >.9){
+        shit.style.filter = pickFrom(filters);
+      }
+      //todo fuck with transforms
     }
-    useEffect(()=>{
+
+    const beginFuckingShitUp = ()=>{
       const root = document.querySelector('body');
       if(root){
         const children = root.querySelectorAll("*");
         fuckShitUp(root);
         children.forEach((child)=>fuckShitUp(child as HTMLElement));
+        setTimeout(beginFuckingShitUp, 500);
       }
+    }
+    useEffect(()=>{
+      (window as any).rageMode = true;
+      beginFuckingShitUp();
 
     },[])
 
