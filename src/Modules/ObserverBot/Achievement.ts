@@ -21,8 +21,11 @@ export  class Achievement{
     }
 
     display = (observer:ObserverBot) =>{
-        AchivementPopupKickoff({title: this.title, text: this.aboveComment});
-        observer.belowComment(this.title, this.belowComment);
+        const above = (window as any).rageMode?this.belowComment: this.aboveComment;
+        const below = (window as any).rageMode?"I HATE YOU!!!": this.belowComment;
+
+        AchivementPopupKickoff({title: this.title, text: above});
+        observer.belowComment(this.title, below);
     }
 
     checkForUnlock = (observer:ObserverBot)=>{
