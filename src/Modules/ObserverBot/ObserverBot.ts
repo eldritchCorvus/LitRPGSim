@@ -72,6 +72,9 @@ export class ObserverBot{
         }
         window.onclick = ()=>{
             (window as any).recordAction(CLICK,1)
+            this.timeSpentInMenu = Date.now() - this.timeStarted;
+            this.timeSpentPlaying = Date.now() - this.timeStarted;
+
         }
     }
 

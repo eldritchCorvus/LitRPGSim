@@ -21,7 +21,17 @@ interface StatProps{
 
 export const  StatisticsScreen = (props: StatusProps)=> {
 
-
+    //https://stackoverflow.com/questions/8528382/javascript-show-milliseconds-as-dayshoursmins-without-seconds
+    function dhm(ms:number){
+        const days = Math.floor(ms / (24*60*60*1000));
+        const daysms=ms % (24*60*60*1000);
+        const hours = Math.floor((daysms)/(60*60*1000));
+        const hoursms=ms % (60*60*1000);
+        const minutes = Math.floor((hoursms)/(60*1000));
+        const minutesms=ms % (60*1000);
+        const sec = Math.floor((minutesms)/(1000));
+        return days+":"+hours+":"+minutes+":"+sec;
+    }
 
     const observer = props.player.observer;
 
@@ -30,22 +40,27 @@ export const  StatisticsScreen = (props: StatusProps)=> {
         <span>
             <StatusRow>
                 <StatusHeader>Time Played:</StatusHeader>
-                <StatusContent>{observer.timeSpentPlaying}</StatusContent>
+                <StatusContent>{dhm(observer.timeSpentPlaying)}</StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Time In Menu:</StatusHeader>
+                <StatusContent>{dhm(observer.timeSpentInMenu)}</StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Time In Combat:</StatusHeader>
-                <StatusContent>{observer.timeSpentInCombat}</StatusContent>
+                <StatusContent>{dhm(observer.timeSpentInCombat)}</StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Time In Cutscenes:</StatusHeader>
-                <StatusContent>{observer.timeSpentInCutscenes}</StatusContent>
+                <StatusContent>{dhm(observer.timeSpentInCutscenes)}</StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Time Spent CityCrafting:</StatusHeader>
-                <StatusContent>{observer.timeSpentCityBuilding}</StatusContent>
+                <StatusContent>{dhm(observer.timeSpentCityBuilding)}</StatusContent>
             </StatusRow>
 
             <StatusRow>
