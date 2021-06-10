@@ -9,6 +9,7 @@ import { NumberClicksTrigger } from "./AchievementTriggers/NumberClicks";
 import {STATUS, LOADING, SKILLGRAPH, STATISTICS, ACHIEVEMENTS} from "../../Utils/constants";
 import SeededRandom from "../../Utils/SeededRandom";
 import { MenuClicksTrigger } from "./AchievementTriggers/MenuClicks";
+import { KeyObject } from "node:crypto";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -60,6 +61,26 @@ export class ObserverBot{
             if(action == CLICK){
                 this.incrementStat("numClicks", value);
             }
+
+            if(action == WALK){
+                this.incrementStat("timesWalked", value);
+            }
+
+            if(action == JUMP){
+                this.incrementStat("timesJumped", value);
+            }
+
+            if(action == SKIP){
+                this.incrementStat("timesSkippedCutscene", value);
+            }
+
+            if(action == ERROR){
+                this.incrementStat("errors", value);
+            }
+
+            if(action == UNLOCK_SKILL){
+                this.incrementStat("skillsUnlocked", value);
+            }
         }
 
         (window as any).menuClick =(menu: string)=>{
@@ -74,7 +95,23 @@ export class ObserverBot{
             (window as any).recordAction(CLICK,1)
             this.timeSpentInMenu = Date.now() - this.timeStarted;
             this.timeSpentPlaying = Date.now() - this.timeStarted;
+        }
 
+        window.onkeydown = (evt:KeyboardEvent)=>{
+            console.log(evt.key);
+            if(evt.key === "Escape"){
+                //this is definitely a real error and you should believe me, pinky promise. :) :) :)
+                console.error("ReferenceError: closeMenu is not defined.");
+                (window as any).recordAction(ERROR,1);
+            }else if(evt.key === "w" || evt.key === "a" || evt.key === "s" || evt.key === "d" || evt.key === "ArrowLeft" || evt.key === "ArrowRight" || evt.key === "ArrowUp" || evt.key === "ArrowDown"){
+                (window as any).recordAction(WALK,1)
+            }else if (evt.key === " "){
+                (window as any).recordAction(JUMP,1);
+            }
+            else if (evt.key === "Enter"){
+                (window as any).recordAction(SKIP,1);
+            }
+            
         }
     }
 
