@@ -101,7 +101,7 @@ export class ObserverBot{
             console.log(evt.key);
             if(evt.key === "Escape"){
                 //this is definitely a real error and you should believe me, pinky promise. :) :) :)
-                console.error("ReferenceError: window.closeMenu is not defined.");
+                console.error("Uncaught TypeError: window.closeMenu is not a function");
                 (window as any).recordAction(ERROR,1);
             }else if(evt.key === "w" || evt.key === "a" || evt.key === "s" || evt.key === "d" || evt.key === "ArrowLeft" || evt.key === "ArrowRight" || evt.key === "ArrowUp" || evt.key === "ArrowDown"){
                 (window as any).recordAction(WALK,1)
