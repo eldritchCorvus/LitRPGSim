@@ -107,6 +107,11 @@ export const  StatisticsScreen = (props: StatusProps)=> {
                 <StatusHeader>Times Clicked:</StatusHeader>
                 <StatusContent>{observer.numClicks}</StatusContent>
             </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Errors:</StatusHeader>
+                <StatusContent>{observer.errors}</StatusContent>
+            </StatusRow>
     </span>
 
 
