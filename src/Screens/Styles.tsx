@@ -1,9 +1,116 @@
 import styled from "@emotion/styled";
+import { getRandomNumberBetween, pickFrom } from "../Utils/NonSeededRandUtils";
+import { replaceStringAt } from "../Utils/StringUtils";
 
+// :) :) :)
+export let FONTSIZE = 14;
+export let FONTCOLOR = "#000000";
+export let BGCOLOR = "#ffffff";
+export let PADDINGRATIO = 1.0;
+export let MARGINRATIO = 1.0;
+export let BORDERRADIUS = 4;
+export let BORDERRADIUSROUND = 13;
+const CENTERRATIO = 1.0;
+const CENTERRADIUS = 5;
+const CENTERFONTSIZE = 14;
+const CENTERRADIUSROUND =13;
+const ORIGINALFONTCOLOR = "#000000";
+const ORIGINALBGCOLOR = "#ffffff";
+
+
+
+interface StyleRadius{
+    mildRadius: number;
+    fontColor: string;
+}
+
+interface FontColorProps{
+    fontColor: string;
+}
+
+interface StyleRadiusMedium{
+    mediumRadius: number;
+    fontColor: string;
+}
+
+interface MenuBoxProps{
+    mediumRadius: number;
+    fontSize: number;
+    fontColor: string;
+    bgColor: string;
+}
+
+//did something change? probably just your imagination.
+export const fuckShitUpButOnlyALittle = () => {
+    fuckUpRadius();
+    fuckUpRadiusRound();
+    fuckUpFontSize();
+    fuckUpFontColor();
+    fuckUpBGColor();
+}
+
+const fuckUpRadius =()=>{
+    let direction = 1;
+    if(Math.random() > .5){
+        direction = -1;
+    }
+    BORDERRADIUS +=1*direction;
+    if(Math.abs(BORDERRADIUS - CENTERRADIUS) > 10){
+        BORDERRADIUS = CENTERRADIUS;
+    }
+}
+
+const fuckUpFontColor = ()=>{
+    const options = ["0","1","2","3"];
+    const choice = pickFrom(options);
+    FONTCOLOR = replaceStringAt(FONTCOLOR,getRandomNumberBetween(1,FONTCOLOR.length-1),choice);
+    if(Math.random() > .9){
+        FONTCOLOR = ORIGINALFONTCOLOR;
+    }
+}
+
+const fuckUpBGColor = ()=>{
+    const options = ["f","e"];
+    let choice = pickFrom(options);
+    for(let i = 1; i<BGCOLOR.length; i+=2){
+        BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
+    }
+
+    choice = pickFrom(options);
+    for(let i = 2; i<BGCOLOR.length; i+=2){
+        BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
+    }
+    if(Math.random() > .9){
+        BGCOLOR = ORIGINALBGCOLOR;
+    }
+}
+
+const fuckUpFontSize =()=>{
+    let direction = 1;
+    if(Math.random() > .5){
+        direction = -1;
+    }
+    FONTSIZE +=1*direction;
+    if(Math.abs(FONTSIZE - CENTERFONTSIZE) > 3){
+        FONTSIZE = CENTERFONTSIZE;
+    }
+}
+
+
+const fuckUpRadiusRound =()=>{
+    let direction = 1;
+    if(Math.random() > .5){
+        direction = -1;
+    }
+    BORDERRADIUSROUND +=1*direction;
+    if(Math.abs(BORDERRADIUSROUND - CENTERRADIUSROUND) > 10){
+        BORDERRADIUSROUND = CENTERRADIUSROUND;
+    }
+}
 
 export const SkillBox = styled.div`
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 2px solid ${(props: StyleRadius) => props.fontColor};
+    border-radius: ${(props: StyleRadius) => props.mildRadius }px;
     padding: 5px;
     display: flex;
     width: 600px;
@@ -12,8 +119,8 @@ export const SkillBox = styled.div`
 `
 
 export const AchivementBox = styled.div`
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 2px solid ${(props: StyleRadius) => props.fontColor};
+    border-radius: ${(props: StyleRadius) => props.mildRadius }ppx;
     padding: 5px;
     display: flex;
     width: 600px;
@@ -29,7 +136,7 @@ export const Observer = styled.span`
 
 export const Achivement = styled.div`
     border: 2px solid #eee;
-    border-radius: 13px;
+    border-radius: ${(props: StyleRadiusMedium) => props.mediumRadius}px;
     padding: 5px;
     background: #eee;
     color: #eee;
@@ -39,8 +146,8 @@ export const Achivement = styled.div`
 `
 
 export const UnlockedAchivement = styled.div`
-    border: 2px solid black;
-    border-radius: 13px;
+    border: 2px solid ${(props: StyleRadiusMedium) => props.fontColor};
+    border-radius: ${(props: StyleRadiusMedium) => props.mediumRadius}px;
     padding: 5px;
     padding-left: 13px;
     padding-right: 13px;
@@ -48,8 +155,8 @@ export const UnlockedAchivement = styled.div`
 `
 
 export const Skill = styled.div`
-    border: 2px solid black;
-    border-radius: 13px;
+    border: 2px solid ${(props: StyleRadiusMedium) => props.fontColor};
+    border-radius: ${(props: StyleRadiusMedium) => props.mediumRadius}px;
     padding: 5px;
     padding-left: 13px;
     padding-right: 13px;
@@ -60,12 +167,14 @@ export const MenuBox = styled.div`
     padding: 10px;
     margin: 10px;
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
-    background: white;
-    border: 3px solid black;
-    border-radius: 13px;
+    color:  ${(props: MenuBoxProps) => props.fontColor};
+    background:  ${(props: MenuBoxProps) => props.bgColor};
+    border: 3px solid ${(props: MenuBoxProps) => props.fontColor};
+    border-radius: ${(props: MenuBoxProps) => props.mediumRadius}px;
     width: 900px;
     margin-left: auto;
     margin-right: auto;
+    font-size:  ${(props: MenuBoxProps) => props.fontSize}px;
     position: fixed;
     overflow: auto;
     left: 15%;
@@ -76,7 +185,6 @@ export const MenuBox = styled.div`
 export const StatusBlock = styled.div`
     padding: 10px;
     margin: 10px;
-    background: white;
     margin-left: auto;
     margin-right: auto;
     height: 500px;
@@ -88,7 +196,6 @@ export const StatusHeader = styled.div`
 `
 
 export const StatusContent = styled.div`
-    color: black;
 `
 
 export const TreeContent = styled.div`
@@ -102,3 +209,5 @@ export const StatusRow = styled.div `
     display: flex;
     padding: 10px;
 `
+
+

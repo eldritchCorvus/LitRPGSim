@@ -13,7 +13,7 @@ import { initStats } from "./Modules/Stat";
 import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
-import { MenuBox } from "./Screens/Styles";
+import { BGCOLOR, BORDERRADIUS, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
 import { AchivementsScreen } from "./Screens/Achivements";
 
@@ -84,7 +84,7 @@ function Menu(props: MenuProps) {
       setCurrentScreen(LOADING)}
       }>SKILLS</a>
 
-      <MenuBox>
+      <MenuBox mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?
             <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>

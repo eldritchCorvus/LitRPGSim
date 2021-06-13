@@ -82,13 +82,16 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>each time an error happens, make subtle changes to the ui (store global vars to window for styles file???). font slight bigger. a bit more padding. color changes just a *bit*</li>
+        <li>each time screen changes small chance to cause some small subtle fuck up of the screen</li>
         <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
         <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
         <li>port in fractal sim to be the bg for RAGE MODE</li>
+        <li>center skills tree on last unlocked skill, or root if none</li>
         <li>option menu with menu opacity slider (blurring effect)</li>
         <li>later, make it so if its your first playthrough (check local storage) and you get waste class it changes to something else.</li>
         <li>implement more achivment trigger types</li>
-        <li>achivements award skill points</li>
+        <li>achivements award skill points (number of which is passed into achivement)</li>
         <li>if errors build up enough, swap above and below text, regenerate skills filled with insults instead of nouns or adjs</li>
         <li>sub titles unlock only when you unlock skills related to them. you have to discover them, essentially</li>
         <li>murder yellow text</li>
