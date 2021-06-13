@@ -5,7 +5,7 @@ import { all_themes } from "../Modules/Theme";
 import { ADJ } from "../Modules/ThemeStorage";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, Achivement, UnlockedAchivement, AchivementBox} from "./Styles";
+import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, Achivement, UnlockedAchivement, AchivementBox, BORDERRADIUS, BORDERRADIUSROUND, FONTCOLOR} from "./Styles";
 interface StatusProps{
     player: Player;
     loadScreen: any; //function
@@ -28,10 +28,10 @@ export const  AchivementsScreen = (props: StatusProps)=> {
         <StatusRow>
                 <StatusHeader>Achivements:</StatusHeader>
                 <StatusContent>  
-                    <AchivementBox>{observer.possibleAchievements.map((achivement,i) => {return ( 
+                    <AchivementBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{observer.possibleAchievements.map((achivement,i) => {return ( 
                         achivement.unlocked ?                      
-                            <UnlockedAchivement onClick={()=>{achivement.display(observer)}} key={achivement.title + i}>{i}: {achivement.title} </UnlockedAchivement>
-                            :  <Achivement key={achivement.title + i}><span style={{"visibility":"hidden"}} >{i}: {achivement.title} </span></Achivement>
+                            <UnlockedAchivement onClick={()=>{achivement.display(observer)}} key={achivement.title + i} fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND}>{i}: {achivement.title} </UnlockedAchivement>
+                            :  <Achivement mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} key={achivement.title + i}><span style={{"visibility":"hidden"}}  >{i}: {achivement.title} </span></Achivement>
                       )})}</AchivementBox>
                 </StatusContent>
             </StatusRow>

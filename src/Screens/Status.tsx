@@ -5,7 +5,7 @@ import { all_themes } from "../Modules/Theme";
 import { ADJ } from "../Modules/ThemeStorage";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox} from "./Styles";
+import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, BORDERRADIUS, BORDERRADIUSROUND, FONTCOLOR} from "./Styles";
 interface StatusProps{
     player: Player;
     loadScreen: any; //function
@@ -83,7 +83,7 @@ export const  StatusScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Unlocked Skills:</StatusHeader>
                 <StatusContent>  
-                    <SkillBox>{props.player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill key={skill.name + i}>{i}: {skill.name} </Skill>  )})}</SkillBox>
+                    <SkillBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{props.player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND} key={skill.name + i}>{i}: {skill.name} </Skill>  )})}</SkillBox>
                 </StatusContent>
             </StatusRow>
     </span>

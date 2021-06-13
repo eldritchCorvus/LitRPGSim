@@ -5,7 +5,7 @@ import { all_themes } from "../Modules/Theme";
 import { ADJ } from "../Modules/ThemeStorage";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox} from "./Styles";
+import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, FONTCOLOR} from "./Styles";
 interface StatusProps{
     player: Player;
     loadScreen: any; //function
