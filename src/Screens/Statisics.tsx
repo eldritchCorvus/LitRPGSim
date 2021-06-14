@@ -38,6 +38,13 @@ export const  StatisticsScreen = (props: StatusProps)=> {
     return (
     <StatusBlock>
         <span>
+            { observer.timeYouFuckedUp > 0?
+            <StatusRow>
+                <StatusHeader>Time Since You Fucked Up :) :) :):</StatusHeader>
+                <StatusContent>{dhm(observer.timeSinceYouFuckedUp)}</StatusContent>
+        </StatusRow>:null
+
+            }
             <StatusRow>
                 <StatusHeader>Time Played:</StatusHeader>
                 <StatusContent>{dhm(observer.timeSpentPlaying)}</StatusContent>

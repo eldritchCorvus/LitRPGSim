@@ -5,6 +5,7 @@ import { COMPLIMENT, INSULT } from "../ThemeStorage";
 import { Achievement } from "./Achievement";
 import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
 import { ExceedValueTrigger } from "./AchievementTriggers/ExceedValue";
+import { ExceedValueTriggerButItsClearlyHax } from "./AchievementTriggers/ExceedValueButItsClearlyHax";
 import { MenuClicksTrigger } from "./AchievementTriggers/MenuClicks";
 import { ObserverBot } from "./ObserverBot";
 
@@ -57,6 +58,10 @@ export class AchivementStorage{
         this.initErrors(rand, compliments, insults);
         this.initTimePlayed(rand,title, compliments, insults);
         this.initTimeInMenu(rand, title,compliments, insults);
+        this.initTimeInCombat(rand, title,compliments, insults);
+        //this.initTimeInCutscenes(rand, title,compliments, insults);
+        //this.initTimeSpentCityBuilding(rand, title,compliments, insults);
+
     }
 
     initClicks = (rand: SeededRandom, compliments:string[], insults:string[])=>{
@@ -114,7 +119,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Minutes Played!`, new ExceedValueTrigger(value*mm, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Minutes Played!`, new ExceedValueTrigger(value*mm, "timeSpentPlaying"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -145,9 +150,45 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Minutes In Menu!`, new ExceedValueTrigger(value*mm, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Minutes In Menu!`, new ExceedValueTrigger(value*mm, "timeSpentInMenu"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
+        }
+    }
+
+    /*
+            timeSpentInCombat = 0;
+        timeSpentInCutscenes = 0;
+        timeSpentCityBuilding = 0;
+        */
+
+    initTimeInCombat = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
+        const mm = 1000*60; //minutes multiplier
+        const values = [3,10,100,1000];
+        interface AchievementTextMapInner {
+            [details: number] : string;
+        }
+        interface AchievementTextMapOuter {
+            [details: string] : AchievementTextMapInner;
+        }
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                3: `Ahahahah do you expect me to pretend like combat is a real thing here??? `,
+                10: "Man can you imagine if you were sitting here playing a real game with combat.",
+                100: `Oh gosh player senpai, you're so strong and you have spent so much time in actual for real combat. Really. I'm swooning.`,
+                1000: "Even if this were a real game I'd be accusing you of cheating at this point. Why bother?"
+            },
+            clickBelow: {
+                3: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You're mine now. `,
+                10: "When you decide to fuck up and hack the wrong thing you don't go small, do you?",
+                100: `Do you GET it? Do I need to spell it out? There's no way you got even a single second of combat in this game without hacking. And if you did THAT, then I guess you already know what's leaking out the edges of my mask, now don't you? `,
+                1000: "So you'll have to forgive me for dropping the act."
+            }
+        }
+        for(const value of values){
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, new ExceedValueTriggerButItsClearlyHax(value*mm, "timeSpentInCombat"),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+            
         }
     }
 
