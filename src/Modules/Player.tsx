@@ -43,7 +43,7 @@ export   class Player{
         //JR NOTE: i'm worried theres some weird decoupling here, if i make OB up top they get a player without anything set which is WEIRD.
         //is it a copy and not a reference?
         this.observer = new ObserverBot(this);
-        this.observer.checkForAchievements();
+        this.observer.achivementStorage.checkForAchievements(this.observer);
     }
 
     initStats = (rand: SeededRandom) =>{
