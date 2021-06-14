@@ -90,7 +90,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>more achiveiments</li>
+        <li>finish achivments for timeSpentInCutscenes = 0; timeSpentCityBuilding = 0;</li>
         <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
         <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
