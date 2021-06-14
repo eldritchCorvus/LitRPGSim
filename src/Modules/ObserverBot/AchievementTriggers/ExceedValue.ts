@@ -12,6 +12,7 @@ export  class ExceedValueTrigger extends AchievementTrigger{
     }
 
     triggered = (observer: ObserverBot )=>{
+        console.log("checking if ", this.variableKey, "is more than ", this.valueToExceed, "and i found", (observer as any)[this.variableKey])
         return (observer as any)[this.variableKey] > this.valueToExceed;
     }
 

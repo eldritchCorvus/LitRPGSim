@@ -18,8 +18,10 @@ export const JUMP = "JUMP";
 export const SKIP = "SKIP";
 export const UNLOCK_SKILL = "UNLOCK_SKILL";
 export const ERROR = "ERROR";
+export const FUCKEDUP = "FUCKEDUP";
 
-export type ActionType = 'CLICK'|'WALK'|'JUMP'|'SKIP'|'UNLOCK_SKILL'|'ERROR';
+
+export type ActionType = 'CLICK'|'WALK'|'JUMP'|'SKIP'|'UNLOCK_SKILL'|'ERROR'|'FUCKEDUP';
 
 
 /* absolutely am going to lean on things like this.
@@ -34,11 +36,13 @@ export class ObserverBot{
     //all time stats are in milliseconds
     numClicks = 0;
     timeStarted = 0;
+    timeYouFuckedUp = 0; //:) :) :)
     timeSpentPlaying = 0;
     timeSpentInCombat = 0;
     timeSpentInCutscenes = 0;
     timeSpentCityBuilding = 0;
     timeSpentInMenu = 0;
+    timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
     timesJumped = 0; //space bar
@@ -56,6 +60,7 @@ export class ObserverBot{
     constructor(player: Player){
         this.player = player;
         this.timeStarted = Date.now();
+
         this.achivementStorage.initAchievements(this.player);
         
         this.setUpFakeReduxShit();
@@ -99,6 +104,10 @@ export class ObserverBot{
                 this.incrementStat("numClicks", value);
             }
 
+            if(action == FUCKEDUP){
+                this.timeYouFuckedUp = value; //:) :) :)
+            }
+
             if(action == WALK){
                 this.incrementStat("timesWalked", value);
             }
@@ -124,6 +133,10 @@ export class ObserverBot{
     setUpWasteShit = () =>{
         (window as any).hackTimePlayedInSeconds = (value:number)=>{
             this.timeStarted = value * 1000 - Date.now();
+        }
+
+        (window as any).hackTimCombatInSeconds = (value:number)=>{
+            this.timeSpentInCombat = value * 1000;
         }
     }
 

@@ -33,6 +33,14 @@ function App() {
   const [player, setPlayer] = useState<Player>();
   const [rageMode, setRageMode] = useState(false);
 
+  useEffect(()=>{
+    if(!(window as any).setRageMode){
+      // :) :) :)
+      (window as any).setRageMode = setRageMode;
+    }
+  },[])
+
+
 
   useEffect(()=>{
     if(!player){
@@ -85,6 +93,7 @@ function App() {
         <li>more achiveiments</li>
         <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
         <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
+        <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
         <li>port in fractal sim to be the bg for RAGE MODE</li>
         <li>center skills tree on last unlocked skill, or root if none</li>
         <li>option menu with menu opacity slider (blurring effect)</li>

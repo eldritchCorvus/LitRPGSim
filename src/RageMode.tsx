@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from "react";
+import { FUCKEDUP } from "./Modules/ObserverBot/ObserverBot";
 import { MenuBox } from "./Screens/Styles";
 import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
 
@@ -19,7 +20,8 @@ function RageMode() {
     
       const children = shit.querySelectorAll("*");
 
-      const ratio = Math.min(255,numCalls)/255; //get worse over time :) :) :)
+      const max = 2555;
+      const ratio = Math.min(max,numCalls)/max; //get worse over time :) :) :)
       const filters = [`saturate(${getRandomNumberBetween(0,100*ratio)}%)`,`opacity(${getRandomNumberBetween(10,99*ratio)}%)`,`invert(${getRandomNumberBetween(0,100*ratio)}%)`,`blur(${getRandomNumberBetween(1,3)}px)`,`grayscale(${getRandomNumberBetween(0,100*ratio)}%)`,`hue-rotate(${getRandomNumberBetween(1,360*ratio)}deg)`,"drop-shadow(2px 2px 2px red)"];
       const mildFilters = [`opacity(${getRandomNumberBetween(80,99)}%)`,`blur(${getRandomNumberBetween(0,5)}px)`,`grayscale(${getRandomNumberBetween(0,10)}%)`,`hue-rotate(${getRandomNumberBetween(1,2)}deg)`,"drop-shadow(2px 2px 2px red)"];
 
@@ -60,6 +62,7 @@ function RageMode() {
     useEffect(()=>{
       (window as any).rageMode = true;
       beginFuckingShitUp();
+      (window as any).recordAction(FUCKEDUP,Date.now());
 
     },[])
 
