@@ -5,7 +5,7 @@ import { all_themes } from "../Theme";
 import { COMPLIMENT, INSULT } from "../ThemeStorage";
 import { Achievement } from "./Achievement";
 import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
-import { NumberClicksTrigger } from "./AchievementTriggers/NumberClicks";
+import { ExceedValueTrigger } from "./AchievementTriggers/ExceedValue";
 import {STATUS, LOADING, SKILLGRAPH, STATISTICS, ACHIEVEMENTS} from "../../Utils/constants";
 import SeededRandom from "../../Utils/SeededRandom";
 import { MenuClicksTrigger } from "./AchievementTriggers/MenuClicks";
@@ -126,7 +126,8 @@ export class ObserverBot{
         const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),`Congratulations and welcome to your new, ${rand.pickFrom(compliments)} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${this.player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. `);
         this.possibleAchievements.push(tmp);
         this.initClicks(rand, compliments, insults);
-        this.initMenuClicks(rand, compliments, insults);
+        this.initMenuVisits(rand, compliments, insults);
+        this.initErrors(rand, compliments, insults);
 
 
     }
@@ -155,13 +156,39 @@ export class ObserverBot{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Menu Clicks!`, new NumberClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Clicks!`, new ExceedValueTrigger(value, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
     }
 
-    initMenuClicks = (rand: SeededRandom, compliments:string[], insults:string[]) => {
+    initErrors = (rand: SeededRandom, compliments:string[], insults:string[])=>{
+        const values = [10,100];
+        interface AchievementTextMapInner {
+            [details: number] : string;
+        }
+        interface AchievementTextMapOuter {
+            [details: string] : AchievementTextMapInner;
+        }
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                10: "Wow! You sure are good at finding errors?",
+                100: "Might wanna slow down there, champ. Leave errors for the rest of us!",
+            },
+            clickBelow: {
+                10: "Shit...what is going on...",
+                100: "Okay. I think I've tracked it down. The...the EXIT MENU functionality is broken? What the hell...WHY. Have you just....been stuck there? This whole time?",
+            }
+
+        }
+        for(const value of values){
+            const tmp = new Achievement(`${value} [ERROR ACHIVEMENT NOT FOUND]!`, new ExceedValueTrigger(value, "errors"),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+         
+        }
+    }
+
+    initMenuVisits = (rand: SeededRandom, compliments:string[], insults:string[]) => {
         interface AchievementTextMapInner {
             [details: string] : string;
         }
