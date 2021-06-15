@@ -1,12 +1,12 @@
-import {all_aspects, initAspects, Aspect} from "./Aspect";
-import { all_classes, initClasses, RPGClass } from "./RPGClass";
-import { Skill, CoreSkill, StatSkill } from "./Skill";
+import {all_aspects, Aspect} from "./Aspect";
+import { all_classes, RPGClass } from "./RPGClass";
+import { Skill, StatSkill } from "./Skill";
 import {all_interests, Interest} from "./Interest";
-import {initThemes, Theme} from "./Theme";
+import {Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
 import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
-import { all_stats, initStats, Stat, StatMap } from "./Stat";
+import { all_stats, Stat, StatMap } from "./Stat";
 import { ObserverBot } from "./ObserverBot/ObserverBot";
 export   class Player{
     class_name: RPGClass;

@@ -10,7 +10,6 @@ export let PADDINGRATIO = 1.0;
 export let MARGINRATIO = 1.0;
 export let BORDERRADIUS = 4;
 export let BORDERRADIUSROUND = 13;
-const CENTERRATIO = 1.0;
 const CENTERRADIUS = 5;
 const CENTERFONTSIZE = 14;
 const CENTERRADIUSROUND =13;
@@ -21,10 +20,6 @@ const ORIGINALBGCOLOR = "#ffffff";
 
 interface StyleRadius{
     mildRadius: number;
-    fontColor: string;
-}
-
-interface FontColorProps{
     fontColor: string;
 }
 

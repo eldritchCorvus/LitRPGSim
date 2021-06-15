@@ -45,17 +45,16 @@ export   class Theme{
 
     //takes in things like noun, adj, insult etc etc
     getPossibilitiesFor=(key: string)=>{
+        if(!this.string_possibilities){
+            console.error("[ERROR: DATA NOT FOUND]");
+            return ["[ERROR: DATA NOT FOUND]"];
+        }
         if((key in this.string_possibilities)){
             return  this.string_possibilities[key];
         }else{
             console.error(`[ERROR: ${key} NOT FOUND ]`);
             return [`[ERROR: ${key} NOT FOUND ]`];
-        }
-        
-        //TODO record the error
-        console.error(`[UNKNOWN ERROR for ${key} ]`);
-        return [`[UNKNOWN ERROR for  ${key} ]`];
-        
+        }        
     }
 
     initializeIfNecessary =(tier: number)=>{

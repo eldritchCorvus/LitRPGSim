@@ -1,18 +1,8 @@
 //It seems my reporting abilities are needed.
 
 import { Player } from "../Player";
-import { all_themes } from "../Theme";
-import { COMPLIMENT, INSULT } from "../ThemeStorage";
-import { Achievement } from "./Achievement";
-import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
-import { ExceedValueTrigger } from "./AchievementTriggers/ExceedValue";
-import {STATUS, LOADING, SKILLGRAPH, STATISTICS, ACHIEVEMENTS} from "../../Utils/constants";
-import SeededRandom from "../../Utils/SeededRandom";
-import { MenuClicksTrigger } from "./AchievementTriggers/MenuClicks";
-import { KeyObject } from "node:crypto";
 import { AchivementStorage } from "./AchivementStorage";
 import { WasteSkill } from "../Skill";
-import { Zalgo } from "../../Utils/StringUtils";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";

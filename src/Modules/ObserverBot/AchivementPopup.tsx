@@ -46,10 +46,6 @@ const  AchivementPopup = (props: AchivementProps)=> {
     const dialog = useDialogState();
     const [initialShowing, setInitialShowing] = useState(true);
     let {title, text} = props;
-    if((window as any).rageMode && Math.random() > .99){
-        title = Zalgo.generate(title);
-        text = Zalgo.generate(title);
-    }
     const {visible} = dialog;
     const bg = (window as any).rageMode?"black":"white";
     useEffect(()=>{
@@ -59,6 +55,7 @@ const  AchivementPopup = (props: AchivementProps)=> {
         }
     },[initialShowing])
 
+    //if i depend on dialog here it won't let me dismiss the popup. just deal with it.
     useEffect(()=>{
             dialog.setVisible(true);    
     },[title, text])
