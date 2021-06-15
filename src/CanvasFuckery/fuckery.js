@@ -2,7 +2,6 @@
 
 /*
 TODO: 
-* draw rects in circle
 * inside rects color a  white or black circle, position depending on angle. bg should be opposite of circle
 * circle should be blurry.
 * concentric circles. size of rect should be based on size of circle.
@@ -20,7 +19,7 @@ export  function fuckery(){
     const radius = outer_r;
     const size = 10;
     const memory = {last_x: 0, last_y:0,last_angle:0};
-    const num_rects = 72;
+    const num_rects = 90;
     for(let i = 0; i<num_rects; i++){
         const ret = addNewSquare(memory.last_x, memory.last_y, memory.last_angle,origin_x, origin_y, context, radius,size,i,num_rects);
         memory.last_x = ret[0];
@@ -48,8 +47,23 @@ function square(x,y,color, context,size,num,num_rects){
     context.fillStyle=color;
     context.save();
     context.translate(x, y);
-    const theta = 2*Math.PI*num/num_rects;
+    //don't question it, its dumb. just played with numbers till it worked
+    const theta = 2*Math.PI*(1+num)/(num_rects-0.5);
     context.rotate(theta);
+    context.fillRect(0,0,size,size*2);
+    // Create gradient
+    //TODO shift gradient center based on whatever
+    var grd = context.createRadialGradient(50/(1+num%3),size, 0, size, size, size);
+    if(num%6<3){
+        grd.addColorStop(0, "black");
+        grd.addColorStop(1, "white");
+    }else{
+        grd.addColorStop(0, "white");
+        grd.addColorStop(1, "black");
+    }
+
+    // Fill with gradient
+    context.fillStyle = grd;
     context.fillRect(0,0,size,size*2);
     context.restore();
 }
@@ -57,7 +71,7 @@ function square(x,y,color, context,size,num,num_rects){
 //position function for drawing distinct objects in a circle
 function circle(x0,y0, last_angle, origin_x, origin_y,radius,size){	
     //TODO rip out num rings entirely.
-	var angle = last_angle + (size*0.5);
+	var angle = last_angle + (size*0.4);
 	var x = radius * Math.cos(toRadians(angle)) + origin_x; //0,0 is not center
 	var y = radius * Math.sin(toRadians(angle)) + origin_y;
 	//console.log("angle is " + angle + " and x is: " + x);
