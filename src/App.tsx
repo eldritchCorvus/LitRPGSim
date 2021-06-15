@@ -91,8 +91,8 @@ function App() {
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
 
-        <li>finish achivments for timeSpentInCutscenes = 0; timeSpentCityBuilding = 0;</li>
-        <li>as waste class, if unlock skill you get popup that says "im sorry, but hacking commands from the skill graph are currently disabled", and have a secret, but on screen way to enable them. maybe in the options menu.</li>
+        <li>options, things like volume, opacity, haxMode, etc.</li>
+        <li>as waste class, if unlock skill you get popup that says "im sorry, but hacking commands from the skill graph are currently disabled", and have a secret, but on screen way to enable them. maybe in the options menu. (obvs haxMode=on)</li>
         <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
         <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
