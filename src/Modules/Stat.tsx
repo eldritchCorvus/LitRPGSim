@@ -16,6 +16,8 @@ export const LOYAL = "Loyal";
 export const FREESPIRITED = "Free-Spirited";
 export const ENERGETIC = "Energetic";
 export const CALM = "Calm";
+export const GNOSIS = "Gnosis";
+
 /*
     new Stat(EXTERNAL,INTERNAL,0);
     new Stat(PATIENT,IMPATIENT,0);
@@ -37,6 +39,8 @@ export const BLOOD = (value=1) =>all_stats[LOYAL].copy(value);
 export const BREATH = (value=1) =>all_stats[LOYAL].copy(-1 * value);
 export const LIFE = (value=1) =>all_stats[ENERGETIC].copy(value);
 export const DOOM = (value=1) =>all_stats[ENERGETIC].copy(-1 * value);
+export const WASTE = (value=1) =>all_stats[GNOSIS].copy(-1 * value);
+
 export class Stat{
     value: number;
     positiveName: string;
@@ -83,6 +87,7 @@ export const initStats =() =>{
     new Stat(CURIOUS,ACCEPTING,0);
     new Stat(LOYAL,FREESPIRITED,0);
     new Stat(ENERGETIC,CALM,0);
+    new Stat(GNOSIS,GNOSIS,0);
 
 }
 
