@@ -34,7 +34,7 @@ function addNewSquare(last_x, last_y, last_angle,origin_x, origin_y, context, ra
 	const x = coords[0];
 	const y = coords[1];
 	var color = "#000000";
-	square(x,y,color, context,size);
+	square(x,y,color, context,size,coords[2]);
     console.log("JR NOTE: going to return", coords);
     return coords;
 }
@@ -43,9 +43,13 @@ function pos_func(last_x,last_y,last_angle, origin_x, origin_y,radius,size){
     return circle(last_x, last_y,last_angle, origin_x, origin_y,radius,size);
 }
 
-function square(x,y,color, context,size){
+function square(x,y,color, context,size,angle){
     context.fillStyle=color;
-    context.fillRect(x,y,size,size*2);
+    context.save();
+    context.translate(x, y);
+    context.rotate(angle);
+    context.fillRect(0,0,size,size*2);
+    context.restore();
 }
 
 //position function for drawing distinct objects in a circle
