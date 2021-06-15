@@ -73,7 +73,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method (if hack mode on).</li>
+      <li> if waste class, random chance to replace a skill without the waste theme with a hacking method</li>
 
         <li>options, things like volume, opacity/blurring, haxMode, etc.</li>
         <li>as waste class options always in skill tree, if unlock skill you get popup that says "im sorry, but hacking commands from the skill graph are currently disabled", and have a secret, but on screen way to enable them. maybe in the options menu. (obvs haxMode=on)</li>
