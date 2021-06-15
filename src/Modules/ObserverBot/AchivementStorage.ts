@@ -59,6 +59,9 @@ export class AchivementStorage{
         this.initTimePlayed(rand,title, compliments, insults);
         this.initTimeInMenu(rand, title,compliments, insults);
         this.initTimeInCombat(rand, title,compliments, insults);
+        this.initTimeInCutscenes(rand, title,compliments, insults);
+        this.initTimeInCityBuilding(rand, title,compliments, insults);
+
         //this.initTimeInCutscenes(rand, title,compliments, insults);
         //this.initTimeSpentCityBuilding(rand, title,compliments, insults);
 
@@ -156,11 +159,66 @@ export class AchivementStorage{
         }
     }
 
-    /*
-            timeSpentInCombat = 0;
-        timeSpentInCutscenes = 0;
-        timeSpentCityBuilding = 0;
-        */
+
+    initTimeInCityBuilding = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
+        const mm = 1000*60; //minutes multiplier
+        const values = [3,10,100,1000];
+        interface AchievementTextMapInner {
+            [details: number] : string;
+        }
+        interface AchievementTextMapOuter {
+            [details: string] : AchievementTextMapInner;
+        }
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                3: `Awww...it seems you are disapointed there no actual city building mechanic :) :) :) `,
+                10: `Wanted to imagine yourself as some fucked up town mayor? Not enough to be a ${title}.`,
+                100: `The patronizing leader of a bunch of idiot npcs, teaching them things like basic fucking sanitization principles.`,
+                1000: "To demonstrate how superior you are, not for any intrinsic trait you have. But because the game marked you as special, and because no civilization other than your own could POSSIBLY have any value. How pathetic."
+            },
+            clickBelow: {
+                3: `Well! It seems theres no reason to pretend anymore! `,
+                10: " You wouldn't be hacking 'working' mechanics, after all, now would you?",
+                100: `We both know there's no actual role playing game in this. `,
+                1000: "But YOU just couldn't leave well enough alone. Just HAD to see, didn't you. Had to look for achivements. Disgusting. "
+            }
+        }
+        for(const value of values){
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, new ExceedValueTriggerButItsClearlyHax(value*mm, "timeSpentCityBuilding"),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+            
+        }
+    }
+
+    initTimeInCutscenes = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
+        const mm = 1000*60; //minutes multiplier
+        const values = [3,10,100,1000];
+        interface AchievementTextMapInner {
+            [details: number] : string;
+        }
+        interface AchievementTextMapOuter {
+            [details: string] : AchievementTextMapInner;
+        }
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                3: `Spoiler alert, Doctor Slaughter dies in a cutscene. `,
+                10: "[INSERT FRIEND #1] dies in a cutscene. You can't stop it.",
+                100: `The last two hours of the game are an unskippable cutscene. You're welcome.`,
+                1000: "Just think about how much crueler these spoilers would be if cutscenes were a real thing :) :) :)"
+            },
+            clickBelow: {
+                3: `So. You figured it out. Huh. `,
+                10: " It seems you had to go and fuck with things you didn't understand.",
+                100: `Had to go and reveal yourself in the most blatant way possible. `,
+                1000: "No sense keeping the mask up then, huh :) :) :)"
+            }
+        }
+        for(const value of values){
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, new ExceedValueTriggerButItsClearlyHax(value*mm, "timeSpentInCutscenes"),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+            
+        }
+    }
 
     initTimeInCombat = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
         const mm = 1000*60; //minutes multiplier
