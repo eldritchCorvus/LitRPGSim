@@ -11,6 +11,8 @@ import SeededRandom from "../../Utils/SeededRandom";
 import { MenuClicksTrigger } from "./AchievementTriggers/MenuClicks";
 import { KeyObject } from "node:crypto";
 import { AchivementStorage } from "./AchivementStorage";
+import { WasteSkill } from "../Skill";
+import { Zalgo } from "../../Utils/StringUtils";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -66,7 +68,6 @@ export class ObserverBot{
         this.setUpFakeReduxShit();
         this.setUpWasteShit();
         (window as any).menuClick =(menu: string)=>{
-            console.log("MENU CLICK", menu,this.menuItemsClicked);
             if(!this.menuItemsClicked.includes(menu)){
                 console.log("ADDING ")
                 this.menuItemsClicked.push(menu);
@@ -165,5 +166,11 @@ export class ObserverBot{
    belowComment = (title: string, text: string)=>{
        console.log(`%c${title}:%c  ${text}`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;","font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
    }
+
+   hack = (skill: WasteSkill)=>{
+    this.belowComment("Hacking Deployed","Of course, if you were any decent at hacking you wouldn't NEED my help. The function name is RIGHT there. Pathetic.");
+    (window as any)[skill.hackFunctionName](3000000);
+}
+
 
 }

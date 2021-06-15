@@ -32,7 +32,6 @@ export class AchivementStorage{
     possibleAchievements:Achievement[] = [];
 
     checkForAchievements = (observer: ObserverBot)=>{
-        console.log("JR NOTE: checking for achievements", this.possibleAchievements);
         //achievement will take care of displaying anything unlocking on its own, dw
         for(let achievement of this.possibleAchievements){
             if(!achievement.unlocked){
