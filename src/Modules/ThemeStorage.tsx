@@ -133,6 +133,7 @@ export const checkIfAllKeysPresent = ()=>{
     stats_map[QUESTING] = [Stat.HOPE(1)] ;
     stats_map[ANGELS] = [Stat.HOPE(1)] ;
     stats_map[LIGHT] = [Stat.LIGHT(1)] ;
+    stats_map[WASTE] = [Stat.WASTE(100)] ;
 
 }
 

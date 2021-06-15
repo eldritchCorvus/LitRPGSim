@@ -39,16 +39,16 @@ export   class Theme{
     }
 
     pickPossibilityFor=(rand: SeededRandom, key: string)=>{
+        console.log("JR NOTE: this.getPossibilitiesFor(key) is",this.getPossibilitiesFor(key))
         return rand.pickFrom(this.getPossibilitiesFor(key));
     }
 
     //takes in things like noun, adj, insult etc etc
     getPossibilitiesFor=(key: string)=>{
         if(!this.string_possibilities){
-            console.error("[ERROR: DATA NOT FOUND]");
             return ["[ERROR: DATA NOT FOUND]"];
         }
-        if((key in this.string_possibilities)){
+        if((key in this.string_possibilities) &&this.string_possibilities[key] ){
             return  this.string_possibilities[key];
         }else{
             console.error(`[ERROR: ${key} NOT FOUND ]`);
