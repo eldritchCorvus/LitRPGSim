@@ -20,8 +20,9 @@ export  function fuckery(){
     const radius = outer_r;
     const size = 10;
     const memory = {last_x: 0, last_y:0,last_angle:0};
-    for(let i = 0; i<100; i++){
-        const ret = addNewSquare(memory.last_x, memory.last_y, memory.last_angle,origin_x, origin_y, context, radius,size);
+    const num_rects = 72;
+    for(let i = 0; i<num_rects; i++){
+        const ret = addNewSquare(memory.last_x, memory.last_y, memory.last_angle,origin_x, origin_y, context, radius,size,i,num_rects);
         memory.last_x = ret[0];
         memory.last_y = ret[1];
         memory.last_angle = ret[2];
@@ -29,12 +30,12 @@ export  function fuckery(){
 
 }
 
-function addNewSquare(last_x, last_y, last_angle,origin_x, origin_y, context, radius, size){
+function addNewSquare(last_x, last_y, last_angle,origin_x, origin_y, context, radius, size,num, num_rects){
 	var coords = pos_func(last_x, last_y, last_angle, origin_x,origin_y,radius, size);
 	const x = coords[0];
 	const y = coords[1];
 	var color = "#000000";
-	square(x,y,color, context,size,coords[2]);
+	square(x,y,color, context,size,num,num_rects);
     console.log("JR NOTE: going to return", coords);
     return coords;
 }
@@ -43,11 +44,12 @@ function pos_func(last_x,last_y,last_angle, origin_x, origin_y,radius,size){
     return circle(last_x, last_y,last_angle, origin_x, origin_y,radius,size);
 }
 
-function square(x,y,color, context,size,angle){
+function square(x,y,color, context,size,num,num_rects){
     context.fillStyle=color;
     context.save();
     context.translate(x, y);
-    context.rotate(angle);
+    const theta = 2*Math.PI*num/num_rects;
+    context.rotate(theta);
     context.fillRect(0,0,size,size*2);
     context.restore();
 }
