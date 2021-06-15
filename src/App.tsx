@@ -90,17 +90,19 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+
         <li>finish achivments for timeSpentInCutscenes = 0; timeSpentCityBuilding = 0;</li>
+        <li>in waste class, if unlock skill you get popup that says "im sorry, but hacking commands from the skill graph are currently disabled", and have a secret, but on screen way to enable them. maybe in the options menu.</li>
         <li>waste class, all skills are the names of hack methods on window. choosing those skills calls the method.</li>
         <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
+        <li>rename skills to have insults based on themes</li>
         <li>port in fractal sim to be the bg for RAGE MODE</li>
         <li>center skills tree on last unlocked skill, or root if none</li>
         <li>option menu with menu opacity slider (blurring effect)</li>
         <li>later, make it so if its your first playthrough (check local storage) and you get waste class it changes to something else.</li>
         <li>implement more achivment trigger types</li>
         <li>achivements award skill points (number of which is passed into achivement)</li>
-        <li>if errors build up enough, swap above and below text, regenerate skills filled with insults instead of nouns or adjs</li>
         <li>sub titles unlock only when you unlock skills related to them. you have to discover them, essentially</li>
         <li>murder yellow text</li>
         <li>player has skill points, can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
