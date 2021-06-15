@@ -22,27 +22,29 @@ interface MenuProps{
   player: Player;
 }
 
-const selectedTab = {
-  "border": "1px solid black",
-  "fontSize":"24px",
-  "background": "white",
-  "borderBottom": "2px solid white",
-  "borderRadius": "5px",
-  "borderBottomLeftRadius": "0px",
-  "borderBottomRightRadius": "0px",
-}
 
-const unSelectedTab = {
-  "border": "none",
-  "fontSize":"24px",
-  "background": "white",
-}
 
 function Menu(props: MenuProps) {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
   const [nextScreen, setNextScreen] = useState(STATUS);
   const {player} = props;
+
+  const selectedTab = {
+    "border": `1px solid ${FONTCOLOR}`,
+    "fontSize":"24px",
+    "background": "white",
+    "borderBottom": `2px solid ${BGCOLOR}`,
+    "borderRadius": "5px",
+    "borderBottomLeftRadius": "0px",
+    "borderBottomRightRadius": "0px",
+  }
+  
+  const unSelectedTab = {
+    "border": "none",
+    "fontSize":"24px",
+    "background": BGCOLOR,
+  }
 
 
   const tab = useTabState();

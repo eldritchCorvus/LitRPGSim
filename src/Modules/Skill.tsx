@@ -120,6 +120,16 @@ export class CoreSkill extends Skill{
 
 let numStatSkills = 0;
 
+export class WasteSkill extends Skill{
+    hackFunction:any;
+
+    constructor(hackFunction:any){
+        super([],null);
+        this.hackFunction = hackFunction;
+    }
+
+}
+
 export class StatSkill extends Skill{
     type = "StatSkill";
     name: string;
