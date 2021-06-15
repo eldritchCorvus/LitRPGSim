@@ -8,6 +8,7 @@ import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
 import { AchivementsScreen } from "./Screens/Achivements";
+import { fuckery } from "./CanvasFuckery/fuckery";
 
 
 interface MenuProps{
@@ -40,6 +41,10 @@ function Menu(props: MenuProps) {
 
 
   const tab = useTabState();
+
+  useEffect(()=>{
+      fuckery();
+  },[])
 
   //screen and tab should stay in sync plz
   useEffect(()=>{
