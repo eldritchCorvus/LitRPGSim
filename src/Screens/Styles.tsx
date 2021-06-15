@@ -130,11 +130,11 @@ export const Observer = styled.span`
 `;
 
 export const Achivement = styled.div`
-    border: 2px solid #eee;
+    border: 2px solid #000;
     border-radius: ${(props: StyleRadiusMedium) => props.mediumRadius}px;
     padding: 5px;
-    background: #eee;
-    color: #eee;
+    background: #000;
+    color: #000;
     padding-left: 13px;
     padding-right: 13px;
     margin: 10px;
