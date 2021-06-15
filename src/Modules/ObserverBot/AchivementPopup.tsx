@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
+import { Zalgo } from "../../Utils/StringUtils";
 
  
  interface AchivementProps{
@@ -44,7 +45,11 @@ export const PopupContent = styled.div`
 const  AchivementPopup = (props: AchivementProps)=> {
     const dialog = useDialogState();
     const [initialShowing, setInitialShowing] = useState(true);
-    const {title, text} = props;
+    let {title, text} = props;
+    if((window as any).rageMode && Math.random() > .99){
+        title = Zalgo.generate(title);
+        text = Zalgo.generate(title);
+    }
     const {visible} = dialog;
     const bg = (window as any).rageMode?"black":"white";
     useEffect(()=>{

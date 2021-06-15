@@ -121,13 +121,13 @@ export class CoreSkill extends Skill{
 let numStatSkills = 0;
 
 export class WasteSkill extends Skill{
-    hackFunction:any;
+    hackFunctionName:string; //can call it via window["name"].
 
-    constructor(hackFunction:any){
+    constructor(hackFunction:string){
         super([],null);
-        this.hackFunction = hackFunction;
+        this.hackFunctionName = hackFunction;
+        this.name = `window.${this.hackFunctionName}`;
     }
-
 }
 
 export class StatSkill extends Skill{
