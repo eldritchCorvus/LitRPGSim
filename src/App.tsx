@@ -4,30 +4,13 @@ import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
 import {Player, randomPlayer} from "./Modules/Player";
 import {initInterests } from "./Modules/Interest";
-import React, {useEffect, useState,Fragment} from 'react';
+import {useEffect, useState,Fragment} from 'react';
 import { initStats } from "./Modules/Stat";
 import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import Menu from "./Menu";
 import RageMode from "./RageMode";
 
-
-
-const selectedTab = {
-  "border": "1px solid black",
-  "fontSize":"24px",
-  "background": "white",
-  "borderBottom": "2px solid white",
-  "borderRadius": "5px",
-  "borderBottomLeftRadius": "0px",
-  "borderBottomRightRadius": "0px",
-}
-
-const unSelectedTab = {
-  "border": "none",
-  "fontSize":"24px",
-  "background": "white",
-}
 
 function App() {
   const [player, setPlayer] = useState<Player>();

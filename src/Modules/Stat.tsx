@@ -1,4 +1,3 @@
-const maxNumber = 113;
 
 export interface StatMap {
     [details: string] : Stat;

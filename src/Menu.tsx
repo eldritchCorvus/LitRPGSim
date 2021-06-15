@@ -67,17 +67,6 @@ function Menu(props: MenuProps) {
 
     return (
       <div>
-        <div>TODO design this better</div>
-        <a className="link" onClick={() => {
-          //warning: since these are async this might not be the best idea.
-          setNextScreen(STATUS);
-          setCurrentScreen(LOADING)}
-          }>STATUS</a> | 
-        <a className="link" onClick={() =>{
-          setNextScreen(SKILLGRAPH);
-      setCurrentScreen(LOADING)}
-      }>SKILLS</a>
-
       <MenuBox mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?

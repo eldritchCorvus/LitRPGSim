@@ -10,7 +10,6 @@ export   class SkillGenAlg{
     
     generate_skill_x_times = (x: number, themes: Theme[], rand:SeededRandom) =>{
         const ret:Skill[] = [];
-        console.log("JR NOTE: generating skill with themes",themes,"x is ", x)
         for(let i = 0; i<x; i++){
             ret.push(new Skill(themes, rand));
         }
