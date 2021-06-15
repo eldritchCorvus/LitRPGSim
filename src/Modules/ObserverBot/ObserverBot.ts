@@ -135,8 +135,16 @@ export class ObserverBot{
             this.timeStarted = value * 1000 - Date.now();
         }
 
-        (window as any).hackTimCombatInSeconds = (value:number)=>{
+        (window as any).hackTimeCombatInSeconds = (value:number)=>{
             this.timeSpentInCombat = value * 1000;
+        }
+
+        (window as any).hackTimeCutscenesInSeconds = (value:number)=>{
+            this.timeSpentInCutscenes = value * 1000;
+        }
+
+        (window as any).hackTimeCitybuildingInSeconds = (value:number)=>{
+            this.timeSpentCityBuilding = value * 1000;
         }
     }
 
