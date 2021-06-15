@@ -108,7 +108,7 @@ export class AchivementStorage{
         const map:AchievementTextMapOuter = {
             clickAbove: {
                 3: `Getting settled nicely, are you?`,
-                10: "Dragons! Elves! Factions! Cities! You're really starting to learn the basics of the wild world of Zampanio, and what it TRULY means to be a ${title}!",
+                10: `Dragons! Elves! Factions! Cities! You're really starting to learn the basics of the wild world of Zampanio, and what it TRULY means to be a ${title}!`,
                 100: `The ${rand.pickFrom(insults)} Doctor Slaughter isn't giving you too much trouble, are they?`,
                 1000: "...Wow! You... really love playing? Good for you!"
             },
@@ -147,7 +147,7 @@ export class AchivementStorage{
                 3: "It seems you aren't a total waste if you've spent this long in menus.",
                 10: "Are you just using the menu to avoid playing the game? I don't blame you. ",
                 100: `What is your obsession with this shitty menu. `,
-                1000: "It seems you have literally died while in the menu. Didn't I see that happen in some game? No matter. I can only hope that if anyone loots your corpse, they will be kind enough to at least close it so I won't be stuck with the awareness of how ${rand.pickFrom(insults)} you are."
+                1000: `It seems you have literally died while in the menu. Didn't I see that happen in some game? No matter. I can only hope that if anyone loots your corpse, they will be kind enough to at least close it so I won't be stuck with the awareness of how ${rand.pickFrom(insults)} you are.`
             }
 
         }

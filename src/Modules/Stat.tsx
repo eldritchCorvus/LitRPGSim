@@ -89,6 +89,9 @@ export const initStats =() =>{
 
 export const WrapStatsToStatMap = (stats: Stat[]) =>{
     let ret:StatMap = {};
+    if(!stats){
+        return ret;
+    }
     for(const stat of stats){
         ret[stat.positiveName] = stat;
     }

@@ -1,4 +1,3 @@
-import { RawNodeDatum } from "react-d3-tree/lib/types/common";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
 import { Stat } from "./Stat";
@@ -20,14 +19,14 @@ export   class Skill{
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
         const generic_bits = ["beam","touch","ray","aura","signal"];
-       if(themes.length == 1){
+       if(themes.length === 1){
         const noun =  titleCase(themes[0].pickPossibilityFor(seeded_random, NOUN));
         const adj =  titleCase(themes[0].pickPossibilityFor(seeded_random, ADJ));
         const generic = titleCase(seeded_random.pickFrom(generic_bits));
         const options = [`${adj} ${noun}`,`${noun}`,`${noun} ${generic}`,`${adj} ${generic}`,`${generic} of ${noun}`];
 
         return seeded_random.pickFrom(options);
-    }else if(themes.length == 2){
+    }else if(themes.length === 2){
            const first_noun =  titleCase(themes[0].pickPossibilityFor(seeded_random, NOUN));
            const first_adj =  titleCase(themes[0].pickPossibilityFor(seeded_random, ADJ));
 
@@ -36,7 +35,7 @@ export   class Skill{
 
            const options = [`${first_noun}'s ${second_noun}`,`${first_noun} ${second_noun}`,`${first_noun} of ${second_adj}`,`${first_adj} ${second_noun}`,`${second_adj} ${first_noun}`,`${first_noun} of ${second_noun}s`];
            return seeded_random.pickFrom(options);
-       }else if (themes.length == 0){
+       }else if (themes.length === 0){
            return "ERROR: no themes found";
        }else
            return "ERROR: more than two themes not yet supported";

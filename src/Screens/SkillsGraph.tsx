@@ -1,10 +1,8 @@
 import {Player} from "../Modules/Player";
 import Cytoscape from 'cytoscape';
-import cise from 'cytoscape-cise';
 import {StatusRow, StatusBlock,TreeContent} from "./Styles";
 import {useState, useEffect} from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
-import { Skill } from "../Modules/Skill";
 import { SKILLGRAPH} from "../Utils/constants";
 import klay from 'cytoscape-klay';
 
@@ -24,47 +22,26 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      //do type this
      const [graphData, setGraphData] = useState<any >(exampleData);
      const [cy, setCy] = useState<any>();
+     const {player, loadScreen} = props;
 
      useEffect(()=>{
          if(cy){
             cy.pan({ x: 50, y: -1000 });
             cy.on('click', 'node', (event:any) => {
                 console.log(event.target)
-                props.player.unlockSkill(event.target.id());
-                props.loadScreen(SKILLGRAPH)
+                player.unlockSkill(event.target.id());
+                loadScreen(SKILLGRAPH)
                 //extractGraphFromSkills(); //JR NOTE: both slow and buggy, doesn't actually show newly unlocked skills as changing despite rerendering
             })
         }
-     }, [cy])
-
-     let clusterInfo;
-     const extractClusterInfoDeprecated = () => {
-         return []; //NOTE this makes it look dumb.
-         const all_seen:string[] = [];
-         const ret:string[][] = []; //todo array of arrays where each array is the names of skills that are organized around a theme
-         for(const key_skill of props.player.rootSkill.children){
-             const inner_arr:string[] = [];
-             console.log("looking for cluster of", key_skill.theme_keys);
-             const key = key_skill.theme_keys[0]; //should only have one key if linked from root
-             for(const skill of props.player.skills){
-                 if(skill.theme_keys.includes(key) && !all_seen.includes(skill.name)){
-                     inner_arr.push(skill.name);
-                     all_seen.push(skill.name);
-                 }
-             }
-             if(inner_arr.length > 0){
-                 ret.push(inner_arr);
-             }
-         }
-         return ret;
-     }
+     }, [cy, player, loadScreen])
 
      const extractGraphFromSkills =() =>{
         console.log("first skill is", props.player.skills[0]);
         
         const temp_data = props.player.rootSkill.convertToCytoscape();
         for(const skill of props.player.skills){
-            if(skill != props.player.rootSkill){
+            if(skill !== props.player.rootSkill){
                 const temp_data2 = skill.convertToCytoscape();
                 for(const item of temp_data2){
                     temp_data.push(item);
@@ -132,25 +109,6 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
             thoroughness: 85 // How much effort should be spent to produce a nice layout..
           }
          }; //cose-bilkent and spread work but are ugly
-         
-         //todo can use this with  stylesheet={stylesheet} in the compononent 
-         //but for some reason it gets rid of labels.
-         const stylesheet = [
-            {
-              selector: 'node',
-              style: {
-                width: 20,
-                height: 20,
-                shape: 'circle'
-              }
-            },
-            {
-              selector: 'edge',
-              style: {
-                width: 2,
-              }
-            }
-          ];
 
     return(
         <StatusBlock>

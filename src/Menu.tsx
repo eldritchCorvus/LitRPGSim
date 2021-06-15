@@ -1,19 +1,11 @@
-import {initAspects} from "./Modules/Aspect";
-import {initClasses } from "./Modules/RPGClass";
-import {initThemes} from "./Modules/Theme";
-import SeededRandom from "./Utils/SeededRandom";
-import {Player, randomPlayer} from "./Modules/Player";
+import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
-import {initInterests } from "./Modules/Interest";
-import React, {useEffect, useState,Fragment} from 'react';
+import {useEffect, useState,Fragment} from 'react';
 import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS} from "./Utils/constants";
-import { initStats } from "./Modules/Stat";
-import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
-import { getParameterByName } from "./Utils/URLUtils";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
-import { BGCOLOR, BORDERRADIUS, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox } from "./Screens/Styles";
+import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
 import { AchivementsScreen } from "./Screens/Achivements";
 
@@ -52,7 +44,7 @@ function Menu(props: MenuProps) {
   //screen and tab should stay in sync plz
   useEffect(()=>{
     tab.setSelectedId(currentScreen);
-  }, [currentScreen])
+  }, [currentScreen,tab])
 
   const handleLoading = (screen:string) =>{
     setNextScreen(screen);
@@ -93,12 +85,12 @@ function Menu(props: MenuProps) {
           :
           <Fragment>
             <TabList style={{borderBottom:"1px solid black"}} {...tab} aria-label="My tabs">
-              <Tab style={tab.selectedId == STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
+              <Tab style={tab.selectedId === STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
           //warning: since these are async this might not be the best idea.
           setNextScreen(STATUS);
           setCurrentScreen(LOADING)}
           }>Status</Tab>
-              <Tab style={tab.selectedId == SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>
+              <Tab style={tab.selectedId === SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>
                 {
                   setNextScreen(SKILLGRAPH);
                   setCurrentScreen(LOADING)}
@@ -106,7 +98,7 @@ function Menu(props: MenuProps) {
                 Skills
               </Tab>
 
-              <Tab style={tab.selectedId == STATISTICS?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
+              <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
                 {
                   setNextScreen(STATISTICS);
                   setCurrentScreen(LOADING)}
@@ -114,7 +106,7 @@ function Menu(props: MenuProps) {
                 Statistics
               </Tab>
 
-              <Tab style={tab.selectedId == ACHIEVEMENTS?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
+              <Tab style={tab.selectedId === ACHIEVEMENTS?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
                 {
                   setNextScreen(ACHIEVEMENTS);
                   setCurrentScreen(LOADING)}

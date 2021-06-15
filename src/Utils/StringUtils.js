@@ -131,13 +131,13 @@ var Zalgo = {
 
     },
     random: function(len) {
-        if (len == 1) return 0;
+        if (len === 1) return 0;
         return !!len ? Math.floor(Math.random() * len + 1) - 1 : Math.random();
     },
     generate: function(str) {
         var str_arr = str.split(''),
             output = str_arr.map(function(a) {
-                if(a == " ") return a;
+                if(a === " ") return a;
                 for(var i = 0, l = Zalgo.random(16);
                     i<l;i++){
                         var rand = Zalgo.random(3);
