@@ -23,7 +23,6 @@ export   class Player{
 
 
     constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom){
-        console.log("JR NOTE: trying to make a playe rof class", class_name, "and aspect", aspect, "and interests", interests)
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
@@ -38,7 +37,6 @@ export   class Player{
         this.rootSkill = this.skills[0];
         this.rootSkill.unlocked = true;
         this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
-        console.log("After everything, skills looks like this", this.skills);
         this.rand = rand;
         //JR NOTE: i'm worried theres some weird decoupling here, if i make OB up top they get a player without anything set which is WEIRD.
         //is it a copy and not a reference?
@@ -57,9 +55,6 @@ export   class Player{
         for(const interest of this.interests){
             this.addStats(interest.stats);
         }
-        //TODO also add interests.
-        //TODO class does a multiplier for aspect stats (might be negative)
-        console.log("JR NOTE: after initing stats they are", this.stats)
     }
 
     //for each stat in the new map, add its value to your stats.
@@ -81,11 +76,9 @@ export   class Player{
     unlockSkill = (skill_id: string) =>{
         const found = this.skills.find((skill) =>{return skill.cytoscapeID()===skill_id});
         if(found){
-            console.log("JR NOTE: found was unlocked originally", found.unlocked, "and now setting it to true", "its type is", found.type);
             found.unlocked = true;
             if(found.type === "StatSkill"){
                 const stat = (found as StatSkill).stat;
-                console.log("JR NOTE: its a stat",stat);
                 this.addStat(stat);
             }
         }

@@ -59,7 +59,6 @@ export class ObserverBot{
         this.setUpWasteShit();
         (window as any).menuClick =(menu: string)=>{
             if(!this.menuItemsClicked.includes(menu)){
-                console.log("ADDING ")
                 this.menuItemsClicked.push(menu);
                 this.achivementStorage.checkForAchievements(this);
             }
@@ -71,7 +70,6 @@ export class ObserverBot{
         }
 
         window.onkeydown = (evt:KeyboardEvent)=>{
-            console.log(evt.key);
             if(evt.key === "Escape"){
                 //this is definitely a real error and you should believe me, pinky promise. :) :) :)
                 console.error("Uncaught TypeError: window.closeMenu is not a function");
@@ -91,31 +89,31 @@ export class ObserverBot{
     setUpFakeReduxShit = () =>{
         //yes its a poor mans redux, whatever
         (window as any).recordAction =(action: ActionType, value: number)=>{
-            if(action == CLICK){
+            if(action === CLICK){
                 this.incrementStat("numClicks", value);
             }
 
-            if(action == FUCKEDUP){
+            if(action === FUCKEDUP){
                 this.timeYouFuckedUp = value; //:) :) :)
             }
 
-            if(action == WALK){
+            if(action === WALK){
                 this.incrementStat("timesWalked", value);
             }
 
-            if(action == JUMP){
+            if(action === JUMP){
                 this.incrementStat("timesJumped", value);
             }
 
-            if(action == SKIP){
+            if(action === SKIP){
                 this.incrementStat("timesSkippedCutscene", value);
             }
 
-            if(action == ERROR){
+            if(action === ERROR){
                 this.incrementStat("errors", value);
             }
 
-            if(action == UNLOCK_SKILL){
+            if(action === UNLOCK_SKILL){
                 this.incrementStat("skillsUnlocked", value);
             }
         }

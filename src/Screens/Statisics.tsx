@@ -92,11 +92,6 @@ export const  StatisticsScreen = (props: StatusProps)=> {
             </StatusRow>
 
             <StatusRow>
-                <StatusHeader>Achivements Unlocked:</StatusHeader>
-                <StatusContent>{observer.unlocked_achivements}</StatusContent>
-            </StatusRow>
-
-            <StatusRow>
                 <StatusHeader>Times Clicked:</StatusHeader>
                 <StatusContent>{observer.numClicks}</StatusContent>
             </StatusRow>

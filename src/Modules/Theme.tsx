@@ -1,7 +1,6 @@
 import SeededRandom from '../Utils/SeededRandom';
 import * as Stat from './Stat';
 import * as ThemeStorage from './ThemeStorage';
-import { ThemePossibilitiesMap } from './ThemeStorage';
 interface ThemeMap {
     [details: string] : Theme;
 }

@@ -49,23 +49,17 @@ export   class  BonesFirstAlg extends SkillGenAlg{
 
         //this should happen TWICE. ~MAYBE~ three times.
         //skip root for this. (slice)
-        console.log("JR NOTE: after generate root and base ret is", ret)
         const tierTwo = this.generateTierTwo(ret.slice(1), themes, rand);
-        console.log("JR NOTE: tier two is ", tierTwo)
         ret = ret.concat(tierTwo);
         
-        console.log("JR NOTE: after generateTierTwo ret is", ret)
 
         //only pass in real skills, not stat skills or status skills
         const tierThree = this.generateTierTwo(tierTwo.filter((x)=>{return !(x instanceof StatSkill)}), themes, rand);
-        console.log("JR NOTE: tier three is ", tierThree)
         ret = ret.concat(tierThree);
 
         const finalTier = this.generateFinalTier(tierThree.filter((x)=>{return !(x instanceof StatSkill)}), rand);
-        console.log("JR NOTE: tier finalTier is ", finalTier)
         ret = ret.concat(finalTier);
         
-        console.log("JR NOTE: after generateTierThree ret is", ret)
         return this.only_leave_unique_names(ret);
     }
 
@@ -89,9 +83,6 @@ export   class  BonesFirstAlg extends SkillGenAlg{
     // there are three nodes from "Summon Plant".  for each node generate a new skill that has plant as a theme and 0-1 others from the players theme list
 
     generateTierTwo = (skills: Skill[], themes: Theme[], rand: SeededRandom) =>{
-        console.log("JR NOTE: generating tier 2");
-
-
         let ret:Skill[] = [];
         for(let i = 0; i<skills.length; i++){
             //combine a skill with its neighbor, loop if necessary
@@ -119,7 +110,6 @@ export   class  BonesFirstAlg extends SkillGenAlg{
     }
 
     generateRootAndBase =(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom) =>{
-        console.log("JR NOTE: generating root and base");
         const root = new CoreSkill("Status", 0, rand);
         const max = 1;
         const min = 1;

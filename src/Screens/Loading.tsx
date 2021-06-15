@@ -8,7 +8,6 @@ export const  LoadingScreen = (props: LoadingProps)=> {
     const {loadScreen, nextScreen} = props
 
     useEffect(()=>{
-        console.log("JR NOTE: use effect doing a timeout");
         setTimeout(()=>{
             fuckShitUpButOnlyALittle();
             (window as any).menuClick("LOADING");

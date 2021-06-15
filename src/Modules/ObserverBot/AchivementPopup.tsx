@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
-import { Zalgo } from "../../Utils/StringUtils";
 
  
  interface AchivementProps{
