@@ -12,6 +12,12 @@ body {
   background: green;
 }
 
+#canvas{
+  position: fixed;
+  left: 25%;
+  top: 3.5%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -9,7 +9,7 @@ export  function fuckery(){
     const radius = outer_r;
     const size = 14;
     let ratio = 1.0;
-    for(let i =0; i<13; i++){
+    for(let i =0; i<11; i++){
         drawCircleOfRects(canvas, radius*ratio,size*ratio);
         ratio = ratio * 0.8;
 
@@ -104,17 +104,20 @@ function square(x,y,color, context,size,num,num_rects, whole_width,radius){
     const theta = 2*Math.PI*(num)/(num_rects);
     context.rotate(theta);
     const rect_ratio = 1.3;
-    context.fillRect(0,0,size,size*rect_ratio);
+    //context.fillRect(0,0,size,size*rect_ratio);
     // Create gradient
     //TODO shift gradient center based on whatever
     const choices = x>whole_width ?[size,size/2, 0]:[0,size/2, size];
-    var grd = context.createRadialGradient(choices[(num)%3],size, 0, size, size, size*2);
+    var grd = context.createRadialGradient(choices[(num)%3],size, size/4, 0, size, size*2);
     if((num+radius)%6<3){
         grd.addColorStop(0, "black");
-        grd.addColorStop(1, "white");
+        grd.addColorStop(0.3, "grey");
+        grd.addColorStop(1.0, "white");
+
     }else{
         grd.addColorStop(0, "white");
-        grd.addColorStop(1, "black");
+        grd.addColorStop(0.3, "grey");
+        grd.addColorStop(1.0, "black");
     }
 
     // Fill with gradient

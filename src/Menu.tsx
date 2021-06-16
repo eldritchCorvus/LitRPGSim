@@ -5,7 +5,7 @@ import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment} from 'react';
 import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
-import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox } from "./Screens/Styles";
+import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
 import { AchivementsScreen } from "./Screens/Achivements";
 import { fuckery } from "./CanvasFuckery/fuckery";
@@ -72,7 +72,7 @@ function Menu(props: MenuProps) {
 
     return (
       <div>
-      <MenuBox mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
+      <MenuBox opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?
             <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>
