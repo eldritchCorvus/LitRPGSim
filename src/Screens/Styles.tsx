@@ -67,7 +67,7 @@ const fuckUpOpacity =()=>{
         direction = -1;
     }
     MENU_OPACITY +=Math.random()/10*direction;
-    if(Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > 0.4){
+    if(Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > 0.04){
         MENU_OPACITY = ORIGINAL_MENU_OPACITY;
     }
 }
