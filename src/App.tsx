@@ -75,6 +75,7 @@ function App() {
       <ul style={{display: "none"}}>
         <li>RAGE mode having a black bg makes the optical illusion fail. figure out a work around (redraw on top with new colors? mess with opacity?)</li>
         <li>menu opacity flickers as part of the subtle fuckery so you can sometimes almost see the optical illusion behind it. in RAGE MODE its on top.</li>
+        <li>lightly animate optical illusion in rage mode. have a few prerendered frames it cycles between. have the rectanges shudder and rotate a bit, see if it breaks the illusion to force the player to see its not a spiral occasionally</li>
       <li> if waste class, random chance to replace a skill without the waste theme with a hacking method</li>
 
         <li>options, things like volume, opacity/blurring, haxMode, etc.</li>
