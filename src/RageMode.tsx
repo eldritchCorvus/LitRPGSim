@@ -23,7 +23,7 @@ import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
     const transforms = [`scale(${getRandomNumberBetween(1,3*ratio)}, ${Math.random()*ratio})`,`rotate(${Math.random()*ratio}turn)`,`skew(${getRandomNumberBetween(1,360*ratio)}deg, ${getRandomNumberBetween(1,360*ratio)}deg)`];
     const mildTransforms = [`scale(${getRandomNumberBetween(1,2*ratio)}, ${Math.random()*ratio})`,`rotate(${Math.random()*ratio}turn)`,`skew(${getRandomNumberBetween(1,10*ratio)}deg, ${getRandomNumberBetween(1,10*ratio)}deg)`];
 
-    if(children.length < 3 && Math.random() >.9){
+    if(children.length < 3 && Math.random() >.9 && numCalls > max/2){
       shit.style.filter = pickFrom(filters);
       if(ratio > .05){
         shit.style.transform = pickFrom(transforms);
