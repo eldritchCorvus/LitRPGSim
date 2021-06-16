@@ -21,7 +21,13 @@ body {
 }
 
 .frameAnimation{
-  animation: frameAnimation 1.0s steps(1) infinite;
+  animation: frameAnimation 661.3s steps(1) infinite;
+}
+
+.flickering{
+  animation: flickering 10.3s steps(30) infinite;
+  animation-timing-function: ease;
+
 }
 
 @keyframes frameAnimation {
@@ -29,6 +35,13 @@ body {
   33% { background-position: -600px; }
   66% { background-position: -1200px; }
   0% { background-position: 0px; }
+}
+
+@keyframes flickering {
+  0% { opacity: 0%; }
+  50% { opacity: 100%; }
+  100% { opacity: 0%; }
+
 }
 
 code {
