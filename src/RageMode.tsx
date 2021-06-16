@@ -61,6 +61,10 @@ function RageMode() {
 
     useEffect(()=>{
       (window as any).rageMode = true;
+      const canvas = document.getElementById("canvas");
+      if(canvas){
+        canvas.style.zIndex = "1000"; //friendly not-a-spiral
+      }
       beginFuckingShitUp();
       (window as any).recordAction(FUCKEDUP,Date.now());
 

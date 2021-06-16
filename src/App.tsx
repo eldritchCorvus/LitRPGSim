@@ -73,9 +73,10 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>RAGE mode having a black bg makes the optical illusion fail. figure out a work around (redraw on top with new colors? mess with opacity?)</li>
+        <li>menu opacity flickers as part of the subtle fuckery so you can sometimes almost see the optical illusion behind it. in RAGE MODE its on top.</li>
       <li> if waste class, random chance to replace a skill without the waste theme with a hacking method</li>
 
-      <li>lurking behind menu, gabor patch spiral canvas??? check position function from http://farragofiction.com/ModernArtClicker/test.html</li>
         <li>options, things like volume, opacity/blurring, haxMode, etc.</li>
         <li>as waste class options always in skill tree, if unlock skill you get popup that says "im sorry, but hacking commands from the skill graph are currently disabled", and have a secret, but on screen way to enable them. maybe in the options menu. (obvs haxMode=on)</li>
         <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
