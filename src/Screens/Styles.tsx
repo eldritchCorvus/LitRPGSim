@@ -10,7 +10,7 @@ export let PADDINGRATIO = 1.0;
 export let MARGINRATIO = 1.0;
 export let BORDERRADIUS = 4;
 export let BORDERRADIUSROUND = 13;
-export let MENU_OPACITY = 95;
+export let MENU_OPACITY = 50;
 
 const CENTERRADIUS = 5;
 const CENTERFONTSIZE = 14;

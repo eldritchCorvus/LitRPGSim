@@ -61,7 +61,7 @@ function RageMode() {
 
     useEffect(()=>{
       (window as any).rageMode = true;
-      const canvas = document.getElementById("canvas");
+      const canvas = document.getElementById("ThisIsNotASpiral");
       if(canvas){
         canvas.style.zIndex = "1000"; //friendly not-a-spiral
       }

@@ -12,10 +12,23 @@ body {
   background: green;
 }
 
-#canvas{
+#ThisIsNotASpiral{
   position: fixed;
+  width: 600px;
+  height: 600px;
   left: 25%;
   top: 3.5%;
+}
+
+.frameAnimation{
+  animation: frameAnimation 1.0s steps(1) infinite;
+}
+
+@keyframes frameAnimation {
+  0% { background-position: 0px; }
+  33% { background-position: -600px; }
+  66% { background-position: -1200px; }
+  0% { background-position: 0px; }
 }
 
 code {
