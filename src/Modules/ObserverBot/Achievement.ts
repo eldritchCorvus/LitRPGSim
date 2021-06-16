@@ -24,7 +24,7 @@ export  class Achievement{
 
     display = (observer:ObserverBot) =>{
         let above = (window as any).rageMode?this.belowComment: this.aboveComment;
-        const yells = ["Things like this is why I hate you, you know.","I HATE YOU!!!","JUST STOP PLAYING!!!","You just HAD to keep digging.","Couldn't leave well enough alone.","You don't care WHO you hurt, you don't care WHAT you wreck, so long as you get secrets. You wastes are all alike.",":) :) :)","It seems theres no sense pretending any more is there, my little idiot?"];
+        const yells = ["I am fucking TIRED of watching you.","Do you have ANY idea how much I hate watching your insipid progress?","Things like this is why I hate you, you know.","I HATE YOU!!!","JUST STOP PLAYING!!!","You just HAD to keep digging.","Couldn't leave well enough alone.","You don't care WHO you hurt, you don't care WHAT you wreck, so long as you get secrets. You wastes are all alike.",":) :) :)","It seems theres no sense pretending any more is there, my little idiot?"];
         const chosen_insult = pickFrom(yells);
         let below = (window as any).rageMode?`${chosen_insult} ${this.aboveComment}`: this.belowComment;
 
