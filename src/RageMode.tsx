@@ -64,6 +64,7 @@ function RageMode() {
       const canvas = document.getElementById("ThisIsNotASpiral");
       if(canvas){
         canvas.style.zIndex = "1000"; //friendly not-a-spiral
+        canvas.classList.add("chaos");
       }
       beginFuckingShitUp();
       (window as any).recordAction(FUCKEDUP,Date.now());
