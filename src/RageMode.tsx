@@ -1,4 +1,5 @@
 import  { useEffect } from "react";
+import { fuckery } from "./CanvasFuckery/fuckery";
 import { FUCKEDUP } from "./Modules/ObserverBot/ObserverBot";
 import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
 
@@ -61,6 +62,7 @@ function RageMode() {
 
     useEffect(()=>{
       (window as any).rageMode = true;
+      fuckery(); //change eye colors :) :) :)
       const canvas = document.getElementById("ThisIsNotASpiral");
       if(canvas){
         canvas.style.zIndex = "1000"; //friendly not-a-spiral
@@ -74,7 +76,7 @@ function RageMode() {
 
     return (
       <div>
-        I hate YOU. In particular.
+        :) :) :)
       </div>
     );
 } 

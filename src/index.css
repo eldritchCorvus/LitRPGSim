@@ -18,9 +18,14 @@ body {
   height: 600px;
   left: 25%;
   top: 3.5%;
+  pointer-events: none;
 }
 
-#ThisIsNotAnEye{
+#ThisIsNotAnEye1{
+  display: none;
+}
+
+#ThisIsNotAnEye2{
   display: none;
 }
 

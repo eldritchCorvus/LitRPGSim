@@ -33,7 +33,12 @@ export  function fuckery(){
         }
         blur(canvas);
     }
-    const eye = document.getElementById("ThisIsNotAnEye");
+    let eye;
+    if(window.rageMode){
+        eye = document.getElementById("ThisIsNotAnEye2");
+    }else{
+        eye = document.getElementById("ThisIsNotAnEye1");
+    }
     for(let frame of frames){
         frame.getContext("2d").drawImage(eye, frame.width/2-55/2,frame.height/2-55/2);
     }
