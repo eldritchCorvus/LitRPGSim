@@ -20,6 +20,10 @@ body {
   top: 3.5%;
 }
 
+#ThisIsNotAnEye{
+  display: none;
+}
+
 .frameAnimation{
   animation: frameAnimation 10.3s steps(1) infinite, flickering 10.3s steps(30) infinite ;
 }

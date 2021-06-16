@@ -36,7 +36,7 @@ import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
   }
 
 const beginFuckingShitUp = (numCalls = 0)=>{
-  const root = document.querySelector('#root');
+  const root = document.querySelector('#ThisIsNotAGame');
   if(root){
     const children = root.querySelectorAll("*");
     fuckShitUp(root as HTMLElement, numCalls);
