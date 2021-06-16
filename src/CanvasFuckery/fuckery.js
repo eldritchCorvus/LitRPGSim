@@ -10,7 +10,8 @@ export  function fuckery(){
     const size = 14;
     let ratio = 1.0;
     for(let i =0; i<11; i++){
-        drawCircleOfRects(canvas, radius*ratio,size*ratio);
+
+        drawCircleOfRects(canvas, radius*ratio,size*ratio, i);
         ratio = ratio * 0.8;
 
     }
@@ -19,13 +20,23 @@ export  function fuckery(){
 
 }
 
-function drawCircleOfRects(canvas,radius, size){
+function drawCircleOfRects(canvas,radius, size, ring_num){
     const context=canvas.getContext("2d");
     const origin_x = canvas.width/2;
 	const  origin_y = canvas.height/2;
     const num_rects = 90;
+     //each circle should be upside down compared to the other to make it swirl
+    if(ring_num %2===0){
+        context.save();
+        context.translate(canvas.width, 0);
+        context.scale(-1, 1);
+        //context.rotate(toRadians(-180));
+    }
     for(let i = 0; i<num_rects; i++){
         const ret = addNewSquare(origin_x, origin_y, context, radius,size,i+1,num_rects,canvas.width);
+    }
+    if(ring_num%2===0){
+        context.restore();
     }
 }
 
@@ -109,7 +120,7 @@ function square(x,y,color, context,size,num,num_rects, whole_width,radius){
     //TODO shift gradient center based on whatever
     const choices = x>whole_width ?[size,size/2, 0]:[0,size/2, size];
     var grd = context.createRadialGradient(choices[(num)%3],size, size/4, 0, size, size*2);
-    if((num+radius)%6<3){
+    if((num)%6<3){
         grd.addColorStop(0, "black");
         grd.addColorStop(0.3, "grey");
         grd.addColorStop(1.0, "white");
