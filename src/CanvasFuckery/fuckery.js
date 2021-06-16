@@ -1,11 +1,5 @@
-//blame past me for this
+//blame past me for how confusing this is, stole bits from http://farragofiction.com/ModernArtClicker/infinite_color_test.html
 
-/*
-TODO: 
-* inside rects color a  white or black circle, position depending on angle. bg should be opposite of circle
-* circle should be blurry.
-* concentric circles. size of rect should be based on size of circle.
-*/
 export  function fuckery(){
     const canvas = document.getElementById("canvas");
     
@@ -13,11 +7,11 @@ export  function fuckery(){
 
     //TODO how many boxes to make a circle?
     const radius = outer_r;
-    const size = 10;
+    const size = 14;
     let ratio = 1.0;
-    for(let i =0; i<9; i++){
+    for(let i =0; i<13; i++){
         drawCircleOfRects(canvas, radius*ratio,size*ratio);
-        ratio = ratio -0.1;
+        ratio = ratio * 0.8;
 
     }
 
@@ -40,7 +34,7 @@ function addNewSquare(origin_x, origin_y, context, radius, size,num, num_rects, 
 	const x = coords[0];
 	const y = coords[1];
 	var color = "#000000";
-	square(x,y,color, context,size,num,num_rects,whole_width);
+	square(x,y,color, context,size,num,num_rects,whole_width,radius);
     console.log("JR NOTE: going to return", coords);
     return coords;
 }
@@ -101,7 +95,7 @@ const kernel= function(canvas, weights){
     ctx.putImageData(output, 0, 0);
 }
 
-function square(x,y,color, context,size,num,num_rects, whole_width){
+function square(x,y,color, context,size,num,num_rects, whole_width,radius){
     context.fillStyle=color;
     context.save();
     context.translate(x, y);
@@ -109,12 +103,13 @@ function square(x,y,color, context,size,num,num_rects, whole_width){
     //don't question it, its dumb. just played with numbers till it worked
     const theta = 2*Math.PI*(num)/(num_rects);
     context.rotate(theta);
-    context.fillRect(0,0,size,size*2);
+    const rect_ratio = 1.3;
+    context.fillRect(0,0,size,size*rect_ratio);
     // Create gradient
     //TODO shift gradient center based on whatever
     const choices = x>whole_width ?[size,size/2, 0]:[0,size/2, size];
     var grd = context.createRadialGradient(choices[(num)%3],size, 0, size, size, size*2);
-    if(num%6<3){
+    if((num+radius)%6<3){
         grd.addColorStop(0, "black");
         grd.addColorStop(1, "white");
     }else{
@@ -124,7 +119,7 @@ function square(x,y,color, context,size,num,num_rects, whole_width){
 
     // Fill with gradient
     context.fillStyle = grd;
-    context.fillRect(0,0,size,size*2);
+    context.fillRect(0,0,size,size*rect_ratio);
     context.restore();
 }
 
