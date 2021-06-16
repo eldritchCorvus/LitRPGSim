@@ -10,11 +10,14 @@ export let PADDINGRATIO = 1.0;
 export let MARGINRATIO = 1.0;
 export let BORDERRADIUS = 4;
 export let BORDERRADIUSROUND = 13;
+export let MENU_OPACITY = 10;
+
 const CENTERRADIUS = 5;
 const CENTERFONTSIZE = 14;
 const CENTERRADIUSROUND =13;
 const ORIGINALFONTCOLOR = "#000000";
 const ORIGINALBGCOLOR = "#ffffff";
+const ORIGINAL_MENU_OPACITY = "100%";
 
 
 
@@ -33,6 +36,7 @@ interface MenuBoxProps{
     fontSize: number;
     fontColor: string;
     bgColor: string;
+    opacity: number;
 }
 
 //did something change? probably just your imagination.
@@ -161,6 +165,7 @@ export const Skill = styled.div`
 export const MenuBox = styled.div`
     padding: 10px;
     margin: 10px;
+    opacity: ${(props: MenuBoxProps) => props.opacity}%;
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
     color:  ${(props: MenuBoxProps) => props.fontColor};
     background:  ${(props: MenuBoxProps) => props.bgColor};
