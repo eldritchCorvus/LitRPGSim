@@ -1,7 +1,8 @@
 //blame past me for how confusing this is, stole bits from http://farragofiction.com/ModernArtClicker/infinite_color_test.html
-
+window.fuckery = fuckery;
 export  function fuckery(){
     const div = document.getElementById("ThisIsNotASpiral");
+
     const bigBG = document.createElement("canvas");
     bigBG.width = 600*3;
     bigBG.height = 600;
@@ -35,6 +36,7 @@ export  function fuckery(){
     const eye = document.getElementById("ThisIsNotAnEye");
     for(let frame of frames){
         frame.getContext("2d").drawImage(eye, frame.width/2-55/2,frame.height/2-55/2);
+        div.append(frame);
     }
     const bigContext = bigBG.getContext("2d");
     bigContext.drawImage(frames[0],0,0);

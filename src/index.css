@@ -25,11 +25,11 @@ body {
 }
 
 .frameAnimation{
-  animation: frameAnimation 10.3s steps(1) infinite, flickering 10.3s steps(30) infinite ;
+  animation: frameAnimation 10.3s steps(1) infinite, flicker 10.3s steps(30) infinite ;
 }
 
 .chaos{
-  animation: frameAnimation 1.3s steps(13) infinite, flickering 10.3s steps(30) infinite ;
+  animation: frameAnimation 1.3s steps(13) infinite, flicker 10.3s steps(30) infinite ;
   animation-timing-function: ease;
 }
 
@@ -41,11 +41,10 @@ body {
   0% { background-position: 0px; }
 }
 
-@keyframes flickering {
-  0% { opacity: 0%; }
-  50% { opacity: 100%; }
-  100% { opacity: 0%; }
-
+@keyframes flicker {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 code {
