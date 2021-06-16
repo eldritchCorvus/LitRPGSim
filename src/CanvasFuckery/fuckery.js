@@ -1,36 +1,76 @@
 //blame past me for how confusing this is, stole bits from http://farragofiction.com/ModernArtClicker/infinite_color_test.html
 
 export  function fuckery(){
-    const canvas = document.getElementById("canvas");
-    
-	const outer_r = Math.min(canvas.height, canvas.width)/2.1;
-
+    const div = document.getElementById("ThisIsNotASpiral");
+    const bigBG = document.createElement("canvas");
+    bigBG.width = 600*3;
+    bigBG.height = 600;
     //TODO how many boxes to make a circle?
-    const radius = outer_r;
-    const size = 14;
-    let ratio = 1.0;
-    for(let i =0; i<11; i++){
 
-        drawCircleOfRects(canvas, radius*ratio,size*ratio, i);
-        ratio = ratio * 0.8;
+    //const flipFuncs = [flipHorizontal, flipVertical, flipBoth];
+    const flipFuncs = [flipHorizontal, flipVertical, flipBoth];
+    const frames = [];
 
+    for(const flipFunc of flipFuncs){
+        const canvas = document.createElement("canvas");
+        canvas.width = 600;
+        canvas.height = 600;
+        const size = 14;
+        let ratio = 1.0;
+        const outer_r = Math.min(canvas.height, canvas.width)/2.1;
+        const radius = outer_r;
+        frames.push(canvas);
+        for(let i =0; i<11; i++){
+            console.log("JR NOTE: about to call circle rect with canvas",canvas)
+            drawCircleOfRects(canvas, radius*ratio,size*ratio, i, flipFunc);
+            ratio = ratio * 0.8;    
+        }
+        blur(canvas);
     }
+    const bigContext = bigBG.getContext("2d");
+    bigContext.drawImage(frames[0],0,0);
+    bigContext.drawImage(frames[1],600,0);
+    bigContext.drawImage(frames[2],1200,0);
+    div.style.backgroundImage = `url(${bigBG.toDataURL()})`
+    //div.append(bigBG);
 
-    blur(canvas);
+    console.log("Frames are", frames)
+}
+
+function flipHorizontal(canvas){
+    const context=canvas.getContext("2d");
+    context.save();
+    context.translate(canvas.width, 0);
+    context.scale(-1, 1);
+    //context.rotate(toRadians(-180));
 
 }
 
-function drawCircleOfRects(canvas,radius, size, ring_num){
+function flipVertical(canvas){
+    const context=canvas.getContext("2d");
+    context.save();
+    context.translate(0, canvas.height);
+    context.scale(1, -1);
+    //context.rotate(toRadians(-180));
+
+}
+
+function flipBoth(canvas){
+    const context=canvas.getContext("2d");
+    context.save();
+    context.translate(canvas.width, canvas.height);
+    context.scale(-1, -1);
+    //context.rotate(toRadians(-180));
+}
+
+function drawCircleOfRects(canvas,radius, size, ring_num,flipFunc){
     const context=canvas.getContext("2d");
     const origin_x = canvas.width/2;
 	const  origin_y = canvas.height/2;
     const num_rects = 90;
      //each circle should be upside down compared to the other to make it swirl
     if(ring_num %2===0){
-        context.save();
-        context.translate(canvas.width, 0);
-        context.scale(-1, 1);
-        //context.rotate(toRadians(-180));
+       flipFunc(canvas);
     }
     for(let i = 0; i<num_rects; i++){
         const ret = addNewSquare(origin_x, origin_y, context, radius,size,i+1,num_rects,canvas.width);
