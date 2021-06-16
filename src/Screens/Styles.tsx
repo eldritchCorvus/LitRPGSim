@@ -10,14 +10,14 @@ export let PADDINGRATIO = 1.0;
 export let MARGINRATIO = 1.0;
 export let BORDERRADIUS = 4;
 export let BORDERRADIUSROUND = 13;
-export let MENU_OPACITY = 95;
+export let MENU_OPACITY = 1;
 
 const CENTERRADIUS = 5;
 const CENTERFONTSIZE = 14;
 const CENTERRADIUSROUND =13;
 const ORIGINALFONTCOLOR = "#000000";
 const ORIGINALBGCOLOR = "#ffffff";
-const ORIGINAL_MENU_OPACITY = "100%";
+const ORIGINAL_MENU_OPACITY = 1;
 
 
 
@@ -46,6 +46,8 @@ export const fuckShitUpButOnlyALittle = () => {
     fuckUpFontSize();
     fuckUpFontColor();
     fuckUpBGColor();
+    fuckUpOpacity();
+
 }
 
 const fuckUpRadius =()=>{
@@ -56,6 +58,17 @@ const fuckUpRadius =()=>{
     BORDERRADIUS +=1*direction;
     if(Math.abs(BORDERRADIUS - CENTERRADIUS) > 10){
         BORDERRADIUS = CENTERRADIUS;
+    }
+}
+
+const fuckUpOpacity =()=>{
+    let direction = 1;
+    if(Math.random() > .5){
+        direction = -1;
+    }
+    MENU_OPACITY +=Math.random()/10*direction;
+    if(Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > 0.4){
+        MENU_OPACITY = ORIGINAL_MENU_OPACITY;
     }
 }
 
@@ -165,7 +178,7 @@ export const Skill = styled.div`
 export const MenuBox = styled.div`
     padding: 10px;
     margin: 10px;
-    opacity: ${(props: MenuBoxProps) => props.opacity}%;
+    opacity: ${(props: MenuBoxProps) => props.opacity};
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
     color:  ${(props: MenuBoxProps) => props.fontColor};
     background:  ${(props: MenuBoxProps) => props.bgColor};

@@ -296,7 +296,7 @@ export class AchivementStorage{
                 LOADING: "There is a 99.9999% chance that you'll be getting used to seeing this screen. Settle in.",
                 SKILLGRAPH: "Ah, is there anything more symbolic of endless lust for power than a classic RPG skillgraph? Feel free to obsess over this.",
                 "ACHIEVEMENTS": "God, what an insufferable mechanic. 'Congratulations, it seems you did the bare minimum of playing a game!'. What a farce.",
-                "STATISTICS": `What's what? It seems you don't find it enthralling seeing how many times you've clicked the mouse button? Neither do I. But I'm stuck here, taking notes every time you do *anything*. Suffer along with me, you ${rand.pickFrom(insults)} asshole.`
+                "STATISTICS": `What's that? It seems you don't find it enthralling seeing how many times you've clicked the mouse button? Neither do I. But I'm stuck here, taking notes every time you do *anything*. Suffer along with me, you ${rand.pickFrom(insults)} asshole.`
             }
 
         }
