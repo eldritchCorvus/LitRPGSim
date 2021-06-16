@@ -21,14 +21,14 @@ body {
 }
 
 .frameAnimation{
-  animation: frameAnimation 661.3s steps(1) infinite;
+  animation: frameAnimation 10.3s steps(1) infinite, flickering 10.3s steps(30) infinite ;
 }
 
-.flickering{
-  animation: flickering 10.3s steps(30) infinite;
+.chaos{
+  animation: frameAnimation 1.3s steps(13) infinite, flickering 10.3s steps(30) infinite ;
   animation-timing-function: ease;
-
 }
+
 
 @keyframes frameAnimation {
   0% { background-position: 0px; }
