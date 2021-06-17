@@ -17,8 +17,13 @@ const CENTERFONTSIZE = 14;
 const CENTERRADIUSROUND =13;
 const ORIGINALFONTCOLOR = "#000000";
 const ORIGINALBGCOLOR = "#ffffff";
-const ORIGINAL_MENU_OPACITY = 1;
+//this is configured by options
+let ORIGINAL_MENU_OPACITY = 1;
 
+export const setOpacity =(value: number) =>{
+    MENU_OPACITY = value;
+    ORIGINAL_MENU_OPACITY = value;
+}
 
 
 interface StyleRadius{
