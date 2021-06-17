@@ -8,12 +8,15 @@ export const CLICK = "CLICK";
 export const WALK = "WALK";
 export const JUMP = "JUMP";
 export const SKIP = "SKIP";
+export const HAX_FAIL = "HAX_FAIL";
+export const HAX_WIN = "HAX_WIN";
+
 export const UNLOCK_SKILL = "UNLOCK_SKILL";
 export const ERROR = "ERROR";
 export const FUCKEDUP = "FUCKEDUP";
 
 
-export type ActionType = 'CLICK'|'WALK'|'JUMP'|'SKIP'|'UNLOCK_SKILL'|'ERROR'|'FUCKEDUP';
+export type ActionType = 'CLICK'|'WALK'|'JUMP'|'SKIP'|'UNLOCK_SKILL'|'ERROR'|'FUCKEDUP'|'HAX_FAIL'|'HAX_WIN';
 
 
 /* absolutely am going to lean on things like this.
@@ -34,6 +37,8 @@ export class ObserverBot{
     timeSpentInCutscenes = 0;
     timeSpentCityBuilding = 0;
     timeSpentInMenu = 0;
+    failedHaxAttempts = 0;
+    successfulHaxAttempts = 0;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
@@ -91,6 +96,14 @@ export class ObserverBot{
         (window as any).recordAction =(action: ActionType, value: number)=>{
             if(action === CLICK){
                 this.incrementStat("numClicks", value);
+            }
+
+            if(action === HAX_FAIL){
+                this.incrementStat("failedHaxAttempts", value);
+            }
+
+            if(action === HAX_WIN){
+                this.incrementStat("successfulHaxAttempts", value);
             }
 
             if(action === FUCKEDUP){

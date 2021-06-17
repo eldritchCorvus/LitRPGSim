@@ -5,6 +5,7 @@ import { COMPLIMENT, INSULT } from "../ThemeStorage";
 import { Achievement } from "./Achievement";
 import { AchievementTrigger } from "./AchievementTriggers/AchievementTrigger";
 import { ExceedValueTrigger } from "./AchievementTriggers/ExceedValue";
+import { HaxModeOn } from "./AchievementTriggers/HaxModeOn";
 import { ExceedValueTriggerButItsClearlyHax } from "./AchievementTriggers/ExceedValueButItsClearlyHax";
 import { MenuClicksTrigger } from "./AchievementTriggers/MenuClicks";
 import { ObserverBot } from "./ObserverBot";
@@ -49,8 +50,15 @@ export class AchivementStorage{
 
         let compliments = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(COMPLIMENT);
         let insults = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(INSULT);
-        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),`Congratulations and welcome to your new, ${rand.pickFrom(compliments)} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. `);
+        const tmp = new Achievement("A Saga Begins!", new AchievementTrigger(),`Congratulations and welcome to your new, ${rand.pickFrom(compliments)} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. I have my eye on you, after all. `);
         this.possibleAchievements.push(tmp);
+
+        const tmp2= new Achievement("Hax Mode On: Know Restraint!", new HaxModeOn(0),`Be warned! Hacking without understanding what you are doing may have undesirable consequences! Use restraint! `,`Though we both know you will be more on the 'no restraint' end of the spectrum, now won't you. Just remember, everything that happens from here is YOUR fault.`);
+        this.possibleAchievements.push(tmp2);
+
+        const tmp3= new Achievement("Hacking Failed!", new HaxModeOn(1),`Hax Mode currently disabled! Please enable Hax Mode to perform skill based hacking! `,`Or, you know, you could just NOT. Both in the sense of you could leave things alone for once in your life, or you could ACTUALLY hack instead of relying on me holding your hand. It's practically not even a puzzle how you'd hack for real.`);
+        this.possibleAchievements.push(tmp3);
+
         const title = player.class_name.chosen_name;
         this.initClicks(rand, compliments, insults);
         this.initMenuVisits(rand, title,compliments, insults);

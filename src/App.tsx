@@ -75,8 +75,7 @@ function App() {
       <ul style={{display: "none"}}>
       <li>options, things like volume, opacity/blurring, haxMode, etc.</li>
       <li> if waste class, random chance to replace a skill without the waste theme with a hacking method</li>
-
-        <li>as waste class options always in skill tree, if unlock skill you get popup that says "im sorry, but hacking commands from the skill graph are currently disabled", and have a secret, but on screen way to enable them. maybe in the options menu. (obvs haxMode=on)</li>
+      <li>if hax mode is off and you unlock a waste skill, get an achivement saying hax mode is off</li>
         <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
         <li>rename skills to have insults based on themes</li>
