@@ -14,7 +14,7 @@ export const  OptionsScreen = (props: StatusProps)=> {
 
     const observer = props.player.observer;
     const [checked, setChecked] = useState(false);
-    const [opacityValue, setOpacityValue] = useState(55);
+    const [opacityValue, setOpacityValue] = useState(MENU_OPACITY);
 
     const toggle = () => {
         setChecked(!checked);
