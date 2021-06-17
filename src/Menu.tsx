@@ -3,12 +3,13 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
 import { AchivementsScreen } from "./Screens/Achivements";
 import { fuckery } from "./CanvasFuckery/fuckery";
+import { OptionsScreen } from "./Screens/Options";
 
 
 interface MenuProps{
@@ -107,6 +108,14 @@ function Menu(props: MenuProps) {
                 } {...tab}>
                 Achivements
               </Tab>
+
+              <Tab style={tab.selectedId === OPTIONS?selectedTab:unSelectedTab} id={OPTIONS} onClick={() =>
+                {
+                  setNextScreen(OPTIONS);
+                  setCurrentScreen(LOADING)}
+                } {...tab}>
+                Options
+              </Tab>
             </TabList>
             <TabPanel {...tab}>
               {currentScreen === STATUS?<StatusScreen loadScreen={handleLoading} player={player}></StatusScreen>:null}
@@ -123,6 +132,11 @@ function Menu(props: MenuProps) {
 
             <TabPanel {...tab}>
               {currentScreen === ACHIEVEMENTS?<AchivementsScreen  loadScreen={handleLoading} player={player}></AchivementsScreen>:null}
+
+            </TabPanel>
+
+            <TabPanel {...tab}>
+              {currentScreen === OPTIONS?<OptionsScreen  loadScreen={handleLoading} player={player}></OptionsScreen>:null}
 
             </TabPanel>
           </Fragment>
