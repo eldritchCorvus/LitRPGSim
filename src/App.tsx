@@ -73,10 +73,12 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>options, things like volume, opacity/blurring, haxMode, etc.</li>
+      <li>and fake options for things like cutscnee text speed.</li>
+      <li>why does it freeze occasionally?</li>
+      <li>sections in menus that are 'hidden' where font color is set to white (thus if the bg color changes you see it)</li>
       <li> if waste class, random chance to replace a skill without the waste theme with a hacking method</li>
       <li>if hax mode is off and you unlock a waste skill, get an achivement saying hax mode is off</li>
-        <li>calling ANY hack method that implies you've played the game (such as combat time) or having enough errors activates RAGE MODE</li>
+      <li>waste/seer/mage classes get option screen</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
         <li>rename skills to have insults based on themes</li>
         <li>port in fractal sim to be the bg for RAGE MODE</li>

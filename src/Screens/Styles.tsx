@@ -13,16 +13,31 @@ export let BORDERRADIUSROUND = 13;
 export let MENU_OPACITY = 1;
 
 const CENTERRADIUS = 5;
-const CENTERFONTSIZE = 14;
+let CENTERFONTSIZE = 14;
 const CENTERRADIUSROUND =13;
-const ORIGINALFONTCOLOR = "#000000";
-const ORIGINALBGCOLOR = "#ffffff";
+let ORIGINALFONTCOLOR = "#000000";
+let ORIGINALBGCOLOR = "#ffffff";
 //this is configured by options
 let ORIGINAL_MENU_OPACITY = 1;
 
 export const setOpacity =(value: number) =>{
     MENU_OPACITY = value;
     ORIGINAL_MENU_OPACITY = value;
+}
+
+export const setBGColor =(value: string) =>{
+    BGCOLOR = value;
+    ORIGINALBGCOLOR = value;
+}
+
+export const setFontColor =(value: string) =>{
+    FONTCOLOR = value;
+    ORIGINALFONTCOLOR = value;
+}
+
+export const setFontSize =(value: number) =>{
+    FONTSIZE = value;
+    CENTERFONTSIZE = value;
 }
 
 
@@ -78,27 +93,59 @@ const fuckUpOpacity =()=>{
 }
 
 const fuckUpFontColor = ()=>{
-    const options = ["0","1","2","3"];
-    const choice = pickFrom(options);
-    FONTCOLOR = replaceStringAt(FONTCOLOR,getRandomNumberBetween(1,FONTCOLOR.length-1),choice);
-    if(Math.random() > .9){
-        FONTCOLOR = ORIGINALFONTCOLOR;
+
+    const index = getRandomNumberBetween(1,FONTCOLOR.length-1);
+    let hexValueCurrent = "0x" + FONTCOLOR.charAt(index);
+    let hexValueCenter = "0x" + ORIGINALFONTCOLOR.charAt(index);
+
+    let direction = 1;
+    if(Math.random() > .5){
+        direction = -1;
     }
+    let newValue = parseInt(hexValueCurrent , 16) + 1*direction;
+    let oldValue = parseInt(hexValueCenter , 16) ;
+
+    let choice = "";
+    if(newValue > 0 && Math.abs(newValue-oldValue)<3){
+        choice = newValue.toString(16);
+    }else{
+        choice = oldValue.toString(16);
+    }
+    FONTCOLOR = replaceStringAt(FONTCOLOR,index,choice);
 }
 
 const fuckUpBGColor = ()=>{
-    const options = ["f","e"];
-    let choice = pickFrom(options);
-    for(let i = 1; i<BGCOLOR.length; i+=2){
-        BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
+    let direction = 1;
+    if(Math.random() > .5){
+        direction = -1;
     }
+    const index = getRandomNumberBetween(1,BGCOLOR.length+1*direction);
+    console.log("JR NOTE: index chosen is", index);
+    let hexValueCurrent = "0x" + BGCOLOR.charAt(index);
+    let hexValueCenter = "0x" + ORIGINALBGCOLOR.charAt(index);
+    console.log("JR NOTE: hexValueCurrent  is", hexValueCurrent);
+    console.log("JR NOTE: hexValueCenter  is", hexValueCenter);
 
-    choice = pickFrom(options);
+
+    let newValue = parseInt(hexValueCurrent , 16) - 1;
+    let oldValue = parseInt(hexValueCenter , 16) ;
+    console.log("JR NOTE: newValue  is", newValue);
+    console.log("JR NOTE: oldValue  is", oldValue);
+
+
+    let choice = "";
+    if(newValue > 0 && Math.abs(newValue-oldValue)<3){
+        choice = newValue.toString(16);
+    }else{
+        choice = oldValue.toString(16);
+    }
+    //if i don't do it all at once you get a weird tint, has to stay grey
     for(let i = 2; i<BGCOLOR.length; i+=2){
         BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
     }
-    if(Math.random() > .9){
-        BGCOLOR = ORIGINALBGCOLOR;
+
+    for(let i = 1; i<BGCOLOR.length; i+=2){
+        BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
     }
 }
 
@@ -226,6 +273,12 @@ export const TreeContent = styled.div`
 export const StatusRow = styled.div `
     display: flex;
     padding: 10px;
+`
+
+export const BadlyHiddenStatusRow = styled.div `
+    display: flex;
+    padding: 10px;
+    color: white;
 `
 
 
