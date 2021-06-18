@@ -1,7 +1,7 @@
 import {Player} from "../Modules/Player";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent, MENU_OPACITY, setOpacity} from "./Styles";
+import {StatusHeader,StatusRow, StatusBlock,StatusContent, MENU_OPACITY, setOpacity, BGCOLOR, FONTCOLOR, FONTSIZE, BadlyHiddenStatusRow, setFontSize, setFontColor, setBGColor} from "./Styles";
 import { Checkbox } from "reakit/Checkbox";
-import { useState } from "react";
+import React, { useState } from "react";
 import { LoadingScreen } from "./Loading";
 import { OPTIONS } from "../Utils/constants";
 
@@ -10,11 +10,17 @@ interface StatusProps{
     loadScreen: any; //function
 }
 
+//TODO waste/seer/mage classes get this screen
 export const  OptionsScreen = (props: StatusProps)=> {
 
     const observer = props.player.observer;
     const [checked, setChecked] = useState(false);
-    const [opacityValue, setOpacityValue] = useState(MENU_OPACITY);
+    const [opacityValue, setOpacityValue] = useState(Math.floor(MENU_OPACITY*100));
+    const [bgColorValue, setBGColorValue] = useState(BGCOLOR);
+    const [fontColorValue, setFontColorValue] = useState(FONTCOLOR);
+    const [fontSizeValue, setFontSizeValue] = useState(FONTSIZE);
+
+
 
     const toggle = () => {
         setChecked(!checked);
@@ -22,6 +28,9 @@ export const  OptionsScreen = (props: StatusProps)=> {
 
     const submit =()=>{
         setOpacity(opacityValue /100);
+        setFontSize(fontSizeValue);
+        setFontColor(fontColorValue);
+        setBGColor(bgColorValue);
         props.loadScreen(OPTIONS);
         (window as any).haxMode = checked;
     }
@@ -31,13 +40,13 @@ export const  OptionsScreen = (props: StatusProps)=> {
         
     <StatusBlock>
             { props.player.class_name.chosen_name === "Waste"?
-                <StatusRow>
+                <BadlyHiddenStatusRow>
                     <StatusHeader>Hax Mode:</StatusHeader>
                     <StatusContent>
                     <Checkbox checked={checked} onChange={toggle} />
 
                         </StatusContent>
-                </StatusRow>:null
+                </BadlyHiddenStatusRow>:null
 
             }
             <StatusRow>
@@ -48,6 +57,39 @@ export const  OptionsScreen = (props: StatusProps)=> {
                         setOpacityValue(value);
                     }}></input>
                     {opacityValue}
+                </StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Font Size:</StatusHeader>
+                <StatusContent>
+                    <input type="range" min="5" max="32" value={`${fontSizeValue}`} onChange={(event)=>{
+                        const value = parseInt(event.target.value);
+                        setFontSizeValue(value);
+                    }}></input>
+                    {fontSizeValue}
+                </StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Font Color:</StatusHeader>
+                <StatusContent>
+                    <input type="color" value={`${fontColorValue}`} onChange={(event)=>{
+                        const value =event.target.value;
+                        setFontColorValue(value);
+                    }}></input>
+                    {fontColorValue}
+                </StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>BG Color:</StatusHeader>
+                <StatusContent>
+                    <input type="color" value={`${bgColorValue}`} onChange={(event)=>{
+                        const value =event.target.value;
+                        setBGColorValue(value);
+                    }}></input>
+                    {bgColorValue}
                 </StatusContent>
             </StatusRow>
 
