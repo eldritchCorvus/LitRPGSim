@@ -73,10 +73,6 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>and fake options for things like cutscnee text speed.</li>
-      <li>cna some of the RAGE MODE content have random javascript floating around it (like try to display the contents of a function?)</li>
-      <li>why does it freeze occasionally?</li>
-      <li>sections in menus that are 'hidden' where font color is set to white (thus if the bg color changes you see it)</li>
       <li> if waste class, random chance to replace a skill without the waste theme with a hacking method</li>
       <li>if hax mode is off and you unlock a waste skill, get an achivement saying hax mode is off</li>
       <li>waste/seer/mage classes get option screen</li>

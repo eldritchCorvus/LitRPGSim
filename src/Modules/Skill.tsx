@@ -15,7 +15,7 @@ export   class Skill{
     parents: Skill[] = []; //will be set by player
     children: Skill[] = []; //will be set by player
     theme_keys: string[];
-    unlocked:boolean = true;  //TODO this should default to false once no longer developing.
+    unlocked:boolean = false;  //TODO this should default to false once no longer developing.
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
         const generic_bits = ["beam","touch","ray","aura","signal"];
@@ -117,19 +117,30 @@ export class CoreSkill extends Skill{
 
 }
 
-let numStatSkills = 0;
+export class SpecialSkill extends Skill{
+    type = "SpecialSkill";
+    theme_keys: string[] = [];
+    unlocked:boolean = false;
+    constructor(){
+        super([], null);
+    }
 
-export class WasteSkill extends Skill{
+
+}
+
+let numStatSkills = 0;
+export const wasteHackingFunctions = ["hackTimePlayedInSeconds","hackTimeCombatInSeconds","hackTimeCutscenesInSeconds","hackTimeCitybuildingInSeconds"];
+export class WasteSkill extends SpecialSkill{
     hackFunctionName:string; //can call it via window["name"].
 
     constructor(hackFunction:string){
-        super([],null);
+        super();
         this.hackFunctionName = hackFunction;
         this.name = `window.${this.hackFunctionName}`;
     }
 }
 
-export class StatSkill extends Skill{
+export class StatSkill extends SpecialSkill{
     type = "StatSkill";
     name: string;
     tier: number;
@@ -138,7 +149,7 @@ export class StatSkill extends Skill{
     theme_keys: string[] = [];
     unlocked:boolean = true; //todo make this default to false
     constructor(stat: Stat, tier: number){
-        super([],null);
+        super();
         numStatSkills ++;
         this.key = numStatSkills;
         this.stat = stat;
