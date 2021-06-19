@@ -100,6 +100,15 @@ export const  StatisticsScreen = (props: StatusProps)=> {
                 <StatusHeader>Errors:</StatusHeader>
                 <StatusContent>{observer.errors}</StatusContent>
             </StatusRow>
+
+            {
+                props.player.class_name.chosen_name == "Waste"? (
+                <StatusRow>
+                <StatusHeader>Failed Hax Attempts:</StatusHeader>
+                <StatusContent>{observer.failedHaxAttempts}</StatusContent>
+            </StatusRow>                    
+                ):null
+            }
     </span>
 
 

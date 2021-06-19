@@ -115,19 +115,16 @@ const fuckUpFontColor = ()=>{
 }
 
 const fuckUpBGColor = ()=>{
-    let direction = 1;
-    if(Math.random() > .5){
-        direction = -1;
-    }
-    const index = getRandomNumberBetween(1,BGCOLOR.length+1*direction);
-    console.log("JR NOTE: index chosen is", index);
+    let direction = -1;
+    const index = getRandomNumberBetween(1,BGCOLOR.length-1);
+    console.log("JR NOTE: index chosen is", index, "char is ",BGCOLOR.charAt(index), "source was", BGCOLOR, "length is",BGCOLOR.length, "ORIGINALBGCOLOR ws",ORIGINALBGCOLOR);
     let hexValueCurrent = "0x" + BGCOLOR.charAt(index);
     let hexValueCenter = "0x" + ORIGINALBGCOLOR.charAt(index);
     console.log("JR NOTE: hexValueCurrent  is", hexValueCurrent);
     console.log("JR NOTE: hexValueCenter  is", hexValueCenter);
 
 
-    let newValue = parseInt(hexValueCurrent , 16) - 1;
+    let newValue = parseInt(hexValueCurrent , 16) + 1*direction;
     let oldValue = parseInt(hexValueCenter , 16) ;
     console.log("JR NOTE: newValue  is", newValue);
     console.log("JR NOTE: oldValue  is", oldValue);
@@ -140,11 +137,8 @@ const fuckUpBGColor = ()=>{
         choice = oldValue.toString(16);
     }
     //if i don't do it all at once you get a weird tint, has to stay grey
-    for(let i = 2; i<BGCOLOR.length; i+=2){
-        BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
-    }
-
-    for(let i = 1; i<BGCOLOR.length; i+=2){
+    for(let i = 1; i<BGCOLOR.length; i++){
+        console.log("replacing i",i);
         BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
     }
 }

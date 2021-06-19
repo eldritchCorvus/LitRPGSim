@@ -3,19 +3,28 @@ import {StatusHeader,StatusRow, StatusBlock,StatusContent, Observer, fuckShitUpB
 interface LoadingProps{
     nextScreen: String;
     loadScreen: any; //function, feeling lazy
+    refresh: boolean //really only here for when you need to refresh teh current screen okay
 }
 export const  LoadingScreen = (props: LoadingProps)=> {
-    const {loadScreen, nextScreen} = props
+    const {loadScreen, nextScreen, refresh} = props
 
     useEffect(()=>{
+        if(refresh && loadScreen && nextScreen){
         setTimeout(()=>{
-            fuckShitUpButOnlyALittle();
-            (window as any).menuClick("LOADING");
-            (window as any).menuClick(nextScreen);
-             loadScreen(nextScreen)
-             }, 500);
+                console.log("JR NOTE: about to fuckShitUpButOnlyALittle");
+                fuckShitUpButOnlyALittle();
+                console.log("JR NOTE: about to menu click loading");
 
-    },[loadScreen, nextScreen])
+                (window as any).menuClick("LOADING");
+                console.log("JR NOTE: about to menu click next screen");
+
+                (window as any).menuClick(nextScreen);
+                console.log("JR NOTE: about to load screen");
+                loadScreen(nextScreen)
+                }, 500);
+            }
+
+    },[loadScreen, nextScreen,refresh])
     return (
       
         <StatusBlock>
