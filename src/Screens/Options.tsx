@@ -126,7 +126,7 @@ export const  OptionsScreen = (props: StatusProps)=> {
 
 
             <StatusRow>
-                <StatusHeader>TODO:</StatusHeader>
+                <StatusHeader></StatusHeader>
                 <StatusContent>
                    <button onClick={submit}>Submit</button>
                 </StatusContent>
