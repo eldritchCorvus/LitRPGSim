@@ -16,6 +16,10 @@ export const  OptionsScreen = (props: StatusProps)=> {
     const observer = props.player.observer;
     const [checked, setChecked] = useState(false);
     const [opacityValue, setOpacityValue] = useState(Math.floor(MENU_OPACITY*100));
+    const [custsceneSpeed, setCutsceneSpeed] = useState(5);
+    const [targetLock, setTargetLock] = useState(false);
+    const [toggleShiftSprint, setToggleShiftSprint] = useState(false);
+
     const [bgColorValue, setBGColorValue] = useState(BGCOLOR);
     const [fontColorValue, setFontColorValue] = useState(FONTCOLOR);
     const [fontSizeValue, setFontSizeValue] = useState(FONTSIZE);
@@ -49,6 +53,33 @@ export const  OptionsScreen = (props: StatusProps)=> {
                 </BadlyHiddenStatusRow>:null
 
             }
+            <StatusRow>
+                    <StatusHeader>Toggle Shift To Sprint:</StatusHeader>
+                    <StatusContent>
+                    <Checkbox checked={toggleShiftSprint} onChange={()=>{setToggleShiftSprint(!toggleShiftSprint)}}  />
+
+                        </StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>AutoTarget Lock:</StatusHeader>
+                <StatusContent>
+                <Checkbox checked={targetLock} onChange={()=>{setTargetLock(!targetLock)}}  />
+
+                    </StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Cutscene Text Speed:</StatusHeader>
+                <StatusContent>
+                    <input type="range" min="1" max="10" value={`${custsceneSpeed}`} onChange={(event)=>{
+                        const value = parseInt(event.target.value);
+                        setCutsceneSpeed(value);
+                    }} ></input>
+                    {custsceneSpeed}
+                </StatusContent>
+            </StatusRow>
+            
             <StatusRow>
                 <StatusHeader>Menu Opacity:</StatusHeader>
                 <StatusContent>
@@ -93,12 +124,6 @@ export const  OptionsScreen = (props: StatusProps)=> {
                 </StatusContent>
             </StatusRow>
 
-            <StatusRow>
-                <StatusHeader>TODO:</StatusHeader>
-                <StatusContent>
-                    all the things the styles lets you config including font size and colors
-                </StatusContent>
-            </StatusRow>
 
             <StatusRow>
                 <StatusHeader>TODO:</StatusHeader>
