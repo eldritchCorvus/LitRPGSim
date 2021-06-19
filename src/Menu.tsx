@@ -21,6 +21,7 @@ interface MenuProps{
 function Menu(props: MenuProps) {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
+  const [refresh, setRefresh] = useState(true);
   const [nextScreen, setNextScreen] = useState(STATUS);
   const {player} = props;
 
@@ -53,6 +54,7 @@ function Menu(props: MenuProps) {
   }, [currentScreen,tab])
 
   const handleLoading = (screen:string) =>{
+    setRefresh(true);
     setNextScreen(screen);
     setCurrentScreen(LOADING);
   }
@@ -76,7 +78,7 @@ function Menu(props: MenuProps) {
       <MenuBox opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?
-            <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen}></LoadingScreen>
+            <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen} refresh={refresh}></LoadingScreen>
           :
           <Fragment>
             <TabList style={{borderBottom:"1px solid black"}} {...tab} aria-label="My tabs">

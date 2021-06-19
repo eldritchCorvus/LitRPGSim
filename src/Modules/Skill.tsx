@@ -131,6 +131,8 @@ export class SpecialSkill extends Skill{
 let numStatSkills = 0;
 export const wasteHackingFunctions = ["hackTimePlayedInSeconds","hackTimeCombatInSeconds","hackTimeCutscenesInSeconds","hackTimeCitybuildingInSeconds"];
 export class WasteSkill extends SpecialSkill{
+    type = "WasteSkill";
+
     hackFunctionName:string; //can call it via window["name"].
 
     constructor(hackFunction:string){

@@ -73,13 +73,11 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li> if waste class, random chance to replace a skill without the waste theme with a hacking method</li>
-      <li>if hax mode is off and you unlock a waste skill, get an achivement saying hax mode is off</li>
+      <li>center skills tree on last unlocked skill, or root if none</li>
       <li>waste/seer/mage classes get option screen</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
         <li>rename skills to have insults based on themes</li>
         <li>port in fractal sim to be the bg for RAGE MODE</li>
-        <li>center skills tree on last unlocked skill, or root if none</li>
         <li>later, make it so if its your first playthrough (check local storage) and you get waste class it changes to something else.</li>
         <li>implement more achivment trigger types</li>
         <li>achivements award skill points (number of which is passed into achivement)</li>
