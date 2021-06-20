@@ -26,7 +26,13 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
 
      useEffect(()=>{
          if(cy){
-            cy.pan({ x: 50, y: -1000 });
+             for(const node of cy.nodes()){
+                 if(node.data().id === player.lastUnlockedSkill.cytoscapeID()){
+                     console.log("panning to", node.position());
+                    cy.pan(node.position());
+                 }
+             }
+             //TODO can i somehow pan to a specific node?
             cy.on('click', 'node', (event:any) => {
                 console.log(event.target)
                 player.unlockSkill(event.target.id());

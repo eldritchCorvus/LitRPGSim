@@ -16,6 +16,7 @@ export   class Player{
     skills: Skill[];
     rand: SeededRandom;
     rootSkill: Skill;
+    lastUnlockedSkill: Skill;
     stats: StatMap = {};
     skillGenAlg: SkillGenAlg;
     observer: ObserverBot;
@@ -36,6 +37,7 @@ export   class Player{
         this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests,themes,rand);
         this.rootSkill = this.skills[0];
         this.rootSkill.unlocked = true;
+        this.lastUnlockedSkill = this.rootSkill;
         this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         this.rand = rand;
         //JR NOTE: i'm worried theres some weird decoupling here, if i make OB up top they get a player without anything set which is WEIRD.
@@ -76,6 +78,7 @@ export   class Player{
     unlockSkill = (skill_id: string) =>{
         const found = this.skills.find((skill) =>{return skill.cytoscapeID()===skill_id});
         if(found){
+            this.lastUnlockedSkill = found;
             found.unlocked = true;
             if(found.type === "StatSkill"){
                 const stat = (found as StatSkill).stat;
