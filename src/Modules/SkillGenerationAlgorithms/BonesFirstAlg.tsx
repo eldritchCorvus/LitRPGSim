@@ -28,11 +28,18 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             }else{
                 inBetween = new StatSkill(pickStat(parent),parent.tier+1);
             }
-            parent.children.push(inBetween); 
-            inBetween.parents.push(parent); 
-            inBetween.children.push(child);
-            child.parents.push(inBetween);
-            skills.push(inBetween);
+            if(inBetween.type == "StatSkill" && rand.nextDouble()>0.5){
+                //too many stats, halve them, plz
+                parent.children.push(child); 
+                child.parents.push(parent);
+            }else{
+                parent.children.push(inBetween); 
+                inBetween.parents.push(parent); 
+                inBetween.children.push(child);
+                child.parents.push(inBetween);
+                skills.push(inBetween);
+            }
+
         }else{
             parent.children.push(child); 
             child.parents.push(parent); 
