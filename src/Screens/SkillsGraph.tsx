@@ -25,18 +25,10 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      const {player, loadScreen} = props;
 
      useEffect(()=>{
+         console.log("using effect")
          if(cy){
-             for(const node of cy.nodes()){
-                 if(node.data().id === player.lastUnlockedSkill.cytoscapeID()){
-                    console.log("position is", node.position(), "vs renderedPosition of ", node.renderedPosition());
-
-                     console.log("panning to", node.position(), "for ",player.lastUnlockedSkill.cytoscapeID());
-                   cy.pan(node.position());
-                   //cy.pan({ x: 50, y: -1000 });
-
-                 }
-             }
-             //TODO can i somehow pan to a specific node?
+             cy.resize();
+            cy.center();
             cy.on('click', 'node', (event:any) => {
                 console.log(event.target)
                 player.unlockSkill(event.target.id());
@@ -73,7 +65,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
          spacingFactor: 0.75,
          fit: true,
          roots: ["Status"],
-         nodeDimensionsIncludeLabels: true,
+         nodeDimensionsIncludeLabels: false,
          klay: {
             // Following descriptions taken from http://layout.rtsys.informatik.uni-kiel.de:9444/Providedlayout.html?algorithm=de.cau.cs.kieler.klay.layered
             addUnnecessaryBendpoints: false, // Adds bend points even if an edge does not change direction.
@@ -124,9 +116,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
         <StatusBlock>
             <span>
                 <StatusRow>
-                    <TreeContent>
-                    <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '1000px', height: '1000px' }  }/>
-                    </TreeContent>
+                    <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '100%', height: '600px' }  }/>
                 </StatusRow>
             </span>
         </StatusBlock>
