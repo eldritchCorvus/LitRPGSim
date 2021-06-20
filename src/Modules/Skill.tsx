@@ -149,7 +149,7 @@ export class StatSkill extends SpecialSkill{
     stat: Stat;
     key: number;
     theme_keys: string[] = [];
-    unlocked:boolean = true; //todo make this default to false
+    unlocked:boolean = false; //todo make this default to false
     constructor(stat: Stat, tier: number){
         super();
         numStatSkills ++;
