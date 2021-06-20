@@ -28,8 +28,12 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
          if(cy){
              for(const node of cy.nodes()){
                  if(node.data().id === player.lastUnlockedSkill.cytoscapeID()){
-                     console.log("panning to", node.position());
-                    cy.pan(node.position());
+                    console.log("position is", node.position(), "vs renderedPosition of ", node.renderedPosition());
+
+                     console.log("panning to", node.position(), "for ",player.lastUnlockedSkill.cytoscapeID());
+                   cy.pan(node.position());
+                   //cy.pan({ x: 50, y: -1000 });
+
                  }
              }
              //TODO can i somehow pan to a specific node?
@@ -67,7 +71,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
          directed: true,
          seed: 13,
          spacingFactor: 0.75,
-         fit: false,
+         fit: true,
          roots: ["Status"],
          nodeDimensionsIncludeLabels: true,
          klay: {
