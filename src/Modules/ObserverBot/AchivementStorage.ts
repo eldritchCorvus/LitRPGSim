@@ -98,7 +98,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Clicks!`,1, new ExceedValueTrigger(value, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Clicks!`,value, new ExceedValueTrigger(value, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -129,7 +129,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Minutes Played!`, 1,new ExceedValueTrigger(value*mm, "timeSpentPlaying"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Minutes Played!`, value,new ExceedValueTrigger(value*mm, "timeSpentPlaying"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -160,7 +160,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Minutes In Menu!`, 1,new ExceedValueTrigger(value*mm, "timeSpentInMenu"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Minutes In Menu!`, value,new ExceedValueTrigger(value*mm, "timeSpentInMenu"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -278,7 +278,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} [ERROR ACHIVEMENT NOT FOUND]!`, 1,new ExceedValueTrigger(value, "errors"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} [ERROR ACHIVEMENT NOT FOUND]!`, value,new ExceedValueTrigger(value, "errors"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -315,7 +315,7 @@ export class AchivementStorage{
         const values = Object.keys(map.clickAbove);
 
         for(const value of values){
-            const tmp = new Achievement(`First ${value} Menu Visit!!!`, 3,new MenuClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`First ${value} Menu Visit!!!`, 13,new MenuClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
