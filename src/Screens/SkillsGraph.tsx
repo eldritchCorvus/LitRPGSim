@@ -45,7 +45,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
              cy.resize();
             cy.center();
             cy.on('click', 'node', (event:any) => {
-                console.log(event.target)
+                console.log("setting skill to unlock")
                 setSkillToUnlock(player.findSkill(event.target.id()));
             })
         }
