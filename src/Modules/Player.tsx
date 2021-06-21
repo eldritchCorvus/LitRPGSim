@@ -97,6 +97,10 @@ export   class Player{
         }
     }
 
+    addSkillPoints = (points: number)=>{
+        this.skillPoints += points;
+    }
+
     findSkill = (skill_id: string) =>{
         const found = this.skills.find((skill) =>{return skill.cytoscapeID()===skill_id});
         if(found){

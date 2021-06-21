@@ -10,13 +10,15 @@ export  class Achievement{
     belowComment: string;
     title: string;
     unlocked = false;
+    skillPoints:number;
 
     /*
     TODO how will this tie back into the screen? ReactDom.render and teardown a popup? make a sub class, don't infect this with jsx
     */
 
-    constructor(title: string, trigger: AchievementTrigger, aboveComment: string, belowComment: string){
+    constructor(title: string, skillPoints: number,trigger: AchievementTrigger, aboveComment: string, belowComment: string){
         this.title = title;
+        this.skillPoints = skillPoints;
         this.trigger = trigger;
         this.aboveComment = aboveComment;
         this.belowComment = belowComment;
@@ -35,13 +37,14 @@ export  class Achievement{
             below = Zalgo.generate(below);
         }
 
-        AchivementPopupKickoff({title: this.title, text: above});
+        AchivementPopupKickoff({title: this.title, text: above, skillPoints: this.skillPoints});
         observer.belowComment(this.title, below);
     }
 
     checkForUnlock = (observer:ObserverBot)=>{
         if(this.trigger.triggered(observer)){
             this.unlocked = true;
+            observer.player.addSkillPoints(this.skillPoints);
             this.display(observer);
         }
     }
