@@ -15,7 +15,7 @@ export   class Player{
     theme_keys: string[];
     skills: Skill[];
     rand: SeededRandom;
-    skillPoints: number = 0;
+    skillPoints: number = 999;
     rootSkill: Skill;
     lastUnlockedSkill: Skill;
     stats: StatMap = {};
@@ -76,9 +76,14 @@ export   class Player{
 
     unlocked_skills = () =>{return this.skills.filter((skill) =>  {return skill.unlocked })};
 
+    canAffordSkill = (skill: Skill)=>{
+        return this.skillPoints >= skill.tier;
+    }
+
     unlockSkill = (found: Skill) =>{
         this.lastUnlockedSkill = found;
         found.unlocked = true;
+        this.skillPoints += -1 * found.tier;
         if(found.type === "StatSkill"){
             const stat = (found as StatSkill).stat;
             this.addStat(stat);
