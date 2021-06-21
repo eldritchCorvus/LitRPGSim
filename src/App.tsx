@@ -73,8 +73,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>list current skill points on  stats page.</li>
-      <li>achivements award skill points (number of which is passed into achivement)</li>
+      <li>better fake rpg behind the menu</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>waste/seer/mage classes get option screen</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>

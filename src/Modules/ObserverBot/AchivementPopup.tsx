@@ -7,6 +7,7 @@ import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
  interface AchivementProps{
     title: string;
     text: string; 
+    skillPoints: number;
 }
 
 export const Popup = styled.div`
@@ -73,7 +74,7 @@ const  AchivementPopup = (props: AchivementProps)=> {
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
       <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
         <Popup style={{background: bg}}>
-            <PopupTitle>{title}</PopupTitle>
+            <PopupTitle>{title} {props.skillPoints} SkillPoints Gained!!!</PopupTitle>
             <PopupContent>{text}</PopupContent>
         </Popup>
       </Dialog>
@@ -85,7 +86,7 @@ const  AchivementPopup = (props: AchivementProps)=> {
 const AchivementPopupKickoff = (props: AchivementProps)=>{
     ReactDOM.render(
         <React.StrictMode>
-          <AchivementPopup title={props.title} text={props.text} />
+          <AchivementPopup skillPoints={props.skillPoints} title={props.title} text={props.text} />
         </React.StrictMode>,
         document.getElementById('popup')
       );
