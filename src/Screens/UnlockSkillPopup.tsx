@@ -45,20 +45,18 @@ export const PopupContent = styled.div`
 
 export const  UnlockSkillPopup = (props: UnlockProps)=> {
     const dialog = useDialogState();
-    const [initialShowing, setInitialShowing] = useState(true);
     let {player, skill} = props;
     const {visible} = dialog;
     const bg = (window as any).rageMode?"black":"white";
-    useEffect(()=>{
-        if(initialShowing && skill){
-            dialog.setVisible(true);
-            setInitialShowing(false);
-        }
-    },[initialShowing, skill])
 
     //if i depend on dialog here it won't let me dismiss the popup. just deal with it.
     useEffect(()=>{
-            dialog.setVisible(true);    
+            console.log("setting visible because player or skill");
+            if(skill && player){
+                dialog.setVisible(true);
+            }else{
+                dialog.setVisible(false);
+            }  
     },[player, skill])
 
     useEffect(()=>{
@@ -72,10 +70,10 @@ export const  UnlockSkillPopup = (props: UnlockProps)=> {
 
     return(
         <>
-      <DialogDisclosure style={{display:"none"}}{...dialog}>Unlock ${skill.name}?</DialogDisclosure>
+      <DialogDisclosure style={{display:"none"}}{...dialog}>Unlock {skill?.name}?</DialogDisclosure>
       <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
         <Popup style={{background: bg}}>
-            <PopupTitle>Unlock ${skill.name}?</PopupTitle>
+            <PopupTitle>Unlock {skill?.name} for {skill?.tier} Skill Points?</PopupTitle>
             <PopupContent>TODO: yes and no buttons!</PopupContent>
         </Popup>
       </Dialog>
