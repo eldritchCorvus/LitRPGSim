@@ -73,7 +73,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>better fake rpg behind the menu</li>
+        <li>rage mode instead of black fucks up the bg and makes it dark</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>waste/seer/mage classes get option screen</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
