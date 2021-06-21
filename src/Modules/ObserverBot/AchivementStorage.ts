@@ -295,7 +295,7 @@ export class AchivementStorage{
             clickAbove: {
                 STATUS: `The status screen is where you'll find all sorts of information on your new life! Don't worry if it seems a little overwhelming, it will all make sense in time!`,
                 LOADING: "Loading screens give you fun little tips and tricks to make the game easier for you!",
-                SKILLGRAPH: "Unlock SKILLS with SKILLPOINTS and gain power! The wonderful world of Zampanio can be tricky without a little help!",
+                SKILLGRAPH: "Click nodes to unlock SKILLS with SKILLPOINTS and gain power! The wonderful world of Zampanio can be tricky without a little help!",
                 "ACHIEVEMENTS": "On the Achivement Screen you can review what achivements you've already unlocked! Try to collect them all!",
                 "STATISTICS": "Have you ever wondered how many enemies you've defeated? How long you've been walking? How long you've spent in the menu? You can find it all here!"
             },
