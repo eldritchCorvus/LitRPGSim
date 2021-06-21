@@ -15,7 +15,7 @@ export   class Player{
     theme_keys: string[];
     skills: Skill[];
     rand: SeededRandom;
-    skillPoints: number = 999;
+    skillPoints: number = 1;
     rootSkill: Skill;
     lastUnlockedSkill: Skill;
     stats: StatMap = {};
