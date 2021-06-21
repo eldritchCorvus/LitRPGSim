@@ -5,6 +5,8 @@ import {useState, useEffect} from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
 import { SKILLGRAPH} from "../Utils/constants";
 import klay from 'cytoscape-klay';
+import { Skill } from "../Modules/Skill";
+import { UnlockSkillPopup } from "./UnlockSkillPopup";
 
 interface SkillProps{
     player: Player;
@@ -21,8 +23,21 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      ];
      //do type this
      const [graphData, setGraphData] = useState<any >(exampleData);
+     const [skillToUnlock, setSkillToUnlock] = useState<Skill|null >(null);
+
      const [cy, setCy] = useState<any>();
      const {player, loadScreen} = props;
+
+     const unlockSkill= (skill: Skill, success: boolean)=>{
+         if(success){
+             player.unlockSkill(skill);
+             loadScreen(SKILLGRAPH);
+         }else{
+             setSkillToUnlock(null);
+         }
+     }
+
+     
 
      useEffect(()=>{
          console.log("using effect")
@@ -31,9 +46,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
             cy.center();
             cy.on('click', 'node', (event:any) => {
                 console.log(event.target)
-                player.unlockSkill(event.target.id());
-                loadScreen(SKILLGRAPH)
-                //extractGraphFromSkills(); //JR NOTE: both slow and buggy, doesn't actually show newly unlocked skills as changing despite rerendering
+                setSkillToUnlock(player.findSkill(event.target.id()));
             })
         }
      }, [cy, player, loadScreen])
@@ -116,6 +129,8 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
         <StatusBlock>
             <span>
                 <StatusRow>
+                    <span>{`Skill Points: ${props.player.skillPoints}`}</span>
+                    <UnlockSkillPopup player={player} skill={skillToUnlock} unlockSkill={unlockSkill} ></UnlockSkillPopup>
                     <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '100%', height: '600px' }  }/>
                 </StatusRow>
             </span>
