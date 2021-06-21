@@ -73,10 +73,8 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>list current skill points on skill page and stats page.</li>
-        <li>click skill to get a popup listing cost. if you can afford it you can choose yes or no, if you can't only no is enabled.</li>
+        <li>list current skill points on  stats page.</li>
       <li>achivements award skill points (number of which is passed into achivement)</li>
-      <li>can only click on skill if you can afford it and ALL its parents are unlocked ("are you sure" popup)</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>waste/seer/mage classes get option screen</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
