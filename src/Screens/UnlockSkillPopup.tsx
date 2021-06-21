@@ -12,7 +12,28 @@ import { Skill } from "../Modules/Skill";
     unlockSkill: any;//lazy, its a function
 }
 
-export const Popup = styled.div`
+const StyledButton = styled.button`
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 50px;
+    color: black;
+`
+const DisabledStyledButton = styled.button`
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 50px;
+    color: #ccc;
+`
+
+ const Popup = styled.div`
     border: 2px solid black;
     border-radius: 13px;
     padding: 5px;
@@ -25,8 +46,12 @@ export const Popup = styled.div`
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 `
 
+const ButtonGrouping = styled.div`
+    display: flex;
+`
 
-export const PopupTitle = styled.div`
+
+ const PopupTitle = styled.div`
     border-bottom: 2px solid black;
     padding: 5px;
     padding-left: 13px;
@@ -35,7 +60,7 @@ export const PopupTitle = styled.div`
 `
 
 
-export const PopupContent = styled.div`
+ const PopupContent = styled.div`
     padding: 5px;
     padding-left: 13px;
     padding-right: 13px;
@@ -71,10 +96,16 @@ export const  UnlockSkillPopup = (props: UnlockProps)=> {
     return(
         <>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Unlock {skill?.name}?</DialogDisclosure>
-      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
+      <Dialog role="alertdialog"  {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
         <Popup style={{background: bg}}>
             <PopupTitle>Unlock {skill?.name} for {skill?.tier} Skill Points?</PopupTitle>
-            <PopupContent>TODO: yes and no buttons!</PopupContent>
+            <PopupContent>
+                <ButtonGrouping>
+                    {skill &&player.canAffordSkill(skill)?<StyledButton onClick={()=>{props.unlockSkill(skill,true)}}>yes</StyledButton>:<DisabledStyledButton>yes</DisabledStyledButton>}
+                    <StyledButton onClick={()=>{props.unlockSkill(skill,false)}}>no</StyledButton>
+                </ButtonGrouping>
+
+            </PopupContent>
         </Popup>
       </Dialog>
     </>
