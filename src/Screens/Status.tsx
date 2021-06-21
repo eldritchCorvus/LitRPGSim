@@ -76,8 +76,8 @@ export const  StatusScreen = (props: StatusProps)=> {
             </StatusRow>
 
             <StatusRow>
-                <StatusHeader>Themes:</StatusHeader>
-                <StatusContent>{props.player.theme_keys.join(",")}</StatusContent>
+                <StatusHeader>Skill Points:</StatusHeader>
+                <StatusContent>{props.player.skillPoints}</StatusContent>
             </StatusRow>
 
             <StatusRow>
