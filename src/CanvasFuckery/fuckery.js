@@ -1,5 +1,18 @@
+import background from '.././background.jpg';
+import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
+
 //blame past me for how confusing this is, stole bits from http://farragofiction.com/ModernArtClicker/infinite_color_test.html
 window.fuckery = fuckery;
+export const fuckUpBG = ()=>{
+    console.log("fucking shit up bg style", background)
+    var img = new Image();
+    img.addEventListener('load', function() {
+      console.log("image loaded!!!");
+      fuckUpImage(img);
+    }, false);
+    img.src = background;
+  }
+
 export  function fuckery(){
     const div = document.getElementById("ThisIsNotASpiral");
 
@@ -47,7 +60,89 @@ export  function fuckery(){
     bigContext.drawImage(frames[1],600,0);
     bigContext.drawImage(frames[2],1200,0);
     div.style.backgroundImage = `url(${bigBG.toDataURL()})`
-    console.log("Frames are", frames)
+}
+
+function fuckUpImage(img){
+    const frames = [];
+    const bg = document.querySelector("#ThisIsNotABG");
+
+    for(let i = 0; i<3; i++){
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const context = canvas.getContext("2d");
+        context.drawImage(img, 0,0);
+        //grayscale(canvas);
+       // edge_detection(canvas);
+        //threshold(canvas);
+        if(i % 2 == 0) {
+            glitchify(canvas);
+        }
+        frames.push(canvas);
+        bg.append(canvas);
+    }
+    const bigBoi = document.createElement("canvas");
+    bigBoi.width = img.width*3;
+    bigBoi.height = img.height;
+    const bigContext = bigBoi.getContext("2d");
+    bigContext.drawImage(frames[0],0,0);
+    bigContext.drawImage(frames[1],1656,0);
+    bigContext.drawImage(frames[2],3312,0);
+    document.querySelector("body").append(bigBoi);
+
+
+    //invert(canvas);
+    bg.style.backgroundImage = `url(${bigBoi.toDataURL()})`;
+    bg.classList.add("peacefulbg");
+
+}
+
+function jitter(number, offset){
+    if(Math.random() > 0.1){
+        return number;
+    }
+    let direction = 1;
+    if(Math.random() > .5){
+        direction = -1;
+    }
+    const magnitude = getRandomNumberBetween(0,offset);
+
+    return number + magnitude * direction;
+}
+
+function glitchify(canvas){
+    /*  
+        divide image into x by y chunks. 
+        for each chunk, grab its image data and render it slightly off.
+    */
+    const rectWidth = 30;
+    const rectHeight = 30;
+    const buffer = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    const bufferContext = buffer.getContext("2d");
+
+    buffer.width = canvas.width;
+    buffer.height = canvas.height;
+    for(let x = 0; x<buffer.width; x+= rectWidth){
+        for(let y = 0; y<buffer.height; y+= rectHeight){
+
+            var output = context.getImageData(jitter(x, rectWidth), jitter(y,rectHeight), rectWidth, rectHeight);
+            var d = output.data;
+            for (var i=0; i<d.length; i+=4) {
+              var r = d[i];
+              var g = d[i+1];
+              var b = d[i+2];
+              let v = (0.2126*r + 0.7152*g + 0.0722*b >= 100) ? 44 : 0;
+              if(Math.random() < 0.1){ //invert sometimes
+                  v = (0.2126*r + 0.7152*g + 0.0722*b >= 100) ? 0 : 44;
+              }
+              d[i] = d[i+1] = d[i+2] = v;
+            }
+              bufferContext.putImageData(output,x, y);
+        }
+    }
+    context.drawImage(buffer,0,0);
+
 }
 
 function rotateRingTwelveDegrees(canvas, ringNum){
@@ -113,8 +208,63 @@ function pos_func( origin_x, origin_y,radius,num,num_rects){
     return circle(origin_x, origin_y,radius,num, num_rects);
 }
 
+const threshold = function(canvas) {
+    var ctx = canvas.getContext('2d');
+    if(!ctx){
+        return;
+    }
+    var output = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var d = output.data;
+    for (var i=0; i<d.length; i+=4) {
+      var r = d[i];
+      var g = d[i+1];
+      var b = d[i+2];
+      var v = (0.2126*r + 0.7152*g + 0.0722*b >= 100) ? 255 : 0;
+      d[i] = d[i+1] = d[i+2] = v
+    }
+      ctx.putImageData(output, 0, 0);
+};
+
+const grayscale = function(canvas) {
+    var ctx = canvas.getContext('2d');
+    if(!ctx){
+        return;
+    }
+    var output = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var d = output.data;
+    for (var i=0; i<d.length; i+=4) {
+      var r = d[i];
+      var g = d[i+1];
+      var b = d[i+2];
+      // CIE luminance for the RGB
+      // The human eye is bad at seeing red and blue, so we de-emphasize them.
+      var v = 0.2126*r + 0.7152*g + 0.0722*b;
+      d[i] = d[i+1] = d[i+2] = v
+    }
+    ctx.putImageData(output, 0, 0);
+  };
+
+  const invert = function(canvas) {
+    var ctx = canvas.getContext('2d');
+    if(!ctx){
+        return;
+    }
+    var output = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var d = output.data;
+    for (var i=0; i<d.length; i+=4) {
+      d[i] = 255-d[i];
+      d[i+1] = 255-d[i+1];
+      d[i+2] = 255-d[i+2];
+    }
+    ctx.putImageData(output, 0, 0);
+  };
+
 const blur = function(canvas){
     kernel(canvas, [1/9,1/9,1/9,1/9,1/9,1/9,1/9,1/9,1/9]);
+}
+
+const edge_detection = function(canvas){
+    kernel(canvas, [  -1, -1,  -1, -1,  9, -1, -1, -1,  -1 ]);
 }
 
 const kernel= function(canvas, weights){
