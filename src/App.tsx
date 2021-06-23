@@ -76,6 +76,7 @@ function App() {
         <li>rage mode instead of black fucks up the bg and makes it dark, three frame animation</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>waste/seer/mage classes get option screen, etc</li>
+      <li>music, plus fucked up music for rage mode. subtle fuck ups for normal mode?</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
         <li>port in fractal sim to be the bg for RAGE MODE</li>
         <li>later, make it so if its your first playthrough (check local storage) and you get waste class it changes to something else.</li>

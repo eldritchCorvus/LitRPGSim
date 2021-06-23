@@ -1,10 +1,10 @@
 import  { useEffect } from "react";
-import { fuckery } from "./CanvasFuckery/fuckery";
+import { fuckery, fuckUpBG } from "./CanvasFuckery/fuckery";
 import { FUCKEDUP } from "./Modules/ObserverBot/ObserverBot";
 import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
 
 
-  
+ 
   /*
   rather than procedural css sbajifying everything, take EXISTING things that look okay and start 
   THOROUGHLY fucking shit up. go ham. go apeshit.
@@ -48,7 +48,7 @@ const beginFuckingShitUp = (numCalls = 0)=>{
 
   const body = document.querySelector('body') as HTMLElement;
   if(body){
-    body.style.background = "black";
+    body.style.backgroundColor = "black";
     body.style.color = "red";    
   }
 
@@ -69,6 +69,7 @@ function RageMode() {
         canvas.classList.add("chaos");
       }
       beginFuckingShitUp();
+      fuckUpBG();
       (window as any).recordAction(FUCKEDUP,Date.now());
 
     },[])
