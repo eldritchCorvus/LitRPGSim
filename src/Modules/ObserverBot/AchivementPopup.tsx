@@ -20,7 +20,7 @@ export const Popup = styled.div`
     font-weight: bold;
     padding-right: 13px;
     margin: 10px;
-    background: white;
+    background: #d1b056;
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 `
 
@@ -47,7 +47,6 @@ const  AchivementPopup = (props: AchivementProps)=> {
     const [initialShowing, setInitialShowing] = useState(true);
     let {title, text} = props;
     const {visible} = dialog;
-    const bg = (window as any).rageMode?"black":"white";
     useEffect(()=>{
         if(initialShowing){
             dialog.setVisible(true);
@@ -72,8 +71,8 @@ const  AchivementPopup = (props: AchivementProps)=> {
     return(
         <>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
-        <Popup style={{background: bg}}>
+      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"25%", width: "600px"} }>
+        <Popup>
             <PopupTitle>{title} {props.skillPoints} SkillPoints Gained!!!</PopupTitle>
             <PopupContent>{text}</PopupContent>
         </Popup>

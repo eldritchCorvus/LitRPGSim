@@ -5,7 +5,7 @@ import { replaceStringAt } from "../Utils/StringUtils";
 // :) :) :)
 export let FONTSIZE = 14;
 export let FONTCOLOR = "#000000";
-export let BGCOLOR = "#ffffff";
+export let BGCOLOR = "#edd287";
 export let PADDINGRATIO = 1.0;
 export let MARGINRATIO = 1.0;
 export let BORDERRADIUS = 4;
@@ -16,7 +16,7 @@ const CENTERRADIUS = 5;
 let CENTERFONTSIZE = 14;
 const CENTERRADIUSROUND =13;
 let ORIGINALFONTCOLOR = "#000000";
-let ORIGINALBGCOLOR = "#ffffff";
+let ORIGINALBGCOLOR = "#edd287";
 //this is configured by options
 let ORIGINAL_MENU_OPACITY = 1;
 
@@ -65,7 +65,7 @@ export const fuckShitUpButOnlyALittle = () => {
     fuckUpRadiusRound();
     fuckUpFontSize();
     fuckUpFontColor();
-    fuckUpBGColor();
+    //fuckUpBGColor();
     fuckUpOpacity();
 
 }

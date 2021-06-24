@@ -28,17 +28,29 @@ function Menu(props: MenuProps) {
   const selectedTab = {
     "border": `1px solid ${FONTCOLOR}`,
     "fontSize":"24px",
-    "background": "white",
+    "font-weight": "bold",
+    "background": `${BGCOLOR}`,
     "borderBottom": `2px solid ${BGCOLOR}`,
     "borderRadius": "5px",
     "borderBottomLeftRadius": "0px",
     "borderBottomRightRadius": "0px",
+    "-webkit-text-stroke": "black",
+    "-webkit-text-fill-color": `#ccb472`,
+    '-webkit-text-stroke-width': "1px"
   }
   
   const unSelectedTab = {
-    "border": "none",
+    "border": `1px solid #ba973a`,
+    "font-weight": "bold",
     "fontSize":"24px",
-    "background": BGCOLOR,
+    "borderRadius": "5px",
+    "borderBottomLeftRadius": "0px",
+    "borderBottomRightRadius": "0px",
+    "background": "#d1b056",
+    "-webkit-text-stroke": "black",
+    "-webkit-text-fill-color": `#ba973a`,
+    '-webkit-text-stroke-width': "1px"
+    
   }
 
 
