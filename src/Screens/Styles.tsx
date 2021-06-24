@@ -224,6 +224,7 @@ export const Skill = styled.div`
 export const MenuBox = styled.div`
     padding: 10px;
     margin: 10px;
+    font-weight: 500;
     opacity: ${(props: MenuBoxProps) => props.opacity};
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
     color:  ${(props: MenuBoxProps) => props.fontColor};
@@ -250,7 +251,7 @@ export const StatusBlock = styled.div`
 `
 
 export const StatusHeader = styled.div`
-    font-weight: bold;
+    font-weight: 900;
     width: 200px;
 `
 

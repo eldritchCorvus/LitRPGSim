@@ -131,7 +131,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
                 <StatusRow>
                     <span>{`Skill Points: ${props.player.skillPoints}`}</span>
                     <UnlockSkillPopup player={player} skill={skillToUnlock} unlockSkill={unlockSkill} ></UnlockSkillPopup>
-                    <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '100%', height: '600px' }  }/>
+                    <CytoscapeComponent cy={(cy) => {setCy(cy)}} elements={graphData} layout={layout}  style={ { width: '100%', height: '500px' }  }/>
                 </StatusRow>
             </span>
         </StatusBlock>
