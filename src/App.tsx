@@ -10,6 +10,7 @@ import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import Menu from "./Menu";
 import RageMode from "./RageMode";
+import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 
   useEffect(()=>{
     if(!player){
+      fuckUpBGButSoftly();
       let urlseed:string|number|null = getParameterByName("seed",null);
       let initial_seed;
       if (urlseed){
@@ -43,7 +45,6 @@ function App() {
       initAspects(rand);
       initClasses(rand);
       initInterests(rand);
-
       setPlayer(randomPlayer(rand) ); 
   }
   },[player])
@@ -73,7 +74,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>rage mode instead of black fucks up the bg and makes it dark, three frame animation</li>
+        <li>rage mode bg fuckery not animating WHY</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>waste/seer/mage classes get option screen, etc</li>
       <li>music, plus fucked up music for rage mode. subtle fuck ups for normal mode?</li>
