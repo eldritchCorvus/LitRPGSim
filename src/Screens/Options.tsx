@@ -113,17 +113,6 @@ export const  OptionsScreen = (props: StatusProps)=> {
                 </StatusContent>
             </StatusRow>
 
-            <StatusRow>
-                <StatusHeader>BG Color:</StatusHeader>
-                <StatusContent>
-                    <input type="color" value={`${bgColorValue}`} onChange={(event)=>{
-                        const value =event.target.value;
-                        setBGColorValue(value);
-                    }}></input>
-                    {bgColorValue}
-                </StatusContent>
-            </StatusRow>
-
 
             <StatusRow>
                 <StatusHeader></StatusHeader>
