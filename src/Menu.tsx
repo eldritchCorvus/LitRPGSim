@@ -93,7 +93,7 @@ function Menu(props: MenuProps) {
             <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen} refresh={refresh}></LoadingScreen>
           :
           <Fragment>
-            <TabList style={{borderBottom:"1px solid black"}} {...tab} aria-label="My tabs">
+            <TabList  {...tab} aria-label="My tabs">
               <Tab style={tab.selectedId === STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
           //warning: since these are async this might not be the best idea.
           setNextScreen(STATUS);

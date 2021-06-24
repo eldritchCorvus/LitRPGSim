@@ -75,6 +75,7 @@ function App() {
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
+      <li>encourage replays with fake credits</li>
       <li>waste/seer/mage classes get option screen, etc</li>
       <li>music, plus fucked up music for rage mode. subtle fuck ups for normal mode?</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
