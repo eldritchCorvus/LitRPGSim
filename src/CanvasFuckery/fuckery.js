@@ -4,11 +4,17 @@ import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
 //blame past me for how confusing this is, stole bits from http://farragofiction.com/ModernArtClicker/infinite_color_test.html
 window.fuckery = fuckery;
 export const fuckUpBG = ()=>{
-    console.log("fucking shit up bg style", background)
     var img = new Image();
     img.addEventListener('load', function() {
-      console.log("image loaded!!!");
-      fuckUpImage(img);
+        fuckUpImage(img, glitchify,"bgbutithatesyou");
+    }, false);
+    img.src = background;
+  }
+
+  export const fuckUpBGButSoftly = ()=>{
+    var img = new Image();
+    img.addEventListener('load', function() {
+        fuckUpImage(img, gaslight, "peacefulbg");
     }, false);
     img.src = background;
   }
@@ -62,7 +68,7 @@ export  function fuckery(){
     div.style.backgroundImage = `url(${bigBG.toDataURL()})`
 }
 
-function fuckUpImage(img){
+function fuckUpImage(img, fucking_function, class_name){
     const frames = [];
     const bg = document.querySelector("#ThisIsNotABG");
 
@@ -75,11 +81,9 @@ function fuckUpImage(img){
         //grayscale(canvas);
        // edge_detection(canvas);
         //threshold(canvas);
-        if(i % 2 == 0) {
-            glitchify(canvas);
-        }
+        fucking_function(canvas);
+        
         frames.push(canvas);
-        bg.append(canvas);
     }
     const bigBoi = document.createElement("canvas");
     bigBoi.width = img.width*3;
@@ -88,12 +92,11 @@ function fuckUpImage(img){
     bigContext.drawImage(frames[0],0,0);
     bigContext.drawImage(frames[1],1656,0);
     bigContext.drawImage(frames[2],3312,0);
-    document.querySelector("body").append(bigBoi);
 
 
     //invert(canvas);
     bg.style.backgroundImage = `url(${bigBoi.toDataURL()})`;
-    bg.classList.add("peacefulbg");
+    bg.classList.add(class_name);
 
 }
 
@@ -115,8 +118,8 @@ function glitchify(canvas){
         divide image into x by y chunks. 
         for each chunk, grab its image data and render it slightly off.
     */
-    const rectWidth = 30;
-    const rectHeight = 30;
+    const rectWidth = 50;
+    const rectHeight = 50;
     const buffer = document.createElement("canvas");
     const context = canvas.getContext("2d");
     const bufferContext = buffer.getContext("2d");
@@ -132,9 +135,9 @@ function glitchify(canvas){
               var r = d[i];
               var g = d[i+1];
               var b = d[i+2];
-              let v = (0.2126*r + 0.7152*g + 0.0722*b >= 100) ? 44 : 0;
-              if(Math.random() < 0.1){ //invert sometimes
-                  v = (0.2126*r + 0.7152*g + 0.0722*b >= 100) ? 0 : 44;
+              let v = (0.2126*r + 0.7152*g + 0.0722*b >= 100) ? 88 : 0;
+              if(Math.random() < 0.4){  //sometimes just be black
+                  v = 0;
               }
               d[i] = d[i+1] = d[i+2] = v;
             }
@@ -144,6 +147,36 @@ function glitchify(canvas){
     context.drawImage(buffer,0,0);
 
 }
+
+function gaslight(canvas){
+    /*  
+        divide image into x by y chunks. 
+        for each chunk, grab its image data and render it slightly off.
+    */
+    const rectWidth = 10;
+    const rectHeight = 10;
+    const buffer = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    const bufferContext = buffer.getContext("2d");
+
+    buffer.width = canvas.width;
+    buffer.height = canvas.height;
+    for(let x = 0; x<buffer.width; x+= rectWidth){
+        for(let y = 0; y<buffer.height; y+= rectHeight){
+            let output;
+            if(Math.random()>0.6){
+                output = context.getImageData(jitter(x, rectWidth), jitter(y,rectHeight), rectWidth, rectHeight);
+            }else{
+                output = context.getImageData(x, y, rectWidth, rectHeight);
+
+            }
+            bufferContext.putImageData(output,x, y);
+        }
+    }
+    context.drawImage(buffer,0,0);
+
+}
+
 
 function rotateRingTwelveDegrees(canvas, ringNum){
     const context=canvas.getContext("2d");
