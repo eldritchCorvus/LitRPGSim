@@ -76,6 +76,10 @@ function App() {
       <ul style={{display: "none"}}>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>encourage replays with fake credits</li>
+      <li>status screen upgrades is gated to skills</li>
+      <li>worship the skill tree</li>
+      <li>title system can add/unlock skills like kin eater giving heretic magic</li>
+      <li>fill in todos in status etc</li>
       <li>waste/seer/mage classes get option screen, etc</li>
       <li>music, plus fucked up music for rage mode. subtle fuck ups for normal mode?</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>

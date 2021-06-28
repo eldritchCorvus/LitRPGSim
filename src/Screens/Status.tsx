@@ -49,7 +49,7 @@ export const  StatusScreen = (props: StatusProps)=> {
 
             <StatusRow>
                 <StatusHeader>Title:</StatusHeader>
-                <StatusContent>{props.player.class_name.chosen_name} of {props.player.aspect.chosen_name}</StatusContent>
+                <StatusContent>{props.player.title}</StatusContent>
             </StatusRow>
 
             <StatusRow>

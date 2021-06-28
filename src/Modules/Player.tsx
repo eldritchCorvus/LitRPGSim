@@ -21,6 +21,7 @@ export   class Player{
     stats: StatMap = {};
     skillGenAlg: SkillGenAlg;
     observer: ObserverBot;
+    title: string;
 
 
 
@@ -45,6 +46,15 @@ export   class Player{
         //is it a copy and not a reference?
         this.observer = new ObserverBot(this);
         this.observer.achivementStorage.checkForAchievements(this.observer);
+        this.title = this.generateTitle();
+    }
+
+    generateTitle = ()=>{
+        if(this.rand.nextDouble()>0.5){
+            return `${this.class_name.chosen_name} of ${this.aspect.chosen_name}`
+        }else{
+            return `${this.aspect.chosen_name} ${this.class_name.chosen_name}`
+        }
     }
 
     initStats = (rand: SeededRandom) =>{
