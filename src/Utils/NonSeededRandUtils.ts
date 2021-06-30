@@ -13,9 +13,10 @@ export const  getRandomSeed =()=> {
 }
 
 export function numbertoseed(seed:string){
-    var output = 0;
+        var output = 0;
        for (var i = 0, len = seed.length; i < len; i++) {
           output += seed[i].charCodeAt(0)
         }
-    return output
-    }
+        return output
+    
+}
