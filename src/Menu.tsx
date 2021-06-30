@@ -14,28 +14,28 @@ import { OptionsScreen } from "./Screens/Options";
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
   "fontSize":"24px",
-  "font-weight": "bold",
+  "fontWeight": "bold",
   "background": `${BGCOLOR}`,
   "borderBottom": `2px solid ${BGCOLOR}`,
   "borderRadius": "5px",
   "borderBottomLeftRadius": "0px",
   "borderBottomRightRadius": "0px",
-  "-webkit-text-stroke": "black",
-  "-webkit-text-fill-color": `#ccb472`,
-  '-webkit-text-stroke-width': "1px"
+  "WebkitTextStroke": "black",
+  "WebkitTextFillColor": `#ccb472`,
+  'WebkitTextStrokeWidth': "1px"
 }
 
 const unSelectedTab = {
   "border": `1px solid #ba973a`,
-  "font-weight": "bold",
+  "fontWeight": "bold",
   "fontSize":"24px",
   "borderRadius": "5px",
   "borderBottomLeftRadius": "0px",
   "borderBottomRightRadius": "0px",
   "background": "#d1b056",
-  "-webkit-text-stroke": "black",
-  "-webkit-text-fill-color": `#ba973a`,
-  '-webkit-text-stroke-width': "1px"
+  "WebkitTextStroke": "black",
+  "WebkitTextFillColor": `#ba973a`,
+  'WebkitTextStrokeWidth': "1px"
   
 }
 interface MenuProps{
@@ -116,9 +116,7 @@ function Menu(props: MenuProps) {
   const [refresh, setRefresh] = useState(true);
   const [nextScreen, setNextScreen] = useState(STATUS);
   const {player} = props;
-
- 
-
+  const observer = player.observer;
 
   const tab = useTabState();
 
@@ -164,13 +162,13 @@ function Menu(props: MenuProps) {
               <StatusTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
               
               <SkillsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
-
-              <StatisticsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
-
               <AchievementsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
 
+              {observer.statisticsMenuLevel>0?<StatisticsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
-              <OptionsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
+
+
+              {observer.optionsMenuLevel>0?<OptionsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
             </TabList>
             <TabPanel {...tab}>
@@ -180,21 +178,22 @@ function Menu(props: MenuProps) {
               {currentScreen === SKILLGRAPH?<SkillGraphScreen  loadScreen={handleLoading} player={player}></SkillGraphScreen>:null}
 
             </TabPanel>
-
-            <TabPanel {...tab}>
-              {currentScreen === STATISTICS?<StatisticsScreen  loadScreen={handleLoading} player={player}></StatisticsScreen>:null}
-
-            </TabPanel>
-
             <TabPanel {...tab}>
               {currentScreen === ACHIEVEMENTS?<AchivementsScreen  loadScreen={handleLoading} player={player}></AchivementsScreen>:null}
 
             </TabPanel>
 
-            <TabPanel {...tab}>
+            {observer.statisticsMenuLevel>0?<TabPanel {...tab}>
+              {currentScreen === STATISTICS?<StatisticsScreen  loadScreen={handleLoading} player={player}></StatisticsScreen>:null}
+
+            </TabPanel>:null}
+
+
+
+            {observer.optionsMenuLevel>0?<TabPanel {...tab}>
               {currentScreen === OPTIONS?<OptionsScreen  loadScreen={handleLoading} player={player}></OptionsScreen>:null}
 
-            </TabPanel>
+            </TabPanel>:null}
           </Fragment>
         }
       </MenuBox>
