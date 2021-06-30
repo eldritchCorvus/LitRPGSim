@@ -129,7 +129,8 @@ export class SpecialSkill extends Skill{
 }
 
 let numStatSkills = 0;
-export const wasteHackingFunctions = ["hackTimePlayedInSeconds","hackTimeCombatInSeconds","hackTimeCutscenesInSeconds","hackTimeCitybuildingInSeconds"];
+//todo if this gets unweildly at least put the list of functions in ObserverBot
+export const wasteHackingFunctions = ["hackStatisticsMenuLevel","hackOptionsMenuLevel","hackTimePlayedInSeconds","hackTimeCombatInSeconds","hackTimeCutscenesInSeconds","hackTimeCitybuildingInSeconds"];
 export class WasteSkill extends SpecialSkill{
     type = "WasteSkill";
 

@@ -74,6 +74,8 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>skills to raise level of menu tab (if it goes over 0 it unlocks)</li>
+        <li>menu screen you can ONLY get to via hacking (shows how to resolve RAGEMODE?)</li>
       <li>status screen upgrades is gated to skills, menu skills are tied to CLASS and not theme</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>encourage replays with fake credits</li>

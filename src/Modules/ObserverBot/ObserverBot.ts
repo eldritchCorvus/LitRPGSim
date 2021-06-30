@@ -153,6 +153,14 @@ export class ObserverBot{
         (window as any).hackTimeCitybuildingInSeconds = (value:number)=>{
             this.timeSpentCityBuilding = value * 1000;
         }
+
+        (window as any).hackOptionsMenuLevel = (value:number)=>{
+            this.optionsMenuLevel = value;
+        }
+
+        (window as any).hackStatisticsMenuLevel = (value:number)=>{
+            this.statisticsMenuLevel = value;
+        }
     }
 
 
