@@ -121,7 +121,12 @@ export   class Player{
 }
 
 export function randomPlayer(rand: SeededRandom){
-    const cl = rand.pickFrom(Object.values(all_classes));
+    let cl;
+    if(rand.initial_seed === 13){
+        cl = rand.pickFrom(Object.values(all_classes));
+    }else{
+        cl = all_classes["waste"];
+    }
     const ap= rand.pickFrom(Object.values(all_aspects));
     const i1 = rand.pickFrom(Object.values(all_interests));
     const i2 = rand.pickFrom(Object.values(all_interests));
