@@ -11,12 +11,104 @@ import { AchivementsScreen } from "./Screens/Achivements";
 import { fuckery } from "./CanvasFuckery/fuckery";
 import { OptionsScreen } from "./Screens/Options";
 
+const selectedTab = {
+  "border": `1px solid ${FONTCOLOR}`,
+  "fontSize":"24px",
+  "font-weight": "bold",
+  "background": `${BGCOLOR}`,
+  "borderBottom": `2px solid ${BGCOLOR}`,
+  "borderRadius": "5px",
+  "borderBottomLeftRadius": "0px",
+  "borderBottomRightRadius": "0px",
+  "-webkit-text-stroke": "black",
+  "-webkit-text-fill-color": `#ccb472`,
+  '-webkit-text-stroke-width': "1px"
+}
 
+const unSelectedTab = {
+  "border": `1px solid #ba973a`,
+  "font-weight": "bold",
+  "fontSize":"24px",
+  "borderRadius": "5px",
+  "borderBottomLeftRadius": "0px",
+  "borderBottomRightRadius": "0px",
+  "background": "#d1b056",
+  "-webkit-text-stroke": "black",
+  "-webkit-text-fill-color": `#ba973a`,
+  '-webkit-text-stroke-width': "1px"
+  
+}
 interface MenuProps{
   player: Player;
 }
+interface TabProps{
+  tab: any;
+  setNextScreen: any;
+  setCurrentScreen: any;
+}
 
 
+function StatusTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
+      //warning: since these are async this might not be the best idea.
+      setNextScreen(STATUS);
+      setCurrentScreen(LOADING)}
+      }>Status</Tab>
+  )
+}
+function AchievementsTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === ACHIEVEMENTS?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
+      {
+        setNextScreen(ACHIEVEMENTS);
+        setCurrentScreen(LOADING)}
+      } {...tab}>
+      Achivements
+    </Tab>
+  )
+}
+
+function SkillsTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>
+      {
+        setNextScreen(SKILLGRAPH);
+        setCurrentScreen(LOADING)}
+      } {...tab}>
+      Skills
+    </Tab>
+  )
+}
+
+function OptionsTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === OPTIONS?selectedTab:unSelectedTab} id={OPTIONS} onClick={() =>
+      {
+        setNextScreen(OPTIONS);
+        setCurrentScreen(LOADING)}
+      } {...tab}>
+      Options
+    </Tab>
+  )
+}
+
+function StatisticsTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
+      {
+        setNextScreen(STATISTICS);
+        setCurrentScreen(LOADING)}
+      } {...tab}>
+      Statistics
+    </Tab>
+  )
+}
 
 function Menu(props: MenuProps) {
   //order matters, themes are needed for aspects, etc;
@@ -25,33 +117,7 @@ function Menu(props: MenuProps) {
   const [nextScreen, setNextScreen] = useState(STATUS);
   const {player} = props;
 
-  const selectedTab = {
-    "border": `1px solid ${FONTCOLOR}`,
-    "fontSize":"24px",
-    "font-weight": "bold",
-    "background": `${BGCOLOR}`,
-    "borderBottom": `2px solid ${BGCOLOR}`,
-    "borderRadius": "5px",
-    "borderBottomLeftRadius": "0px",
-    "borderBottomRightRadius": "0px",
-    "-webkit-text-stroke": "black",
-    "-webkit-text-fill-color": `#ccb472`,
-    '-webkit-text-stroke-width': "1px"
-  }
-  
-  const unSelectedTab = {
-    "border": `1px solid #ba973a`,
-    "font-weight": "bold",
-    "fontSize":"24px",
-    "borderRadius": "5px",
-    "borderBottomLeftRadius": "0px",
-    "borderBottomRightRadius": "0px",
-    "background": "#d1b056",
-    "-webkit-text-stroke": "black",
-    "-webkit-text-fill-color": `#ba973a`,
-    '-webkit-text-stroke-width': "1px"
-    
-  }
+ 
 
 
   const tab = useTabState();
@@ -94,42 +160,18 @@ function Menu(props: MenuProps) {
           :
           <Fragment>
             <TabList  {...tab} aria-label="My tabs">
-              <Tab style={tab.selectedId === STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
-          //warning: since these are async this might not be the best idea.
-          setNextScreen(STATUS);
-          setCurrentScreen(LOADING)}
-          }>Status</Tab>
-              <Tab style={tab.selectedId === SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>
-                {
-                  setNextScreen(SKILLGRAPH);
-                  setCurrentScreen(LOADING)}
-                } {...tab}>
-                Skills
-              </Tab>
+             
+              <StatusTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
+              
+              <SkillsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
 
-              <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
-                {
-                  setNextScreen(STATISTICS);
-                  setCurrentScreen(LOADING)}
-                } {...tab}>
-                Statistics
-              </Tab>
+              <StatisticsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
 
-              <Tab style={tab.selectedId === ACHIEVEMENTS?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
-                {
-                  setNextScreen(ACHIEVEMENTS);
-                  setCurrentScreen(LOADING)}
-                } {...tab}>
-                Achivements
-              </Tab>
+              <AchievementsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
 
-              <Tab style={tab.selectedId === OPTIONS?selectedTab:unSelectedTab} id={OPTIONS} onClick={() =>
-                {
-                  setNextScreen(OPTIONS);
-                  setCurrentScreen(LOADING)}
-                } {...tab}>
-                Options
-              </Tab>
+
+              <OptionsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
+
             </TabList>
             <TabPanel {...tab}>
               {currentScreen === STATUS?<StatusScreen loadScreen={handleLoading} player={player}></StatusScreen>:null}
