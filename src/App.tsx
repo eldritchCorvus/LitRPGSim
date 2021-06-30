@@ -11,6 +11,7 @@ import { getParameterByName } from "./Utils/URLUtils";
 import Menu from "./Menu";
 import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
+import { isNumeric } from "./Utils/StringUtils";
 
 
 function App() {
@@ -30,9 +31,16 @@ function App() {
     if(!player){
       fuckUpBGButSoftly();
       let urlseed:string|number|null = getParameterByName("seed",null);
+      console.log("url seed is", urlseed);
       let initial_seed;
       if (urlseed){
-        initial_seed = numbertoseed(urlseed);
+        if(!isNumeric(urlseed)){
+            initial_seed = numbertoseed(urlseed);
+        }else{
+          initial_seed = parseInt(urlseed);
+        }
+        console.log("initial_seed seed is", initial_seed);
+
       }
 
       if(!initial_seed){
@@ -74,9 +82,11 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>skills to raise level of menu tab (if it goes over 0 it unlocks)</li>
-        <li>menu screen you can ONLY get to via hacking (shows how to resolve RAGEMODE?)</li>
-      <li>status screen upgrades is gated to skills, menu skills are tied to CLASS and not theme</li>
+        <li>skills to raise level of menu tab by one (if it goes over 0 it unlocks)</li>
+        <li>each class has an associated SET OF MENUS and generates skills to raise them by 1 sprinkled throughout the skill graph (replacing stats, same way waste works)</li>
+      <li>status screen upgrades is gated to skills</li>
+      <li>menu screen you can ONLY get to via hacking (shows how to resolve RAGEMODE?)</li>
+      <li>special seeds that have story content, maybe voice acted stuff</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>encourage replays with fake credits</li>
       <li>worship the skill tree</li>
