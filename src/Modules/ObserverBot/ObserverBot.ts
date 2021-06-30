@@ -38,6 +38,11 @@ export class ObserverBot{
     timeSpentCityBuilding = 0;
     timeSpentInMenu = 0;
     failedHaxAttempts = 0;
+    statusMenuLevel = 1;
+    achievementMenuLevel = 1;
+    optionsMenuLevel = 0;
+    statisticsMenuLevel = 0;
+
     successfulHaxAttempts = 0;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
