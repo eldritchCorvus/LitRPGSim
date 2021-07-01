@@ -57,6 +57,7 @@ interface MenuBoxProps{
     fontColor: string;
     bgColor: string;
     opacity: number;
+    angle: number;
 }
 
 //did something change? probably just your imagination.
@@ -225,6 +226,7 @@ export const MenuBox = styled.div`
     padding: 10px;
     margin: 10px;
     font-weight: 500;
+    transform: skew(${(props: MenuBoxProps) => props.angle}deg);
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
     opacity: ${(props: MenuBoxProps) => props.opacity};
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
@@ -238,7 +240,7 @@ export const MenuBox = styled.div`
     font-size:  ${(props: MenuBoxProps) => props.fontSize}px;
     position: fixed;
     overflow: auto;
-    left: 15%;
+    left: ${(props: MenuBoxProps) => 15 -props.angle/10}%;
     top: 5%;
     height: 600px;
 `

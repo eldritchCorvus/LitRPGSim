@@ -17,11 +17,11 @@ import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
 
     const max = 2555;
     const ratio = Math.min(max,numCalls)/max; //get worse over time :) :) :)
-    const filters = [`saturate(${getRandomNumberBetween(0,100*ratio)}%)`,`opacity(${getRandomNumberBetween(10,99*ratio)}%)`,`invert(${getRandomNumberBetween(0,100*ratio)}%)`,`blur(${getRandomNumberBetween(1,3)}px)`,`grayscale(${getRandomNumberBetween(0,100*ratio)}%)`,`hue-rotate(${getRandomNumberBetween(1,360*ratio)}deg)`,"drop-shadow(2px 2px 2px red)"];
-    const mildFilters = [`opacity(${getRandomNumberBetween(80,99)}%)`,`blur(${getRandomNumberBetween(0,5)}px)`,`grayscale(${getRandomNumberBetween(0,10)}%)`,`hue-rotate(${getRandomNumberBetween(1,2)}deg)`,"drop-shadow(2px 2px 2px red)"];
+    const filters = [`saturate(${getRandomNumberBetween(0,100*ratio)}%)`,`opacity(${getRandomNumberBetween(10,99*ratio)}%)`,`invert(${getRandomNumberBetween(0,100*ratio)}%)`,`blur(1px)`,`grayscale(${getRandomNumberBetween(0,100*ratio)}%)`,`hue-rotate(${getRandomNumberBetween(1,360*ratio)}deg)`,"drop-shadow(2px 2px 2px red)"];
+    const mildFilters = [`opacity(${getRandomNumberBetween(80,99)}%)`,`grayscale(${getRandomNumberBetween(0,10)}%)`,`hue-rotate(${getRandomNumberBetween(1,2)}deg)`,"drop-shadow(2px 2px 2px red)"];
 
-    const transforms = [`scale(${getRandomNumberBetween(1,3*ratio)}, ${Math.random()*ratio})`,`rotate(${Math.random()*ratio}turn)`,`skew(${getRandomNumberBetween(1,360*ratio)}deg, ${getRandomNumberBetween(1,360*ratio)}deg)`];
-    const mildTransforms = [`scale(${getRandomNumberBetween(1,2*ratio)}, ${Math.random()*ratio})`,`rotate(${Math.random()*ratio}turn)`,`skew(${getRandomNumberBetween(1,10*ratio)}deg, ${getRandomNumberBetween(1,10*ratio)}deg)`];
+    const transforms = [`scale(${getRandomNumberBetween(1,3*ratio)}, ${Math.random()*ratio})`,`rotate(${Math.random()*ratio}turn)`,`skew(${getRandomNumberBetween(1,360*ratio)}deg), ${getRandomNumberBetween(1,360*ratio)}deg)`];
+    const mildTransforms = [`scale(${getRandomNumberBetween(1,2*ratio)}, ${Math.random()*ratio})`,`rotate(${Math.random()*ratio}turn)`,`skew(${getRandomNumberBetween(1,10*ratio)}deg), ${getRandomNumberBetween(1,10*ratio)}deg)`];
 
     if(children.length < 3 && Math.random() >.9 && numCalls > max/2){
       shit.style.filter = pickFrom(filters);
