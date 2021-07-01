@@ -54,7 +54,7 @@ export const  StatusScreen = (props: StatusProps)=> {
 
             <StatusRow>
                 <StatusHeader>Seed:</StatusHeader>
-                <StatusContent><a href = {`/?seed=${props.player.rand.initial_seed}`}>{props.player.rand.initial_seed}</a></StatusContent>
+                <StatusContent><a href = {`./?seed=${props.player.rand.initial_seed}`}>{props.player.rand.initial_seed}</a></StatusContent>
             </StatusRow>
 
             <StatusRow>

@@ -75,7 +75,10 @@ function App() {
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
         {rageMode? <RageMode/>:null}
-        <Menu player={player}/>
+        {rageMode?  <Menu player={player} angle={30}/>:null}
+        {rageMode?  <Menu player={player} angle={130}/>:null}
+
+        <Menu player={player} angle={0}/>
       
 
       
@@ -110,3 +113,4 @@ function App() {
 } 
 
 export default App;
+

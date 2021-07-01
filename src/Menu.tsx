@@ -40,6 +40,7 @@ const unSelectedTab = {
 }
 interface MenuProps{
   player: Player;
+  angle: number;
 }
 interface TabProps{
   tab: any;
@@ -151,7 +152,7 @@ function Menu(props: MenuProps) {
 
     return (
       <div>
-      <MenuBox opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
+      <MenuBox angle={props.angle} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?
             <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen} refresh={refresh}></LoadingScreen>
