@@ -85,6 +85,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>music integration note to self airship rpgmaker ace music is my waifu</li>
         <li>skills to raise level of menu tab by one (if it goes over 0 it unlocks)</li>
         <li>each class has an associated SET OF MENUS and generates skills to raise them by 1 sprinkled throughout the skill graph (replacing stats, same way waste works)</li>
       <li>status screen upgrades is gated to skills</li>
