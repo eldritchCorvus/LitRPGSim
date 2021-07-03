@@ -12,6 +12,7 @@ import Menu from "./Menu";
 import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
 import { isNumeric } from "./Utils/StringUtils";
+import { playSong } from "./Utils/MusicPlayer";
 
 
 function App() {
