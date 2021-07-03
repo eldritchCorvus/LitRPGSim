@@ -12,6 +12,8 @@ interface StatusProps{
 TODO: once you've asked all questions just go through all the themes and dissect them for the player.
 
 infinite content.
+
+same for achievements.
 */
 
 export const  JustTruth = (props: StatusProps)=> {
