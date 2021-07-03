@@ -225,6 +225,7 @@ export const Skill = styled.div`
 export const TruthContainer = styled.div`
     padding: 10px;
     margin: 10px;
+    margin-top: 10%;
     font-weight: 500;
     width: 900px;
     margin-left: auto;
@@ -232,6 +233,18 @@ export const TruthContainer = styled.div`
     height: 600px;
     background: black;
     color: red;
+`
+
+export const RageStyledButton = styled.button`
+    background: black;
+    color: red;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    :hover{
+        text-decoration: underline;
+    };
+
 `
 
 export const MenuBox = styled.div`
