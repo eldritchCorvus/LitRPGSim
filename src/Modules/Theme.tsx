@@ -1,4 +1,5 @@
 import SeededRandom from '../Utils/SeededRandom';
+import { Memory } from './ObserverBot/Memory';
 import * as Stat from './Stat';
 import * as ThemeStorage from './ThemeStorage';
 interface ThemeMap {
@@ -8,6 +9,7 @@ interface ThemeMap {
 interface PossibilitiesListMap {
     [details: string] : string[];
 }
+
 
 //auto populated by creating themes. 
 export const all_themes:ThemeMap = {};
@@ -26,15 +28,17 @@ export   class Theme{
     etc etc
     */
     string_possibilities: PossibilitiesListMap;
+    memories: Memory[];
 
     tier: number;
 
 
-    constructor(key: string, tier: number,stats: Stat.StatMap,  string_possibilities: PossibilitiesListMap){
+    constructor(key: string, tier: number,stats: Stat.StatMap,  string_possibilities: PossibilitiesListMap, memories: Memory[]){
         this.key = key;
         this.tier = tier;
         this.initStats(stats);
         this.string_possibilities = string_possibilities;
+        this.memories = memories;
         all_themes[key] = this;
     }
 
@@ -90,8 +94,9 @@ export function initThemes(){
         string_possibilities[ThemeStorage.SUPERMOVE] = ThemeStorage.super_name_possibilities_map[key];
         string_possibilities[ThemeStorage.COMPLIMENT] = ThemeStorage.compliment_possibilities[key];
         string_possibilities[ThemeStorage.INSULT] = ThemeStorage.insult_possibilities[key];
-
-        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities);
+        const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
+        console.log("memories found for key", key, "is ", memories);
+        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);
     }
 
 

@@ -1,3 +1,4 @@
+import { Memory } from './ObserverBot/Memory';
 import * as Stat from './Stat';
 
 //categories within a theme
@@ -6,6 +7,7 @@ export const ADJ = "adj";
 export const COMPLIMENT = "compliment";
 export const INSULT = "insult";
 export const SUPERMOVE = "supermove";
+export const MEMORIES = "memories";
 
 //themes
 export const ADDICTION = "addiction";
@@ -59,12 +61,17 @@ export interface ThemePossibilitiesMap {
     [details: string] : string[];
 }
 
+export interface MemoryMap {
+    [details: string] : Memory[];
+}
+
 //noun_possibility, adj_possibility (glowing, shimmering, walking, ceasing)
 export let stats_map:ThemeStatMap = {};
 export let noun_possibilities:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
 export let insult_possibilities:ThemePossibilitiesMap = {};
 export let compliment_possibilities:ThemePossibilitiesMap = {};
+export let memories:MemoryMap = {};
 
 export let super_name_possibilities_map:ThemePossibilitiesMap = {};
 
@@ -243,6 +250,65 @@ const initSuperNames = () =>{
     super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
 }
 
+
+const initMemories = () =>{
+    /*   memories[ANGELS] =  [
+        new Memory("question","yes response","no response","yes comment","no comment")
+        ,new Memory("question","yes response","no response","yes comment","no comment")
+        ,new Memory("question","yes response","no response","yes comment","no comment")
+
+    ];
+    */
+
+    memories[ANGELS] =  [
+        new Memory("Do you consider yourself a reglious person?","Sure, okay.","Me, neither...","So you're a religious person.","You aren't very religious.")
+        ,new Memory("Do you feel blessed?","Must be nice...","Me, neither...","You feel like your life is going well.","You aren't very happy with your lot in life.")
+        ,new Memory("Do you like angels, as an aesthetic? All feathers and light?","Eh. Just one more thing to hate you for, I guess.","Yeah, who cares about those feathery assholes.","You like patronizing assholes like angels.","You have good taste in aesthetics.")
+
+    ];
+
+    memories[HUNTING] = [
+        new Memory("Do you like the thrill of the chase?","Fair.","Gotcha.","You like chasing.","You're not a fan of the chase.")
+        ,new Memory("Have you ever gone hunting?","Interesting...","Yeah that makes sense.","You're comfortable with hunting.","You've never had a chance to go hunting.")
+        ,new Memory("Do you find it hard to just drop something once it has your attention?","No wonder you're still here...","Then why are you still here?","You're a driven person.","You find it easy to drop things, if you need to.")
+    ];
+
+    /*
+    memories[SERVICE] =  ["Special Service"];
+    memories[FAMILY] =  ["Sins of the Father"];
+    memories[MAGIC] =  ["Ritual of Ragnarok"];
+    memories[LIGHT] =  ["Flash Bang"];
+    memories[HEALING] =  ["Summon Phoenix"];
+    memories[PLANTS] = ["Forest's March"];
+    memories[HUNTING] = ["Nimrod's Chase"];
+    memories[DECAY] = ["Mass Grave"] ;
+    memories[CHOICES] =  ["Alternate Timeline"] ;
+    memories[ZAP] = ["Thor's Banana"] ;
+    memories[LOVE] = ["Mandatory Shipping Grid"];
+    memories[SOUL] = ["Know thyself."] ;
+    memories[ANGER] = ["Dethrone Creation"] ;
+    memories[WEB] =  ["Puppet Master"] ;
+    memories[ROYALTY] =  ["Excalibur"] ;
+    memories[ENDINGS] =  ["The End"] ;
+    memories[KNOWING] = ["Omniscience"] ;
+    memories[GUIDING] = ["Path To Victory"] ;
+    memories[CRAFTING] =  ["Legendary Forge"];
+    memories[LANGUAGE] = ["Topple the Tower"] ;
+    memories[BUGS] =  ["Hivemother"];
+    memories[ADDICTION] = ["Dealer's Delight"];
+    memories[SPYING] =["Surveillance State"] ;
+    memories[CLOWNS] =["Ringmaster"] ;
+    memories[DOLLS] = ["Automatonophobia "] ;
+    memories[OBFUSCATION] = ["Knowledge Forever Lost"] ;
+    memories[DARKNESS] =  ["Night Eternal"] ;
+    memories[KILLING] =  ["Bloodbath"];
+    memories[MUSIC] =  ["Symphonic Synthesia"] ;
+    memories[DEFENSE] =  ["Excalibur"] ;
+    memories[QUESTING] = ["Satisfaction"] ;
+    */
+}
+
+
 //i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
 const initCompliments = () =>{
     compliment_possibilities[ANGELS] =  ["righteous"];
@@ -323,5 +389,5 @@ export const initThemes = ()=>{
     initSuperNames();
     initInsults();
     initCompliments();
-    
+    initMemories();
 }
