@@ -97,6 +97,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>test infinite question mode JUST TRUTH MODE, add break downs of themes and achivements as well</li>
         <li>skills to raise level of menu tab by one (if it goes over 0 it unlocks)</li>
         <li>each class has an associated SET OF MENUS and generates skills to raise them by 1 sprinkled throughout the skill graph (replacing stats, same way waste works)</li>
       <li>status screen upgrades is gated to skills</li>
@@ -104,7 +105,6 @@ function App() {
       <li>special seeds that have story content, maybe voice acted stuff</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>encourage replays with fake credits</li>
-      <li>JUST TRUTH mode displays all themes and what they have in them.</li>
       <li>worship the skill tree</li>
       <li>title system can add/unlock skills like kin eater giving heretic magic</li>
       <li>fill in todos in status etc</li>

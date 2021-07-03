@@ -5,6 +5,7 @@ import { AchivementStorage } from "./AchivementStorage";
 import { WasteSkill } from "../Skill";
 import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
+import { all_themes } from "../Theme";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -99,6 +100,10 @@ export class ObserverBot{
             }
             
         }
+    }
+
+    setUpInfiniteMemories = ()=>{
+        Object.values(all_themes).forEach((theme) => {this.memories = this.memories.concat(theme.memories)});
     }
 
     nextQuestion = () =>{
