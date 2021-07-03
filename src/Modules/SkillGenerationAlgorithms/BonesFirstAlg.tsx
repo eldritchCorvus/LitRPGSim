@@ -97,13 +97,10 @@ export   class  BonesFirstAlg extends SkillGenAlg{
 
     generateTierTwo = (class_name: RPGClass,skills: Skill[], themes: Theme[], rand: SeededRandom) =>{
         let ret:Skill[] = [];
-        console.log("JR NOTE: class is", class_name, "skills is ", skills);
         for(let i = 0; i<skills.length; i++){
             //combine a skill with its neighbor, loop if necessary
             const skill = skills[i];
             const second_skill = i<skills.length-1? skills[i+1]:skills[0];
-            console.log("JR NOTE: SKILL IS ", skill);
-            console.log("JR NOTE: second_skill IS ", second_skill);
 
             const theme1 = all_themes[rand.pickFrom(second_skill.theme_keys)];
             const theme2 = all_themes[rand.pickFrom(skill.theme_keys)];
