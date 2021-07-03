@@ -1,6 +1,7 @@
 export  class Memory{
     question: string;
     truth: boolean = false;
+    asked: boolean = false;
     yes_response: string;
     no_response: string;
     yes_comment: string;
@@ -15,6 +16,7 @@ export  class Memory{
     }
 
     respond = ()=>{
+        this.asked = true;
         return this.truth?this.yes_response:this.no_response;
     }
 
