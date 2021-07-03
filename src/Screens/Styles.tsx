@@ -231,7 +231,7 @@ export const TruthContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
     height: 600px;
-    background: black;
+    background: rgba(0,0,0,0.5);
     color: red;
 `
 
