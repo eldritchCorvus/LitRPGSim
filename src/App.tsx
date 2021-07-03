@@ -104,6 +104,7 @@ function App() {
       <li>special seeds that have story content, maybe voice acted stuff</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
       <li>encourage replays with fake credits</li>
+      <li>JUST TRUTH mode displays all themes and what they have in them.</li>
       <li>worship the skill tree</li>
       <li>title system can add/unlock skills like kin eater giving heretic magic</li>
       <li>fill in todos in status etc</li>
