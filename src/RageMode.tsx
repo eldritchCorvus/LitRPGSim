@@ -39,8 +39,11 @@ import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
 
 const beginFuckingShitUp = (numCalls = 0)=>{
   if((window as any).justTruthMode){
+    console.log("JR NOTE: its just truth mode, aborting")
     return;
   }
+  console.log("JR NOTE: its NOT just truth mode, continuing")
+
   const root = document.querySelector('#ThisIsNotAGame');
   if(root){
     const children = root.querySelectorAll("*");

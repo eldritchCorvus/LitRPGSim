@@ -8,6 +8,7 @@ interface StatusProps{
 export const  JustTruth = (props: StatusProps)=> {
     const {player} = props
     useEffect(()=>{
+        (window as any).justTruthMode = true;
         console.log("changing song");
         justTruthSong();
         const canvas = document.getElementById("ThisIsNotASpiral");

@@ -23,12 +23,18 @@ function App() {
   useEffect(()=>{
     if(!(window as any).setRageMode){
       // :) :) :)
-      (window as any).setRageMode = setRageMode;
+      (window as any).setRageMode = (value:boolean)=>{
+        setRageMode(value);
+        (window as any).rageMode = value;
+      }
     }
 
     if(!(window as any).setJustTruthMode){
       // :) :) :)
-      (window as any).setJustTruthMode = setJustTruthMode;
+      (window as any).setJustTruthMode = (value:boolean)=>{
+        setJustTruthMode(value);
+        (window as any).justTruthMode = value;
+      };
     }
   },[])
 
