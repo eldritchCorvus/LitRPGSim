@@ -8,7 +8,11 @@ interface StatusProps{
     player: Player;
 }
 
+/*
+TODO: once you've asked all questions just go through all the themes and dissect them for the player.
 
+infinite content.
+*/
 
 export const  JustTruth = (props: StatusProps)=> {
     const {player} = props
