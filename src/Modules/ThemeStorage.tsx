@@ -46,9 +46,9 @@ export const WASTE = "waste";
 export const keys = [WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 /*
-todo add keys for insults/compliments for each theme ObserverBot can apply to you.
-single word things like gross, predictable, boring, pretentious, etc.
-plus loading quips, mostly mundane, sometimes unsettling or aggressive
+TODO: JUST MONIKA QUIZ MODE (check notes)
+each theme should have a few questions the True Face of ObserverBot wants to ask (just yes/no answers)
+and comments True has on your response. (and true should STORE if you said yes or no.)
 */
 
 interface ThemeStatMap {
