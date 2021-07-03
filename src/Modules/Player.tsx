@@ -8,6 +8,7 @@ import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
 import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
+import { Memory } from "./ObserverBot/Memory";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -44,7 +45,9 @@ export   class Player{
         this.rand = rand;
         //JR NOTE: i'm worried theres some weird decoupling here, if i make OB up top they get a player without anything set which is WEIRD.
         //is it a copy and not a reference?
-        this.observer = new ObserverBot(this);
+        let memories:Memory[] = [];
+        themes.forEach((theme) => {memories = memories.concat(theme.memories)});
+        this.observer = new ObserverBot(this,memories);
         this.observer.achivementStorage.checkForAchievements(this.observer);
         this.title = this.generateTitle();
     }

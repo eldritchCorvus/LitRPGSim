@@ -3,6 +3,7 @@
 import { Player } from "../Player";
 import { AchivementStorage } from "./AchivementStorage";
 import { WasteSkill } from "../Skill";
+import { Memory } from "./Memory";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -54,13 +55,16 @@ export class ObserverBot{
     menuItemsClicked:string[] =[];  //TODO
     errors = 0; //:) :) :) 
     achivementStorage = new AchivementStorage();
+    memories: Memory[];
     player: Player;
     
     unlocked_achivements = () =>{return this.achivementStorage.possibleAchievements.filter((achievement) =>  {return achievement.unlocked })};
 
 
-    constructor(player: Player){
+    constructor(player: Player, memories: Memory[]){
         this.player = player;
+        this.memories = memories;
+        console.log("JR NOTE: memories are", memories);
         this.timeStarted = Date.now();
 
         this.achivementStorage.initAchievements(this.player);
