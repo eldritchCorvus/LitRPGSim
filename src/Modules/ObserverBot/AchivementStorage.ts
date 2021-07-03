@@ -28,6 +28,10 @@ import { ObserverBot } from "./ObserverBot";
     errors = 0; //:) :) :) 
 */
 
+/*
+cleanup the vibe of True and False. False should be more anxious and obsequius, less manic salesperson.
+True should have a shade less AB. 
+*/
 export class AchivementStorage{
 
     possibleAchievements:Achievement[] = [];

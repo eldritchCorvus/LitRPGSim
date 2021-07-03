@@ -40,7 +40,7 @@ export class ObserverBot{
     failedHaxAttempts = 0;
     statusMenuLevel = 1;
     achievementMenuLevel = 1;
-    optionsMenuLevel = 0;
+    optionsMenuLevel = 1;
     statisticsMenuLevel = 0;
 
     successfulHaxAttempts = 0;
