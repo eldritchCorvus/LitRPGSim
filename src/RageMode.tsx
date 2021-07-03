@@ -16,7 +16,7 @@ import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
   
     const children = shit.querySelectorAll("*");
 
-    const max = 2555;
+    const max = 255;
     const ratio = Math.min(max,numCalls)/max; //get worse over time :) :) :)
     const filters = [`saturate(${getRandomNumberBetween(0,100*ratio)}%)`,`opacity(${getRandomNumberBetween(10,99*ratio)}%)`,`invert(${getRandomNumberBetween(0,100*ratio)}%)`,`blur(1px)`,`grayscale(${getRandomNumberBetween(0,100*ratio)}%)`,`hue-rotate(${getRandomNumberBetween(1,360*ratio)}deg)`,"drop-shadow(2px 2px 2px red)"];
     const mildFilters = [`opacity(${getRandomNumberBetween(80,99)}%)`,`grayscale(${getRandomNumberBetween(0,10)}%)`,`hue-rotate(${getRandomNumberBetween(1,2)}deg)`,"drop-shadow(2px 2px 2px red)"];
@@ -38,13 +38,16 @@ import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
   }
 
 const beginFuckingShitUp = (numCalls = 0)=>{
+  if((window as any).justTruthMode){
+    return;
+  }
   const root = document.querySelector('#ThisIsNotAGame');
   if(root){
     const children = root.querySelectorAll("*");
     fuckShitUp(root as HTMLElement, numCalls);
     children.forEach((child)=>fuckShitUp(child as HTMLElement, numCalls));
     setTimeout(()=>{
-      window.requestAnimationFrame(()=>{beginFuckingShitUp(numCalls+1)})}, 500);
+        window.requestAnimationFrame(()=>{beginFuckingShitUp(numCalls+1)})}, 500)
   }
 
   const body = document.querySelector('body') as HTMLElement;

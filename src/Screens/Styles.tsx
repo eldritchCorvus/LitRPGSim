@@ -14,44 +14,44 @@ export let MENU_OPACITY = 1;
 
 const CENTERRADIUS = 5;
 let CENTERFONTSIZE = 14;
-const CENTERRADIUSROUND =13;
+const CENTERRADIUSROUND = 13;
 let ORIGINALFONTCOLOR = "#000000";
 let ORIGINALBGCOLOR = "#edd287";
 //this is configured by options
 let ORIGINAL_MENU_OPACITY = 1;
 
-export const setOpacity =(value: number) =>{
+export const setOpacity = (value: number) => {
     MENU_OPACITY = value;
     ORIGINAL_MENU_OPACITY = value;
 }
 
-export const setBGColor =(value: string) =>{
+export const setBGColor = (value: string) => {
     BGCOLOR = value;
     ORIGINALBGCOLOR = value;
 }
 
-export const setFontColor =(value: string) =>{
+export const setFontColor = (value: string) => {
     FONTCOLOR = value;
     ORIGINALFONTCOLOR = value;
 }
 
-export const setFontSize =(value: number) =>{
+export const setFontSize = (value: number) => {
     FONTSIZE = value;
     CENTERFONTSIZE = value;
 }
 
 
-interface StyleRadius{
+interface StyleRadius {
     mildRadius: number;
     fontColor: string;
 }
 
-interface StyleRadiusMedium{
+interface StyleRadiusMedium {
     mediumRadius: number;
     fontColor: string;
 }
 
-interface MenuBoxProps{
+interface MenuBoxProps {
     mediumRadius: number;
     fontSize: number;
     fontColor: string;
@@ -71,105 +71,105 @@ export const fuckShitUpButOnlyALittle = () => {
 
 }
 
-const fuckUpRadius =()=>{
+const fuckUpRadius = () => {
     let direction = 1;
-    if(Math.random() > .5){
+    if (Math.random() > .5) {
         direction = -1;
     }
-    BORDERRADIUS +=1*direction;
-    if(Math.abs(BORDERRADIUS - CENTERRADIUS) > 10){
+    BORDERRADIUS += 1 * direction;
+    if (Math.abs(BORDERRADIUS - CENTERRADIUS) > 10) {
         BORDERRADIUS = CENTERRADIUS;
     }
 }
 
-const fuckUpOpacity =()=>{
+const fuckUpOpacity = () => {
     let direction = 1;
-    if(Math.random() > .5){
+    if (Math.random() > .5) {
         direction = -1;
     }
-    MENU_OPACITY +=Math.random()/10*direction;
-    if(Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > 0.04){
+    MENU_OPACITY += Math.random() / 10 * direction;
+    if (Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > 0.04) {
         MENU_OPACITY = ORIGINAL_MENU_OPACITY;
     }
 }
 
-const fuckUpFontColor = ()=>{
+const fuckUpFontColor = () => {
 
-    const index = getRandomNumberBetween(1,FONTCOLOR.length-1);
+    const index = getRandomNumberBetween(1, FONTCOLOR.length - 1);
     let hexValueCurrent = "0x" + FONTCOLOR.charAt(index);
     let hexValueCenter = "0x" + ORIGINALFONTCOLOR.charAt(index);
 
     let direction = 1;
-    if(Math.random() > .5){
+    if (Math.random() > .5) {
         direction = -1;
     }
-    let newValue = parseInt(hexValueCurrent , 16) + 1*direction;
-    let oldValue = parseInt(hexValueCenter , 16) ;
+    let newValue = parseInt(hexValueCurrent, 16) + 1 * direction;
+    let oldValue = parseInt(hexValueCenter, 16);
 
     let choice = "";
-    if(newValue > 0 && Math.abs(newValue-oldValue)<3){
+    if (newValue > 0 && Math.abs(newValue - oldValue) < 3) {
         choice = newValue.toString(16);
-    }else{
+    } else {
         choice = oldValue.toString(16);
     }
-    FONTCOLOR = replaceStringAt(FONTCOLOR,index,choice);
+    FONTCOLOR = replaceStringAt(FONTCOLOR, index, choice);
 }
 
-const fuckUpBGColor = ()=>{
+const fuckUpBGColor = () => {
     let direction = -1;
-    const index = getRandomNumberBetween(1,BGCOLOR.length-1);
-    console.log("JR NOTE: index chosen is", index, "char is ",BGCOLOR.charAt(index), "source was", BGCOLOR, "length is",BGCOLOR.length, "ORIGINALBGCOLOR ws",ORIGINALBGCOLOR);
+    const index = getRandomNumberBetween(1, BGCOLOR.length - 1);
+    console.log("JR NOTE: index chosen is", index, "char is ", BGCOLOR.charAt(index), "source was", BGCOLOR, "length is", BGCOLOR.length, "ORIGINALBGCOLOR ws", ORIGINALBGCOLOR);
     let hexValueCurrent = "0x" + BGCOLOR.charAt(index);
     let hexValueCenter = "0x" + ORIGINALBGCOLOR.charAt(index);
     console.log("JR NOTE: hexValueCurrent  is", hexValueCurrent);
     console.log("JR NOTE: hexValueCenter  is", hexValueCenter);
 
 
-    let newValue = parseInt(hexValueCurrent , 16) + 1*direction;
-    let oldValue = parseInt(hexValueCenter , 16) ;
+    let newValue = parseInt(hexValueCurrent, 16) + 1 * direction;
+    let oldValue = parseInt(hexValueCenter, 16);
     console.log("JR NOTE: newValue  is", newValue);
     console.log("JR NOTE: oldValue  is", oldValue);
 
 
     let choice = "";
-    if(newValue > 0 && Math.abs(newValue-oldValue)<3){
+    if (newValue > 0 && Math.abs(newValue - oldValue) < 3) {
         choice = newValue.toString(16);
-    }else{
+    } else {
         choice = oldValue.toString(16);
     }
     //if i don't do it all at once you get a weird tint, has to stay grey
-    for(let i = 1; i<BGCOLOR.length; i++){
-        console.log("replacing i",i);
-        BGCOLOR = replaceStringAt(BGCOLOR,i,choice);
+    for (let i = 1; i < BGCOLOR.length; i++) {
+        console.log("replacing i", i);
+        BGCOLOR = replaceStringAt(BGCOLOR, i, choice);
     }
 }
 
-const fuckUpFontSize =()=>{
+const fuckUpFontSize = () => {
     let direction = 1;
-    if(Math.random() > .5){
+    if (Math.random() > .5) {
         direction = -1;
     }
-    FONTSIZE +=1*direction;
-    if(Math.abs(FONTSIZE - CENTERFONTSIZE) > 3){
+    FONTSIZE += 1 * direction;
+    if (Math.abs(FONTSIZE - CENTERFONTSIZE) > 3) {
         FONTSIZE = CENTERFONTSIZE;
     }
 }
 
 
-const fuckUpRadiusRound =()=>{
+const fuckUpRadiusRound = () => {
     let direction = 1;
-    if(Math.random() > .5){
+    if (Math.random() > .5) {
         direction = -1;
     }
-    BORDERRADIUSROUND +=1*direction;
-    if(Math.abs(BORDERRADIUSROUND - CENTERRADIUSROUND) > 10){
+    BORDERRADIUSROUND += 1 * direction;
+    if (Math.abs(BORDERRADIUSROUND - CENTERRADIUSROUND) > 10) {
         BORDERRADIUSROUND = CENTERRADIUSROUND;
     }
 }
 
 export const SkillBox = styled.div`
     border: 2px solid ${(props: StyleRadius) => props.fontColor};
-    border-radius: ${(props: StyleRadius) => props.mildRadius }px;
+    border-radius: ${(props: StyleRadius) => props.mildRadius}px;
     padding: 5px;
     display: flex;
     width: 600px;
@@ -179,7 +179,7 @@ export const SkillBox = styled.div`
 
 export const AchivementBox = styled.div`
     border: 2px solid ${(props: StyleRadius) => props.fontColor};
-    border-radius: ${(props: StyleRadius) => props.mildRadius }ppx;
+    border-radius: ${(props: StyleRadius) => props.mildRadius}ppx;
     padding: 5px;
     display: flex;
     width: 600px;
@@ -222,6 +222,18 @@ export const Skill = styled.div`
     margin: 10px;
 `
 
+export const TruthContainer = styled.div`
+    padding: 10px;
+    margin: 10px;
+    font-weight: 500;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 600px;
+    background: black;
+    color: red;
+`
+
 export const MenuBox = styled.div`
     padding: 10px;
     margin: 10px;
@@ -240,7 +252,7 @@ export const MenuBox = styled.div`
     font-size:  ${(props: MenuBoxProps) => props.fontSize}px;
     position: fixed;
     overflow: auto;
-    left: ${(props: MenuBoxProps) => 15 -props.angle/10}%;
+    left: ${(props: MenuBoxProps) => 15 - props.angle / 10}%;
     top: 5%;
     height: 600px;
 `
@@ -268,12 +280,12 @@ export const TreeContent = styled.div`
     overflow: hidden;
 `
 
-export const StatusRow = styled.div `
+export const StatusRow = styled.div`
     display: flex;
     padding: 10px;
 `
 
-export const BadlyHiddenStatusRow = styled.div `
+export const BadlyHiddenStatusRow = styled.div`
     display: flex;
     padding: 10px;
     color: white;
