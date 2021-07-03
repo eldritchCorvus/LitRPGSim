@@ -81,6 +81,9 @@ export const  JustTruth = (props: StatusProps)=> {
             if(Math.random()>0.5){
                 infiniteContent();
             }else{
+                if(simpleContent){
+                    setSimpleContent(undefined);
+                }
                 processQuestion()
             }
         }
