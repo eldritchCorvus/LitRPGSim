@@ -9,6 +9,7 @@ import { initStats } from "./Modules/Stat";
 import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import Menu from "./Menu";
+import {JustTruth} from "./Screens/JustTruth";
 import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
 import { isNumeric } from "./Utils/StringUtils";
@@ -17,11 +18,17 @@ import { isNumeric } from "./Utils/StringUtils";
 function App() {
   const [player, setPlayer] = useState<Player>();
   const [rageMode, setRageMode] = useState(false);
+  const [justTruthMode, setJustTruthMode] = useState(false);
 
   useEffect(()=>{
     if(!(window as any).setRageMode){
       // :) :) :)
       (window as any).setRageMode = setRageMode;
+    }
+
+    if(!(window as any).setJustTruthMode){
+      // :) :) :)
+      (window as any).setJustTruthMode = setJustTruthMode;
     }
   },[])
 
@@ -74,12 +81,11 @@ function App() {
     return (
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
-        {rageMode? <RageMode/>:null}
-        {rageMode?  <Menu player={player} angle={30}/>:null}
-        {rageMode?  <Menu player={player} angle={130}/>:null}
-
-        <Menu player={player} angle={0}/>
-      
+        {rageMode && !justTruthMode? <RageMode/>:null}
+        {rageMode && !justTruthMode?  <Menu player={player} angle={30}/>:null}
+        {rageMode && !justTruthMode?  <Menu player={player} angle={130}/>:null}
+        {!justTruthMode?  <Menu player={player} angle={0}/>:null}      
+        {justTruthMode?  <JustTruth player={player}/>:null}      
 
       
 

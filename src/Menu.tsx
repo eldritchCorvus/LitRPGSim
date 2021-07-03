@@ -3,7 +3,7 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
@@ -111,6 +111,18 @@ function StatisticsTab(props: TabProps){
   )
 }
 
+function TruthTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={TRUTH} onClick={() =>
+      {
+        (window as any).setJustTruthMode(true);
+      }} {...tab}>
+      Just Truth
+    </Tab>
+  )
+}
+
 function Menu(props: MenuProps) {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
@@ -165,6 +177,8 @@ function Menu(props: MenuProps) {
               <SkillsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
               <AchievementsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
 
+              {(window as any).rageMode?<TruthTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+
               {observer.statisticsMenuLevel>0?<StatisticsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
 
@@ -183,6 +197,10 @@ function Menu(props: MenuProps) {
               {currentScreen === ACHIEVEMENTS?<AchivementsScreen  loadScreen={handleLoading} player={player}></AchivementsScreen>:null}
 
             </TabPanel>
+
+            {(window as any).rageMode?<TabPanel {...tab}>
+            :) :) :)
+          </TabPanel>:null}
 
             {observer.statisticsMenuLevel>0?<TabPanel {...tab}>
               {currentScreen === STATISTICS?<StatisticsScreen  loadScreen={handleLoading} player={player}></StatisticsScreen>:null}

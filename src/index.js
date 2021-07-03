@@ -5,6 +5,7 @@ import generic_menu_music from './Music/generic_menu_music.mp3';
 import helen_kin_song from './Music/helen_kin_song.mp3';
 import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
+import heartbeat from './Music/heartbeat.mp3';
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
 
 import App from './App';
@@ -25,16 +26,24 @@ export function setVolumeMusic(percent){
   audio.play();
 }
 
+export function justTruthSong(){
+  console.log("trying to play just truth: ",heartbeat)
+  audio.src = heartbeat;
+  audio.play();
+}
+
  function playLightlyFuckedUpBGMusic(){
   console.log("trying to play lightly fucked up music")
   audio.play();
   audio.onended = function() {
-    if(!window.rageMode){
+    if(!window.rageMode && !window.justTruthMode){
       if (Math.random() > 0.5) {
         audio.src = helen_kin_song;
       } else {
         audio.src = subtle_heart;
       }
+    }else if (window.justTruthMode){
+      audio.src = heartbeat;
     }else{
       audio.src = heart;
     }
