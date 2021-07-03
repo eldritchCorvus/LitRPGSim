@@ -4,6 +4,7 @@ import { Player } from "../Player";
 import { AchivementStorage } from "./AchivementStorage";
 import { WasteSkill } from "../Skill";
 import { Memory } from "./Memory";
+import { shuffle } from "../../Utils/NonSeededRandUtils";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -98,6 +99,15 @@ export class ObserverBot{
             }
             
         }
+    }
+
+    nextQuestion = () =>{
+        const questions = shuffle(this.memories).filter((memory)=>!memory.asked);
+        console.log("Questions is", questions);
+        if(questions.length){
+            return questions[0];
+        }
+        return null;
     }
 
     setUpFakeReduxShit = () =>{
