@@ -4,6 +4,7 @@ import { Checkbox } from "reakit/Checkbox";
 import React, { useState } from "react";
 import { LoadingScreen } from "./Loading";
 import { OPTIONS } from "../Utils/constants";
+import { BG_VOLUME, setVolumeMusic } from "..";
 
 interface StatusProps{
     player: Player;
@@ -16,6 +17,8 @@ export const  OptionsScreen = (props: StatusProps)=> {
     const observer = props.player.observer;
     const [checked, setChecked] = useState(false);
     const [opacityValue, setOpacityValue] = useState(Math.floor(MENU_OPACITY*100));
+    const [volumeValue, setVolumeValue] = useState(Math.floor(BG_VOLUME*100));
+
     const [custsceneSpeed, setCutsceneSpeed] = useState(5);
     const [targetLock, setTargetLock] = useState(false);
     const [toggleShiftSprint, setToggleShiftSprint] = useState(false);
@@ -30,8 +33,10 @@ export const  OptionsScreen = (props: StatusProps)=> {
         setChecked(!checked);
     }
 
+
     const submit =()=>{
         setOpacity(opacityValue /100);
+        setVolumeMusic(volumeValue/100);
         setFontSize(fontSizeValue);
         setFontColor(fontColorValue);
         setBGColor(bgColorValue);
@@ -53,6 +58,13 @@ export const  OptionsScreen = (props: StatusProps)=> {
                 </BadlyHiddenStatusRow>:null
 
             }
+
+            <StatusRow>
+                    <StatusHeader>Todo:</StatusHeader>
+                    <StatusContent>
+                        make it so bg music is at level 1, but everything else needs more
+                    </StatusContent>
+            </StatusRow>
             <StatusRow>
                     <StatusHeader>Toggle Shift To Sprint:</StatusHeader>
                     <StatusContent>
@@ -77,6 +89,18 @@ export const  OptionsScreen = (props: StatusProps)=> {
                         setCutsceneSpeed(value);
                     }} ></input>
                     {custsceneSpeed}
+                </StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>BG Music Volume:</StatusHeader>
+                <StatusContent>
+                    <input type="range" min="1" max="100" value={`${volumeValue}`} onChange={(event)=>{
+                        const value = parseInt(event.target.value);
+                        setVolumeValue(value);
+                        setVolumeMusic(value/100);
+                    }}></input>
+                    {volumeValue}
                 </StatusContent>
             </StatusRow>
             

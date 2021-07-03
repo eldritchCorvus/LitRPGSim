@@ -1,4 +1,5 @@
 import  { useEffect } from "react";
+import { rageModeSong } from ".";
 import { fuckery, fuckUpBG } from "./CanvasFuckery/fuckery";
 import { FUCKEDUP } from "./Modules/ObserverBot/ObserverBot";
 import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
@@ -70,6 +71,7 @@ function RageMode() {
       }
       beginFuckingShitUp();
       fuckUpBG();
+      rageModeSong();
       (window as any).recordAction(FUCKEDUP,Date.now());
 
     },[])
