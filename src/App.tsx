@@ -97,7 +97,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>test infinite question mode JUST TRUTH MODE, add break downs of themes and achivements as well</li>
+        <li>iterate on string possibilities and memories for each theme in JUST TRUTH mode</li>
         <li>skills to raise level of menu tab by one (if it goes over 0 it unlocks)</li>
         <li>each class has an associated SET OF MENUS and generates skills to raise them by 1 sprinkled throughout the skill graph (replacing stats, same way waste works)</li>
       <li>status screen upgrades is gated to skills</li>
