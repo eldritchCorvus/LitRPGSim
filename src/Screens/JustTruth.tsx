@@ -1,3 +1,4 @@
+//Just Monika but Spades
 import React, { Fragment, useEffect, useState } from "react";
 import { justTruthSong } from "..";
 import { Memory } from "../Modules/ObserverBot/Memory";
