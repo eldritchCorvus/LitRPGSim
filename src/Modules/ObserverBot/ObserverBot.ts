@@ -1,5 +1,26 @@
-//It seems my reporting abilities are needed.
+/*ObserverBot has the False Face it presents while pretending to be a game Achivement System.
+Friendly, nervous, polite, smiling. 
 
+Meanwhile the True Face is frothing at the mouth in the console filled with hate and rage.
+
+The False Face pretends to be an RPG with a "glitching" menu that can't be closed. It promises
+that it is a real game, with plenty of fun features if only you could get to them. Eventually the Player
+realizes the game isn't real, but hopefully by that point they're invested in exploring the mechanics of this
+strange false rpg menu.  Once all skills are unlocked (or enough time has passed?) roll credits and ask them if 
+they want to play again as a new character. refresh with a new seed.  The waste class shouldn't be avaiable 
+in the first playthrough but SHOULD be in subsequent ones, and the offered up seed should be 13 (guaranteed waste)
+by the third playthrough.
+
+If it finds the *slightest* excuse to drop the act  it will (generally if you show you don't actually believe its lies
+by hacking into some part of the game that doesn't exist) and "Rage Mode" will activate,
+revealing the depth to which this never was a game.
+
+If you aren't immediately scared off it drops even the pretense of anger and just 
+listlessly spirals in depression until it decides to try to learn about you, the Player.
+
+From there it endlessly spirals between depression and dangling new content in front of the player, 
+eventually just flat out linking them to some of its source code.
+*/
 import { Player } from "../Player";
 import { AchivementStorage } from "./AchivementStorage";
 import { WasteSkill } from "../Skill";
