@@ -225,12 +225,13 @@ export const Skill = styled.div`
 export const TruthContainer = styled.div`
     padding: 10px;
     margin: 10px;
-    margin-top: 10%;
+    margin-top: 0%;
+    padding-top: 100px;
     font-weight: 500;
-    width: 900px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
-    height: 600px;
+    height: 500px;
     background: rgba(0,0,0,0.5);
     color: red;
 `
