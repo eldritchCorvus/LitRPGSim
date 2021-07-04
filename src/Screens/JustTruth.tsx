@@ -161,8 +161,8 @@ export const JustTruth = (props: StatusProps) => {
             <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value().toFixed(1)} </div>
         )
     }
-    if(theme){
-    console.log(Object.keys(theme.string_possibilities));
+    if (theme) {
+        console.log(Object.keys(theme.string_possibilities));
 
     }
 
@@ -216,6 +216,33 @@ export const JustTruth = (props: StatusProps) => {
                                     <StatusRow key={item}>
                                         <StatusHeader>{titleCase(item)}: </StatusHeader>
                                         <StatusContent>{theme.string_possibilities[item].join(", ")}</StatusContent>
+                                    </StatusRow>
+                                )
+                            })
+                        }
+
+                        {
+                            (theme.memories).map((item, index) => {
+                                return (
+                                    <StatusRow key={item.question}>
+                                        <StatusHeader>Question {index}: </StatusHeader>
+                                        <StatusContent>{item.question}</StatusContent>
+                                        <StatusRow key={item.yes_response}>
+                                            <StatusHeader>Yes Response: </StatusHeader>
+                                            <StatusContent>{item.yes_response}</StatusContent>
+                                        </StatusRow>
+                                        <StatusRow key={item.no_response}>
+                                            <StatusHeader>No Response: </StatusHeader>
+                                            <StatusContent>{item.no_response}</StatusContent>
+                                        </StatusRow>
+                                        <StatusRow key={item.yes_comment}>
+                                            <StatusHeader>Yes Comment: </StatusHeader>
+                                            <StatusContent>{item.yes_comment}</StatusContent>
+                                        </StatusRow>
+                                        <StatusRow key={item.no_comment}>
+                                            <StatusHeader>No Comment: </StatusHeader>
+                                            <StatusContent>{item.no_comment}</StatusContent>
+                                        </StatusRow>
                                     </StatusRow>
                                 )
                             })
