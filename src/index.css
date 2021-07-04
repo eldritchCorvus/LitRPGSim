@@ -37,6 +37,12 @@ body {
   display: none;
 }
 
+td{
+  width: 200px;
+  border: 1px solid red;
+  padding: 10px;
+}
+
 .frameAnimation{
   animation: frameAnimation 30.3s steps(1) infinite, flicker 10.3s steps(30) infinite ;
 }

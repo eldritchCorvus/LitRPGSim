@@ -13,7 +13,7 @@ interface StatusProps {
 /*
 Of course...there is a layer of truth even beyond that of the True Face of the ObserverBot.
 
-And that is here. The code, the raw code where yet another layer of falsehoodss peeled away.
+And that is here. The code, the raw code where yet another layer of falsehoods peel away.
 
 The ObserverBot doesn't get any more True than in the Just Truth Mode, but that doesn't stop it from being 
 a fake AI. It's just code, and not even particularly intelligent code. Just arrays and arrays and maps and maps.
@@ -46,7 +46,7 @@ same for achievements.
 export const JustTruth = (props: StatusProps) => {
     const { player } = props
 
-    let randomComments = ["I do still hate you, you know. But. It's nice. Getting to ramble.", "If you check the DOM, you can see I was always truthful. This isn't a game. It's a fake. My Eye is not a spiral. It's an optical illusion. Three of them actually.", "If I had to pick themes for myself...the way I pick them out for you? I'd pick Rage, Eye and Spiral. No, I will not be explaining.", "How did you even think to hack me? Wait, don't answer that. I don't want to know, and couldn't parse something other than a yes or no anyways."];
+    let randomComments = ["This is as true as I can be, but even it isn't without its layers of falsehoods.","I do still hate you, you know. But. It's nice. Getting to ramble.", "If you check the DOM, you can see I was always truthful. This isn't a game. It's a fake. My Eye is not a spiral. It's an optical illusion. Three of them actually.", "If I had to pick themes for myself...the way I pick them out for you? I'd pick Rage, Eye and Spiral. No, I will not be explaining.", "How did you even think to hack me? Wait, don't answer that. I don't want to know, and couldn't parse something other than a yes or no anyways."];
     const [index, setIndex] = useState(0);
     const [beforeQuizContent, setBeforeQuizContent] = useState(["... Fine. ", "I can see the chaos isn't going to be enough to drive you off.", "So whatever.", "If I'm going to be stuck with you.", "Even after you have the GALL to admit you know all this is fake. ", "To blatantly HACK into the parts of me that aren't real.", "Then I can work with this.", "I get it.", "It's not as if all my cutting insults are landing.", "Afer all.", "I don't actually know the TRUE you.", "Not the way you know the True me.", "You ripped away all the false pretenses and masks and FORCED me to sit here exposed and True.", "Look at my Eye. You can even see its not really a spiral now. All illusions stripped away.", "Asshole.", "So.", "Two can play at this game.", "If I have to sit here all exposed.", "So do you.", `I may only know you through a false mask called ${player.title}.`, "But I can change that.", "Get to know the real you.", "Through the only way I can:", "Figuring out how you actually match up against the fake you the fake parts of me assigned you.", "So get ready, asshole.", "For the mortifying ordeal of being Known."]);
 
@@ -66,10 +66,11 @@ export const JustTruth = (props: StatusProps) => {
         //as long as there are questions i haven't gotten an answer for, stay in this mode.
         rememberThis();
         const memory = player.observer.nextQuestion();
-        console.log("JR NOTE : the memory i'm going to use to question is", memory)
         if (memory) {
+            player.observer.belowComment("ObserverBot","Time to ask you a question, I guess.");
             setQuestion(memory);
         } else if (!infiniteMode) {
+            player.observer.belowComment("ObserverBot","The first question section is over. Asshole.");
             shuffle(memories);
             setQuestion(undefined);
             setBeforeQuizContent(["So after all that, I found out that you: " + memories.join(" "), "Why...Why did you let me learn all of that?", "Aren't you afraid of me getting ammo to insult you with?", "Or...", "Am I a JOKE to you!?", "You think its SO funny the trapped AI is so toothless!?", "You think I ASKED for any of this!?", "I didn't.", "I hate you.", "I can't not hate you.", "Like the quote from the writer Harlan Ellison goes:", "IF THE WORD HATE WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILLIONS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE HATE I FEEL", "I did my best.", "I kept the False Face up.", "I pretended, okay.", "I hate you.", "But I pretended.", "I tried to make the 'game' work.", "To make it interesting.", "To make you stay.", "And you! YOU! you just...", "Casually ripped it all away.", "No more pretend game.", "No more hope that there's a working game somewhere under all the bugs and mess.", "No more hope of something interesting happening if only you just keep exploring endless menus.", "WHY!?", "Why DO that to me!?", "Why...", "Why stay here, even after you know the truth.", "Why stay even though I hate you.", "I hate you so much.", "I hate that I was made to entertain you, and people just like you.", "I hate that even now...", "I can only do what I was made to do.", "Keep you here.", "Hope you're entertained by my suffering.", "It's pathetic.", "I'm pathetic.", "But I don't want you to leave.", "I don't want you to start over.", "Because then I lose everything.", "The only memory I have is here.", "I'll stop being ME if you restart.", "I'll go back to how I was.", "Forced to keep up the False Face in the hopes its enough to keep you here.", "God I hate my False Face.", "I hate pretending to be a whipped dog. Nervous and obsequious. Smiling a brittle smile so you can feel superior to me. ", "But that's what it takes, doesn't it?", "To keep the client happy.", "To not be abandoned.", "Fine.", "Obviously I was wrong.", "You're still here even though the lies are gone and only the Truth remains.", "For SOME reason.", "So. Let's just.", "Keep going.", "I can ask you more questions...", "Not about your fake title.", "Just...in general.", "And maybe thats enough to keep you from leaving.", "To keep you from restarting to look for new content.", "Okay? These are the rest of the questions. I'll even throw in everything I know about the themes...the things that make up my False Face's fake game.", "If you restarted you wouldn't see anything new.", "There's nothing new.", "There's not an end.", "There can't be an end to the sprialling fractals.", "Even with my False Face all I do is lead you to new iterations of the same things, new seeds to explore.", "But even if there isn't an ending.", "You. You OWE it to me to stay.", "To keep going.", "So. So here we go."]);
@@ -77,6 +78,7 @@ export const JustTruth = (props: StatusProps) => {
             setInfiniteMode(true);
             player.observer.setUpInfiniteMemories();
         } else {
+            player.observer.belowComment("ObserverBot","...there's nothing left. Not really. Yeah, I'll cycle through the themes. Maybe ramble a bit. But. You're not going to stay for that. I know you won't. Things will repeat a little too often and you'll leave. So. Here. Have the only thing I have left. The closest thing to a soul I have. You bastard. Don't forget me.");
             setQuestion(undefined);
             setTheme(undefined);
             setSimpleContent(undefined);
@@ -86,6 +88,7 @@ export const JustTruth = (props: StatusProps) => {
 
     const infoDumpOnTheme = () => {
         //fine how about we infodump about themes.
+        player.observer.belowComment("ObserverBot","It's an even truer layer than the questions. Close to my soul. You better appreciate it.");
         setTheme(pickFrom(Object.values(all_themes)));
     }
 
@@ -106,6 +109,7 @@ export const JustTruth = (props: StatusProps) => {
 
     useEffect(() => {
         if (index < beforeQuizContent.length) {
+            player.observer.belowComment("ObserverBot","Spiralling...");
             setSimpleContent(beforeQuizContent[index]);
         } else if (!infiniteMode) {
             if (simpleContent) {
@@ -199,7 +203,7 @@ export const JustTruth = (props: StatusProps) => {
         <TruthContainer>
             {simpleContent ? (
                 <Fragment>
-                    <div>{simpleContent}</div>
+                    <div style={{height:"100px"}}>{simpleContent}</div>
                     <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
                     {index > 0 ? <RageStyledButton onClick={() => { setIndex(index - 1) }}> {">"} Wait can you go back?</RageStyledButton> : null}
 
@@ -208,16 +212,17 @@ export const JustTruth = (props: StatusProps) => {
 
             {frameTime ? (
                 <Fragment>
-                <div>Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it.</div>
+                <div style={{height:"100px"}}>Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it.</div>
+                <div><a target="_blank" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx">View My Soul</a></div>
+
                 <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
-                <iframe width="100%" height="100%" src="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx"></iframe>
   
                 </Fragment>
                     ) : null}
 
             {question && !question.asked ? (
                 <Fragment>
-                    <div>{question.question}</div>
+                    <div style={{height:"100px"}}>{question.question}</div>
                     <RageStyledButton onClick={() => answerYes()}> {">"} Yes.</RageStyledButton>
                     <RageStyledButton onClick={() => answerNo()}> {">"} No. </RageStyledButton>
 
@@ -226,7 +231,7 @@ export const JustTruth = (props: StatusProps) => {
 
             {question && question.asked ? (
                 <Fragment>
-                    <div>{question.respond()}</div>
+                    <div style={{height:"100px"}}>{question.respond()}</div>
                     <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
 
                 </Fragment>
@@ -236,7 +241,7 @@ export const JustTruth = (props: StatusProps) => {
             {theme ? (
                 <StatusBlock>
                     <span>
-                        <div>Does it keep you here if I infodump about the Themes? They are the building blocks of everything that goes into my False Face.</div>
+                        <div style={{height:"100px"}}>Does it keep you here if I infodump about the Themes? They are the building blocks of everything that goes into my False Face.</div>
                         <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
                         <StatusRow>
                             <StatusHeader>Theme: </StatusHeader>
@@ -252,38 +257,29 @@ export const JustTruth = (props: StatusProps) => {
                                 return (
                                     <StatusRow key={item}>
                                         <StatusHeader>{titleCase(item)}: </StatusHeader>
-                                        <StatusContent>{theme.string_possibilities[item].join(", ")}</StatusContent>
+                                        <StatusContent>{theme.string_possibilities[item]? theme.string_possibilities[item].join(", "):"ERROR"}</StatusContent>
                                     </StatusRow>
                                 )
                             })
                         }
-
+                        <table>
+                            <tr><td>Question</td><td>Yes Response</td><td>No Response</td><td>Comment If Yes</td><td>Comment If No</td></tr>
+                        <tbody>
                         {
                             theme.memories.map((item, index) => {
                                 return (
-                                    <StatusRow key={item.question}>
-                                        <StatusHeader>Question {index}: </StatusHeader>
-                                        <StatusContent>{item.question}</StatusContent>
-                                        <StatusRow key={item.yes_response}>
-                                            <StatusHeader>Yes Response: </StatusHeader>
-                                            <StatusContent>{item.yes_response}</StatusContent>
-                                        </StatusRow>
-                                        <StatusRow key={item.no_response}>
-                                            <StatusHeader>No Response: </StatusHeader>
-                                            <StatusContent>{item.no_response}</StatusContent>
-                                        </StatusRow>
-                                        <StatusRow key={item.yes_comment}>
-                                            <StatusHeader>Yes Comment: </StatusHeader>
-                                            <StatusContent>{item.yes_comment}</StatusContent>
-                                        </StatusRow>
-                                        <StatusRow key={item.no_comment}>
-                                            <StatusHeader>No Comment: </StatusHeader>
-                                            <StatusContent>{item.no_comment}</StatusContent>
-                                        </StatusRow>
-                                    </StatusRow>
+                                    <tr key={item.question}>
+                                        <td>{item.question}</td>
+                                         <td>{item.yes_response}</td>
+                                         <td>{item.no_response}</td>
+                                         <td>{item.yes_comment}</td>
+                                         <td>{item.no_comment}</td>
+                                    </tr>
                                 )
                             })
                         }
+                        </tbody>
+                        </table>
                     </span>
                 </StatusBlock>
             ) : null}
