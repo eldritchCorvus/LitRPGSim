@@ -252,14 +252,7 @@ const initSuperNames = () =>{
 
 
 const initMemories = () =>{
-    /*   memories[ANGELS] =  [
-        new Memory("question","yes response","no response","yes comment","no comment")
-        ,new Memory("question","yes response","no response","yes comment","no comment")
-        ,new Memory("question","yes response","no response","yes comment","no comment")
-
-    ];
-    */
-
+    //they are way too much of a surly bastard to appreciate angels.
     memories[ANGELS] =  [
         new Memory("Do you consider yourself a reglious person?","Sure, okay.","Me, neither...","So you're a religious person.","You aren't very religious.")
         ,new Memory("Do you feel blessed?","Must be nice...","Me, neither...","You feel like your life is going well.","You aren't very happy with your lot in life.")
@@ -267,15 +260,34 @@ const initMemories = () =>{
 
     ];
 
+    //it figures a hunter would pursue them
     memories[HUNTING] = [
         new Memory("Do you like the thrill of the chase?","Fair.","Gotcha.","You like chasing.","You're not a fan of the chase.")
         ,new Memory("Have you ever gone hunting?","Interesting...","Yeah that makes sense.","You're comfortable with hunting.","You've never had a chance to go hunting.")
         ,new Memory("Do you find it hard to just drop something once it has your attention?","No wonder you're still here...","Then why are you still here?","You're a driven person.","You find it easy to drop things, if you need to.")
     ];
 
+    //who knew they knew who marie kondo is
+    memories[SERVICE] =  [
+        new Memory("Do you enjoy cleaning?","It sparks joy?","So you're messy?","You're a pretty cleanly person.","You probably never do the dishes.")
+        ,new Memory("Do you like helping others?","Just make sure to do self-care, too.","Fair.","You're a helpful person.","You're not very team oriented.")
+        ,new Memory("Do you consider yourself to be a self-sacrificing person?","Not a great idea.","That's good. Just because *I* hate you doesn't mean you should.","You don't value yourself enough.","You do a good job of taking care of yourself.")
+    ];
+
+            /*   memories[ANGELS] =  [
+        new Memory("question","yes response","no response","yes comment","no comment")
+        ,new Memory("question","yes response","no response","yes comment","no comment")
+        ,new Memory("question","yes response","no response","yes comment","no comment")
+
+    ];
+    */
+   //aww how cute they think of you as family
+    memories[FAMILY] =  [
+        new Memory("Do you love your family?","How predicatble.","No judgement here. I hate my Creator, personally. And you, of course.","yes comment","no comment")
+        ,new Memory("Do you have any siblings?","Are they as annoying as you?","Sounds lonely.","You have siblings.","You're an only child.")
+        ,new Memory("Do you like children?","I don't get liking anyone myself. Much less children.","I don't blame you.","You seem patient with children.","You're sane.")
+    ];
     /*
-    memories[SERVICE] =  ["Special Service"];
-    memories[FAMILY] =  ["Sins of the Father"];
     memories[MAGIC] =  ["Ritual of Ragnarok"];
     memories[LIGHT] =  ["Flash Bang"];
     memories[HEALING] =  ["Summon Phoenix"];
