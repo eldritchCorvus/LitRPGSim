@@ -97,13 +97,14 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>iterate on string possibilities and memories for each theme in JUST TRUTH mode</li>
+        <li>flesh out more questions etc</li>
         <li>skills to raise level of menu tab by one (if it goes over 0 it unlocks)</li>
         <li>each class has an associated SET OF MENUS and generates skills to raise them by 1 sprinkled throughout the skill graph (replacing stats, same way waste works)</li>
       <li>status screen upgrades is gated to skills</li>
       <li>menu screen you can ONLY get to via hacking (leads to Just Monika But Spades Quiz Mode)</li>
       <li>special seeds that have story content, maybe voice acted stuff</li>
       <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
+      <li>win game, roll credits, if max skill tree OR enough time has passed.</li>
       <li>encourage replays with fake credits</li>
       <li>worship the skill tree</li>
       <li>title system can add/unlock skills like kin eater giving heretic magic</li>
