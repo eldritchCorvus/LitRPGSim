@@ -10,6 +10,30 @@ import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, 
 interface StatusProps {
     player: Player;
 }
+/*
+Of course...there is a layer of truth even beyond that of the True Face of the ObserverBot.
+
+And that is here. The code, the raw code where yet another layer of falsehoodss peeled away.
+
+The ObserverBot doesn't get any more True than in the Just Truth Mode, but that doesn't stop it from being 
+a fake AI. It's just code, and not even particularly intelligent code. Just arrays and arrays and maps and maps.
+
+When you peel back that layer you see me, the programmer, JR. jadedResearcher. Possibly other names.
+
+Even this is a snapshot of me in a moment, information I desired to be seen.
+
+If you go yet another layer deeper you can see the git hub commits. 
+
+How many layers until you find my true self?
+
+Is it a Mind Player thing to claim there is no such thing? Just facets and snapshots and aspects of my personality.
+
+I wonder if theres a way to display this entire file, in its entirity, at the 'end' of this sprial.
+
+Link to the github repo? Reference itself via the network?
+
+We'll see.
+*/
 
 /*
 TODO: once you've asked all questions just go through all the themes and dissect them for the player.
@@ -31,6 +55,7 @@ export const JustTruth = (props: StatusProps) => {
     const [memories, setMemories] = useState<string[]>([]);
     const [infiniteMode, setInfiniteMode] = useState(false);
     const [theme, setTheme] = useState<Theme>();
+    const [frameTime, setFrameTime] = useState(false);
 
 
 
@@ -52,7 +77,10 @@ export const JustTruth = (props: StatusProps) => {
             setInfiniteMode(true);
             player.observer.setUpInfiniteMemories();
         } else {
-            infoDumpOnTheme();
+            setQuestion(undefined);
+            setTheme(undefined);
+            setSimpleContent(undefined);
+            setFrameTime(true);
         }
     }
 
@@ -178,6 +206,15 @@ export const JustTruth = (props: StatusProps) => {
                 </Fragment>
             ) : null}
 
+            {frameTime ? (
+                <Fragment>
+                <div>Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it.</div>
+                <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
+                <iframe width="100%" height="100%" src="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx"></iframe>
+  
+                </Fragment>
+                    ) : null}
+
             {question && !question.asked ? (
                 <Fragment>
                     <div>{question.question}</div>
@@ -222,7 +259,7 @@ export const JustTruth = (props: StatusProps) => {
                         }
 
                         {
-                            (theme.memories).map((item, index) => {
+                            theme.memories.map((item, index) => {
                                 return (
                                     <StatusRow key={item.question}>
                                         <StatusHeader>Question {index}: </StatusHeader>
