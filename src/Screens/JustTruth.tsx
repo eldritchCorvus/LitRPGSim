@@ -33,6 +33,13 @@ I wonder if theres a way to display this entire file, in its entirity, at the 'e
 Link to the github repo? Reference itself via the network?
 
 We'll see.
+
+Of course, even if you look at the files I've lead you to directly, theres an entire set of source files that doesn't even have this layer of 
+controlled interaction. And then of course all the other projects in this account. All of google, too, really.
+
+It only ends when you cave. Both the True and False faces of this game are infinite, spiralling, fractals.
+
+You're the one who chose to see what was behind the Mask.
 */
 
 /*
@@ -213,7 +220,8 @@ export const JustTruth = (props: StatusProps) => {
             {frameTime ? (
                 <Fragment>
                 <div style={{height:"100px"}}>Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it.</div>
-                <div><a target="_blank" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx">View My Soul</a></div>
+                <div><a target="_blank" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx">View My Soul 1</a></div>
+                <div><a target="_blank" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</a></div>
 
                 <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
   
