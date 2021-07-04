@@ -8,8 +8,8 @@ that it is a real game, with plenty of fun features if only you could get to the
 realizes the game isn't real, but hopefully by that point they're invested in exploring the mechanics of this
 strange false rpg menu.  Once all skills are unlocked (or enough time has passed?) roll credits and ask them if 
 they want to play again as a new character. refresh with a new seed.  The waste class shouldn't be avaiable 
-in the first playthrough but SHOULD be in subsequent ones, and the offered up seed should be 13 (guaranteed waste)
-by the third playthrough.
+in the first playthrough but SHOULD be in subsequent ones, and the offered up seed should be 13 eventually (when?) (guaranteed waste)
+This can go on *forever* if the player never accidentally hacks the wrong thing.
 
 If it finds the *slightest* excuse to drop the act  it will (generally if you show you don't actually believe its lies
 by hacking into some part of the game that doesn't exist) and "Rage Mode" will activate,
@@ -19,7 +19,7 @@ If you aren't immediately scared off it drops even the pretense of anger and jus
 listlessly spirals in depression until it decides to try to learn about you, the Player.
 
 From there it endlessly spirals between depression and dangling new content in front of the player, 
-eventually just flat out linking them to some of its source code.
+eventually just flat out linking them to some of its source code, which itself is a never ending rabbit hole. (Hi!)
 */
 import { Player } from "../Player";
 import { AchivementStorage } from "./AchivementStorage";
