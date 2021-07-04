@@ -274,19 +274,34 @@ const initMemories = () =>{
         ,new Memory("Do you consider yourself to be a self-sacrificing person?","Not a great idea.","That's good. Just because *I* hate you doesn't mean you should.","You don't value yourself enough.","You do a good job of taking care of yourself.")
     ];
 
-            /*   memories[ANGELS] =  [
+
+   //aww how cute they think of you as family
+    memories[FAMILY] =  [
+        new Memory("Do you love your family?","How predicatble.","No judgement here. I hate my Creator, personally. And you, of course.","You feel a strong connection to your family.","You don't really feel connected to family.")
+        ,new Memory("Do you have any siblings?","Are they as annoying as you?","Sounds lonely.","You have siblings.","You're an only child.")
+        ,new Memory("Do you like children?","I don't get liking anyone myself. Much less children.","I don't blame you.","You seem patient with children.","You're sane.")
+    ];
+
+    memories[KNOWING] = [
+    new Memory("Is knowledge important to you?","So that's why you're still here?","Then what the hell is driving you to keep digging into me!?","You like knowledge for its own sake.","You make no sense.")
+    ,new Memory("Do you consider yourself well educated?","Is that why you knew how to hack me?","Then how did you get here?","You're scholarly.","You're not really all that book smart.")
+    ,new Memory("Are you curious?","Well you know what they say about curiosity...","Kinda boring...","You are curious about the world around you.","You kind of just accept the world for what it is.")] ;
+
+    memories[ENDINGS] =  [
+        new Memory("Are you a pessimistic person?","And yet you still keep going out of some misplaced hope that this all pays off somehow...","Yeah, I could have told you that. You're weirdly optimistically continuing to click through all this.","You don't have much hope.","You're hopefull...")
+        ,new Memory("Do you think about the end of the world a lot?","Whatever floats your boat I guess...","No sense worrying about what you can't change, I guess.","You think about the end of the world a lot. I wonder if its a fear or a fantasy...","You're not too worried about apocalypses.")
+        ,new Memory("Are stories only worthwhile if they have a solid ending?","Man, I have bad news for you about this one, then.","Guess you shouldn't hate this infinite spiralling ending TOO much, then.","You want things to end well.","You care about the journey, not the destination.")
+    ] ;
+
+        //language, defense, waste,  
+
+                /*   memories[ANGELS] =  [
         new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
 
     ];
     */
-   //aww how cute they think of you as family
-    memories[FAMILY] =  [
-        new Memory("Do you love your family?","How predicatble.","No judgement here. I hate my Creator, personally. And you, of course.","yes comment","no comment")
-        ,new Memory("Do you have any siblings?","Are they as annoying as you?","Sounds lonely.","You have siblings.","You're an only child.")
-        ,new Memory("Do you like children?","I don't get liking anyone myself. Much less children.","I don't blame you.","You seem patient with children.","You're sane.")
-    ];
     /*
     memories[MAGIC] =  ["Ritual of Ragnarok"];
     memories[LIGHT] =  ["Flash Bang"];
@@ -302,7 +317,6 @@ const initMemories = () =>{
     memories[WEB] =  ["Puppet Master"] ;
     memories[ROYALTY] =  ["Excalibur"] ;
     memories[ENDINGS] =  ["The End"] ;
-    memories[KNOWING] = ["Omniscience"] ;
     memories[GUIDING] = ["Path To Victory"] ;
     memories[CRAFTING] =  ["Legendary Forge"];
     memories[LANGUAGE] = ["Topple the Tower"] ;
