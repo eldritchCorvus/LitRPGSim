@@ -2,7 +2,8 @@ import React, { Fragment } from "react";
 import {Player} from "../Modules/Player";
 import { Stat, StatMap } from "../Modules/Stat";
 import { all_themes } from "../Modules/Theme";
-import { ADJ } from "../Modules/ThemeStorage";
+import { ADJ, MENU } from "../Modules/ThemeStorage";
+import { uniq } from "../Utils/ArrayUtils";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
 import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, BORDERRADIUS, BORDERRADIUSROUND, FONTCOLOR} from "./Styles";
@@ -36,6 +37,14 @@ export const  StatusScreen = (props: StatusProps)=> {
         return(
             <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value().toFixed(1)} </div>
         )
+    }
+
+    const calculateMenuOptions = () =>{
+        let ret:string[] = [];
+        for(let key of props.player.theme_keys){
+            ret = ret.concat(all_themes[key].string_possibilities[MENU]);
+        }
+        return uniq(ret).join(', ');
     }
 
 
@@ -73,6 +82,11 @@ export const  StatusScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Species:</StatusHeader>
                 <StatusContent>Unknown TODO</StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Possible Menu Options (debug):</StatusHeader>
+                <StatusContent>{calculateMenuOptions()}</StatusContent>
             </StatusRow>
 
             <StatusRow>

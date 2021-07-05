@@ -332,38 +332,38 @@ const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
 
-    menu_options[ANGELS] =  [GODS, LORE];
-    menu_options[SERVICE] =  [COMPANIONS, QUESTS];
-    menu_options[FAMILY] =  [COMPANIONS, CITYBUILDING];
-    menu_options[MAGIC] =  [RESISTANCES, INVENTORY];
-    menu_options[LIGHT] =  [ACHIEVEMENTS, GODS];
-    menu_options[HEALING] =  [RESISTANCES, STATUS];
-    menu_options[PLANTS] = [CITYBUILDING, INVENTORY];
-    menu_options[HUNTING] = [QUESTS, ACHIEVEMENTS];
-    menu_options[DECAY] = [RESISTANCES,STATUS] ;
-    menu_options[CHOICES] =  [SKILLGRAPH,OPTIONS] ;
-    menu_options[ZAP] = [RESISTANCES, OPTIONS] ;
-    menu_options[LOVE] = [COMPANIONS, CITYBUILDING];
-    menu_options[SOUL] = [STATUS, BACKSTORY] ;
-    menu_options[ANGER] = [GODS, BACKSTORY] ;
-    menu_options[WEB] =  [COMPANIONS, CITYBUILDING] ;
-    menu_options[ROYALTY] =  [CITYBUILDING, LORE] ;
-    menu_options[ENDINGS] =  [LORE, STATISTICS] ;
-    menu_options[KNOWING] = [STATISTICS, LORE] ;
-    menu_options[GUIDING] = [QUESTS, COMPANIONS] ;
-    menu_options[CRAFTING] =  [INVENTORY, CITYBUILDING];
-    menu_options[LANGUAGE] = [LORE, BACKSTORY] ;
-    menu_options[BUGS] =  [CITYBUILDING, CODE]; //get it? code? bugs? i refuse to appologize.
-    menu_options[ADDICTION] = [STATUS, SKILLGRAPH]; //addicted to leveling up now are we?
-    menu_options[SPYING] =[STATISTICS, ACHIEVEMENTS] ;
-    menu_options[CLOWNS] =[GODS, LORE] ;
-    menu_options[DOLLS] = [CITYBUILDING, COMPANIONS] ;
-    menu_options[OBFUSCATION] = [LORE, STATISTICS] ;
-    menu_options[DARKNESS] =  [BACKSTORY, LORE] ;
-    menu_options[KILLING] =  [INVENTORY, QUESTS];
-    menu_options[MUSIC] =  [SKILLGRAPH, INVENTORY] ;
-    menu_options[DEFENSE] =  [INVENTORY, RESISTANCES] ;
-    menu_options[QUESTING] = [QUESTS, LORE] ;
+    menu_options[ANGELS] =  [GODS];
+    menu_options[SERVICE] =  [QUESTS];
+    menu_options[FAMILY] =  [CITYBUILDING];
+    menu_options[MAGIC] =  [RESISTANCES];
+    menu_options[LIGHT] =  [ACHIEVEMENTS];
+    menu_options[HEALING] =  [STATUS];
+    menu_options[PLANTS] = [CITYBUILDING];
+    menu_options[HUNTING] = [INVENTORY];
+    menu_options[DECAY] = [STATUS] ;
+    menu_options[CHOICES] =  [OPTIONS] ;
+    menu_options[ZAP] = [RESISTANCES] ;
+    menu_options[LOVE] = [COMPANIONS];
+    menu_options[SOUL] = [STATUS] ;
+    menu_options[ANGER] = [BACKSTORY] ;
+    menu_options[WEB] =  [CITYBUILDING] ;
+    menu_options[ROYALTY] =  [CITYBUILDING] ;
+    menu_options[ENDINGS] =  [LORE] ;
+    menu_options[KNOWING] = [STATISTICS] ;
+    menu_options[GUIDING] = [QUESTS] ;
+    menu_options[CRAFTING] =  [INVENTORY];
+    menu_options[LANGUAGE] = [LORE] ;
+    menu_options[BUGS] =  [CODE]; //get it? code? bugs? i refuse to appologize.
+    menu_options[ADDICTION] = [SKILLGRAPH]; //addicted to leveling up now are we?
+    menu_options[SPYING] =[STATISTICS] ;
+    menu_options[CLOWNS] =[LORE] ;
+    menu_options[DOLLS] = [CITYBUILDING] ;
+    menu_options[OBFUSCATION] = [LORE] ;
+    menu_options[DARKNESS] =  [BACKSTORY] ;
+    menu_options[KILLING] =  [INVENTORY];
+    menu_options[MUSIC] =  [INVENTORY] ;
+    menu_options[DEFENSE] =  [INVENTORY] ;
+    menu_options[QUESTING] = [QUESTS] ;
 }
 
 
