@@ -9,6 +9,7 @@ export const COMPLIMENT = "compliment";
 export const INSULT = "insult";
 export const SUPERMOVE = "supermove";
 export const OBJECT = "object";
+export const LOCATION = "location";
 export const MEMORIES = "memories";
 export const MENU = "menu";
 
@@ -72,6 +73,8 @@ export interface MemoryMap {
 export let stats_map:ThemeStatMap = {};
 export let noun_possibilities:ThemePossibilitiesMap = {};
 export let object_possibilities:ThemePossibilitiesMap = {};
+export let location_possibilities:ThemePossibilitiesMap = {};
+
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
 export let insult_possibilities:ThemePossibilitiesMap = {};
@@ -255,39 +258,74 @@ const initSuperNames = () =>{
     super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
 }
 
+const initLocations = () =>{
+    location_possibilities[ANGELS] =  ["church","grotto","temple","monastery"];
+    location_possibilities[SERVICE] =  ["mansion","manor","main-house"];
+    location_possibilities[FAMILY] =  ["home"];
+    location_possibilities[MAGIC] =  ["mountain","school","tower"];
+    location_possibilities[LIGHT] =  ["mountain","field","cloud"];
+    location_possibilities[HEALING] =  ["hospital","field-hospital","doctors office"];
+    location_possibilities[PLANTS] = ["forest","meadow","jungle"];
+    location_possibilities[HUNTING] = ["forest","meadow","jungle"];
+    location_possibilities[DECAY] = ["swamp","graveyeard","wasteland"] ;
+    location_possibilities[CHOICES] =  ["forking-path"] ;
+    location_possibilities[ZAP] = ["field","cloud"] ;
+    location_possibilities[LOVE] = ["restaurant","scenic cliff","windswept moor"];
+    location_possibilities[SOUL] = ["hall of mirrors"] ;
+    location_possibilities[ANGER] = ["battlefield"] ;
+    location_possibilities[WEB] =  ["cave","theatre"] ;
+    location_possibilities[ROYALTY] =  ["castle","mansion","courthouse"] ;
+    location_possibilities[ENDINGS] =  ["theatre","graveyard","abandoned building"] ;
+    location_possibilities[KNOWING] = ["library","school","monastery"] ;
+    location_possibilities[GUIDING] = ["path","wilderness"] ;
+    location_possibilities[CRAFTING] =  ["smithy","forge","mill"];
+    location_possibilities[LANGUAGE] = ["library","printer","bookshop"] ;
+    location_possibilities[BUGS] =  ["hive","nest"];
+    location_possibilities[ADDICTION] = ["casino","back alley"];
+    location_possibilities[SPYING] =["tavern","pub","bar"] ;
+    location_possibilities[CLOWNS] =["circus","tent","carnival"] ;
+    location_possibilities[DOLLS] = ["teahouse","shop","toystore"] ;
+    location_possibilities[OBFUSCATION] = ["burning building","tavern","park"] ;
+    location_possibilities[DARKNESS] =  ["basement","attic","darkroom"] ;
+    location_possibilities[KILLING] =  ["battlefield"];
+    location_possibilities[MUSIC] =  ["theatre","concert hall","pub"] ;
+    location_possibilities[DEFENSE] =  ["fortress","battlements","fort"] ;
+    location_possibilities[QUESTING] = ["tavern","pub","bar"] ;
+}
+
 const initObjects = () =>{
-    super_name_possibilities_map[ANGELS] =  ["End of Days"];
-    super_name_possibilities_map[SERVICE] =  ["Special Service"];
-    super_name_possibilities_map[FAMILY] =  ["Sins of the Father"];
-    super_name_possibilities_map[MAGIC] =  ["Ritual of Ragnarok"];
-    super_name_possibilities_map[LIGHT] =  ["Flash Bang"];
-    super_name_possibilities_map[HEALING] =  ["Summon Phoenix"];
-    super_name_possibilities_map[PLANTS] = ["Forest's March"];
-    super_name_possibilities_map[HUNTING] = ["Nimrod's Chase"];
-    super_name_possibilities_map[DECAY] = ["Mass Grave"] ;
-    super_name_possibilities_map[CHOICES] =  ["Alternate Timeline"] ;
-    super_name_possibilities_map[ZAP] = ["Thor's Banana"] ;
-    super_name_possibilities_map[LOVE] = ["Mandatory Shipping Grid"];
-    super_name_possibilities_map[SOUL] = ["Know thyself."] ;
-    super_name_possibilities_map[ANGER] = ["Dethrone Creation"] ;
-    super_name_possibilities_map[WEB] =  ["Puppet Master"] ;
-    super_name_possibilities_map[ROYALTY] =  ["Excalibur"] ;
-    super_name_possibilities_map[ENDINGS] =  ["The End"] ;
-    super_name_possibilities_map[KNOWING] = ["Omniscience"] ;
-    super_name_possibilities_map[GUIDING] = ["Path To Victory"] ;
-    super_name_possibilities_map[CRAFTING] =  ["Legendary Forge"];
-    super_name_possibilities_map[LANGUAGE] = ["Topple the Tower"] ;
-    super_name_possibilities_map[BUGS] =  ["Hivemother"];
-    super_name_possibilities_map[ADDICTION] = ["Dealer's Delight"];
-    super_name_possibilities_map[SPYING] =["Surveillance State"] ;
-    super_name_possibilities_map[CLOWNS] =["Ringmaster"] ;
-    super_name_possibilities_map[DOLLS] = ["Automatonophobia "] ;
-    super_name_possibilities_map[OBFUSCATION] = ["Knowledge Forever Lost"] ;
-    super_name_possibilities_map[DARKNESS] =  ["Night Eternal"] ;
-    super_name_possibilities_map[KILLING] =  ["Bloodbath"];
-    super_name_possibilities_map[MUSIC] =  ["Symphonic Synthesia"] ;
-    super_name_possibilities_map[DEFENSE] =  ["Excalibur"] ;
-    super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
+    object_possibilities[ANGELS] =  ["feather", "halo","scripture"];
+    object_possibilities[SERVICE] =  ["feather duster","mop","broom"];
+    object_possibilities[FAMILY] =  ["cradle","rattle","photo albulm"];
+    object_possibilities[MAGIC] =  ["scoll","potion","wand","staff"];
+    object_possibilities[LIGHT] =  ["lantern","flashlight","torch"];
+    object_possibilities[HEALING] =  ["potion","bandage","scalpel"];
+    object_possibilities[PLANTS] = ["seed","sapling","shovel"];
+    object_possibilities[HUNTING] = ["pelt","leather","gun"];
+    object_possibilities[DECAY] = ["skull","gravestone","rotten food"] ;
+    object_possibilities[CHOICES] =  ["todo list","coin","adventure book"] ;
+    object_possibilities[ZAP] = ["battery","lichtenberg figure","glass"] ;
+    object_possibilities[LOVE] = ["heart","chocolate","ring"];
+    object_possibilities[SOUL] = ["gem","mirror","crystal"] ;
+    object_possibilities[ANGER] = ["matador costume","red flag","glove"] ;
+    object_possibilities[WEB] =  ["silk","puppet","cobweb"] ;
+    object_possibilities[ROYALTY] =  ["crown","throne","sceptre"] ;
+    object_possibilities[ENDINGS] =  ["curtain","gravestone","stop sign"] ;
+    object_possibilities[KNOWING] = ["book","camera","datum"] ;
+    object_possibilities[GUIDING] = ["map","walking stick","compass"] ;
+    object_possibilities[CRAFTING] =  ["anvil","hammer","ax"];
+    object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus"] ;
+    object_possibilities[BUGS] =  ["hive","pupa","nest"];
+    object_possibilities[ADDICTION] = ["syringe","vial","dice"];
+    object_possibilities[SPYING] =["spyglass","camera","disguise"] ;
+    object_possibilities[CLOWNS] =["wig","horn","facepaint"] ;
+    object_possibilities[DOLLS] = ["doll","mannequin","statuette"] ;
+    object_possibilities[OBFUSCATION] = ["white-out","sharpie","censor bar"] ;
+    object_possibilities[DARKNESS] =  ["sunglasses","curtain","blindfold"] ;
+    object_possibilities[KILLING] =  ["knife","machete","gun"];
+    object_possibilities[MUSIC] =  ["flute","guitar","drum"] ;
+    object_possibilities[DEFENSE] =  ["shield","armor","helmet"] ;
+    object_possibilities[QUESTING] = ["map","rations","notes"] ;
 }
 
 const initMenuOptions = () =>{
@@ -512,6 +550,8 @@ const initInsults = () =>{
 export const initThemes = ()=>{
     initStatsMap();
     initNouns();
+    initObjects();
+    initLocations();
     initAdjs();
     initSuperNames();
     initInsults();
