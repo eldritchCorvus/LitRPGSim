@@ -69,5 +69,4 @@ export function initClasses(seeded_random: SeededRandom){
     new RPGClass("heir", ["Heir","Succesor","Inheiritor", "Scion", "Descendant"],2.0, seeded_random, [all_themes[FAMILY],all_themes[ROYALTY]]);
     new RPGClass("maid", ["Maid","Butler","Servant", "Shield-Maiden", "Valkyrie","Einherjar","Saint"],2.0, seeded_random, [all_themes[SERVICE],all_themes[DEFENSE]]);
     new RPGClass("waste", ["Waste"],0.0, seeded_random, [all_themes[WASTE]]);
-
 }

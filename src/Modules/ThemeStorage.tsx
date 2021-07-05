@@ -1,3 +1,4 @@
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS } from '../Utils/constants';
 import { Memory } from './ObserverBot/Memory';
 import * as Stat from './Stat';
 
@@ -7,7 +8,9 @@ export const ADJ = "adj";
 export const COMPLIMENT = "compliment";
 export const INSULT = "insult";
 export const SUPERMOVE = "supermove";
+export const OBJECT = "object";
 export const MEMORIES = "memories";
+export const MENU = "menu";
 
 //themes
 export const ADDICTION = "addiction";
@@ -68,6 +71,8 @@ export interface MemoryMap {
 //noun_possibility, adj_possibility (glowing, shimmering, walking, ceasing)
 export let stats_map:ThemeStatMap = {};
 export let noun_possibilities:ThemePossibilitiesMap = {};
+export let object_possibilities:ThemePossibilitiesMap = {};
+export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
 export let insult_possibilities:ThemePossibilitiesMap = {};
 export let compliment_possibilities:ThemePossibilitiesMap = {};
@@ -248,6 +253,79 @@ const initSuperNames = () =>{
     super_name_possibilities_map[MUSIC] =  ["Symphonic Synthesia"] ;
     super_name_possibilities_map[DEFENSE] =  ["Excalibur"] ;
     super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
+}
+
+const initObjects = () =>{
+    super_name_possibilities_map[ANGELS] =  ["End of Days"];
+    super_name_possibilities_map[SERVICE] =  ["Special Service"];
+    super_name_possibilities_map[FAMILY] =  ["Sins of the Father"];
+    super_name_possibilities_map[MAGIC] =  ["Ritual of Ragnarok"];
+    super_name_possibilities_map[LIGHT] =  ["Flash Bang"];
+    super_name_possibilities_map[HEALING] =  ["Summon Phoenix"];
+    super_name_possibilities_map[PLANTS] = ["Forest's March"];
+    super_name_possibilities_map[HUNTING] = ["Nimrod's Chase"];
+    super_name_possibilities_map[DECAY] = ["Mass Grave"] ;
+    super_name_possibilities_map[CHOICES] =  ["Alternate Timeline"] ;
+    super_name_possibilities_map[ZAP] = ["Thor's Banana"] ;
+    super_name_possibilities_map[LOVE] = ["Mandatory Shipping Grid"];
+    super_name_possibilities_map[SOUL] = ["Know thyself."] ;
+    super_name_possibilities_map[ANGER] = ["Dethrone Creation"] ;
+    super_name_possibilities_map[WEB] =  ["Puppet Master"] ;
+    super_name_possibilities_map[ROYALTY] =  ["Excalibur"] ;
+    super_name_possibilities_map[ENDINGS] =  ["The End"] ;
+    super_name_possibilities_map[KNOWING] = ["Omniscience"] ;
+    super_name_possibilities_map[GUIDING] = ["Path To Victory"] ;
+    super_name_possibilities_map[CRAFTING] =  ["Legendary Forge"];
+    super_name_possibilities_map[LANGUAGE] = ["Topple the Tower"] ;
+    super_name_possibilities_map[BUGS] =  ["Hivemother"];
+    super_name_possibilities_map[ADDICTION] = ["Dealer's Delight"];
+    super_name_possibilities_map[SPYING] =["Surveillance State"] ;
+    super_name_possibilities_map[CLOWNS] =["Ringmaster"] ;
+    super_name_possibilities_map[DOLLS] = ["Automatonophobia "] ;
+    super_name_possibilities_map[OBFUSCATION] = ["Knowledge Forever Lost"] ;
+    super_name_possibilities_map[DARKNESS] =  ["Night Eternal"] ;
+    super_name_possibilities_map[KILLING] =  ["Bloodbath"];
+    super_name_possibilities_map[MUSIC] =  ["Symphonic Synthesia"] ;
+    super_name_possibilities_map[DEFENSE] =  ["Excalibur"] ;
+    super_name_possibilities_map[QUESTING] = ["Satisfaction"] ;
+}
+
+const initMenuOptions = () =>{
+    //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
+    //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
+
+    menu_options[ANGELS] =  [GODS, LORE];
+    menu_options[SERVICE] =  [COMPANIONS, QUESTS];
+    menu_options[FAMILY] =  [COMPANIONS, CITYBUILDING];
+    menu_options[MAGIC] =  [RESISTANCES, INVENTORY];
+    menu_options[LIGHT] =  [ACHIEVEMENTS, GODS];
+    menu_options[HEALING] =  [RESISTANCES, STATUS];
+    menu_options[PLANTS] = [CITYBUILDING, INVENTORY];
+    menu_options[HUNTING] = [QUESTS, ACHIEVEMENTS];
+    menu_options[DECAY] = [RESISTANCES,STATUS] ;
+    menu_options[CHOICES] =  [SKILLGRAPH,OPTIONS] ;
+    menu_options[ZAP] = [RESISTANCES, OPTIONS] ;
+    menu_options[LOVE] = [COMPANIONS, CITYBUILDING];
+    menu_options[SOUL] = [STATUS, BACKSTORY] ;
+    menu_options[ANGER] = [GODS, BACKSTORY] ;
+    menu_options[WEB] =  [COMPANIONS, CITYBUILDING] ;
+    menu_options[ROYALTY] =  [CITYBUILDING, LORE] ;
+    menu_options[ENDINGS] =  [LORE, STATISTICS] ;
+    menu_options[KNOWING] = [STATISTICS, LORE] ;
+    menu_options[GUIDING] = [QUESTS, COMPANIONS] ;
+    menu_options[CRAFTING] =  [INVENTORY, CITYBUILDING];
+    menu_options[LANGUAGE] = [LORE, BACKSTORY] ;
+    menu_options[BUGS] =  [CITYBUILDING, CODE]; //get it? code? bugs? i refuse to appologize.
+    menu_options[ADDICTION] = [STATUS, SKILLGRAPH]; //addicted to leveling up now are we?
+    menu_options[SPYING] =[STATISTICS, ACHIEVEMENTS] ;
+    menu_options[CLOWNS] =[GODS, LORE] ;
+    menu_options[DOLLS] = [CITYBUILDING, COMPANIONS] ;
+    menu_options[OBFUSCATION] = [LORE, STATISTICS] ;
+    menu_options[DARKNESS] =  [BACKSTORY, LORE] ;
+    menu_options[KILLING] =  [INVENTORY, QUESTS];
+    menu_options[MUSIC] =  [SKILLGRAPH, INVENTORY] ;
+    menu_options[DEFENSE] =  [INVENTORY, RESISTANCES] ;
+    menu_options[QUESTING] = [QUESTS, LORE] ;
 }
 
 
@@ -439,4 +517,6 @@ export const initThemes = ()=>{
     initInsults();
     initCompliments();
     initMemories();
+    initMenuOptions();
+
 }
