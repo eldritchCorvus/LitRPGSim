@@ -90,12 +90,16 @@ export function initThemes(){
     for(let key of ThemeStorage.keys){
         const string_possibilities:PossibilitiesListMap = {};
         string_possibilities[ThemeStorage.NOUN] = ThemeStorage.noun_possibilities[key];
+        string_possibilities[ThemeStorage.LOCATION] = ThemeStorage.location_possibilities[key];
+        string_possibilities[ThemeStorage.OBJECT] = ThemeStorage.object_possibilities[key];
+
         string_possibilities[ThemeStorage.ADJ] = ThemeStorage.adj_possibilities[key];
         string_possibilities[ThemeStorage.SUPERMOVE] = ThemeStorage.super_name_possibilities_map[key];
         string_possibilities[ThemeStorage.COMPLIMENT] = ThemeStorage.compliment_possibilities[key];
         string_possibilities[ThemeStorage.INSULT] = ThemeStorage.insult_possibilities[key];
+        string_possibilities[ThemeStorage.MENU] = ThemeStorage.menu_options[key];
+
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
-        console.log("memories found for key", key, "is ", memories);
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);
     }
 
