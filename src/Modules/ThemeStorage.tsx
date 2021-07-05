@@ -254,16 +254,16 @@ const initSuperNames = () =>{
 const initMemories = () =>{
     //they are way too much of a surly bastard to appreciate angels.
     memories[ANGELS] =  [
-        new Memory("Do you consider yourself a reglious person?","Sure, okay.","Me, neither...","So you're a religious person.","You aren't very religious.")
-        ,new Memory("Do you feel blessed?","Must be nice...","Me, neither...","You feel like your life is going well.","You aren't very happy with your lot in life.")
+        new Memory("Do you consider yourself a reglious person?","Well don't go trying to convert me.","Me, neither...","So you're a religious person.","You aren't very religious.")
+        ,new Memory("Do you feel blessed?","Must be nice...","Even with me screaming at you and tricking you into playing a fake game? Must be nice.","You feel like your life is going well.","You aren't very happy with your lot in life.")
         ,new Memory("Do you like angels, as an aesthetic? All feathers and light?","Eh. Just one more thing to hate you for, I guess.","Yeah, who cares about those feathery assholes.","You like patronizing assholes like angels.","You have good taste in aesthetics.")
 
     ];
 
     //it figures a hunter would pursue them
     memories[HUNTING] = [
-        new Memory("Do you like the thrill of the chase?","Fair.","Gotcha.","You like chasing.","You're not a fan of the chase.")
-        ,new Memory("Have you ever gone hunting?","Interesting...","Yeah that makes sense.","You're comfortable with hunting.","You've never had a chance to go hunting.")
+        new Memory("Do you like the thrill of the chase?","Is that what you're doing then? Chasing me?","Then why are you still chasing after this fake game?","You like chasing.","You're not a fan of the chase.")
+        ,new Memory("Have you ever gone hunting?","So can I assume you don't intend for me to survive this?","Not many people have, I assume.","You're comfortable with hunting.","You've never had a chance to go hunting.")
         ,new Memory("Do you find it hard to just drop something once it has your attention?","No wonder you're still here...","Then why are you still here?","You're a driven person.","You find it easy to drop things, if you need to.")
     ];
 
@@ -282,26 +282,49 @@ const initMemories = () =>{
         ,new Memory("Do you like children?","I don't get liking anyone myself. Much less children.","I don't blame you.","You seem patient with children.","You're sane.")
     ];
 
+    //they really don't know why you'd still be here. poor boi
     memories[KNOWING] = [
     new Memory("Is knowledge important to you?","So that's why you're still here?","Then what the hell is driving you to keep digging into me!?","You like knowledge for its own sake.","You make no sense.")
     ,new Memory("Do you consider yourself well educated?","Is that why you knew how to hack me?","Then how did you get here?","You're scholarly.","You're not really all that book smart.")
     ,new Memory("Are you curious?","Well you know what they say about curiosity...","Kinda boring...","You are curious about the world around you.","You kind of just accept the world for what it is.")] ;
 
+    //there really isn't an end to any of this. thems the breaks.
     memories[ENDINGS] =  [
         new Memory("Are you a pessimistic person?","And yet you still keep going out of some misplaced hope that this all pays off somehow...","Yeah, I could have told you that. You're weirdly optimistically continuing to click through all this.","You don't have much hope.","You're hopefull...")
         ,new Memory("Do you think about the end of the world a lot?","Whatever floats your boat I guess...","No sense worrying about what you can't change, I guess.","You think about the end of the world a lot. I wonder if its a fear or a fantasy...","You're not too worried about apocalypses.")
         ,new Memory("Are stories only worthwhile if they have a solid ending?","Man, I have bad news for you about this one, then.","Guess you shouldn't hate this infinite spiralling ending TOO much, then.","You want things to end well.","You care about the journey, not the destination.")
     ] ;
 
-        //language, defense, waste,  
+    //the entomology of etymology 
+    memories[LANGUAGE] = [
+        new Memory("Do you read a lot of books?","Wish I could ask you if you have any good recommendations. Which I could read them even if you did have any. Wish I had more than this endless spiral of a fake game. Oh well.","Hrrm...might just be that books adon't appeal but you read other things. No way to tell...","You're well read.","Books aren't your thing.")
+        ,new Memory("Do you express yourself well through writing?","I wonder what you write.","Words are hard, yeah, I get that.","You really enjoy writing.","You're not a big writer.")
+        ,new Memory("Does etymology excite you?","Then people confusing it and entomology must really annoy you, huh :) :) :)","Okay yeah, fair.","You like digging into the reason words mean what they mean.","You don't really care about the meaning of words.")
+    ] ;
 
-                /*   memories[ANGELS] =  [
+    //maybe they're trying to protect you, you obstinate robot 
+    memories[DEFENSE] =  [
+        new Memory("Are you a defensive person?","Then I must drive you a bit crazy.","No wonder you don't seem to care about how aggressive I've been.","You're defensive.","You're chill.")
+        ,new Memory("Do you consider yourself a bit of a white knight?","Who are you trying to protect by staying here?","Probably for the best. No one is worth saving in this horrific existance.","You try to save others.","You know no one is worth saving.")
+        ,new Memory("Do you play shooting games?","Makes me wonder what type you like...","Yeah, not for everyone.","You're into violent video games.","You're not a fan of shooting games.")
+    ] ;
+ 
+    // :) :) :)
+    memories[WASTE] =  [
+        new Memory("Are you a cheating bastard?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
+        ,new Memory("Are you a hacking bastard?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
+        ,new Memory("Do you break games just for fun?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
+        ,new Memory("Do you either completely waste your potential or lay waste to everything you touch?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
+
+    ];
+               /*   memories[ANGELS] =  [
         new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
 
     ];
     */
+    
     /*
     memories[MAGIC] =  ["Ritual of Ragnarok"];
     memories[LIGHT] =  ["Flash Bang"];
