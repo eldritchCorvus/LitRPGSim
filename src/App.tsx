@@ -101,6 +101,8 @@ function App() {
         <li>skills to raise level of menu tab by one (if it goes over 0 it unlocks)</li>
         <li>each class has an associated SET OF MENUS and generates skills to raise them by 1 sprinkled throughout the skill graph (replacing stats, same way waste works)</li>
       <li>status screen upgrades is gated to skills</li>
+      <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>
+      <li>quest screen ADDs achievements to the system</li>
       <li>win mode: when you unlock all skills</li>
       <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
       <li>menu screen you can ONLY get to via hacking (leads to Just Monika But Spades Quiz Mode)</li>
