@@ -1,4 +1,5 @@
 
+import { max_values_for_menus, numbermap, OPTIONS } from "../../Utils/constants"
 import SeededRandom from "../../Utils/SeededRandom"
 import { Aspect } from "../Aspect"
 import { Interest } from "../Interest"
@@ -6,8 +7,29 @@ import { all_classes, RPGClass } from "../RPGClass"
 import { CoreSkill, Skill, SpecialSkill, StatSkill, wasteHackingFunctions, WasteSkill } from "../Skill"
 import { WASTE } from "../Stat"
 import { all_themes, Theme } from "../Theme"
-import { SUPERMOVE } from "../ThemeStorage"
+import { MENU, SUPERMOVE } from "../ThemeStorage"
 import { SkillGenAlg } from "./SkillGenAlg"
+
+
+
+export const current_values_for_menus:numbermap = {
+    SKILLGRAPH: 0, 
+    LOADING: 1,
+    STATUS: 1,
+    STATISTICS: 0,
+    ACHIEVEMENTS: 1,
+    OPTIONS: 1,
+    QUESTS: 0,
+    COMPANIONS: 0,
+    GODS: 0,
+    CITYBUILDING: 0,
+    INVENTORY: 0,
+    LORE: 0,
+    BACKSTORY: 0,
+    RESISTANCES: 0,
+    CODE: 0,
+    TRUTH:0,
+}
 
 //generates the structure of the graph first, then fills it in
 export   class  BonesFirstAlg extends SkillGenAlg{
@@ -15,31 +37,68 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         //TODO this might be irrelevant how this works.
     }
 
-    assignChild =(class_name: RPGClass,skills: Skill[],parent: Skill, child: Skill, rand: SeededRandom)=>{
+    betweenSkill = (class_name: RPGClass,skills: Skill[],parent: Skill, child: Skill,rand: SeededRandom) =>{
+        let inBetween;
+        const pickStat = (parent: Skill) =>{
+            const theme = all_themes[rand.pickFrom(parent.theme_keys)];
+            return rand.pickFrom(Object.values(theme.stats)).copy(parent.tier +1);
+        }
 
-        if(skills.length > 0){
-            const pickStat = (parent: Skill) =>{
-                const theme = all_themes[rand.pickFrom(parent.theme_keys)];
-                return rand.pickFrom(Object.values(theme.stats)).copy(parent.tier +1);
+        const pickMENU = (parent: Skill, retry=false):(string|null) =>{
+            let MENU_POSSIBILITIES = [OPTIONS]; //TODO fill this with things from parent.theme keys as well.
+            const theme = all_themes[rand.pickFrom(parent.theme_keys)];
+            MENU_POSSIBILITIES = MENU_POSSIBILITIES.concat(theme.string_possibilities[MENU]);
+            let ret:string = rand.pickFrom(MENU_POSSIBILITIES);
+            current_values_for_menus[ret] = current_values_for_menus[ret]+1;
+            if(current_values_for_menus[ret] <max_values_for_menus[ret]){
+                return ret;
+            }else{
+                if(!retry){
+                    return(pickMENU(parent, true));
+                }else{
+                    return null;
+                }
             }
-            let inBetween;
-            if(class_name == all_classes["waste"]){
+        }
+
+        if(class_name == all_classes["waste"]){
+            if(rand.nextDouble()>0.5){
                 inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
             }else{
+                const ret = pickMENU(parent)
+                if(ret){
+                    inBetween = new CoreSkill(ret,parent.tier+1);
+                }else{
+                    inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
+                }
+            }
+        }else{
+            if(rand.nextDouble()>0.5){
                 inBetween = new StatSkill(pickStat(parent),parent.tier+1);
-            }
-            if(inBetween.type == "StatSkill" && rand.nextDouble()>0.5){
-                //too many stats, halve them, plz
-                parent.children.push(child); 
-                child.parents.push(parent);
             }else{
-                parent.children.push(inBetween); 
-                inBetween.parents.push(parent); 
-                inBetween.children.push(child);
-                child.parents.push(inBetween);
-                skills.push(inBetween);
-            }
+                const ret = pickMENU(parent)
+                if(ret){
+                    inBetween = new CoreSkill(ret,parent.tier+1);
+                }else{
+                    inBetween = new StatSkill(pickStat(parent),parent.tier+1);
+                }            }
+        }
+        if(inBetween.type == "StatSkill" && rand.nextDouble()>0.5){
+            //too many stats, halve them, plz
+            parent.children.push(child); 
+            child.parents.push(parent);
+        }else{
+            parent.children.push(inBetween); 
+            inBetween.parents.push(parent); 
+            inBetween.children.push(child);
+            child.parents.push(inBetween);
+            skills.push(inBetween);
+        }
+    }
 
+    assignChild =(class_name: RPGClass,skills: Skill[],parent: Skill, child: Skill, rand: SeededRandom)=>{
+        if(skills.length > 0){
+            this.betweenSkill(class_name, skills, parent, child, rand);
         }else{
             parent.children.push(child); 
             child.parents.push(parent); 
@@ -124,7 +183,8 @@ export   class  BonesFirstAlg extends SkillGenAlg{
     }
 
     generateRootAndBase =(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom) =>{
-        const root = new CoreSkill("Status", 0, rand);
+        const root = new CoreSkill("Status", 0);
+        root.unlocked = true;
         const max = 1;
         const min = 1;
         let ret:Skill[] = [];

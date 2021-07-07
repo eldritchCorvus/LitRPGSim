@@ -98,7 +98,7 @@ assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRandom )=>
 
 
 generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
-   let ret:Skill[] = [new CoreSkill("Status", 0, rand)];
+   let ret:Skill[] = [new CoreSkill("Status", 0)];
    const max = 7;
    const min = 3;
 

@@ -37,7 +37,7 @@ export   class SkillGenAlg{
 
     generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
         console.error("JR NOTE: don't call this directly dunkass, call things that extend it.")
-        return  [new CoreSkill("Status", 0, rand)];
+        return  [new CoreSkill("Status", 0)] as Skill[];
     }
 
 }
