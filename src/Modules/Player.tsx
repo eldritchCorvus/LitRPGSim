@@ -98,15 +98,21 @@ export   class Player{
         found.unlocked = true;
         this.skillPoints += -1 * found.tier;
         if(found.type === "StatSkill"){
+            console.log("its a state skill");
             const stat = (found as StatSkill).stat;
             this.addStat(stat);
         }else if (found.type === "WasteSkill"){
+            console.log("its a waste skill");
+
             if((window as any).haxMode){
                 //:) :) :)
                 (window as any)[(found as WasteSkill).hackFunctionName](19191919);
             }else{
                 (window as any).recordAction(HAX_FAIL,1);
             }
+        }else if(found.type == "CoreSkill"){
+            console.log("its a core skill");
+            this.observer.upgradeMenu(found.name);
         }
     }
 

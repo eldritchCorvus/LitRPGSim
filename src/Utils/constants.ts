@@ -18,3 +18,26 @@ export const RESISTANCES = "RESISTANCES"; //are you weak to blunt? strong agains
 export const CODE = "CODE"; //can i force open the javascript console?
 //only accessible if in RAGE MODE
 export const TRUTH = "TRUTH";
+export interface numbermap {
+    [details: string] : number;
+}
+
+
+export const max_values_for_menus:numbermap = {
+    SKILLGRAPH: 3, 
+    LOADING: 3,
+    STATUS: 3,
+    STATISTICS: 3,
+    ACHIEVEMENTS: 3,
+    OPTIONS: 3,
+    QUESTS: 3,
+    COMPANIONS: 3,
+    GODS: 3,
+    CITYBUILDING: 3,
+    INVENTORY: 3,
+    LORE: 3,
+    BACKSTORY: 3,
+    RESISTANCES: 3,
+    CODE: 3,
+    TRUTH:3,
+}

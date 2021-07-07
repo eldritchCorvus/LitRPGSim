@@ -27,6 +27,7 @@ import { WasteSkill } from "../Skill";
 import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { all_themes } from "../Theme";
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/constants";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -65,9 +66,20 @@ export class ObserverBot{
     statusMenuLevel = 1;
     achievementMenuLevel = 1;
     optionsMenuLevel = 1;
+    truthMenuLevel = 0;
+    loadingMenuLevel = 1;
     statisticsMenuLevel = 0;
-
+    backstoryMenuLevel =0;
+    cityBuildingMenuLevel =0;
+    codeMenuLevel =0;
+    godMenuLevel =0;
+    inventoryMenuLevel =0;
+    loreMenuLevel =0;
+    questsMenuLevel =0;
+    resistancesMenuLevel=0;
+    skillGraphLevel = 1;
     successfulHaxAttempts = 0;
+    companionsMenuLevel = 0;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
@@ -82,6 +94,7 @@ export class ObserverBot{
     player: Player;
     
     unlocked_achivements = () =>{return this.achivementStorage.possibleAchievements.filter((achievement) =>  {return achievement.unlocked })};
+
 
 
     constructor(player: Player, memories: Memory[]){
@@ -120,6 +133,48 @@ export class ObserverBot{
                 (window as any).recordAction(SKIP,1);
             }
             
+        }
+    }
+
+    upgradeMenu = (name: string)=>{
+        console.log("trying to unlock ", name)
+
+        if(name.includes(OPTIONS)){
+            this.optionsMenuLevel ++;
+        }else if (name.includes(ACHIEVEMENTS)){
+            this.achievementMenuLevel ++;
+        }else if (name.includes(STATUS)){
+            this.statusMenuLevel ++;
+        }else if (name.includes(LOADING)){
+            this.loadingMenuLevel ++;
+        }else if (name.includes(SKILLGRAPH)){
+            this.skillGraphLevel ++;
+        }else if(name.includes(STATISTICS)){
+            this.statisticsMenuLevel ++;
+        }else if (name.includes(TRUTH)){
+            this.truthMenuLevel ++;
+        }
+        else if (name.includes(BACKSTORY)){
+            this.backstoryMenuLevel ++;
+        }else if (name.includes(CITYBUILDING)){
+            this.cityBuildingMenuLevel ++;
+        }else if (name.includes(CODE)){
+            this.codeMenuLevel ++;
+        }else if (name.includes(COMPANIONS)){
+            this.companionsMenuLevel ++;
+        }else if (name.includes(GODS)){
+            this.godMenuLevel ++;
+        }
+        else if (name.includes(INVENTORY)){
+            this.inventoryMenuLevel ++;
+        }else if (name.includes(LORE)){
+            this.loreMenuLevel ++;
+        }else if (name.includes(QUESTS)){
+            this.questsMenuLevel ++;
+        }else if (name.includes(RESISTANCES)){
+            this.resistancesMenuLevel ++;
+        }else if (name.includes(GODS)){
+            this.truthMenuLevel ++;
         }
     }
 

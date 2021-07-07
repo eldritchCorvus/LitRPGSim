@@ -97,10 +97,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>skills with associated menu const, replaces some of the stats</li>
-        <li>actually make it so if the menu is a REAL menu unlock it (or level it up) as appropriate</li>
-        <li>each class has an associated SET OF MENUS and generates skills to raise them by 1 sprinkled throughout the skill graph (replacing stats, same way waste works)</li>
-      <li>status screen upgrades is gated to skills</li>
+      <li>status, options, achivements, statistics, skills screen upgrades is gated to menu level</li>
       <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>
       <li>quest screen ADDs achievements to the system</li>
       <li>win mode: when you unlock all skills</li>

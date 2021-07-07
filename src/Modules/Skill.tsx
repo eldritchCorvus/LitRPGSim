@@ -102,21 +102,6 @@ export   class Skill{
 
 }
 
-export class CoreSkill extends Skill{
-    type = "CoreSkill";
-    name: string;
-    tier: number;
-    theme_keys: string[] = [];
-    unlocked:boolean = true;
-    constructor(name: string, tier: number, rand: SeededRandom){
-        super([], rand);
-        this.name = name;
-        this.tier = tier;
-    }
-
-
-}
-
 export class SpecialSkill extends Skill{
     type = "SpecialSkill";
     theme_keys: string[] = [];
@@ -126,6 +111,28 @@ export class SpecialSkill extends Skill{
     }
 
 
+}
+
+let numCoreSkills = 0;
+
+export class CoreSkill extends SpecialSkill{
+    type = "CoreSkill";
+    name: string;
+    tier: number;
+    key: number;
+    theme_keys: string[] = [];
+    unlocked:boolean = false;
+    constructor(menu_item: string, tier: number){
+        super();
+        numStatSkills ++;
+        this.key = numStatSkills;
+        this.name = `${menu_item}+1`;
+        this.tier = tier;
+    }
+
+    cytoscapeID = () =>{
+        return `${this.name}${this.key}`;
+    }
 }
 
 let numStatSkills = 0;

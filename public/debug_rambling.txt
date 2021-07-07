@@ -75,6 +75,28 @@ i think the number is rewriting itself.
 
 
 it is im an idiot i made it procedural instead of locking it down even tho i HAD the locked down variable all ready.
+~~~~~~~~~~~~~~~~~~~~~~~
+
+alright so. 
+
+
+Right now what I have is each theme has a single MENU CONSTANT associated with it.
+
+I would like to turn that into procedural skills attached to the skill graph.
+
+the way i have it set up, each time you unlock a MENU skill graph you level a menu up one time.
+ (which unlocks new content for it)
+
+but i do NOT want to let a menu level up past its max. so i should keep a hash in the contents
+ keyed by eahc menu item and its max value.
+
+ i also might want to do things like make options ALWAYS the first menu that unlocks (but not available from the start.)
+ (that way ALL menu items that CAN level up start at 0)
+
+ so then all i do is when i'm generating the skill graph 50/50 pick either a stat OR a menu and if i go to pick the
+ menu and its already maxed out then i do the stat after all. 
+
+ (maxed out == # of that menu already seen >= max. so if theres 3 on screen and max is 3 you're done.)
 
 
 
