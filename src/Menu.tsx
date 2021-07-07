@@ -10,6 +10,7 @@ import { StatisticsScreen } from "./Screens/Statisics";
 import { AchivementsScreen } from "./Screens/Achivements";
 import { fuckery } from "./CanvasFuckery/fuckery";
 import { OptionsScreen } from "./Screens/Options";
+import { ObserverBot } from "./Modules/ObserverBot/ObserverBot";
 
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
@@ -43,6 +44,7 @@ interface MenuProps{
   angle: number;
 }
 interface TabProps{
+  observer:ObserverBot;
   tab: any;
   setNextScreen: any;
   setCurrentScreen: any;
@@ -56,7 +58,7 @@ function StatusTab(props: TabProps){
       //warning: since these are async this might not be the best idea.
       setNextScreen(STATUS);
       setCurrentScreen(LOADING)}
-      }>Status</Tab>
+      }>Status{props.observer.statusMenuLevel}</Tab>
   )
 }
 function AchievementsTab(props: TabProps){
@@ -67,7 +69,7 @@ function AchievementsTab(props: TabProps){
         setNextScreen(ACHIEVEMENTS);
         setCurrentScreen(LOADING)}
       } {...tab}>
-      Achivements
+      Achivements{props.observer.achievementMenuLevel}
     </Tab>
   )
 }
@@ -80,7 +82,7 @@ function SkillsTab(props: TabProps){
         setNextScreen(SKILLGRAPH);
         setCurrentScreen(LOADING)}
       } {...tab}>
-      Skills
+      Skills{props.observer.skillGraphLevel}
     </Tab>
   )
 }
@@ -93,7 +95,7 @@ function OptionsTab(props: TabProps){
         setNextScreen(OPTIONS);
         setCurrentScreen(LOADING)}
       } {...tab}>
-      Options
+      Options{props.observer.optionsMenuLevel}
     </Tab>
   )
 }
@@ -106,7 +108,7 @@ function StatisticsTab(props: TabProps){
         setNextScreen(STATISTICS);
         setCurrentScreen(LOADING)}
       } {...tab}>
-      Statistics
+      Statistics{props.observer.statisticsMenuLevel}
     </Tab>
   )
 }
@@ -118,7 +120,7 @@ function TruthTab(props: TabProps){
       {
         (window as any).setJustTruthMode(true);
       }} {...tab}>
-      Just Truth
+      Just Truth{props.observer.truthMenuLevel}
     </Tab>
   )
 }
@@ -172,18 +174,18 @@ function Menu(props: MenuProps) {
           <Fragment>
             <TabList  {...tab} aria-label="My tabs">
              
-              <StatusTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
+              <StatusTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
               
-              <SkillsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
-              <AchievementsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
+              <SkillsTab  observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
+              <AchievementsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
 
-              {(window as any).rageMode?<TruthTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {(window as any).rageMode?<TruthTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
-              {observer.statisticsMenuLevel>0?<StatisticsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.statisticsMenuLevel>0?<StatisticsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
 
 
-              {observer.optionsMenuLevel>0?<OptionsTab tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.optionsMenuLevel>0?<OptionsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
             </TabList>
             <TabPanel {...tab}>
