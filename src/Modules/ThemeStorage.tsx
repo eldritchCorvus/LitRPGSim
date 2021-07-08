@@ -261,7 +261,7 @@ const initSuperNames = () =>{
 const initLocations = () =>{
     location_possibilities[ANGELS] =  ["church","grotto","temple","monastery"];
     location_possibilities[SERVICE] =  ["mansion","manor","main-house"];
-    location_possibilities[FAMILY] =  ["home"];
+    location_possibilities[FAMILY] =  ["home","hearth"];
     location_possibilities[MAGIC] =  ["mountain","school","tower"];
     location_possibilities[LIGHT] =  ["mountain","field","cloud"];
     location_possibilities[HEALING] =  ["hospital","field-hospital","doctors office"];
@@ -272,7 +272,7 @@ const initLocations = () =>{
     location_possibilities[ZAP] = ["field","cloud"] ;
     location_possibilities[LOVE] = ["restaurant","scenic cliff","windswept moor"];
     location_possibilities[SOUL] = ["hall of mirrors"] ;
-    location_possibilities[ANGER] = ["battlefield"] ;
+    location_possibilities[ANGER] = ["battlefield","bull-pen"] ;
     location_possibilities[WEB] =  ["cave","theatre"] ;
     location_possibilities[ROYALTY] =  ["castle","mansion","courthouse"] ;
     location_possibilities[ENDINGS] =  ["theatre","graveyard","abandoned building"] ;
@@ -287,7 +287,7 @@ const initLocations = () =>{
     location_possibilities[DOLLS] = ["teahouse","shop","toystore"] ;
     location_possibilities[OBFUSCATION] = ["burning building","tavern","park"] ;
     location_possibilities[DARKNESS] =  ["basement","attic","darkroom"] ;
-    location_possibilities[KILLING] =  ["battlefield"];
+    location_possibilities[KILLING] =  ["battlefield","slaughterhouse","butchers","abattoir"];
     location_possibilities[MUSIC] =  ["theatre","concert hall","pub"] ;
     location_possibilities[DEFENSE] =  ["fortress","battlements","fort"] ;
     location_possibilities[QUESTING] = ["tavern","pub","bar"] ;
@@ -338,7 +338,7 @@ const initMenuOptions = () =>{
     menu_options[MAGIC] =  [RESISTANCES];
     menu_options[LIGHT] =  [ACHIEVEMENTS];
     menu_options[HEALING] =  [STATUS];
-    menu_options[PLANTS] = [CITYBUILDING];
+    menu_options[PLANTS] = [INVENTORY];
     menu_options[HUNTING] = [INVENTORY];
     menu_options[DECAY] = [STATUS] ;
     menu_options[CHOICES] =  [OPTIONS] ;
@@ -346,12 +346,12 @@ const initMenuOptions = () =>{
     menu_options[LOVE] = [COMPANIONS];
     menu_options[SOUL] = [STATUS] ;
     menu_options[ANGER] = [BACKSTORY] ;
-    menu_options[WEB] =  [CITYBUILDING] ;
+    menu_options[WEB] =  [COMPANIONS] ;
     menu_options[ROYALTY] =  [CITYBUILDING] ;
     menu_options[ENDINGS] =  [LORE] ;
     menu_options[KNOWING] = [STATISTICS] ;
     menu_options[GUIDING] = [QUESTS] ;
-    menu_options[CRAFTING] =  [INVENTORY];
+    menu_options[CRAFTING] =  [CITYBUILDING];
     menu_options[LANGUAGE] = [LORE] ;
     menu_options[BUGS] =  [CODE]; //get it? code? bugs? i refuse to appologize.
     menu_options[ADDICTION] = [SKILLGRAPH]; //addicted to leveling up now are we?
