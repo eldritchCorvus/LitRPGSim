@@ -3,7 +3,7 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
@@ -11,6 +11,7 @@ import { AchivementsScreen } from "./Screens/Achivements";
 import { fuckery } from "./CanvasFuckery/fuckery";
 import { OptionsScreen } from "./Screens/Options";
 import { ObserverBot } from "./Modules/ObserverBot/ObserverBot";
+import { CityBuildingScreen } from "./Screens/CityBuilding";
 
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
@@ -113,6 +114,19 @@ function StatisticsTab(props: TabProps){
   )
 }
 
+function CityTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === CITYBUILDING?selectedTab:unSelectedTab} id={CITYBUILDING} onClick={() =>
+      {
+        setNextScreen(CITYBUILDING);
+        setCurrentScreen(LOADING)}
+      } {...tab}>
+      CityBuilding{props.observer.cityBuildingMenuLevel}
+    </Tab>
+  )
+}
+
 function TruthTab(props: TabProps){
   const {tab, setNextScreen, setCurrentScreen} = props;
   return(
@@ -182,6 +196,7 @@ function Menu(props: MenuProps) {
               {(window as any).rageMode?<TruthTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
               {observer.statisticsMenuLevel>0?<StatisticsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.cityBuildingMenuLevel>0?<CityTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
 
 
@@ -209,6 +224,10 @@ function Menu(props: MenuProps) {
 
             </TabPanel>:null}
 
+            {observer.cityBuildingMenuLevel>0?<TabPanel {...tab}>
+              {currentScreen === CITYBUILDING?<CityBuildingScreen  loadScreen={handleLoading} player={player}></CityBuildingScreen>:null}
+
+            </TabPanel>:null}
 
 
             {observer.optionsMenuLevel>0?<TabPanel {...tab}>

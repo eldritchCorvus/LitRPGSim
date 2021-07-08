@@ -59,6 +59,7 @@ export class ObserverBot{
     timeYouFuckedUp = 0; //:) :) :)
     timeSpentPlaying = 0;
     timeSpentInCombat = 0;
+    cityName = "ERROR: TOWN NOT FOUND";
     timeSpentInCutscenes = 0;
     timeSpentCityBuilding = 0;
     timeSpentInMenu = 0;
@@ -68,9 +69,10 @@ export class ObserverBot{
     optionsMenuLevel = 1;
     truthMenuLevel = 0;
     loadingMenuLevel = 1;
+    cityMorale = 0;
     statisticsMenuLevel = 0;
     backstoryMenuLevel =0;
-    cityBuildingMenuLevel =0;
+    cityBuildingMenuLevel =3;
     codeMenuLevel =0;
     godMenuLevel =0;
     inventoryMenuLevel =0;
@@ -247,6 +249,10 @@ export class ObserverBot{
 
         (window as any).hackTimeCitybuildingInSeconds = (value:number)=>{
             this.timeSpentCityBuilding = value * 1000;
+        }
+
+        (window as any).hackCityMorale = (value:number)=>{
+            this.cityMorale = value ;
         }
 
         (window as any).hackOptionsMenuLevel = (value:number)=>{
