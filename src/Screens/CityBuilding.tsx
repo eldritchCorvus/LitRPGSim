@@ -10,10 +10,25 @@ interface StatusProps {
 
 export const CityBuildingScreen = (props: StatusProps) => {
 
-    const BuildingObject = styled.div`
-    padding: 10px;
-    
+    const BuildingLine = styled.div`
+    padding: 20px;
+    font-size: 15px;
+    width: 95%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
 `
+    const BuildingHeader = styled.div`
+        display: inline-block;
+        margin-right: 5px;
+        width: 175px;
+
+    `
+    const BuildingSection = styled.div`
+        display: inline-block;
+        margin-right: 5px;
+        width: 175px;
+    `
 
     const observer = props.player.observer;
 
@@ -44,13 +59,19 @@ export const CityBuildingScreen = (props: StatusProps) => {
 
             {observer.cityBuildingMenuLevel > 1 ? (
                 <Fragment>
-                    <StatusRow>
+                    <div>
                         {props.player.buildings.map((building)=>{
-                            return <BuildingObject>{building}</BuildingObject>
+                            return (
+                            <BuildingLine>
+                                <BuildingHeader>{building}: </BuildingHeader>
+                                <BuildingSection>Status: Unbuilt </BuildingSection>
+                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Assigned Leader: None </BuildingSection>:null}
+                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Morale Boost: 0 </BuildingSection>:null}
+                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Build Points: 0 </BuildingSection>:null}
 
-                        
+                            </BuildingLine>)
                     })}
-                    </StatusRow>
+                    </div>
                 </Fragment>
             ) : null}
 

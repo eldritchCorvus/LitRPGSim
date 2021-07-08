@@ -1,6 +1,12 @@
 //LORE, BACKSTORY and QUESTS should grab from theme  mix and match templates that have things to fill
 // in mad lib style (noun, adj, object, etc) and then have little frame parts that make things work
 //like "long long ago".
+/*
+To make a new menu you need to tie it in two places in the MENU, make its typescript file ,
+make its observerbot level
+and also wire the first time you go there into the achievement system
+(and also possibly the levels of the menu);
+*/
 export const SKILLGRAPH = "SKILLGRAPH"; //???
 export const LOADING = "LOADING"; //just what kind of tips are in the loading screen?
 export const STATUS = "STATUS"; //this obviously is gonna get upgraded.
@@ -24,20 +30,20 @@ export interface numbermap {
 
 
 export const max_values_for_menus:numbermap = {
-    SKILLGRAPH: 3, 
-    LOADING: 3,
-    STATUS: 3,
-    STATISTICS: 3,
-    ACHIEVEMENTS: 3,
-    OPTIONS: 3,
-    QUESTS: 3,
-    COMPANIONS: 3,
-    GODS: 3,
-    CITYBUILDING: 3,
-    INVENTORY: 3,
-    LORE: 3,
-    BACKSTORY: 3,
-    RESISTANCES: 3,
-    CODE: 3,
-    TRUTH:3,
+    SKILLGRAPH: 1, 
+    LOADING: 1,
+    STATUS: 1,
+    STATISTICS: 1,
+    ACHIEVEMENTS: 1,
+    OPTIONS: 1,
+    QUESTS: 1,
+    COMPANIONS: 1,
+    GODS: 1,
+    CITYBUILDING: 3, //level 2 shows all possible buildings, level 3 shows options
+    INVENTORY: 1,
+    LORE: 1,
+    BACKSTORY: 1,
+    RESISTANCES: 1,
+    CODE: 1,
+    TRUTH:1,
 }

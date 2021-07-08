@@ -50,7 +50,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             MENU_POSSIBILITIES = MENU_POSSIBILITIES.concat(theme.string_possibilities[MENU]);
             let ret:string = rand.pickFrom(MENU_POSSIBILITIES);
             current_values_for_menus[ret] = current_values_for_menus[ret]+1;
-            if(current_values_for_menus[ret] <max_values_for_menus[ret]){
+            if(current_values_for_menus[ret] <=max_values_for_menus[ret]){
                 return ret;
             }else{
                 if(!retry){
