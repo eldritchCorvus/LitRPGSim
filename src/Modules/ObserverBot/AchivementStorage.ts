@@ -72,6 +72,7 @@ export class AchivementStorage{
         this.initTimeInCombat(rand, title,compliments, insults);
         this.initTimeInCutscenes(rand, title,compliments, insults);
         this.initTimeInCityBuilding(rand, title,compliments, insults);
+        this.initCityMorale(rand, title,compliments, insults);
 
         //this.initTimeInCutscenes(rand, title,compliments, insults);
         //this.initTimeSpentCityBuilding(rand, title,compliments, insults);
@@ -167,6 +168,34 @@ export class AchivementStorage{
             const tmp = new Achievement(`${value} Minutes In Menu!`, value,new ExceedValueTrigger(value*mm, "timeSpentInMenu"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
+        }
+    }
+
+    initCityMorale = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
+        const mm = 1000*60; //minutes multiplier
+        const values = [1,10,100];
+        interface AchievementTextMapInner {
+            [details: number] : string;
+        }
+        interface AchievementTextMapOuter {
+            [details: string] : AchievementTextMapInner;
+        }
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                1: `Awww...it seems you are disapointed there no actual city building mechanic :) :) :) `,
+                10: `Wanted to imagine yourself as some fucked up town mayor? Not enough to be a ${title}.`,
+                100: `The patronizing leader of a bunch of idiot npcs, teaching them things like basic fucking sanitization principles.`,
+            },
+            clickBelow: {
+                1: `Well! It seems theres no reason to pretend anymore! `,
+                10: " You wouldn't be hacking 'working' mechanics, after all, now would you?",
+                100: `We both know there's no actual role playing game in this. `,
+            }
+        }
+        for(const value of values){
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(value*mm, "cityMorale"),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+            
         }
     }
 
