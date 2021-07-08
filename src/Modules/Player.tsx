@@ -9,6 +9,8 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
+import { LOCATION } from "./ThemeStorage";
+import { titleCase } from "../Utils/StringUtils";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -23,6 +25,7 @@ export   class Player{
     skillGenAlg: SkillGenAlg;
     observer: ObserverBot;
     title: string;
+    buildings: string[] = [];
 
 
 
@@ -50,6 +53,14 @@ export   class Player{
         this.observer = new ObserverBot(this,memories);
         this.observer.achivementStorage.checkForAchievements(this.observer);
         this.title = this.generateTitle();
+        this.generateBuildings(themes,rand);
+    }
+
+    generateBuildings = (themes: Theme[],rand:SeededRandom)=>{
+        for(let theme of themes){
+            const building:string = titleCase(rand.pickFrom(theme.string_possibilities[LOCATION]));
+            this.buildings.push(building);
+        }
     }
 
     generateTitle = ()=>{
