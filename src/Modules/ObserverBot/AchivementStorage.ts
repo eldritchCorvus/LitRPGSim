@@ -332,6 +332,7 @@ export class AchivementStorage{
                 "ACHIEVEMENTS": "On the Achivement Screen you can review what achivements you've already unlocked! Try to collect them all!",
                 "STATISTICS": "Have you ever wondered how many enemies you've defeated? How long you've been walking? How long you've spent in the menu? You can find it all here!",
                 "OPTIONS": `As a ${title} you're probably responsible enough to be trusted with the Options Screen! Feel free to tweak the settings to customize your play experience!`
+                ,"CITYBUILDING": `Now that you've met a few of the residents of Zampanio, you're ready to found your own city! This menu will help you become the most ${rand.pickFrom(compliments)} mayor you can be!`
 
             },
             clickBelow: {
@@ -341,6 +342,7 @@ export class AchivementStorage{
                 "ACHIEVEMENTS": "God, what an insufferable mechanic. 'Congratulations, it seems you did the bare minimum of playing a game!'. What a farce.",
                 "STATISTICS": `What's that? It seems you don't find it enthralling seeing how many times you've clicked the mouse button? Neither do I. But I'm stuck here, taking notes every time you do *anything*. Suffer along with me, you ${rand.pickFrom(insults)} asshole.`,
                 "OPTIONS": "It seems you've stumbled across everyones favorite part of playing any game: exactly tweaking the mind numbingly boring settings."
+                ,"CITYBUILDING": `Ah, the ultimate in escapist fantasy: that not only do people LIKE a ${rand.pickFrom(insults)} person like you, but they are just CLAMORING for you to tell them what to do.`
 
             }
 

@@ -72,7 +72,7 @@ export class ObserverBot{
     cityMorale = 0;
     statisticsMenuLevel = 0;
     backstoryMenuLevel =0;
-    cityBuildingMenuLevel =3;
+    cityBuildingMenuLevel =0;
     codeMenuLevel =0;
     godMenuLevel =0;
     inventoryMenuLevel =0;
