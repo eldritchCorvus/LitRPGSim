@@ -47,7 +47,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         const pickMENU = (parent: Skill, retry=false):(string|null) =>{
             let MENU_POSSIBILITIES = [OPTIONS]; //TODO fill this with things from parent.theme keys as well.
             const theme = all_themes[rand.pickFrom(parent.theme_keys)];
-            MENU_POSSIBILITIES = MENU_POSSIBILITIES.concat(theme.string_possibilities[MENU]);
+            MENU_POSSIBILITIES = MENU_POSSIBILITIES.concat(theme.getPossibilitiesFor(MENU));
             let ret:string = rand.pickFrom(MENU_POSSIBILITIES);
             current_values_for_menus[ret] = current_values_for_menus[ret]+1;
             if(current_values_for_menus[ret] <=max_values_for_menus[ret]){

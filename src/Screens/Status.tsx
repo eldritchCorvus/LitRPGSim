@@ -42,7 +42,7 @@ export const  StatusScreen = (props: StatusProps)=> {
     const calculateMenuOptions = () =>{
         let ret:string[] = [];
         for(let key of props.player.theme_keys){
-            ret = ret.concat(all_themes[key].string_possibilities[MENU]);
+            ret = ret.concat(all_themes[key].getPossibilitiesFor(MENU));
         }
         return uniq(ret).join(', ');
     }
