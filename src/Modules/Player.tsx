@@ -58,7 +58,7 @@ export   class Player{
 
     generateBuildings = (themes: Theme[],rand:SeededRandom)=>{
         for(let theme of themes){
-            const building:string = titleCase(rand.pickFrom(theme.string_possibilities[LOCATION]));
+            const building:string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
             this.buildings.push(building);
         }
     }
