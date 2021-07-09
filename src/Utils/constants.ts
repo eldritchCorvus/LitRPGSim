@@ -21,7 +21,7 @@ export const INVENTORY = "INVENTORY"; //weapons, alchemy ingredients, scrolls, e
 export const LORE = "LORE"; //whats the actual setting you're in? who is the big bad?
 export const BACKSTORY = "BACKSTORY"; //does your char have amnesia? are you a stranger?
 export const RESISTANCES = "RESISTANCES"; //are you weak to blunt? strong against heresy?
-export const CODE = "CODE"; //can i force open the javascript console?
+export const CODE = "CODE"; //have a fake error console that prints out all the fake errors (such as when you hit escape)
 //only accessible if in RAGE MODE
 export const TRUTH = "TRUTH";
 export interface numbermap {
