@@ -19,7 +19,9 @@ body {
   left: 0px;
   z-index: -999;
 }
-
+#ThisIsNotABlog{
+  display: none;
+}
 #ThisIsNotASpiral{
   position: fixed;
   width: 600px;
