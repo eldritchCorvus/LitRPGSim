@@ -6,13 +6,13 @@ import {Player, randomPlayer} from "./Modules/Player";
 import {initInterests } from "./Modules/Interest";
 import {useEffect, useState,Fragment} from 'react';
 import { initStats } from "./Modules/Stat";
-import { getRandomSeed, numbertoseed } from "./Utils/NonSeededRandUtils";
+import { getRandomSeed } from "./Utils/NonSeededRandUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 import Menu from "./Menu";
 import {JustTruth} from "./Screens/JustTruth";
 import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
-import { isNumeric } from "./Utils/StringUtils";
+import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
       let initial_seed;
       if (urlseed){
         if(!isNumeric(urlseed)){
-            initial_seed = numbertoseed(urlseed);
+            initial_seed = stringtoseed(urlseed);
         }else{
           initial_seed = parseInt(urlseed);
         }
@@ -97,6 +97,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li></li>
         <li>city typing is glitched?</li>
         <li>achivement for x skill points from first menu open"</li>
         <li>what happens if i have more menu items than room to display?</li>

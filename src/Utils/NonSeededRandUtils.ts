@@ -12,13 +12,7 @@ export const  getRandomSeed =()=> {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export function numbertoseed(seed:string){
-        var output = 0;
-       for (var i = 0, len = seed.length; i < len; i++) {
-          output += seed[i].charCodeAt(0)
-        }
-        return output
-}
+
 
 export const shuffle =(array:any[])=> {
     var currentIndex = array.length, temporaryValue, randomIndex;

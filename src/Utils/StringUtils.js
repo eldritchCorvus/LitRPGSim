@@ -1,9 +1,45 @@
+import SeededRandom from "./SeededRandom";
+
 export const titleCase = (input)=>{
     return replaceStringAt(input,0 , input[0].toUpperCase());
 }
 
 export function replaceStringAt(str, index, character){
     return str.substr(0, index) + character + str.substr(index+character.length);
+}
+
+export function stringtoseed(seed){
+    var output = 0;
+   for (var i = 0, len = seed.length; i < len; i++) {
+      output += seed[i].charCodeAt(0)
+    }
+    return output
+}
+
+//https://media.discordapp.net/attachments/468574691087613952/863079687276986388/tumblr_qaosxmi6ET1xf64vf.mp4
+//https://en.m.wikipedia.org/wiki/Wordplay_(The_Twilight_Zone)
+//takes in a sentence, for each word in it decides if its going to fuck it up today.
+//seed_multiplier handles making it so that EVERY instance of the word "dog" is treated the same but each time i ask i might decide dog is changeable vs not
+export function gaslightWordMeanings(sentence, seed_multiplier){
+    const words = sentence.split(" ");
+    for(let i = 0; i<words.length; i++){
+        words[i] = getWordReplacement(words[i],seed_multiplier)
+    }
+    return words.join(" ");
+}
+
+//takes in a word, turns it into a random seed and if rngesus says so, turns it into another word
+ function getWordReplacement(word,seed_multiplier){
+    const gaslightOptions = ["artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredome","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
+    const multiplied_seed = stringtoseed(word.toUpperCase)*seed_multiplier;
+
+    let rand = new SeededRandom(multiplied_seed);
+    if(rand.nextDouble()>.5){
+        const seed = stringtoseed(word.toUpperCase);
+        let rand = new SeededRandom(seed);
+        return rand.pickFrom(gaslightOptions);
+    }
+    return word;
 }
 
 //hate
