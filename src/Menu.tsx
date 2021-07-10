@@ -12,6 +12,7 @@ import { fuckery } from "./CanvasFuckery/fuckery";
 import { OptionsScreen } from "./Screens/Options";
 import { ObserverBot } from "./Modules/ObserverBot/ObserverBot";
 import { CityBuildingScreen } from "./Screens/CityBuilding";
+import { domWordMeaningFuckery } from "./Utils/StringUtils";
 
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
@@ -148,6 +149,7 @@ function Menu(props: MenuProps) {
   const observer = player.observer;
 
   const tab = useTabState();
+  
 
   useEffect(()=>{
       fuckery();
@@ -157,6 +159,10 @@ function Menu(props: MenuProps) {
   useEffect(()=>{
     tab.setSelectedId(currentScreen);
   }, [currentScreen,tab])
+
+  useEffect(()=>{
+    domWordMeaningFuckery();
+  },[currentScreen]);
 
   const handleLoading = (screen:string) =>{
     setRefresh(true);

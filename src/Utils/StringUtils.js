@@ -1,3 +1,4 @@
+import { getRandomNumberBetween } from "./NonSeededRandUtils";
 import SeededRandom from "./SeededRandom";
 
 export const titleCase = (input)=>{
@@ -20,7 +21,27 @@ export function stringtoseed(seed){
 //https://en.m.wikipedia.org/wiki/Wordplay_(The_Twilight_Zone)
 //takes in a sentence, for each word in it decides if its going to fuck it up today.
 //seed_multiplier handles making it so that EVERY instance of the word "dog" is treated the same but each time i ask i might decide dog is changeable vs not
-export function gaslightWordMeanings(sentence, seed_multiplier){
+export function domWordMeaningFuckery(){
+    console.log("JR NOTE: domWordMeaningFuckery is being called")
+    const root = document.querySelector('body');
+    const seed_multiplier = getRandomNumberBetween(0,300);
+    if(root){
+        const children = root.querySelectorAll("*");
+        for(let child of children){
+            const subchildren = child.querySelectorAll("*");
+            if(subchildren.length == 0){
+                console.log("gaslight is go for child", child)
+                child.textContent = gaslightWordMeanings(child.textContent, seed_multiplier);
+            }
+
+            //child.innerText = "boo"; this breaks things, because it tries to replace real children too.
+            //child.textContent = "bob"; same for this
+        }
+    }
+
+}
+
+function gaslightWordMeanings(sentence, seed_multiplier){
     const words = sentence.split(" ");
     for(let i = 0; i<words.length; i++){
         words[i] = getWordReplacement(words[i],seed_multiplier)
@@ -30,14 +51,19 @@ export function gaslightWordMeanings(sentence, seed_multiplier){
 
 //takes in a word, turns it into a random seed and if rngesus says so, turns it into another word
  function getWordReplacement(word,seed_multiplier){
-    const gaslightOptions = ["artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredome","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
-    const multiplied_seed = stringtoseed(word.toUpperCase)*seed_multiplier;
+    const gaslightOptions = ["flavor","taste","smell","feeling","failure","fear","horror","mistake","line","good dog","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
+    const multiplied_seed = stringtoseed(word.toUpperCase())*seed_multiplier;
 
     let rand = new SeededRandom(multiplied_seed);
-    if(rand.nextDouble()>.5){
-        const seed = stringtoseed(word.toUpperCase);
-        let rand = new SeededRandom(seed);
-        return rand.pickFrom(gaslightOptions);
+    console.log("JR NOTE: for word",word,"multiplied seed is", multiplied_seed, "which is from",stringtoseed(word.toUpperCase()));
+    if(rand.nextDouble()>.99){
+        const seed = stringtoseed(word.toUpperCase());
+        let rand2 = new SeededRandom(seed);
+        let ret= rand2.pickFrom(gaslightOptions);
+        if(word[0]===word[0].toUpperCase()){
+            ret = titleCase(ret);
+        }
+        return ret;
     }
     return word;
 }

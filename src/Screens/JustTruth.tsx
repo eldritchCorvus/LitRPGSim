@@ -173,6 +173,11 @@ export const JustTruth = (props: StatusProps) => {
             canvas.style.opacity = "0.2";
             canvas.classList.remove("chaos");
             canvas.classList.remove("frameAnimation");
+            const root = document.querySelector('#ThisIsNotAGame');
+            if(root){
+                (root as HTMLElement).style.transform = "";
+            }
+
         }
         const main = document.getElementById("ThisIsNotAGame");
         if (main) {
