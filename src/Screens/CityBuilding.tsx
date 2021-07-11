@@ -39,12 +39,6 @@ export const CityBuildingScreen = (props: StatusProps) => {
         setCurrentName(ev.target.value);
     }
 
-    //makes it so there is no city name till you get here, to enable "errors";
-    useEffect(() => {
-        observer.cityName = "Firsty";
-        setCurrentName("Firsty");
-    });
-
     return (
         <StatusBlock>
             <h1>{currentName}</h1>
