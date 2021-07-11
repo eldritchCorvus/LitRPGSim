@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
 
@@ -45,7 +45,7 @@ export const PopupContent = styled.div`
 const  AchivementPopup = (props: AchivementProps)=> {
     const dialog = useDialogState();
     const [initialShowing, setInitialShowing] = useState(true);
-    let {title, text} = props;
+    let {title, text, skillPoints} = props;
     const {visible} = dialog;
     useEffect(()=>{
         if(initialShowing){
@@ -67,17 +67,17 @@ const  AchivementPopup = (props: AchivementProps)=> {
             (root as HTMLElement).style.filter = "blur(0px)";
         }
     },[visible])
-
+    console.log("JR NOTE: going to render achievement popup with title",title, "vs",props)
     return(
-        <>
+        <Fragment key={title}>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"25%", width: "600px"} }>
+      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} aria-label="{title}" style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"25%", width: "600px"} }>
         <Popup>
-            <PopupTitle>{title} {props.skillPoints} SkillPoints Gained!!!</PopupTitle>
-            <PopupContent>{text}</PopupContent>
+            <PopupTitle>{props.title} {props.skillPoints} SkillPoints Gained!!!</PopupTitle>
+            <PopupContent>{title}{props.text}</PopupContent>
         </Popup>
       </Dialog>
-    </>
+    </Fragment>
     )
 
 }
