@@ -30,12 +30,8 @@ export function domWordMeaningFuckery(){
         for(let child of children){
             const subchildren = child.querySelectorAll("*");
             if(subchildren.length == 0){
-                console.log("gaslight is go for child", child)
                 child.textContent = gaslightWordMeanings(child.textContent, seed_multiplier);
             }
-
-            //child.innerText = "boo"; this breaks things, because it tries to replace real children too.
-            //child.textContent = "bob"; same for this
         }
     }
 
@@ -51,11 +47,10 @@ function gaslightWordMeanings(sentence, seed_multiplier){
 
 //takes in a word, turns it into a random seed and if rngesus says so, turns it into another word
  function getWordReplacement(word,seed_multiplier){
-    const gaslightOptions = ["flavor","taste","smell","feeling","failure","fear","horror","mistake","line","good dog","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
+    const gaslightOptions = ["worm","bug","gas","flavor","taste","smell","feeling","failure","fear","horror","mistake","line","good dog","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
     const multiplied_seed = stringtoseed(word.toUpperCase())*seed_multiplier;
 
     let rand = new SeededRandom(multiplied_seed);
-    console.log("JR NOTE: for word",word,"multiplied seed is", multiplied_seed, "which is from",stringtoseed(word.toUpperCase()));
     if(rand.nextDouble()>.99){
         const seed = stringtoseed(word.toUpperCase());
         let rand2 = new SeededRandom(seed);

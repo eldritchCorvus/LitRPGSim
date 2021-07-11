@@ -161,7 +161,11 @@ function Menu(props: MenuProps) {
   }, [currentScreen,tab])
 
   useEffect(()=>{
-    domWordMeaningFuckery();
+    //make it so rage mode doesn't break skill graph
+    (window as any).currentScreen = currentScreen;
+    if(currentScreen !== SKILLGRAPH){
+      domWordMeaningFuckery();
+    }
   },[currentScreen]);
 
   const handleLoading = (screen:string) =>{

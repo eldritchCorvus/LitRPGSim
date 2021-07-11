@@ -2,6 +2,7 @@ import  { useEffect } from "react";
 import { rageModeSong } from ".";
 import { fuckery, fuckUpBG } from "./CanvasFuckery/fuckery";
 import { FUCKEDUP } from "./Modules/ObserverBot/ObserverBot";
+import { SKILLGRAPH } from "./Utils/constants";
 import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 
@@ -44,8 +45,9 @@ const beginFuckingShitUp = (numCalls = 0)=>{
     return;
   }
   console.log("JR NOTE: its NOT just truth mode, continuing")
-  domWordMeaningFuckery();
-  const root = document.querySelector('#ThisIsNotAGame');
+  if((window as any).currentScreen !== SKILLGRAPH){
+    domWordMeaningFuckery();
+  }  const root = document.querySelector('#ThisIsNotAGame');
   if(root){
     const children = root.querySelectorAll("*");
     fuckShitUp(root as HTMLElement, numCalls);
