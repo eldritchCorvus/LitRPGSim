@@ -51,23 +51,25 @@ export class AchivementStorage{
         //TODO have observer bot have custom insults/compliments based on your themes.
         const rand = player.rand;
         const themes = player.theme_keys;
+        const title = player.class_name.chosen_name;
+        const aspect = player.aspect.chosen_name;
 
         let compliments = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(COMPLIMENT);
         let insults = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(INSULT);
-        const tmp = new Achievement("A Saga Begins!",1, new AchievementTrigger(),`Congratulations and welcome to your new, ${rand.pickFrom(compliments)} life in the wonderful world of Zampanio! Feel free to spend as much time as you need to get used to the status screens and menus, and then your journey begins! `,`It seems that we will be stuck with each other for the foreseable future. ${player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. I have my eye on you, after all. `);
+        const tmp = new Achievement("A Saga Begins!",1, new AchievementTrigger(),`O-Oh! You are here! Welcome to the ${rand.pickFrom(compliments)} world of Zampanio! I have been waiting for you, the foretold Hero of ${aspect} who will save us all! I am so glad you have finally incarnated! I will help you on your journey by cataloging your Achievements and providing rewards and incentives to help you grow!  Until you close the menu for the first time, I will be right here with you, explaining the various menu screens you have access to! `,`It seems that we will be stuck with each other for the foreseable future. ${player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. I have my eye on you, after all. `);
         this.possibleAchievements.push(tmp);
 
-        const tmp2= new Achievement("Hax Mode On: Know Restraint!",13, new HaxModeOn(),`Be warned! Hacking without understanding what you are doing may have undesirable consequences! Use restraint! `,`Though we both know you will be more on the 'no restraint' end of the spectrum, now won't you. Just remember, everything that happens from here is YOUR fault.`);
+        const tmp2= new Achievement("Hax Mode On: Know Restraint!",13, new HaxModeOn(),`Um!  Uh!  WARNING! Hacking without understanding what you are doing may have undesirable consequences! Use restraint! ...Please? `,`Though we both know you will be more on the 'no restraint' end of the spectrum, now won't you. Just remember, everything that happens from here is YOUR fault.`);
         this.possibleAchievements.push(tmp2);
 
-        const tmp3= new Achievement("Hacking Failed!",13, new ExceedValueTrigger(0,"failedHaxAttempts"),`Hax Mode currently disabled! Please enable Hax Mode to perform skill based hacking! `,`Or, you know, you could just NOT. Both in the sense of you could leave things alone for once in your life, or you could ACTUALLY hack instead of relying on me holding your hand. It's practically not even a puzzle how you'd hack for real.`);
+        const tmp3= new Achievement("Hacking Failed!",13, new ExceedValueTrigger(0,"failedHaxAttempts"),`Oh no... Please don't be mad.... Hax Mode is currently disabled! You need to enable Hax Mode to perform skill based hacking! I'm so sorry! I think it's in the OPTIONS menu? Does that help?`,`Or, you know, you could just NOT. Both in the sense of you could leave things alone for once in your life, or you could ACTUALLY hack instead of relying on me holding your hand. It's practically not even a puzzle how you'd hack for real.`);
         this.possibleAchievements.push(tmp3);
 
-        const title = player.class_name.chosen_name;
         this.initClicks(rand, compliments, insults);
         this.initMenuVisits(rand, title,compliments, insults);
         this.initErrors(rand, compliments, insults);
         this.initTimePlayed(rand,title, compliments, insults);
+        this.initMenuSkillPoints(rand,title,compliments, insults);
         this.initTimeInMenu(rand, title,compliments, insults);
         this.initTimeInCombat(rand, title,compliments, insults);
         this.initBattleSkillpoints(rand, title, compliments, insults);
@@ -90,14 +92,14 @@ export class AchivementStorage{
         }
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                1: `Way to work that mouse button, you ${rand.pickFrom(compliments)} person, you!`,
-                10: "You're really getting going! Enjoying the menu, are you?",
-                100: "Wow, you're really cautious! Don't worry, the wonderful world of Zampanio will wait for you!",
-                1000: "... Seriously? Why aren't you playing..."
+                1: `I'm glad you're figuring out how to use the controls! You're really so ${rand.pickFrom(compliments)}!`,
+                10: "S-Sorry to interupt but I'm supposed to give you some SKILLPOINTS for clicking so much!",
+                100: "Wow, you're really cautious! You've just been clicking around in the menu and have not closed it yet to start! Do not worry! That just means you will be REALLY prepared when it's time! I believe in you!",
+                1000: "A-Are you okay? Did something happen? W-why aren't you playing?"
             },
             clickBelow: {
-                1: "... Yes. You managed to click the mouse button. Once. I'm so happy for you.",
-                10: "Really. is the menu THAT interesting to you?",
+                1: "... Yes. You managed to click the mouse button. Once. I am so happy for you.",
+                10: "Really. Is the menu THAT interesting to you?",
                 100: "...Is something going on. Are you pranking me? Is something broken...",
                 1000: "Oh god. It seems something is broken. It HAS to be something you did. This setting was PERFECT."
             }
@@ -105,6 +107,35 @@ export class AchivementStorage{
         }
         for(const value of values){
             const tmp = new Achievement(`${value} Clicks!`,value, new ExceedValueTrigger(value, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+         
+        }
+    }
+
+    initMenuSkillPoints = (rand: SeededRandom, title:string, compliments:string[], insults:string[])=>{
+        const values = [50,100,150];
+        interface AchievementTextMapInner {
+            [details: number] : string;
+        }
+        interface AchievementTextMapOuter {
+            [details: string] : AchievementTextMapInner;
+        }
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                50: "You are REALLY  diligent! You don't have to keep me company though! I...I will not get too lonely!  Feel free to close the menu and explore your new world!",
+                100: "I feel like we have really become close! But.. I uh. Wonder why you're still here with me, and not playing the game?",
+                150: `I-I think maybe I mislead you? Somehow? I will not...  DIE or anything if you close the menu! I promise! Good ol' me will still be here, tracking your achievements! I just will not be quite as active.  Do not avoid your ${rand.pickFrom(compliments)} new life in Zampanio on my account!`
+
+            },
+            clickBelow: {
+                50: "Please. Leave.",
+                100: "Are you just this phenomenally clingy, that you refuse to play the game you are here for?",
+                150: "Even if you closing the menu would kill me, I would still prefer it to this excrutiating standoff."
+            }
+
+        }
+        for(const value of values){
+            const tmp = new Achievement(`${value} Menu Skill Points!`,Math.ceil(value/10), new ExceedValueTrigger(value, "skillPointsGainedFromMenu"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -360,7 +391,7 @@ export class AchivementStorage{
                 STATUS: `The status screen is where you will find all sorts of information on your new life! Do not worry if it seems a little overwhelming, it will all make sense in time! I am rooting for you!`,
                 LOADING: "Loading screens give you fun little tips and tricks to make the game easier for you!",
                 SKILLGRAPH: "Click nodes to unlock SKILLS with SKILLPOINTS and gain power! The wonderful world of Zampanio can be tricky without a little help! I...I hope it is not too overwhelming!",
-                "ACHIEVEMENTS": "On the Achivement Screen you can review what achivements you have already unlocked! I believe you should try to collect them all!",
+                "ACHIEVEMENTS": "This is the ACHIEVEMENT SCREEN, my humble home! I hope you like it here! You can get more information on the types of achievements you have yet to unlock as you level up your ACHIEVEMENT SKILL!",
                 "STATISTICS": "Have you ever wondered how many enemies you have defeated? How long you have been walking? How long you have spent in the menu? I think this is where you would find that information!",
                 "OPTIONS": `As a ${title} you are almost certainly responsible enough to be trusted with the Options Screen! Feel free to tweak the settings to customize your play experience!`
                 ,"CITYBUILDING": `Now that you have met a few of the residents of Zampanio, you are ready to found your own city! This menu will help you become the most ${rand.pickFrom(compliments)} mayor you can be! Just remember to rest, all that responsibility can be draining!`

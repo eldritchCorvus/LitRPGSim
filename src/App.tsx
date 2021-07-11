@@ -97,10 +97,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li></li>
-        <li>city typing is glitched?</li>
-        <li>achivement for x skill points from first menu open"</li>
-        <li>true and false faces are boht obsessed with dogs (after dog gaslight glitch)</li>
+        <li>implement more menu items QUESTS next (things like protect CITY NAME, etc)</li>
         <li>what happens if i have more menu items than room to display?</li>
       <li>status, options, achivements, statistics, skills screen upgrades is gated to menu level</li>
       <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>
