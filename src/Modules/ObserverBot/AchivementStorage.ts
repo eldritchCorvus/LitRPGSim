@@ -70,6 +70,7 @@ export class AchivementStorage{
         this.initTimePlayed(rand,title, compliments, insults);
         this.initTimeInMenu(rand, title,compliments, insults);
         this.initTimeInCombat(rand, title,compliments, insults);
+        this.initBattleSkillpoints(rand, title, compliments, insults);
         this.initTimeInCutscenes(rand, title,compliments, insults);
         this.initTimeInCityBuilding(rand, title,compliments, insults);
         this.initCityMorale(rand, title,compliments, insults);
@@ -290,6 +291,36 @@ export class AchivementStorage{
         }
     }
 
+    initBattleSkillpoints = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
+        const mm = 1000*60; //minutes multiplier
+        const values = [3,10,100,1000];
+        interface AchievementTextMapInner {
+            [details: number] : string;
+        }
+        interface AchievementTextMapOuter {
+            [details: string] : AchievementTextMapInner;
+        }
+        const map:AchievementTextMapOuter = {
+            clickAbove: {
+                3: `Ahahahah do you expect me to pretend like combat is a real thing here??? `,
+                10: "Man, can you imagine if you were sitting here playing a real game with combat.",
+                100: `Oh gosh player senpai, you're so strong and you have spent so much time in actual for real combat. Really. I am swooning.`,
+                1000: "Even if this were a real game I would be accusing you of cheating at this point. Why bother?"
+            },
+            clickBelow: {
+                3: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You are mine now. `,
+                10: "When you decide to fuck up and hack the wrong thing you don't go small, do you?",
+                100: `Do you GET it? Do I need to spell it out? There is no way you got even a single second of combat in this game without hacking. And if you did THAT, then I guess you already know what is leaking out the edges of my mask, correct? `,
+                1000: "So you will have to forgive me for dropping the act."
+            }
+        }
+        for(const value of values){
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(value*mm, "timeSpentInCombat"),map["clickAbove"][value],map["clickBelow"][value]);
+            this.possibleAchievements.push(tmp);
+            
+        }
+    }
+
 
     initErrors = (rand: SeededRandom, compliments:string[], insults:string[])=>{
         const values = [10,100];
@@ -306,7 +337,7 @@ export class AchivementStorage{
             },
             clickBelow: {
                 10: "Shit...what is going on...",
-                100: "Okay. I think I've tracked it down. The...the EXIT MENU functionality is broken? What the hell...WHY. Have you just....been stuck there? This whole time?",
+                100: "Okay. I think I have tracked it down. The...the EXIT MENU functionality is broken? What the hell...WHY. Have you just....been stuck there? This whole time?",
             }
 
         }
@@ -326,22 +357,22 @@ export class AchivementStorage{
         }
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                STATUS: `The status screen is where you'll find all sorts of information on your new life! Don't worry if it seems a little overwhelming, it will all make sense in time!`,
+                STATUS: `The status screen is where you will find all sorts of information on your new life! Do not worry if it seems a little overwhelming, it will all make sense in time! I am rooting for you!`,
                 LOADING: "Loading screens give you fun little tips and tricks to make the game easier for you!",
-                SKILLGRAPH: "Click nodes to unlock SKILLS with SKILLPOINTS and gain power! The wonderful world of Zampanio can be tricky without a little help!",
-                "ACHIEVEMENTS": "On the Achivement Screen you can review what achivements you've already unlocked! Try to collect them all!",
-                "STATISTICS": "Have you ever wondered how many enemies you've defeated? How long you've been walking? How long you've spent in the menu? You can find it all here!",
-                "OPTIONS": `As a ${title} you're probably responsible enough to be trusted with the Options Screen! Feel free to tweak the settings to customize your play experience!`
-                ,"CITYBUILDING": `Now that you've met a few of the residents of Zampanio, you're ready to found your own city! This menu will help you become the most ${rand.pickFrom(compliments)} mayor you can be!`
+                SKILLGRAPH: "Click nodes to unlock SKILLS with SKILLPOINTS and gain power! The wonderful world of Zampanio can be tricky without a little help! I...I hope it is not too overwhelming!",
+                "ACHIEVEMENTS": "On the Achivement Screen you can review what achivements you have already unlocked! I believe you should try to collect them all!",
+                "STATISTICS": "Have you ever wondered how many enemies you have defeated? How long you have been walking? How long you have spent in the menu? I think this is where you would find that information!",
+                "OPTIONS": `As a ${title} you are almost certainly responsible enough to be trusted with the Options Screen! Feel free to tweak the settings to customize your play experience!`
+                ,"CITYBUILDING": `Now that you have met a few of the residents of Zampanio, you are ready to found your own city! This menu will help you become the most ${rand.pickFrom(compliments)} mayor you can be! Just remember to rest, all that responsibility can be draining!`
 
             },
             clickBelow: {
-                STATUS: `Whoopee. It seems you're especially ${rand.pickFrom(insults)}. I blame the fact that you're a ${title}  And no, I won't be explaining what that means.`,
-                LOADING: "There is a 99.9999% chance that you'll be getting used to seeing this screen. Settle in.",
+                STATUS: `Whoopee. It seems you are especially ${rand.pickFrom(insults)}. I blame the fact that you are a ${title}  And no, I will not be explaining what that means.`,
+                LOADING: "There is a 99.9999% chance that you will be getting used to seeing this screen. Settle in.",
                 SKILLGRAPH: "Ah, is there anything more symbolic of endless lust for power than a classic RPG skillgraph? Feel free to obsess over this.",
                 "ACHIEVEMENTS": "God, what an insufferable mechanic. 'Congratulations, it seems you did the bare minimum of playing a game!'. What a farce.",
-                "STATISTICS": `What's that? It seems you don't find it enthralling seeing how many times you've clicked the mouse button? Neither do I. But I'm stuck here, taking notes every time you do *anything*. Suffer along with me, you ${rand.pickFrom(insults)} asshole.`,
-                "OPTIONS": "It seems you've stumbled across everyones favorite part of playing any game: exactly tweaking the mind numbingly boring settings."
+                "STATISTICS": `What is that? It seems you do no find it enthralling seeing how many times you have clicked the mouse button? Neither do I. But I am stuck here, taking notes every time you do *anything*. Suffer along with me, you ${rand.pickFrom(insults)} asshole.`,
+                "OPTIONS": "It seems you have stumbled across everyones favorite part of playing any game: exactly tweaking the mind numbingly boring settings."
                 ,"CITYBUILDING": `Ah, the ultimate in escapist fantasy: that not only do people LIKE a ${rand.pickFrom(insults)} person like you, but they are just CLAMORING for you to tell them what to do.`
 
             }

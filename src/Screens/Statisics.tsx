@@ -75,6 +75,22 @@ export const  StatisticsScreen = (props: StatusProps)=> {
                 <StatusHeader>Times Skipped Cutscene:</StatusHeader>
                 <StatusContent>{observer.timesSkippedCutscene}</StatusContent>
             </StatusRow>
+            
+
+            <StatusRow>
+                <StatusHeader>Skill Points Gained From Menu:</StatusHeader>
+                <StatusContent>{observer.skillPointsGainedFromMenu}</StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Skill Points Gained From Battle:</StatusHeader>
+                <StatusContent>{observer.skillPointsGainedFromBattle}</StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Skill Points Gained:</StatusHeader>
+                <StatusContent>{observer.skillPointsGainedFromMenu + observer.skillPointsGainedFromBattle}</StatusContent>
+            </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Skills Unlocked:</StatusHeader>
