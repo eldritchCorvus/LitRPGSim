@@ -76,6 +76,8 @@ export class ObserverBot{
     codeMenuLevel =0;
     godMenuLevel =0;
     inventoryMenuLevel =0;
+    skillPointsGainedFromMenu =0;
+    skillPointsGainedFromBattle = 0;
     loreMenuLevel =0;
     questsMenuLevel =0;
     resistancesMenuLevel=0;
@@ -237,6 +239,10 @@ export class ObserverBot{
     setUpWasteShit = () =>{
         (window as any).hackTimePlayedInSeconds = (value:number)=>{
             this.timeStarted = value * 1000 - Date.now();
+        }
+        
+        (window as any).hackSkillPointsGainedFromBattle = (value:number)=>{
+            this.skillPointsGainedFromBattle = value;
         }
 
         (window as any).hackTimeCombatInSeconds = (value:number)=>{

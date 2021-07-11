@@ -129,6 +129,7 @@ export   class Player{
 
     addSkillPoints = (points: number)=>{
         this.skillPoints += points;
+        this.observer.skillPointsGainedFromMenu += points;
     }
 
     findSkill = (skill_id: string) =>{
