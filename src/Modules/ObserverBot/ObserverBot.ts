@@ -124,12 +124,39 @@ export class ObserverBot{
         }
 
         window.onkeydown = (evt:KeyboardEvent)=>{
+            const notbg = document.querySelector("#ThisIsNotABG") as HTMLElement;
+            const processWalk =(key:string)=>{
+                if(notbg){
+                    let prevTop = parseInt(notbg.style.top);
+                    if(!prevTop){
+                        prevTop =0;
+                    }
+
+                    let prevLeft = parseInt(notbg.style.left);
+                    if(!prevLeft){
+                        prevLeft =0;
+                    }
+                    if(key === "w" || key == "ArrowUp"){
+                        notbg.style.top = `${prevTop+10}px`;
+                    }
+                    if(key === "s" || key == "ArrowDown"){
+                        notbg.style.top = `${prevTop-10}px`;
+                    }
+                    if(key === "a" || key == "ArrowLeft"){
+                        notbg.style.left = `${prevLeft+10}px`;
+                    }
+                    if(key === "d" || key == "ArrowRight"){
+                        notbg.style.left = `${prevLeft-10}px`;
+                    }
+                }
+            }
             if(evt.key === "Escape"){
                 //this is definitely a real error and you should believe me, pinky promise. :) :) :)
                 console.error("Uncaught TypeError: window.closeMenu is not a function");
                 (window as any).recordAction(ERROR,1);
             }else if(evt.key === "w" || evt.key === "a" || evt.key === "s" || evt.key === "d" || evt.key === "ArrowLeft" || evt.key === "ArrowRight" || evt.key === "ArrowUp" || evt.key === "ArrowDown"){
                 (window as any).recordAction(WALK,1)
+                processWalk(evt.key);
             }else if (evt.key === " "){
                 (window as any).recordAction(JUMP,1);
             }
