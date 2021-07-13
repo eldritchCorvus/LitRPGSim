@@ -97,6 +97,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>if you "walk" bg moves around, reveals same content as console behind it (true bg canvas)</li>
         <li>implement more menu items QUESTS next (things like protect CITY NAME, etc)</li>
         <li>what happens if i have more menu items than room to display?</li>
       <li>status, options, achivements, statistics, skills screen upgrades is gated to menu level</li>
