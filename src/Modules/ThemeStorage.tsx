@@ -12,6 +12,9 @@ export const OBJECT = "object";
 export const LOCATION = "location";
 export const MEMORIES = "memories";
 export const MENU = "menu";
+export const CLASS = "CLASS";
+export const ASPECT = "ASPECT";
+export const CITYNAME = "CITYNAME";
 
 //themes
 export const ADDICTION = "addiction";
