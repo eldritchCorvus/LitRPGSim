@@ -98,6 +98,8 @@ export function initThemes(){
         string_possibilities[ThemeStorage.COMPLIMENT] = ThemeStorage.compliment_possibilities[key];
         string_possibilities[ThemeStorage.INSULT] = ThemeStorage.insult_possibilities[key];
         string_possibilities[ThemeStorage.MENU] = ThemeStorage.menu_options[key];
+        string_possibilities[ThemeStorage.CHILDBACKSTORY] = ThemeStorage.child_backstories[key];
+        string_possibilities[ThemeStorage.GENERALBACKSTORY] = ThemeStorage.general_backstories[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);
