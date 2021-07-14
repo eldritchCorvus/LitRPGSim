@@ -28,6 +28,7 @@ import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { all_themes } from "../Theme";
 import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/constants";
+import { scrawlOverBG } from "../../CanvasFuckery/fuckery";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -95,11 +96,11 @@ export class ObserverBot{
     errors = 0; //:) :) :) 
     achivementStorage = new AchivementStorage();
     memories: Memory[];
+    trueStyle = "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;";
     player: Player;
+    vitriol: string[]=[]; //True remembers everything they've ever said. you know. the bad stuff.
     
     unlocked_achivements = () =>{return this.achivementStorage.possibleAchievements.filter((achievement) =>  {return achievement.unlocked })};
-
-
 
     constructor(player: Player, memories: Memory[]){
         this.player = player;
@@ -298,21 +299,20 @@ export class ObserverBot{
     }
 
 
-
-    
-
-    /*
-        TODO have any change to any of these variables call the achievement system to see if any achievement has been earned.
-    */
     incrementStat = (statName:string, value: number)=>{
         (this as any)[statName] += value;
         this.achivementStorage.checkForAchievements(this);
    }
 
 
+   handleTrueBG = ()=>{
+       scrawlOverBG(shuffle(this.vitriol));
+   }
 
    belowComment = (title: string, text: string)=>{
-       console.log(`%c${title}:%c  ${text}`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;","font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+       this.vitriol.push(text);
+       this.handleTrueBG();
+       console.log(`%c${title}:%c  ${text}`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;",this.trueStyle);
    }
 
    hack = (skill: WasteSkill)=>{

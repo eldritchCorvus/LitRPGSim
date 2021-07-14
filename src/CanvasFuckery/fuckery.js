@@ -3,6 +3,28 @@ import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
 
 //blame past me for how confusing this is, stole bits from http://farragofiction.com/ModernArtClicker/infinite_color_test.html
 window.fuckery = fuckery;
+export const scrawlOverBG = (ramble_array)=>{
+    const bg = document.querySelector("body");
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 600;
+    canvas.height = 600;
+    const padding = 10;
+    const fontSize = 25;
+    const max = Math.max(ramble_array.length, 13)
+    //'Courier New', monospace, 13px, red, bold
+    const context = canvas.getContext("2d");
+    context.fillStyle="red";
+    context.font = `${fontSize}px serif`;
+    for(let i =0; i<max; i++){
+        if(ramble_array[i]){
+            context.fillText(ramble_array[i],padding+fontSize, i*(fontSize+padding));
+        }
+    }
+    bg.style.backgroundImage = `url(${canvas.toDataURL()})`;
+
+}
+
 export const fuckUpBG = ()=>{
     var img = new Image();
     img.addEventListener('load', function() {
