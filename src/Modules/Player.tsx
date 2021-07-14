@@ -9,7 +9,7 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { LOCATION } from "./ThemeStorage";
+import { CHILDBACKSTORY, GENERALBACKSTORY, LOCATION } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 export   class Player{
     class_name: RPGClass;
@@ -20,14 +20,15 @@ export   class Player{
     rand: SeededRandom;
     skillPoints: number = 1;
     rootSkill: Skill;
+    fullName = "They"; //can write it in or companions will auto set it
     lastUnlockedSkill: Skill;
     stats: StatMap = {};
     skillGenAlg: SkillGenAlg;
     observer: ObserverBot;
     title: string;
     buildings: string[] = [];
-
-
+    backstory = "";
+    companions: Companion[] = [];
 
     constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom){
         this.class_name = class_name;
@@ -54,6 +55,8 @@ export   class Player{
         this.observer.achivementStorage.checkForAchievements(this.observer);
         this.title = this.generateTitle();
         this.generateBuildings(themes,rand);
+        this.generateBackstory(themes,rand,0);
+
     }
 
     generateBuildings = (themes: Theme[],rand:SeededRandom)=>{
@@ -61,6 +64,49 @@ export   class Player{
             const building:string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
             this.buildings.push(building);
         }
+    }
+
+    generateCompanions = (rand:SeededRandom)=>{
+        const max = rand.getRandomNumberBetween(1,12);
+        for(let i = 0; i<max; i++){
+            this.companions.push(new Companion(rand);)
+        }
+    }
+
+    generateBackstory = (themes: Theme[],rand:SeededRandom, num:number)=>{
+        console.log("JR NOTE: generating backstory")
+        if(this.backstory.length > 113 || num > 10){
+            console.log("JR NOTE: done")
+            this.backstory += ".";
+            return;
+        }
+        let idea = "";
+        let idea_seed;
+        if(this.backstory.trim() === ""){
+            console.log("JR NOTE init backstory from ", this.backstory);
+            idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(CHILDBACKSTORY));
+
+            this.backstory = `${this.fullName} ${idea_seed}`;
+            console.log("JR NOTE after init ", this.backstory);
+
+        }else{
+            idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(GENERALBACKSTORY));
+
+            if(rand.nextDouble() >0.5){
+                console.log("JR NOTE new sentence ", this.backstory);
+
+                idea =  `. They ${idea_seed}`;
+            }else{
+                const connection = ["and","yet","but"];
+                console.log("JR NOTE connector ", this.backstory);
+                idea = `, ${rand.pickFrom(connection)} ${idea_seed}`;
+
+            }
+        }
+        if(!this.backstory.includes(idea_seed)){
+            this.backstory += idea;
+        }
+        this.generateBackstory(themes, rand, num+1);
     }
 
     generateTitle = ()=>{
@@ -155,4 +201,21 @@ export function randomPlayer(rand: SeededRandom){
 
     const ret = new Player(cl, ap, [i1,i2], rand);
     return ret;
+}
+
+
+export   class Companion{
+    title: string;
+    backstory = "";
+    fullName = "They"; //can write it in or companions will auto set it
+
+    constructor(rand: SeededRandom){
+        const shadowPlayer = randomPlayer(rand);
+        this.title = shadowPlayer.title;
+        this.backstory = shadowPlayer.backstory;
+        this.fullName = "Bob";
+    }
+
+
+
 }

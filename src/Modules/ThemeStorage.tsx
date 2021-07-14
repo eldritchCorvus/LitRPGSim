@@ -15,6 +15,8 @@ export const MENU = "menu";
 export const CLASS = "CLASS";
 export const ASPECT = "ASPECT";
 export const CITYNAME = "CITYNAME";
+export const CHILDBACKSTORY = "CHILDBACKSTORY";
+export const GENERALBACKSTORY = "GENERALBACKSTORY";
 
 //themes
 export const ADDICTION = "addiction";
@@ -77,6 +79,8 @@ export let stats_map:ThemeStatMap = {};
 export let noun_possibilities:ThemePossibilitiesMap = {};
 export let object_possibilities:ThemePossibilitiesMap = {};
 export let location_possibilities:ThemePossibilitiesMap = {};
+export let general_backstories:ThemePossibilitiesMap = {};
+export let child_backstories:ThemePossibilitiesMap = {};
 
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
@@ -111,6 +115,22 @@ export const checkIfAllKeysPresent = ()=>{
 
         if(!(key in compliment_possibilities)){
             console.error("JR NOTE: key", key, "not found in compliment_possibilities");
+        }
+
+        if(!(key in location_possibilities)){
+            console.error("JR NOTE: key", key, "not found in location_possibilities");
+        }
+
+        if(!(key in object_possibilities)){
+            console.error("JR NOTE: key", key, "not found in object_possibilities");
+        }
+
+        if(!(key in child_backstories)){
+            console.error("JR NOTE: key", key, "not found in child_backstories");
+        }
+
+        if(!(key in general_backstories)){
+            console.error("JR NOTE: key", key, "not found in general_backstories");
         }
     }
 
@@ -548,7 +568,75 @@ const initInsults = () =>{
     insult_possibilities[QUESTING] = ["obsessive"] ;
 }
 
+const initGeneralBackstories = () =>{
+    general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods"];
+    general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation"];
+    general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand"];
+    general_backstories[FAMILY] =  ["love their family with all their heart","do everything for their family"];
+    general_backstories[MAGIC] =  ["have a natural talent for magic","are one of the skilled mages of this Era","are a powerful Enchanter"];
+    general_backstories[HEALING] =  ["have a powerful healing aura","have extensive medical training","never ignore suffering"];
+    general_backstories[PLANTS] = ["have an enduring love of flowers","feels more comfortable in a forest than a city"];
+    general_backstories[HUNTING] = ["are a skilled tracker","can survive indefinitely in the wild from game and foraging"];
+    general_backstories[DECAY] = ["are a toxic person","feel comfortable around the dead"] ;
+    general_backstories[CHOICES] =  ["are always aware that doing nothing is also a choice","enjoys taunting others with their lack of choices"] ;
+    general_backstories[ZAP] = ["really could stand to lay off with the electricity","thinks having an elemental affinity is a subsitute for a personality"] ;
+    general_backstories[LOVE] = ["love everyone they meet","does everything with love","never lets hate into their heart"];
+    general_backstories[SOUL] = ["know themselves quite thoroughly","have a very stable personality"] ;
+    general_backstories[ANGER] = ["have trouble controlling their temper","aren't shy about letting people know when theres is a problem"] ;
+    general_backstories[WEB] =  ["are a smug chess-master","are manipulative to their core"] ;
+    general_backstories[ROYALTY] =  ["are experienced with ruling","have full noble training"] ;
+    general_backstories[ENDINGS] =  ["are existentialist","focus more on the ending than the begining","keep their thoughts firmly in the future"] ;
+    general_backstories[KNOWING] = ["are an accomplished scholar","are obsessed with knowing everything","are an insufferable know-it-all"] ;
+    general_backstories[GUIDING] = ["try to gently lead those who are lost","never gets lost","are a soothing mentor"] ;
+    general_backstories[CRAFTING] =  ["enjoy wood-working in their spare time","are quite a skilled craftman"];
+    general_backstories[LANGUAGE] = ["alway have their nose in a book","speaks every language of Zampanio","can curse in a different language for each day of the week"] ;
+    general_backstories[BUGS] =  ["does light bee-keeping when at home","doesn't find bugs creepy"];
+    general_backstories[ADDICTION] = ["enjoys gambling for any stakes","have an addictive personality","have never met a vice they didn't like"];
+    general_backstories[SPYING] =["have an extensive information network","are always on top of the local gossip"] ;
+    general_backstories[CLOWNS] =["are a clown","have extensive ties to the Circus","are an accomplished teller of jokes"] ;
+    general_backstories[DOLLS] = ["carry around a small antique doll","carve faceless wooden figurines in their spare time"] ;
+    general_backstories[OBFUSCATION] = ["speak only in annoying riddles","can write in any cipher"] ;
+    general_backstories[DARKNESS] =  ["wear only black","prefer moonlight to sunlight","are more than a little edgy"] ;
+    general_backstories[KILLING] =  ["are cloaked in killing intent","seem to always be covered in blood","have an alarming collection of knives"];
+    general_backstories[MUSIC] =  ["alway have a song on their lips","can play any song they hear once by ear"] ;
+    general_backstories[DEFENSE] =  ["always protect the weak","are always on edge for attack"] ;
+    general_backstories[QUESTING] = ["absolutely love helping out the little people","are always on the lookout for the next great adventure"] ;
+}
 
+const initChildBackstories = () =>{
+    child_backstories[ANGELS] =  ["were raised in a convent", "grew up in a very religious family","always felt the gods spoke to them growing up"];
+    child_backstories[LIGHT] =  ["grew up in a sparkling sea-side town","always looked on the bright side as a child"];
+    child_backstories[SERVICE] =  ["were always the caretaker of their family","were born to a family in service to the King","came from a long line of butlers"];
+    child_backstories[FAMILY] =  ["grew up knowing the meaning of family","grew up in a huge family","were always surrounded by siblings as a child"];
+    child_backstories[MAGIC] =  ["were a child progidy for magic","always had a sense of wonder as a child","loved the idea of magic as a child"];
+    child_backstories[HEALING] =  ["were a child apprentice to a local doctor","always knew where the family first aid kit were"];
+    child_backstories[PLANTS] = ["had the green thumb of the family","spent more time with flowers than other children"];
+    child_backstories[HUNTING] = ["provided for their family from a young age","loved tracking the wild animals of the Forest"];
+    child_backstories[DECAY] = ["were a sickening cute child","enjoyed the solitude of graveyards as a child","found a quiet beauty in decay even as a child"] ;
+    child_backstories[CHOICES] =  ["loved mazes as a child","were a strong-headed child","were a stubborn child"] ;
+    child_backstories[ZAP] = ["were an electrifying child","were tied to the element of thunder even as a child"] ;
+    child_backstories[LOVE] = ["grew up in a very loving family","loved everyone","never felt unloved growing up"];
+    child_backstories[SOUL] = ["were a very self-assured child","knew exactly what they wanted to be when they grew up"] ;
+    child_backstories[ANGER] = ["were a very violent child","were a bully as a kid","had controlling their temper as a child"] ;
+    child_backstories[WEB] =  ["were great at convincing their friends and younger siblings what to do","excelled at using puppy-dog eyes to get their way as a child","somehow never seemed to be the one to take the fall for their childhood pranks"] ;
+    child_backstories[ROYALTY] =  ["grew up in the lap of luxury","grew up as the scion of a ruling family","spent their whole life knowing they were heir to the throne"] ;
+    child_backstories[ENDINGS] =  ["always enjoyed spoilers as a child","cried for hours at the ending to their favorite childhood book"] ;
+    child_backstories[KNOWING] = ["were a bookish child","could not stop asking 'why' as a child","were a bright child"] ;
+    child_backstories[GUIDING] = ["always knew the best places to play as a child","lead their small band of childhood friends"] ;
+    child_backstories[CRAFTING] =  ["loved to make things as a child","were always showing teachers and parents their latest creation"];
+    child_backstories[LANGUAGE] = ["were a surprisingly articulate child","loved to learn the meanings of words","had their first word be 'Mother', not 'ma'"] ;
+    child_backstories[BUGS] =  ["enjoyed collecting beetles as a child","had a butterfly collection as a child","were fascinated with bees as a child"];
+    child_backstories[ADDICTION] = ["couldn't stay away from the local Faire each year as a child","always convinced their childhood friends to play 'one more game'"];
+    child_backstories[SPYING] =["grew up always watching others","seemed to always be lurking in the corners as a child","spied on adults growing up"] ;
+    child_backstories[CLOWNS] =["grew up in a traveling circus","always had a joke for the other children growing up","were a playful, funny child","were always the class clown growing up"] ;
+    child_backstories[DOLLS] = ["would hold elaborate teaparties with their dolls as a child"] ;
+    child_backstories[OBFUSCATION] = ["were a mysterious child","kept a secret diary as a child","learned to write in ciphers as a child"] ;
+    child_backstories[DARKNESS] =  ["never were afraid of the dark as a child"] ;
+    child_backstories[KILLING] =  ["were adangerous child","have a dark childhood secret","unsettled the neighbors as a child"];
+    child_backstories[MUSIC] =  ["were a musical child","loved singing as a child","learned so many songs from their parents"] ;
+    child_backstories[DEFENSE] =  ["protected the neighborhood children growing up","always protected the littler kids growing up"] ;
+    child_backstories[QUESTING] = ["were an obsessive child","came up with the best games as a child"] ;
+}
 
 export const initThemes = ()=>{
     initStatsMap();
@@ -561,5 +649,7 @@ export const initThemes = ()=>{
     initCompliments();
     initMemories();
     initMenuOptions();
+    initChildBackstories();
+    initGeneralBackstories();
 
 }
