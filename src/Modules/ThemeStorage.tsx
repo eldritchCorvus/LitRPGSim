@@ -578,7 +578,7 @@ const initGeneralBackstories = () =>{
     general_backstories[PLANTS] = ["have an enduring love of flowers","feels more comfortable in a forest than a city"];
     general_backstories[HUNTING] = ["are a skilled tracker","can survive indefinitely in the wild from game and foraging"];
     general_backstories[DECAY] = ["are a toxic person","feel comfortable around the dead"] ;
-    general_backstories[CHOICES] =  ["are always aware that doing nothing is also a choice","enjoys taunting others with their lack of choices"] ;
+    general_backstories[CHOICES] =  ["are always aware that doing nothing is also a choice","enjoy taunting others with their lack of choices"] ;
     general_backstories[ZAP] = ["really could stand to lay off with the electricity","thinks having an elemental affinity is a subsitute for a personality"] ;
     general_backstories[LOVE] = ["love everyone they meet","does everything with love","never lets hate into their heart"];
     general_backstories[SOUL] = ["know themselves quite thoroughly","have a very stable personality"] ;
@@ -591,7 +591,7 @@ const initGeneralBackstories = () =>{
     general_backstories[CRAFTING] =  ["enjoy wood-working in their spare time","are quite a skilled craftman"];
     general_backstories[LANGUAGE] = ["alway have their nose in a book","speaks every language of Zampanio","can curse in a different language for each day of the week"] ;
     general_backstories[BUGS] =  ["does light bee-keeping when at home","doesn't find bugs creepy"];
-    general_backstories[ADDICTION] = ["enjoys gambling for any stakes","have an addictive personality","have never met a vice they didn't like"];
+    general_backstories[ADDICTION] = ["enjoy gambling for any stakes","have an addictive personality","have never met a vice they didn't like"];
     general_backstories[SPYING] =["have an extensive information network","are always on top of the local gossip"] ;
     general_backstories[CLOWNS] =["are a clown","have extensive ties to the Circus","are an accomplished teller of jokes"] ;
     general_backstories[DOLLS] = ["carry around a small antique doll","carve faceless wooden figurines in their spare time"] ;

@@ -3,7 +3,7 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
@@ -13,6 +13,7 @@ import { OptionsScreen } from "./Screens/Options";
 import { ObserverBot } from "./Modules/ObserverBot/ObserverBot";
 import { CityBuildingScreen } from "./Screens/CityBuilding";
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
+import { CompanionsScreen } from "./Screens/CompanionsScreen";
 
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
@@ -128,6 +129,19 @@ function CityTab(props: TabProps){
   )
 }
 
+function CompanionTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === COMPANIONS?selectedTab:unSelectedTab} id={COMPANIONS} onClick={() =>
+      {
+        setNextScreen(COMPANIONS);
+        setCurrentScreen(LOADING)}
+      } {...tab}>
+      Companions{props.observer.companionsMenuLevel}
+    </Tab>
+  )
+}
+
 function TruthTab(props: TabProps){
   const {tab, setNextScreen, setCurrentScreen} = props;
   return(
@@ -207,6 +221,7 @@ function Menu(props: MenuProps) {
 
               {observer.statisticsMenuLevel>0?<StatisticsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
               {observer.cityBuildingMenuLevel>0?<CityTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.companionsMenuLevel>0?<CompanionTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
 
 
@@ -236,6 +251,11 @@ function Menu(props: MenuProps) {
 
             {observer.cityBuildingMenuLevel>0?<TabPanel {...tab}>
               {currentScreen === CITYBUILDING?<CityBuildingScreen  loadScreen={handleLoading} player={player}></CityBuildingScreen>:null}
+
+            </TabPanel>:null}
+
+            {observer.companionsMenuLevel>0?<TabPanel {...tab}>
+              {currentScreen === COMPANIONS?<CompanionsScreen  loadScreen={handleLoading} player={player}></CompanionsScreen>:null}
 
             </TabPanel>:null}
 
