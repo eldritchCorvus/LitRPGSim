@@ -1,6 +1,6 @@
 import {all_aspects, Aspect} from "./Aspect";
 import { all_classes, RPGClass } from "./RPGClass";
-import { Skill, StatSkill, WasteSkill } from "./Skill";
+import { CoreSkill, Skill, StatSkill, WasteSkill } from "./Skill";
 import {all_interests, Interest} from "./Interest";
 import {Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
@@ -15,47 +15,85 @@ export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
     interests: Interest[];
-    theme_keys: string[];
-    skills: Skill[];
+    theme_keys: string[] = [];
+    skills: Skill[] =[];
     rand: SeededRandom;
     skillPoints: number = 1;
     rootSkill: Skill;
     fullName = "They"; //can write it in or companions will auto set it
     lastUnlockedSkill: Skill;
     stats: StatMap = {};
-    skillGenAlg: SkillGenAlg;
+    skillGenAlg: SkillGenAlg|undefined;
     observer: ObserverBot;
-    title: string;
+    title: string = "BROKEN";
     buildings: string[] = [];
     backstory = "";
     companions: Companion[] = [];
 
-    constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom){
+    constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer:boolean){
+        this.rand = rand;
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
-        this.initStats(rand);
+        this.rootSkill = new CoreSkill("NPC",0);
+        this.lastUnlockedSkill = this.rootSkill;
+        this.observer = new ObserverBot(this,[]);
+
+        if(shadowPlayer){
+            this.shadowInit(class_name, aspect, interests);
+
+        }else{
+            this.fullInit(class_name, aspect, interests);
+        }
+
+    }
+
+    fullInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[])=>{
+
+        this.initStats(this.rand);
         this.skillGenAlg = new BonesFirstAlg();
         let themes:Theme[] = [];
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
         interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         this.theme_keys = themes.map((x)=> x.key);
-        this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests,themes,rand);
+        this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests,themes,this.rand);
         this.rootSkill = this.skills[0];
         this.rootSkill.unlocked = true;
         this.lastUnlockedSkill = this.rootSkill;
-        this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
-        this.rand = rand;
+        this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, this.rand);
         //JR NOTE: i'm worried theres some weird decoupling here, if i make OB up top they get a player without anything set which is WEIRD.
         //is it a copy and not a reference?
         let memories:Memory[] = [];
         themes.forEach((theme) => {memories = memories.concat(theme.memories)});
-        this.observer = new ObserverBot(this,memories);
+        this.observer.memories = memories;
+        this.observer.init();
         this.observer.achivementStorage.checkForAchievements(this.observer);
         this.title = this.generateTitle();
-        this.generateBuildings(themes,rand);
-        this.generateBackstory(themes,rand,0);
+        this.generateBuildings(themes,this.rand);
+        this.generateBackstory(themes,this.rand,0);
+        this.generateCompanions(this.rand);
+    }
+
+    shadowInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[])=>{
+        this.class_name = class_name;
+        this.aspect = aspect;
+        this.title = this.generateTitle();
+        let themes:Theme[] = [];
+        themes = themes.concat(class_name.themes)
+        themes = themes.concat(aspect.themes);
+        interests.forEach((interest) => {themes = themes.concat(interest.themes)});
+        this.generateBackstory(themes,this.rand,0);
+    }
+
+    generateSkills = (themes: Theme[], rand: SeededRandom)=>{
+        if(this.skillGenAlg){
+            this.skills = this.skillGenAlg.generateSkills(this.class_name, this.aspect, this.interests,themes,rand);
+            this.rootSkill = this.skills[0];
+            this.rootSkill.unlocked = true;
+            this.lastUnlockedSkill = this.rootSkill;
+            this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
+        }
 
     }
 
@@ -69,8 +107,9 @@ export   class Player{
     generateCompanions = (rand:SeededRandom)=>{
         const max = rand.getRandomNumberBetween(1,12);
         for(let i = 0; i<max; i++){
-            this.companions.push(new Companion(rand);)
+            this.companions.push(new Companion(rand));
         }
+        console.log("JR NOTE: after generating compaions", this.companions)
     }
 
     generateBackstory = (themes: Theme[],rand:SeededRandom, num:number)=>{
@@ -187,7 +226,7 @@ export   class Player{
     }
 }
 
-export function randomPlayer(rand: SeededRandom){
+export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
     let cl;
     if(rand.initial_seed === 13){
         cl = all_classes["waste"];
@@ -199,18 +238,23 @@ export function randomPlayer(rand: SeededRandom){
     const i1 = rand.pickFrom(Object.values(all_interests));
     const i2 = rand.pickFrom(Object.values(all_interests));
 
-    const ret = new Player(cl, ap, [i1,i2], rand);
+    const ret = new Player(cl, ap, [i1,i2], rand, shadowPlayer);
     return ret;
 }
 
 
+//is it unspeakably cruel that all the npcs are players just like you who are killed seconds after they spawn
+//and replaced with hollowed out dead eyed doppelangers?
+//yes. 
+//its also extremely
+//EXTREMELY easier than doing it right.
 export   class Companion{
     title: string;
     backstory = "";
     fullName = "They"; //can write it in or companions will auto set it
 
     constructor(rand: SeededRandom){
-        const shadowPlayer = randomPlayer(rand);
+        const shadowPlayer = randomPlayer(rand, true);
         this.title = shadowPlayer.title;
         this.backstory = shadowPlayer.backstory;
         this.fullName = "Bob";
