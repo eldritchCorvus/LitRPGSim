@@ -97,9 +97,8 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>backstory section for status screen (to be used by companions)</li>
-        <li>companion screen</li>
-        <li>quest screen</li>
+        <li>shitty procedural names for companions</li>
+        <li>quest screen (companion had to go first so quests could reference)</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
     * store missing TEMPLATE PLACEHOLDERS (OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
     * for each theme, write out a super tiny quest or two with TEMPLATE PLACEHOLDERS 

@@ -53,6 +53,7 @@ Krout, Dakota. Ritualist (The Completionist Chronicles Book 1) (p. 81). Mountain
 
 //in theory could have this extend a generic Observer and have a variety of different personalitied observers 
 //much like meta players in dead sessions
+
 export class ObserverBot{
     //all time stats are in milliseconds
     numClicks = 0;
@@ -84,7 +85,7 @@ export class ObserverBot{
     resistancesMenuLevel=0;
     skillGraphLevel = 1;
     successfulHaxAttempts = 0;
-    companionsMenuLevel = 0;
+    companionsMenuLevel = 1;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
@@ -108,6 +109,10 @@ export class ObserverBot{
         console.log("JR NOTE: memories are", memories);
         this.timeStarted = Date.now();
 
+        
+    }
+
+    init=()=>{
         this.achivementStorage.initAchievements(this.player);
         
         this.setUpFakeReduxShit();
