@@ -80,6 +80,11 @@ export const  StatusScreen = (props: StatusProps)=> {
             </StatusRow>
 
             <StatusRow>
+                <StatusHeader>Backstory:</StatusHeader>
+                <StatusContent>{props.player.backstory}</StatusContent>
+            </StatusRow>
+
+            <StatusRow>
                 <StatusHeader>Species:</StatusHeader>
                 <StatusContent>Unknown TODO</StatusContent>
             </StatusRow>
