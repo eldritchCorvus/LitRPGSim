@@ -97,7 +97,17 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>implement more menu items QUESTS next (things like protect CITY NAME, etc)</li>
+        <li>backstory section for status screen (to be used by companions)</li>
+        <li>companion screen</li>
+        <li>quest screen</li>
+      * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
+    * store missing TEMPLATE PLACEHOLDERS (OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
+    * for each theme, write out a super tiny quest or two with TEMPLATE PLACEHOLDERS 
+The city guard knows it takes a PERSON  to catch a thief, and they have come to you.  The ADJ OBJ has been stolen from the LOCATION, with no witnesses. Will you be the one to finally crack the case?" 
+"if there is a companion who has a theme that matches TEMPLATE theme, they slot into anything that needs COMPANION name"
+
+    * on player creation, generate quest array from themes. title is procedural from the theme of the template chosen.
+    * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
         <li>what happens if i have more menu items than room to display?</li>
       <li>status, options, achivements, statistics, skills screen upgrades is gated to menu level</li>
       <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>
