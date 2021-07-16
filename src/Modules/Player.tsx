@@ -6,7 +6,7 @@ import {Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
 import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
-import { all_stats, Stat, StatMap } from "./Stat";
+import { all_stats, FREESPIRITED, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
 import { CHILDBACKSTORY, GENERALBACKSTORY, LOCATION } from "./ThemeStorage";
@@ -38,6 +38,7 @@ export   class Player{
         this.rootSkill = new CoreSkill("NPC",0);
         this.lastUnlockedSkill = this.rootSkill;
         this.observer = new ObserverBot(this,[]);
+        this.initStats(this.rand);
 
         if(shadowPlayer){
             this.shadowInit(class_name, aspect, interests);
@@ -50,7 +51,6 @@ export   class Player{
 
     fullInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[])=>{
 
-        this.initStats(this.rand);
         this.skillGenAlg = new BonesFirstAlg();
         let themes:Theme[] = [];
         themes = themes.concat(class_name.themes)
@@ -82,7 +82,10 @@ export   class Player{
         let themes:Theme[] = [];
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
+        this.theme_keys = themes.map((x)=> x.key);
         interests.forEach((interest) => {themes = themes.concat(interest.themes)});
+        //assume companions aren't stuck at level 1 like you are plz
+        themes.forEach((theme)=>{this.addStats(theme.stats) });
         this.generateBackstory(themes,this.rand,0);
     }
 
@@ -105,7 +108,7 @@ export   class Player{
     }
 
     generateCompanions = (rand:SeededRandom)=>{
-        const max = rand.getRandomNumberBetween(1,12);
+        const max = rand.getRandomNumberBetween(1,5);
         for(let i = 0; i<max; i++){
             this.companions.push(new Companion(rand));
         }
@@ -251,13 +254,20 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
 export   class Companion{
     title: string;
     backstory = "";
+    loyalty = 0;
+    theme_keys:string[];
     fullName = "They"; //can write it in or companions will auto set it
 
     constructor(rand: SeededRandom){
         const shadowPlayer = randomPlayer(rand, true);
         this.title = shadowPlayer.title;
         this.backstory = shadowPlayer.backstory;
-        this.fullName = "Bob";
+        const first_names = ["John","Jude","Jade","Joey","Rose","Roxy","Jeff","Dave","Dirk","Jove","Jake","Sophie","Jaxon","Basira","Daisy","Martin","Georgie","Sasha","James","Taylor","Victoria","Jean-Paul","Bob","Alice","Carol","Eve","Adam","Rachel","Brian","Aisha","Alexandra","Alex","Tobias","Marco","Cassie","Tom","Lisa","Sarah"," Sylvester","Gordon","Helen","Jamie","Lillian","Mary","Ashton","Peter","Zawhei","Eirikr","Volour","Okarin","Peewee","Hagala","Despap","Othala","Gertrude","Mike","Michael","Peter","Simon","Manuela","Annabel"];
+        const last_names = ["Gently","Egbert","Claire","Lalonde","Strider","Hussain","King","Stoker","Sims","Blackwood","Barker","James","Blake","Dalon","Vasil","Hebert","Jensen","Lindt","Newell","Laborn","Fell","Wilbourn","Livsey","Lamb","Bacama","Kharun","Reynolds","Braggi","Seelee","Cassan","Folnir","Citato","Grigor","Crew","Robertson","Fairchild","Lukas","Richardson","Dominguez","Cane","Salesa","Shelly"];
+        this.fullName = `${rand.pickFrom(first_names)} ${rand.pickFrom(last_names)}`;
+        this.theme_keys = shadowPlayer.theme_keys;//needed for shoving them into quests
+        console.log("JR NOTE: stats are", shadowPlayer.stats)
+        this.loyalty = shadowPlayer.stats[LOYAL].value;
     }
 
 

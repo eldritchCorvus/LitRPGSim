@@ -575,7 +575,7 @@ const initGeneralBackstories = () =>{
     general_backstories[FAMILY] =  ["love their family with all their heart","do everything for their family"];
     general_backstories[MAGIC] =  ["have a natural talent for magic","are one of the skilled mages of this Era","are a powerful Enchanter"];
     general_backstories[HEALING] =  ["have a powerful healing aura","have extensive medical training","never ignore suffering"];
-    general_backstories[PLANTS] = ["have an enduring love of flowers","feels more comfortable in a forest than a city"];
+    general_backstories[PLANTS] = ["have an enduring love of flowers","feel more comfortable in a forest than a city"];
     general_backstories[HUNTING] = ["are a skilled tracker","can survive indefinitely in the wild from game and foraging"];
     general_backstories[DECAY] = ["are a toxic person","feel comfortable around the dead"] ;
     general_backstories[CHOICES] =  ["are always aware that doing nothing is also a choice","enjoy taunting others with their lack of choices"] ;
@@ -617,7 +617,7 @@ const initChildBackstories = () =>{
     child_backstories[ZAP] = ["were an electrifying child","were tied to the element of thunder even as a child"] ;
     child_backstories[LOVE] = ["grew up in a very loving family","loved everyone","never felt unloved growing up"];
     child_backstories[SOUL] = ["were a very self-assured child","knew exactly what they wanted to be when they grew up"] ;
-    child_backstories[ANGER] = ["were a very violent child","were a bully as a kid","had controlling their temper as a child"] ;
+    child_backstories[ANGER] = ["were a very violent child","were a bully as a kid","had trouble controlling their temper as a child"] ;
     child_backstories[WEB] =  ["were great at convincing their friends and younger siblings what to do","excelled at using puppy-dog eyes to get their way as a child","somehow never seemed to be the one to take the fall for their childhood pranks"] ;
     child_backstories[ROYALTY] =  ["grew up in the lap of luxury","grew up as the scion of a ruling family","spent their whole life knowing they were heir to the throne"] ;
     child_backstories[ENDINGS] =  ["always enjoyed spoilers as a child","cried for hours at the ending to their favorite childhood book"] ;

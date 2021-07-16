@@ -98,7 +98,7 @@ function App() {
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
         <li>shitty procedural names for companions</li>
-        <li>quest screen (companion had to go first so quests could reference)</li>
+        <li>quest screen (companion had to go first so quests could reference) COMPANION asks you to do whatever (if companion shares theme with this quest)</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
     * store missing TEMPLATE PLACEHOLDERS (OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
     * for each theme, write out a super tiny quest or two with TEMPLATE PLACEHOLDERS 
@@ -107,6 +107,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
 
     * on player creation, generate quest array from themes. title is procedural from the theme of the template chosen.
     * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
+      <li>for all statistics, detect dom hax adn react accordingly (including RAGE MODE)</li>
         <li>what happens if i have more menu items than room to display?</li>
       <li>status, options, achivements, statistics, skills screen upgrades is gated to menu level</li>
       <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>

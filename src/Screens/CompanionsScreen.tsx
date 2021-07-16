@@ -36,6 +36,12 @@ export const CompanionsScreen = (props: StatusProps) => {
         width: 450px;
     `
 
+    const Loyalty = styled.div`
+        display: block;
+        margin-right: 5px;
+        width: 80px;
+    `
+
     const observer = props.player.observer;
 
     const [currentName, setCurrentName] = useState(observer.cityName);
@@ -56,6 +62,7 @@ export const CompanionsScreen = (props: StatusProps) => {
                                 <BuildingHeader>{companion.fullName}: </BuildingHeader>
                                 <BuildingSection> {companion.title} </BuildingSection>
                                 <Backstory> {companion.backstory} </Backstory>
+                                {observer.companionsMenuLevel > 1 ?<Loyalty>Loyalty: {companion.loyalty}</Loyalty>:null}
 
                             </BuildingLine>)
                     })}
