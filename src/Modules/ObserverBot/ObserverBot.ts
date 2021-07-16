@@ -85,7 +85,7 @@ export class ObserverBot{
     resistancesMenuLevel=0;
     skillGraphLevel = 1;
     successfulHaxAttempts = 0;
-    companionsMenuLevel = 1;
+    companionsMenuLevel = 3;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
