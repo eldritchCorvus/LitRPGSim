@@ -76,7 +76,7 @@ export class ObserverBot{
     backstoryMenuLevel =0;
     cityBuildingMenuLevel =0;
     codeMenuLevel =0;
-    godsMenuLevel =2;
+    godsMenuLevel =0;
     inventoryMenuLevel =0;
     skillPointsGainedFromMenu =0;
     skillPointsGainedFromBattle = 0;
