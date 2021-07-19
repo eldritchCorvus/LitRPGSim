@@ -76,7 +76,7 @@ export class ObserverBot{
     backstoryMenuLevel =0;
     cityBuildingMenuLevel =0;
     codeMenuLevel =0;
-    godMenuLevel =0;
+    godsMenuLevel =2;
     inventoryMenuLevel =0;
     skillPointsGainedFromMenu =0;
     skillPointsGainedFromBattle = 0;
@@ -85,7 +85,7 @@ export class ObserverBot{
     resistancesMenuLevel=0;
     skillGraphLevel = 1;
     successfulHaxAttempts = 0;
-    companionsMenuLevel = 3;
+    companionsMenuLevel = 0;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
@@ -200,7 +200,7 @@ export class ObserverBot{
         }else if (name.includes(COMPANIONS)){
             this.companionsMenuLevel ++;
         }else if (name.includes(GODS)){
-            this.godMenuLevel ++;
+            this.godsMenuLevel ++;
         }
         else if (name.includes(INVENTORY)){
             this.inventoryMenuLevel ++;
@@ -210,7 +210,7 @@ export class ObserverBot{
             this.questsMenuLevel ++;
         }else if (name.includes(RESISTANCES)){
             this.resistancesMenuLevel ++;
-        }else if (name.includes(GODS)){
+        }else if (name.includes(TRUTH)){
             this.truthMenuLevel ++;
         }
     }
@@ -300,6 +300,18 @@ export class ObserverBot{
 
         (window as any).hackStatisticsMenuLevel = (value:number)=>{
             this.statisticsMenuLevel = value;
+        }
+
+        (window as any).hackGodsMenuLevel = (value:number)=>{
+            this.godsMenuLevel = value;
+        }
+
+        (window as any).hackCityBuildingMenuLevel = (value:number)=>{
+            this.cityBuildingMenuLevel = value;
+        }
+
+        (window as any).hackCompanionsMenuLevel = (value:number)=>{
+            this.companionsMenuLevel = value;
         }
     }
 
