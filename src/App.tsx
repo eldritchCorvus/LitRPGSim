@@ -97,6 +97,7 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>while loading (or seperate entry page? make it the index? and have current indez be /zampanio.html?seed=whatever), "enter in your birthday to start your personalized Adventure in Zampanio!". use birthday as seed.  if they would get waste, say "ERROR INVALID BIRTHDAY!" or something</li>
         <li>inventory screen</li>
         <li>achivements can give random items as rewards, quests can CLAIM to</li>
         <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
