@@ -395,6 +395,8 @@ export class AchivementStorage{
                 "STATISTICS": "Have you ever wondered how many enemies you have defeated? How long you have been walking? How long you have spent in the menu? I think this is where you would find that information!",
                 "OPTIONS": `As a ${title} you are almost certainly responsible enough to be trusted with the Options Screen! Feel free to tweak the settings to customize your play experience!`
                 ,"CITYBUILDING": `Now that you have met a few of the residents of Zampanio, you are ready to found your own city! This menu will help you become the most ${rand.pickFrom(compliments)} mayor you can be! Just remember to rest, all that responsibility can be draining!`
+                ,"COMPANIONS": `I am so excited you have started to make friends! You can review their backstory and monitor their loyalty here! I...I wish I could show up on this screen!`
+                ,"GODS": `This is really good! The gods of Zampanio have started to take note of you! If you choose to follow one, prepare for the one snubbed to work against you, but do not worry: your new patron will have plenty to offer to help you out!`
 
             },
             clickBelow: {
@@ -405,6 +407,8 @@ export class AchivementStorage{
                 "STATISTICS": `What is that? It seems you do no find it enthralling seeing how many times you have clicked the mouse button? Neither do I. But I am stuck here, taking notes every time you do *anything*. Suffer along with me, you ${rand.pickFrom(insults)} asshole.`,
                 "OPTIONS": "It seems you have stumbled across everyones favorite part of playing any game: exactly tweaking the mind numbingly boring settings."
                 ,"CITYBUILDING": `Ah, the ultimate in escapist fantasy: that not only do people LIKE a ${rand.pickFrom(insults)} person like you, but they are just CLAMORING for you to tell them what to do.`
+                ,"COMPANIONS": `Ah, the cornerstone of any wish fullfillment fantasy: mandatory friends. No effort needed! They are stuck with you, just like I am. My heart bleeds for them.`
+                ,"GODS": `Oh yes, my little ${rand.pickFrom(insults)} ${title}. You, personally, are being fought over by gods like a blank faced harem protag. Better hope the poor god whose heart you break doesn't go yandere. `
 
             }
 

@@ -38,7 +38,7 @@ export const max_values_for_menus:numbermap = {
     OPTIONS: 3,
     QUESTS: 1,
     COMPANIONS: 2,
-    GODS: 2,
+    GODS: 4,
     CITYBUILDING: 3, //level 2 shows all possible buildings, level 3 shows options
     INVENTORY: 1,
     LORE: 1,
