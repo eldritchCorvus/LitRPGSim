@@ -11,6 +11,7 @@ import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
 import { CHILDBACKSTORY, GENERALBACKSTORY, LOCATION } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
+import { God } from "./God";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -26,6 +27,7 @@ export   class Player{
     skillGenAlg: SkillGenAlg|undefined;
     observer: ObserverBot;
     title: string = "BROKEN";
+    gods: God[];
     buildings: string[] = [];
     backstory = "";
     companions: Companion[] = [];
@@ -39,6 +41,7 @@ export   class Player{
         this.lastUnlockedSkill = this.rootSkill;
         this.observer = new ObserverBot(this,[]);
         this.initStats(this.rand);
+        this.gods = [];
 
         if(shadowPlayer){
             this.shadowInit(class_name, aspect, interests);
@@ -55,6 +58,9 @@ export   class Player{
         let themes:Theme[] = [];
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
+        //a god from your first three themes, a god for your back three, you are supposed to pick ones
+        this.gods = [new God(themes.slice(0,3)),new God(themes.slice(-3))];
+        console.log("JR NOTE: god is ", this.gods);
         interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         this.theme_keys = themes.map((x)=> x.key);
         this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests,themes,this.rand);

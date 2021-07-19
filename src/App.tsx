@@ -97,8 +97,11 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>shitty procedural names for companions</li>
-        <li>quest screen (companion had to go first so quests could reference) COMPANION asks you to do whatever (if companion shares theme with this quest)</li>
+        <li>gods screen with two competing gods and the implicationt hat you're supposed to pick one of them</li>
+        <li>inventory screen</li>
+        <li>achivements can give random items as rewards</li>
+        <li>god screen (no names, just GOD OF LONELY or GOD OF DARKNESS or whatever)</li>
+        <li>quest screen (has to be at end so can reference ITEMS and GODS)</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
     * store missing TEMPLATE PLACEHOLDERS (OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
     * for each theme, write out a super tiny quest or two with TEMPLATE PLACEHOLDERS 
