@@ -100,6 +100,7 @@ export function initThemes(){
         string_possibilities[ThemeStorage.MENU] = ThemeStorage.menu_options[key];
         string_possibilities[ThemeStorage.CHILDBACKSTORY] = ThemeStorage.child_backstories[key];
         string_possibilities[ThemeStorage.GENERALBACKSTORY] = ThemeStorage.general_backstories[key];
+        string_possibilities[ThemeStorage.MIRACLE] = ThemeStorage.miracles[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);

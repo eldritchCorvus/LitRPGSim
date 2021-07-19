@@ -17,6 +17,7 @@ export const ASPECT = "ASPECT";
 export const CITYNAME = "CITYNAME";
 export const CHILDBACKSTORY = "CHILDBACKSTORY";
 export const GENERALBACKSTORY = "GENERALBACKSTORY";
+export const MIRACLE = "MIRACLE";
 
 //themes
 export const ADDICTION = "addiction";
@@ -81,6 +82,7 @@ export let object_possibilities:ThemePossibilitiesMap = {};
 export let location_possibilities:ThemePossibilitiesMap = {};
 export let general_backstories:ThemePossibilitiesMap = {};
 export let child_backstories:ThemePossibilitiesMap = {};
+export let miracles:ThemePossibilitiesMap = {};
 
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
@@ -186,7 +188,7 @@ const initNouns = () =>{
     noun_possibilities[PLANTS] =["leaf","flower","root","vine","branch","tree","meadow","forest"];
     noun_possibilities[DECAY] = ["rot","decay","corruption","entropy"];
     noun_possibilities[CHOICES] = ["choice","selection","option","janus","facet","aspect"];
-    noun_possibilities[ZAP] = ["zap","bolt","stroke","lightning"];
+    noun_possibilities[ZAP] = ["zap","bolt","stroke","lightning","ozone"];
     noun_possibilities[LOVE] = ["love","heart","soulmate","kiss","hug","caress","touch","romance"];
     noun_possibilities[SOUL] = ["self","soulmate","core","soul","heart","spirit","essence"];
     noun_possibilities[ANGER] = ["beserker","rebel","hater"];
@@ -533,6 +535,41 @@ const initCompliments = () =>{
     compliment_possibilities[QUESTING] = ["goal-oriented"] ;
 }
 
+const initMiracles = ()=>{
+    miracles[ANGELS] =  ["revive the recently dead","fly with feathered wings","summon an angelic choir","summon an angelic companion"];
+    miracles[LIGHT] =  ["divinely light one room","divinely banish the darkness","highlight an important objective"];
+    miracles[SERVICE] =  ["divinely clean one house","provide divinely assistance to one ally","divinely buff one ally"];
+    miracles[FAMILY] =  ["divinely confirm the location of all family members","teleport to the location of any family member","teleport any family member to them"];
+    miracles[MAGIC] =  ["gain one divine insight into the nature of magic","divinely learn one new spell","restore all mana to everyone in a radius"];
+    miracles[HEALING] =  ["divinely heal one ally","divinely cure any wound, regardless of difficulty","divinely restore the party to full health","divinely heal moderate wounds and below for a square mile","divinely destroy disease"];
+    miracles[PLANTS] = ["divinely accelerate the growth of an acre of plants","divinely gain one rare seed","divinely multiply the yield of an acre of plants","access divine awareness on what any particular plant needs"];
+    miracles[HUNTING] = ["divinely highlight the footsteps of any prey","gain an intuitive sense where any prey has gone","perform an attack which can not miss its target"];
+    miracles[DECAY] = ["divinely rot any acre of land","destroy any object down to its atoms","corrode any material, regardless of durability","summon one zombie"] ;
+    miracles[CHOICES] =  ["gain a divine intuition on which of two possible choices best meet their goals","gain a divine sense of how to boil down a complex decision into two main choices","can have one test of luck result in the optimal result","gain a divine understanding of the consequences of any pending choices"] ;
+    miracles[ZAP] = ["divinely summon a lightning bolt","gain a divine aura of ozone that marks enemies as lightning rods","divinely declare any single object as 'ground'"] ;
+    miracles[LOVE] = ["make any single target fall in love with any other target","divine whether any single target loves any single other target","perfectly convey their feelings of love to any other target"];
+    miracles[SOUL] = ["divinely gain one single fact of perfect self knowledge","astral project","summon forth a mirror of Perfect Revelation"] ;
+    miracles[ANGER] = ["destroy any single target","activate a divine rage for five minutes","summon any single target to be attacked"] ;
+    miracles[WEB] =  ["tug the strings of fate and weave them anew","summon one Spiderling familiar","perfectly control any single target for five minutes","achive limited control over any group","attach an invisible web to any target, to cause it to be controlled for up to ten seconds at a time of their choosing"] ;
+    miracles[ROYALTY] =  ["gain massive bonuses to leading any armies","divinely inspire any crowd","divinely intuit how best to rule a group"] ;
+    miracles[ENDINGS] =  ["learn death date of any single target","understand the full consequences of any single potential action","cause any given target to no longer exist"] ;
+    miracles[KNOWING] = ["learn a random fact","learn a fact about a given topic","master a skill at random","understand literally everything about a target square foot"] ;
+    miracles[GUIDING] = ["gain a divine sense of where best to direct a group","gain the divine ability to provide perfect advice","gain an intuitive sense of the easiest way to move through any target environment"] ;
+    miracles[CRAFTING] =  ["divine inspiration to make a Legendary Object","the ability to summon Divine Quality raw materials","the ability to temporarily upgrade anyone within a 10 foot radius to a Master of any target craft"];
+    miracles[LANGUAGE] = ["the abililty to understand any language","the ability to remove someones understanding of a target language","the ability to create an entire new language and specify speakers of it (losing previous language skills)"] ;
+    miracles[BUGS] =  ["the ability to summon a swarm of any target insect","the ability to create new species of insects", "the ability to intuitively know what any insect desires"];
+    miracles[ADDICTION] = ["the ability to cause addiction in any target","the ability to permanently cure the addiction of any target","cause a completely random effect"];
+    miracles[SPYING] =["the temporary ability to view anything within 100 miles","the ability to divinely mark a target and hear anything through their ears and see anything through their eyes","the temporary ability to hear any conversation within 10 miles"] ;
+    miracles[CLOWNS] =["resist any attack so long as they can make a pun about it","gain Legendary Tier Acrobatics","become unconditionally immortal","gain cartoon physics"] ;
+    miracles[DOLLS] = ["control any inanimate object that appears to be something living","summon one Doll Familiar","transform themselves into a doll","transform themselves into a mannequin"] ;
+    miracles[OBFUSCATION] = ["permanently hide any object","remove knowledge of one concept from any target","cause amnesia in any one target"] ;
+    miracles[DARKNESS] =  ["completely block out the sun for one square mile","teleport between any shadows","remove all light from any room"] ;
+    miracles[KILLING] =  ["summon a tidal wave of blood","summon any arbitrary amount of knives for five minutes","mark any target for senseless violence from any witnesses","summon invisible sentient knives to cut any target"];
+    miracles[MUSIC] =  ["gain divine knowledge of how to perform any piece of music","gain divine inspiration to create any musical performance","gains the ability to divinely influence any who hear their music"] ;
+    miracles[DEFENSE] =  ["mark any target as invulnerable for five minutes","teleport to take any hit from any ally member","gain one piece of Legendary Armor"] ;
+    miracles[QUESTING] = ["get a divine hint to complete any quest","gain a Divine Quest","get a multiplier for any Quest Completion Bonuses"] ;
+}
+
 const initInsults = () =>{
     insult_possibilities[ANGELS] =  ["self-righteous"];
     insult_possibilities[LIGHT] =  ["blinding"];
@@ -559,7 +596,7 @@ const initInsults = () =>{
     insult_possibilities[ADDICTION] = ["addled"];
     insult_possibilities[SPYING] =["spying"] ;
     insult_possibilities[CLOWNS] =["foolish"] ;
-    insult_possibilities[DOLLS] = ["childish "] ;
+    insult_possibilities[DOLLS] = ["childish"] ;
     insult_possibilities[OBFUSCATION] = ["mysterious"] ;
     insult_possibilities[DARKNESS] =  ["edgy"] ;
     insult_possibilities[KILLING] =  ["murderous"];
@@ -651,5 +688,6 @@ export const initThemes = ()=>{
     initMenuOptions();
     initChildBackstories();
     initGeneralBackstories();
+    initMiracles();
 
 }

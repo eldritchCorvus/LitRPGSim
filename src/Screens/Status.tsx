@@ -76,7 +76,7 @@ export const  StatusScreen = (props: StatusProps)=> {
                     const rand = new SeededRandom(seed); //want it to be stable per interest but changing
                     const theme = all_themes[rand.pickFrom(props.player.theme_keys)];
                 return `${titleCase(theme.pickPossibilityFor(rand,ADJ))} ${interest.chosen_name}`;
-                }).join(",")}</StatusContent>
+                }).join(", ")}</StatusContent>
             </StatusRow>
 
             <StatusRow>
