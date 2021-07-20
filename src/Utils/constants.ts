@@ -1,3 +1,9 @@
+/*
+do i want a menu item thats just a mini game, like an idle thing?
+
+or a text based adventure stuck in JUST TRUTH mode?
+*/
+
 //LORE, BACKSTORY and QUESTS should grab from theme  mix and match templates that have things to fill
 // in mad lib style (noun, adj, object, etc) and then have little frame parts that make things work
 //like "long long ago".
@@ -13,14 +19,16 @@ export const STATUS = "STATUS"; //this obviously is gonna get upgraded.
 export const STATISTICS = "STATISTICS"; //not all statistics are available at once
 export const ACHIEVEMENTS = "ACHIEVEMENTS"; //can you see the achivements you haven't unlocked yet? are they black? readable?
 export const OPTIONS = "OPTIONS"; //can you alter the menu opacity? activate hax mode? etc
-export const QUESTS = "QUESTS"; //some quests get unlocked as the game progresses, obvs
+export const QUESTS = "QUESTS"; //last page i do, ties everything together. companions, gods, city, inventory, lore all gets referenced in quests
 export const COMPANIONS = "COMPANIONS"; //a title and a bit of backstory, plus what they think about you.
 export const GODS = "GODS"; //do you have a patron? any curses by rival gods?
 export const CITYBUILDING = "CITYBUILDING"; //what level is your smithy? are your people happy? sad?
 export const INVENTORY = "INVENTORY"; //weapons, alchemy ingredients, scrolls, etc (each theme should have at least one associated object)
-export const LORE = "LORE"; //whats the actual setting you're in? who is the big bad?
+export const LORE = "LORE"; //whats the actual setting you're in? who is the big bad? what things is your char rewarded for finding out
 export const BACKSTORY = "BACKSTORY"; //does your char have amnesia? are you a stranger?
 export const RESISTANCES = "RESISTANCES"; //are you weak to blunt? strong against heresy?
+export const WARROOM = "WARROOM"; //either a soldier or a commander, what you can do in response to a war plot
+
 export const CODE = "CODE"; //have a fake error console that prints out all the fake errors (such as when you hit escape)
 //only accessible if in RAGE MODE
 export const TRUTH = "TRUTH";
