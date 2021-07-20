@@ -97,8 +97,10 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+      <li>hide some secrets in binary to tie into fake faq (possibly in TRUTH MODE background)</li>
         <li>while loading (or seperate entry page? make it the index? and have current indez be /zampanio.html?seed=whatever), "enter in your birthday to start your personalized Adventure in Zampanio!". use birthday as seed.  if they would get waste, say "ERROR INVALID BIRTHDAY!" or something. also links to an about section that links to a non existant FAQ that described a game that doesn't exist (Zampanio) </li>
         <li>link to fake dev log mimicking sburbsim logs where i "try to be more acurate" to how i think Zampanio would be if it "were a real game"</li>
+        <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
         <li>inventory screen</li>
         <li>achivements can give random items as rewards, quests can CLAIM to</li>
         <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
