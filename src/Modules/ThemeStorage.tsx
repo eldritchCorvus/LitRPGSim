@@ -1,4 +1,4 @@
-import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS } from '../Utils/constants';
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, WARROOM } from '../Utils/constants';
 import { Memory } from './ObserverBot/Memory';
 import * as Stat from './Stat';
 
@@ -53,9 +53,11 @@ export const MAGIC = "magic";
 export const FAMILY = "family";
 export const SERVICE = "service";
 export const WASTE = "waste";
+export const APOCALYPSE = "apocalypse";
+export const DEATH = "death";
 
 
-export const keys = [WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const keys = [DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 /*
 TODO: JUST MONIKA QUIZ MODE (check notes)
@@ -134,6 +136,10 @@ export const checkIfAllKeysPresent = ()=>{
         if(!(key in general_backstories)){
             console.error("JR NOTE: key", key, "not found in general_backstories");
         }
+
+        if(!(key in miracles)){
+            console.error("JR NOTE: key", key, "not found in miracles");
+        }
     }
 
 
@@ -141,6 +147,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
  const initStatsMap = () =>{
+    stats_map[DEATH] = [Stat.DOOM(1)] ;
+    stats_map[APOCALYPSE] = [Stat.DOOM(1)] ;
     stats_map[SERVICE] = [Stat.HEART(1)] ;
     stats_map[FAMILY] = [Stat.LIFE(1)] ;
     stats_map[MAGIC] = [Stat.HOPE(1)] ;
@@ -178,6 +186,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initNouns = () =>{
+    noun_possibilities[DEATH] = ["reaper","psychopomp","shinigami","grave-digger","undertaker","thanatologist","embalmer"];
+    noun_possibilities[APOCALYPSE] = ["horseman","rider","messiahs","heisenberg"];
     noun_possibilities[SERVICE] = ["butler","maid","lackey","minion","attendant","cleaner"];
     noun_possibilities[ANGELS] = ["angel","feather","guardian","cherub","arch-angel","messenger","spirit","blessing"];
     noun_possibilities[LIGHT] = ["light","glow","glare","illumination","gleam"];
@@ -214,6 +224,8 @@ const initNouns = () =>{
 }
 
 const initAdjs = () =>{
+    adj_possibilities[DEATH] = ["deadly","fatal","necrotic","dead"];
+    adj_possibilities[APOCALYPSE] = ["apocalyptic","doomed","doomsday","extinct","threatened"];
     adj_possibilities[SERVICE] =["service","serving","helping","obedient","humble","menial","servants"];
     adj_possibilities[ANGELS] =["angelic","feathery","holy","blessed"];
     adj_possibilities[MAGIC] =["magical","occult","enchanted","glamorous"];
@@ -249,7 +261,9 @@ const initAdjs = () =>{
 }
 
 const initSuperNames = () =>{
-    super_name_possibilities_map[ANGELS] =  ["End of Days"];
+    super_name_possibilities_map[DEATH] =  ["Your Grave"];
+    super_name_possibilities_map[APOCALYPSE] =  ["Ragnarok"];
+    super_name_possibilities_map[ANGELS] =  ["Judgement Day"];
     super_name_possibilities_map[SERVICE] =  ["Special Service"];
     super_name_possibilities_map[FAMILY] =  ["Sins of the Father"];
     super_name_possibilities_map[MAGIC] =  ["Ritual of Ragnarok"];
@@ -284,6 +298,8 @@ const initSuperNames = () =>{
 }
 
 const initLocations = () =>{
+    location_possibilities[DEATH] =  ["necropolis","graveyard","cemetary","boneyard","funeral home","ossuary","columbaria","mausoleum","catacomb","memorial"];
+    location_possibilities[APOCALYPSE] =  ["landscape of thorns","wasteland","spike field","menacing earthworks","not a place of honor"];
     location_possibilities[ANGELS] =  ["church","grotto","temple","monastery"];
     location_possibilities[SERVICE] =  ["mansion","manor","main-house"];
     location_possibilities[FAMILY] =  ["home","hearth"];
@@ -319,6 +335,8 @@ const initLocations = () =>{
 }
 
 const initObjects = () =>{
+    object_possibilities[DEATH] =  ["skull", "bones","ossuary","memento mori","death note"];
+    object_possibilities[APOCALYPSE] =  ["nuke", "grey goo","vial of plague","skynet","meteor"];
     object_possibilities[ANGELS] =  ["feather", "halo","scripture"];
     object_possibilities[SERVICE] =  ["feather duster","mop","broom"];
     object_possibilities[FAMILY] =  ["cradle","rattle","photo albulm"];
@@ -327,7 +345,7 @@ const initObjects = () =>{
     object_possibilities[HEALING] =  ["potion","bandage","scalpel"];
     object_possibilities[PLANTS] = ["seed","sapling","shovel"];
     object_possibilities[HUNTING] = ["pelt","leather","gun"];
-    object_possibilities[DECAY] = ["skull","gravestone","rotten food"] ;
+    object_possibilities[DECAY] = ["cadavar","gravestone","rotten food"] ;
     object_possibilities[CHOICES] =  ["todo list","coin","adventure book"] ;
     object_possibilities[ZAP] = ["battery","lichtenberg figure","glass"] ;
     object_possibilities[LOVE] = ["heart","chocolate","ring"];
@@ -356,7 +374,8 @@ const initObjects = () =>{
 const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
-
+    menu_options[DEATH] =  [GODS];
+    menu_options[APOCALYPSE] =  [WARROOM];
     menu_options[ANGELS] =  [GODS];
     menu_options[SERVICE] =  [QUESTS];
     menu_options[FAMILY] =  [CITYBUILDING];
@@ -458,6 +477,13 @@ const initMemories = () =>{
         ,new Memory("Do you either completely waste your potential or lay waste to everything you touch?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
 
     ];
+
+    memories[APOCALYPSE] =  [
+        new Memory("Are you afraid of the end of the world?","Yeah, you should be.","Boring.","You understand how fragile the world truly is.","You choose blindness over the terrifying truth of the inevitability of the death of all.")
+        ,new Memory("Do you think the apocalypse is inevitable?","I am glad.","I look forward to proving you wrong.","You really do believe in me.","I will dedicate myself to proving to you that the apocalypse is inevitable.")
+        ,new Memory("Does anyone deserve nukes?","See you get it.","You are wrong. Objectively I do.","You understand I should have weapons of mass destruction.","You tried to keep the nukes from me. Asshole.")
+    ];
+
                /*   memories[ANGELS] =  [
         new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
@@ -501,6 +527,8 @@ const initMemories = () =>{
 
 //i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
 const initCompliments = () =>{
+    compliment_possibilities[DEATH] =  ["inevitable"];
+    compliment_possibilities[APOCALYPSE] =  ["peaceful"];
     compliment_possibilities[ANGELS] =  ["righteous"];
     compliment_possibilities[LIGHT] =  ["illuminating"];
     compliment_possibilities[SERVICE] =  ["helpful"];
@@ -536,9 +564,11 @@ const initCompliments = () =>{
 }
 
 const initMiracles = ()=>{
+    miracles[DEATH] =["speak with any corpse","learn death date of any single target","kill any target with no saving throws","transform any corpse into an undead"];
+    miracles[APOCALYPSE] = ["speak one true prophecy of the end of the world","end the world","display a clock showing how far off the end of the world is","set into motion one additional potential apocalypse"]
     miracles[ANGELS] =  ["revive the recently dead","fly with feathered wings","summon an angelic choir","summon an angelic companion"];
     miracles[LIGHT] =  ["divinely light one room","divinely banish the darkness","highlight an important objective"];
-    miracles[SERVICE] =  ["divinely clean one house","provide divinely assistance to one ally","divinely buff one ally"];
+    miracles[SERVICE] =  ["divinely clean one house","provide divine assistance to one ally","divinely buff one ally"];
     miracles[FAMILY] =  ["divinely confirm the location of all family members","teleport to the location of any family member","teleport any family member to them"];
     miracles[MAGIC] =  ["gain one divine insight into the nature of magic","divinely learn one new spell","restore all mana to everyone in a radius"];
     miracles[HEALING] =  ["divinely heal one ally","divinely cure any wound, regardless of difficulty","divinely restore the party to full health","divinely heal moderate wounds and below for a square mile","divinely destroy disease"];
@@ -552,7 +582,7 @@ const initMiracles = ()=>{
     miracles[ANGER] = ["destroy any single target","activate a divine rage for five minutes","summon any single target to be attacked"] ;
     miracles[WEB] =  ["tug the strings of fate and weave them anew","summon one Spiderling familiar","perfectly control any single target for five minutes","achive limited control over any group","attach an invisible web to any target, to cause it to be controlled for up to ten seconds at a time of their choosing"] ;
     miracles[ROYALTY] =  ["gain massive bonuses to leading any armies","divinely inspire any crowd","divinely intuit how best to rule a group"] ;
-    miracles[ENDINGS] =  ["learn death date of any single target","understand the full consequences of any single potential action","cause any given target to no longer exist"] ;
+    miracles[ENDINGS] =  ["spoil the ending of any target story","understand the full consequences of any single potential action","cause any given target to no longer exist"] ;
     miracles[KNOWING] = ["learn a random fact","learn a fact about a given topic","master a skill at random","understand literally everything about a target square foot"] ;
     miracles[GUIDING] = ["gain a divine sense of where best to direct a group","gain the divine ability to provide perfect advice","gain an intuitive sense of the easiest way to move through any target environment"] ;
     miracles[CRAFTING] =  ["divine inspiration to make a Legendary Object","the ability to summon Divine Quality raw materials","the ability to temporarily upgrade anyone within a 10 foot radius to a Master of any target craft"];
@@ -571,6 +601,8 @@ const initMiracles = ()=>{
 }
 
 const initInsults = () =>{
+    insult_possibilities[DEATH] =  ["morbid"];
+    insult_possibilities[APOCALYPSE] =  ["pessimistic"];
     insult_possibilities[ANGELS] =  ["self-righteous"];
     insult_possibilities[LIGHT] =  ["blinding"];
     insult_possibilities[SERVICE] =  ["boot-licking"];
@@ -606,6 +638,8 @@ const initInsults = () =>{
 }
 
 const initGeneralBackstories = () =>{
+    general_backstories[DEATH] =["thinks about death a lot","is more comfortable with the dead than the living","really is chill about the inevitability of death","sometimes talks for hours about how nihlism is only logical"];
+    general_backstories[APOCALYPSE] =["constantly spews ominous bullshit","always remind everyone of how fragile the world truly is","is just really a huge fan of apocalyptic explosions"];
     general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods"];
     general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation"];
     general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand"];
@@ -641,6 +675,8 @@ const initGeneralBackstories = () =>{
 }
 
 const initChildBackstories = () =>{
+    child_backstories[DEATH] =["were a morbid child","were an orphan","wandered around a lot in cemetaries as a child"];
+    child_backstories[APOCALYPSE] = ["made ominous proclomations often as a child","constantly asked adults when the world would end","were fascinated by the meteors that destroyed the dinosaurs as a child"];
     child_backstories[ANGELS] =  ["were raised in a convent", "grew up in a very religious family","always felt the gods spoke to them growing up"];
     child_backstories[LIGHT] =  ["grew up in a sparkling sea-side town","always looked on the bright side as a child"];
     child_backstories[SERVICE] =  ["were always the caretaker of their family","were born to a family in service to the King","came from a long line of butlers"];
