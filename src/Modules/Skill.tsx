@@ -2,7 +2,7 @@ import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
 import { Stat } from "./Stat";
 import {Theme} from "./Theme";
-import { ADJ, NOUN } from "./ThemeStorage";
+import { ADJ, LOCATION, PERSON, OBJECT } from "./ThemeStorage";
 /*TODO
     * subtype of skill that isn't procedurally generated and instead has core functionality
     (such as unlocking stat screens)
@@ -19,18 +19,19 @@ export   class Skill{
 
     generateName = (themes: Theme[], seeded_random:SeededRandom)=>{
         const generic_bits = ["beam","touch","ray","aura","signal"];
+        const noun_types = [PERSON, LOCATION, OBJECT];
        if(themes.length === 1){
-        const noun =  titleCase(themes[0].pickPossibilityFor(seeded_random, NOUN));
+        const noun =  titleCase(themes[0].pickPossibilityFor(seeded_random, seeded_random.pickFrom(noun_types)));
         const adj =  titleCase(themes[0].pickPossibilityFor(seeded_random, ADJ));
         const generic = titleCase(seeded_random.pickFrom(generic_bits));
         const options = [`${adj} ${noun}`,`${noun}`,`${noun} ${generic}`,`${adj} ${generic}`,`${generic} of ${noun}`];
 
         return seeded_random.pickFrom(options);
     }else if(themes.length === 2){
-           const first_noun =  titleCase(themes[0].pickPossibilityFor(seeded_random, NOUN));
+           const first_noun =  titleCase(themes[0].pickPossibilityFor(seeded_random, seeded_random.pickFrom(noun_types)));
            const first_adj =  titleCase(themes[0].pickPossibilityFor(seeded_random, ADJ));
 
-           const second_noun =  titleCase(themes[1].pickPossibilityFor(seeded_random, NOUN));
+           const second_noun =  titleCase(themes[1].pickPossibilityFor(seeded_random, seeded_random.pickFrom(noun_types)));
            const second_adj =  titleCase(themes[1].pickPossibilityFor(seeded_random, ADJ));
 
            const options = [`${first_noun}'s ${second_noun}`,`${first_noun} ${second_noun}`,`${first_noun} of ${second_adj}`,`${first_adj} ${second_noun}`,`${second_adj} ${first_noun}`,`${first_noun} of ${second_noun}s`];
