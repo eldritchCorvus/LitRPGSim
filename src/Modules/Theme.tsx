@@ -89,7 +89,7 @@ export function initThemes(){
     ThemeStorage.checkIfAllKeysPresent();
     for(let key of ThemeStorage.keys){
         const string_possibilities:PossibilitiesListMap = {};
-        string_possibilities[ThemeStorage.NOUN] = ThemeStorage.noun_possibilities[key];
+        string_possibilities[ThemeStorage.PERSON] = ThemeStorage.person_posibilities[key];
         string_possibilities[ThemeStorage.LOCATION] = ThemeStorage.location_possibilities[key];
         string_possibilities[ThemeStorage.OBJECT] = ThemeStorage.object_possibilities[key];
 
