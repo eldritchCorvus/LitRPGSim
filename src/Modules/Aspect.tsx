@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import * as Stat from './Stat';
 import {Theme, all_themes} from "./Theme";
-import { ANGELS, APOCALYPSE, DEATH, ENDINGS, FAMILY, HUNTING, KILLING, KNOWING, LIGHT, QUESTING } from './ThemeStorage';
+import { ANGELS, APOCALYPSE, DEATH, ENDINGS, FAMILY, HUNTING, KILLING, KNOWING, LIGHT, OBFUSCATION, QUESTING, TWISTING } from './ThemeStorage';
 //TODO aspects also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
 //or see/upgrade your allies (blood would especially be good at this)
@@ -88,5 +88,6 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("hunt", ["Hunt", "Chase", "Pursuit", "Hunters","Predation"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(2), Stat.RAGE(1)]), [all_themes[HUNTING], all_themes[KILLING]]);
     new Aspect("apocalypse", ["Catastrophe", "Apocalypse", "Annihilation", "Cataclysm ","Devastation","Armageddon","Ragnarok","Reckoning","Extinction"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[APOCALYPSE], all_themes[ENDINGS]]);
     new Aspect("death", ["End", "Death", "Expiration", "Fatality ","Mortality","Demise","Tomb"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[DEATH], all_themes[ENDINGS]]);
+    new Aspect("spiral", ["Spiral", "Sand", "Lies", "Confusion ","Gaslighting","Tricks","Deception","Madness","Fractals","Chaos","Labyrinths","Mazes","Twisting"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes[TWISTING], all_themes[OBFUSCATION]]);
 
 }

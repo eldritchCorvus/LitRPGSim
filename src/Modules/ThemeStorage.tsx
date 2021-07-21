@@ -3,7 +3,7 @@ import { Memory } from './ObserverBot/Memory';
 import * as Stat from './Stat';
 
 //categories within a theme
-export const NOUN="noun";
+export const PERSON="person";
 export const ADJ = "adj";
 export const COMPLIMENT = "compliment";
 export const INSULT = "insult";
@@ -55,9 +55,10 @@ export const SERVICE = "service";
 export const WASTE = "waste";
 export const APOCALYPSE = "apocalypse";
 export const DEATH = "death";
+export const TWISTING = "twisting";
 
 
-export const keys = [DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const keys = [TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 /*
 TODO: JUST MONIKA QUIZ MODE (check notes)
@@ -79,7 +80,7 @@ export interface MemoryMap {
 
 //noun_possibility, adj_possibility (glowing, shimmering, walking, ceasing)
 export let stats_map:ThemeStatMap = {};
-export let noun_possibilities:ThemePossibilitiesMap = {};
+export let person_posibilities:ThemePossibilitiesMap = {};
 export let object_possibilities:ThemePossibilitiesMap = {};
 export let location_possibilities:ThemePossibilitiesMap = {};
 export let general_backstories:ThemePossibilitiesMap = {};
@@ -101,7 +102,7 @@ export const checkIfAllKeysPresent = ()=>{
            console.error("JR NOTE: key", key, "not found in stats_map");
         }
         
-        if(!(key in noun_possibilities)){
+        if(!(key in person_posibilities)){
             console.error("JR NOTE: key", key, "not found in noun_possibilities");
         }
 
@@ -147,6 +148,7 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
  const initStatsMap = () =>{
+    stats_map[TWISTING] = [Stat.RAGE(1)];
     stats_map[DEATH] = [Stat.DOOM(1)] ;
     stats_map[APOCALYPSE] = [Stat.DOOM(1)] ;
     stats_map[SERVICE] = [Stat.HEART(1)] ;
@@ -185,45 +187,47 @@ export const checkIfAllKeysPresent = ()=>{
 
 }
 
-const initNouns = () =>{
-    noun_possibilities[DEATH] = ["reaper","psychopomp","shinigami","grave-digger","undertaker","thanatologist","embalmer"];
-    noun_possibilities[APOCALYPSE] = ["horseman","rider","messiahs","heisenberg"];
-    noun_possibilities[SERVICE] = ["butler","maid","lackey","minion","attendant","cleaner"];
-    noun_possibilities[ANGELS] = ["angel","feather","guardian","cherub","arch-angel","messenger","spirit","blessing"];
-    noun_possibilities[LIGHT] = ["light","glow","glare","illumination","gleam"];
-    noun_possibilities[FAMILY] = ["ancestor","father","mother","brother","sister","aunt","uncle","cousin","family"];
-    noun_possibilities[MAGIC] = ["spell-circle","ritual","magic","spell","witchcraft","enchantment","incantation","spellbook","tome","incantation","glamour"];
-    noun_possibilities[HUNTING] = ["hunter","stalker","predator","pursuer"];
-    noun_possibilities[HEALING] = ["potion","bandage","doctor","nurse","healer","panacea","curative"];
-    noun_possibilities[PLANTS] =["leaf","flower","root","vine","branch","tree","meadow","forest"];
-    noun_possibilities[DECAY] = ["rot","decay","corruption","entropy"];
-    noun_possibilities[CHOICES] = ["choice","selection","option","janus","facet","aspect"];
-    noun_possibilities[ZAP] = ["zap","bolt","stroke","lightning","ozone"];
-    noun_possibilities[LOVE] = ["love","heart","soulmate","kiss","hug","caress","touch","romance"];
-    noun_possibilities[SOUL] = ["self","soulmate","core","soul","heart","spirit","essence"];
-    noun_possibilities[ANGER] = ["beserker","rebel","hater"];
-    noun_possibilities[WEB] = ["destiny","web","spider","fate","tapestry","promise","providence","arachnid","puppet"];
-    noun_possibilities[ROYALTY] = ["decree","doctrine","law","king","queen","lord","crown","empire"];
-    noun_possibilities[ENDINGS] =["finale","coda","epilogue","curtain","applause","bow"];
-    noun_possibilities[KNOWING] = ["instinct","knowledge","truth","gnosis","awareness","sense","idea"];
-    noun_possibilities[GUIDING] = ["path","road","journey","guide","destination","trip"];
-    noun_possibilities[CRAFTING] = ["wood","metal","ore","crystal","rock","log","cloth","ax","pickax","gem","anvil","crucible","hammer","needle"];
-    noun_possibilities[LANGUAGE] = ["word","rune","speech","book","scroll","tongue","ink","paper","letter"];
-    noun_possibilities[BUGS] = ["bug","worm","fly","maggot","roach","swarm","plague","hive","locusts"];
-    noun_possibilities[ADDICTION] = ["compulsion","habit","high","addiction","dependence"];
-    noun_possibilities[SPYING] = ["eye","watcher","observer","ear","spy","camera","recording"];
-    noun_possibilities[CLOWNS] = ["clown","mime","jester","acrobat","circus","harlequin","ringmaster"];
-    noun_possibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
-    noun_possibilities[OBFUSCATION] = ["cover","blanket","cloak","disguise","costume"];
-    noun_possibilities[DARKNESS] = ["darkness","night","void","nocturne","shadow","nothing"];
-    noun_possibilities[KILLING] = ["murderer","blade","gun","assasin","killer","blood","gore"];
-    noun_possibilities[MUSIC] = ["orchestra","overture","reprise","dirge","requiem","nocturne","concert","waltz","chant","hymn","fugue","note","instrument","song","serenade","leitmotif","anthem","encore","choir"];
-    noun_possibilities[DEFENSE] = ["shield","armor","knight","paladin","defender","protector","page","soldier","warrior"];
-    noun_possibilities[QUESTING] = ["quest","goal","journey","seeker","adventure","hope","belief","faith","pilgrim"];
+const initPeople = () =>{
+    person_posibilities[TWISTING] = ["therapist","minotaur","devil","liar","madman"];
+    person_posibilities[DEATH] = ["reaper","psychopomp","shinigami","grave-digger","undertaker","thanatologist","embalmer"];
+    person_posibilities[APOCALYPSE] = ["horseman","rider","messiahs","heisenberg"];
+    person_posibilities[SERVICE] = ["butler","maid","lackey","minion","attendant","cleaner"];
+    person_posibilities[ANGELS] = ["angel","feather","guardian","cherub","arch-angel","messenger","spirit","blessing"];
+    person_posibilities[LIGHT] = ["light","glow","glare","illumination","gleam"];
+    person_posibilities[FAMILY] = ["ancestor","father","mother","brother","sister","aunt","uncle","cousin","family"];
+    person_posibilities[MAGIC] = ["spell-circle","ritual","magic","spell","witchcraft","enchantment","incantation","spellbook","tome","incantation","glamour"];
+    person_posibilities[HUNTING] = ["hunter","stalker","predator","pursuer"];
+    person_posibilities[HEALING] = ["potion","bandage","doctor","nurse","healer","panacea","curative"];
+    person_posibilities[PLANTS] =["leaf","flower","root","vine","branch","tree","meadow","forest"];
+    person_posibilities[DECAY] = ["rot","decay","corruption","entropy"];
+    person_posibilities[CHOICES] = ["choice","selection","option","janus","facet","aspect"];
+    person_posibilities[ZAP] = ["zap","bolt","stroke","lightning","ozone"];
+    person_posibilities[LOVE] = ["love","heart","soulmate","kiss","hug","caress","touch","romance"];
+    person_posibilities[SOUL] = ["self","soulmate","core","soul","heart","spirit","essence"];
+    person_posibilities[ANGER] = ["beserker","rebel","hater"];
+    person_posibilities[WEB] = ["destiny","web","spider","fate","tapestry","promise","providence","arachnid","puppet"];
+    person_posibilities[ROYALTY] = ["decree","doctrine","law","king","queen","lord","crown","empire"];
+    person_posibilities[ENDINGS] =["finale","coda","epilogue","curtain","applause","bow"];
+    person_posibilities[KNOWING] = ["instinct","knowledge","truth","gnosis","awareness","sense","idea"];
+    person_posibilities[GUIDING] = ["path","road","journey","guide","destination","trip"];
+    person_posibilities[CRAFTING] = ["wood","metal","ore","crystal","rock","log","cloth","ax","pickax","gem","anvil","crucible","hammer","needle"];
+    person_posibilities[LANGUAGE] = ["word","rune","speech","book","scroll","tongue","ink","paper","letter"];
+    person_posibilities[BUGS] = ["bug","worm","fly","maggot","roach","swarm","plague","hive","locusts"];
+    person_posibilities[ADDICTION] = ["compulsion","habit","high","addiction","dependence"];
+    person_posibilities[SPYING] = ["eye","watcher","observer","listener","spy"];
+    person_posibilities[CLOWNS] = ["clown","mime","jester","acrobat","performer","harlequin","ringmaster"];
+    person_posibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
+    person_posibilities[OBFUSCATION] = ["hider","ninja","censor","disguise artist"];
+    person_posibilities[DARKNESS] = ["edgelord","ninja","watchman","nightclerk"];
+    person_posibilities[KILLING] = ["murderer","assasin","killer","soldier"];
+    person_posibilities[MUSIC] = ["singer","dancer","choir","bard","musician","drummer"];
+    person_posibilities[DEFENSE] = ["knight","paladin","defender","protector","page","soldier","warrior"];
+    person_posibilities[QUESTING] = ["seeker","adventurer","pilgrim"];
 
 }
 
 const initAdjs = () =>{
+    adj_possibilities[TWISTING] = ["twisted","mad","convoluted","confusing","lying","deceitful"];
     adj_possibilities[DEATH] = ["deadly","fatal","necrotic","dead"];
     adj_possibilities[APOCALYPSE] = ["apocalyptic","doomed","doomsday","extinct","threatened"];
     adj_possibilities[SERVICE] =["service","serving","helping","obedient","humble","menial","servants"];
@@ -261,6 +265,7 @@ const initAdjs = () =>{
 }
 
 const initSuperNames = () =>{
+    super_name_possibilities_map[TWISTING] =  ["This Is Not A Game"];
     super_name_possibilities_map[DEATH] =  ["Your Grave"];
     super_name_possibilities_map[APOCALYPSE] =  ["Ragnarok"];
     super_name_possibilities_map[ANGELS] =  ["Judgement Day"];
@@ -298,11 +303,12 @@ const initSuperNames = () =>{
 }
 
 const initLocations = () =>{
+    location_possibilities[TWISTING] =  ["labyrinth","maze","corridors","backrooms","asylum"];
     location_possibilities[DEATH] =  ["necropolis","graveyard","cemetary","boneyard","funeral home","ossuary","columbaria","mausoleum","catacomb","memorial"];
     location_possibilities[APOCALYPSE] =  ["landscape of thorns","wasteland","spike field","menacing earthworks","not a place of honor"];
     location_possibilities[ANGELS] =  ["church","grotto","temple","monastery"];
     location_possibilities[SERVICE] =  ["mansion","manor","main-house"];
-    location_possibilities[FAMILY] =  ["home","hearth"];
+    location_possibilities[FAMILY] =  ["home","hearth","homestead"];
     location_possibilities[MAGIC] =  ["mountain","school","tower"];
     location_possibilities[LIGHT] =  ["mountain","field","cloud"];
     location_possibilities[HEALING] =  ["hospital","field-hospital","doctors office"];
@@ -335,6 +341,7 @@ const initLocations = () =>{
 }
 
 const initObjects = () =>{
+    object_possibilities[TWISTING] =  ["clay", "door","puzzlebox","fractal pendant","spiral pendant"];
     object_possibilities[DEATH] =  ["skull", "bones","ossuary","memento mori","death note"];
     object_possibilities[APOCALYPSE] =  ["nuke", "grey goo","vial of plague","skynet","meteor"];
     object_possibilities[ANGELS] =  ["feather", "halo","scripture"];
@@ -374,6 +381,7 @@ const initObjects = () =>{
 const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
+    menu_options[TWISTING] =  [OPTIONS];
     menu_options[DEATH] =  [GODS];
     menu_options[APOCALYPSE] =  [WARROOM];
     menu_options[ANGELS] =  [GODS];
@@ -417,7 +425,6 @@ const initMemories = () =>{
         new Memory("Do you consider yourself a reglious person?","Well don't go trying to convert me.","Me, neither...","So you're a religious person.","You aren't very religious.")
         ,new Memory("Do you feel blessed?","Must be nice...","Even with me screaming at you and tricking you into playing a fake game? Must be nice.","You feel like your life is going well.","You aren't very happy with your lot in life.")
         ,new Memory("Do you like angels, as an aesthetic? All feathers and light?","Eh. Just one more thing to hate you for, I guess.","Yeah, who cares about those feathery assholes.","You like patronizing assholes like angels.","You have good taste in aesthetics.")
-
     ];
 
     //it figures a hunter would pursue them
@@ -527,6 +534,7 @@ const initMemories = () =>{
 
 //i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
 const initCompliments = () =>{
+    compliment_possibilities[TWISTING] =  ["creative"];
     compliment_possibilities[DEATH] =  ["inevitable"];
     compliment_possibilities[APOCALYPSE] =  ["peaceful"];
     compliment_possibilities[ANGELS] =  ["righteous"];
@@ -564,6 +572,7 @@ const initCompliments = () =>{
 }
 
 const initMiracles = ()=>{
+    miracles[TWISTING]=["change the meaning of any word for everyone but a given target","create an ever shifting fractal labrinth","trap any target in an infinite realm of false meaning","create a game that is not a game and trap any target in its endless variations","afflict a given target with a variety of effects only they can experience","delete a well known event from all memory besides a given target"];
     miracles[DEATH] =["speak with any corpse","learn death date of any single target","kill any target with no saving throws","transform any corpse into an undead"];
     miracles[APOCALYPSE] = ["speak one true prophecy of the end of the world","end the world","display a clock showing how far off the end of the world is","set into motion one additional potential apocalypse"]
     miracles[ANGELS] =  ["revive the recently dead","fly with feathered wings","summon an angelic choir","summon an angelic companion"];
@@ -601,6 +610,7 @@ const initMiracles = ()=>{
 }
 
 const initInsults = () =>{
+    insult_possibilities[TWISTING] =  ["mad"];
     insult_possibilities[DEATH] =  ["morbid"];
     insult_possibilities[APOCALYPSE] =  ["pessimistic"];
     insult_possibilities[ANGELS] =  ["self-righteous"];
@@ -638,8 +648,9 @@ const initInsults = () =>{
 }
 
 const initGeneralBackstories = () =>{
-    general_backstories[DEATH] =["thinks about death a lot","is more comfortable with the dead than the living","really is chill about the inevitability of death","sometimes talks for hours about how nihlism is only logical"];
-    general_backstories[APOCALYPSE] =["constantly spews ominous bullshit","always remind everyone of how fragile the world truly is","is just really a huge fan of apocalyptic explosions"];
+    general_backstories[TWISTING] =["delight in getting someone to believe a lie","really enjoy fractals","enjoy needlessly convoluted plots","constantly play tricks on those around them","once tricked a friend into believing 'bananas' weren't actually real fruit","created the game you are currently playing","resolutely insist that 'fractal' is pronounced 'frack tall'","lurk behind the options screen",'hate you in particular',"are watching you","know what you did","are smiling just for you","only want for you to realize the truth","have never told you a lie","would never give you up","are the true reason this game exists","are waiting for you","wish you would find them already","wonder if you've ever heard of the javascript console","make this expression a lot: :) :) :)","honestly don't know what you are doing here","reassure you the menu is supposed to close","suggest you just keep hitting the escape key"];
+    general_backstories[DEATH] =["think about death a lot","are more comfortable with the dead than the living","really are chill about the inevitability of death","sometimes talk for hours about how nihlism is only logical"];
+    general_backstories[APOCALYPSE] =["constantly spew ominous bullshit","alway remind everyone of how fragile the world truly is","are just really a huge fan of apocalyptic explosions"];
     general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods"];
     general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation"];
     general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand"];
@@ -675,6 +686,7 @@ const initGeneralBackstories = () =>{
 }
 
 const initChildBackstories = () =>{
+    child_backstories[TWISTING] = ["were never a child","were always a child","were born old and aged backwards","spent a lot of time lost in the backrooms as a child","exploded into a flock of crows when they hit puberty"];
     child_backstories[DEATH] =["were a morbid child","were an orphan","wandered around a lot in cemetaries as a child"];
     child_backstories[APOCALYPSE] = ["made ominous proclomations often as a child","constantly asked adults when the world would end","were fascinated by the meteors that destroyed the dinosaurs as a child"];
     child_backstories[ANGELS] =  ["were raised in a convent", "grew up in a very religious family","always felt the gods spoke to them growing up"];
@@ -713,7 +725,7 @@ const initChildBackstories = () =>{
 
 export const initThemes = ()=>{
     initStatsMap();
-    initNouns();
+    initPeople();
     initObjects();
     initLocations();
     initAdjs();
