@@ -285,6 +285,7 @@ export const StatusHeader = styled.div`
 `
 
 export const StatusContent = styled.div`
+    max-width: 500px;
 `
 
 export const TreeContent = styled.div`
