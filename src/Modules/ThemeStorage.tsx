@@ -737,5 +737,4 @@ export const initThemes = ()=>{
     initChildBackstories();
     initGeneralBackstories();
     initMiracles();
-
 }
