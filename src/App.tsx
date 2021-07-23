@@ -87,7 +87,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>make a birthday page, make an abj style page (so i can find specific players dammit, or maybe just flat out pass in specific params for aplayers)</li>
+        <li>make a birthday page, style debug page somewhat</li>
       <li>hide some secrets in binary (THE END IS NEVER THE END?) to tie into fake faq (possibly in TRUTH MODE background)</li>
         <li>while loading (or seperate entry page? make it the index? and have current indez be /zampanio.html?seed=whatever), "enter in your birthday to start your personalized Adventure in Zampanio!". use birthday as seed.  if they would get waste, say "ERROR INVALID BIRTHDAY!" or something. also links to an about section that links to a non existant FAQ that described a game that doesn't exist (Zampanio) </li>
         <li>link to fake dev log mimicking sburbsim logs where i "try to be more acurate" to how i think Zampanio would be if it "were a real game"</li>
