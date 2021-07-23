@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import About from "./About";
 import App from "./App";
 import Birthday from "./Birthday";
+import Debug from "./Debug";
 import { getRandomSeed } from "./Utils/NonSeededRandUtils";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
@@ -14,11 +15,13 @@ four then.
 
 export const BIRTHDAY = "BIRTHDAY";
 export const ABOUT = "ABOUT";
+export const DEBUG = "DEBUG";
+
 //game mode is just "is there a seed";
 
 function AppWrapper() {
   const [seed, setSeed] = useState<number>();
-  const [mode, setMode] = useState<string>(BIRTHDAY);
+  const [mode, setMode] = useState<string>(DEBUG);
 
   useEffect(()=>{
     if(!seed){
@@ -47,6 +50,10 @@ function AppWrapper() {
   }else if (mode == ABOUT){
     return(
       <About setMode={setMode}/>
+    )
+  }else if (mode == DEBUG){
+    return(
+      <Debug setMode={setMode}/>
     )
   }
 } 
