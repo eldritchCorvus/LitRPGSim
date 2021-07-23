@@ -192,7 +192,7 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initPeople = () =>{
-    person_posibilities[SCIENCE] = ["scientist","biologist ","chemist","physicist"];
+    person_posibilities[SCIENCE] = ["scientist","biologist","chemist","physicist"];
     person_posibilities[MATH] = ["mathematician","algebraist ","math teacher","engineer"];
     person_posibilities[TWISTING] = ["therapist","minotaur","devil","liar","madman"];
     person_posibilities[DEATH] = ["reaper","psychopomp","shinigami","grave-digger","undertaker","thanatologist","embalmer"];

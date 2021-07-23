@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
 import * as Stat from './Stat';
-import { ADDICTION, ANGELS, ANGER, BUGS, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, GUIDING, HEALING, KILLING, LIGHT, LOVE, MAGIC, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
+import { ADDICTION, ANGELS, ANGER, BUGS, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, GUIDING, HEALING, KILLING, LIGHT, LOVE, MAGIC, MATH, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SCIENCE, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
 
 interface InterestMap {
     [details: string] : Interest;
@@ -50,6 +50,8 @@ export  class Interest{
 }
 
 export function initInterests(seeded_random: SeededRandom){
+    new Interest("math", ["Mathematician", "Logician", "Algebraist","Proffessor","Engineer","Teacher"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2)]),[all_themes[MATH]]);
+    new Interest("science", ["Scientist", "Biologist", "Sage","Chemist","Physicist"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(2)]),[all_themes[SCIENCE]]);
     new Interest("crafting", ["Crafter", "Creator", "Blue-collarly Pursuer", "Omnismith"], seeded_random,Stat.WrapStatsToStatMap([Stat.SPACE(1), Stat.HOPE(1)]), [all_themes.crafting]);
     new Interest("language", ["Communicator", "Language Lover", "Speaker", "Writer", "Scribe", "Author","Rune Researcher"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(1), Stat.MIND(1)]),[all_themes.language]);
     new Interest("gardening", ["Gardener", "Plantsmith", "Farmer", "Horticulturist", "Groundskeeper", "Druid","Landscaper"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(1), Stat.LIFE(1)]),[all_themes[PLANTS]]);
