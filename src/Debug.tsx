@@ -61,7 +61,7 @@ function Debug(props: AppProps) {
           </select>
         </div>
         {aspect}
-        <a href = {`/?seed=3&class=${className}&aspect=${aspect}&interest1=${interest1}&interest2=${interest2}`}>this link constantly updates with a link to the player you are debugging with seed 3</a>
+        <a href = {`?seed=3&class=${className}&aspect=${aspect}&interest1=${interest1}&interest2=${interest2}`}>this link constantly updates with a link to the player you are debugging with seed 3</a>
       </div>
     );
 } 
