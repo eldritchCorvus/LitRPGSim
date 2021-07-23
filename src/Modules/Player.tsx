@@ -12,6 +12,7 @@ import { Memory } from "./ObserverBot/Memory";
 import { CHILDBACKSTORY, GENERALBACKSTORY, LOCATION } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
+import { getParameterByName } from "../Utils/URLUtils";
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -236,16 +237,23 @@ export   class Player{
 }
 
 export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
+    //TODO if these values are set in the url params use those instead of the seed.
     let cl;
+    //TODO should really make sure these are valid.
+    let url_class:string|null = getParameterByName("class",null);
+    let url_aspect:string|null = getParameterByName("aspect",null);
+    let url_i1:string|null = getParameterByName("interest1",null);
+    let url_i2:string|null = getParameterByName("interest2",null);
+
     if(rand.initial_seed === 13){
         cl = all_classes["waste"];
     }else{
-        cl = rand.pickFrom(Object.values(all_classes));
-
+        cl = url_class? all_classes[url_class] :rand.pickFrom(Object.values(all_classes));
     }
-    const ap= rand.pickFrom(Object.values(all_aspects));
-    const i1 = rand.pickFrom(Object.values(all_interests));
-    const i2 = rand.pickFrom(Object.values(all_interests));
+    const ap= url_aspect? all_aspects[url_aspect]: rand.pickFrom(Object.values(all_aspects));
+    const i1 = url_i1?all_interests[url_i1] : rand.pickFrom(Object.values(all_interests));
+    const i2 = url_i2? all_interests[url_i2]: rand.pickFrom(Object.values(all_interests));
+    console.log("JR NOTE: values are class",cl,"aspect:", ap,"interest1", i1,"interest2", i2);
 
     const ret = new Player(cl, ap, [i1,i2], rand, shadowPlayer);
     return ret;
