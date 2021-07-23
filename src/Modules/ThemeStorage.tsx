@@ -56,9 +56,11 @@ export const WASTE = "waste";
 export const APOCALYPSE = "apocalypse";
 export const DEATH = "death";
 export const TWISTING = "twisting";
+export const MATH = "math";
+export const SCIENCE = "science";
 
 
-export const keys = [TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const keys = [SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 /*
 TODO: JUST MONIKA QUIZ MODE (check notes)
@@ -148,6 +150,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
  const initStatsMap = () =>{
+    stats_map[SCIENCE] = [Stat.LIGHT(1)];
+    stats_map[MATH] = [Stat.DOOM(1)];
     stats_map[TWISTING] = [Stat.RAGE(1)];
     stats_map[DEATH] = [Stat.DOOM(1)] ;
     stats_map[APOCALYPSE] = [Stat.DOOM(1)] ;
@@ -188,6 +192,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initPeople = () =>{
+    person_posibilities[SCIENCE] = ["scientist","biologist ","chemist","physicist"];
+    person_posibilities[MATH] = ["mathematician","algebraist ","math teacher","engineer"];
     person_posibilities[TWISTING] = ["therapist","minotaur","devil","liar","madman"];
     person_posibilities[DEATH] = ["reaper","psychopomp","shinigami","grave-digger","undertaker","thanatologist","embalmer"];
     person_posibilities[APOCALYPSE] = ["horseman","rider","messiahs","heisenberg"];
@@ -227,7 +233,9 @@ const initPeople = () =>{
 }
 
 const initAdjs = () =>{
-    adj_possibilities[TWISTING] = ["twisted","mad","convoluted","confusing","lying","deceitful"];
+    adj_possibilities[SCIENCE] = ["scientific","callibrated","measured","experimental","hypothetical"];
+    adj_possibilities[MATH] = ["algebraic","mathematical","geometric","numeric"];
+    adj_possibilities[TWISTING] = ["twisted","mad","convoluted","confusing","lying","deceitful","spiralling"];
     adj_possibilities[DEATH] = ["deadly","fatal","necrotic","dead"];
     adj_possibilities[APOCALYPSE] = ["apocalyptic","doomed","doomsday","extinct","threatened"];
     adj_possibilities[SERVICE] =["service","serving","helping","obedient","humble","menial","servants"];
@@ -265,6 +273,8 @@ const initAdjs = () =>{
 }
 
 const initSuperNames = () =>{
+    super_name_possibilities_map[SCIENCE] =  ["E=mc^2"];
+    super_name_possibilities_map[MATH] =  ["Calculus Pop Quiz"];
     super_name_possibilities_map[TWISTING] =  ["This Is Not A Game"];
     super_name_possibilities_map[DEATH] =  ["Your Grave"];
     super_name_possibilities_map[APOCALYPSE] =  ["Ragnarok"];
@@ -303,6 +313,8 @@ const initSuperNames = () =>{
 }
 
 const initLocations = () =>{
+    location_possibilities[SCIENCE] =  ["labratory","classroom","facility","lab"];
+    location_possibilities[MATH] =  ["classroom","school","university","factory"];
     location_possibilities[TWISTING] =  ["labyrinth","maze","corridors","backrooms","asylum"];
     location_possibilities[DEATH] =  ["necropolis","graveyard","cemetary","boneyard","funeral home","ossuary","columbaria","mausoleum","catacomb","memorial"];
     location_possibilities[APOCALYPSE] =  ["landscape of thorns","wasteland","spike field","menacing earthworks","not a place of honor"];
@@ -341,6 +353,8 @@ const initLocations = () =>{
 }
 
 const initObjects = () =>{
+    object_possibilities[SCIENCE] =  ["test tube", "beaker","lab coat","microscope"];
+    object_possibilities[MATH] =  ["calculator", "ruler","graph paper","pencil","compass","caliper"];
     object_possibilities[TWISTING] =  ["clay", "door","puzzlebox","fractal pendant","spiral pendant"];
     object_possibilities[DEATH] =  ["skull", "bones","ossuary","memento mori","death note"];
     object_possibilities[APOCALYPSE] =  ["nuke", "grey goo","vial of plague","skynet","meteor"];
@@ -364,7 +378,7 @@ const initObjects = () =>{
     object_possibilities[KNOWING] = ["book","camera","datum"] ;
     object_possibilities[GUIDING] = ["map","walking stick","compass"] ;
     object_possibilities[CRAFTING] =  ["anvil","hammer","ax"];
-    object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus"] ;
+    object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus","pen","paper"] ;
     object_possibilities[BUGS] =  ["hive","pupa","nest"];
     object_possibilities[ADDICTION] = ["syringe","vial","dice"];
     object_possibilities[SPYING] =["spyglass","camera","disguise"] ;
@@ -381,6 +395,8 @@ const initObjects = () =>{
 const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
+    menu_options[MATH] =  [STATISTICS];
+    menu_options[SCIENCE] =  [LORE];
     menu_options[TWISTING] =  [OPTIONS];
     menu_options[DEATH] =  [GODS];
     menu_options[APOCALYPSE] =  [WARROOM];
@@ -500,6 +516,7 @@ const initMemories = () =>{
     */
     
     /*
+    MATH, SCIENCE, TWISTING, APOCALYPSE
     memories[MAGIC] =  ["Ritual of Ragnarok"];
     memories[LIGHT] =  ["Flash Bang"];
     memories[HEALING] =  ["Summon Phoenix"];
@@ -534,6 +551,8 @@ const initMemories = () =>{
 
 //i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
 const initCompliments = () =>{
+    compliment_possibilities[SCIENCE] =  ["scientific"];
+    compliment_possibilities[MATH] =  ["logical"];
     compliment_possibilities[TWISTING] =  ["creative"];
     compliment_possibilities[DEATH] =  ["inevitable"];
     compliment_possibilities[APOCALYPSE] =  ["peaceful"];
@@ -572,7 +591,9 @@ const initCompliments = () =>{
 }
 
 const initMiracles = ()=>{
-    miracles[TWISTING]=["change the meaning of any word for everyone but a given target","create an ever shifting fractal labrinth","trap any target in an infinite realm of false meaning","create a game that is not a game and trap any target in its endless variations","afflict a given target with a variety of effects only they can experience","delete a well known event from all memory besides a given target"];
+    miracles[SCIENCE]=["reveal one secret of the natural world","provide one biological sample not of this world","provide a metalic alloy with properties currently unknown by science","allow any target to be able to pull any arbitrary consecutive all-nighters so long as they are trying to discover something"];
+    miracles[MATH] = ["grant the answer to one currently unsolved mathematical problem","solve any NP hard problem in linear time","factor any two numbers in linear time"];
+    miracles[TWISTING]=["let any target realize they are in a simulation of a game","change the meaning of any word for everyone but a given target","create an ever shifting fractal labrinth","trap any target in an infinite realm of false meaning","create a game that is not a game and trap any target in its endless variations","afflict a given target with a variety of effects only they can experience","delete a well known event from all memory besides a given target"];
     miracles[DEATH] =["speak with any corpse","learn death date of any single target","kill any target with no saving throws","transform any corpse into an undead"];
     miracles[APOCALYPSE] = ["speak one true prophecy of the end of the world","end the world","display a clock showing how far off the end of the world is","set into motion one additional potential apocalypse"]
     miracles[ANGELS] =  ["revive the recently dead","fly with feathered wings","summon an angelic choir","summon an angelic companion"];
@@ -610,6 +631,8 @@ const initMiracles = ()=>{
 }
 
 const initInsults = () =>{
+    insult_possibilities[SCIENCE] =  ["non-peer-reviewed"];
+    insult_possibilities[MATH] =  ["stilted"];
     insult_possibilities[TWISTING] =  ["mad"];
     insult_possibilities[DEATH] =  ["morbid"];
     insult_possibilities[APOCALYPSE] =  ["pessimistic"];
@@ -648,6 +671,8 @@ const initInsults = () =>{
 }
 
 const initGeneralBackstories = () =>{
+    general_backstories[SCIENCE] = ["enjoys learning the 'why' of everything","treat life like a series of experiments","always wear a labcoat"];
+    general_backstories[MATH] = ["are a very logical person","can do all sorts of math in their head","enjoy memorizing mathematical formulas"];
     general_backstories[TWISTING] =["like things that arent what they seem but also are","delight in getting someone to believe a lie","really enjoy fractals","enjoy needlessly convoluted plots","constantly play tricks on those around them","once tricked a friend into believing 'bananas' weren't actually real fruit","created the game you are currently playing","resolutely insist that 'fractal' is pronounced 'frack tall'","lurk behind the options screen",'hate you in particular',"are watching you","know what you did","are smiling just for you","only want for you to realize the truth","have never told you a lie","would never give you up","are the true reason this game exists","are waiting for you","wish you would find them already","wonder if you've ever heard of the javascript console","make this expression a lot: :) :) :)","honestly don't know what you are doing here","reassure you the menu is supposed to close","suggest you just keep hitting the escape key"];
     general_backstories[DEATH] =["think about death a lot","are more comfortable with the dead than the living","really are chill about the inevitability of death","sometimes talk for hours about how nihlism is only logical"];
     general_backstories[APOCALYPSE] =["constantly spew ominous bullshit","alway remind everyone of how fragile the world truly is","are just really a huge fan of apocalyptic explosions"];
@@ -686,6 +711,8 @@ const initGeneralBackstories = () =>{
 }
 
 const initChildBackstories = () =>{
+    child_backstories[SCIENCE] =["never stopped asking 'why' as a child","always loved learning about science as a child","loved telling people Cool Biology Facts all the time as a child"];
+    child_backstories[MATH]=["was a math prodigy growing up","always seemed to remember numbers as a child","took to math easily as a child"];
     child_backstories[TWISTING] = ["are still a child","were never a child","were always a child","were born old and aged backwards","spent a lot of time lost in the backrooms as a child","exploded into a flock of crows when they hit puberty"];
     child_backstories[DEATH] =["were a morbid child","were an orphan","wandered around a lot in cemetaries as a child"];
     child_backstories[APOCALYPSE] = ["made ominous proclomations often as a child","constantly asked adults when the world would end","were fascinated by the meteors that destroyed the dinosaurs as a child"];
