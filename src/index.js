@@ -8,7 +8,7 @@ import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
 
-import App from './App';
+import AppWrapper from './AppWrapper';
 import reportWebVitals from './reportWebVitals';
 
 const audio = new Audio(generic_menu_music);
@@ -51,25 +51,24 @@ export function justTruthSong(){
 };
 }
 
-const click = () =>{
+export const click = () =>{
   console.log("first click!");
   playLightlyFuckedUpBGMusic();
   window.removeEventListener('click', click);
 }
 
-const clickEffect = () =>{
+export const clickEffect = () =>{
   const audio = new Audio(clickSound);
   audio.play();
 
 }
-window.addEventListener('click', click);
-window.addEventListener('click', clickEffect);
+
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppWrapper />
   </React.StrictMode>,
   document.getElementById('ThisIsNotAGame')
 );

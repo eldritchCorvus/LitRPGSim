@@ -13,9 +13,13 @@ import {JustTruth} from "./Screens/JustTruth";
 import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
+import { click, clickEffect } from ".";
 
+interface AppProps{
+  seed: number;
+}
 
-function App() {
+function App(props: AppProps) {
   const [player, setPlayer] = useState<Player>();
   const [rageMode, setRageMode] = useState(false);
   const [justTruthMode, setJustTruthMode] = useState(false);
@@ -42,24 +46,10 @@ function App() {
 
   useEffect(()=>{
     if(!player){
+      window.addEventListener('click', click);
+      window.addEventListener('click', clickEffect);
       fuckUpBGButSoftly();
-      let urlseed:string|number|null = getParameterByName("seed",null);
-      console.log("url seed is", urlseed);
-      let initial_seed;
-      if (urlseed){
-        if(!isNumeric(urlseed)){
-            initial_seed = stringtoseed(urlseed);
-        }else{
-          initial_seed = parseInt(urlseed);
-        }
-        console.log("initial_seed seed is", initial_seed);
-
-      }
-
-      if(!initial_seed){
-        initial_seed= getRandomSeed();
-      }
-      const rand = new SeededRandom(initial_seed);  
+      const rand = new SeededRandom(props.seed);  
       //order matters, themes are needed for aspects, etc;
       initStats();
       initThemes();
@@ -97,7 +87,8 @@ function App() {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>hide some secrets in binary to tie into fake faq (possibly in TRUTH MODE background)</li>
+        <li>make a birthday page, make an abj style page (so i can find specific players dammit)</li>
+      <li>hide some secrets in binary (THE END IS NEVER THE END?) to tie into fake faq (possibly in TRUTH MODE background)</li>
         <li>while loading (or seperate entry page? make it the index? and have current indez be /zampanio.html?seed=whatever), "enter in your birthday to start your personalized Adventure in Zampanio!". use birthday as seed.  if they would get waste, say "ERROR INVALID BIRTHDAY!" or something. also links to an about section that links to a non existant FAQ that described a game that doesn't exist (Zampanio) </li>
         <li>link to fake dev log mimicking sburbsim logs where i "try to be more acurate" to how i think Zampanio would be if it "were a real game"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
@@ -127,8 +118,8 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
       <li>win game, roll credits, if max skill tree OR enough time has passed.</li>
       <li>encourage replays with fake credits</li>
       <li>worship the skill tree</li>
+      <li>one custom seed besides 13</li>
       <li>title system can add/unlock skills like kin eater giving heretic magic</li>
-      <li>fill in todos in status etc</li>
       <li>waste/seer/mage classes get option screen, etc</li>
       <li>music, plus fucked up music for rage mode. subtle fuck ups for normal mode?</li>
         <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>

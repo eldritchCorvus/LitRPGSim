@@ -648,7 +648,7 @@ const initInsults = () =>{
 }
 
 const initGeneralBackstories = () =>{
-    general_backstories[TWISTING] =["delight in getting someone to believe a lie","really enjoy fractals","enjoy needlessly convoluted plots","constantly play tricks on those around them","once tricked a friend into believing 'bananas' weren't actually real fruit","created the game you are currently playing","resolutely insist that 'fractal' is pronounced 'frack tall'","lurk behind the options screen",'hate you in particular',"are watching you","know what you did","are smiling just for you","only want for you to realize the truth","have never told you a lie","would never give you up","are the true reason this game exists","are waiting for you","wish you would find them already","wonder if you've ever heard of the javascript console","make this expression a lot: :) :) :)","honestly don't know what you are doing here","reassure you the menu is supposed to close","suggest you just keep hitting the escape key"];
+    general_backstories[TWISTING] =["like things that arent what they seem but also are","delight in getting someone to believe a lie","really enjoy fractals","enjoy needlessly convoluted plots","constantly play tricks on those around them","once tricked a friend into believing 'bananas' weren't actually real fruit","created the game you are currently playing","resolutely insist that 'fractal' is pronounced 'frack tall'","lurk behind the options screen",'hate you in particular',"are watching you","know what you did","are smiling just for you","only want for you to realize the truth","have never told you a lie","would never give you up","are the true reason this game exists","are waiting for you","wish you would find them already","wonder if you've ever heard of the javascript console","make this expression a lot: :) :) :)","honestly don't know what you are doing here","reassure you the menu is supposed to close","suggest you just keep hitting the escape key"];
     general_backstories[DEATH] =["think about death a lot","are more comfortable with the dead than the living","really are chill about the inevitability of death","sometimes talk for hours about how nihlism is only logical"];
     general_backstories[APOCALYPSE] =["constantly spew ominous bullshit","alway remind everyone of how fragile the world truly is","are just really a huge fan of apocalyptic explosions"];
     general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods"];
@@ -667,7 +667,7 @@ const initGeneralBackstories = () =>{
     general_backstories[ANGER] = ["have trouble controlling their temper","aren't shy about letting people know when theres is a problem"] ;
     general_backstories[WEB] =  ["are a smug chess-master","are manipulative to their core"] ;
     general_backstories[ROYALTY] =  ["are experienced with ruling","have full noble training"] ;
-    general_backstories[ENDINGS] =  ["are existentialist","focus more on the ending than the begining","keep their thoughts firmly in the future"] ;
+    general_backstories[ENDINGS] =  ["were always going to end up dead","will be an existentialist","will focus more on the ending than the begining","will keep their thoughts firmly in the future"] ;
     general_backstories[KNOWING] = ["are an accomplished scholar","are obsessed with knowing everything","are an insufferable know-it-all"] ;
     general_backstories[GUIDING] = ["try to gently lead those who are lost","never gets lost","are a soothing mentor"] ;
     general_backstories[CRAFTING] =  ["enjoy wood-working in their spare time","are quite a skilled craftman"];
@@ -686,7 +686,7 @@ const initGeneralBackstories = () =>{
 }
 
 const initChildBackstories = () =>{
-    child_backstories[TWISTING] = ["were never a child","were always a child","were born old and aged backwards","spent a lot of time lost in the backrooms as a child","exploded into a flock of crows when they hit puberty"];
+    child_backstories[TWISTING] = ["are still a child","were never a child","were always a child","were born old and aged backwards","spent a lot of time lost in the backrooms as a child","exploded into a flock of crows when they hit puberty"];
     child_backstories[DEATH] =["were a morbid child","were an orphan","wandered around a lot in cemetaries as a child"];
     child_backstories[APOCALYPSE] = ["made ominous proclomations often as a child","constantly asked adults when the world would end","were fascinated by the meteors that destroyed the dinosaurs as a child"];
     child_backstories[ANGELS] =  ["were raised in a convent", "grew up in a very religious family","always felt the gods spoke to them growing up"];
