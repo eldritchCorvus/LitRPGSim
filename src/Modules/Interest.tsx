@@ -56,7 +56,7 @@ export function initInterests(seeded_random: SeededRandom){
     new Interest("gambling", ["Gambler", "Dealer", "Chemist", "Cardsmith", "High Roller"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(2)]),[all_themes[ADDICTION]]);
     new Interest("spying", ["Spy", "Watcher", "Observer", "Secret Agent"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(1),Stat.MIND(1)]),[all_themes[SPYING]]);
     new Interest("healing", ["Doctor", "Healer", "Nurse", "White Mage"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(2)]),[all_themes[HEALING]]);
-    new Interest("child", ["Child", "Nursmaid", "Nanny", "Babysitter","Doll","Mannequin","Figure"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(1),Stat.HOPE(1)]),[all_themes[DOLLS]]);
+    new Interest("dolls", ["Child", "Nursmaid", "Nanny", "Babysitter","Doll","Mannequin","Figure"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(1),Stat.HOPE(1)]),[all_themes[DOLLS]]);
     new Interest("mystery", ["Mystery", "Secret", "Unkown", "[REDACTED]"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(2)]),[all_themes[OBFUSCATION]]);
     new Interest("edgelord", ["Edgelord", "Ninja", "Shadow Stalker", "Nightwatch"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(2)]),[all_themes[DARKNESS]]);
     new Interest("killing", ["Assasin", "Murderer", "Killer"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(2)]),[all_themes[KILLING]]);
