@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
 import * as Stat from './Stat';
-import { ADDICTION, ANGELS, ANGER, BUGS, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, GUIDING, HEALING, KILLING, LIGHT, LOVE, MAGIC, MATH, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SCIENCE, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
+import { ADDICTION, ANGELS, ANGER, BUGS, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, GUIDING, HEALING, HUNTING, KILLING, LIGHT, LOVE, MAGIC, MATH, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SCIENCE, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
 
 interface InterestMap {
     [details: string] : Interest;
@@ -78,7 +78,7 @@ export function initInterests(seeded_random: SeededRandom){
     new Interest("chooser", ["Chooser", "Decision-Maker", "Administrator"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(2)]),[all_themes[CHOICES]]);
     new Interest("decay", ["Zombie", "Corpse", "Ghoul","Lich","Undertaker","Mortician"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2)]),[all_themes[DECAY]]);
     new Interest("clown", ["Clown", "Mime", "Ringmaster","Acrobat","Jester","Harlequin"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(2)]),[all_themes[CLOWNS]]);
-    new Interest("hunting", ["Hunter", "Nimrod", "Stalker","Hunstman","Predator"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(1), Stat.RAGE(1)]),[all_themes[CLOWNS]]);
+    new Interest("hunting", ["Hunter", "Nimrod", "Stalker","Hunstman","Predator"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(1), Stat.RAGE(1)]),[all_themes[HUNTING]]);
     new Interest("religion", ["Angel","Demi-God","Preacher", "Priest", "Chaplain","Rabbi","Monk","Nun","Abbot","Pastor","Reverend","Yogi","Druid"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(2)]),[all_themes[ANGELS]]);
     new Interest("light", ["Torch", "Spotlight", "Focus"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(2)]),[all_themes[LIGHT]]);
     new Interest("magic", ["Magician", "Mage", "Illusionist","Wizard","Larper"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(2)]),[all_themes[MAGIC]]);
