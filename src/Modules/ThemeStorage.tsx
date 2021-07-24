@@ -65,15 +65,11 @@ export const FREEDOM = "freedom";
 export const FIRE = "fire";
 export const LONELY = "lonely";
 export const OCEAN = "ocean";
+export const SPACE = "space"; 
+export const TIME = "time"; 
 
 
-export const keys = [FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
-
-/*
-TODO: JUST MONIKA QUIZ MODE (check notes)
-each theme should have a few questions the True Face of ObserverBot wants to ask (just yes/no answers)
-and comments True has on your response. (and true should STORE if you said yes or no.)
-*/
+export const keys = [SPACE, TIME, FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 interface ThemeStatMap {
     [details: string] : Stat.Stat[];
@@ -154,6 +150,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
  const initStatsMap = () =>{
+    stats_map[TIME] = [Stat.TIME(1)];
+    stats_map[SPACE] = [Stat.SPACE(1)];
     stats_map[STEALING] = [Stat.LIGHT(1)];
     stats_map[FREEDOM] = [Stat.BREATH(1)];
     stats_map[FIRE] = [Stat.DOOM(1)];
@@ -203,6 +201,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initPeople = () =>{
+    person_posibilities[SPACE] = ["astronaut","climber","mountaineer","alpinist","diver"];
+    person_posibilities[TIME] = ["conductor","clockmaker","drummer","robot"];
     person_posibilities[STEALING] = ["thief","burglar","robber","mugger","pick-pocket"];
     person_posibilities[FREEDOM] = ["explorer","pirate","pixie","fairy","sylph","traveler"];
     person_posibilities[FIRE] = ["fireman","pyromaniac","arsonist","firebug"];
@@ -250,8 +250,10 @@ const initPeople = () =>{
 }
 
 const initAdjs = () =>{
-    adj_possibilities[STEALING] = ["defining","delineating","pure"];
-    adj_possibilities[FREEDOM] = ["defining","delineating","pure"];
+    adj_possibilities[TIME] = ["timely","measured","punctual","clock-work","steady","ticking","beating"];
+    adj_possibilities[SPACE] = ["celestial","otherworldly","vast","big","open","expansive","boundless","immeasurable","infinite","limitless","enormous","gigantic","giant","cosmic"];
+    adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing"];
+    adj_possibilities[FREEDOM] = ["free","unchained","unbound","moving","flying"];
     adj_possibilities[FIRE] = ["flaming","blazing","burning","ashen","burnt"];
     adj_possibilities[LONELY] = ["lonely","isolated","friendless","forsaken"];
     adj_possibilities[OCEAN] = ["marine","foggy","misty","cold","wet","damp","chilly"];
@@ -297,6 +299,8 @@ const initAdjs = () =>{
 }
 
 const initSuperNames = () =>{
+    super_name_possibilities_map[TIME] =  ["Stopped Clock"];
+    super_name_possibilities_map[SPACE] =  ["Big Bang"];
     super_name_possibilities_map[OCEAN] =  ["The Flood"];
     super_name_possibilities_map[LONELY] =  ["The Silence"];
     super_name_possibilities_map[FIRE] =  ["The Scoured Earth"];
@@ -344,6 +348,8 @@ const initSuperNames = () =>{
 }
 
 const initLocations = () =>{
+    location_possibilities[TIME] = ["clock-tower","factory","dateline","train-station"] ;
+    location_possibilities[SPACE] = ["planet","rocket","elevator","mountain","tower","sun","stairs"] ;
     location_possibilities[STEALING] = ["market","jail","mansion"] ;
     location_possibilities[FREEDOM] = ["field","caravan","market"] ;
     location_possibilities[FIRE] = ["bonfire","ashlands","burning building","volcano"] ;
@@ -391,6 +397,8 @@ const initLocations = () =>{
 }
 
 const initObjects = () =>{
+    object_possibilities[SPACE] = ["toy rocket","globe","rope","stardust", "compass","sextant"];
+    object_possibilities[TIME] = ["hourglass","watch","sundial","clock","gear","chronometer","stopwatch","metronome"];
     object_possibilities[STEALING] = ["lockpick","shiv","mask","blackjack"];
     object_possibilities[FREEDOM] = ["feather","lockpick","bird","permit"];
     object_possibilities[FIRE] = ["match","lighter","charcoal","kindling"];
@@ -421,7 +429,7 @@ const initObjects = () =>{
     object_possibilities[ROYALTY] =  ["crown","throne","sceptre"] ;
     object_possibilities[ENDINGS] =  ["curtain","gravestone","stop sign"] ;
     object_possibilities[KNOWING] = ["book","camera","datum","scroll","tome"] ;
-    object_possibilities[GUIDING] = ["map","walking stick","compass"] ;
+    object_possibilities[GUIDING] = ["map","walking stick","compass","sextant"] ;
     object_possibilities[CRAFTING] =  ["anvil","hammer","ax"];
     object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus","pen","paper"] ;
     object_possibilities[BUGS] =  ["hive","pupa","nest"];
@@ -440,7 +448,8 @@ const initObjects = () =>{
 const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
-               
+    menu_options[SPACE] =  [CITYBUILDING];
+    menu_options[TIME] =  [STATISTICS];
     menu_options[STEALING] =  [INVENTORY];
     menu_options[FREEDOM] =  [QUESTS];
     menu_options[FIRE] =  [WARROOM];
@@ -604,6 +613,8 @@ const initMemories = () =>{
 
 //i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
 const initCompliments = () =>{
+    compliment_possibilities[SPACE] =  ["spacious"];
+    compliment_possibilities[TIME] =  ["punctual"];
     compliment_possibilities[STEALING] =  ["resourceful"];
     compliment_possibilities[FREEDOM] =  ["independant"];
     compliment_possibilities[FIRE] =  ["warm"];
@@ -651,6 +662,8 @@ const initCompliments = () =>{
 }
 
 const initMiracles = ()=>{
+    miracles[TIME]=["slow time any arbitrary amount","stop time for everyone but a single target for five relative minutes","stop time for any single target","create up to three time clones","go back in time up to 24 hours"];
+    miracles[SPACE]=["change the size of any target object","teleport to any target location","negate any targets fall damage","remove one square mile of ground"];
     miracles[STEALING]=["obtain any target object","own any target object","hide from the sight of all viewers","scale any target building"];
     miracles[FREEDOM]=["undo any chain","unlock any lock","walk through any object","fly for any duration"];
     miracles[FIRE]=["burn any target object","destroy any target square mile in flames","transform their body to pure wax"];
@@ -698,6 +711,8 @@ const initMiracles = ()=>{
 }
 
 const initInsults = () =>{
+    insult_possibilities[SPACE] =  ["stand-offish"];
+    insult_possibilities[TIME] =  ["hasty"];
     insult_possibilities[STEALING] =  ["greedy"];
     insult_possibilities[FREEDOM] =  ["narcissistic"];
     insult_possibilities[FIRE] =  ["destructive"];
@@ -745,53 +760,57 @@ const initInsults = () =>{
 }
 
 const initGeneralBackstories = () =>{
+    general_backstories[TIME] =["are always on time to everything","are kind of impatient","seem to always have unlimited energy","always know what time it is","have an instinctive understanding of timing"];
+    general_backstories[SPACE] =["seem to always be a mile away when everyone is supposed to meet up","are a very patient person","have an amazing spatial sense","always want to talk about space","love being as high up as possible","have absolutely no fear of heights"];
     general_backstories[STEALING] = ["have extremely light fingers","have never met and object they didn't want to own","have never been on the right side of the law","have been in jail a few times"];
     general_backstories[FREEDOM] = ["never lets anyone tie them down","have travel in their soul","have never been able to settle down anywhere","prides themself in their freedom"];
     general_backstories[FIRE] = ["are always enthralled by fire","have a habit of setting everything on fire","find fire really calming","think fire is the best solution to most problems","think that if you add fire to a problem you have a new problem"];
     general_backstories[LONELY] = ["are somehow always alone","never really bonded with anyone","feel comfortable on their own","have social anxiety","don't feel comfortable in a crowd","mostly just focus on themself"];
     general_backstories[OCEAN] = ["are married to the sea","love the ocean with all their heart","are always surrounded by a thing fog","can navigate any amount of seas","feel most comfortable in the water","can swim like a fish"];
-    general_backstories[FLESH]=["genuinely enjoy working out","are remarkably beautiful","have really good bones"];
+    general_backstories[FLESH]=["genuinely enjoy working out","are remarkably beautiful","have really good bones","really are comfortable in their own skin"];
     general_backstories[BURIED]=["are really calm under pressure","really enjoy digging at the beach","enjoy spelunking as a hobby"];
     general_backstories[SCIENCE] = ["enjoys learning the 'why' of everything","treat life like a series of experiments","always wear a labcoat"];
     general_backstories[MATH] = ["are a very logical person","can do all sorts of math in their head","enjoy memorizing mathematical formulas"];
     general_backstories[TWISTING] =["like things that arent what they seem but also are","delight in getting someone to believe a lie","really enjoy fractals","enjoy needlessly convoluted plots","constantly play tricks on those around them","once tricked a friend into believing 'bananas' weren't actually real fruit","created the game you are currently playing","resolutely insist that 'fractal' is pronounced 'frack tall'","lurk behind the options screen",'hate you in particular',"are watching you","know what you did","are smiling just for you","only want for you to realize the truth","have never told you a lie","would never give you up","are the true reason this game exists","are waiting for you","wish you would find them already","wonder if you've ever heard of the javascript console","make this expression a lot: :) :) :)","honestly don't know what you are doing here","reassure you the menu is supposed to close","suggest you just keep hitting the escape key"];
     general_backstories[DEATH] =["think about death a lot","are more comfortable with the dead than the living","really are chill about the inevitability of death","sometimes talk for hours about how nihlism is only logical"];
     general_backstories[APOCALYPSE] =["constantly spew ominous bullshit","alway remind everyone of how fragile the world truly is","are just really a huge fan of apocalyptic explosions"];
-    general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods"];
-    general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation"];
-    general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand"];
-    general_backstories[FAMILY] =  ["love their family with all their heart","do everything for their family"];
+    general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods","are a deeply religious person","strive to do the will of the gods"];
+    general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation","always has a light source on hand"];
+    general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand","keeps their room spotless","cleans whenever they are stressed"];
+    general_backstories[FAMILY] =  ["love their family with all their heart","do everything for their family","really loves their found family"];
     general_backstories[MAGIC] =  ["have a natural talent for magic","are one of the skilled mages of this Era","are a powerful Enchanter"];
     general_backstories[HEALING] =  ["have a powerful healing aura","have extensive medical training","never ignore suffering"];
-    general_backstories[PLANTS] = ["have an enduring love of flowers","feel more comfortable in a forest than a city"];
-    general_backstories[HUNTING] = ["are a skilled tracker","can survive indefinitely in the wild from game and foraging"];
-    general_backstories[DECAY] = ["are a toxic person","feel comfortable around the dead"] ;
+    general_backstories[PLANTS] = ["have an enduring love of flowers","feel more comfortable in a forest than a city","garden as a hobby"];
+    general_backstories[HUNTING] = ["can track any person across any distance","always seem to be hunting for the next big thing","are a skilled tracker","can survive indefinitely in the wild from game and foraging"];
+    general_backstories[DECAY] = ["are a toxic person","feel comfortable around the dead","are always showing people gross things","somehow always let food go bad"] ;
     general_backstories[CHOICES] =  ["are always aware that doing nothing is also a choice","enjoy taunting others with their lack of choices"] ;
     general_backstories[ZAP] = ["really could stand to lay off with the electricity","thinks having an elemental affinity is a subsitute for a personality"] ;
     general_backstories[LOVE] = ["love everyone they meet","does everything with love","never lets hate into their heart"];
-    general_backstories[SOUL] = ["know themselves quite thoroughly","have a very stable personality"] ;
+    general_backstories[SOUL] = ["know themselves quite thoroughly","have a very stable personality","are always looking into a mirror","can see straight to anyones soul"] ;
     general_backstories[ANGER] = ["have trouble controlling their temper","aren't shy about letting people know when theres is a problem"] ;
-    general_backstories[WEB] =  ["are a smug chess-master","are manipulative to their core"] ;
-    general_backstories[ROYALTY] =  ["are experienced with ruling","have full noble training"] ;
+    general_backstories[WEB] =  ["are a smug chess-master","are manipulative to their core","really enjoy spiders","think spiders are very important to the eco-system"] ;
+    general_backstories[ROYALTY] =  ["are experienced with ruling","have full noble training","have a princely aura"] ;
     general_backstories[ENDINGS] =  ["were always going to end up dead","will be an existentialist","will focus more on the ending than the begining","will keep their thoughts firmly in the future"] ;
     general_backstories[KNOWING] = ["are an accomplished scholar","are obsessed with knowing everything","are an insufferable know-it-all"] ;
     general_backstories[GUIDING] = ["try to gently lead those who are lost","never gets lost","are a soothing mentor"] ;
-    general_backstories[CRAFTING] =  ["enjoy wood-working in their spare time","are quite a skilled craftman"];
+    general_backstories[CRAFTING] =  ["enjoy wood-working in their spare time","are quite a skilled craftman","are always collecting small objects to make things with"];
     general_backstories[LANGUAGE] = ["alway have their nose in a book","speaks every language of Zampanio","can curse in a different language for each day of the week"] ;
-    general_backstories[BUGS] =  ["does light bee-keeping when at home","doesn't find bugs creepy"];
+    general_backstories[BUGS] =  ["does light bee-keeping when at home","doesn't find bugs creepy","always have at least one bug on their body"];
     general_backstories[ADDICTION] = ["enjoy gambling for any stakes","have an addictive personality","have never met a vice they didn't like"];
-    general_backstories[SPYING] =["have an extensive information network","are always on top of the local gossip"] ;
+    general_backstories[SPYING] =["have an extensive information network","are always on top of the local gossip","somehow always are aware of what everyone is doing"] ;
     general_backstories[CLOWNS] =["are a clown","have extensive ties to the Circus","are an accomplished teller of jokes"] ;
     general_backstories[DOLLS] = ["carry around a small antique doll","carve faceless wooden figurines in their spare time"] ;
-    general_backstories[OBFUSCATION] = ["speak only in annoying riddles","can write in any cipher"] ;
-    general_backstories[DARKNESS] =  ["wear only black","prefer moonlight to sunlight","are more than a little edgy"] ;
-    general_backstories[KILLING] =  ["are cloaked in killing intent","seem to always be covered in blood","have an alarming collection of knives"];
-    general_backstories[MUSIC] =  ["alway have a song on their lips","can play any song they hear once by ear"] ;
-    general_backstories[DEFENSE] =  ["always protect the weak","are always on edge for attack"] ;
+    general_backstories[OBFUSCATION] = ["speak only in annoying riddles","can write in any cipher","never says what they actually mean","seem to always be in the background"] ;
+    general_backstories[DARKNESS] =  ["wear only black","prefer moonlight to sunlight","are more than a little edgy","can see in the dark"] ;
+    general_backstories[KILLING] =  ["once killed a man just to see him die","are cloaked in killing intent","seem to always be covered in blood","have an alarming collection of knives"];
+    general_backstories[MUSIC] =  ["alway have a song on their lips","can play any song they hear once by ear","always has an instrument nearby","always love being the eye of attention"] ;
+    general_backstories[DEFENSE] =  ["always protect the weak","are always on edge for attack","are always aware of all the exits","sleep in full-plate armor"] ;
     general_backstories[QUESTING] = ["absolutely love helping out the little people","are always on the lookout for the next great adventure"] ;
 }
 
 const initChildBackstories = () =>{
+    child_backstories[TIME] = ["sometimes talk about their childhood as if it were yesterday","always woke up before they had to as a child","never wanted to sleep as a child"];
+    child_backstories[SPACE] = ["were a very patient child","loved high places as a child","was always tall for their age"];
     child_backstories[STEALING] =["kept getting into locked places as a child","were always breaking rules as a child","somehow ended up with all their friends toys as a child"];
     child_backstories[FREEDOM] =["could never stay in one place for very long as a child","moved around a lot as a child","wandered around constantly as a child"];
     child_backstories[FIRE] =["burned a lot of their childhood toys","always snuck matches as a child","lost their childhood home to a fire"];
