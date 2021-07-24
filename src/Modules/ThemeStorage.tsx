@@ -60,9 +60,14 @@ export const MATH = "math";
 export const SCIENCE = "science";
 export const FLESH = "flesh";
 export const BURIED = "buried";
+export const STEALING = "stealing";
+export const FREEDOM = "freedom";
+export const FIRE = "fire";
+export const LONELY = "lonely";
+export const OCEAN = "ocean";
 
 
-export const keys = [SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const keys = [FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 /*
 TODO: JUST MONIKA QUIZ MODE (check notes)
@@ -146,12 +151,14 @@ export const checkIfAllKeysPresent = ()=>{
             console.error("JR NOTE: key", key, "not found in miracles");
         }
     }
-
-
-    
 }
 
  const initStatsMap = () =>{
+    stats_map[STEALING] = [Stat.LIGHT(1)];
+    stats_map[FREEDOM] = [Stat.BREATH(1)];
+    stats_map[FIRE] = [Stat.DOOM(1)];
+    stats_map[LONELY] = [Stat.BREATH(1)];
+    stats_map[OCEAN] = [Stat.BREATH(1)];
     stats_map[BURIED] = [Stat.DOOM(1)];
     stats_map[FLESH] = [Stat.BLOOD(1)];
     stats_map[SCIENCE] = [Stat.LIGHT(1)];
@@ -196,6 +203,11 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initPeople = () =>{
+    person_posibilities[STEALING] = ["thief","burglar","robber","mugger","pick-pocket"];
+    person_posibilities[FREEDOM] = ["explorer","pirate","pixie","fairy","sylph","traveler"];
+    person_posibilities[FIRE] = ["fireman","pyromaniac","arsonist","firebug"];
+    person_posibilities[LONELY] = ["widow","hermit","dowager"];
+    person_posibilities[OCEAN] = ["sailor","seaman","mariner","boatman"];
     person_posibilities[FLESH] = ["butcher","plastic surgeon","slaughter man","meat seller","farmer"];
     person_posibilities[BURIED] = ["gravedigger","miner","loan shark","digger"];
     person_posibilities[SCIENCE] = ["scientist","biologist","chemist","physicist"];
@@ -235,10 +247,14 @@ const initPeople = () =>{
     person_posibilities[MUSIC] = ["singer","dancer","choir","bard","musician","drummer"];
     person_posibilities[DEFENSE] = ["knight","paladin","defender","protector","page","soldier","warrior"];
     person_posibilities[QUESTING] = ["seeker","adventurer","pilgrim"];
-
 }
 
 const initAdjs = () =>{
+    adj_possibilities[STEALING] = ["defining","delineating","pure"];
+    adj_possibilities[FREEDOM] = ["defining","delineating","pure"];
+    adj_possibilities[FIRE] = ["flaming","blazing","burning","ashen","burnt"];
+    adj_possibilities[LONELY] = ["lonely","isolated","friendless","forsaken"];
+    adj_possibilities[OCEAN] = ["marine","foggy","misty","cold","wet","damp","chilly"];
     adj_possibilities[FLESH] = ["meaty","moist","bloody","physical","muscular","bony","skinned"];
     adj_possibilities[BURIED] = ["buried","choked","covered","underground","underneath","trapped","compressed","squeezed"];
     adj_possibilities[SCIENCE] = ["scientific","callibrated","measured","experimental","hypothetical"];
@@ -281,6 +297,11 @@ const initAdjs = () =>{
 }
 
 const initSuperNames = () =>{
+    super_name_possibilities_map[OCEAN] =  ["The Flood"];
+    super_name_possibilities_map[LONELY] =  ["The Silence"];
+    super_name_possibilities_map[FIRE] =  ["The Scoured Earth"];
+    super_name_possibilities_map[FREEDOM] =  ["Unending Freedom"];
+    super_name_possibilities_map[STEALING] =  ["All Mine"];
     super_name_possibilities_map[BURIED] =  ["Fallen Sky"];
     super_name_possibilities_map[FLESH] =  ["Physical God"];
     super_name_possibilities_map[SCIENCE] =  ["E=mc^2"];
@@ -323,6 +344,11 @@ const initSuperNames = () =>{
 }
 
 const initLocations = () =>{
+    location_possibilities[STEALING] = ["market","jail","mansion"] ;
+    location_possibilities[FREEDOM] = ["field","caravan","market"] ;
+    location_possibilities[FIRE] = ["bonfire","ashlands","burning building","volcano"] ;
+    location_possibilities[LONELY] = ["moors","mansion","school"] ;
+    location_possibilities[OCEAN] = ["dockyard","lighthouse","shipyard","ship"] ;
     location_possibilities[FLESH] =  ["abattoir","butcher","slaughterhouse","gym"];
     location_possibilities[BURIED] =  ["graveyard","mine","cave","tunnel"];
     location_possibilities[SCIENCE] =  ["labratory","classroom","facility","lab"];
@@ -340,11 +366,11 @@ const initLocations = () =>{
     location_possibilities[HUNTING] = ["forest","meadow","jungle"];
     location_possibilities[DECAY] = ["swamp","graveyard","wasteland"] ;
     location_possibilities[CHOICES] =  ["forking-path"] ;
-    location_possibilities[ZAP] = ["field","cloud"] ;
+    location_possibilities[ZAP] = ["field","cloud","generator"] ;
     location_possibilities[LOVE] = ["restaurant","scenic cliff","windswept moor"];
     location_possibilities[SOUL] = ["hall of mirrors"] ;
     location_possibilities[ANGER] = ["battlefield","bull-pen"] ;
-    location_possibilities[WEB] =  ["cave","theatre"] ;
+    location_possibilities[WEB] =  ["cave","theatre","prison"] ;
     location_possibilities[ROYALTY] =  ["castle","mansion","courthouse"] ;
     location_possibilities[ENDINGS] =  ["theatre","graveyard","abandoned building"] ;
     location_possibilities[KNOWING] = ["library","school","monastery"] ;
@@ -365,8 +391,13 @@ const initLocations = () =>{
 }
 
 const initObjects = () =>{
-    object_possibilities[FLESH] =  ["meat slab", "butcher knife","bone","flesh cube","meat"];
-    object_possibilities[BURIED] =  ["shovel", "pickax","minecart","coffin","dirt"];
+    object_possibilities[STEALING] = ["lockpick","shiv","mask","blackjack"];
+    object_possibilities[FREEDOM] = ["feather","lockpick","bird","permit"];
+    object_possibilities[FIRE] = ["match","lighter","charcoal","kindling"];
+    object_possibilities[LONELY] = ["diary","locket","solitaire deck"];
+    object_possibilities[OCEAN] = ["anchor","ship in a bottle","captains hat","raincoat"];
+    object_possibilities[FLESH] =  ["meat slab", "butcher knife","bone","flesh cube","meat","sirloin","ribeye","steak"];
+    object_possibilities[BURIED] =  ["shovel", "pickax","minecart","coffin","dirt","mudball","cave map"];
     object_possibilities[SCIENCE] =  ["test tube", "beaker","lab coat","microscope"];
     object_possibilities[MATH] =  ["calculator", "ruler","graph paper","pencil","compass","caliper"];
     object_possibilities[TWISTING] =  ["clay", "door","puzzlebox","fractal pendant","spiral pendant"];
@@ -374,11 +405,11 @@ const initObjects = () =>{
     object_possibilities[APOCALYPSE] =  ["nuke", "grey goo","vial of plague","skynet","meteor"];
     object_possibilities[ANGELS] =  ["feather", "halo","scripture"];
     object_possibilities[SERVICE] =  ["feather duster","mop","broom"];
-    object_possibilities[FAMILY] =  ["cradle","rattle","photo albulm"];
+    object_possibilities[FAMILY] =  ["cradle","rattle","photo album"];
     object_possibilities[MAGIC] =  ["scoll","potion","wand","staff"];
     object_possibilities[LIGHT] =  ["lantern","flashlight","torch"];
     object_possibilities[HEALING] =  ["potion","bandage","scalpel"];
-    object_possibilities[PLANTS] = ["seed","sapling","shovel"];
+    object_possibilities[PLANTS] = ["seed","sapling","shovel","pot","fertilizer"];
     object_possibilities[HUNTING] = ["pelt","leather","gun"];
     object_possibilities[DECAY] = ["cadavar","gravestone","rotten food"] ;
     object_possibilities[CHOICES] =  ["todo list","coin","adventure book"] ;
@@ -389,7 +420,7 @@ const initObjects = () =>{
     object_possibilities[WEB] =  ["silk","puppet","cobweb"] ;
     object_possibilities[ROYALTY] =  ["crown","throne","sceptre"] ;
     object_possibilities[ENDINGS] =  ["curtain","gravestone","stop sign"] ;
-    object_possibilities[KNOWING] = ["book","camera","datum"] ;
+    object_possibilities[KNOWING] = ["book","camera","datum","scroll","tome"] ;
     object_possibilities[GUIDING] = ["map","walking stick","compass"] ;
     object_possibilities[CRAFTING] =  ["anvil","hammer","ax"];
     object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus","pen","paper"] ;
@@ -409,6 +440,12 @@ const initObjects = () =>{
 const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
+               
+    menu_options[STEALING] =  [INVENTORY];
+    menu_options[FREEDOM] =  [QUESTS];
+    menu_options[FIRE] =  [WARROOM];
+    menu_options[LONELY] =  [BACKSTORY];
+    menu_options[OCEAN] =  [CITYBUILDING];
     menu_options[FLESH] =  [STATUS];
     menu_options[BURIED] =  [LORE];
     menu_options[MATH] =  [STATISTICS];
@@ -567,6 +604,11 @@ const initMemories = () =>{
 
 //i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
 const initCompliments = () =>{
+    compliment_possibilities[STEALING] =  ["resourceful"];
+    compliment_possibilities[FREEDOM] =  ["independant"];
+    compliment_possibilities[FIRE] =  ["warm"];
+    compliment_possibilities[LONELY] =  ["talented"];
+    compliment_possibilities[OCEAN] =  ["soothing"];
     compliment_possibilities[FLESH] =  ["beautiful"];
     compliment_possibilities[BURIED] =  ["steady"];
     compliment_possibilities[SCIENCE] =  ["scientific"];
@@ -609,6 +651,11 @@ const initCompliments = () =>{
 }
 
 const initMiracles = ()=>{
+    miracles[STEALING]=["obtain any target object","own any target object","hide from the sight of all viewers","scale any target building"];
+    miracles[FREEDOM]=["undo any chain","unlock any lock","walk through any object","fly for any duration"];
+    miracles[FIRE]=["burn any target object","destroy any target square mile in flames","transform their body to pure wax"];
+    miracles[LONELY]=["send any target to an isolated pocket dimension","obtain a moment of pure peace and quiet","hide from the view of anyone","be forgotten by everyone"];
+    miracles[OCEAN]=["gain one insight as to the location of any landmass across an ocean","see through any amount of water","manifest a cubic mile of water to any target area"];
     miracles[FLESH]=["alter any target body in any way desired","summon up to one metric ton of raw meat to any target location","remove any bone from any target body"];
     miracles[BURIED]=["trap any single target deep within the earth","sink into the earth for as long as they wish","summon up to one metric ton of earth to any target location"];
     miracles[SCIENCE]=["reveal one secret of the natural world","provide one biological sample not of this world","provide a metalic alloy with properties currently unknown by science","allow any target to be able to pull any arbitrary consecutive all-nighters so long as they are trying to discover something"];
@@ -651,6 +698,11 @@ const initMiracles = ()=>{
 }
 
 const initInsults = () =>{
+    insult_possibilities[STEALING] =  ["greedy"];
+    insult_possibilities[FREEDOM] =  ["narcissistic"];
+    insult_possibilities[FIRE] =  ["destructive"];
+    insult_possibilities[LONELY] =  ["lonely"];
+    insult_possibilities[OCEAN] =  ["drowned"];
     insult_possibilities[FLESH] =  ["ugly"];
     insult_possibilities[BURIED] =  ["powerless"];
     insult_possibilities[SCIENCE] =  ["non-peer-reviewed"];
@@ -693,6 +745,11 @@ const initInsults = () =>{
 }
 
 const initGeneralBackstories = () =>{
+    general_backstories[STEALING] = ["have extremely light fingers","have never met and object they didn't want to own","have never been on the right side of the law","have been in jail a few times"];
+    general_backstories[FREEDOM] = ["never lets anyone tie them down","have travel in their soul","have never been able to settle down anywhere","prides themself in their freedom"];
+    general_backstories[FIRE] = ["are always enthralled by fire","have a habit of setting everything on fire","find fire really calming","think fire is the best solution to most problems","think that if you add fire to a problem you have a new problem"];
+    general_backstories[LONELY] = ["are somehow always alone","never really bonded with anyone","feel comfortable on their own","have social anxiety","don't feel comfortable in a crowd","mostly just focus on themself"];
+    general_backstories[OCEAN] = ["are married to the sea","love the ocean with all their heart","are always surrounded by a thing fog","can navigate any amount of seas","feel most comfortable in the water","can swim like a fish"];
     general_backstories[FLESH]=["genuinely enjoy working out","are remarkably beautiful","have really good bones"];
     general_backstories[BURIED]=["are really calm under pressure","really enjoy digging at the beach","enjoy spelunking as a hobby"];
     general_backstories[SCIENCE] = ["enjoys learning the 'why' of everything","treat life like a series of experiments","always wear a labcoat"];
@@ -735,6 +792,11 @@ const initGeneralBackstories = () =>{
 }
 
 const initChildBackstories = () =>{
+    child_backstories[STEALING] =["kept getting into locked places as a child","were always breaking rules as a child","somehow ended up with all their friends toys as a child"];
+    child_backstories[FREEDOM] =["could never stay in one place for very long as a child","moved around a lot as a child","wandered around constantly as a child"];
+    child_backstories[FIRE] =["burned a lot of their childhood toys","always snuck matches as a child","lost their childhood home to a fire"];
+    child_backstories[LONELY] =["were a lonely child","never had any friends as a child","were an orphan as a child","were an only child"];
+    child_backstories[OCEAN] =["learned to swim before they learned to walk","grew up in a seaside town","always went with their parents on sea voyages as a child"];
     child_backstories[FLESH] =["always enjoyed eating meat as a child","were fascinated that everyone was made of meat as a child","was always praised for their physical abilities as a child"];
     child_backstories[BURIED]=["always loved playing in the sandbox as a kid","really enjoyed weighted blankets as a child","was always the kid who tattled to teachers"];
     child_backstories[SCIENCE] =["never stopped asking 'why' as a child","always loved learning about science as a child","loved telling people Cool Biology Facts all the time as a child"];
@@ -767,13 +829,13 @@ const initChildBackstories = () =>{
     child_backstories[ADDICTION] = ["couldn't stay away from the local Faire each year as a child","always convinced their childhood friends to play 'one more game'"];
     child_backstories[SPYING] =["grew up always watching others","seemed to always be lurking in the corners as a child","spied on adults growing up"] ;
     child_backstories[CLOWNS] =["grew up in a traveling circus","always had a joke for the other children growing up","were a playful, funny child","were always the class clown growing up"] ;
-    child_backstories[DOLLS] = ["would hold elaborate teaparties with their dolls as a child"] ;
+    child_backstories[DOLLS] = ["would hold elaborate teaparties with their dolls as a child","talked through their dolls as a child","had a favorite doll as a child"] ;
     child_backstories[OBFUSCATION] = ["were a mysterious child","kept a secret diary as a child","learned to write in ciphers as a child"] ;
-    child_backstories[DARKNESS] =  ["never were afraid of the dark as a child"] ;
+    child_backstories[DARKNESS] =  ["never were afraid of the dark as a child","were weirdly good at seeing in the dark as a child"] ;
     child_backstories[KILLING] =  ["were adangerous child","have a dark childhood secret","unsettled the neighbors as a child"];
     child_backstories[MUSIC] =  ["were a musical child","loved singing as a child","learned so many songs from their parents"] ;
     child_backstories[DEFENSE] =  ["protected the neighborhood children growing up","always protected the littler kids growing up"] ;
-    child_backstories[QUESTING] = ["were an obsessive child","came up with the best games as a child"] ;
+    child_backstories[QUESTING] = ["were an obsessive child","came up with the best games as a child","loved playing scavenger hunts as a child"] ;
 }
 
 export const initThemes = ()=>{

@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
 import * as Stat from './Stat';
-import { ADDICTION, ANGELS, ANGER, BUGS, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, GUIDING, HEALING, HUNTING, KILLING, LIGHT, LOVE, MAGIC, MATH, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SCIENCE, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
+import { ADDICTION, ANGELS, ANGER, BUGS, BURIED, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, GUIDING, HEALING, HUNTING, KILLING, LIGHT, LOVE, MAGIC, MATH, MUSIC, OBFUSCATION, PLANTS, QUESTING, ROYALTY, SCIENCE, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
 
 interface InterestMap {
     [details: string] : Interest;
@@ -83,6 +83,7 @@ export function initInterests(seeded_random: SeededRandom){
     new Interest("light", ["Torch", "Spotlight", "Focus"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(2)]),[all_themes[LIGHT]]);
     new Interest("magic", ["Magician", "Mage", "Illusionist","Wizard","Larper"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(2)]),[all_themes[MAGIC]]);
     new Interest("family", ["Mother", "Father", "Brother","Sister","Aunt","Uncle"], seeded_random, Stat.WrapStatsToStatMap([Stat.BLOOD(2)]),[all_themes[FAMILY]]);
+    new Interest("spelunking", ["Spelunker", "Digger", "Miner","Explorer"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(2)]),[all_themes[BURIED], all_themes[DARKNESS]]);
 
     /*
 export const CLOWNS = "clowns";*/
