@@ -21,7 +21,7 @@ export const DEBUG = "DEBUG";
 
 function AppWrapper() {
   const [seed, setSeed] = useState<number>();
-  const [mode, setMode] = useState<string>(DEBUG);
+  const [mode, setMode] = useState<string>(BIRTHDAY);
 
   useEffect(()=>{
     if(!seed){
