@@ -6,25 +6,19 @@ import { all_interests, initInterests } from "./Modules/Interest";
 import { all_classes, initClasses } from "./Modules/RPGClass";
 import { all_stats, initStats } from "./Modules/Stat";
 import { all_themes, initThemes } from "./Modules/Theme";
+import { LinkButton } from "./Screens/Styles";
 import SeededRandom from "./Utils/SeededRandom";
 interface AppProps {
   setMode: any; //lazy don't wanna remember setstate type
 }
+
+export const Content = styled.div`
+    padding: 10px;
+`
 function Birthday(props: AppProps) {
 
-  const Section = styled.div`
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 13px;
-`;
-
-  const Container = styled.div`
-    width: 800px;
-    height: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #edd287;
-`;
+  //JR NOTE: fun fact: for some reason having styled components breaks my controlled form and i don't know why so css it is
+ 
 
   const [className, setClassName] = useState<string>();
   const [aspect, setAspect] = useState<string>();
@@ -55,23 +49,25 @@ function Birthday(props: AppProps) {
 
   }, [])
 
-  const processSeed =(value: string)=>{
+  const processSeed = (value: string) => {
     //date is formatted like 2021-07-20
     console.log("JR NOTE: can i handle a date formmated like ", value, "or should i just treat it as a hash?")
-    setSeed(parseInt(value.replaceAll("-","")));
+    setDate(value);
+    setSeed(parseInt(value.replaceAll("-", "")));
   }
 
 
   return (
-    <Container>
-      <Section>
-      <button onClick={() => { props.setMode(ABOUT) }}>About Zampanio</button>
-      </Section>
-      <Section>
-        TODO FOR SOME REASON THIS KEEPS LOOSING FOCUS What is an important date to you?  (Birthdays are especially useful)
-        <input key="date" onChange={(ev) => { setDate(ev.target.value) }} onBlur={()=>processSeed(date)} defaultValue={date}/>
-      </Section>
-      <Section>
+    <div className="birthday-container">
+      <div className="section">
+        <Content>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a>I found, which generates a custom RPG setting personalized for you with a shit ton of secrets and almost has LitRPG vibes? </Content>
+        <LinkButton onClick={() => { props.setMode(ABOUT) }}>About Zampanio</LinkButton>
+      </div>
+      <div className="section">
+        Pick a date that is important to you (such as a birthday).
+        <input key={"date"} onChange={(ev) => { processSeed(ev.target.value) }} value={date} />
+      </div>
+      <div className="section">
         Pick four concepts that speak to you:
         <select onChange={(ev) => { setClassName(ev.target.value) }} >
           {Object.keys(all_classes).map((key) => { return (<option value={key}>{key}</option>) })}
@@ -79,17 +75,17 @@ function Birthday(props: AppProps) {
         <select onChange={(ev) => { setAspect(ev.target.value) }}>
           {Object.keys(all_aspects).map((key) => { return (<option value={key}>{key}</option>) })}
         </select>
-        <select onChange={(ev) => { setInterest1(ev.target.value) }}>
+        <select onChange={(ev) => { setInterest1(ev.target.value) }} value={interest1}>
           {Object.keys(all_interests).map((key) => { return (<option value={key}>{key}</option>) })}
         </select>
-        <select onChange={(ev) => { setInerest2(ev.target.value) }}>
+        <select onChange={(ev) => { setInerest2(ev.target.value) }} value={interest2}>
           {Object.keys(all_interests).map((key) => { return (<option value={key}>{key}</option>) })}
         </select>
-      </Section>
-      <Section>
-        <a href={`?seed=${seed}&class=${className}&aspect=${aspect}&interest1=${interest1}&interest2=${interest2}`}>Explore your personalized session of ZampanioSim!</a>
-      </Section>
-    </Container>
+      </div>
+      <div className="section">
+        <a key={"link"} href={`?seed=${seed}&class=${className}&aspect=${aspect}&interest1=${interest1}&interest2=${interest2}`}>Explore your personalized session of ZampanioSim!</a>
+      </div>
+    </div>
   );
 }
 
