@@ -177,6 +177,16 @@ export const SkillBox = styled.div`
     margin: 10px;
 `
 
+
+export const LinkButton = styled.button`
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
+    padding-left: 0px;
+    margin-left: 0px;
+`;
+
 export const AchivementBox = styled.div`
     border: 2px solid ${(props: StyleRadius) => props.fontColor};
     border-radius: ${(props: StyleRadius) => props.mildRadius}ppx;
