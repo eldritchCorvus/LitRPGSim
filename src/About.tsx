@@ -10,7 +10,7 @@ function About(props: AppProps) {
 
     return (
       <div>
-        <div>TODO ABOUT PLUS DEV LOG</div>
+        <div>TODO ABOUT PLUS DEV LOG, dev log</div>
         <LinkButton onClick={() => { props.setMode(BIRTHDAY) }}>Enter Zampanio</LinkButton>
         {date}
       </div>
