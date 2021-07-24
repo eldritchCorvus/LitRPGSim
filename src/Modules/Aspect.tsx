@@ -75,7 +75,7 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("mind", ["Mind", "Choices", "Thought", "Decisions", "Alternates","Facets"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(3)]), [all_themes.choices, all_themes.zap]);
     new Aspect("heart", ["Heart", "Soul", "Identity", "Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(3)]), [all_themes.soul, all_themes.love]);
     new Aspect("void", ["Dark", "Darkness", "Nothingness", "Emptiness","Void","Lack"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(3)]), [all_themes.obfuscation,all_themes.darkness]);
-    new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger]);
+    new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery","Wrath","Anger"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger]);
     new Aspect("hope", ["Hope", "Belief", "Faith", "Yearning"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(3)]), [all_themes[ANGELS],all_themes[QUESTING]]);
     new Aspect("light", ["Light", "Knowledge", "Attention", "Exposition"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(3)]), [all_themes[KNOWING],all_themes[LIGHT]]);
     new Aspect("blood", ["Blood", "Bonds", "Family", "Chains","Connections","Fellowship","Ties","Union"], seeded_random, Stat.WrapStatsToStatMap([Stat.BLOOD(3)]), [all_themes[KILLING],all_themes[FAMILY]]);
@@ -84,10 +84,10 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("web", ["Webs", "Spiders", "Fate", "Addiction"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.VOID(1),Stat.HEART(1)]), [all_themes.addiction, all_themes.web]);
     new Aspect("eye", ["Eye", "Watching", "Seeing", "Observing"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(1),Stat.MIND(1),Stat.RAGE(1)]), [all_themes.knowing, all_themes.spying]);
     new Aspect("stranger", ["Strangers", "Clowns", "Dolls", "Mannequins"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(2),Stat.RAGE(1)]), [all_themes.clowns, all_themes.obfuscation,all_themes.dolls]);
-    new Aspect("slaughter", ["Slaughter", "Massacre", "Killing", "Violence","Butchery","Murder"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.anger, all_themes.killing,all_themes.music]);
+    new Aspect("slaughter", ["Slaughter", "Massacre", "Killing", "Violence","Butchery","Murder","Wrath"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.anger, all_themes.killing,all_themes.music]);
     new Aspect("hunt", ["Hunt", "Chase", "Pursuit", "Hunters","Predation"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(2), Stat.RAGE(1)]), [all_themes[HUNTING], all_themes[KILLING]]);
     new Aspect("apocalypse", ["Catastrophe", "Apocalypse", "Annihilation", "Cataclysm ","Devastation","Armageddon","Ragnarok","Reckoning","Extinction"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[APOCALYPSE], all_themes[ENDINGS]]);
-    new Aspect("death", ["End", "Death", "Expiration", "Fatality ","Mortality","Demise","Tomb"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[DEATH], all_themes[ENDINGS]]);
+    new Aspect("death", ["End", "Death", "Expiration", "Fatality ","Mortality","Demise","Tomb","Terminal"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[DEATH], all_themes[ENDINGS]]);
     new Aspect("spiral", ["Spiral", "Sand", "Lies", "Confusion ","Gaslighting","Tricks","Deception","Madness","Fractals","Chaos","Labyrinths","Mazes","Twisting"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes[TWISTING], all_themes[OBFUSCATION]]);
 
 }
