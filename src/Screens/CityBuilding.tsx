@@ -7,7 +7,7 @@ interface StatusProps {
     player: Player;
     loadScreen: any; //function
 }
-
+//TODO secret where you can access a weird procedural "city view" (ascii? svg? divs? canvas?) and explore it and clicking each building prints out procedural text
 export const CityBuildingScreen = (props: StatusProps) => {
 
     const BuildingLine = styled.div`

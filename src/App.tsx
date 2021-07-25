@@ -90,6 +90,7 @@ function App(props: AppProps) {
       <li>inventory screen (allows quests to give procedural ITEM rewards) 
         if you finish achivement and do NOT currently have inventory, it spawns an untouchable object
            that falls to the center of the earth</li>
+           <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
         <li>link to fake dev log mimicking sburbsim logs where i "try to be more acurate" to how i think Zampanio would be if it "were a real game"</li>
         <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
@@ -104,8 +105,10 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
 
     * on player creation, generate quest array from themes. title is procedural from the theme of the template chosen.
     * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
+     <li>each page should have secrets that loop in on each other (binary password getting you past options maybe)</li>
       <li>for all statistics, detect dom hax adn react accordingly (including RAGE MODE)</li>
         <li>what happens if i have more menu items than room to display?</li>
+        <li>house of leaves like narrative where being exposed to enough of this makes you want to make your own derivative</li>
         <li>just truth mode has a secret adventure game in it (randomly generated but using the themes). to access it you click the black under the actual text.</li>
       <li>status, options, achivements, statistics, skills screen upgrades is gated to menu level</li>
       <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>
@@ -129,8 +132,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
         <li>murder yellow text</li>
         <li>skills that unlock other menu screens/upgrade them (replace a stat with it)</li>
         <li>zero player game where you get little mini stories about what you 'did', like "used Medical Crown to heal a king" or whatever.  if the game were working PROPERLY it should praise you for whatever skill you've used the most, but obviously you've never used a single skill so it just picks one at random or glitches out. have console logs about ERORR NO FAVORIE SKILL FOUND etc.</li>
-        <li>experiment with three themes mixed together (how would names work? be all grandiose, look at fraymotifs, maybe always add music or something at the end?)</li>
-
+        <li>if i ever do a lets play of zampanio it should be a hacked version that never goes live that is different in many very important ways but subtle at first</li>        
       </ul>
       </Fragment>
     );
