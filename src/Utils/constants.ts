@@ -13,6 +13,8 @@ make its observerbot level
 and also wire the first time you go there into the achievement system
 (and also possibly the levels of the menu);
 */
+//:) :) :)
+export const THE_END_IS_NEVER = "01010100 01001000 01000101 00100000 01000101 01001110 01000100 00100000 01001001 01010011 00100000 01001110 01000101 01010110 01000101 01010010 00100000 01010100 01001000 01000101 00100000 01000101 01001110 01000100 00100000 01001001 01010011 00100000 01001110 01000101 01010110 01000101 01010010";
 export const SKILLGRAPH = "SKILLGRAPH"; //???
 export const LOADING = "LOADING"; //just what kind of tips are in the loading screen?
 export const STATUS = "STATUS"; //this obviously is gonna get upgraded.
