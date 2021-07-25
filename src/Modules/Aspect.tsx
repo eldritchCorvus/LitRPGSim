@@ -70,34 +70,32 @@ export  class Aspect{
 
 export function initAspects(seeded_random: SeededRandom){
 
-    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(3)]), [all_themes.healing, all_themes.plants]);
-    new Aspect("doom", ["Doom", "Death", "Fate", "Destiny", "Inevitability"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(3)]), [all_themes.death, all_themes.web]);
+    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality","Mercy","Charity"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(3)]), [all_themes.healing, all_themes.plants]);
+    new Aspect("doom", ["Doom", "Death", "Fate", "Destiny", "Inevitability","Perseverance"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(3)]), [all_themes.death, all_themes.web]);
     new Aspect("mind", ["Mind", "Choices", "Thought", "Decisions", "Alternates","Facets"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(3)]), [all_themes.choices, all_themes.zap]);
     new Aspect("heart", ["Heart", "Soul", "Identity", "Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(3)]), [all_themes.soul, all_themes.love]);
-    new Aspect("void", ["Dark", "Darkness", "Nothingness", "Emptiness","Void","Lack","Ink","Censor"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(3)]), [all_themes.obfuscation,all_themes.darkness]);
+    new Aspect("void", ["Dark", "Darkness", "Nothingness", "Emptiness","Void","Lack","Ink","Censor","Envy"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(3)]), [all_themes.obfuscation,all_themes.darkness]);
     new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery","Wrath","Anger"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger]);
     new Aspect("hope", ["Hope", "Belief", "Faith", "Yearning"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(3)]), [all_themes[ANGELS],all_themes[QUESTING]]);
-    new Aspect("light", ["Light", "Knowledge", "Attention", "Exposition"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(3)]), [all_themes[KNOWING],all_themes[LIGHT]]);
-    new Aspect("blood", ["Blood", "Bonds", "Family", "Chains","Connections","Fellowship","Ties","Union"], seeded_random, Stat.WrapStatsToStatMap([Stat.BLOOD(3)]), [all_themes[KILLING],all_themes[FAMILY]]);
+    new Aspect("light", ["Light", "Knowledge", "Attention", "Exposition","Temperance"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(3)]), [all_themes[KNOWING],all_themes[LIGHT]]);
+    new Aspect("blood", ["Blood", "Bonds", "Family", "Chains","Connections","Fellowship","Ties","Union","Greed"], seeded_random, Stat.WrapStatsToStatMap([Stat.BLOOD(3)]), [all_themes[KILLING],all_themes[FAMILY]]);
     new Aspect("breath", ["Breath", "Wind", "Freedom", "Independence","Autonomy","Breeze","Travel","Liberty"], seeded_random, Stat.WrapStatsToStatMap([Stat.BREATH(3)]), [all_themes[FREEDOM],all_themes[LONELY]]);
-    new Aspect("space", ["Vast", "Space","Air", "Expanse", "Volume","Position","Falling","Setting"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(3)]), [all_themes[SPACE], all_themes[PLANTS]]);
+    new Aspect("space", ["Vast", "Space","Air", "Expanse", "Volume","Position","Falling","Setting","Temperance"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(3)]), [all_themes[SPACE], all_themes[PLANTS]]);
     new Aspect("time", ["Time", "Clocks","Tempo", "Pacing", "Measure","Beat","Cadence","Stress"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(3)]), [all_themes[ENDINGS], all_themes[MUSIC]]);
 
     new Aspect("corruption", ["Love", "Corruption", "Toxicity", "Inserts", "Plague","Rot","Disgust","Bugs","Maggots","Worms"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.LIFE(1),Stat.HEART(1)]), [all_themes.decay, all_themes.bugs,all_themes.love]);
-    new Aspect("web", ["Webs", "Spiders", "Fate", "Addiction"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.VOID(1),Stat.HEART(1)]), [all_themes.addiction, all_themes.web]);
-    new Aspect("eye", ["Eye", "Watching", "Seeing", "Observing"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(1),Stat.MIND(1),Stat.RAGE(1)]), [all_themes.knowing, all_themes.spying]);
+    new Aspect("web", ["Webs", "Spiders", "Fate", "Addiction","Lust"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.VOID(1),Stat.HEART(1)]), [all_themes.addiction, all_themes.web]);
+    new Aspect("eye", ["Eye", "Watching", "Seeing", "Observing","Temperance","Diligence"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(1),Stat.MIND(1),Stat.RAGE(1)]), [all_themes.knowing, all_themes.spying]);
     new Aspect("stranger", ["Strangers", "Clowns", "Dolls", "Mannequins"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(2),Stat.RAGE(1)]), [all_themes.clowns, all_themes.obfuscation,all_themes.dolls,all_themes[FLESH]]);
     new Aspect("slaughter", ["Slaughter", "Massacre", "Killing", "Violence","Butchery","Murder","Wrath"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.anger, all_themes.killing,all_themes.music]);
     new Aspect("hunt", ["Hunt", "Chase", "Pursuit", "Hunters","Predation"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(2), Stat.RAGE(1)]), [all_themes[HUNTING], all_themes[KILLING]]);
     new Aspect("apocalypse", ["Catastrophe", "Apocalypse", "Annihilation", "Cataclysm ","Devastation","Armageddon","Ragnarok","Reckoning","Extinction"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[APOCALYPSE], all_themes[ENDINGS]]);
-    new Aspect("death", ["End", "Death", "Expiration", "Fatality ","Mortality","Demise","Tomb","Terminal"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[DEATH], all_themes[ENDINGS]]);
+    new Aspect("death", ["End", "Death", "Expiration", "Fatality ","Mortality","Demise","Tomb","Terminus","Sloth"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2), Stat.RAGE(1)]), [all_themes[DEATH], all_themes[ENDINGS]]);
     new Aspect("spiral", ["Spiral", "Sand", "Lies", "Confusion ","Gaslighting","Tricks","Deception","Madness","Fractals","Chaos","Labyrinths","Mazes","Twisting"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes[TWISTING], all_themes[OBFUSCATION]]);
-    new Aspect("flesh", ["Flesh", "Meat", "Body", "Form","Beef","Brawn"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(3)]), [all_themes[FLESH], all_themes[KILLING]]);
+    new Aspect("flesh", ["Flesh", "Meat", "Body", "Form","Beef","Brawn","Gluttony"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(3)]), [all_themes[FLESH], all_themes[KILLING]]);
     new Aspect("buried", ["Buried", "Choke", "Claustrophobia", "Trapped","Dirt","Mud","Depth","Underneath"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1), Stat.VOID(1)]), [all_themes[BURIED], all_themes[DARKNESS]]);
-    new Aspect("desolation", ["Desolation", "Fire", "Loss", "Blaze","Ruin","Misfortune","Calamity","Flame"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1), Stat.RAGE(1)]), [all_themes[FIRE], all_themes[STEALING]]);
-    new Aspect("lonely", ["Lonely", "Outcasts","Isolation", "Seclusion", "Cold","Frost","Fog","Mist","Sea"], seeded_random, Stat.WrapStatsToStatMap([Stat.BREATH(1), Stat.VOID(1)]), [all_themes[OCEAN], all_themes[LONELY], all_themes[OBFUSCATION]]);
+    new Aspect("desolation", ["Desolation", "Fire", "Loss", "Blaze","Ruin","Misfortune","Calamity","Flame","Humility"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1), Stat.RAGE(1)]), [all_themes[FIRE], all_themes[STEALING]]);
+    new Aspect("lonely", ["Lonely", "Outcasts","Isolation", "Seclusion", "Cold","Frost","Fog","Mist","Sea","Pride","Chastity"], seeded_random, Stat.WrapStatsToStatMap([Stat.BREATH(1), Stat.VOID(1)]), [all_themes[OCEAN], all_themes[LONELY], all_themes[OBFUSCATION]]);
 
     //dark and vast are directly represented in homestuck
-
-    //TODO want to do spider's ruler skills? greed, perserverence etc
 }
