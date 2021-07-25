@@ -67,9 +67,11 @@ export const LONELY = "lonely";
 export const OCEAN = "ocean";
 export const SPACE = "space"; 
 export const TIME = "time"; 
+export const ART = "art";  //JR NOTE TODO
+export const TECHNOLOGY = "technology";  //JR NOTE TODO
 
 
-export const keys = [SPACE, TIME, FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+export const keys = [TECHNOLOGY, ART, SPACE, TIME, FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
 
 interface ThemeStatMap {
     [details: string] : Stat.Stat[];
@@ -150,6 +152,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
  const initStatsMap = () =>{
+    stats_map[TECHNOLOGY] = [Stat.LIGHT(1)];
+    stats_map[ART] = [Stat.SPACE(1)];
     stats_map[TIME] = [Stat.TIME(1)];
     stats_map[SPACE] = [Stat.SPACE(1)];
     stats_map[STEALING] = [Stat.LIGHT(1)];
@@ -201,6 +205,8 @@ export const checkIfAllKeysPresent = ()=>{
 }
 
 const initPeople = () =>{
+    person_posibilities[ART] = ["artist","painter","sculpter","curator"];
+    person_posibilities[TECHNOLOGY] = ["engineer","programmer","hacker","coder"];
     person_posibilities[SPACE] = ["astronaut","climber","mountaineer","alpinist","diver"];
     person_posibilities[TIME] = ["conductor","clockmaker","drummer","robot"];
     person_posibilities[STEALING] = ["thief","burglar","robber","mugger","pick-pocket","kleptomaniac"];
@@ -250,6 +256,8 @@ const initPeople = () =>{
 }
 
 const initAdjs = () =>{
+    adj_possibilities[ART] = ["artistic","aesthetic","beautiful","moving","balanced"];
+    adj_possibilities[TECHNOLOGY] = ["technological","advanced","smart","programmatic","procedural"];
     adj_possibilities[TIME] = ["timely","measured","punctual","clock-work","steady","ticking","beating"];
     adj_possibilities[SPACE] = ["celestial","otherworldly","vast","big","open","expansive","boundless","immeasurable","infinite","limitless","enormous","gigantic","giant","cosmic"];
     adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing","kleptomania"];
@@ -299,6 +307,8 @@ const initAdjs = () =>{
 }
 
 const initSuperNames = () =>{
+    super_name_possibilities_map[ART] =  ["Perfect Moment"];
+    super_name_possibilities_map[TECHNOLOGY] =  ["Singularity"];
     super_name_possibilities_map[TIME] =  ["Stopped Clock"];
     super_name_possibilities_map[SPACE] =  ["Big Bang"];
     super_name_possibilities_map[OCEAN] =  ["The Flood"];
@@ -348,11 +358,13 @@ const initSuperNames = () =>{
 }
 
 const initLocations = () =>{
+    location_possibilities[ART] = ["museum","studio","craft shop","workshop"] ;
+    location_possibilities[TECHNOLOGY] = ["server farm","office","isp"] ;
     location_possibilities[TIME] = ["clock-tower","factory","dateline","train-station"] ;
     location_possibilities[SPACE] = ["planet","rocket","elevator","mountain","tower","sun","stairs"] ;
     location_possibilities[STEALING] = ["market","jail","mansion"] ;
     location_possibilities[FREEDOM] = ["field","caravan","market"] ;
-    location_possibilities[FIRE] = ["bonfire","ashlands","burning building","volcano"] ;
+    location_possibilities[FIRE] = ["bonfire","ashlands","burning building","volcano","kiln","bbq","forge"] ;
     location_possibilities[LONELY] = ["moors","mansion","school"] ;
     location_possibilities[OCEAN] = ["dockyard","lighthouse","shipyard","ship"] ;
     location_possibilities[FLESH] =  ["abattoir","butcher","slaughterhouse","gym"];
@@ -381,7 +393,7 @@ const initLocations = () =>{
     location_possibilities[ENDINGS] =  ["theatre","graveyard","abandoned building"] ;
     location_possibilities[KNOWING] = ["library","school","monastery"] ;
     location_possibilities[GUIDING] = ["path","wilderness"] ;
-    location_possibilities[CRAFTING] =  ["smithy","forge","mill"];
+    location_possibilities[CRAFTING] =  ["smithy","forge","mill","mine","logging camp"];
     location_possibilities[LANGUAGE] = ["library","printer","bookshop"] ;
     location_possibilities[BUGS] =  ["hive","nest"];
     location_possibilities[ADDICTION] = ["casino","back alley"];
@@ -397,6 +409,8 @@ const initLocations = () =>{
 }
 
 const initObjects = () =>{
+    object_possibilities[ART] = ["chisel","paint brush","paint pot","sponge", "apron","canvas"];
+    object_possibilities[TECHNOLOGY] = ["computer","lap-top","phone","tablet"];
     object_possibilities[SPACE] = ["toy rocket","globe","rope","stardust", "compass","sextant"];
     object_possibilities[TIME] = ["hourglass","watch","sundial","clock","gear","chronometer","stopwatch","metronome"];
     object_possibilities[STEALING] = ["lockpick","shiv","mask","blackjack"];
@@ -404,7 +418,7 @@ const initObjects = () =>{
     object_possibilities[FIRE] = ["match","lighter","charcoal","kindling"];
     object_possibilities[LONELY] = ["diary","locket","solitaire deck"];
     object_possibilities[OCEAN] = ["anchor","ship in a bottle","captains hat","raincoat"];
-    object_possibilities[FLESH] =  ["meat slab", "butcher knife","bone","flesh cube","meat","sirloin","ribeye","steak"];
+    object_possibilities[FLESH] =  ["meat slab", "butcher knife","bone","flesh cube","meat","sirloin","ribeye","steak","beef","guts","intestines","blood"];
     object_possibilities[BURIED] =  ["shovel", "pickax","minecart","coffin","dirt","mudball","cave map"];
     object_possibilities[SCIENCE] =  ["test tube", "beaker","lab coat","microscope"];
     object_possibilities[MATH] =  ["calculator", "ruler","graph paper","pencil","compass","caliper"];
@@ -421,7 +435,7 @@ const initObjects = () =>{
     object_possibilities[HUNTING] = ["pelt","leather","gun"];
     object_possibilities[DECAY] = ["cadavar","gravestone","rotten food"] ;
     object_possibilities[CHOICES] =  ["todo list","coin","adventure book"] ;
-    object_possibilities[ZAP] = ["battery","lichtenberg figure","glass"] ;
+    object_possibilities[ZAP] = ["battery","lichtenberg figure","glass","capaciter"] ;
     object_possibilities[LOVE] = ["heart","chocolate","ring"];
     object_possibilities[SOUL] = ["gem","mirror","crystal"] ;
     object_possibilities[ANGER] = ["matador costume","red flag","glove"] ;
@@ -430,8 +444,8 @@ const initObjects = () =>{
     object_possibilities[ENDINGS] =  ["curtain","gravestone","stop sign"] ;
     object_possibilities[KNOWING] = ["book","camera","datum","scroll","tome"] ;
     object_possibilities[GUIDING] = ["map","walking stick","compass","sextant"] ;
-    object_possibilities[CRAFTING] =  ["anvil","hammer","ax"];
-    object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus","pen","paper"] ;
+    object_possibilities[CRAFTING] =  ["anvil","hammer","ax","chisel"];
+    object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus","pen","paper","book"] ;
     object_possibilities[BUGS] =  ["hive","pupa","nest"];
     object_possibilities[ADDICTION] = ["syringe","vial","dice"];
     object_possibilities[SPYING] =["spyglass","camera","disguise"] ;
@@ -439,7 +453,7 @@ const initObjects = () =>{
     object_possibilities[DOLLS] = ["doll","mannequin","statuette"] ;
     object_possibilities[OBFUSCATION] = ["white-out","sharpie","censor bar"] ;
     object_possibilities[DARKNESS] =  ["sunglasses","blinds","blindfold","darklight"] ;
-    object_possibilities[KILLING] =  ["knife","machete","gun"];
+    object_possibilities[KILLING] =  ["knife","machete","gun","blood","bloody bandages","bayonette"];
     object_possibilities[MUSIC] =  ["flute","guitar","drum"] ;
     object_possibilities[DEFENSE] =  ["shield","armor","helmet"] ;
     object_possibilities[QUESTING] = ["map","rations","notes"] ;
@@ -448,6 +462,8 @@ const initObjects = () =>{
 const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
+    menu_options[ART] =  [INVENTORY];
+    menu_options[TECHNOLOGY] =  [CODE];
     menu_options[SPACE] =  [CITYBUILDING];
     menu_options[TIME] =  [STATISTICS];
     menu_options[STEALING] =  [INVENTORY];
@@ -613,6 +629,8 @@ const initMemories = () =>{
 
 //i would expect a/n [BLANK] individual such as yourself to come to such a conclusion, yes.
 const initCompliments = () =>{
+    compliment_possibilities[ART] =  ["artistic"];
+    compliment_possibilities[TECHNOLOGY] =  ["technological"];
     compliment_possibilities[SPACE] =  ["spacious"];
     compliment_possibilities[TIME] =  ["punctual"];
     compliment_possibilities[STEALING] =  ["resourceful"];
@@ -662,6 +680,8 @@ const initCompliments = () =>{
 }
 
 const initMiracles = ()=>{
+    miracles[ART] = ["become divinely inspired for any one creation","generate a work of art exactly as it exists in their mind","resolve any one targets creative block"];
+    miracles[TECHNOLOGY] =["become aware of one hacking exploit in any system","patch one hacking exploit in any system","eliminate one item from tech debt","intuit the true cause of any bug"];
     miracles[TIME]=["slow time any arbitrary amount","stop time for everyone but a single target for five relative minutes","stop time for any single target","create up to three time clones","go back in time up to 24 hours"];
     miracles[SPACE]=["change the size of any target object","teleport to any target location","negate any targets fall damage","remove one square mile of ground"];
     miracles[STEALING]=["obtain any target object","own any target object","hide from the sight of all viewers","scale any target building"];
@@ -711,6 +731,8 @@ const initMiracles = ()=>{
 }
 
 const initInsults = () =>{
+    insult_possibilities[ART] =  ["trite"];
+    insult_possibilities[TECHNOLOGY] =  ["hacky"];
     insult_possibilities[SPACE] =  ["stand-offish"];
     insult_possibilities[TIME] =  ["hasty"];
     insult_possibilities[STEALING] =  ["greedy"];
@@ -760,6 +782,8 @@ const initInsults = () =>{
 }
 
 const initGeneralBackstories = () =>{
+    general_backstories[ART] = ["would never stop making sculptures if that was an option","can sketch incredibly lifelike portraits","always has a dab of paint behind their ears"];
+    general_backstories[TECHNOLOGY] = ["can, will, must and should make a robot","always seem to be on top of the latest technology","are annoyed that everyone wants them to fix their computer","can hack into any system"];
     general_backstories[TIME] =["are always on time to everything","are kind of impatient","seem to always have unlimited energy","always know what time it is","have an instinctive understanding of timing"];
     general_backstories[SPACE] =["seem to always be a mile away when everyone is supposed to meet up","are a very patient person","have an amazing spatial sense","always want to talk about space","love being as high up as possible","have absolutely no fear of heights"];
     general_backstories[STEALING] = ["have extremely light fingers","have never met and object they didn't want to own","have never been on the right side of the law","have been in jail a few times"];
@@ -809,6 +833,8 @@ const initGeneralBackstories = () =>{
 }
 
 const initChildBackstories = () =>{
+    child_backstories[ART] =["had the biggest crayon set as a child","took great pride in their drawings being displayed on the fridge as a child","loved creating little works of art as a child"];
+    child_backstories[TECHNOLOGY]=["never got tired of screen time as a child","always loved robots as a child","always had their nose in a screen as a child"];
     child_backstories[TIME] = ["sometimes talk about their childhood as if it were yesterday","always woke up before they had to as a child","never wanted to sleep as a child"];
     child_backstories[SPACE] = ["were a very patient child","loved high places as a child","was always tall for their age"];
     child_backstories[STEALING] =["kept getting into locked places as a child","were always breaking rules as a child","somehow ended up with all their friends toys as a child"];
@@ -843,7 +869,7 @@ const initChildBackstories = () =>{
     child_backstories[KNOWING] = ["were a bookish child","could not stop asking 'why' as a child","were a bright child"] ;
     child_backstories[GUIDING] = ["always knew the best places to play as a child","lead their small band of childhood friends"] ;
     child_backstories[CRAFTING] =  ["loved to make things as a child","were always showing teachers and parents their latest creation"];
-    child_backstories[LANGUAGE] = ["were a surprisingly articulate child","loved to learn the meanings of words","had their first word be 'Mother', not 'ma'"] ;
+    child_backstories[LANGUAGE] = ["always had their nose in a book as a child","were a surprisingly articulate child","loved to learn the meanings of words","had their first word be 'Mother', not 'ma'"] ;
     child_backstories[BUGS] =  ["enjoyed collecting beetles as a child","had a butterfly collection as a child","were fascinated with bees as a child"];
     child_backstories[ADDICTION] = ["couldn't stay away from the local Faire each year as a child","always convinced their childhood friends to play 'one more game'"];
     child_backstories[SPYING] =["grew up always watching others","seemed to always be lurking in the corners as a child","spied on adults growing up"] ;

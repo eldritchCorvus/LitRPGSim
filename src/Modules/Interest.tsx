@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
 import * as Stat from './Stat';
-import { ADDICTION, ANGELS, ANGER, BUGS, BURIED, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, FIRE, FREEDOM, GUIDING, HEALING, HUNTING, KILLING, LIGHT, LOVE, MAGIC, MATH, MUSIC, OBFUSCATION, OCEAN, PLANTS, QUESTING, ROYALTY, SCIENCE, SOUL, SPYING, WEB, ZAP } from './ThemeStorage';
+import { ADDICTION, ANGELS, ANGER, BUGS, BURIED, CHOICES, CLOWNS, DARKNESS, DECAY, DEFENSE, DOLLS, ENDINGS, FAMILY, FIRE, FREEDOM, GUIDING, HEALING, HUNTING, KILLING, LIGHT, LOVE, MAGIC, MATH, MUSIC, OBFUSCATION, OCEAN, PLANTS, QUESTING, ROYALTY, SCIENCE, SOUL, SPYING, TECHNOLOGY, WEB, ZAP } from './ThemeStorage';
 
 interface InterestMap {
     [details: string] : Interest;
@@ -86,6 +86,8 @@ export function initInterests(seeded_random: SeededRandom){
     new Interest("spelunking", ["Spelunker", "Digger", "Miner","Explorer"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(2)]),[all_themes[BURIED], all_themes[DARKNESS]]);
     new Interest("sailing", ["Sailor", "Captain", "First Mate","Skipper","Mariner"], seeded_random, Stat.WrapStatsToStatMap([Stat.BREATH(2)]),[all_themes[OCEAN], all_themes[FREEDOM]]);
     new Interest("fire", ["Pyromaniac", "Pyro", "Burner","Fire-bug","Arsonist"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(2)]),[all_themes[FIRE]]);
+    new Interest("art", ["Artist", "Painter", "Sculpter","Curator"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(2)]),[all_themes[ART]]);
+    new Interest("technology", ["Engineer", "Programmer", "Hacker","Coder"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(2)]),[all_themes[TECHNOLOGY],all_themes[ZAP]]);
 
     /*
 export const CLOWNS = "clowns";*/
