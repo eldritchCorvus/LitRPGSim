@@ -203,7 +203,7 @@ export const checkIfAllKeysPresent = ()=>{
 const initPeople = () =>{
     person_posibilities[SPACE] = ["astronaut","climber","mountaineer","alpinist","diver"];
     person_posibilities[TIME] = ["conductor","clockmaker","drummer","robot"];
-    person_posibilities[STEALING] = ["thief","burglar","robber","mugger","pick-pocket"];
+    person_posibilities[STEALING] = ["thief","burglar","robber","mugger","pick-pocket","kleptomaniac"];
     person_posibilities[FREEDOM] = ["explorer","pirate","pixie","fairy","sylph","traveler"];
     person_posibilities[FIRE] = ["fireman","pyromaniac","arsonist","firebug"];
     person_posibilities[LONELY] = ["widow","hermit","dowager"];
@@ -243,7 +243,7 @@ const initPeople = () =>{
     person_posibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
     person_posibilities[OBFUSCATION] = ["hider","ninja","censor","disguise artist"];
     person_posibilities[DARKNESS] = ["edgelord","ninja","watchman","nightclerk"];
-    person_posibilities[KILLING] = ["murderer","assasin","killer","soldier"];
+    person_posibilities[KILLING] = ["murderer","assassin","killer","soldier"];
     person_posibilities[MUSIC] = ["singer","dancer","choir","bard","musician","drummer"];
     person_posibilities[DEFENSE] = ["knight","paladin","defender","protector","page","soldier","warrior"];
     person_posibilities[QUESTING] = ["seeker","adventurer","pilgrim"];
@@ -252,7 +252,7 @@ const initPeople = () =>{
 const initAdjs = () =>{
     adj_possibilities[TIME] = ["timely","measured","punctual","clock-work","steady","ticking","beating"];
     adj_possibilities[SPACE] = ["celestial","otherworldly","vast","big","open","expansive","boundless","immeasurable","infinite","limitless","enormous","gigantic","giant","cosmic"];
-    adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing"];
+    adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing","kleptomania"];
     adj_possibilities[FREEDOM] = ["free","unchained","unbound","moving","flying"];
     adj_possibilities[FIRE] = ["flaming","blazing","burning","ashen","burnt"];
     adj_possibilities[LONELY] = ["lonely","isolated","friendless","forsaken"];
@@ -365,7 +365,7 @@ const initLocations = () =>{
     location_possibilities[ANGELS] =  ["church","grotto","temple","monastery"];
     location_possibilities[SERVICE] =  ["mansion","manor","main-house"];
     location_possibilities[FAMILY] =  ["home","hearth","homestead"];
-    location_possibilities[MAGIC] =  ["mountain","school","tower"];
+    location_possibilities[MAGIC] =  ["mountain","school","tower","hut"];
     location_possibilities[LIGHT] =  ["mountain","field","cloud"];
     location_possibilities[HEALING] =  ["hospital","field-hospital","doctors office"];
     location_possibilities[PLANTS] = ["forest","meadow","jungle"];
@@ -438,7 +438,7 @@ const initObjects = () =>{
     object_possibilities[CLOWNS] =["wig","horn","facepaint"] ;
     object_possibilities[DOLLS] = ["doll","mannequin","statuette"] ;
     object_possibilities[OBFUSCATION] = ["white-out","sharpie","censor bar"] ;
-    object_possibilities[DARKNESS] =  ["sunglasses","curtain","blindfold"] ;
+    object_possibilities[DARKNESS] =  ["sunglasses","blinds","blindfold","darklight"] ;
     object_possibilities[KILLING] =  ["knife","machete","gun"];
     object_possibilities[MUSIC] =  ["flute","guitar","drum"] ;
     object_possibilities[DEFENSE] =  ["shield","armor","helmet"] ;
