@@ -278,7 +278,7 @@ export const JustTruth = (props: StatusProps) => {
                                 )
                             })
                         }
-                        <table>
+                        <table className="infodump">
                             <tr><td>Question</td><td>Yes Response</td><td>No Response</td><td>Comment If Yes</td><td>Comment If No</td></tr>
                         <tbody>
                         {
