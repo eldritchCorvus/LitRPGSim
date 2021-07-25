@@ -56,6 +56,7 @@ export const CompanionsScreen = (props: StatusProps) => {
 
                 <Fragment>
                     <div>
+                        TODO hearts if Heart or Corruption, fill in level important in binary
                         {props.player.companions.map((companion)=>{
                             return (
                             <BuildingLine>

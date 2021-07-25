@@ -87,11 +87,11 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>hide some secrets in binary (THE END IS NEVER THE END?) to tie into fake faq (possibly in TRUTH MODE background)</li>
-        <li>link to fake dev log mimicking sburbsim logs where i "try to be more acurate" to how i think Zampanio would be if it "were a real game"</li>
-        <li>inventory screen (allows quests to give procedural ITEM rewards) 
-          if you finish achivement and do NOT currently have inventory, it spawns an untouchable object
+      <li>inventory screen (allows quests to give procedural ITEM rewards) 
+        if you finish achivement and do NOT currently have inventory, it spawns an untouchable object
            that falls to the center of the earth</li>
+        <li>link to fake dev log mimicking sburbsim logs where i "try to be more acurate" to how i think Zampanio would be if it "were a real game"</li>
+        <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
         <li>achivements can give random items as rewards, quests can CLAIM to</li>
         <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>

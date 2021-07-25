@@ -286,7 +286,7 @@ const initAdjs = () =>{
     adj_possibilities[LOVE] = ["loving","caring","embracing","smitten"];
     adj_possibilities[SOUL] = ["defining","delineating","pure"];
     adj_possibilities[ANGER] = ["raging","hating","rebelling","glaring","stampeding","furious"];
-    adj_possibilities[WEB] = ["controlling","puppeting","trapping"];
+    adj_possibilities[WEB] = ["controlling","puppeting","trapping","gossamer"];
     adj_possibilities[ROYALTY] = ["ruling","mandating","decreeing","royal","commanding"];
     adj_possibilities[ENDINGS] =["ending","final","ultimate"];
     adj_possibilities[KNOWING] = ["knowing","understanding","learning"];
@@ -439,7 +439,7 @@ const initObjects = () =>{
     object_possibilities[LOVE] = ["heart","chocolate","ring"];
     object_possibilities[SOUL] = ["gem","mirror","crystal"] ;
     object_possibilities[ANGER] = ["matador costume","red flag","glove"] ;
-    object_possibilities[WEB] =  ["silk","puppet","cobweb"] ;
+    object_possibilities[WEB] =  ["silk","puppet","cobweb","spider"] ;
     object_possibilities[ROYALTY] =  ["crown","throne","sceptre"] ;
     object_possibilities[ENDINGS] =  ["curtain","gravestone","stop sign"] ;
     object_possibilities[KNOWING] = ["book","camera","datum","scroll","tome"] ;

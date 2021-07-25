@@ -61,7 +61,7 @@ export  class RPGClass{
 export function initClasses(seeded_random: SeededRandom){
     //TODO associate each with array of MENU NAMES to be associated with. 
     new RPGClass("seer", ["Seer", "Watcher", "Guide", "Sherpa", "Eye","Observer","Archivist","Pupil","Detective"],1.3, seeded_random, [all_themes.knowing, all_themes[SPYING], all_themes[GUIDING]]);
-    new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale","Ruler"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
+    new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale","Ruler","Martyr"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
     new RPGClass("bard", ["Bard", "Singer", "Skald", "Teller", "Raconteur"],-2.0, seeded_random, [all_themes.clowns, all_themes.language,all_themes.music]);
     new RPGClass("knight", ["Angel","Guardian","Knight", "Warrior", "Protector", "Defender", "Swordsman","Soldier","Paladin"],2.0, seeded_random, [all_themes.defense, all_themes.questing]);
     new RPGClass("page", ["Minion","Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],3.0, seeded_random, [all_themes[QUESTING],all_themes[SERVICE]]);
