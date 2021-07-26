@@ -87,11 +87,12 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>tweak backstory stitching</li>
+        <li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
       <li>inventory screen (allows quests to give procedural ITEM rewards) 
         if you finish achivement and do NOT currently have inventory, it spawns an untouchable object
            that falls to the center of the earth</li>
            <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
-        <li>link to fake dev log mimicking sburbsim logs where i "try to be more acurate" to how i think Zampanio would be if it "were a real game"</li>
         <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
         <li>achivements can give random items as rewards, quests can CLAIM to</li>

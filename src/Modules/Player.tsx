@@ -123,28 +123,28 @@ export   class Player{
     }
 
     generateBackstory = (themes: Theme[],rand:SeededRandom, num:number)=>{
-        console.log("JR NOTE: generating backstory")
-        if(this.backstory.length > 113 || num > 10){
-            console.log("JR NOTE: done")
+        if(this.backstory.length > 213 || num > 10){
             this.backstory += ".";
             return;
         }
         let idea = "";
         let idea_seed;
         if(this.backstory.trim() === ""){
-            console.log("JR NOTE init backstory from ", this.backstory);
             idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(CHILDBACKSTORY));
-
             this.backstory = `${this.fullName} ${idea_seed}`;
             console.log("JR NOTE after init ", this.backstory);
 
         }else{
             idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(GENERALBACKSTORY));
 
-            if(rand.nextDouble() >0.5){
-                console.log("JR NOTE new sentence ", this.backstory);
+            if(num === 1){
+                const transitions = ["Now they","These days they","In the present, they","They","Nowadays they"];
+                idea =  `. ${rand.pickFrom(transitions)} ${idea_seed}`;
 
-                idea =  `. They ${idea_seed}`;
+            }else if(rand.nextDouble() >0.5){
+                const transitions = ["They","They also","Additionally, they","They"];
+
+                idea =  `. ${rand.pickFrom(transitions)} ${idea_seed}`;
             }else{
                 const connection = ["and","yet","but"];
                 console.log("JR NOTE connector ", this.backstory);
