@@ -800,7 +800,7 @@ const initGeneralBackstories = () =>{
     general_backstories[APOCALYPSE] =["constantly spew ominous bullshit","alway remind everyone of how fragile the world truly is","are just really a huge fan of apocalyptic explosions"];
     general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods","are a deeply religious person","strive to do the will of the gods"];
     general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation","always has a light source on hand"];
-    general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand","keeps their room spotless","cleans whenever they are stressed"];
+    general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand","keep their room spotless","clean whenever they are stressed"];
     general_backstories[FAMILY] =  ["love their family with all their heart","do everything for their family","really loves their found family"];
     general_backstories[MAGIC] =  ["have a natural talent for magic","are one of the skilled mages of this Era","are a powerful Enchanter"];
     general_backstories[HEALING] =  ["have a powerful healing aura","have extensive medical training","never ignore suffering"];
