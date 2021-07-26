@@ -52,7 +52,7 @@ export const max_values_for_menus:numbermap = {
     CITYBUILDING: 3, //level 2 shows all possible buildings, level 3 shows options
     INVENTORY: 1,
     LORE: 1,
-    BACKSTORY: 3,
+    BACKSTORY: 1,
     RESISTANCES: 1,
     CODE: 1,
     TRUTH:1,

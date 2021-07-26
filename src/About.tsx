@@ -66,11 +66,13 @@ function NewspostDom(props: PostProps) {
 function About(props: AppProps) {
   const [date, setDate] = useState<string>("1933-03-03");
   const newsposts = [
-    new Newspost("07/24/2021", " the Thief of Beef is now possible. that is all there is to say on the matter.")
+    new Newspost("07/25/2021", "the Thief of Beef is no longer mandatory for all party members to emulate","haha whoops")
+    ,new Newspost("07/24/2021", " the Thief of Beef is now possible. that is all there is to say on the matter.")
     , new Newspost("07/23/2021", "THE END IS NEVER THE END", "we're really in it now")
     , new Newspost("07/22/2021", "hunting is no longer associated with clowns", "did i go out of my way to leave the 'bug' in for weeks just so i could mirror the faq bug? yes. ofc i did.")
     , new Newspost("03/30/3031", "i have finally implemented spiral/sand")
     , new Newspost("07/18/2021", "really like how i did the gods screen")
+    , new Newspost("07/15/2021", "it is physically impossible to create a shitty world and NOT be a sociopath","turns out the easiest way to make party members is to lobotomize a fully realized player")
     , new Newspost("07/13/2021", "as the false bg moves around the true mirrors OBs thoughts")
     , new Newspost("07/11/2021", "standardizing OBs voice. they deserve more than just being AB but meaner.")
     , new Newspost("07/10/2021", "working on gaslighting word meanings", "my fav part of this is i keep forgetting i did it and i get upset/confused that 'quests' are now called 'dogs' or something")
