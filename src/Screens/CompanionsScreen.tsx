@@ -64,6 +64,7 @@ export const CompanionsScreen = (props: StatusProps) => {
                                 <BuildingSection> {companion.title} </BuildingSection>
                                 <Backstory> {companion.backstory} </Backstory>
                                 {observer.companionsMenuLevel > 1 ?<Loyalty>Loyalty: {companion.loyalty}</Loyalty>:null}
+                                {observer.companionsMenuLevel > 1 ?<Loyalty>Inventory: {companion.inventory.join(", ")}</Loyalty>:null}
 
                             </BuildingLine>)
                     })}
