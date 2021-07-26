@@ -9,7 +9,7 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, FREESPIRITED, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { CHILDBACKSTORY, GENERALBACKSTORY, LOCATION } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LONELY, OBJECT } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
@@ -32,6 +32,7 @@ export   class Player{
     buildings: string[] = [];
     backstory = "";
     companions: Companion[] = [];
+    inventory:string[] = [];
 
     constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer:boolean){
         this.rand = rand;
@@ -80,6 +81,9 @@ export   class Player{
         this.generateBuildings(themes,this.rand);
         this.generateBackstory(themes,this.rand,0);
         this.generateCompanions(this.rand);
+        for(let i = 0; i<3; i++){
+            this.generateItem();
+        }
     }
 
     shadowInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[])=>{
@@ -94,6 +98,9 @@ export   class Player{
         //assume companions aren't stuck at level 1 like you are plz
         themes.forEach((theme)=>{this.addStats(theme.stats) });
         this.generateBackstory(themes,this.rand,0);
+        for(let i = 0; i<3; i++){
+            this.generateItem();
+        }
     }
 
     generateSkills = (themes: Theme[], rand: SeededRandom)=>{
@@ -115,11 +122,35 @@ export   class Player{
     }
 
     generateCompanions = (rand:SeededRandom)=>{
-        const max = rand.getRandomNumberBetween(1,5);
+        let max = rand.getRandomNumberBetween(1,5);
+        if(this.theme_keys.includes(LONELY)){
+            max = 1;
+        }else if (this.theme_keys.includes(FAMILY)){
+            max = max*2;
+        }
         for(let i = 0; i<max; i++){
             this.companions.push(new Companion(rand));
         }
-        console.log("JR NOTE: after generating compaions", this.companions)
+    }
+
+    generateItem = ()=>{
+        let themes:Theme[] = [];
+        themes = themes.concat(this.class_name.themes)
+        themes = themes.concat(this.aspect.themes);
+        //since this is done on the fly, don't always allow interests in. focus on classpect.
+        if(this.rand.nextDouble()>0.5){
+            this.interests.forEach((interest) => {themes = themes.concat(interest.themes)});
+        }
+        const object_theme = this.rand.pickFrom(themes);
+        if(this.rand.nextDouble()>0.5){
+            return object_theme.pickPossibilityFor(this.rand,OBJECT);
+        }else{
+            const modifier_theme = this.rand.pickFrom(themes);
+            return modifier_theme.pickPossibilityFor(this.rand,ADJ) + object_theme.pickPossibilityFor(this.rand,OBJECT);
+
+        }
+
+
     }
 
     generateBackstory = (themes: Theme[],rand:SeededRandom, num:number)=>{
@@ -240,10 +271,10 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
     //TODO if these values are set in the url params use those instead of the seed.
     let cl;
     //TODO should really make sure these are valid.
-    let url_class:string|null = getParameterByName("class",null);
-    let url_aspect:string|null = getParameterByName("aspect",null);
-    let url_i1:string|null = getParameterByName("interest1",null);
-    let url_i2:string|null = getParameterByName("interest2",null);
+    let url_class:string|null = shadowPlayer? null: getParameterByName("class",null);
+    let url_aspect:string|null = shadowPlayer? null: getParameterByName("aspect",null);
+    let url_i1:string|null = shadowPlayer? null: getParameterByName("interest1",null);
+    let url_i2:string|null = shadowPlayer? null: getParameterByName("interest2",null);
 
     if(rand.initial_seed === 13){
         cl = all_classes["waste"];
@@ -270,6 +301,7 @@ export   class Companion{
     backstory = "";
     loyalty = 0;
     theme_keys:string[];
+    inventory:string[];
     fullName = "They"; //can write it in or companions will auto set it
 
     constructor(rand: SeededRandom){
@@ -282,6 +314,7 @@ export   class Companion{
         this.theme_keys = shadowPlayer.theme_keys;//needed for shoving them into quests
         console.log("JR NOTE: stats are", shadowPlayer.stats)
         this.loyalty = shadowPlayer.stats[LOYAL].value;
+        this.inventory = shadowPlayer.inventory;
     }
 
 

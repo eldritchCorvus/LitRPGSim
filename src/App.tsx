@@ -87,9 +87,9 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>tweak backstory stitching</li>
-        <li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
       <li>inventory screen (allows quests to give procedural ITEM rewards) 
+      <li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
+
         if you finish achivement and do NOT currently have inventory, it spawns an untouchable object
            that falls to the center of the earth</li>
            <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
