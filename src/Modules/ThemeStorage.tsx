@@ -263,8 +263,8 @@ const initAdjs = () =>{
     adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing","kleptomania"];
     adj_possibilities[FREEDOM] = ["free","unchained","unbound","moving","flying"];
     adj_possibilities[FIRE] = ["flaming","blazing","burning","ashen","burnt"];
-    adj_possibilities[LONELY] = ["lonely","isolated","friendless","forsaken"];
-    adj_possibilities[OCEAN] = ["marine","foggy","misty","cold","wet","damp","chilly"];
+    adj_possibilities[LONELY] = ["lonely","isolated","friendless","forsaken","sad"];
+    adj_possibilities[OCEAN] = ["marine","foggy","misty","cold","wet","damp","chilly","crying","weeping"];
     adj_possibilities[FLESH] = ["meaty","moist","bloody","physical","muscular","bony","skinned"];
     adj_possibilities[BURIED] = ["buried","choked","covered","underground","underneath","trapped","compressed","squeezed"];
     adj_possibilities[SCIENCE] = ["scientific","callibrated","measured","experimental","hypothetical"];
@@ -286,9 +286,9 @@ const initAdjs = () =>{
     adj_possibilities[LOVE] = ["loving","caring","embracing","smitten"];
     adj_possibilities[SOUL] = ["defining","delineating","pure"];
     adj_possibilities[ANGER] = ["raging","hating","rebelling","glaring","stampeding","furious"];
-    adj_possibilities[WEB] = ["controlling","puppeting","trapping","gossamer"];
+    adj_possibilities[WEB] = ["controlling","puppeting","trapping","gossamer","ineluctable","webbed","arachnid"];
     adj_possibilities[ROYALTY] = ["ruling","mandating","decreeing","royal","commanding"];
-    adj_possibilities[ENDINGS] =["ending","final","ultimate"];
+    adj_possibilities[ENDINGS] =["ending","final","ultimate","exhausted"];
     adj_possibilities[KNOWING] = ["knowing","understanding","learning"];
     adj_possibilities[GUIDING] = ["guiding","showing","explaining"];
     adj_possibilities[CRAFTING] = ["crafting","mining","logging","building","constructing","carving","smitting"];
@@ -854,7 +854,7 @@ const initChildBackstories = () =>{
     child_backstories[SERVICE] =  ["were always the caretaker of their family","were born to a family in service to the King","came from a long line of butlers"];
     child_backstories[FAMILY] =  ["grew up knowing the meaning of family","grew up in a huge family","were always surrounded by siblings as a child"];
     child_backstories[MAGIC] =  ["were a child progidy for magic","always had a sense of wonder as a child","loved the idea of magic as a child"];
-    child_backstories[HEALING] =  ["were a child apprentice to a local doctor","always knew where the family first aid kit were"];
+    child_backstories[HEALING] =  ["were a child apprentice to a local doctor","always knew where the family first aid kit was"];
     child_backstories[PLANTS] = ["had the green thumb of the family","spent more time with flowers than other children"];
     child_backstories[HUNTING] = ["provided for their family from a young age","loved tracking the wild animals of the Forest"];
     child_backstories[DECAY] = ["were a sickening cute child","enjoyed the solitude of graveyards as a child","found a quiet beauty in decay even as a child"] ;

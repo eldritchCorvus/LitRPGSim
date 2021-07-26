@@ -81,7 +81,7 @@ function About(props: AppProps) {
     , new Newspost("06/27/2021", "50% less homestuck")
     , new Newspost("06/23/2021", "mess up bg but softly")
     , new Newspost("06/20/2021", "finally got the skill tree to center itself omg why was that so hard")
-    , new Newspost("06/19/2021", "wastes can hack now (both in game wastes and real ones)")
+    , new Newspost("06/19/2021", "wastes can hack now (both in game wastes and real ones)","if you're a real waste you don't need me telling you how to hack, g'luck ;) ;) ;)")
     , new Newspost("06/16/2021", ":) :) :)", "https://www.reddit.com/r/TheMagnusArchives/comments/nzz96g/this_notspiral_perfectly_represents_spiral_in_my/")
     , new Newspost("06/13/2021", ":) :) :)", "oh man im feeling so smug right now about what happens even in normal mode")
     , new Newspost("06/08/2021", "im love. rage mode is everything i hoped it would be. absolute perfection. maybe i should call it headache mode? its just. its breath taking. beautiful. im the smartest damn human.", "i just really am a fan of things appearing to be one thing, revealing themselves to be a completely seperate thing, but if you think about it never weren't the first thing too.")
