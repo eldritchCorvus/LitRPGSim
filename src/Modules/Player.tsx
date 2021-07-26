@@ -82,7 +82,7 @@ export   class Player{
         this.generateBackstory(themes,this.rand,0);
         this.generateCompanions(this.rand);
         for(let i = 0; i<3; i++){
-            this.generateItem();
+            this.inventory.push(this.generateItem());
         }
     }
 
@@ -99,7 +99,7 @@ export   class Player{
         themes.forEach((theme)=>{this.addStats(theme.stats) });
         this.generateBackstory(themes,this.rand,0);
         for(let i = 0; i<3; i++){
-            this.generateItem();
+            this.inventory.push(this.generateItem());
         }
     }
 
@@ -138,15 +138,15 @@ export   class Player{
         themes = themes.concat(this.class_name.themes)
         themes = themes.concat(this.aspect.themes);
         //since this is done on the fly, don't always allow interests in. focus on classpect.
-        if(this.rand.nextDouble()>0.5){
+        if(this.rand.nextDouble()>0.3){
             this.interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         }
         const object_theme = this.rand.pickFrom(themes);
         if(this.rand.nextDouble()>0.5){
-            return object_theme.pickPossibilityFor(this.rand,OBJECT);
+            return titleCase(object_theme.pickPossibilityFor(this.rand,OBJECT));
         }else{
             const modifier_theme = this.rand.pickFrom(themes);
-            return modifier_theme.pickPossibilityFor(this.rand,ADJ) + object_theme.pickPossibilityFor(this.rand,OBJECT);
+            return titleCase(modifier_theme.pickPossibilityFor(this.rand,ADJ) + " " + object_theme.pickPossibilityFor(this.rand,OBJECT));
 
         }
 

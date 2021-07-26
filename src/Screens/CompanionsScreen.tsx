@@ -22,6 +22,8 @@ export const CompanionsScreen = (props: StatusProps) => {
         display: inline-block;
         margin-right: 5px;
         width: 175px;
+        font-weight: bolder;
+        font-size: 18px;
 
     `
     const BuildingSection = styled.div`
@@ -41,6 +43,11 @@ export const CompanionsScreen = (props: StatusProps) => {
         margin-right: 5px;
         width: 80px;
     `
+    const Inventory = styled.div`
+    display: block;
+    margin-right: 5px;
+    width: 180px;
+`
 
     const observer = props.player.observer;
 
@@ -63,8 +70,8 @@ export const CompanionsScreen = (props: StatusProps) => {
                                 <BuildingHeader>{companion.fullName}: </BuildingHeader>
                                 <BuildingSection> {companion.title} </BuildingSection>
                                 <Backstory> {companion.backstory} </Backstory>
-                                {observer.companionsMenuLevel > 1 ?<Loyalty>Loyalty: {companion.loyalty}</Loyalty>:null}
-                                {observer.companionsMenuLevel > 1 ?<Loyalty>Inventory: {companion.inventory.join(", ")}</Loyalty>:null}
+                                {observer.companionsMenuLevel > 1 ?<Loyalty><b>Loyalty</b>: {companion.loyalty}</Loyalty>:null}
+                                {observer.companionsMenuLevel > 1 ?<Inventory><b>Inventory</b>: {companion.inventory.join(", ")}</Inventory>:null}
 
                             </BuildingLine>)
                     })}
