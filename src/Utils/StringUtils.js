@@ -2,7 +2,12 @@ import { getRandomNumberBetween } from "./NonSeededRandUtils";
 import SeededRandom from "./SeededRandom";
 
 export const titleCase = (input)=>{
-    return replaceStringAt(input,0 , input[0].toUpperCase());
+    const pieces = input.split(" ");
+    const ret = [];
+    for(let piece of pieces){
+        ret.push(replaceStringAt(piece,0 , piece[0].toUpperCase()));
+    }
+    return ret.join(" ");
 }
 
 export function replaceStringAt(str, index, character){

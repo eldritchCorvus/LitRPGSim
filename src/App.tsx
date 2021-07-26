@@ -87,16 +87,9 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>inventory screen (allows quests to give procedural ITEM rewards) 
-      <li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
+        <li> quests screen</li>
 
-        if you finish achivement and do NOT currently have inventory, it spawns an untouchable object
-           that falls to the center of the earth</li>
-           <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
-        <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
-        <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
-        <li>achivements can give random items as rewards, quests can CLAIM to</li>
-        <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
+         <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
         <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
     * store missing TEMPLATE PLACEHOLDERS (OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
@@ -106,6 +99,11 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
 
     * on player creation, generate quest array from themes. title is procedural from the theme of the template chosen.
     * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
+<li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
+           <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
+        <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
+        <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
+    
      <li>each page should have secrets that loop in on each other (binary password getting you past options maybe)</li>
       <li>for all statistics, detect dom hax adn react accordingly (including RAGE MODE)</li>
         <li>what happens if i have more menu items than room to display?</li>

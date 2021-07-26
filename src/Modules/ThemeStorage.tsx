@@ -462,14 +462,14 @@ const initObjects = () =>{
 const initMenuOptions = () =>{
     //SKILLGRAPH,STATUS,STATISTICS, LOADING,ACHIEVEMENTS,OPTIONS,CODE
     //QUESTS,COMPANIONS,GODS,CITYBUILDING,INVENTORY,LORE,BACKSTORY,RESISTANCES
-    menu_options[ART] =  [INVENTORY];
+    menu_options[ART] =  [INVENTORY,BACKSTORY];
     menu_options[TECHNOLOGY] =  [CODE];
     menu_options[SPACE] =  [CITYBUILDING];
     menu_options[TIME] =  [STATISTICS];
-    menu_options[STEALING] =  [INVENTORY];
+    menu_options[STEALING] =  [INVENTORY,BACKSTORY];
     menu_options[FREEDOM] =  [QUESTS];
     menu_options[FIRE] =  [WARROOM];
-    menu_options[LONELY] =  [BACKSTORY];
+    menu_options[LONELY] =  [BACKSTORY,INVENTORY];
     menu_options[OCEAN] =  [CITYBUILDING];
     menu_options[FLESH] =  [STATUS];
     menu_options[BURIED] =  [LORE];
@@ -482,16 +482,16 @@ const initMenuOptions = () =>{
     menu_options[SERVICE] =  [QUESTS];
     menu_options[FAMILY] =  [CITYBUILDING];
     menu_options[MAGIC] =  [RESISTANCES];
-    menu_options[LIGHT] =  [ACHIEVEMENTS];
+    menu_options[LIGHT] =  [ACHIEVEMENTS,BACKSTORY];
     menu_options[HEALING] =  [STATUS];
-    menu_options[PLANTS] = [INVENTORY];
-    menu_options[HUNTING] = [INVENTORY];
+    menu_options[PLANTS] = [INVENTORY,BACKSTORY];
+    menu_options[HUNTING] = [INVENTORY,BACKSTORY];
     menu_options[DECAY] = [STATUS] ;
     menu_options[CHOICES] =  [OPTIONS] ;
     menu_options[ZAP] = [RESISTANCES] ;
     menu_options[LOVE] = [COMPANIONS];
     menu_options[SOUL] = [STATUS] ;
-    menu_options[ANGER] = [BACKSTORY] ;
+    menu_options[ANGER] = [BACKSTORY,INVENTORY] ;
     menu_options[WEB] =  [COMPANIONS] ;
     menu_options[ROYALTY] =  [CITYBUILDING] ;
     menu_options[ENDINGS] =  [LORE] ;
@@ -505,10 +505,10 @@ const initMenuOptions = () =>{
     menu_options[CLOWNS] =[LORE] ;
     menu_options[DOLLS] = [CITYBUILDING] ;
     menu_options[OBFUSCATION] = [LORE] ;
-    menu_options[DARKNESS] =  [BACKSTORY] ;
-    menu_options[KILLING] =  [INVENTORY];
+    menu_options[DARKNESS] =  [BACKSTORY,INVENTORY] ;
+    menu_options[KILLING] =  [BACKSTORY,INVENTORY];
     menu_options[MUSIC] =  [INVENTORY] ;
-    menu_options[DEFENSE] =  [INVENTORY] ;
+    menu_options[DEFENSE] =  [INVENTORY,BACKSTORY] ;
     menu_options[QUESTING] = [QUESTS] ;
 }
 
@@ -824,7 +824,7 @@ const initGeneralBackstories = () =>{
     general_backstories[SPYING] =["have an extensive information network","are always on top of the local gossip","somehow always are aware of what everyone is doing"] ;
     general_backstories[CLOWNS] =["are a clown","have extensive ties to the Circus","are an accomplished teller of jokes"] ;
     general_backstories[DOLLS] = ["carry around a small antique doll","carve faceless wooden figurines in their spare time"] ;
-    general_backstories[OBFUSCATION] = ["speak only in annoying riddles","can write in any cipher","never says what they actually mean","seem to always be in the background"] ;
+    general_backstories[OBFUSCATION] = ["speak only in annoying riddles","can write in any cipher","never say what they actually mean","seem to always be in the background"] ;
     general_backstories[DARKNESS] =  ["wear only black","prefer moonlight to sunlight","are more than a little edgy","can see in the dark"] ;
     general_backstories[KILLING] =  ["once killed a man just to see him die","are cloaked in killing intent","seem to always be covered in blood","have an alarming collection of knives"];
     general_backstories[MUSIC] =  ["alway have a song on their lips","can play any song they hear once by ear","always has an instrument nearby","always love being the eye of attention"] ;

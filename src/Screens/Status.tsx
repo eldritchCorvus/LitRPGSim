@@ -25,6 +25,7 @@ interface StatProps{
 */
 export const  StatusScreen = (props: StatusProps)=> {
 
+    const {player} = props;
     const StatsSection = (props: StatsProps)=> {
         return(
             <Fragment>
@@ -41,7 +42,7 @@ export const  StatusScreen = (props: StatusProps)=> {
 
     const calculateMenuOptions = () =>{
         let ret:string[] = [];
-        for(let key of props.player.theme_keys){
+        for(let key of player.theme_keys){
             ret = ret.concat(all_themes[key].getPossibilitiesFor(MENU));
         }
         return uniq(ret).join(', ');
@@ -58,31 +59,36 @@ export const  StatusScreen = (props: StatusProps)=> {
 
             <StatusRow>
                 <StatusHeader>Title:</StatusHeader>
-                <StatusContent>{props.player.title}</StatusContent>
+                <StatusContent>{player.title}</StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Seed:</StatusHeader>
-                <StatusContent><a href = {`./?seed=${props.player.rand.initial_seed}`}>{props.player.rand.initial_seed}</a></StatusContent>
+                <StatusContent><a href = {`./?seed=${player.rand.initial_seed}`}>{player.rand.initial_seed}</a></StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Sub Titles:(TODO have these unlock later)</StatusHeader>
-                <StatusContent> {props.player.interests.map((interest)=>{
+                <StatusContent> {player.interests.map((interest)=>{
                     let seed = 0; //todo sum all chars
                     for(let i = 0; i<interest.chosen_name.length; i++){
                         seed += interest.chosen_name.charCodeAt(i);
                     }
                     const rand = new SeededRandom(seed); //want it to be stable per interest but changing
-                    const theme = all_themes[rand.pickFrom(props.player.theme_keys)];
+                    const theme = all_themes[rand.pickFrom(player.theme_keys)];
                 return `${titleCase(theme.pickPossibilityFor(rand,ADJ))} ${interest.chosen_name}`;
                 }).join(", ")}</StatusContent>
             </StatusRow>
 
-            <StatusRow>
+            {player.observer.inventoryMenuLevel>0?<StatusRow>
                 <StatusHeader>Backstory:</StatusHeader>
-                <StatusContent>{props.player.backstory}</StatusContent>
-            </StatusRow>
+                <StatusContent>{player.backstory}</StatusContent>
+            </StatusRow>:null}
+
+            {player.observer.inventoryMenuLevel>0?<StatusRow>
+                <StatusHeader>Inventory:</StatusHeader>
+                <StatusContent>{player.inventory.join(", ")}</StatusContent>
+            </StatusRow>:null}
 
             <StatusRow>
                 <StatusHeader>Species:</StatusHeader>
@@ -96,18 +102,18 @@ export const  StatusScreen = (props: StatusProps)=> {
 
             <StatusRow>
                 <StatusHeader>Stats:</StatusHeader>
-                <StatusContent><StatsSection stats={props.player.stats}/></StatusContent>
+                <StatusContent><StatsSection stats={player.stats}/></StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Skill Points:</StatusHeader>
-                <StatusContent>{props.player.skillPoints}</StatusContent>
+                <StatusContent>{player.skillPoints}</StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Unlocked Skills:</StatusHeader>
                 <StatusContent>  
-                    <SkillBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{props.player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND} key={skill.name + i}>{i}: {skill.name} </Skill>  )})}</SkillBox>
+                    <SkillBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND} key={skill.name + i}>{i}: {skill.name} </Skill>  )})}</SkillBox>
                 </StatusContent>
             </StatusRow>
     </span>

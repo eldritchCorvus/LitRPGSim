@@ -301,6 +301,12 @@ export class ObserverBot{
         (window as any).hackStatisticsMenuLevel = (value:number)=>{
             this.statisticsMenuLevel = value;
         }
+        (window as any).hackInventoryMenuLevel = (value:number)=>{
+            this.inventoryMenuLevel = value;
+        }
+        (window as any).hackBackstoryMenuLevel = (value:number)=>{
+            this.backstoryMenuLevel = value;
+        }
 
         (window as any).hackGodsMenuLevel = (value:number)=>{
             this.godsMenuLevel = value;

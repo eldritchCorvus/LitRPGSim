@@ -16,7 +16,7 @@ export const  AchivementsScreen = (props: StatusProps)=> {
                 <StatusContent>  
                     <AchivementBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{observer.achivementStorage.possibleAchievements.map((achivement,i) => {return ( 
                         achivement.unlocked ?                      
-                            <UnlockedAchivement onClick={()=>{achivement.display(observer)}} key={achivement.title + i} fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND}>{i}: {achivement.title} </UnlockedAchivement>
+                            <UnlockedAchivement onClick={()=>{achivement.display(observer)}} key={achivement.title + i} fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND}>{i}: {achivement.title} {!props.player.inventory.includes(achivement.item)?"+":""}</UnlockedAchivement>
                             :  <Achivement mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} key={achivement.title + i}><span style={{"visibility":"hidden"}}  >{i}: {achivement.title} </span></Achivement>
                       )})}</AchivementBox>
                 </StatusContent>
