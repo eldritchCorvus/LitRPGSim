@@ -18,6 +18,7 @@ export const CITYNAME = "CITYNAME";
 export const CHILDBACKSTORY = "CHILDBACKSTORY";
 export const GENERALBACKSTORY = "GENERALBACKSTORY";
 export const MIRACLE = "MIRACLE";
+export const SONG = "SONG";
 
 //themes
 export const ADDICTION = "addiction";
@@ -97,6 +98,8 @@ export let miracles:ThemePossibilitiesMap = {};
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
 export let insult_possibilities:ThemePossibilitiesMap = {};
+export let song_possibilities:ThemePossibilitiesMap = {};
+
 export let compliment_possibilities:ThemePossibilitiesMap = {};
 export let memories:MemoryMap = {};
 
@@ -304,6 +307,12 @@ const initAdjs = () =>{
     adj_possibilities[MUSIC] = ["singing","dancing","playing"];
     adj_possibilities[DEFENSE] = ["defending","gallant","protecting"];
     adj_possibilities[QUESTING] = ["questing","searching","exploring","seeking","hopeful","faithful"];
+}
+
+const initSongs = ()=>{
+    song_possibilities[TWISTING] = ["no_gods_no_master.mp3","good_luck_w_your_ears_honestly.mp3"];
+    song_possibilities[ANGELS] = ["watt_3_but_jr_owns_it.mp3"];
+    song_possibilities[LONELY] = ["Finish.mp3"];
 }
 
 const initSuperNames = () =>{
@@ -897,4 +906,5 @@ export const initThemes = ()=>{
     initChildBackstories();
     initGeneralBackstories();
     initMiracles();
+    initSongs();
 }

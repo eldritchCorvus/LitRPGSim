@@ -6,18 +6,25 @@ import helen_kin_song from './Music/helen_kin_song.mp3';
 import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
+
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
 
 import AppWrapper from './AppWrapper';
 import reportWebVitals from './reportWebVitals';
 
 const audio = new Audio(generic_menu_music);
+
 export let BG_VOLUME = 0.5;
 audio.volume = BG_VOLUME;
 
 export function setVolumeMusic(percent){
   audio.volume = percent;
   BG_VOLUME = percent;
+}
+
+export function playSecret(location){
+  audio.src = require(`./SecretMusic/${location}`).default
+  audio.play();
 }
 
  export function rageModeSong(){

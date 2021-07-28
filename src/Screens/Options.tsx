@@ -1,23 +1,25 @@
-import {Player} from "../Modules/Player";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent, MENU_OPACITY, setOpacity, BGCOLOR, FONTCOLOR, FONTSIZE, BadlyHiddenStatusRow, setFontSize, setFontColor, setBGColor} from "./Styles";
+import { Player } from "../Modules/Player";
+import { StatusHeader, StatusRow, StatusBlock, StatusContent, MENU_OPACITY, setOpacity, BGCOLOR, FONTCOLOR, FONTSIZE, BadlyHiddenStatusRow, setFontSize, setFontColor, setBGColor } from "./Styles";
 import { Checkbox } from "reakit/Checkbox";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LoadingScreen } from "./Loading";
 import { OPTIONS } from "../Utils/constants";
-import { BG_VOLUME, setVolumeMusic } from "..";
-
-interface StatusProps{
+import { BG_VOLUME, playSecret, setVolumeMusic } from "..";
+import ReactAudioPlayer from 'react-audio-player';
+import { all_themes } from "../Modules/Theme";
+import { MUSIC, SONG } from "../Modules/ThemeStorage";
+interface StatusProps {
     player: Player;
     loadScreen: any; //function
 }
 
 //TODO waste/seer/mage classes get this screen
-export const  OptionsScreen = (props: StatusProps)=> {
+export const OptionsScreen = (props: StatusProps) => {
 
     const observer = props.player.observer;
     const [checked, setChecked] = useState(false);
-    const [opacityValue, setOpacityValue] = useState(Math.floor(MENU_OPACITY*100));
-    const [volumeValue, setVolumeValue] = useState(Math.floor(BG_VOLUME*100));
+    const [opacityValue, setOpacityValue] = useState(Math.floor(MENU_OPACITY * 100));
+    const [volumeValue, setVolumeValue] = useState(Math.floor(BG_VOLUME * 100));
 
     const [custsceneSpeed, setCutsceneSpeed] = useState(5);
     const [targetLock, setTargetLock] = useState(false);
@@ -33,58 +35,68 @@ export const  OptionsScreen = (props: StatusProps)=> {
         setChecked(!checked);
     }
 
+    useEffect(()=>{
+        //pick a theme at random and IF it has a secret song, play it here.
+        const theme_keys = props.player.theme_keys;
+        const rand = props.player.rand;
+        const chosen_theme = all_themes[rand.pickFrom(theme_keys)];
+        const music = chosen_theme.pickPossibilityFor(rand,SONG);
+        if(music && !music.includes("NOT FOUND")){
+            playSecret(music);
+        }
+    },[])
 
-    const submit =()=>{
-        setOpacity(opacityValue /100);
-        setVolumeMusic(volumeValue/100);
+
+    const submit = () => {
+        setOpacity(opacityValue / 100);
+        setVolumeMusic(volumeValue / 100);
         setFontSize(fontSizeValue);
         setFontColor(fontColorValue);
         setBGColor(bgColorValue);
         props.loadScreen(OPTIONS);
         (window as any).haxMode = checked;
     }
-    
+
 
     return (
-        
-    <StatusBlock>
-            { props.player.class_name.chosen_name === "Waste"?
+
+        <StatusBlock>
+            {props.player.class_name.chosen_name === "Waste" ?
                 <BadlyHiddenStatusRow>
                     <StatusHeader>Hax Mode:</StatusHeader>
                     <StatusContent>
-                    <Checkbox checked={checked} onChange={toggle} />
+                        <Checkbox checked={checked} onChange={toggle} />
 
-                        </StatusContent>
-                </BadlyHiddenStatusRow>:null
+                    </StatusContent>
+                </BadlyHiddenStatusRow> : null
 
             }
-
             <StatusRow>
-                    <StatusHeader>Todo:</StatusHeader>
-                    <StatusContent>
-                        make it so bg music is at level 1, but everything else needs more
-                    </StatusContent>
+                <StatusHeader>Todo:</StatusHeader>
+                <StatusContent>
+                    make it so bg music is at level 1, but everything else needs more
+                </StatusContent>
             </StatusRow>
             <StatusRow>
-                    <StatusHeader>Toggle Shift To Sprint:</StatusHeader>
-                    <StatusContent>
-                    <Checkbox checked={toggleShiftSprint} onChange={()=>{setToggleShiftSprint(!toggleShiftSprint)}}  />
+                <StatusHeader>Toggle Shift To Sprint:</StatusHeader>
+                <StatusContent>
+                    <Checkbox checked={toggleShiftSprint} onChange={() => { setToggleShiftSprint(!toggleShiftSprint) }} />
 
-                        </StatusContent>
+                </StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>AutoTarget Lock:</StatusHeader>
                 <StatusContent>
-                <Checkbox checked={targetLock} onChange={()=>{setTargetLock(!targetLock)}}  />
+                    <Checkbox checked={targetLock} onChange={() => { setTargetLock(!targetLock) }} />
 
-                    </StatusContent>
+                </StatusContent>
             </StatusRow>
 
             <StatusRow>
                 <StatusHeader>Cutscene Text Speed:</StatusHeader>
                 <StatusContent>
-                    <input type="range" min="1" max="10" value={`${custsceneSpeed}`} onChange={(event)=>{
+                    <input type="range" min="1" max="10" value={`${custsceneSpeed}`} onChange={(event) => {
                         const value = parseInt(event.target.value);
                         setCutsceneSpeed(value);
                     }} ></input>
@@ -95,19 +107,19 @@ export const  OptionsScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>BG Music Volume:</StatusHeader>
                 <StatusContent>
-                    <input type="range" min="1" max="100" value={`${volumeValue}`} onChange={(event)=>{
+                    <input type="range" min="1" max="100" value={`${volumeValue}`} onChange={(event) => {
                         const value = parseInt(event.target.value);
                         setVolumeValue(value);
-                        setVolumeMusic(value/100);
+                        setVolumeMusic(value / 100);
                     }}></input>
                     {volumeValue}
                 </StatusContent>
             </StatusRow>
-            
+
             <StatusRow>
                 <StatusHeader>Menu Opacity:</StatusHeader>
                 <StatusContent>
-                    <input type="range" min="1" max="100" value={`${opacityValue}`} onChange={(event)=>{
+                    <input type="range" min="1" max="100" value={`${opacityValue}`} onChange={(event) => {
                         const value = parseInt(event.target.value);
                         setOpacityValue(value);
                     }}></input>
@@ -118,7 +130,7 @@ export const  OptionsScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Font Size:</StatusHeader>
                 <StatusContent>
-                    <input type="range" min="5" max="32" value={`${fontSizeValue}`} onChange={(event)=>{
+                    <input type="range" min="5" max="32" value={`${fontSizeValue}`} onChange={(event) => {
                         const value = parseInt(event.target.value);
                         setFontSizeValue(value);
                     }}></input>
@@ -129,8 +141,8 @@ export const  OptionsScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Font Color:</StatusHeader>
                 <StatusContent>
-                    <input type="color" value={`${fontColorValue}`} onChange={(event)=>{
-                        const value =event.target.value;
+                    <input type="color" value={`${fontColorValue}`} onChange={(event) => {
+                        const value = event.target.value;
                         setFontColorValue(value);
                     }}></input>
                     {fontColorValue}
@@ -141,9 +153,9 @@ export const  OptionsScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader></StatusHeader>
                 <StatusContent>
-                   <button onClick={submit}>Submit</button>
+                    <button onClick={submit}>Submit</button>
                 </StatusContent>
             </StatusRow>
 
-  </StatusBlock>);
-  }
+        </StatusBlock>);
+}
