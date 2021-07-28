@@ -101,6 +101,7 @@ export function initThemes(){
         string_possibilities[ThemeStorage.CHILDBACKSTORY] = ThemeStorage.child_backstories[key];
         string_possibilities[ThemeStorage.GENERALBACKSTORY] = ThemeStorage.general_backstories[key];
         string_possibilities[ThemeStorage.MIRACLE] = ThemeStorage.miracles[key];
+        string_possibilities[ThemeStorage.SONG] = ThemeStorage.song_possibilities[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);

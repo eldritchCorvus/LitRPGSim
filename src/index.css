@@ -90,14 +90,19 @@ td .infodump{
   border-bottom: 1px solid black;
 }
 .birthday-container{
-  width: 800px;
-  height: 400px;
+  width: 900px;
+  height: 600px;
   border-radius: 13px;
-  margin-top: 5%;
   margin-bottom: auto;
   margin-left: auto;
+  position: fixed;
+  top: 5%;
+  left: 15%;
   margin-right: auto;
   background-color: #edd287;
+  border: 3px solid black;
+  border-radius: 13px;
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 }
 
 code {
