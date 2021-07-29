@@ -217,7 +217,7 @@ function Menu(props: MenuProps) {
   }else{
 
     return (
-      <div>
+      <div id="ThisIsAMenu">
       <MenuBox angle={props.angle} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?
