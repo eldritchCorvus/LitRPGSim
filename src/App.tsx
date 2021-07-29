@@ -14,6 +14,7 @@ import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { click, clickEffect } from ".";
+import ActualGame from "./Screens/ActualGame";
 
 interface AppProps{
   seed: number;
@@ -22,6 +23,8 @@ interface AppProps{
 function App(props: AppProps) {
   const [player, setPlayer] = useState<Player>();
   const [rageMode, setRageMode] = useState(false);
+  const [actualGameMode, setActualGameMode] = useState(false);
+
   const [justTruthMode, setJustTruthMode] = useState(false);
 
   useEffect(()=>{
@@ -43,6 +46,48 @@ function App(props: AppProps) {
   },[])
 
 
+  function detectGameStatus() {
+    const targetNode = document.getElementById('ThisIsNotAGame');
+    if (targetNode) {
+      const config = {
+        attributes: true,
+        attributeFilter: ['id'],
+        attributeOldValue: true
+      };
+      const callback = function (mutationsList: any, observer: any) {
+        for (const mutation of mutationsList) {
+          if (mutation.type === 'attributes') {
+            console.log('The ' + mutation.attributeName + ' attribute was modified.',mutation);
+            if(mutation.target.id.toLowerCase() === "ThisIsAGame".toLowerCase()){
+              setActualGameMode(true);
+            }
+          }
+        }
+      }
+      const ob = new MutationObserver(callback);
+      ob.observe(targetNode, config);
+    }
+  }
+
+  function detectMenuDeleted() {
+    const targetNode = document.querySelector('#ThisIsNotAGame');
+    if (targetNode) {
+      const config = {childList: true };
+      const callback = function (mutationsList: any, observer: any) {
+        for (const mutation of mutationsList) {
+          for(const node of mutation.removedNodes){
+            if(node.id === "ThisIsAMenu"){
+              (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
+            }
+          }
+        }
+      }
+      const ob = new MutationObserver(callback);
+      ob.observe(targetNode, config);
+      console.log("JR NOTE: observer is ", ob)
+    };
+  }
+
 
   useEffect(()=>{
     if(!player){
@@ -57,6 +102,8 @@ function App(props: AppProps) {
       initClasses(rand);
       initInterests(rand);
       setPlayer(randomPlayer(rand) ); 
+      //detectMenuDeleted();
+      detectGameStatus();
   }
   },[player])
 /*
@@ -77,18 +124,18 @@ function App(props: AppProps) {
     return (
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
-        {rageMode && !justTruthMode? <RageMode/>:null}
-        {rageMode && !justTruthMode?  <Menu player={player} angle={30}/>:null}
-        {rageMode && !justTruthMode?  <Menu player={player} angle={130}/>:null}
-        {!justTruthMode?  <Menu player={player} angle={0}/>:null}      
-        {justTruthMode?  <JustTruth player={player}/>:null}      
+        {rageMode && !justTruthMode && !actualGameMode ? <RageMode/>:null}
+        {rageMode && !justTruthMode && !actualGameMode?  <Menu player={player} angle={30}/>:null}
+        {rageMode && !justTruthMode && !actualGameMode?  <Menu player={player} angle={130}/>:null}
+        {!justTruthMode && !actualGameMode?  <Menu player={player} angle={0}/>:null}      
+        {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
+        {actualGameMode?  <ActualGame player={player}/>:null}      
 
       
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>can i detect when dom ids are changed (or should i just poll looking for something)? ThisIsAGame activated text based adventure game mode</li>
-        <li>(put hint in citybuilder, invisibly) ThisIsAGame shitty text based adventure game: hash of building names and lock/unlock status. what happens in the game happens in real life, check discord for notes</li>
+        <li>ActualGameMode text based adventure, check todo on that screen.</li>
         <li> quests screen</li>
 
          <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
