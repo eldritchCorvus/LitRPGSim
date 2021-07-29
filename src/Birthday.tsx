@@ -32,13 +32,10 @@ function Birthday(props: AppProps) {
     const rand = new SeededRandom(3);
     //order matters, themes are needed for aspects, etc;
     initStats();
-    console.log("JR NOTE: all stats are now", all_stats);
     initThemes();
-    console.log("JR NOTE: all themes are now", all_themes);
 
     initAspects(rand);
     initClasses(rand);
-    console.log("JR NOTE: all classes are now", all_classes);
 
     initInterests(rand);
     setAspect(Object.keys(all_aspects)[0]);
@@ -51,7 +48,6 @@ function Birthday(props: AppProps) {
 
   const processSeed = (value: string) => {
     //date is formatted like 2021-07-20
-    console.log("JR NOTE: can i handle a date formmated like ", value, "or should i just treat it as a hash?")
     setDate(value);
     setSeed(parseInt(value.replaceAll("-", "")));
   }

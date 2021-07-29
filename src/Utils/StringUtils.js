@@ -27,7 +27,6 @@ export function stringtoseed(seed){
 //takes in a sentence, for each word in it decides if its going to fuck it up today.
 //seed_multiplier handles making it so that EVERY instance of the word "dog" is treated the same but each time i ask i might decide dog is changeable vs not
 export function domWordMeaningFuckery(){
-    console.log("JR NOTE: domWordMeaningFuckery is being called")
     const root = document.querySelector('body');
     const seed_multiplier = getRandomNumberBetween(0,300);
     if(root){

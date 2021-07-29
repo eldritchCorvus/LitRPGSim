@@ -87,6 +87,8 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>can i detect when dom ids are changed (or should i just poll looking for something)? ThisIsAGame activated text based adventure game mode</li>
+        <li>(put hint in citybuilder, invisibly) ThisIsAGame shitty text based adventure game: hash of building names and lock/unlock status. what happens in the game happens in real life, check discord for notes</li>
         <li> quests screen</li>
 
          <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
