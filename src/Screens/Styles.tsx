@@ -118,17 +118,12 @@ const fuckUpFontColor = () => {
 const fuckUpBGColor = () => {
     let direction = -1;
     const index = getRandomNumberBetween(1, BGCOLOR.length - 1);
-    console.log("JR NOTE: index chosen is", index, "char is ", BGCOLOR.charAt(index), "source was", BGCOLOR, "length is", BGCOLOR.length, "ORIGINALBGCOLOR ws", ORIGINALBGCOLOR);
     let hexValueCurrent = "0x" + BGCOLOR.charAt(index);
     let hexValueCenter = "0x" + ORIGINALBGCOLOR.charAt(index);
-    console.log("JR NOTE: hexValueCurrent  is", hexValueCurrent);
-    console.log("JR NOTE: hexValueCenter  is", hexValueCenter);
 
 
     let newValue = parseInt(hexValueCurrent, 16) + 1 * direction;
     let oldValue = parseInt(hexValueCenter, 16);
-    console.log("JR NOTE: newValue  is", newValue);
-    console.log("JR NOTE: oldValue  is", oldValue);
 
 
     let choice = "";

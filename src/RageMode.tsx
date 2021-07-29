@@ -41,10 +41,8 @@ import { domWordMeaningFuckery } from "./Utils/StringUtils";
 
 const beginFuckingShitUp = (numCalls = 0)=>{
   if((window as any).justTruthMode){
-    console.log("JR NOTE: its just truth mode, aborting")
     return;
   }
-  console.log("JR NOTE: its NOT just truth mode, continuing")
   if((window as any).currentScreen !== SKILLGRAPH){
     domWordMeaningFuckery();
   }  const root = document.querySelector('#ThisIsNotAGame');

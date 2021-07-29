@@ -50,6 +50,8 @@ export const CityBuildingScreen = (props: StatusProps) => {
                 <StatusHeader>City Morale:</StatusHeader>
                 <StatusContent>{observer.cityMorale}</StatusContent>
             </StatusRow>
+            <StatusRow onClick={()=>{console.log("What if ThisIsAGame is what the DOM element said???")}}><span style={{display:"none"}}>What if ThisIsAGame tho???</span> </StatusRow>
+
 
             {observer.cityBuildingMenuLevel > 1 ? (
                 <Fragment>
