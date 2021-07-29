@@ -79,8 +79,6 @@ export   class Theme{
 
 }
 
-
-
 //tiers of 0 will be initialized when in use 
 //(YES this means that if the first player to use "Healing" theme has it high tier it will be high for EVERYONE. deal with tihs. )
 export function initThemes(){

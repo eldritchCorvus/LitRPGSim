@@ -28,19 +28,16 @@ export function playSecret(location){
 }
 
  export function rageModeSong(){
-  console.log("trying to play: ",heart)
   audio.src = heart;
   audio.play();
 }
 
 export function justTruthSong(){
-  console.log("trying to play just truth: ",heartbeat)
   audio.src = heartbeat;
   audio.play();
 }
 
  function playLightlyFuckedUpBGMusic(){
-  console.log("trying to play lightly fucked up music")
   audio.play();
   audio.onended = function() {
     if(!window.rageMode && !window.justTruthMode){
@@ -71,7 +68,7 @@ export const clickEffect = () =>{
 }
 
 
-
+document.getElementById('ThisIsNotAGame')
 
 ReactDOM.render(
   <React.StrictMode>
