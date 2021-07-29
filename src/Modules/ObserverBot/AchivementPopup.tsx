@@ -72,7 +72,6 @@ const  AchivementPopup = (props: AchivementProps)=> {
             (root as HTMLElement).style.filter = "blur(0px)";
         }
     },[visible])
-    console.log("JR NOTE: going to render achievement popup with title",title, "vs",props)
     return(
         <Fragment key={title}>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>

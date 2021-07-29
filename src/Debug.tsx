@@ -22,13 +22,10 @@ function Debug(props: AppProps) {
     const rand = new SeededRandom(3);
     //order matters, themes are needed for aspects, etc;
     initStats();
-    console.log("JR NOTE: all stats are now", all_stats);
     initThemes();
-    console.log("JR NOTE: all themes are now", all_themes);
 
     initAspects(rand);
     initClasses(rand);
-    console.log("JR NOTE: all classes are now", all_classes);
 
     initInterests(rand);
     setAspect(Object.keys(all_aspects)[0]);

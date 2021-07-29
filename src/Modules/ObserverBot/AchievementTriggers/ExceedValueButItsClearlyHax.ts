@@ -16,7 +16,6 @@ export  class ExceedValueTriggerButItsClearlyHax extends AchievementTrigger{
         const ret =  (observer as any)[this.variableKey] > this.valueToExceed;
         if(ret){
             if(!(window as any).rageMode){
-                console.log("JR NOTE: setting rage mode");
                 (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
             }
         }

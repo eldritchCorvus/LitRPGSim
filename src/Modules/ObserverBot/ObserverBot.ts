@@ -106,7 +106,6 @@ export class ObserverBot{
     constructor(player: Player, memories: Memory[]){
         this.player = player;
         this.memories = memories;
-        console.log("JR NOTE: memories are", memories);
         this.timeStarted = Date.now();
 
         

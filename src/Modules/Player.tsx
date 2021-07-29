@@ -62,7 +62,6 @@ export   class Player{
         themes = themes.concat(aspect.themes);
         //a god from your first three themes, a god for your back three, you are supposed to pick ones
         this.gods = [new God(themes.slice(0,3)),new God(themes.slice(-3))];
-        console.log("JR NOTE: god is ", this.gods);
         interests.forEach((interest) => {themes = themes.concat(interest.themes)});
         this.theme_keys = themes.map((x)=> x.key);
         this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests,themes,this.rand);
@@ -163,7 +162,6 @@ export   class Player{
         if(this.backstory.trim() === ""){
             idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(CHILDBACKSTORY));
             this.backstory = `${this.fullName} ${idea_seed}`;
-            console.log("JR NOTE after init ", this.backstory);
 
         }else{
             idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(GENERALBACKSTORY));
@@ -178,7 +176,6 @@ export   class Player{
                 idea =  `. ${rand.pickFrom(transitions)} ${idea_seed}`;
             }else{
                 const connection = ["and","yet","but"];
-                console.log("JR NOTE connector ", this.backstory);
                 idea = `, ${rand.pickFrom(connection)} ${idea_seed}`;
 
             }
@@ -284,7 +281,6 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
     const ap= url_aspect? all_aspects[url_aspect]: rand.pickFrom(Object.values(all_aspects));
     const i1 = url_i1?all_interests[url_i1] : rand.pickFrom(Object.values(all_interests));
     const i2 = url_i2? all_interests[url_i2]: rand.pickFrom(Object.values(all_interests));
-    console.log("JR NOTE: values are class",cl,"aspect:", ap,"interest1", i1,"interest2", i2);
 
     const ret = new Player(cl, ap, [i1,i2], rand, shadowPlayer);
     return ret;
@@ -312,7 +308,6 @@ export   class Companion{
         const last_names = ["Gently","Egbert","Claire","Lalonde","Strider","Hussain","King","Stoker","Sims","Blackwood","Barker","James","Blake","Dalon","Vasil","Hebert","Jensen","Lindt","Newell","Laborn","Fell","Wilbourn","Livsey","Lamb","Bacama","Kharun","Reynolds","Braggi","Seelee","Cassan","Folnir","Citato","Grigor","Crew","Robertson","Fairchild","Lukas","Richardson","Dominguez","Cane","Salesa","Shelly"];
         this.fullName = `${rand.pickFrom(first_names)} ${rand.pickFrom(last_names)}`;
         this.theme_keys = shadowPlayer.theme_keys;//needed for shoving them into quests
-        console.log("JR NOTE: stats are", shadowPlayer.stats)
         this.loyalty = shadowPlayer.stats[LOYAL].value;
         this.inventory = shadowPlayer.inventory;
     }

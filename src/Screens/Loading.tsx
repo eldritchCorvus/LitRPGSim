@@ -11,15 +11,11 @@ export const  LoadingScreen = (props: LoadingProps)=> {
     useEffect(()=>{
         if(refresh && loadScreen && nextScreen){
         setTimeout(()=>{
-                console.log("JR NOTE: about to fuckShitUpButOnlyALittle");
                 fuckShitUpButOnlyALittle();
-                console.log("JR NOTE: about to menu click loading");
 
                 (window as any).menuClick("LOADING");
-                console.log("JR NOTE: about to menu click next screen");
 
                 (window as any).menuClick(nextScreen);
-                console.log("JR NOTE: about to load screen");
                 loadScreen(nextScreen)
                 }, 500);
             }
