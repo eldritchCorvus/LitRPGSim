@@ -22,6 +22,8 @@ export const CityBuildingScreen = (props: StatusProps) => {
         display: inline-block;
         margin-right: 5px;
         width: 175px;
+        font-weight: bolder;
+        font-size: 18px;
 
     `
     const BuildingSection = styled.div`
@@ -64,6 +66,7 @@ export const CityBuildingScreen = (props: StatusProps) => {
                                 {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Assigned Leader: None </BuildingSection>:null}
                                 {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Morale Boost: 0 </BuildingSection>:null}
                                 {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Build Points: 0 </BuildingSection>:null}
+                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Locked?: {props.player.buildingMetaData[building].unlocked?"":"🔒"} </BuildingSection>:null}
 
                             </BuildingLine>)
                     })}

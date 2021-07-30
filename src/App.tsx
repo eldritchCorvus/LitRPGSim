@@ -137,7 +137,6 @@ function App(props: AppProps) {
       <ul style={{display: "none"}}>
         <li>ActualGameMode text based adventure, check todo on that screen.</li>
         <li> quests screen</li>
-
          <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
         <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
@@ -152,7 +151,8 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
            <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
         <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
-    
+        <li>fake chatbot in JUST TRUTH MODE, reference Binary</li>
+
      <li>each page should have secrets that loop in on each other (binary password getting you past options maybe)</li>
       <li>for all statistics, detect dom hax adn react accordingly (including RAGE MODE)</li>
         <li>what happens if i have more menu items than room to display?</li>

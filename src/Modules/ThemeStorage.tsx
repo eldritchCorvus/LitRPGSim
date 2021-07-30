@@ -210,7 +210,7 @@ export const checkIfAllKeysPresent = ()=>{
 const initPeople = () =>{
     person_posibilities[ART] = ["artist","painter","sculpter","curator"];
     person_posibilities[TECHNOLOGY] = ["engineer","programmer","hacker","coder"];
-    person_posibilities[SPACE] = ["astronaut","climber","mountaineer","alpinist","diver"];
+    person_posibilities[SPACE] = ["astronaut","climber","mountaineer","alpinist","diver","skydiver"];
     person_posibilities[TIME] = ["conductor","clockmaker","drummer","robot"];
     person_posibilities[STEALING] = ["thief","burglar","robber","mugger","pick-pocket","kleptomaniac"];
     person_posibilities[FREEDOM] = ["explorer","pirate","pixie","fairy","sylph","traveler"];
@@ -262,7 +262,7 @@ const initAdjs = () =>{
     adj_possibilities[ART] = ["artistic","aesthetic","beautiful","moving","balanced"];
     adj_possibilities[TECHNOLOGY] = ["technological","advanced","smart","programmatic","procedural"];
     adj_possibilities[TIME] = ["timely","measured","punctual","clock-work","steady","ticking","beating"];
-    adj_possibilities[SPACE] = ["celestial","otherworldly","vast","big","open","expansive","boundless","immeasurable","infinite","limitless","enormous","gigantic","giant","cosmic"];
+    adj_possibilities[SPACE] = ["celestial","otherworldly","vast","big","open","expansive","boundless","immeasurable","infinite","limitless","enormous","gigantic","giant","cosmic","falling"];
     adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing","kleptomania"];
     adj_possibilities[FREEDOM] = ["free","unchained","unbound","moving","flying"];
     adj_possibilities[FIRE] = ["flaming","blazing","burning","ashen","burnt"];
