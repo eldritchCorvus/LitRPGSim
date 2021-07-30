@@ -13,6 +13,11 @@ import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LONELY, OBJECT
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
+
+export interface BuildingMetaMap {
+    [name: string] : BuildingMetaData
+}
+
 export   class Player{
     class_name: RPGClass;
     aspect: Aspect;
@@ -21,6 +26,7 @@ export   class Player{
     skills: Skill[] =[];
     rand: SeededRandom;
     skillPoints: number = 1;
+    buildingMetaData:BuildingMetaMap={};
     rootSkill: Skill;
     fullName = "They"; //can write it in or companions will auto set it
     lastUnlockedSkill: Skill;
@@ -114,9 +120,22 @@ export   class Player{
     }
 
     generateBuildings = (themes: Theme[],rand:SeededRandom)=>{
+        this.buildings.push("Your House");
+        this.buildingMetaData["Your House"] = new BuildingMetaData("Your House",true, rand); 
         for(let theme of themes){
             const building:string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
+            this.buildingMetaData[building] = new BuildingMetaData(building,rand.nextDouble()>0.5, rand); 
             this.buildings.push(building);
+        }
+        console.log("JR NOTE: building meta data is ", this.buildingMetaData)
+        //this is ONLY useful for the actual game which is purposefully stupid hard to find. :)
+        this.positionNeighbors();
+    }
+
+    positionNeighbors = ()=>{
+        let remaining = [...this.buildings];
+        for(let buildingMeta of Object.keys(this.buildingMetaData)){
+
         }
     }
 
@@ -286,6 +305,29 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
     return ret;
 }
 
+
+//at first i thought positioning buildings was going to be hard but then i remembered
+//im perfectly fine with "non euclidean" geometry.
+export class BuildingMetaData{
+    key: string;
+    unlocked: boolean;
+    neighbors: string[] = [];//max 4
+    rand: SeededRandom;
+    constructor(key: string, unlocked:boolean, rand:SeededRandom ){
+        this.key = key;
+        this.unlocked = unlocked;
+        this.rand = rand;
+    }
+
+    assignNeighbors = (possible_neighbor_keys:string[])=>{
+        const num = this.rand.getRandomNumberBetween(1,4);
+        for(let i=0; i<num; i++){
+            const choice = this.rand.pickFrom(possible_neighbor_keys);
+            this.neighbors.push(choice);
+        }
+        return [...this.neighbors]; //copy just in case
+    }
+}
 
 //is it unspeakably cruel that all the npcs are players just like you who are killed seconds after they spawn
 //and replaced with hollowed out dead eyed doppelangers?
