@@ -43,7 +43,7 @@ export const CityBuildingScreen = (props: StatusProps) => {
 
     return (
         <StatusBlock>
-            <h1>{currentName}</h1>
+            <h1>{currentName}: TODO weird hidden map based on BuildingMetaData</h1>
             <StatusRow>
                 <StatusHeader>Change City Name:</StatusHeader>
                 <StatusContent><Input onChange={(ev) => { setCityName(ev) }} placeholder="Type Here"></Input></StatusContent>

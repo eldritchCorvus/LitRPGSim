@@ -13,6 +13,7 @@ import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LONELY, OBJECT
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
+import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
 
 export interface BuildingMetaMap {
     [name: string] : BuildingMetaData
@@ -37,6 +38,7 @@ export   class Player{
     gods: God[];
     buildings: string[] = [];
     backstory = "";
+    current_location: string = "";
     companions: Companion[] = [];
     inventory:string[] = [];
 
@@ -83,9 +85,9 @@ export   class Player{
         this.observer.init();
         this.observer.achivementStorage.checkForAchievements(this.observer);
         this.title = this.generateTitle();
-        this.generateBuildings(themes,this.rand);
         this.generateBackstory(themes,this.rand,0);
         this.generateCompanions(this.rand);
+        this.generateBuildings(themes,this.rand);
         for(let i = 0; i<3; i++){
             this.inventory.push(this.generateItem());
         }
@@ -116,15 +118,19 @@ export   class Player{
             this.lastUnlockedSkill = this.rootSkill;
             this.skillGenAlg.assignSkillChildren(this.skills.filter((skill) => skill !== this.rootSkill), this.rootSkill, rand);
         }
-
     }
 
     generateBuildings = (themes: Theme[],rand:SeededRandom)=>{
         this.buildings.push("Your House");
-        this.buildingMetaData["Your House"] = new BuildingMetaData("Your House",true, rand); 
+        this.buildingMetaData["Your House"] = new BuildingMetaData("Your House",true, rand,[]);
+        this.current_location = this.buildings[0]; 
         for(let theme of themes){
             const building:string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
-            this.buildingMetaData[building] = new BuildingMetaData(building,rand.nextDouble()>0.5, rand); 
+            const items = [];
+            if(rand.nextDouble()>0.3){
+                items.push(this.generateItem());
+            }
+            this.buildingMetaData[building] = new BuildingMetaData(building,rand.nextDouble()>0.5, rand,items); 
             this.buildings.push(building);
         }
         console.log("JR NOTE: building meta data is ", this.buildingMetaData)
@@ -134,8 +140,14 @@ export   class Player{
 
     positionNeighbors = ()=>{
         let remaining = [...this.buildings];
-        for(let buildingMeta of Object.keys(this.buildingMetaData)){
-
+        for(let buildingMeta of Object.values(this.buildingMetaData)){
+            const toRemove = buildingMeta.assignNeighbors(remaining);
+            for(let r of toRemove){
+                //you should at LEAST be able to get back to where you're going plz.
+                console.log("JR NOTE: building is", r, "and this.buildingMetaData is",this.buildingMetaData)
+                this.buildingMetaData[r].neighbors.push(buildingMeta.key);
+                removeItemOnce(remaining,r);
+            }
         }
     }
 
@@ -311,19 +323,32 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
 export class BuildingMetaData{
     key: string;
     unlocked: boolean;
-    neighbors: string[] = [];//max 4
+    neighbors: string[] = [];//you can move around.
     rand: SeededRandom;
-    constructor(key: string, unlocked:boolean, rand:SeededRandom ){
+    items:string[]=[]; //you can find items.
+    people: Companion[]=[]; //you can meet randos.
+
+    constructor(key: string, unlocked:boolean, rand:SeededRandom, items:string[] ){
         this.key = key;
         this.unlocked = unlocked;
         this.rand = rand;
+        this.items  = items;
+    }
+
+    debug=()=>{
+        return `key: ${this.key}, unlocked: ${this.unlocked}, neighbors: ${this.neighbors.join(", ")}, items: ${this.items.join(", ")}, companions: ${this.people.join(", ")}}  `;
     }
 
     assignNeighbors = (possible_neighbor_keys:string[])=>{
+        if(possible_neighbor_keys.length ===0){
+            return [];
+        }
         const num = this.rand.getRandomNumberBetween(1,4);
         for(let i=0; i<num; i++){
             const choice = this.rand.pickFrom(possible_neighbor_keys);
-            this.neighbors.push(choice);
+            if(!this.neighbors.includes(choice)){
+                this.neighbors.push(choice);
+            }
         }
         return [...this.neighbors]; //copy just in case
     }
