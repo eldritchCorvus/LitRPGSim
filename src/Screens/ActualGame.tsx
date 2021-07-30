@@ -13,12 +13,14 @@ interface StatusProps {
   player: Player;
 }
 export const ActualGame = (props: StatusProps) => {
-
+  
 
   return (
     <div>
       <MenuBox angle={0} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
-
+        Idea: randomly in the labrinth you find a NotAMinotaur.  It spouts bullshit philosophy at you about the nature of reality.
+        The philosophy is based on your themes because I'm insufferable. 
+        <br></br>
         TODO throw in an entire dang text adventure game here, based on player themes {props.player.theme_keys.join(", ")} and referencing their deal.
      
         currently enthralled by the idea that the entire text based adventure game happens if you hack the dom to make ThisIsNotAGame instead be ThisIsAGame
