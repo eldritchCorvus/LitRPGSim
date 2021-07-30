@@ -13,14 +13,24 @@ interface StatusProps {
   player: Player;
 }
 export const ActualGame = (props: StatusProps) => {
-  
+  const {player} = props;
 
   return (
     <div>
       <MenuBox angle={0} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
-        Idea: randomly in the labrinth you find a NotAMinotaur.  It spouts bullshit philosophy at you about the nature of reality.
-        The philosophy is based on your themes because I'm insufferable. 
+        Idea: randomly in the labrinth you find a NotAMinotaur (always strike thru).  It spouts bullshit philosophy at you about the nature of reality.
+        The philosophy/gigglesnort is based on your themes because I'm insufferable. 
+<br></br>
+        companions don't spawn WITH The places, instead every time you go somewhere new theres a chance to meet someone new. unless you've kileld them all.
         <br></br>
+        recognized commands: 
+        <li>KILL/DESTROY/BREAK X (deletes whatever X is, even if its a location. removes it from everywhere. rip) , </li>
+        <li>Use X on Y: if its an item, you rub it on the Y. if the Y is a location and its locked, it unlocks. item is destroyed.</li>
+        <li>TALK X: if X is a companion, have a vague but pleasant conversation. if NotAMinotaur random philosophy/gigglesnort time.</li>
+        <br></br>
+        <div>
+          {player.buildings.map((building)=>{return(<div>{player.buildingMetaData[building].debug()}</div>)})}
+        </div>
         TODO throw in an entire dang text adventure game here, based on player themes {props.player.theme_keys.join(", ")} and referencing their deal.
      
         currently enthralled by the idea that the entire text based adventure game happens if you hack the dom to make ThisIsNotAGame instead be ThisIsAGame
