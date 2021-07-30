@@ -51,7 +51,7 @@ function gaslightWordMeanings(sentence, seed_multiplier){
 
 //takes in a word, turns it into a random seed and if rngesus says so, turns it into another word
  function getWordReplacement(word,seed_multiplier){
-    const gaslightOptions = ["worm","bug","gas","flavor","taste","smell","feeling","failure","fear","horror","mistake","line","good dog","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
+    const gaslightOptions = ["[REDACTED]","null","dark","friendless","alone","minotaur","hunt","flesh","changeling","distortion","watcher","filth","minotaur","worm","bug","gas","flavor","taste","smell","feeling","failure","fear","horror","mistake","line","good dog","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
     const multiplied_seed = stringtoseed(word.toUpperCase())*seed_multiplier;
 
     let rand = new SeededRandom(multiplied_seed);
