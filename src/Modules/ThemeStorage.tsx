@@ -19,6 +19,9 @@ export const CHILDBACKSTORY = "CHILDBACKSTORY";
 export const GENERALBACKSTORY = "GENERALBACKSTORY";
 export const MIRACLE = "MIRACLE";
 export const SONG = "SONG";
+export const PHILOSOPHY = "PHILOSOPHY";
+export const LOC_DESC = "LOCATION DESCRIPTION";
+
 
 //themes
 export const ADDICTION = "addiction";
@@ -94,6 +97,8 @@ export let location_possibilities:ThemePossibilitiesMap = {};
 export let general_backstories:ThemePossibilitiesMap = {};
 export let child_backstories:ThemePossibilitiesMap = {};
 export let miracles:ThemePossibilitiesMap = {};
+export let philosophy:ThemePossibilitiesMap = {};
+export let loc_desc:ThemePossibilitiesMap = {};
 
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
@@ -150,6 +155,14 @@ export const checkIfAllKeysPresent = ()=>{
 
         if(!(key in miracles)){
             console.error("JR NOTE: key", key, "not found in miracles");
+        }
+
+        if(!(key in loc_desc)){
+            console.error("JR NOTE: key", key, "not found in loc_desc");
+        }
+
+        if(!(key in philosophy)){
+            console.error("JR NOTE: key", key, "not found in philosophy");
         }
     }
 }
@@ -790,6 +803,110 @@ const initInsults = () =>{
     insult_possibilities[QUESTING] = ["obsessive"] ;
 }
 
+const initPhilosophy = () =>{
+    insult_possibilities[ART] =  ["Art is set aside from ordinary life and made a dramatic focus of experience.","With a few important exceptions like abstract painting, works of art simulate experiences of the world.","People make a point of judging, appreciating, and interpreting works of art.","Artistic objects and performances satisfy rules of composition that place them in a recognizable style.","People enjoy art for art's sake, and do not demand that it keep them warm or put food on the table.","Humans cultivate, recognize, and admire technical artistic skills.","Aesthetics is a branch of philosophy that deals with the nature of beauty and taste, as well as the philosophy of art (its own area of philosophy that comes out of aesthetics).","In considering the nature of beauty, aesthetics intersects with metaphysics; and questions asked about how we know and recognize beauty are epistemological."];
+    insult_possibilities[TECHNOLOGY] =  ["There is demonstratably no way to prove the 'correctness' of any given computer program, even for 'simple' ones such as 'does this program halt'.","A technology can be thought of as a neutral entity only when the sociocultural context and issues circulating the specific technology are removed.","What engineers do is subject to moral evaluation.","In this sense, engineering can be considered a social as well a technological discipline and judged not just by whether its artifacts work, in a narrow sense, but also by how they influence and serve social values.","Changes in technology, and specifically productive technology, are the primary influence on human social relations and organizational structure, and that social relations and cultural practices ultimately revolve around the technological and economic base of a given society.","A society's technology determines the development of its social structure and cultural values."];
+    insult_possibilities[SPACE] =  ["We are tiny specks in the infinite vastness of the universe; our lives are mere instants even on a geological time scale, let alone a cosmic one; we will all be dead any minute.","If you traveled at the speed of light, it would still take you ten thousand years to explore just your home planet's arm of the Milky Way. The universe is vast and beyond your capacity to productively engage with.","The number of uncountable rational numbers is far, far larger than the number of countable integers. In a very real, provable sense there are more numbers between 0 and 1 than there are whole numbers in the universe.","Focus on a number of basic issues, including whether time and space exist independently of the mind and whether they exist independently of one another.","While such ideas have been central to philosophy from its inception, the philosophy of space and time was both an inspiration for and a central aspect of early analytic philosophy."];
+    insult_possibilities[TIME] =  ["If you conceptualize time to be a river, consider the ox bow lake. When a river loops in on itself enough it can pinch off a little circle entirely seperate from the main river. A paradoxical river that creates itself and yet can never escape itself.","An actual infinite cannot exist. All things end in time.","One must ask oneself: what accounts for time's apparently unidirectional flow, whether times other than the present moment exist, and questions about the nature of identity (particularly the nature of identity over time).","Focus on a number of basic issues, including whether time and space exist independently of the mindand whether they exist independently of one another.","While such ideas have been central to philosophy from its inception, the philosophy of space and time was both an inspiration for and a central aspect of early analytic philosophy."];
+    insult_possibilities[STEALING] =  ["Could stealing be a virtue?","Does 'thou shalt not steal' provide the maximum happiness to society when applied equally?","If the owner of an objects derives happiness X from it, and there is another who would derive happiness 10X from it, is there a moral imperative to give the object to the non-owner? Or is it necessary to add the sadness the owner would have in the loss? If the sadness is less than 10X, does your answer change? More than?","If the maximum happiness would be obtained for all through theft, is there a moral imperative towards theft?","Would a society founded on the principal 'Thous must stela' survive long as a society?"];
+    insult_possibilities[FREEDOM] =  ["For many philosophers, travel is seen as an extension of the journey of life. As George Santayana suggested: ‘What is life but a form of motion and a journey through a foreign world?’","A man chooses. A slave obeys.","A person who does not succeed in doing what he sets out to do, because his will fails, is in a sense unfree, a slave to his passions. His will is not free because it is subject to momentary impulses which distract him from accomplishing what he had determined to do.","Steiner begins exploring the nature of human freedom by accepting 'that an action, of which the agent does not know why he performs it, cannot be free,' but asking what happens when a person becomes conscious of his or her motives for acting.","Examine the basis for freedom in human thinking, gives an account of the relationship between knowledge and perception, and explores the role and reliability of thinking as a means to knowledge.","Is free will better understood to be the ability to act without the coercion of other sapient creatures? If so, how does the existance of society influence this definition? If you are jailed you are 'free' to eat a meal or to refuse, and yet all choices available to you have been categorically constrained by other sapients.","Can free will exist along side the deterministic laws of physics?","Is there a moral imperative towards freedom over security?"];
+    insult_possibilities[FIRE] =  ["It seems likely that the universe at large is likely a place of destruction-by-entropy.","A thoughtful philosophy of destruction is essential to a rich life, at the very least because each of us must grapple with his/her own mortality.","Somewhere in the back of our minds, we know that creation and growth must be accompanied by destruction and decline.","Since nature itself is an unpredictable and unstoppable force which destruction knows no bounds, it would be pointless to try and stop it.","The long and short of destruction is that it is an action undertaken in order to negate something of its purpose, no matter who engages in it."];
+    insult_possibilities[LONELY] =  ["Loneliness has also been described as social pain — a psychological mechanism meant to alert us to our isolation and motivate us to seek social connections. We are social creatures and throughout most of history we have been dependent on social cooperation and attachment for survival. It makes sense this drive would have evolved in us.","To feel lonely is to join the rest of humanity in acknowledging the painful reality that we are somehow fundamentally separated from each other, never to be fully understood.","Nobody can truly understand what it is to be you; not your parents, best friend, therapist or lover. No one can experience the world in the same way you can. No one can fully understand your pain, joy, sorrow, despair, fear, guilt or shame.","You are the only sapient mind anywhere in this existance. You are singular. Unique. Alone.","Loneliness is the longing for connection.","Loneliness is a feeling of being cut off, disconnected and/or alienated from other people.","Loneliness is more than just wanting company or wanting to do something with another person.","Loneliness is an emotional state in which a person typically experiences a powerful feeling of emptiness."];
+    insult_possibilities[OCEAN] =  ["Water is the cradle of philosophy, and according to Thales of Milet (around 600 BC), water is the cradle of all things. He considered the earth to float on water, and also saw water as the arche, the element and the first principle of existing things—in other words, the origin of all things to which all things must return.","What do we see when we look out to the sea? What do we mean when we say “ocean”?","Our human history is closely interwoven with the sea. Human relationships with the sea have been considered from angles as different as philosophy, geography, military studies, navigation and seafaring, natural sciences, political sciences, and social sciences and have featured in the various fields of art, literature, and music for centuries if not millennia.","There are many other ways of conceptualising the ocean, and different concepts exist concurrently, resulting in a multiplicity of perspectives that are changing over time. Although some scholars are debating whether it is possible to know the ocean at all, the selected concepts—incomplete though they may be—also point to contradictory perceptions of the ocean that may have a bearing on how we do maritime spatial planning."," From a confrontation with the immanence of ecological breakdown, to the interactions between moving bodies and a liquid medium, each work demonstrates ways of thinking that set adrift our ideas, call into question the solid ground on which we walk and navigate new routes of enquiry and discovery on seas both rich and strange.","You can never step in the same river twice.","Imagine you were in a river, floating away. Would it be easier to swim against the tide or just let go and let it carry you smoothly downstream?","You can’t change the ocean or the weather; no matter how hard you try, so it’s best to learn how to sail in all conditions."];
+    insult_possibilities[FLESH] =  ["Since reason is shaped by the body, it is not radically free, because the possible human conceptual systems and the possible forms of reason are limited. In addition, once we have learned a conceptual system, it is neurally instantiated in our brains and we are not free to think just anything. Hence, we have no absolute freedom in Kant's sense, no full autonomy.","There is no Cartesian dualistic person, with a mind separate from and independent of the body, sharing exactly the same disembodied transcendent reason with everyone else, and capable of knowing everything about his or her mind simply by self-reflection. Rather, the mind is inherently embodied, reason is shaped by the body, and since most thought is unconscious, the mind cannot be known simply by self-reflection. Empirical study is necessary.","Reason is not, in any way, a transcendent feature of the universe or of disembodied mind. Instead, it is shaped crucially by the peculiarities of our human bodies, by the remarkable details of the neural structure of our brains, and by the specifics of our everyday functioning in the world.","Meat is meat.","You are fundamentally made of the same flesh that the animals you eat are.","Dinosaurs eat meat. You are made of meat. Run!","Reason is not disembodied, as the tradition has largely held, but arises from the nature of our brains, bodies, and bodily experience.","You are not your body, you are a ten pound blob of fat and water floating in a hollow cave, interpreting the flickers of shadows as all of reality.","The mind is inherently embodied."];
+    insult_possibilities[BURIED] =  ["Ashes to ashes, dust to dust. You will rejoin the earth one day.","You are penned in from all directions. Your freedom is limited, you are chained by society, by obligation, by the ties that bind.","For us, dirt is both a real quality of the world and part of a symbolic, culturally relative order.","What do we mean by “dirt” and is it an actual quality of the world or, as most current theoretical work would have us believe, a subjective idea projected on to reality.","The distinction between clean and dirty is a universal organising principle in human society, like right and wrong."];
+    insult_possibilities[SCIENCE] =  ["The philosophies of biology, of psychology, and of the social sciences explore whether the scientific studies of human nature can achieve objectivity or are inevitably shaped by values and by social relations.","The question of the validity of scientific reasoning is seen in a different guise in the foundations of statistics.","Philosophies of the particular sciences range from questions about the nature of time raised by Einstein's general relativity, to the implications of economics for public policy. A central theme is whether the terms of one scientific theory can be intra- or intertheoretically reduced to the terms of another. ","Another approach to thinking about science involves studying how knowledge is created from a sociological perspective, an approach represented by scholars like David Bloor and Barry Barnes.","Subsequently, the coherentist approach to science, in which a theory is validated if it makes sense of observations as part of a coherent whole, became prominent due to W.V. Quine and others.","There is no consensus among philosophers about many of the central problems concerned with the philosophy of science, including whether science can reveal the truth about unobservable things and whether scientific reasoning can be justified at all.","Philosophy of science focuses on metaphysical, epistemic and semantic aspects of science. Ethical issues such as bioethics and scientific misconduct are often considered ethics or science studies rather than philosophy of science.","Philosophy of science is a branch of philosophy concerned with the foundations, methods, and implications of science. The central questions of this study concern what qualifies as science, the reliability of scientific theories, and the ultimate purpose of science.","What scientists do is subject to moral evaluation."];
+    insult_possibilities[MATH] =  ["A perennial issue in the philosophy of mathematics concerns the relationship between logic and mathematics at their joint foundations.","0.9 repeating is exactly equivalent to 1. You can prove this mathematically.","There are traditions of mathematical philosophy in both Western philosophy and Eastern philosophy. Western philosophies of mathematics go as far back as Pythagoras, who described the theory 'everything is mathematics'(mathematicism), Plato, who paraphrased Pythagoras, and studied the ontological status of mathematical objects, and Aristotle, who studied logic and issues related to infinity (actual versus potential).","The origin of mathematics is subject to arguments and disagreements. Whether the birth of mathematics was a random happening or induced by necessity during the development of other subjects, like physics, is still a matter of prolific debates","The philosophy of mathematics is the branch of philosophy that studies the assumptions, foundations, and implications of mathematics. It aims to understand the nature and methods of mathematics, and find out the place of mathematics in people's lives. The logical and structural nature of mathematics itself makes this study both broad and unique among its philosophical counterparts.","The first incompleteness theorem states that no consistent system of axioms whose theorems can be listed by an effective procedure (i.e., an algorithm) is capable of proving all truths about the arithmetic of natural numbers. For any such consistent formal system, there will always be statements about natural numbers that are true, but that are unprovable within the system. The second incompleteness theorem, an extension of the first, shows that the system cannot demonstrate its own consistency.","Gödel's incompleteness theorems are two theorems of mathematical logic that are concerned with the limits of provability in formal axiomatic theories."];
+    insult_possibilities[TWISTING] =  ["Who's on first?","Let's eat grandmother.","That that is is that that is not is not is that it it is.","James while John had had had had had had had had had had had a better effect on the teacher.","The complex houses married and single soldiers and their families.","The old man the boat.","Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo. But why do Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo? ","The horse faced past the barn fell.","When is a door not a door? When it is a jar. When is a jar not a jar? When it's a door. When is a door not a door? When it's a jar. When is a jar not a jar? When it's a train. When is a train not a train? When it is a choo-choo. When is a choo-choo not a choo-choo? When Blain the Train is insane."];
+    insult_possibilities[DEATH] =  ["Death is certain given that it will happen to each person, but uncertain in the time at which or manner by which it will occur. ","Death is one of few conceptions that crosses cultural lines, is gender and racially unbiased, and thus far is out of our control to stop.","Death is a universal and inescapable phenomenon that cannot be avoided nor delayed in the human experience.","Controversy concerns whether or not the harmfulness of death can be reduced. It may be that, by adjusting our conception of our well-being, and by altering our attitudes, we can reduce or eliminate the threat death poses us. But there is a case to be made that such efforts backfire if taken to extremes.","Controversy concerns whether all deaths are misfortunes or only some. Of particular interest here is a dispute between Thomas Nagel, who says that death is always an evil, since continued life always makes good things accessible, and Bernard Williams, who argues that, while premature death is a misfortune, it is a good thing that we are not immortal, since we cannot continue to be who we are now and remain meaningfully attached to life forever.","Everything dies, even universes.","In what sense might death or posthumous events harm us?","What constitutes death? It is clear enough that people die when their lives end, but less clear what constitutes the ending of a person’s life."];
+    insult_possibilities[APOCALYPSE] =  ["Intelligent species beyond a certain point of technological capability will destroy other intelligent species as they appear, perhaps by using self-replicating probes.","Technological civilizations will either tend to destroy themselves within a century of developing interstellar communicative capability or master their self-destructive tendencies and survive for billion-year timescales.","Possible annihilation via major global issues, where global interconnectedness actually makes humanity more vulnerable than resilient,[76] are many,[77] including war, accidental environmental contamination or damage, the development of biotechnology,[78] synthetic life like mirror life,[79] resource depletion, climate change,[80] or poorly-designed artificial intelligence.","The progress of science and technology on Earth was driven by two factors—the struggle for domination and the desire for an easy life. The former potentially leads to complete destruction, while the latter may lead to biological or mental degeneration.","Technological civilizations may usually or invariably destroy themselves before or shortly after developing radio or spaceflight technology.","It is the nature of intelligent life to destroy itself.","It may be the case that such extinction events are common throughout the universe and periodically destroy intelligent life, or at least its civilizations, before the species is able to develop the technology to communicate with other intelligent species.","A handful of powerful men control whether or not you will die in nuclear flame.","One day the light of the final star will finally be snuffed and motion will no longer be possible anywhere in the universe.","One day the earth will be consumed by the sun and nothing you have ever done will ever be accessible ever again.","It’s hard to do philosophy in the face of the apocalypse."];
+    insult_possibilities[ANGELS] =  ["Philosophy of religion covers alternative beliefs about God (or gods), the varieties of religious experience, the interplay between science and religion, the nature and scope of good and evil, and religious treatments of birth, history, and death.","The philosophy of religion differs from religious philosophy in that it seeks to discuss questions regarding the nature of religion as a whole, rather than examining the problems brought forth by a particular belief-system. It can be carried out dispassionately by those who identify as believers or non-believers.","To ask whether God exists is not to ask a theoretical question. If it is to mean anything at all, it is to wonder about praising and praying; it is to wonder whether there is anything in all that. This is why philosophy cannot answer the question “Does God exist?”","Many theistic philosophers (and their critics) contend that language about God may be used univocally, analogically or equivocally.","Philosophy of religion also includes the investigation and assessment of worldviews (such as secular naturalism) that are alternatives to religious worldviews. ","Philosophy of religion is the philosophical examination of the themes and concepts involved in religious traditions as well as the broader philosophical task of reflecting on matters of religious significance including the nature of religion itself, alternative concepts of God or ultimate reality, and the religious significance of general features of the cosmos (e.g., the laws of nature, the emergence of consciousness) and of historical events (e.g., the 1755 Lisbon Earthquake, the Holocaust)."];
+    insult_possibilities[LIGHT] =  ["Let us first of all consider, my brethren, the value of Light. If Light be in itself good—","Medieval Christianity viewed light as the perfect physical image for God, being not only pure and clarifying but also a hypostatic unity of multiples.","From the foundations of Trinitarian doctrine, you arrive at a philosophy of light, which says that it is neither unity nor diversity, neither calcification nor fragmentation, but rather the whole spectrum working in unison, in perfect, sublime harmony and holism.","Although the average speed over a two-way path can be measured, the one-way speed in one direction or the other is undefined (and not simply unknown), unless one can define what is 'the same time' in two different locations.","The two-way speed of light is the average speed of light from one point, such as a source, to a mirror and back again. Because the light starts and finishes in the same place only one clock is needed to measure the total time; thus, this speed can be experimentally determined independently of any clock synchronization scheme.","The 'one-way' speed of light, from a source to a detector, cannot be measured independently of a convention as to how to synchronize the clocks at the source and the detector. What can however be experimentally measured is the round-trip speed (or 'two-way' speed of light) from the source to the detector and back again.","When using the term 'the speed of light' it is sometimes necessary to make the distinction between its one-way speed and its two-way speed.","Scientists and thinkers have been fascinated with the speed of light for millennia. Aristotle wrongly contended that the speed of light was infinite, but it was the 17th Century before serious attempts were made to measure its actual velocity – we now know that it’s 186,000 miles per second."];
+    insult_possibilities[SERVICE] =  ["boot-licking"];
+    insult_possibilities[FAMILY] =  ["unstable"];
+    insult_possibilities[MAGIC] =  ["deluded"];
+    insult_possibilities[HEALING] =  ["self-sacrificing"];
+    insult_possibilities[PLANTS] = ["awkward"];
+    insult_possibilities[HUNTING] = ["creepy stalker"];
+    insult_possibilities[DECAY] = ["corrupted"] ;
+    insult_possibilities[CHOICES] =  ["indecisive"] ;
+    insult_possibilities[ZAP] = ["shocking"] ;
+    insult_possibilities[LOVE] = ["suffocating"];
+    insult_possibilities[SOUL] = ["self-obsessed"] ;
+    insult_possibilities[ANGER] = ["violent"] ;
+    insult_possibilities[WEB] =  ["controlling"] ;
+    insult_possibilities[ROYALTY] =  ["pompous"] ;
+    insult_possibilities[ENDINGS] =  ["dour"] ;
+    insult_possibilities[KNOWING] = ["paranoid"] ;
+    insult_possibilities[GUIDING] = ["condescending"] ;
+    insult_possibilities[CRAFTING] =  ["obsessive"];
+    insult_possibilities[LANGUAGE] = ["pendantic"] ;
+    insult_possibilities[BUGS] =  ["creepy"];
+    insult_possibilities[ADDICTION] = ["addled"];
+    insult_possibilities[SPYING] =["spying"] ;
+    insult_possibilities[CLOWNS] =["foolish"] ;
+    insult_possibilities[DOLLS] = ["childish"] ;
+    insult_possibilities[OBFUSCATION] = ["mysterious"] ;
+    insult_possibilities[DARKNESS] =  ["Some people pulled the lamp-post down because they wanted an electric light; some because they wanted old iron; some because they wanted darkness, because their deeds were evil."] ;
+    insult_possibilities[KILLING] =  ["murderous"];
+    insult_possibilities[MUSIC] =  ["tone-deaf"] ;
+    insult_possibilities[DEFENSE] =  ["helicoptering"] ;
+    insult_possibilities[QUESTING] = ["obsessive"] ;
+}
+
+
+const initLocDesc = () =>{
+    insult_possibilities[ART] =  ["trite"];
+    insult_possibilities[TECHNOLOGY] =  ["hacky"];
+    insult_possibilities[SPACE] =  ["stand-offish"];
+    insult_possibilities[TIME] =  ["hasty"];
+    insult_possibilities[STEALING] =  ["greedy"];
+    insult_possibilities[FREEDOM] =  ["narcissistic"];
+    insult_possibilities[FIRE] =  ["destructive"];
+    insult_possibilities[LONELY] =  ["lonely"];
+    insult_possibilities[OCEAN] =  ["drowned"];
+    insult_possibilities[FLESH] =  ["ugly"];
+    insult_possibilities[BURIED] =  ["powerless"];
+    insult_possibilities[SCIENCE] =  ["non-peer-reviewed"];
+    insult_possibilities[MATH] =  ["stilted"];
+    insult_possibilities[TWISTING] =  ["mad"];
+    insult_possibilities[DEATH] =  ["morbid"];
+    insult_possibilities[APOCALYPSE] =  ["pessimistic"];
+    insult_possibilities[ANGELS] =  ["self-righteous"];
+    insult_possibilities[LIGHT] =  ["blinding"];
+    insult_possibilities[SERVICE] =  ["boot-licking"];
+    insult_possibilities[FAMILY] =  ["unstable"];
+    insult_possibilities[MAGIC] =  ["deluded"];
+    insult_possibilities[HEALING] =  ["self-sacrificing"];
+    insult_possibilities[PLANTS] = ["awkward"];
+    insult_possibilities[HUNTING] = ["creepy stalker"];
+    insult_possibilities[DECAY] = ["corrupted"] ;
+    insult_possibilities[CHOICES] =  ["indecisive"] ;
+    insult_possibilities[ZAP] = ["shocking"] ;
+    insult_possibilities[LOVE] = ["suffocating"];
+    insult_possibilities[SOUL] = ["self-obsessed"] ;
+    insult_possibilities[ANGER] = ["violent"] ;
+    insult_possibilities[WEB] =  ["controlling"] ;
+    insult_possibilities[ROYALTY] =  ["pompous"] ;
+    insult_possibilities[ENDINGS] =  ["dour"] ;
+    insult_possibilities[KNOWING] = ["paranoid"] ;
+    insult_possibilities[GUIDING] = ["condescending"] ;
+    insult_possibilities[CRAFTING] =  ["obsessive"];
+    insult_possibilities[LANGUAGE] = ["pendantic"] ;
+    insult_possibilities[BUGS] =  ["creepy"];
+    insult_possibilities[ADDICTION] = ["addled"];
+    insult_possibilities[SPYING] =["spying"] ;
+    insult_possibilities[CLOWNS] =["foolish"] ;
+    insult_possibilities[DOLLS] = ["childish"] ;
+    insult_possibilities[OBFUSCATION] = ["mysterious"] ;
+    insult_possibilities[DARKNESS] =  ["edgy"] ;
+    insult_possibilities[KILLING] =  ["murderous"];
+    insult_possibilities[MUSIC] =  ["tone-deaf"] ;
+    insult_possibilities[DEFENSE] =  ["helicoptering"] ;
+    insult_possibilities[QUESTING] = ["obsessive"] ;
+}
+
+
 const initGeneralBackstories = () =>{
     general_backstories[ART] = ["would never stop making sculptures if that was an option","can sketch incredibly lifelike portraits","always has a dab of paint behind their ears"];
     general_backstories[TECHNOLOGY] = ["can, will, must and should make a robot","always seem to be on top of the latest technology","are annoyed that everyone wants them to fix their computer","can hack into any system"];
@@ -907,4 +1024,7 @@ export const initThemes = ()=>{
     initGeneralBackstories();
     initMiracles();
     initSongs();
+    initLocDesc();
+    initPhilosophy();
+
 }
