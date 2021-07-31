@@ -135,6 +135,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>secrets under construction component, shitty geocities gif of construction.</li>
         <li>ActualGameMode text based adventure, check todo on that screen.</li>
         <li>add themed bullshit philosophical ramble for NotAMinotaur</li>
         <li> quests screen</li>
