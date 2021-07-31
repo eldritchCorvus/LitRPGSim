@@ -150,6 +150,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
     * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
 <li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
            <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
+        <li>LORE screen re-uses place locations to write little stories about your char finding out facts of the setting</li>
         <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
         <li>fake chatbot in JUST TRUTH MODE, reference Binary</li>
