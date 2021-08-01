@@ -7,6 +7,7 @@ import { Stat, StatMap } from "../Modules/Stat";
 import { all_themes, Theme } from "../Modules/Theme";
 import { pickFrom, shuffle } from "../Utils/NonSeededRandUtils";
 import { titleCase } from "../Utils/StringUtils";
+import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "./Styles";
 interface StatusProps {
     player: Player;
@@ -216,7 +217,7 @@ export const JustTruth = (props: StatusProps) => {
         <TruthContainer>
             {simpleContent ? (
                 <Fragment>
-                    <div style={{height:"100px"}}>{simpleContent}</div>
+                    <div style={{height:"100px"}}><OneCharAtATimeDiv text={simpleContent}/></div>
                     <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
                     {index > 0 ? <RageStyledButton onClick={() => { setIndex(index - 1) }}> {">"} Wait can you go back?</RageStyledButton> : null}
 
@@ -225,7 +226,7 @@ export const JustTruth = (props: StatusProps) => {
 
             {frameTime ? (
                 <Fragment>
-                <div style={{height:"100px"}}>Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it.</div>
+                <div style={{height:"100px"}}><OneCharAtATimeDiv text= "Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it."/></div>
                 <div><a target="_blank" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx">View My Soul 1</a></div>
                 <div><a target="_blank" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</a></div>
                 <div>Or. You can help the others like you navigate this Labyrinth. By which I mean: make the Labyrinth bigger.  </div>

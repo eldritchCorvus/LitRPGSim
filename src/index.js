@@ -61,9 +61,10 @@ export const click = () =>{
   window.removeEventListener('click', click);
 }
 
+const clickAudio = new Audio(clickSound);
+
 export const clickEffect = () =>{
-  const audio = new Audio(clickSound);
-  audio.play();
+  clickAudio.play();
 
 }
 
