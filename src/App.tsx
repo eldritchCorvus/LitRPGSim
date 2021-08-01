@@ -60,6 +60,8 @@ function App(props: AppProps) {
             console.log('The ' + mutation.attributeName + ' attribute was modified.',mutation);
             if(mutation.target.id.toLowerCase() === "ThisIsAGame".toLowerCase()){
               setActualGameMode(true);
+            }else if(mutation.target.id.toLowerCase() === "ThisIsNotAGame".toLowerCase()){
+              setActualGameMode(false);
             }
           }
         }
