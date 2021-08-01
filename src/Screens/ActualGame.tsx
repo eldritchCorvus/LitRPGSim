@@ -20,6 +20,13 @@ export const ActualGame = (props: StatusProps) => {
       <MenuBox angle={0} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         Idea: randomly in the labrinth you find a NotAMinotaur (always strike thru).  It spouts bullshit philosophy at you about the nature of reality.
         The philosophy/gigglesnort is based on your themes because I'm insufferable. 
+
+        you can go only straight or right.<br>
+        oh did you think you were outsie? no. only rooms.</br>
+        <br>
+        <br>
+        initMonsterDesc</br>
+        extra rooms have 50/50 chance to come from YOUR themes or from any theme</br>
 <br></br>
         companions don't spawn WITH The places, instead every time you go somewhere new theres a chance to meet someone new. unless you've kileld them all.
         <br></br>

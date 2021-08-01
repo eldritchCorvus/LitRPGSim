@@ -81,6 +81,10 @@ function Birthday(props: AppProps) {
       <div className="section">
         <a key={"link"} href={`?seed=${seed}&class=${className}&aspect=${aspect}&interest1=${interest1}&interest2=${interest2}`}>Explore your personalized session of ZampanioSim!</a>
       </div>
+
+      <div className="section">
+        <a key={"link"} href={`?`}>Or try a completely random session!</a>
+      </div>
     </div>
   );
 }
