@@ -9,7 +9,7 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, FREESPIRITED, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LONELY, OBJECT } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, OBJECT } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
@@ -122,7 +122,7 @@ export   class Player{
 
     generateBuildings = (themes: Theme[],rand:SeededRandom)=>{
         this.buildings.push("Your House");
-        this.buildingMetaData["Your House"] = new BuildingMetaData("Your House",true, rand,[]);
+        this.buildingMetaData["Your House"] = new BuildingMetaData("Your House",themes,true, rand,[]);
         this.current_location = this.buildings[0]; 
         for(let theme of themes){
             const building:string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
@@ -130,7 +130,7 @@ export   class Player{
             if(rand.nextDouble()>0.3){
                 items.push(this.generateItem());
             }
-            this.buildingMetaData[building] = new BuildingMetaData(building,rand.nextDouble()>0.5, rand,items); 
+            this.buildingMetaData[building] = new BuildingMetaData(building,themes,rand.nextDouble()>0.5, rand,items); 
             this.buildings.push(building);
         }
         console.log("JR NOTE: building meta data is ", this.buildingMetaData)
@@ -145,7 +145,9 @@ export   class Player{
             for(let r of toRemove){
                 //you should at LEAST be able to get back to where you're going plz.
                 console.log("JR NOTE: building is", r, "and this.buildingMetaData is",this.buildingMetaData)
-                this.buildingMetaData[r].neighbors.push(buildingMeta.key);
+                if(!this.buildingMetaData[r].neighbors.includes(buildingMeta.key)){
+                    this.buildingMetaData[r].neighbors.push(buildingMeta.key);
+                }
                 removeItemOnce(remaining,r);
             }
         }
@@ -327,12 +329,30 @@ export class BuildingMetaData{
     rand: SeededRandom;
     items:string[]=[]; //you can find items.
     people: Companion[]=[]; //you can meet randos.
+    description:string= "test";
 
-    constructor(key: string, unlocked:boolean, rand:SeededRandom, items:string[] ){
+    constructor(key: string, themes:Theme[],unlocked:boolean, rand:SeededRandom, items:string[] ){
         this.key = key;
         this.unlocked = unlocked;
         this.rand = rand;
         this.items  = items;
+        this.generateDescription(themes);
+    }
+
+    
+//JUST for game mode, don't risk leaning on this too much
+///example "You see several math equations floating in the air as you get acclimated to the CLASSROOM.
+// There is a model anatomy skeleton in the corner.  There's a huge map of Zampanio on a wall."
+//"there is" or "you see",or "there's" is going to be added by the system. don't worry.
+    generateDescription =(themes: Theme[])=>{
+        let ret = `You see ${this.rand.pickFrom(themes).pickPossibilityFor(this.rand,LOC_DESC)}. `;
+        const connectors = ["There's", "There's also","You also see"];
+        const num = this.rand.getRandomNumberBetween(1,3);
+        for(let i=0; i<num; i++){
+            ret += `${this.rand.pickFrom(connectors)} ${this.rand.pickFrom(themes).pickPossibilityFor(this.rand,LOC_DESC)}. `;
+        }
+
+        this.description = ret;
     }
 
     debug=()=>{

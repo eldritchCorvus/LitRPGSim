@@ -7,6 +7,7 @@ import { all_classes, initClasses } from "./Modules/RPGClass";
 import { all_stats, initStats } from "./Modules/Stat";
 import { all_themes, initThemes } from "./Modules/Theme";
 import { LinkButton } from "./Screens/Styles";
+import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
 interface AppProps {
   setMode: any; //lazy don't wanna remember setstate type
@@ -83,7 +84,7 @@ function Birthday(props: AppProps) {
       </div>
 
       <div className="section">
-        <a key={"link"} href={`?`}>Or try a completely random session!</a>
+        <a key={"link"} href={`?seed=${getRandomNumberBetween(0,33333333)}`}>Or try a completely random session!</a>
       </div>
     </div>
   );
