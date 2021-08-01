@@ -343,7 +343,8 @@ export class BuildingMetaData{
         if(possible_neighbor_keys.length ===0){
             return [];
         }
-        const num = this.rand.getRandomNumberBetween(1,4);
+        //you can only go straight or right. its a spiral
+        const num = this.rand.getRandomNumberBetween(1,2);
         for(let i=0; i<num; i++){
             const choice = this.rand.pickFrom(possible_neighbor_keys);
             if(!this.neighbors.includes(choice)){
