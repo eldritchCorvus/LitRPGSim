@@ -308,7 +308,7 @@ const initAdjs = () =>{
     adj_possibilities[LOVE] = ["loving","caring","embracing","smitten"];
     adj_possibilities[SOUL] = ["defining","delineating","pure"];
     adj_possibilities[ANGER] = ["raging","hating","rebelling","glaring","stampeding","furious"];
-    adj_possibilities[WEB] = ["controlling","puppeting","trapping","gossamer","ineluctable","webbed","arachnid"];
+    adj_possibilities[WEB] = ["controlling","puppeting","trapping","gossamer","ineluctable","webbed","arachnid","doomed"];
     adj_possibilities[ROYALTY] = ["ruling","mandating","decreeing","royal","commanding"];
     adj_possibilities[ENDINGS] =["ending","final","ultimate","exhausted"];
     adj_possibilities[KNOWING] = ["knowing","understanding","learning"];
@@ -895,8 +895,8 @@ const initLocDesc = () =>{
     loc_desc[ZAP] = ["a series of electrical pylons along a wall","a tesla coil arcing bits of electricity at random throughout the room","an electrified panel sparking dangerously in the center of the room"] ;
     loc_desc[LOVE] = ["a bed shaped like a heart","a romantic candleit dinner laid out, complete with roses","rose petals cutting a path through the room"];
     loc_desc[SOUL] = ["dozens and dozens of mirrors at odd angles","a diamond the size of a person with each facet reflecting a different part of your soul","a statue of yourself as the centerpiece of the room"] ;
-    loc_desc[ANGER] = ["strobing lights and hear the sounds of a riot","every single thing that has ever pissed you off scrawled along every surface","absolute bullshit no matter where you look"] ;
-    loc_desc[WEB] =  ["stringless puppets lying limply in a pile","spider webs caked onto every surface","scuttling spiders hiding everywhere","gossamer threads connecting tauntly to each of your limbs, tugging you as you believe you are chosing to move"] ;
+    loc_desc[ANGER] = ["strobing lights and you hear the sounds of a riot","every single thing that has ever pissed you off scrawled along every surface","absolute bullshit no matter where you look"] ;
+    loc_desc[WEB] =  ["stringless puppets lying limply in a pile","spider webs caked onto every surface","scuttling spiders hiding everywhere","gossamer threads connecting tauntly to each of your limbs, tugging you just as you believe you are chosing to move"] ;
     loc_desc[ROYALTY] =  ["an ornate thrown along the back of the room","a small model of a castle, complete with ramparts","crowns worked into the wallpaper, the furniture, the light fixures"] ;
     loc_desc[ENDINGS] =  ["a velvety red curtain lining the walls","dozens of books laid out on every surface, each open to their final page","the final thought you somehow know you will ever have scrawlled over and over on every surface"] ;
     loc_desc[KNOWING] = ["a collection of every possible book that could ever be written somehow squeezed into just a few bookshelves","the sum of all human knowledge written impossibly small on every surface, if only you could read it","everything you could ever have wished to know about Zampanio and its Truth"] ;
