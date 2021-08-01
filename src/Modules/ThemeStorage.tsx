@@ -21,6 +21,7 @@ export const MIRACLE = "MIRACLE";
 export const SONG = "SONG";
 export const PHILOSOPHY = "PHILOSOPHY";
 export const LOC_DESC = "LOCATION DESCRIPTION";
+export const MONSTER_DESC = "MONSTER DESCRIPTION";
 
 
 //themes
@@ -99,6 +100,7 @@ export let child_backstories:ThemePossibilitiesMap = {};
 export let miracles:ThemePossibilitiesMap = {};
 export let philosophy:ThemePossibilitiesMap = {};
 export let loc_desc:ThemePossibilitiesMap = {};
+export let monster_desc:ThemePossibilitiesMap = {};
 
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
@@ -162,7 +164,11 @@ export const checkIfAllKeysPresent = ()=>{
         }
 
         if(!(key in philosophy)){
-            console.error("JR NOTE: key", key, "not found in philosophy");
+            console.error("JR NOTE: key", key, "not found in your philosophy");
+        }
+
+        if(!(key in monster_desc)){
+            console.error("JR NOTE: key", key, "not found in monster_desc");
         }
     }
 }
@@ -850,61 +856,113 @@ const initPhilosophy = () =>{
     philosophy[DARKNESS] =  ["Scotomaphobia is the irrational fear of blindness. Someone suffering from this condition can expect to experience a very high amount of anxiety from merely thinking of blindness, let alone actually experiencing it.","Darkness is a symbol of evil or mystery or fear. ... The emotional response to an absence of light has inspired metaphor in literature, symbolism in art, and emphasis. The story of the Light versus the Darkness is one that everyone thinks that they know. The Light is good and the Dark is bad.","Darkness the absence of light, it obscures objects in its veil. It can hide wonders and dangers that lurk. ","We need darkness to feed our spirit, protect our health and protect the health of our planet. Light at night may be a sign of life on Earth, but the darkness will proclaim our true intelligence.","Darkness can encompass a primitive chaos, and the powers of that chaos; it is not essentially evil, yet it is largely associated with death and destruction, captivity and spiritual darkness.","The philosophy of darkness is very simple, it will not let you go towards light and it loves to keep everyone in darkness and at the end make brother fight brother. For this first you need to understand what is light and where it is available. People think they are in light but in fact they are in dark.","Nyctophobia is an extreme fear of night or darkness that can cause intense symptoms of anxiety and depression. A fear becomes a phobia when it's excessive, irrational, or impacts your day-to-day life. Being afraid of the dark often starts in childhood and is viewed as a normal part of development.","Some people pulled the lamp-post down because they wanted an electric light; some because they wanted old iron; some because they wanted darkness, because their deeds were evil."] ;
     philosophy[KILLING] =  ["Hoplophobia, (pronounced [ˌhɔpləˈfoʊbiə]), from the Greek hoplon, or weapon, is defined as the 'fear of firearms' or alternatively, a fear of weapons in general, and describes a specific phobia.","Aichmophobia is a fear of sharp objects like knives, needles, or pencils. ","Knife goes in. Blood comes out.","Should we model justified killing in war on justified killing outside of war? Or, in focusing on the justification of killing in war, might we then discover that there are some non-canonical cases of permissible killing outside of war?","This masks a deeper methodological disagreement: when thinking about the morality of war, should we start by thinking about war, or by thinking about the permissible use of force outside of war?","The debate between reductivism and exceptionalism is overblown—the concept of “war” is vague, and while typical wars involve properties that are not instantiated in typical conflicts outside of war, we can always come up with far-fetched hypotheticals that don’t involve those properties, which we wouldn’t call “wars”. ","Artificial hypotheticals have their place, but any conclusions they support must be tested against the messy reality of war.","Any normative theory of war should pay attention both to what the laws of war should be, and to what we morally ought to do. These are two distinct but equally important questions. And they entail the importance of a third: what ought we to do all things considered, for example when law and morality conflict? ","Some reject the very idea of the “morality of war”.[1] Of those, some deny that morality applies at all once the guns strike up; for others, no plausible moral theory could license the exceptional horrors of war."];
     philosophy[MUSIC] =  ["Martial music or military music is a specific genre of music intended for use in military settings performed by professional soldiers called field musicians. Much of the military music has been composed to announce military events as with bugle calls and fanfares, or accompany marching formations with drum cadences, or mark special occasions as by military bands.","It is often thought that music has the ability to affect our emotions, intellect, and psychology; it can assuage our loneliness or incite our passions. ","There has been a strong tendency in the aesthetics of music to emphasize the paramount importance of compositional structure; however, other issues concerning the aesthetics of music include lyricism, harmony, hypnotism, emotiveness, temporal dynamics, resonance, playfulness, and color (see also musical development).","In the pre-modern tradition, the aesthetics of music or musical aesthetics explored the mathematical and cosmological dimensions of rhythmic and harmonic organization. In the eighteenth century, focus shifted to the experience of hearing music, and thus to questions about its beauty and human enjoyment (plaisir and jouissance) of music.","There was intense debate over absolute music versus program music during the late romantic era in the late 19th century.","Explications of the concept of music usually begin with the idea that music is organized sound. They go on to note that this characterization is too broad, since there are many examples of organized sound that are not music, such as human speech, and the sounds non-human animals and machines make.","What is meaning in relation to music?","What is the connection between music and emotions? (in the 19th century a debate began over whether purely instrumental music could convey emotions and depict imaginary scenes)","What does music history reveal to us about the world?","What is the relationship between music and language?","What is the relationship between music and mind?","What is the definition of music? (what are the necessary and sufficient conditions for classifying something as music?)","Philosophy of music is the study of 'fundamental questions about the nature of music and our experience of it'.[1] The philosophical study of music has many connections with philosophical questions in metaphysics and aesthetics. "] ;
-    philosophy[DEFENSE] =  ["","","","","","helicoptering"] ;
-    philosophy[QUESTING] = ["","","","","","obsessive"] ;
+    philosophy[DEFENSE] =  ["By understanding of heroism as a universal characteristic of human nature, not as an unusual feature, heroism becomes something that stands in the line of possibilities for everyone, possibly inspiring us to answer that call.","Historically, heroism has been closely connected with military service, although social heroism also deserves close research.","Heroism consists of actions that must help others, even if it is a possibility and risk of the helper's injury or even death.","The French word chevalier originally meant 'a man of aristocratic standing, and probably of noble ancestry, who is capable, if called upon, of equipping himself with a war horse and the arms of heavy cavalryman and who has been through certain rituals that make him what he is'.","The code of chivalry that developed in medieval Europe had its roots in earlier centuries.","Chivalry is a complex ethical and philosophical code that includes ideals like honesty, justice, courtesy and enterprise — all of which the world could use a bit more of. But “service to man” is at its core.","Defending a group is permissible only if the benefits to the non-refusing victims is sufficient to render defense proportionate.","What is the relationship between the morality of self-defense and the morality of defending others? One natural view is that the two share the same underlying rationale, such that the permissibility of other-defense goes “hand-in-hand” with the permissibility of self-defense.","It seems unlikely that a defender satisfies necessity if they deliberately deprive themselves of less harmful means of defense, at least if they do so at the time of the attack. ","If defensive harming is at least sometimes morally permissible, it needs to be explained how the use of force can be consistent with these rights.","With the exception of strict pacifists, there is broad consensus in morality and law that defensive harm can be permissible in cases like this. However, as we shall see, it is surprisingly difficult to explain the grounds and limits of this permission.","Killing and harming others are paradigmatic wrongs. And yet there is at least one intuitive exception to this prohibition—namely, killing or harming in self-defense, or in defense of others."] ;
+    philosophy[QUESTING] = ["In narratology and comparative mythology, the hero's journey, or the monomyth, is the common template of stories that involve a hero who goes on an adventure, is victorious in a decisive crisis, and comes home changed or transformed.","Heroes embody the best qualities in humans, but they almost always start out with nothing. Through the journey, they grow into all these characteristics by facing the challenges along their journey. One can't just tell kids to be kind, compassionate, loving, brave, or smart; these qualities need to be explained through a story.","Many heroic stories follow the same plot line, outlined by Joseph Campbell, that helps them succeed on their quest and ultimately teach whatever moral or explain whatever concept is intended by the author (5).","Many Greek myths focus on 'the hero's quest,' often involving challenging or difficult tasks the hero must complete to achieve a goal (4). There is often magical or supernatural forces at work as well (4).","Unlike Gods, heroes are neither immortal nor all-powerful (4). They are the physical representation of the best attributes of human beings: demonstrating great strength, courage, wisdom, cleverness, or devotion (4). Ancient Greek culture depicts a strong, warrior hero who embarks on quests and faces many hardships (4). ","A quest is a journey toward a specific mission or a goal. The word serves as a plot device in mythology and fiction: a difficult journey towards a goal, often symbolic or allegorical. Tales of quests figure prominently in the folklore of every nation and ethnic culture.","The strange creature has the head and neck of a snake, the body of a leopard, the haunches of a lion, and the feet of a hart.","First, “heroism involves some type of quest, which may range from the preservation of life to the preservation of an ideal”."] ;
 }
 
 
 const initLocDesc = () =>{
-    location_possibilities[ART] =  ["trite"];
-    location_possibilities[TECHNOLOGY] =  ["hacky"];
-    location_possibilities[SPACE] =  ["stand-offish"];
-    location_possibilities[TIME] =  ["hasty"];
-    location_possibilities[STEALING] =  ["greedy"];
-    location_possibilities[FREEDOM] =  ["narcissistic"];
-    location_possibilities[FIRE] =  ["destructive"];
-    location_possibilities[LONELY] =  ["lonely"];
-    location_possibilities[OCEAN] =  ["drowned"];
-    location_possibilities[FLESH] =  ["ugly"];
-    location_possibilities[BURIED] =  ["powerless"];
-    location_possibilities[SCIENCE] =  ["non-peer-reviewed"];
-    location_possibilities[MATH] =  ["stilted"];
-    location_possibilities[TWISTING] =  ["mad"];
-    location_possibilities[DEATH] =  ["morbid"];
-    location_possibilities[APOCALYPSE] =  ["pessimistic"];
-    location_possibilities[ANGELS] =  ["self-righteous"];
-    location_possibilities[LIGHT] =  ["blinding"];
-    location_possibilities[SERVICE] =  ["boot-licking"];
-    location_possibilities[FAMILY] =  ["unstable"];
-    location_possibilities[MAGIC] =  ["deluded"];
-    location_possibilities[HEALING] =  ["self-sacrificing"];
-    location_possibilities[PLANTS] = ["awkward"];
-    location_possibilities[HUNTING] = ["creepy stalker"];
-    location_possibilities[DECAY] = ["corrupted"] ;
-    location_possibilities[CHOICES] =  ["indecisive"] ;
-    location_possibilities[ZAP] = ["shocking"] ;
-    location_possibilities[LOVE] = ["suffocating"];
-    location_possibilities[SOUL] = ["self-obsessed"] ;
-    location_possibilities[ANGER] = ["violent"] ;
-    location_possibilities[WEB] =  ["controlling"] ;
-    location_possibilities[ROYALTY] =  ["pompous"] ;
-    location_possibilities[ENDINGS] =  ["dour"] ;
-    location_possibilities[KNOWING] = ["paranoid"] ;
-    location_possibilities[GUIDING] = ["condescending"] ;
-    location_possibilities[CRAFTING] =  ["obsessive"];
-    location_possibilities[LANGUAGE] = ["pendantic"] ;
-    location_possibilities[BUGS] =  ["creepy"];
-    location_possibilities[ADDICTION] = ["addled"];
-    location_possibilities[SPYING] =["spying"] ;
-    location_possibilities[CLOWNS] =["foolish"] ;
-    location_possibilities[DOLLS] = ["childish"] ;
-    location_possibilities[OBFUSCATION] = ["mysterious"] ;
-    location_possibilities[DARKNESS] =  ["edgy"] ;
-    location_possibilities[KILLING] =  ["murderous"];
-    location_possibilities[MUSIC] =  ["tone-deaf"] ;
-    location_possibilities[DEFENSE] =  ["helicoptering"] ;
-    location_possibilities[QUESTING] = ["obsessive"] ;
+    loc_desc[ART] =  ["trite"];
+    loc_desc[TECHNOLOGY] =  ["hacky"];
+    loc_desc[SPACE] =  ["stand-offish"];
+    loc_desc[TIME] =  ["hasty"];
+    loc_desc[STEALING] =  ["greedy"];
+    loc_desc[FREEDOM] =  ["narcissistic"];
+    loc_desc[FIRE] =  ["destructive"];
+    loc_desc[LONELY] =  ["lonely"];
+    loc_desc[OCEAN] =  ["drowned"];
+    loc_desc[FLESH] =  ["ugly"];
+    loc_desc[BURIED] =  ["powerless"];
+    loc_desc[SCIENCE] =  ["non-peer-reviewed"];
+    loc_desc[MATH] =  ["stilted"];
+    loc_desc[TWISTING] =  ["mad"];
+    loc_desc[DEATH] =  ["morbid"];
+    loc_desc[APOCALYPSE] =  ["pessimistic"];
+    loc_desc[ANGELS] =  ["self-righteous"];
+    loc_desc[LIGHT] =  ["blinding"];
+    loc_desc[SERVICE] =  ["boot-licking"];
+    loc_desc[FAMILY] =  ["unstable"];
+    loc_desc[MAGIC] =  ["deluded"];
+    loc_desc[HEALING] =  ["self-sacrificing"];
+    loc_desc[PLANTS] = ["awkward"];
+    loc_desc[HUNTING] = ["creepy stalker"];
+    loc_desc[DECAY] = ["corrupted"] ;
+    loc_desc[CHOICES] =  ["indecisive"] ;
+    loc_desc[ZAP] = ["shocking"] ;
+    loc_desc[LOVE] = ["suffocating"];
+    loc_desc[SOUL] = ["self-obsessed"] ;
+    loc_desc[ANGER] = ["violent"] ;
+    loc_desc[WEB] =  ["controlling"] ;
+    loc_desc[ROYALTY] =  ["pompous"] ;
+    loc_desc[ENDINGS] =  ["dour"] ;
+    loc_desc[KNOWING] = ["paranoid"] ;
+    loc_desc[GUIDING] = ["condescending"] ;
+    loc_desc[CRAFTING] =  ["obsessive"];
+    loc_desc[LANGUAGE] = ["pendantic"] ;
+    loc_desc[BUGS] =  ["creepy"];
+    loc_desc[ADDICTION] = ["addled"];
+    loc_desc[SPYING] =["spying"] ;
+    loc_desc[CLOWNS] =["foolish"] ;
+    loc_desc[DOLLS] = ["childish"] ;
+    loc_desc[OBFUSCATION] = ["mysterious"] ;
+    loc_desc[DARKNESS] =  ["edgy"] ;
+    loc_desc[KILLING] =  ["murderous"];
+    loc_desc[MUSIC] =  ["tone-deaf"] ;
+    loc_desc[DEFENSE] =  ["helicoptering"] ;
+    loc_desc[QUESTING] = ["obsessive"] ;
 }
+
+const initMonsterDesc = () =>{
+    monster_desc[ART] =  ["trite"];
+    monster_desc[TECHNOLOGY] =  ["hacky"];
+    monster_desc[SPACE] =  ["stand-offish"];
+    monster_desc[TIME] =  ["hasty"];
+    monster_desc[STEALING] =  ["greedy"];
+    monster_desc[FREEDOM] =  ["narcissistic"];
+    monster_desc[FIRE] =  ["destructive"];
+    monster_desc[LONELY] =  ["lonely"];
+    monster_desc[OCEAN] =  ["drowned"];
+    monster_desc[FLESH] =  ["ugly"];
+    monster_desc[BURIED] =  ["powerless"];
+    monster_desc[SCIENCE] =  ["non-peer-reviewed"];
+    monster_desc[MATH] =  ["stilted"];
+    monster_desc[TWISTING] =  ["mad"];
+    monster_desc[DEATH] =  ["morbid"];
+    monster_desc[APOCALYPSE] =  ["pessimistic"];
+    monster_desc[ANGELS] =  ["self-righteous"];
+    monster_desc[LIGHT] =  ["blinding"];
+    monster_desc[SERVICE] =  ["boot-licking"];
+    monster_desc[FAMILY] =  ["unstable"];
+    monster_desc[MAGIC] =  ["deluded"];
+    monster_desc[HEALING] =  ["self-sacrificing"];
+    monster_desc[PLANTS] = ["awkward"];
+    monster_desc[HUNTING] = ["creepy stalker"];
+    monster_desc[DECAY] = ["corrupted"] ;
+    monster_desc[CHOICES] =  ["indecisive"] ;
+    monster_desc[ZAP] = ["shocking"] ;
+    monster_desc[LOVE] = ["suffocating"];
+    monster_desc[SOUL] = ["self-obsessed"] ;
+    monster_desc[ANGER] = ["violent"] ;
+    monster_desc[WEB] =  ["controlling"] ;
+    monster_desc[ROYALTY] =  ["pompous"] ;
+    monster_desc[ENDINGS] =  ["dour"] ;
+    monster_desc[KNOWING] = ["paranoid"] ;
+    monster_desc[GUIDING] = ["condescending"] ;
+    monster_desc[CRAFTING] =  ["obsessive"];
+    monster_desc[LANGUAGE] = ["pendantic"] ;
+    monster_desc[BUGS] =  ["creepy"];
+    monster_desc[ADDICTION] = ["addled"];
+    monster_desc[SPYING] =["spying"] ;
+    monster_desc[CLOWNS] =["foolish"] ;
+    monster_desc[DOLLS] = ["childish"] ;
+    monster_desc[OBFUSCATION] = ["mysterious"] ;
+    monster_desc[DARKNESS] =  ["edgy"] ;
+    monster_desc[KILLING] =  ["murderous"];
+    monster_desc[MUSIC] =  ["tone-deaf"] ;
+    monster_desc[DEFENSE] =  ["helicoptering"] ;
+    monster_desc[QUESTING] = ["obsessive"] ;
+}
+
 
 
 const initGeneralBackstories = () =>{
@@ -1026,5 +1084,6 @@ export const initThemes = ()=>{
     initSongs();
     initLocDesc();
     initPhilosophy();
+    initMonsterDesc();
 
 }
