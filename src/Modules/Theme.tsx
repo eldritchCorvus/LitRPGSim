@@ -51,7 +51,7 @@ export   class Theme{
         if(!this.string_possibilities){
             return ["[ERROR: DATA NOT FOUND]"];
         }
-        if((key in this.string_possibilities) &&this.string_possibilities[key] ){
+        if((key in this.string_possibilities) && this.string_possibilities[key] ){
             return  this.string_possibilities[key];
         }else{
             console.error(`[ERROR: ${key} NOT FOUND ]`);
@@ -101,8 +101,8 @@ export function initThemes(){
         string_possibilities[ThemeStorage.MIRACLE] = ThemeStorage.miracles[key];
         string_possibilities[ThemeStorage.SONG] = ThemeStorage.song_possibilities[key];
         string_possibilities[ThemeStorage.MONSTER_DESC] = ThemeStorage.song_possibilities[key];
-        string_possibilities[ThemeStorage.PHILOSOPHY] = ThemeStorage.song_possibilities[key];
-        string_possibilities[ThemeStorage.LOC_DESC] = ThemeStorage.song_possibilities[key];
+        string_possibilities[ThemeStorage.PHILOSOPHY] = ThemeStorage.philosophy[key];
+        string_possibilities[ThemeStorage.LOC_DESC] = ThemeStorage.loc_desc[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);

@@ -1,19 +1,30 @@
-import { useEffect, useState } from "react";
+import styled from "@emotion/styled";
+import { Fragment, useEffect, useState } from "react";
 import { ABOUT } from "../AppWrapper";
 import { all_aspects, initAspects } from "../Modules/Aspect";
 import { all_interests, initInterests } from "../Modules/Interest";
-import { Player } from "../Modules/Player";
+import { BuildingMetaData, Player } from "../Modules/Player";
 import { all_classes, initClasses } from "../Modules/RPGClass";
 import { all_stats, initStats } from "../Modules/Stat";
 import { all_themes, initThemes } from "../Modules/Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { MenuBox, MENU_OPACITY, BORDERRADIUSROUND, FONTCOLOR, BGCOLOR, FONTSIZE } from "./Styles";
 
+interface RoomProps {
+  room: BuildingMetaData;
+  changeRoom: any;
+}
 interface StatusProps {
   player: Player;
 }
 export const ActualGame = (props: StatusProps) => {
   const {player} = props;
+  const [currentRoom, setCurrentRoom] = useState(player.buildingMetaData[player.current_location]);
+
+  const changeRoom = (room_key:string)=>{
+    player.current_location = room_key;
+    setCurrentRoom(player.buildingMetaData[room_key]);
+  }
 
   return (
     <div>
@@ -21,12 +32,12 @@ export const ActualGame = (props: StatusProps) => {
         Idea: randomly in the labrinth you find a NotAMinotaur (always strike thru).  It spouts bullshit philosophy at you about the nature of reality.
         The philosophy/gigglesnort is based on your themes because I'm insufferable. 
 
-        you can go only straight or right.<br>
-        oh did you think you were outsie? no. only rooms.</br>
-        <br>
-        <br>
-        initMonsterDesc</br>
-        extra rooms have 50/50 chance to come from YOUR themes or from any theme</br>
+        you can go only straight or right.
+        oh did you think you were outsie? no. only rooms. nothing is real.
+        initMonsterDesc
+        extra rooms have 50/50 chance to come from YOUR themes or from any theme
+        <br></br>
+        if you don't have an inventory you can't pick up any items or use any tiems
 <br></br>
         companions don't spawn WITH The places, instead every time you go somewhere new theres a chance to meet someone new. unless you've kileld them all.
         <br></br>
@@ -61,11 +72,32 @@ you share your inventory with the not game as well
 every location you move to adds ten to the time walking stat
 im enthralled by the idea that True screams at you for "cheating" if you hack the game to be walking, and yet there are so many legit ways to increaee that stat
 city building screen should mark buildings as locked or unlocked  as well, clear parallel
+<RenderedRoom room={currentRoom} changeRoom={changeRoom}/>
       </MenuBox>
     </div>
 
   );
 }
+
+export const RenderedRoom = (props: RoomProps) => {
+
+  const RoomName = styled.div`
+  font-weight: bolder;
+  font-size: 18px;
+`
+const RoomDescription = styled.div`
+  padding-top: 20px;
+`;
+const {room, changeRoom} =props;
+  return (
+    <Fragment>
+      <RoomName>{room.key}</RoomName>
+      <RoomDescription>{room.description}</RoomDescription>
+    </Fragment>
+
+  )
+}
+
 
 export default ActualGame;
 
