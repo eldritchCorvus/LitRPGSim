@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { clickEffect } from "..";
 
 interface RoomProps {
     text: string;
@@ -10,7 +11,8 @@ export const OneCharAtATimeDiv = (props: RoomProps) => {
     const incrementIndex = ()=>{
         if(index < text.length){
             setTimeout(()=>{
-                window.requestAnimationFrame(()=>{setIndex(index +1)})}, 100)
+                clickEffect();
+                window.requestAnimationFrame(()=>{setIndex(index +1)})}, 50)
         }
 
     }
@@ -18,6 +20,11 @@ export const OneCharAtATimeDiv = (props: RoomProps) => {
     useEffect(()=>{
         incrementIndex();
     },[index]);
+
+    useEffect(()=>{
+        setIndex(0);
+    },[text]);
+
     return(
         <div>
             {text.substr(0, index)}
