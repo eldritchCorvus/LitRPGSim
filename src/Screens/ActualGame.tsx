@@ -8,6 +8,7 @@ import { all_classes, initClasses } from "../Modules/RPGClass";
 import { all_stats, initStats } from "../Modules/Stat";
 import { all_themes, initThemes } from "../Modules/Theme";
 import SeededRandom from "../Utils/SeededRandom";
+import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { MenuBox, MENU_OPACITY, BORDERRADIUSROUND, FONTCOLOR, BGCOLOR, FONTSIZE } from "./Styles";
 
 interface RoomProps {
@@ -92,7 +93,8 @@ const {room, changeRoom} =props;
   return (
     <Fragment>
       <RoomName>{room.key}</RoomName>
-      <RoomDescription>{room.description}</RoomDescription>
+      <RoomDescription>
+      <OneCharAtATimeDiv text={room.description}></OneCharAtATimeDiv></RoomDescription>
     </Fragment>
 
   )
