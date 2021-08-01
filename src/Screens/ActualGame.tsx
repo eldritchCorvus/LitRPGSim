@@ -27,6 +27,7 @@ export const ActualGame = (props: StatusProps) => {
         <li>KILL/DESTROY/BREAK X (deletes whatever X is, even if its a location. removes it from everywhere. rip) , </li>
         <li>Use X on Y: if its an item, you rub it on the Y. if the Y is a location and its locked, it unlocks. item is destroyed.</li>
         <li>TALK X: if X is a companion, have a vague but pleasant conversation. if NotAMinotaur random philosophy/gigglesnort time.</li>
+        <li>HELP X: get an ominous phrase about how you can't help anyone </li>
         <br></br>
         <div>
           {player.buildings.map((building)=>{return(<div>{player.buildingMetaData[building].debug()}</div>)})}
