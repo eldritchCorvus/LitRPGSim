@@ -5,7 +5,9 @@ export const titleCase = (input)=>{
     const pieces = input.split(" ");
     const ret = [];
     for(let piece of pieces){
-        ret.push(replaceStringAt(piece,0 , piece[0].toUpperCase()));
+        if(piece[0]){
+            ret.push(replaceStringAt(piece,0 , piece[0].toUpperCase()));
+        }
     }
     return ret.join(" ");
 }
