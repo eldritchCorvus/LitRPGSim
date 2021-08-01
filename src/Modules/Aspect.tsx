@@ -75,7 +75,7 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("mind", ["Mind", "Choices", "Thought", "Decisions", "Alternates","Facets"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(3)]), [all_themes.choices, all_themes.zap]);
     new Aspect("heart", ["Heart", "Soul", "Identity", "Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(3)]), [all_themes.soul, all_themes.love]);
     new Aspect("void", ["Dark", "Darkness", "Nothingness", "Emptiness","Void","Lack","Ink","Censor","Envy"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(3)]), [all_themes.obfuscation,all_themes.darkness]);
-    new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery","Wrath","Anger"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger]);
+    new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery","Wrath","Anger"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger, all_themes[TWISTING]]);
     new Aspect("hope", ["Hope", "Belief", "Faith", "Yearning"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(3)]), [all_themes[ANGELS],all_themes[QUESTING]]);
     new Aspect("light", ["Light", "Knowledge", "Attention", "Exposition","Temperance"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(3)]), [all_themes[KNOWING],all_themes[LIGHT]]);
     new Aspect("blood", ["Blood", "Bonds", "Family", "Chains","Connections","Fellowship","Ties","Union","Greed"], seeded_random, Stat.WrapStatsToStatMap([Stat.BLOOD(3)]), [all_themes[KILLING],all_themes[FAMILY]]);

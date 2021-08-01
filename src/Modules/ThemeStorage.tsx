@@ -861,26 +861,30 @@ const initPhilosophy = () =>{
 }
 
 
+//JUST for game mode, don't risk leaning on this too much
+///example "You see several math equations floating in the air as you get acclimated to the CLASSROOM.
+// There is a model anatomy skeleton in the corner.  There's a huge map of Zampanio on a wall."
+//"there is" or "you see",or "there's" is going to be added by the system. don't worry.
 const initLocDesc = () =>{
-    loc_desc[ART] =  ["trite"];
-    loc_desc[TECHNOLOGY] =  ["hacky"];
-    loc_desc[SPACE] =  ["stand-offish"];
-    loc_desc[TIME] =  ["hasty"];
-    loc_desc[STEALING] =  ["greedy"];
-    loc_desc[FREEDOM] =  ["narcissistic"];
-    loc_desc[FIRE] =  ["destructive"];
-    loc_desc[LONELY] =  ["lonely"];
-    loc_desc[OCEAN] =  ["drowned"];
-    loc_desc[FLESH] =  ["ugly"];
-    loc_desc[BURIED] =  ["powerless"];
-    loc_desc[SCIENCE] =  ["non-peer-reviewed"];
-    loc_desc[MATH] =  ["stilted"];
-    loc_desc[TWISTING] =  ["mad"];
-    loc_desc[DEATH] =  ["morbid"];
-    loc_desc[APOCALYPSE] =  ["pessimistic"];
-    loc_desc[ANGELS] =  ["self-righteous"];
-    loc_desc[LIGHT] =  ["blinding"];
-    loc_desc[SERVICE] =  ["boot-licking"];
+    loc_desc[ART] =  ["a painting of a sad clown on a wall","splatters of paint on the floor","a sculpture of your own face in the center"];
+    loc_desc[TECHNOLOGY] =  ["blinking and beeping dials and buttons along the walls","circuitry woven into everything","shiny chrome all along the walls"];
+    loc_desc[SPACE] =  ["a hologram that shows an unknown solar system","a window that inexplicably seems to look out into an infinite sky","a thick pane of glass behind which the infinite void of the stars is visible"];
+    loc_desc[TIME] =  ["a clock resolutely ticking on a wall","a giant sundial in the middle","a repeating hourglass motif built into the walls","hundreds of cuckoo clocks along a wall"];
+    loc_desc[STEALING] =  ["iron bars bisecting the room","a vault of fake treasure","bags and bags of what first appears to be money"];
+    loc_desc[FREEDOM] =  ["open windows looking out to a sunlit plain","feather motifs worked into the architecture of the room","keys decorating every available nook and cranny"];
+    loc_desc[FIRE] =  ["an impossible bonfire in the center of the room","every cherished childhood toy you have long sense forgotten in a pile in the center of the room, smoldering","matches scattered around on the floor"];
+    loc_desc[LONELY] =  ["wall upon wall of portraits of empty faces","scattered photos of everyone who has ever rejected you","dozens of uncomfortable chairs and no one to fill them"];
+    loc_desc[OCEAN] =  ["decorative anchors strewn about","a rug that almost seems to be the ocean if you look at it out of the corner of your eyes","an entire scale replica of a tall ship you can climb around in","a ship in a bottle"];
+    loc_desc[FLESH] =  ["walls made entirely of glistening raw meat","a huge pile of animal meat in the center of the room","steaks and fillets in various states of rotting nailed onto every surface"];
+    loc_desc[BURIED] =  ["drifts upon drifts of sand","walls made entirely of dirt","that the walls are slowly closing in"];
+    loc_desc[SCIENCE] =  ["beakers and testtubes strewn about","a lab coat neatly hung up in a corner","a model anatomy skeleton in the corner"];
+    loc_desc[MATH] =  ["complex equations hovering in mid air","mathematical forumals scribbled onto every surface","numbers worked in as motifs along all the walls"];
+    loc_desc[TWISTING] =  ["reflections of your face that are not your face and not reflections","unending echoing fractals of this room through every mirror and window that are not mirrors or windows","a laugh that is somehow visible and somehow mocking you","a spiral that is NotASpiral twisting and changing as it watches you from behind the room","a mirror endlessly reflecting itself"];
+    loc_desc[DEATH] =  ["a tombstone bearing your name in the center","human remains strewn about","an urn of ashes that clearly had once been human"];
+    loc_desc[APOCALYPSE] =  ["a fully armed nuclear bomb counting slowly down to oblivion in the center of the room","piles upon piles of plastic that will never degrade","a seagull partially fused with a set of plastic rings from a six pack of soda in the center of the room"];
+    loc_desc[ANGELS] =  ["statues of saints and angels everywhere you look","stained glass windows depecting religious scenes","an alter to a nameless god"];
+    loc_desc[LIGHT] =  ["blinding light in every direction","lamps upon lamps upon lamps everywhere you look","a gentle, helpful light"];
+    loc_desc[SERVICE] =  ["bells to ring for servants every few feet","cleaning supplies clustered in a corner","a list of chores that need completing along a wall"];
     loc_desc[FAMILY] =  ["unstable"];
     loc_desc[MAGIC] =  ["deluded"];
     loc_desc[HEALING] =  ["self-sacrificing"];
@@ -906,12 +910,13 @@ const initLocDesc = () =>{
     loc_desc[DOLLS] = ["childish"] ;
     loc_desc[OBFUSCATION] = ["mysterious"] ;
     loc_desc[DARKNESS] =  ["edgy"] ;
-    loc_desc[KILLING] =  ["murderous"];
+    loc_desc[KILLING] =  ["splaters of blood along the wall","a blood knife discarded on the floor","a chalk outline of a figure clearly murdered"];
     loc_desc[MUSIC] =  ["tone-deaf"] ;
     loc_desc[DEFENSE] =  ["helicoptering"] ;
     loc_desc[QUESTING] = ["obsessive"] ;
 }
 
+//useful for quests, and the longer you're in the ThisIsAGame the more likely they are to spawn and HURT you.
 const initMonsterDesc = () =>{
     monster_desc[ART] =  ["trite"];
     monster_desc[TECHNOLOGY] =  ["hacky"];
