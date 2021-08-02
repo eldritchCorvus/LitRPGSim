@@ -2,14 +2,14 @@ import {all_aspects, Aspect} from "./Aspect";
 import { all_classes, RPGClass } from "./RPGClass";
 import { CoreSkill, Skill, StatSkill, WasteSkill } from "./Skill";
 import {all_interests, Interest} from "./Interest";
-import {Theme} from "./Theme";
+import {all_themes, Theme} from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
 import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, FREESPIRITED, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, OBJECT } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, OBJECT, PHILOSOPHY } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
@@ -60,6 +60,14 @@ export   class Player{
             this.fullInit(class_name, aspect, interests);
         }
 
+    }
+
+    collateThemes = (careInterests = true)=>{
+        let themes:Theme[] = [];
+       for(let theme of this.theme_keys){
+           themes.push(all_themes[theme]);
+       }
+        return themes;
     }
 
     fullInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[])=>{
@@ -126,11 +134,7 @@ export   class Player{
         this.current_location = this.buildings[0]; 
         for(let theme of themes){
             const building:string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
-            const items = [];
-            if(rand.nextDouble()>0.3){
-                items.push(this.generateItem());
-            }
-            this.buildingMetaData[building] = new BuildingMetaData(building,themes,rand.nextDouble()>0.5, rand,items); 
+            this.metaDataForOneBuilding(building,themes, rand)
             this.buildings.push(building);
         }
         console.log("JR NOTE: building meta data is ", this.buildingMetaData)
@@ -138,13 +142,21 @@ export   class Player{
         this.positionNeighbors();
     }
 
+    metaDataForOneBuilding =(building: string,themes: Theme[],rand:SeededRandom)=>{
+        const items = [];
+        if(rand.nextDouble()>0.3){
+            items.push(this.generateItem());
+        }
+        this.buildingMetaData[building] = new BuildingMetaData(building,themes,rand.nextDouble()>0.5, rand,items); 
+    }
+
+
     positionNeighbors = ()=>{
         let remaining = [...this.buildings];
         for(let buildingMeta of Object.values(this.buildingMetaData)){
             const toRemove = buildingMeta.assignNeighbors(remaining);
             for(let r of toRemove){
                 //you should at LEAST be able to get back to where you're going plz.
-                console.log("JR NOTE: building is", r, "and this.buildingMetaData is",this.buildingMetaData)
                 if(!this.buildingMetaData[r].neighbors.includes(buildingMeta.key)){
                     this.buildingMetaData[r].neighbors.push(buildingMeta.key);
                 }
@@ -288,6 +300,14 @@ export   class Player{
         this.observer.skillPointsGainedFromMenu += points;
     }
 
+    spawnNotAMinotaur = ()=>{
+        const NotAMinotaur = new Companion(this.rand)
+        NotAMinotaur.fullName = "ThisIsNotAMinotaur";
+        NotAMinotaur.backstory = this.rand.pickFrom(this.collateThemes()).pickPossibilityFor(this.rand,PHILOSOPHY);
+        NotAMinotaur.title = "False Minotaur";
+        this.companions.push(NotAMinotaur);
+    }
+
     findSkill = (skill_id: string) =>{
         const found = this.skills.find((skill) =>{return skill.cytoscapeID()===skill_id});
         if(found){
@@ -359,12 +379,33 @@ export class BuildingMetaData{
         return `key: ${this.key}, unlocked: ${this.unlocked}, neighbors: ${this.neighbors.join(", ")}, items: ${this.items.join(", ")}, companions: ${this.people.join(", ")}}  `;
     }
 
+    beEntered = (player: Player)=>{
+        this.people = [];
+        if(this.neighbors.length < 3){
+            if(player.rand.nextDouble()>0.6){
+                const theme = player.rand.pickFrom(Object.values(all_themes));
+                const building:string = titleCase(player.rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
+                //one new random theme but the rest just from player.
+                player.metaDataForOneBuilding(building,[theme, ...player.collateThemes()], player.rand);
+                this.neighbors.push(building);
+                player.buildingMetaData[building].neighbors.push(this.key);
+            }
+        }
+
+        if(player.rand.nextDouble()>0.4){
+            this.people.push(player.rand.pickFrom(player.companions));
+        }
+        if(player.companions.length === 0){
+            player.spawnNotAMinotaur();
+        }
+    }
+
     assignNeighbors = (possible_neighbor_keys:string[])=>{
         if(possible_neighbor_keys.length ===0){
             return [];
         }
         //you can only go straight or right. its a spiral
-        const num = this.rand.getRandomNumberBetween(1,2);
+        const num = this.rand.getRandomNumberBetween(1,3);
         for(let i=0; i<num; i++){
             const choice = this.rand.pickFrom(possible_neighbor_keys);
             if(!this.neighbors.includes(choice)){
@@ -398,6 +439,10 @@ export   class Companion{
         this.theme_keys = shadowPlayer.theme_keys;//needed for shoving them into quests
         this.loyalty = shadowPlayer.stats[LOYAL].value;
         this.inventory = shadowPlayer.inventory;
+    }
+
+    toString=()=>{
+        return this.fullName;
     }
 
 
