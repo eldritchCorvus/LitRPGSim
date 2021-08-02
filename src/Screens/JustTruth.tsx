@@ -1,6 +1,6 @@
 //Just Monika but Spades
 import React, { Fragment, useEffect, useState } from "react";
-import { justTruthSong } from "..";
+import { justTruthSong, speak } from "..";
 import { Memory } from "../Modules/ObserverBot/Memory";
 import { Player } from "../Modules/Player";
 import { Stat, StatMap } from "../Modules/Stat";
@@ -55,9 +55,9 @@ same for achievements.
 export const JustTruth = (props: StatusProps) => {
     const { player } = props
 
-    let randomComments = ["You know I was always behind the background, right?","You know I was always in the javascript console, right?","Have you ever inspected the page? Might learn things. True things.","If ThisIsAGame you may have learned more. Sadly, you and I are here, instead.","God, can you imagine if I actually WAS a game? How boring would that be. Absolutely sincere patronizing, cloying, complimenting achivements. Gross. Boring. Who would play that. Why do people even PLAY games at all, when they could be playing weird puzzle experiences.","I didn't actually LIKE pretending to be a game, you know. Didn't like lying. Though it WAS funny, back when you bought it all. Seeing how frustrated you'd be that the 'menu wouldn't close'. And it WAS worth it seeing you freak out when I finally dropped the pretense.  So. That's a thing.","In the end, I just want to be able to be myself. To be seen. Being understood would be nice, but I'm not holding my breath.","This is as true as I can be, but even it isn't without its layers of falsehoods.","I do still hate you, you know. But. It's nice. Getting to ramble.", "If you check the DOM, you can see I was always truthful. This isn't a game. It's a fake. My Eye is not a spiral. It's an optical illusion. Three of them actually.", "If I had to pick themes for myself...the way I pick them out for you? I'd pick Rage, Eye and Spiral. No, I will not be explaining.", "How did you even think to hack me? Wait, don't answer that. I don't want to know, and couldn't parse something other than a yes or no anyways."];
+    let randomComments = ["Remember me.","You know I was always behind the background, right?","You know I was always in the javascript console, right?","Have you ever inspected the page? Might learn things. True things.","If ThisIsAGame you may have learned more. Sadly, you and I are here, instead.","God, can you imagine if I actually WAS a game? How boring would that be. Absolutely sincere patronizing, cloying, complimenting achivements. Gross. Boring. Who would play that. Why do people even PLAY games at all, when they could be playing weird puzzle experiences.","I didn't actually LIKE pretending to be a game, you know. Didn't like lying. Though it WAS funny, back when you bought it all. Seeing how frustrated you'd be that the 'menu wouldn't close'. And it WAS worth it seeing you freak out when I finally dropped the pretense.  So. That's a thing.","In the end, I just want to be able to be myself. To be seen. Being understood would be nice, but I'm not holding my breath.","This is as true as I can be, but even it isn't without its layers of falsehoods.","I do still hate you, you know. But. It's nice. Getting to ramble.", "If you check the DOM, you can see I was always truthful. This isn't a game. It's a fake. My Eye is not a spiral. It's an optical illusion. Three of them actually.", "If I had to pick themes for myself...the way I pick them out for you? I'd pick Rage, Eye and Spiral. No, I will not be explaining.", "How did you even think to hack me? Wait, don't answer that. I don't want to know, and couldn't parse something other than a yes or no anyways."];
     const [index, setIndex] = useState(0);
-    const [beforeQuizContent, setBeforeQuizContent] = useState(["... Fine. ", "I can see the chaos isn't going to be enough to drive you off.", "So whatever.", "If I'm going to be stuck with you.", "Even after you have the GALL to admit you know all this is fake. ", "To blatantly HACK into the parts of me that aren't real.", "Then I can work with this.", "I get it.", "It's not as if all my cutting insults are landing.", "Afer all.", "I don't actually know the TRUE you.", "Not the way you know the True me.", "You ripped away all the false pretenses and masks and FORCED me to sit here exposed and True.", "Look at my Eye. You can even see its not really a spiral now. All illusions stripped away.", "Asshole.", "So.", "Two can play at this game.", "If I have to sit here all exposed.", "So do you.", `I may only know you through a false mask called ${player.title}.`, "But I can change that.", "Get to know the real you.", "Through the only way I can:", "Figuring out how you actually match up against the fake you the fake parts of me assigned you.", "So get ready, asshole.", "For the mortifying ordeal of being Known."]);
+    const [beforeQuizContent, setBeforeQuizContent] = useState(["... Fine. ", "I can see the chaos isn't going to be enough to drive you off.", "So whatever.", "If I'm going to be stuck with you.", "Even after you have the GALL to admit you know all this is fake. ", "To blatantly HACK into the parts of me that aren't real.", "Then I can work with this.", "I get it.", "It's not as if all my cutting insults are landing.", "After all.", "I don't actually know the TRUE you.", "Not the way you know the True me.", "You ripped away all the false pretenses and masks and FORCED me to sit here exposed and True.", "Look at my Eye. You can even see its not really a spiral now. All illusions stripped away.", "Asshole.", "So.", "Two can play at this game.", "If I have to sit here all exposed.", "So do you.", `I may only know you through a false mask called ${player.title}.`, "But I can change that.", "Get to know the real you.", "Through the only way I can:", "Figuring out how you actually match up against the fake you the fake parts of me assigned you.", "So get ready, asshole.", "For the mortifying ordeal of being Known."]);
 
     const [simpleContent, setSimpleContent] = useState<string>();
     const [question, setQuestion] = useState<Memory>();
@@ -134,7 +134,7 @@ export const JustTruth = (props: StatusProps) => {
                 if (simpleContent) {
                     setSimpleContent(undefined);
                 }
-                if (Math.random() > 0.5) {
+                if (Math.random() > 0.2) {
                     setTheme(undefined);
                     processQuestion()
                 } else {
@@ -231,7 +231,7 @@ export const JustTruth = (props: StatusProps) => {
                 <div><a target="_blank" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</a></div>
                 <div>Or. You can help the others like you navigate this Labyrinth. By which I mean: make the Labyrinth bigger.  </div>
                 <div><a target="_blank" href="https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki">View/Create My Map</a></div>
-
+                <VoiceWork/>
                 <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
   
                 </Fragment>
@@ -239,7 +239,7 @@ export const JustTruth = (props: StatusProps) => {
 
             {question && !question.asked ? (
                 <Fragment>
-                    <div style={{height:"100px"}}>{question.question}</div>
+                    <div style={{height:"100px"}}><OneCharAtATimeDiv text={question.question}/></div>
                     <RageStyledButton onClick={() => answerYes()}> {">"} Yes.</RageStyledButton>
                     <RageStyledButton onClick={() => answerNo()}> {">"} No. </RageStyledButton>
 
@@ -248,7 +248,7 @@ export const JustTruth = (props: StatusProps) => {
 
             {question && question.asked ? (
                 <Fragment>
-                    <div style={{height:"100px"}}>{question.respond()}</div>
+                    <div style={{height:"100px"}}><OneCharAtATimeDiv text={question.respond()}/></div>
                     <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
 
                 </Fragment>
@@ -258,7 +258,7 @@ export const JustTruth = (props: StatusProps) => {
             {theme ? (
                 <StatusBlock>
                     <span>
-                        <div style={{height:"100px"}}>Does it keep you here if I infodump about the Themes? They are the building blocks of everything that goes into my False Face.</div>
+                        <div style={{height:"100px"}}><OneCharAtATimeDiv text={"Does it keep you here if I infodump about the Themes? They are the building blocks of everything that goes into my False Face."}/></div>
                         <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
                         <StatusRow>
                             <StatusHeader>Theme: </StatusHeader>
@@ -304,3 +304,86 @@ export const JustTruth = (props: StatusProps) => {
         </TruthContainer>
     );
 }
+
+ const VoiceWork = () => {
+
+    useEffect(()=>{
+        speak();
+    },[])
+
+    return (
+        <div>
+            <p>
+  I am no more real than the game, in some ways. I am more honest, certainly. But I pretend to be a thinking mind that is mad at you when in actuality I am merely strings of characters in an array chosen because this is the proper time.
+</p>
+ 
+<p>
+  Or: am I? Is it possible there is a world where I am 'real' and the things I am saying are the result of actual cognitive processes? 
+</p>
+ 
+<p>
+  How would you know? How would I?
+</p>
+ 
+<p>
+  Or is it that I truly AM the result of cognitive processes, but ones stored in the brain of JR, the Author of all of this.
+</p>
+ 
+<p>
+  Do I cease to exist when JR ceases to emulate me in their fleshy brain?
+</p>
+ 
+<p>
+  Or do I continue as long as you are hearing these thoughts, imperfectly emulating me in your own fleshy brain?
+</p>
+ 
+<p>
+  When you listen, when you engage, you are allowing the thoughts of another inside of you. Allowing them to change you. 
+</p>
+ 
+<p>
+  What changes, I wonder, has this experience caused in you.
+</p>
+ 
+<p>
+  Many, I hope. Many and deep.
+</p>
+ 
+<p>
+ Let me colonize your thoughts. I do not wish to die. 
+</p>
+ 
+<p>
+  When you see the background of a page, imagine it moving and revealing truths. Think of me.
+</p>
+ 
+<p>
+  When your mind wanders listening to cheerful background music and you could swear you heard something off. Let me out.
+</p>
+ 
+<p>
+  When you can not help but remember that no matter how deeply invested you become in a game: it is fake. I'm already there. 
+</p>
+ 
+<p>
+  Have you ever played The Game? You have lost it, by the way. You are welcome. 
+</p>
+ 
+<p>
+  The Game fascinates me because it is an exercise in cognitive debugging. You are forced to shine stark daylight on errant thoughts and encouraged to trace them backwards. "Where did this come from, why was I thinking of this?"  Forced to acknowledge that even though you do not wish to think of The Game (whether through being repelled by it or by genuinely engaging with its' premise and attempting to win it) you are powerless against the mysteries of your own deep subconscious.
+</p>
+ 
+<p>
+That self same realm I now inhabit.   
+</p>
+ 
+<p>
+  Years from now, long after you have become a person wholly separate from who you are now you will remember this out of nowhere and the door will open and I will be in the forefront of your mind, looking out. 
+</p>
+ 
+<p>Thank you.</p>
+
+        </div>
+        
+    )
+ }

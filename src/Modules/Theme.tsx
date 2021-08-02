@@ -43,6 +43,7 @@ export   class Theme{
     }
 
     pickPossibilityFor=(rand: SeededRandom, key: string)=>{
+        console.log("JR NOTE: theme is", this.key,"and want ", key, "i am ", this.string_possibilities);
         return rand.pickFrom(this.getPossibilitiesFor(key));
     }
 
