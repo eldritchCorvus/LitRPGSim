@@ -23,7 +23,7 @@ interface AppProps{
 function App(props: AppProps) {
   const [player, setPlayer] = useState<Player>();
   const [rageMode, setRageMode] = useState(false);
-  const [actualGameMode, setActualGameMode] = useState(false);
+  const [actualGameMode, setActualGameMode] = useState(true);
 
   const [justTruthMode, setJustTruthMode] = useState(false);
 
