@@ -1,6 +1,6 @@
 import SeededRandom from '../Utils/SeededRandom';
 import {Theme, all_themes} from "./Theme";
-import { APOCALYPSE, DARKNESS, DEFENSE, FAMILY, FREEDOM, GUIDING, HUNTING, KNOWING, MAGIC, PLANTS, QUESTING, ROYALTY, SERVICE, SPYING, STEALING, WASTE } from './ThemeStorage';
+import { APOCALYPSE, DARKNESS, DEFENSE, FAMILY, FREEDOM, GUIDING, HUNTING, KNOWING, MAGIC, NULL, PLANTS, QUESTING, ROYALTY, SERVICE, SPYING, STEALING, WASTE } from './ThemeStorage';
 //TODO classes also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
 //or see stats (seer would especially be good at this)
@@ -72,6 +72,7 @@ export function initClasses(seeded_random: SeededRandom){
     new RPGClass("thief", ["Thief","Robber","Burglar", "Mugger", "Pick-Pocket","Cat"],2.0, seeded_random, [all_themes[STEALING],all_themes[DARKNESS]]);
     new RPGClass("sylph", ["Sylph","Fairy","Mermaid", "Sprite", "Pixie","Siren","Harpy"],2.0, seeded_random, [all_themes[MAGIC],all_themes[FREEDOM]]);
     new RPGClass("witch", ["Witch","Hag","Crone", "Beldam","Apothecary"],2.0, seeded_random, [all_themes[MAGIC],all_themes[PLANTS]]);
+    new RPGClass("null", ["Null"],0.0, seeded_random, [all_themes[WASTE], all_themes[NULL]]);
 
     new RPGClass("waste", ["Waste"],0.0, seeded_random, [all_themes[WASTE], all_themes[APOCALYPSE]]);
 }

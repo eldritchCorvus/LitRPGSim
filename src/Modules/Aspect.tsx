@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import * as Stat from './Stat';
 import {Theme, all_themes} from "./Theme";
-import { ANGELS, APOCALYPSE, BURIED, DARKNESS, DEATH, ENDINGS, FAMILY, FIRE, FLESH, FREEDOM, HUNTING, KILLING, KNOWING, LIGHT, LONELY, MUSIC, OBFUSCATION, OCEAN, PLANTS, QUESTING, SOUL, SPACE, STEALING, TWISTING } from './ThemeStorage';
+import { ANGELS, APOCALYPSE, BURIED, DARKNESS, DEATH, ENDINGS, FAMILY, FIRE, FLESH, FREEDOM, HUNTING, KILLING, KNOWING, LIGHT, LONELY, MUSIC, NULL, OBFUSCATION, OCEAN, PLANTS, QUESTING, SOUL, SPACE, STEALING, TWISTING } from './ThemeStorage';
 //TODO aspects also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
 //or see/upgrade your allies (blood would especially be good at this)
@@ -96,6 +96,8 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("buried", ["Buried", "Choke", "Claustrophobia", "Trapped","Dirt","Mud","Depth","Underneath"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1), Stat.VOID(1)]), [all_themes[BURIED], all_themes[DARKNESS]]);
     new Aspect("desolation", ["Desolation", "Fire", "Loss", "Blaze","Ruin","Misfortune","Calamity","Flame","Humility"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1), Stat.RAGE(1)]), [all_themes[FIRE], all_themes[STEALING]]);
     new Aspect("lonely", ["Lonely", "Outcasts","Isolation", "Seclusion", "Cold","Frost","Fog","Mist","Sea","Pride","Chastity"], seeded_random, Stat.WrapStatsToStatMap([Stat.BREATH(1), Stat.VOID(1)]), [all_themes[OCEAN], all_themes[LONELY], all_themes[OBFUSCATION]]);
+
+    new Aspect("null", ["Null"], seeded_random, Stat.WrapStatsToStatMap([Stat.WASTE(1)]),[all_themes[NULL]]);
 
     //dark and vast are directly represented in homestuck
 }
