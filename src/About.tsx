@@ -66,7 +66,8 @@ function NewspostDom(props: PostProps) {
 function About(props: AppProps) {
   const [date, setDate] = useState<string>("1933-03-03");
   const newsposts = [
-    new Newspost("07/25/2021", "the Thief of Beef is no longer mandatory for all party members to emulate","haha whoops")
+    new Newspost("08/02/2021","okay so maybe game like activity is possible but i do not recommend it the ~~labyrinth~~ gets pissed if you wander into its labrynth","if you do it its on your end")
+    ,new Newspost("07/25/2021", "the Thief of Beef is no longer mandatory for all party members to emulate","haha whoops")
     ,new Newspost("07/24/2021", " the Thief of Beef is now possible. that is all there is to say on the matter.","rereading old newspost and srsly its surreal to see any even tangentially mention the pandemic? if i'd seen something like that in a dev log two years ago i would have assumed it was part of an arg or some shit and not just like 'ah yes that period of literal years where eveyone wore masks and reassured everyone about quarantine procedures any time they mentioned leaving the house'. ")
     , new Newspost("07/23/2021", "THE END IS NEVER THE END", "we're really in it now")
     , new Newspost("07/22/2021", "hunting is no longer associated with clowns", "did i go out of my way to leave the 'bug' in for weeks just so i could mirror the faq bug? yes. ofc i did.")

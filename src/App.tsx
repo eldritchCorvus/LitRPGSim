@@ -137,7 +137,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>make ThisIsAGame mode not default anymore, see how obvious the themes are</li>
+        <li>add references to https://scp-wiki.wikidot.com/scp-001-ex</li>
         <li>secrets under construction component, shitty geocities gif of construction.</li>
         <li>creepy pastas scattered throughout the site, based on themes, of the form: "You sit down to play a game. It's weirdly obsessed with X. theme1 creepy. then thene2 creepy.  
 
