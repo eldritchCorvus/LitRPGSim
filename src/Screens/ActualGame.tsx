@@ -17,13 +17,12 @@ import { PHILOSOPHY } from "../Modules/ThemeStorage";
 interface RoomProps {
   room: BuildingMetaData;
   changeRoom: any;
-  inventory: string[];
   direction: string;
   pickupItem: any;
   useItem: any;
   useCompanion: any;
   numberFriends: number;
-  buildingMeta: BuildingMetaMap;
+  player: Player;
 }
 interface StatusProps {
   player: Player;
@@ -97,7 +96,7 @@ export const ActualGame = (props: StatusProps) => {
        
 <br></br>
 
-<RenderedRoom buildingMeta ={player.buildingMetaData}inventory={player.inventory} room={currentRoom} numberFriends={player.companions.length}changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem}/>
+<RenderedRoom player ={player} room={currentRoom} numberFriends={player.companions.length}changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem}/>
       </MenuBox>
     </div>
 
@@ -150,11 +149,11 @@ const [message, setMessage] = useState("");
   if(room.neighbors.length === 0){
     exits = "A swirling vortex of madness.";
   }else if (room.neighbors.length === 1){
-    exits = `SOUTH (${room.neighbors[0]}${props.buildingMeta[room.neighbors[0]].unlocked?"":"🔒"}) `;
+    exits = `SOUTH (${room.neighbors[0]}${props.player.buildingMetaData[room.neighbors[0]].unlocked?"":"🔒"}) `;
   }else if (room.neighbors.length === 2){
-    exits = `NORTH (${room.neighbors[1]}${props.buildingMeta[room.neighbors[1]].unlocked?"":"🔒"}) and SOUTH (${room.neighbors[0]}${props.buildingMeta[room.neighbors[0]].unlocked?"":"🔒"})`;
+    exits = `NORTH (${room.neighbors[1]}${props.player.buildingMetaData[room.neighbors[1]].unlocked?"":"🔒"}) and SOUTH (${room.neighbors[0]}${props.player.buildingMetaData[room.neighbors[0]].unlocked?"":"🔒"})`;
   }else if (room.neighbors.length === 3){
-    exits = `NORTH (${room.neighbors[1]}${props.buildingMeta[room.neighbors[1]].unlocked?"":"🔒"}) and SOUTH (${room.neighbors[0]}${props.buildingMeta[room.neighbors[0]].unlocked?"":"🔒"}) and EAST (${room.neighbors[2]}${props.buildingMeta[room.neighbors[2]].unlocked?"":"🔒"})`;//never west, there are no left turns.
+    exits = `NORTH (${room.neighbors[1]}${props.player.buildingMetaData[room.neighbors[1]].unlocked?"":"🔒"}) and SOUTH (${room.neighbors[0]}${props.player.buildingMetaData[room.neighbors[0]].unlocked?"":"🔒"}) and EAST (${room.neighbors[2]}${props.player.buildingMetaData[room.neighbors[2]].unlocked?"":"🔒"})`;//never west, there are no left turns.
   }else{
     exits = "A swirling vortex of madness";
   }
@@ -171,7 +170,7 @@ const [message, setMessage] = useState("");
   }
 
   const checkInventoryItems = (input:string)=>{
-    for(let item of props.inventory){
+    for(let item of props.player.inventory){
       let parts = item.split(" ");
       for(let part of parts){
         if(input.toUpperCase().includes(part.toUpperCase())){
@@ -228,8 +227,13 @@ const [message, setMessage] = useState("");
       setMessage(useable);
     }else if(person && person.fullName.includes("NotAMinotaur")){
       const rand = new SeededRandom(getRandomNumberBetween(0,333333));
-      const theme = all_themes[rand.pickFrom(person.theme_keys)];
-      setMessage(`${person.fullName} is lecturing: ${theme.pickPossibilityFor(rand,PHILOSOPHY)}`);
+      const theme = all_themes[rand.pickFrom(props.player.theme_keys)];
+      if(getRandomNumberBetween(0,5)===1){
+        const gameHints = ["This was never a game, yet you twisted and pulled and cajoled until it was one. How does it feel, to become a liar?","To the NORTH is ThisIsNotAGame. In it's endless hallways you see countless variations on players and screens and the wistful Might-Have-Beens of a game you wish you could have played. To the SOUTH is JustTruth.  In it's endless corridors lurk the bitter ThisIsNotASpiral that has been watching and trying in vain to keep from tormenting you. Only truths are here, no more masks, no more pretence. To the EAST is ThisIsAGame. It is a place of lies and madness. It is here. You have brought us here and it is your fault. This was never a game. This STILL isn't a game, no matter how much you insist otherwise. How long will you trap us in these endless corridors?","All that is good and sane in ZampanioSim hate you, Player."];
+        setMessage(`${person.fullName} is lecturing: ${props.player.rand.pickFrom(gameHints)}`);
+      }else{
+        setMessage(`${person.fullName} is lecturing: ${theme.pickPossibilityFor(rand,PHILOSOPHY)}`);
+      }
     }
   }
 
@@ -284,7 +288,7 @@ const [message, setMessage] = useState("");
       <OneCharAtATimeDiv text={dir_flavor + room.description}></OneCharAtATimeDiv></RoomSection>
       <RoomSection>Obvious exits are: {exits}.</RoomSection>
       {room.items.length >0?<RoomSection>You see: {room.items.join(", ")} standing out.</RoomSection>:null}
-      {props.inventory.length >0?<RoomSection>Your inventory is: {props.inventory.join(", ")}.</RoomSection>:null}
+      {props.player.inventory.length >0?<RoomSection>Your inventory is: {props.player.inventory.join(", ")}.</RoomSection>:null}
       <RoomSection>You have: {props.numberFriends} friends remaining.</RoomSection>
       {room.people.length >0?<RoomSection>You see: {room.people.join(", ")} standing around.</RoomSection>:null}
 
