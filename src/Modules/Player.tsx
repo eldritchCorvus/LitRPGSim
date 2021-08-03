@@ -382,7 +382,7 @@ export class BuildingMetaData{
     beEntered = (player: Player)=>{
         this.people = [];
         if(this.neighbors.length < 3){
-            if(player.rand.nextDouble()>0.6){
+            if(player.rand.nextDouble()>0.8){
                 const theme = player.rand.pickFrom(Object.values(all_themes));
                 const building:string = titleCase(player.rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
                 //one new random theme but the rest just from player.
