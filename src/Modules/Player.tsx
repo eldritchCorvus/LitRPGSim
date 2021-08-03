@@ -331,9 +331,14 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer=false){
     }else{
         cl = url_class? all_classes[url_class] :rand.pickFrom(Object.values(all_classes));
     }
-    const ap= url_aspect? all_aspects[url_aspect]: rand.pickFrom(Object.values(all_aspects));
-    const i1 = url_i1?all_interests[url_i1] : rand.pickFrom(Object.values(all_interests));
-    const i2 = url_i2? all_interests[url_i2]: rand.pickFrom(Object.values(all_interests));
+    let ap= url_aspect? all_aspects[url_aspect]: rand.pickFrom(Object.values(all_aspects));
+    let i1 = url_i1?all_interests[url_i1] : rand.pickFrom(Object.values(all_interests));
+    let i2 = url_i2? all_interests[url_i2]: rand.pickFrom(Object.values(all_interests));
+
+    cl = cl? cl: all_classes["null"];
+    ap = ap? ap: all_aspects["null"];
+    i1 = i1? i1: all_interests["null"];
+    i2 = i2? i2: all_interests["null"];
 
     const ret = new Player(cl, ap, [i1,i2], rand, shadowPlayer);
     return ret;
