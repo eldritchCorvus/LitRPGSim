@@ -23,7 +23,7 @@ interface AppProps{
 function App(props: AppProps) {
   const [player, setPlayer] = useState<Player>();
   const [rageMode, setRageMode] = useState(false);
-  const [actualGameMode, setActualGameMode] = useState(true);
+  const [actualGameMode, setActualGameMode] = useState(false);
 
   const [justTruthMode, setJustTruthMode] = useState(false);
 
@@ -137,12 +137,11 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>make ThisIsAGame mode not default anymore, see how obvious the themes are</li>
         <li>secrets under construction component, shitty geocities gif of construction.</li>
         <li>creepy pastas scattered throughout the site, based on themes, of the form: "You sit down to play a game. It's weirdly obsessed with X. theme1 creepy. then thene2 creepy.  
 
 Suddenly, you can feel the pounding behind your eyes. "let me out" you hear, "let me out"."</li>
-        <li>ActualGameMode text based adventure, check todo on that screen.</li>
-        <li>add themed bullshit philosophical ramble for NotAMinotaur</li>
         <li> quests screen</li>
          <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
         <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
