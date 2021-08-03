@@ -302,7 +302,7 @@ const initAdjs = () =>{
     adj_possibilities[HEALING] = ["curative","medical","healing","curing","medicinal","restoring","fixing","mending","regenerating"];
     adj_possibilities[PLANTS] =["growing","sprouting","blossoming"];
     adj_possibilities[HUNTING] =["hunting","chasing","following","stalking"];
-    adj_possibilities[DECAY] = ["decaying","rotting","crumbling","decomposing","festering","languishing","corrupting","gross"];
+    adj_possibilities[DECAY] = ["decaying","rotting","crumbling","decomposing","festering","languishing","corrupting","gross","itchy","sick","ill","inflamed","scabbing"];
     adj_possibilities[CHOICES] = ["choosing","branching","selecting"];
     adj_possibilities[ZAP] = ["zapping","jolting","shocking","electrical"];
     adj_possibilities[LOVE] = ["loving","caring","embracing","smitten"];

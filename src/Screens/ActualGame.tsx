@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { ABOUT } from "../AppWrapper";
 import { all_aspects, initAspects } from "../Modules/Aspect";
 import { all_interests, initInterests } from "../Modules/Interest";
-import { BuildingMetaData, Companion, Player } from "../Modules/Player";
+import { BuildingMetaData, BuildingMetaMap, Companion, Player } from "../Modules/Player";
 import { all_classes, initClasses } from "../Modules/RPGClass";
 import { all_stats, initStats } from "../Modules/Stat";
 import { all_themes, initThemes } from "../Modules/Theme";
@@ -23,6 +23,7 @@ interface RoomProps {
   useItem: any;
   useCompanion: any;
   numberFriends: number;
+  buildingMeta: BuildingMetaMap;
 }
 interface StatusProps {
   player: Player;
@@ -96,7 +97,7 @@ export const ActualGame = (props: StatusProps) => {
        
 <br></br>
 
-<RenderedRoom inventory={player.inventory} room={currentRoom} numberFriends={player.companions.length}changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem}/>
+<RenderedRoom buildingMeta ={player.buildingMetaData}inventory={player.inventory} room={currentRoom} numberFriends={player.companions.length}changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem}/>
       </MenuBox>
     </div>
 
@@ -149,11 +150,11 @@ const [message, setMessage] = useState("");
   if(room.neighbors.length === 0){
     exits = "A swirling vortex of madness.";
   }else if (room.neighbors.length === 1){
-    exits = `SOUTH (${room.neighbors[0]}) `;
+    exits = `SOUTH (${room.neighbors[0]}${props.buildingMeta[room.neighbors[0]].unlocked?"":"🔒"}) `;
   }else if (room.neighbors.length === 2){
-    exits = `NORTH (${room.neighbors[1]}) and SOUTH (${room.neighbors[0]})`;
+    exits = `NORTH (${room.neighbors[1]}${props.buildingMeta[room.neighbors[1]].unlocked?"":"🔒"}) and SOUTH (${room.neighbors[0]}${props.buildingMeta[room.neighbors[0]].unlocked?"":"🔒"})`;
   }else if (room.neighbors.length === 3){
-    exits = `NORTH (${room.neighbors[1]}) and SOUTH (${room.neighbors[0]}) and EAST (${room.neighbors[2]})`;//never west, there are no left turns.
+    exits = `NORTH (${room.neighbors[1]}${props.buildingMeta[room.neighbors[1]].unlocked?"":"🔒"}) and SOUTH (${room.neighbors[0]}${props.buildingMeta[room.neighbors[0]].unlocked?"":"🔒"}) and EAST (${room.neighbors[2]}${props.buildingMeta[room.neighbors[2]].unlocked?"":"🔒"})`;//never west, there are no left turns.
   }else{
     exits = "A swirling vortex of madness";
   }
