@@ -542,7 +542,12 @@ const initMenuOptions = () =>{
     menu_options[QUESTING] = [QUESTS] ;
 }
 
-
+//TODO fill in ALL of these, use them to assign a True Classpect at the end
+//which you do via asking each class to sum up its theme's memories 'yes' answers divided by total memories
+//same for aspect
+//and interests
+//then, pick the top of each of them
+//give them several options if theres things tied
 const initMemories = () =>{
     //they are way too much of a surly bastard to appreciate angels.
     memories[ANGELS] =  [
