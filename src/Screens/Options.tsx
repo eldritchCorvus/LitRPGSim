@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { LoadingScreen } from "./Loading";
 import { OPTIONS } from "../Utils/constants";
 import { BG_VOLUME, playSecret, setVolumeMusic } from "..";
-import ReactAudioPlayer from 'react-audio-player';
 import { all_themes } from "../Modules/Theme";
 import { MUSIC, SONG } from "../Modules/ThemeStorage";
 interface StatusProps {
