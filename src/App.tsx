@@ -137,6 +137,8 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>firefox crashes adn some ppl have problems loading in chrome, don't do loading all in a big pile</li>
+        <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
         <li>meta map of zampanio if you are in true mode AND game mode at the same time</li>
         <li>add references to https://scp-wiki.wikidot.com/scp-001-ex</li>
         <li>secrets under construction component, shitty geocities gif of construction.</li>
