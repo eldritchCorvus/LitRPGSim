@@ -96,7 +96,7 @@ export const  UnlockSkillPopup = (props: UnlockProps)=> {
     return(
         <>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Unlock {skill?.name}?</DialogDisclosure>
-      <Dialog role="alertdialog"  {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
+      <Dialog hideOnClickOutside={false} role="alertdialog"  {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
         <Popup style={{background: bg}}>
             <PopupTitle>Unlock {skill?.name} for {skill?.tier} Skill Points?</PopupTitle>
             <PopupContent>
