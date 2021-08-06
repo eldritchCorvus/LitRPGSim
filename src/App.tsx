@@ -137,11 +137,10 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      <li>firefox crashes adn some ppl have problems loading in chrome, don't do loading all in a big pile</li>
+        <li>gigglesnort fnaf mod is creepy pasta</li>
+      <li>firefox crashes, its because of fuckUpBGButSoftly</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
-      
-        <li>make it so when you click a skill popup it doesn't go away</li>
-        <li>meta map of zampanio if you are in true mode AND game mode at the same time</li>
+              <li>meta map of zampanio if you are in true mode AND game mode at the same time</li>
         <li>add references to https://scp-wiki.wikidot.com/scp-001-ex</li>
         <li>secrets under construction component, shitty geocities gif of construction.</li>
         <li>creepy pastas scattered throughout the site, based on themes, of the form: "You sit down to play a game. It's weirdly obsessed with X. theme1 creepy. then thene2 creepy.  

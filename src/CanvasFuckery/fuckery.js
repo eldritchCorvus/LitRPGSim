@@ -166,10 +166,11 @@ function glitchify(canvas) {
 
     buffer.width = canvas.width;
     buffer.height = canvas.height;
+    const image_data = context.getImageData(0, 0, canvas.width, canvas.height);
     for (let x = 0; x < buffer.width; x += rectWidth) {
         for (let y = 0; y < buffer.height; y += rectHeight) {
 
-            var output = context.getImageData(jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight);
+            image_data  = offsetPixels(jitter(x, rectWidth), jitter(y, rectHeight),x+rectWidth, y+rectHeight );
             var d = output.data;
             for (var i = 0; i < d.length; i += 4) {
                 var r = d[i];
@@ -181,9 +182,9 @@ function glitchify(canvas) {
                 }
                 d[i] = d[i + 1] = d[i + 2] = v;
             }
-            bufferContext.putImageData(output, x, y);
         }
     }
+    bufferContext.putImageData(image_data, 0, 0);
     context.drawImage(buffer, 0, 0);
 
 }
@@ -201,20 +202,26 @@ function gaslight(canvas) {
 
     buffer.width = canvas.width;
     buffer.height = canvas.height;
+    const image_data = context.getImageData(0, 0, canvas.width, canvas.height);
     for (let x = 0; x < buffer.width; x += rectWidth) {
         for (let y = 0; y < buffer.height; y += rectHeight) {
-            let output;
             if (Math.random() > 0.6) {
-                output = context.getImageData(jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight);
+                //output = context.getImageData(jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight);
+                image_data  = offsetPixels(jitter(x, rectWidth), jitter(y, rectHeight),x+rectWidth, y+rectHeight );
             } else {
-                output = context.getImageData(x, y, rectWidth, rectHeight);
-
+                //output = context.getImageData(x, y, rectWidth, rectHeight);
+                image_data  = offsetPixels(x, y,x+rectWidth, y+rectHeight );
             }
-            bufferContext.putImageData(output, x, y);
         }
     }
+    bufferContext.putImageData(image_data, 0, 0);
+
     context.drawImage(buffer, 0, 0);
 
+}
+
+function offsetPixels(image_data, start_x, start_y, end_x, end_y){
+    return image_data;
 }
 
 
