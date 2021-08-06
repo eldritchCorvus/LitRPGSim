@@ -111,9 +111,9 @@ function fuckUpImage(img, fucking_function, class_name, binary) {
             const padding = 10;
             const fontSize = 25;
             context.fillStyle = "#222222";
-            if(i>1){
+            if (i > 1) {
                 context.fillStyle = "#111111";
-            }else if(i>2){
+            } else if (i > 2) {
                 context.fillStyle = "#000000";
             }
             context.font = `${fontSize}px serif`;
@@ -168,24 +168,29 @@ function glitchify(canvas) {
 
     buffer.width = canvas.width;
     buffer.height = canvas.height;
+
+    let original_data = context.getImageData(0, 0, canvas.width, canvas.height).data;
+
+    let image_data = context.getImageData(0, 0, canvas.width, canvas.height);
     for (let x = 0; x < buffer.width; x += rectWidth) {
         for (let y = 0; y < buffer.height; y += rectHeight) {
-
-            var output = context.getImageData(jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight);
-            var d = output.data;
-            for (var i = 0; i < d.length; i += 4) {
-                var r = d[i];
-                var g = d[i + 1];
-                var b = d[i + 2];
-                let v = (0.2126 * r + 0.7152 * g + 0.0722 * b >= 100) ? 88 : 0;
-                if (Math.random() < 0.4) {  //sometimes just be black
-                    v = 0;
-                }
-                d[i] = d[i + 1] = d[i + 2] = v;
-            }
-            bufferContext.putImageData(output, x, y);
+            image_data = offsetPixels(original_data, image_data, x, y, jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight, canvas.width);
         }
     }
+    //make it black and white and spooooky
+    var d = image_data.data;
+    for (var i = 0; i < d.length; i += 4) {
+        var r = d[i];
+        var g = d[i + 1];
+        var b = d[i + 2];
+        let v = (0.2126 * r + 0.7152 * g + 0.0722 * b >= 100) ? 88 : 0;
+        if (Math.random() < 0.4) {  //sometimes just be black
+            v = 0;
+        }
+        d[i] = d[i + 1] = d[i + 2] = v;
+    }
+    bufferContext.putImageData(image_data, 0, 0);
+
     context.drawImage(buffer, 0, 0);
 
 }
@@ -210,10 +215,10 @@ function gaslight(canvas) {
         for (let y = 0; y < buffer.height; y += rectHeight) {
             if (Math.random() > 0.6) {
                 //output = context.getImageData(jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight);
-                image_data  = offsetPixels(original_data,image_data, x,y,jitter(x, rectWidth), jitter(y, rectHeight),rectWidth, rectHeight, canvas.width );
+                image_data = offsetPixels(original_data, image_data, x, y, jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight, canvas.width);
             } else {
                 //output = context.getImageData(x, y, rectWidth, rectHeight);
-                image_data  = offsetPixels(original_data,image_data,x,y,x, y,rectWidth, rectHeight, canvas.width );
+                image_data = offsetPixels(original_data, image_data, x, y, x, y, rectWidth, rectHeight, canvas.width);
             }
         }
     }
@@ -225,28 +230,28 @@ function gaslight(canvas) {
 //takes all the pixels from fake_start_x and fake_start_y
 // to the width and height and shoves them into the real start_x and y
 //essentially offsets a chunk in a glitchy way
-function offsetPixels(original_data,image_data, real_start_x, real_start_y, fake_start_x,fake_start_y, width, height, canvas_width){
-    if(real_start_x === fake_start_x && real_start_y === fake_start_y){
+function offsetPixels(original_data, image_data, real_start_x, real_start_y, fake_start_x, fake_start_y, width, height, canvas_width) {
+    if (real_start_x === fake_start_x && real_start_y === fake_start_y) {
         return image_data; //your work here is done even though you didn't do shit
     }
 
     //I am taking in image_data, which has a param called data which is a uint8array with 4 indices per pixel
-    for(let x = 0; x<width; x++){
-        for(let y = 0; y < height; y++){
-            let real_index = x_y_to_indice(x+real_start_x, y+real_start_y, canvas_width) * 4;
-            let fake_index = x_y_to_indice(x+fake_start_x, y+fake_start_y, canvas_width) * 4;
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+            let real_index = x_y_to_indice(x + real_start_x, y + real_start_y, canvas_width) * 4;
+            let fake_index = x_y_to_indice(x + fake_start_x, y + fake_start_y, canvas_width) * 4;
 
-            image_data.data[real_index]=image_data.data[fake_index]; 
-            image_data.data[real_index+1]=image_data.data[fake_index+1]; 
-            image_data.data[real_index+2]=image_data.data[x_y_to_indice(fake_index+2)]; 
-            image_data.data[real_index+3]=255;
+            image_data.data[real_index] = image_data.data[fake_index];
+            image_data.data[real_index + 1] = image_data.data[fake_index + 1];
+            image_data.data[real_index + 2] = image_data.data[x_y_to_indice(fake_index + 2)];
+            image_data.data[real_index + 3] = 255;
         }
     }
     return image_data;
 }
 
-function x_y_to_indice(x,y,width){
-    return y*width + x;
+function x_y_to_indice(x, y, width) {
+    return y * width + x;
 }
 
 
