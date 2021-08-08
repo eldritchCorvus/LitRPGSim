@@ -83,6 +83,7 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("space", ["Vast", "Space","Air", "Expanse", "Volume","Position","Falling","Setting","Temperance"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(3)]), [all_themes[SPACE], all_themes[PLANTS]]);
     new Aspect("time", ["Time", "Clocks","Tempo", "Pacing", "Measure","Beat","Cadence","Stress"], seeded_random, Stat.WrapStatsToStatMap([Stat.SPACE(3)]), [all_themes[ENDINGS], all_themes[MUSIC]]);
 
+    //the child of fate
     new Aspect("corruption", ["Love", "Corruption", "Toxicity", "Inserts", "Plague","Rot","Disgust","Bugs","Maggots","Worms","Filth"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.LIFE(1),Stat.HEART(1)]), [all_themes.decay, all_themes.bugs,all_themes.love]);
     new Aspect("web", ["Webs", "Spiders", "Fate", "Addiction","Lust","Puppets","Marks"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(1),Stat.VOID(1),Stat.HEART(1)]), [all_themes.addiction, all_themes.web]);
     new Aspect("eye", ["Eye", "Watching", "Seeing", "Observing","Temperance","Diligence"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIGHT(1),Stat.MIND(1),Stat.RAGE(1)]), [all_themes.knowing, all_themes.spying]);
