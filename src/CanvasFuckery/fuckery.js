@@ -1,4 +1,4 @@
-import background from '.././background.jpg';
+import background from '.././images/background.jpg';
 import { THE_END_IS_NEVER } from '../Utils/constants';
 import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
 
@@ -79,8 +79,14 @@ export function fuckery() {
     let eye;
     if (window.rageMode) {
         eye = document.getElementById("ThisIsNotAnEye2");
+        if(!eye){
+            eye = document.getElementById("ThisIsAnEye2");
+        }
     } else {
         eye = document.getElementById("ThisIsNotAnEye1");
+        if(!eye){
+            eye = document.getElementById("ThisIsAnEye1");
+        }
     }
     for (let frame of frames) {
         frame.getContext("2d").drawImage(eye, frame.width / 2 - 55 / 2, frame.height / 2 - 55 / 2);
