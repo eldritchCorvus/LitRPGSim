@@ -61,7 +61,6 @@ function App(props: AppProps) {
   },[])
 
   function fuckupstuffforspiral(){
-    console.log("JR NOTE: fucing shit up for spiral")
     if(megaGasLight){
       domWordMeaningFuckery();
       fuckShitUpButOnlyALittle();
@@ -139,7 +138,7 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsNotAnEye1");
       detectDivStatus("ThisIsNotAnEye2");
       detectDivStatus("ThisIsNotASpiral");
-      detectDivStatus("ThisIsAMenu");
+      detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
   }
   },[player])
 /*

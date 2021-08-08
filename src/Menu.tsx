@@ -2,7 +2,7 @@ import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
-import {useEffect, useState,Fragment} from 'react';
+import {useEffect, useState,Fragment, useRef} from 'react';
 import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
@@ -172,6 +172,8 @@ function Menu(props: MenuProps) {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
   const [refresh, setRefresh] = useState(true);
+  const [menuHaxSetup, setMenuHaxSetup] = useState(false);
+
   const [nextScreen, setNextScreen] = useState(STATUS);
   const {player} = props;
   const observer = player.observer;
@@ -211,13 +213,44 @@ function Menu(props: MenuProps) {
 *  hack react to be broken (put the screens or something into window so they can be deleted/fucked up?), allows some force that likes you to contact you, when instead they were being drowned out by the achivement system that hates you.
   */
 
+const refContainer = useRef(null);
+
+function detectDivStatus() {
+  const targetNode = refContainer.current;
+  if (targetNode) {
+    const config = {
+      attributes: true,
+      attributeFilter: ['id'],
+      attributeOldValue: true
+    };
+    const callback = function (mutationsList: any, observer: any) {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes') {
+          console.log('The ' + mutation.attributeName + ' attribute was modified.',mutation);
+         if(mutation.target.id.toLowerCase() === "ThisIsNotAMenu".toLowerCase()){
+            (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
+          }
+        }
+      }
+    }
+    const ob = new MutationObserver(callback);
+    ob.observe(targetNode, config);
+    setMenuHaxSetup(true);
+  }
+}
+
+useEffect(()=>{
+  detectDivStatus();
+},[refContainer])
+
+
 
   if(!player){
     return <div>LOADING FOR REALSIES</div>
   }else{
 
     return (
-      <div id="ThisIsAMenu">
+      <div id="ThisIsAMenu" ref={refContainer}>
       <MenuBox angle={props.angle} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?
