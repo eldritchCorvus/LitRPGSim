@@ -55,9 +55,12 @@ function gaslightWordMeanings(sentence, seed_multiplier){
  function getWordReplacement(word,seed_multiplier){
     const gaslightOptions = ["[REDACTED]","null","dark","friendless","alone","minotaur","hunt","flesh","changeling","distortion","watcher","filth","minotaur","worm","bug","gas","flavor","evil fox","lazy dog","quick fox","dead fox","terrible fox","bad fox","fox","untrustworthy fox","taste","smell","feeling","failure","fear","horror","mistake","line","stay","good dog","canine","good boy","good boi","bark","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
     const multiplied_seed = stringtoseed(word.toUpperCase())*seed_multiplier;
-
+    let chance = .99;
+    if(window.megaGasLight){
+        chance = 0.3;
+    }
     let rand = new SeededRandom(multiplied_seed);
-    if(rand.nextDouble()>.99){
+    if(rand.nextDouble()>chance){
         const seed = stringtoseed(word.toUpperCase());
         let rand2 = new SeededRandom(seed);
         let ret= rand2.pickFrom(gaslightOptions);

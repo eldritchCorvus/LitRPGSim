@@ -66,18 +66,25 @@ export const fuckShitUpButOnlyALittle = () => {
     fuckUpRadiusRound();
     fuckUpFontSize();
     fuckUpFontColor();
-    //fuckUpBGColor();
+    fuckUpBGColor();
     fuckUpOpacity();
 
 }
 
 const fuckUpRadius = () => {
     let direction = 1;
+    let threshold = 10;
+    let amount = 1;
+    if((window as any).megaGasLight){
+        amount = 10; 
+        threshold = 100;
+    }
     if (Math.random() > .5) {
         direction = -1;
     }
-    BORDERRADIUS += 1 * direction;
-    if (Math.abs(BORDERRADIUS - CENTERRADIUS) > 10) {
+    
+    BORDERRADIUS += amount * direction;
+    if (Math.abs(BORDERRADIUS - CENTERRADIUS) > threshold || BORDERRADIUS <0) {
         BORDERRADIUS = CENTERRADIUS;
     }
 }
@@ -87,8 +94,14 @@ const fuckUpOpacity = () => {
     if (Math.random() > .5) {
         direction = -1;
     }
-    MENU_OPACITY += Math.random() / 10 * direction;
-    if (Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > 0.04) {
+    let threshold = 0.04;
+    let amount = 10;
+    if((window as any).megaGasLight){
+        amount = 33; 
+        threshold = 0.75;
+    }
+    MENU_OPACITY += Math.random() / amount * direction;
+    if (Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > threshold) {
         MENU_OPACITY = ORIGINAL_MENU_OPACITY;
     }
 }
@@ -103,11 +116,17 @@ const fuckUpFontColor = () => {
     if (Math.random() > .5) {
         direction = -1;
     }
-    let newValue = parseInt(hexValueCurrent, 16) + 1 * direction;
+    let amount = 1;
+    let threshold = 3;
+    if((window as any).megaGasLight){
+        amount = 13; 
+        threshold = 100;
+    }
+    let newValue = parseInt(hexValueCurrent, 16) + amount * direction;
     let oldValue = parseInt(hexValueCenter, 16);
 
     let choice = "";
-    if (newValue > 0 && Math.abs(newValue - oldValue) < 3) {
+    if (newValue > 0 && Math.abs(newValue - oldValue) < threshold) {
         choice = newValue.toString(16);
     } else {
         choice = oldValue.toString(16);
@@ -116,6 +135,9 @@ const fuckUpFontColor = () => {
 }
 
 const fuckUpBGColor = () => {
+    if(!(window as any).megaGasLight){
+        return 
+    }
     let direction = -1;
     const index = getRandomNumberBetween(1, BGCOLOR.length - 1);
     let hexValueCurrent = "0x" + BGCOLOR.charAt(index);
@@ -125,6 +147,7 @@ const fuckUpBGColor = () => {
     let newValue = parseInt(hexValueCurrent, 16) + 1 * direction;
     let oldValue = parseInt(hexValueCenter, 16);
 
+    let amount = 1;
 
     let choice = "";
     if (newValue > 0 && Math.abs(newValue - oldValue) < 3) {
@@ -132,10 +155,14 @@ const fuckUpBGColor = () => {
     } else {
         choice = oldValue.toString(16);
     }
-    //if i don't do it all at once you get a weird tint, has to stay grey
-    for (let i = 1; i < BGCOLOR.length; i++) {
-        console.log("replacing i", i);
-        BGCOLOR = replaceStringAt(BGCOLOR, i, choice);
+    const length = BGCOLOR.length;
+    for (let i = 1; i < length; i++) {
+        if(!isNaN(newValue)&&newValue >= 0){
+            BGCOLOR = replaceStringAt(BGCOLOR, i, choice);
+            amount = getRandomNumberBetween(0,3);
+            newValue = parseInt(hexValueCurrent, 16) + amount * direction;
+            choice = newValue.toString(16);
+        }
     }
 }
 
@@ -144,8 +171,14 @@ const fuckUpFontSize = () => {
     if (Math.random() > .5) {
         direction = -1;
     }
-    FONTSIZE += 1 * direction;
-    if (Math.abs(FONTSIZE - CENTERFONTSIZE) > 3) {
+    let threshold = 3;
+    let amount = 1;
+    if((window as any).megaGasLight){
+        amount = 10; 
+        threshold = 100;
+    }
+    FONTSIZE += amount * direction;
+    if (Math.abs(FONTSIZE - CENTERFONTSIZE) > threshold || FONTSIZE<5) {
         FONTSIZE = CENTERFONTSIZE;
     }
 }
@@ -156,8 +189,14 @@ const fuckUpRadiusRound = () => {
     if (Math.random() > .5) {
         direction = -1;
     }
-    BORDERRADIUSROUND += 1 * direction;
-    if (Math.abs(BORDERRADIUSROUND - CENTERRADIUSROUND) > 10) {
+    let threshold = 10;
+    let amount = 1;
+    if((window as any).megaGasLight){
+        amount = 10; 
+        threshold = 100;
+    }
+    BORDERRADIUSROUND += amount * direction;
+    if (Math.abs(BORDERRADIUSROUND - CENTERRADIUSROUND) > threshold || BORDERRADIUS<0) {
         BORDERRADIUSROUND = CENTERRADIUSROUND;
     }
 }

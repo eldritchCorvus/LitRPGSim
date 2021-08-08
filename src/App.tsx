@@ -14,8 +14,12 @@ import { click, clickEffect } from ".";
 import ActualGame from "./Screens/ActualGame";
 import spiral from './images/approved.gif';
 import real_eye from './images/real_eye.png';
+import eye1 from './images/eye1.png';
+import eye2 from './images/eye2.png';
 
 import { updateTypeAssertion } from "typescript";
+import { domWordMeaningFuckery } from "./Utils/StringUtils";
+import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
 
 interface AppProps{
   seed: number;
@@ -24,6 +28,8 @@ interface AppProps{
 function App(props: AppProps) {
   const [player, setPlayer] = useState<Player>();
   const [rageMode, setRageMode] = useState(false);
+  const [megaGasLight, setMegaGaslight] = useState(false);
+
   const [actualGameMode, setActualGameMode] = useState(false);
 
   const [justTruthMode, setJustTruthMode] = useState(false);
@@ -34,6 +40,14 @@ function App(props: AppProps) {
       (window as any).setRageMode = (value:boolean)=>{
         setRageMode(value);
         (window as any).rageMode = value;
+      }
+    }
+
+    if(!(window as any).setMegaGaslight){
+      // :) :) :)
+      (window as any).setMegaGaslight = (value:boolean)=>{
+        setMegaGaslight(value);
+        (window as any).megaGasLight = value;
       }
     }
 
@@ -67,19 +81,26 @@ function App(props: AppProps) {
               var img = new Image();
               img.src = spiral;
               mutation.target.append(img);
+              (window as any).setMegaGaslight(true); //whoops, now you've done it
+              domWordMeaningFuckery();
+              fuckShitUpButOnlyALittle();
             }else if(mutation.target.id.toLowerCase() === "ThisIsANotSpiral".toLowerCase()){
-              console.log("JR NOTE: remove any exra divs under Truth")
+              const img = document.querySelector("#ThisIsANotSpiral img");
+              img?.remove();
+              (window as any).setMegaGaslight(false); //okay thats fine
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye1".toLowerCase()){
-              console.log("JR NOTE: make the eye be the camera again")
+              mutation.target.src = eye1;
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye1".toLowerCase()){
               mutation.target.src = real_eye;
               console.log("JR NOTE: make the eye be the photo-realistic eye again (note will only get picked up in rage mode)")
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye2".toLowerCase()){
-              console.log("JR NOTE: make the eye be the camera again")
+              mutation.target.src = eye2;
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye2".toLowerCase()){
               mutation.target.src = real_eye;
+            }else if(mutation.target.id.toLowerCase() === "ThisIsNotAMenu".toLowerCase()){
+              (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
             }else{
-              console.log("JR NOTE: unknown div edited: ",mutation.target);
+              console.log("JR NOTE: nope! ",mutation.target.id);
             }
           }
         }
@@ -88,26 +109,6 @@ function App(props: AppProps) {
       ob.observe(targetNode, config);
     }
   }
-
-  function detectMenuDeleted() {
-    const targetNode = document.querySelector('#ThisIsNotAGame');
-    if (targetNode) {
-      const config = {childList: true };
-      const callback = function (mutationsList: any, observer: any) {
-        for (const mutation of mutationsList) {
-          for(const node of mutation.removedNodes){
-            if(node.id === "ThisIsAMenu"){
-              (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
-            }
-          }
-        }
-      }
-      const ob = new MutationObserver(callback);
-      ob.observe(targetNode, config);
-      console.log("JR NOTE: observer is ", ob)
-    };
-  }
-
 
   useEffect(()=>{
     if(!player){
@@ -122,12 +123,11 @@ function App(props: AppProps) {
       initClasses(rand);
       initInterests(rand);
       setPlayer(randomPlayer(rand) ); 
-      //detectMenuDeleted();
       detectDivStatus("ThisIsNotAGame");
       detectDivStatus("ThisIsNotAnEye1");
       detectDivStatus("ThisIsNotAnEye2");
-      detectDivStatus("ThisIsANotSpiral");
-
+      detectDivStatus("ThisIsNotASpiral");
+      detectDivStatus("ThisIsAMenu");
   }
   },[player])
 /*
