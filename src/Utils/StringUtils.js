@@ -57,7 +57,7 @@ function gaslightWordMeanings(sentence, seed_multiplier){
     const multiplied_seed = stringtoseed(word.toUpperCase())*seed_multiplier;
     let chance = .99;
     if(window.megaGasLight){
-        chance = 0.3;
+        chance = 0.90;
     }
     let rand = new SeededRandom(multiplied_seed);
     if(rand.nextDouble()>chance){
