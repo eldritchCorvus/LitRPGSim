@@ -44,7 +44,10 @@ export const fuckUpBGButSoftly = () => {
 }
 
 export function fuckery() {
-    const div = document.getElementById("ThisIsNotASpiral");
+    let div = document.getElementById("ThisIsNotASpiral");
+    if(!div){
+        div = document.getElementById("ThisIsASpiral");
+    }
 
     const bigBG = document.createElement("canvas");
     bigBG.width = 600 * 3;

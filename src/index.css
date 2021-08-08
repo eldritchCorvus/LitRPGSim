@@ -32,6 +32,21 @@ body {
   pointer-events: none;
 }
 
+#ThisIsASpiral{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -60%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+#ThisIsASpiral img{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 #ThisIsNotAnEye1{
   display: none;
 }
