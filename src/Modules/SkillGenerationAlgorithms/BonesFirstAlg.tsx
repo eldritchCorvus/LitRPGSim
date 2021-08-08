@@ -4,7 +4,7 @@ import SeededRandom from "../../Utils/SeededRandom"
 import { Aspect } from "../Aspect"
 import { Interest } from "../Interest"
 import { all_classes, RPGClass } from "../RPGClass"
-import { CoreSkill, Skill, SpecialSkill, StatSkill, wasteHackingFunctions, WasteSkill } from "../Skill"
+import { CoreSkill, dangerousWasteHackingFunctions, Skill, SpecialSkill, StatSkill, wasteHackingFunctions, WasteSkill } from "../Skill"
 import { WASTE } from "../Stat"
 import { all_themes, Theme } from "../Theme"
 import { MENU, SUPERMOVE } from "../ThemeStorage"
@@ -61,16 +61,24 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             }
         }
 
+        //try to do the "safe" hacking functions first, if at all possible
         if(class_name == all_classes["waste"]){
             if(rand.nextDouble()>0.5){
-                inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
+                if(skills.length <30 ||rand.nextDouble()>0.2){
+                    inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
+                }else{
+                    inBetween = new WasteSkill(rand.pickFrom(dangerousWasteHackingFunctions));
+                }
             }else{
                 const ret = pickMENU(parent)
                 if(ret){
                     inBetween = new CoreSkill(ret,parent.tier+1);
                 }else{
-                    inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
-                }
+                    if( skills.length <30 ||rand.nextDouble()>0.2){
+                        inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
+                    }else{
+                        inBetween = new WasteSkill(rand.pickFrom(dangerousWasteHackingFunctions));
+                    }                }
             }
         }else{
             if(rand.nextDouble()>0.5){
