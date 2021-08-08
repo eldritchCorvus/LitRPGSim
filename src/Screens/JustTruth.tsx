@@ -169,7 +169,11 @@ export const JustTruth = (props: StatusProps) => {
         (window as any).justTruthMode = true;
         console.log("changing song");
         justTruthSong();
-        const canvas = document.getElementById("ThisIsNotASpiral");
+        let canvas = document.getElementById("ThisIsNotASpiral");
+        if(!canvas){
+             canvas = document.getElementById("ThisIsASpiral");
+
+        }
         if (canvas) {
             canvas.style.opacity = "0.2";
             canvas.classList.remove("chaos");
