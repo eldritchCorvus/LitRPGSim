@@ -46,8 +46,8 @@ function App(props: AppProps) {
   },[])
 
 
-  function detectGameStatus() {
-    const targetNode = document.getElementById('ThisIsNotAGame');
+  function detectDivStatus(id: string) {
+    const targetNode = document.getElementById(id);
     if (targetNode) {
       const config = {
         attributes: true,
@@ -62,6 +62,20 @@ function App(props: AppProps) {
               setActualGameMode(true);
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAGame".toLowerCase()){
               setActualGameMode(false);
+            }else if(mutation.target.id.toLowerCase() === "ThisIsASpiral".toLowerCase()){
+              console.log("JR NOTE: todo put that spiral gif on top of the div")
+            }else if(mutation.target.id.toLowerCase() === "ThisIsANotSpiral".toLowerCase()){
+              console.log("JR NOTE: remove any exra divs under Truth")
+            }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye1".toLowerCase()){
+              console.log("JR NOTE: make the eye be the camera again")
+            }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye1".toLowerCase()){
+              console.log("JR NOTE: make the eye be the photo-realistic eye again (note will only get picked up in rage mode)")
+            }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye2".toLowerCase()){
+              console.log("JR NOTE: make the eye be the camera again")
+            }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye2".toLowerCase()){
+              console.log("JR NOTE: make the eye be the photo-realistic eye again (note will only get picked up in rage mode)")
+            }else{
+              console.log("JR NOTE: unknown div edited: ",mutation.target);
             }
           }
         }
@@ -105,7 +119,11 @@ function App(props: AppProps) {
       initInterests(rand);
       setPlayer(randomPlayer(rand) ); 
       //detectMenuDeleted();
-      detectGameStatus();
+      detectDivStatus("ThisIsNotAGame");
+      detectDivStatus("ThisIsNotAnEye1");
+      detectDivStatus("ThisIsNotAnEye2");
+      detectDivStatus("ThisIsANotSpiral");
+
   }
   },[player])
 /*
