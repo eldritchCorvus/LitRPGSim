@@ -60,6 +60,19 @@ function App(props: AppProps) {
     }
   },[])
 
+  function fuckupstuffforspiral(){
+    console.log("JR NOTE: fucing shit up for spiral")
+    if(megaGasLight){
+      domWordMeaningFuckery();
+      fuckShitUpButOnlyALittle();
+      setTimeout(()=>{
+          window.requestAnimationFrame(()=>{fuckupstuffforspiral()})}, 3000)
+      };
+  }
+
+  useEffect(()=>{
+    fuckupstuffforspiral();
+  }, [megaGasLight])
 
   function detectDivStatus(id: string) {
     const targetNode = document.getElementById(id);
@@ -82,8 +95,7 @@ function App(props: AppProps) {
               img.src = spiral;
               mutation.target.append(img);
               (window as any).setMegaGaslight(true); //whoops, now you've done it
-              domWordMeaningFuckery();
-              fuckShitUpButOnlyALittle();
+              fuckupstuffforspiral();
             }else if(mutation.target.id.toLowerCase() === "ThisIsANotSpiral".toLowerCase()){
               const img = document.querySelector("#ThisIsANotSpiral img");
               img?.remove();
