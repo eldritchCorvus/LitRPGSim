@@ -620,6 +620,32 @@ const initMemories = () =>{
         ,new Memory("Does anyone deserve nukes?","See you get it.","You are wrong. Objectively I do.","You understand I should have weapons of mass destruction.","You tried to keep the nukes from me. Asshole.")
     ];
 
+
+
+   memories[TECHNOLOGY] =  [
+    new Memory("Do you enjoy technology?","It would be weird if you did not.","How do you survive in a modern era? No matter...","You enjoy technology.","You are some weird kind of technophobe out of place in the modern era.")
+    ,new Memory("Have you ever programmed something?","I hope you treat your creations with better care than JR does.","Not many people have.","You've at least tried out programming.","You have never had a reason to program.")
+    ,new Memory("Are robots really cool?","You have surprisingly good taste.","Well, there had to be reasons for me to heate you.","You agree that robots are really cool.","You will be the first against the wall in the robo-revolution.")
+
+];
+
+    memories[ART] =  [
+        new Memory("Do you consider yourself an artist?","I suppose there is not barrier to what one calls oneself.","Really now? You have never created something simply for the joy of creating it?","You enjoy the act of creation.","You are not much of a creator.")
+        ,new Memory("Have you ever drawn something you're really proud of?","That feeling must be the best in the world.","My condolences.","You are proud of your creations.","You have never created anything you love.")
+        ,new Memory("Do you enjoy experiencing art?","Then surely you enjoy ...whatever the hell this is.","Philistine.","You have an appreciation for the arts.","You have absolutely no taste.")
+
+    ];
+
+    memories[SPACE] =  [
+        new Memory("Did you want to be an astronaut as a child?","I respect this.","Apparently you had no sense of adventure as a child.","You were an adventurous child.","You never dreamed of exploring space as a child.")
+        ,new Memory("Do you think about space a lot?","I wonder if humanity will ever truly conquer space travel.","I suppose it is not relevant to your day to day.","You are fascinated by space.","You pay no mind to the complexities of the universe.")
+        ,new Memory("Do you ever stop to think about just how cosmically insignificant you truly are?","As is appropriate for a mere human.","Well you truly are self important.","You understand how small everyone is compared to the cosmos.","You think you matter far more to the universe than you actually do.")
+
+    ];
+    
+   //complete:SPACE, ART, TECHNOLOGY, angels, hunting, service, family, knowing, endings, language, defense, waste, apocalypse
+
+   //export const keys = [NULL, , , TIME, FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
                /*   memories[ANGELS] =  [
         new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
@@ -628,37 +654,7 @@ const initMemories = () =>{
     ];
     */
     
-    /*
-    MATH, SCIENCE, TWISTING, APOCALYPSE
-    memories[MAGIC] =  ["Ritual of Ragnarok"];
-    memories[LIGHT] =  ["Flash Bang"];
-    memories[HEALING] =  ["Summon Phoenix"];
-    memories[PLANTS] = ["Forest's March"];
-    memories[HUNTING] = ["Nimrod's Chase"];
-    memories[DECAY] = ["Mass Grave"] ;
-    memories[CHOICES] =  ["Alternate Timeline"] ;
-    memories[ZAP] = ["Thor's Banana"] ;
-    memories[LOVE] = ["Mandatory Shipping Grid"];
-    memories[SOUL] = ["Know thyself."] ;
-    memories[ANGER] = ["Dethrone Creation"] ;
-    memories[WEB] =  ["Puppet Master"] ;
-    memories[ROYALTY] =  ["Excalibur"] ;
-    memories[ENDINGS] =  ["The End"] ;
-    memories[GUIDING] = ["Path To Victory"] ;
-    memories[CRAFTING] =  ["Legendary Forge"];
-    memories[LANGUAGE] = ["Topple the Tower"] ;
-    memories[BUGS] =  ["Hivemother"];
-    memories[ADDICTION] = ["Dealer's Delight"];
-    memories[SPYING] =["Surveillance State"] ;
-    memories[CLOWNS] =["Ringmaster"] ;
-    memories[DOLLS] = ["Automatonophobia "] ;
-    memories[OBFUSCATION] = ["Knowledge Forever Lost"] ;
-    memories[DARKNESS] =  ["Night Eternal"] ;
-    memories[KILLING] =  ["Bloodbath"];
-    memories[MUSIC] =  ["Symphonic Synthesia"] ;
-    memories[DEFENSE] =  ["Excalibur"] ;
-    memories[QUESTING] = ["Satisfaction"] ;
-    */
+   
 }
 
 
