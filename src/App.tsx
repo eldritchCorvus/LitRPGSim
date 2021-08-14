@@ -103,11 +103,13 @@ function App(props: AppProps) {
               mutation.target.src = eye1;
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye1".toLowerCase()){
               mutation.target.src = real_eye;
+              howCanEyesBeRealIfMirrorsArentReal();
               console.log("JR NOTE: make the eye be the photo-realistic eye again (note will only get picked up in rage mode)")
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye2".toLowerCase()){
               mutation.target.src = eye2;
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye2".toLowerCase()){
               mutation.target.src = real_eye;
+              howCanEyesBeRealIfMirrorsArentReal();
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAMenu".toLowerCase()){
               (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
             }else{
@@ -118,6 +120,27 @@ function App(props: AppProps) {
       }
       const ob = new MutationObserver(callback);
       ob.observe(targetNode, config);
+    }
+  }
+
+  /*
+  JR NOTE: how it sounds to debug this: 
+
+  "so eyes are real so mirrors should be real and i KNOW the bodies have hit the floor
+  so everyhthing should flip turnways, keep up"
+  */
+  const howCanEyesBeRealIfMirrorsArentReal=()=>{
+    console.log("JR: howCanEyesBeRealIfMirrorsArentReal ");
+    let theBodiesHitTheFloor = document.getElementById('ThisIsNotAGame')
+    if(theBodiesHitTheFloor){
+      console.log("JR: theBodiesHitTheFloor ");
+      theBodiesHitTheFloor.style.transform = "scaleX(-1)";
+    }else{
+      theBodiesHitTheFloor = document.getElementById('ThisIsAGame')
+      if(theBodiesHitTheFloor){
+        console.log("JR: theBodiesHitTheFloor2 ");
+        theBodiesHitTheFloor.style.transform = "scaleX(-1)";
+      }
     }
   }
 
