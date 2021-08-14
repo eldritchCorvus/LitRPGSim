@@ -212,9 +212,11 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>bug cannot talk to people???</li>
+        <li>game mode have randoms responses after enter is pressed, clear text, respond to verbs like look etc</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
-             <li>JustJR mode where i explain why i made this game, sitting in a chair</li>
-              <li>meta map of zampanio if you are in true mode AND game mode at the same time</li>
+             <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
+              <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
               <li>gigglesnort fnaf mod is creepy pasta</li>
 
         <li>add references to https://scp-wiki.wikidot.com/scp-001-ex</li>
