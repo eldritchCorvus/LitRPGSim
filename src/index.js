@@ -7,6 +7,7 @@ import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import voice from './Voice/truthtake3.mp3';
+import funky_voice from './Voice/truth_but_funky.mp3';
 
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
 
@@ -36,6 +37,13 @@ export function playSecret(location){
 }
 
 export function speak(){
+  voiceAudio.src = voice;
+  voiceAudio.play();
+}
+
+export function speakButFunky(){
+  voiceAudio.src =funky_voice;
+  audio.pause();
   voiceAudio.play();
 }
 
