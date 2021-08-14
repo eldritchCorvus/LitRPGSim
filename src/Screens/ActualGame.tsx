@@ -173,6 +173,8 @@ const [message, setMessage] = useState("");
   }
 
   const checkInventoryItems = (input:string)=>{
+    console.log("JR NOTE: checkInventoryItems input is", input)
+
     for(let item of props.player.inventory){
       let parts = item.split(" ");
       for(let part of parts){
@@ -190,6 +192,8 @@ const [message, setMessage] = useState("");
   }
 
   const checkRoomItems = (input:string)=>{
+    console.log("JR NOTE: checkRoomItems input is", input)
+
     for(let item of room.items){
       let parts = item.split(" ");
       for(let part of parts){
@@ -208,6 +212,8 @@ const [message, setMessage] = useState("");
   }
 
   const checkCompanion = (input:string)=>{
+    console.log("JR NOTE: checkCompanion input is", input)
+
     let useable = null;
     let person = null;
     for(let item of room.people){
@@ -245,11 +251,13 @@ const [message, setMessage] = useState("");
   }
 
   const checkRoomName = (input:string)=>{
+    console.log("JR NOTE: checkRoomName input is", input)
     for(let item of room.neighbors){
       let parts = item.split(" ");
+      console.log("JR NOTE: item is", item, "parts are",parts)
       for(let part of parts){
         if(input.toUpperCase().includes(part.toUpperCase())){
-          const result = props.changeRoom(part, "???");
+          const result = props.changeRoom(item, "???");
           if(result){
             setError(result);
           }
@@ -261,6 +269,8 @@ const [message, setMessage] = useState("");
   }
 
   const checkMovement = (input:string)=>{
+    console.log("JR NOTE: checkMovement input is", input)
+
     let result = null;
     if(input.toUpperCase().includes("NORTH")){
       if(room.neighbors.length >= 2){
