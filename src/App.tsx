@@ -10,7 +10,7 @@ import Menu from "./Menu";
 import {JustTruth} from "./Screens/JustTruth";
 import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
-import { click, clickEffect } from ".";
+import { click, clickEffect, speakButFunky } from ".";
 import ActualGame from "./Screens/ActualGame";
 import spiral from './images/approved.gif';
 import real_eye from './images/real_eye.png';
@@ -104,12 +104,14 @@ function App(props: AppProps) {
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye1".toLowerCase()){
               mutation.target.src = real_eye;
               howCanEyesBeRealIfMirrorsArentReal();
+              eyesAreTooRealButDoNotSpeakTheTruth();
               console.log("JR NOTE: make the eye be the photo-realistic eye again (note will only get picked up in rage mode)")
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye2".toLowerCase()){
               mutation.target.src = eye2;
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye2".toLowerCase()){
               mutation.target.src = real_eye;
               howCanEyesBeRealIfMirrorsArentReal();
+              eyesAreTooRealButDoNotSpeakTheTruth();
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAMenu".toLowerCase()){
               (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
             }else{
@@ -121,6 +123,23 @@ function App(props: AppProps) {
       const ob = new MutationObserver(callback);
       ob.observe(targetNode, config);
     }
+  }
+
+  const eyesAreTooRealButDoNotSpeakTheTruth=()=>{
+    let eye2 = document.getElementById('ThisIsAnEye2');
+    let eye1 = document.getElementById('ThisIsAnEye1');
+
+    if(eye1){
+      eye1.onclick = ()=>{
+        speakButFunky();
+      }
+    }
+    if(eye2){
+      eye2.onclick = ()=>{
+        speakButFunky();
+      }
+    }
+
   }
 
   /*
@@ -194,6 +213,7 @@ function App(props: AppProps) {
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
+             <li>JustJR mode where i explain why i made this game, sitting in a chair</li>
               <li>meta map of zampanio if you are in true mode AND game mode at the same time</li>
               <li>gigglesnort fnaf mod is creepy pasta</li>
 
