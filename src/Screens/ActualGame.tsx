@@ -217,7 +217,7 @@ const [message, setMessage] = useState("");
         return;
       }else if (listen_euphamemism.includes(part)){
         //bells chiming
-        setMessage(`You hear the faint sound of ${room.rand.pickFrom(room.sounds)}.`);
+        setMessage(`You hear the faint sound of ${room.rand.pickFrom(room.sounds)} in the distance.`);
         return;
       }else if (taste_euphamemisms.includes(part)){
         //blood/meat/fish/etc
