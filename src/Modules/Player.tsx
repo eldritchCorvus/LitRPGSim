@@ -315,9 +315,8 @@ export class Player {
 
         monster.backstory = "It is a monster.";
         for(let theme of themes){
-            monster.backstory += ` ${theme.pickPossibilityFor(this.rand, MONSTER_DESC)}.`;
+            monster.backstory += ` ${theme.pickPossibilityFor(this.rand, MONSTER_DESC)}`;
         }
-        monster.backstory = this.rand.pickFrom(this.collateThemes()).pickPossibilityFor(this.rand, PHILOSOPHY);
         this.companions.push(monster);
     }
 
