@@ -57,7 +57,7 @@ function Birthday(props: AppProps) {
   return (
     <div className="birthday-container">
       <div className="section">
-        <Content>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a>I found, which generates a custom RPG setting personalized for you with a shit ton of secrets and almost has LitRPG vibes? </Content>
+        <Content>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a> I found (NOTE: link dead, if anyone can find a cache of it lemme know), which generates a custom RPG setting personalized for you with a shit ton of secrets and almost has LitRPG vibes? </Content>
         <LinkButton onClick={() => { props.setMode(ABOUT) }}>About Zampanio</LinkButton>
       </div>
       <div className="section">
