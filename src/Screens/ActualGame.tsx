@@ -10,10 +10,12 @@ import { all_themes, initThemes } from "../Modules/Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { MenuBox, MENU_OPACITY, BORDERRADIUSROUND, FONTCOLOR, BGCOLOR, FONTSIZE } from "./Styles";
-import Input, { useCompositeState } from 'reakit';
+import Input, { Dialog, DialogDisclosure, useCompositeState, useDialogState } from 'reakit';
 import { removeItemOnce } from "../Utils/ArrayUtils";
 import { getRandomNumberBetween, pickFrom } from "../Utils/NonSeededRandUtils";
 import { PHILOSOPHY } from "../Modules/ThemeStorage";
+import { title } from "node:process";
+import { Popup, PopupTitle, PopupContent } from "../Modules/ObserverBot/AchivementPopup";
 //the point of ThisIsAGame is to punish the player for forcing dear sweet precious Truth to lie like that and pretend to be a game
 //horror jail for you.
 interface RoomProps {
@@ -25,6 +27,7 @@ interface RoomProps {
   useCompanion: any;
   numberFriends: number;
   player: Player;
+  checkDeath: any;
 }
 interface StatusProps {
   player: Player;
@@ -33,6 +36,9 @@ export const ActualGame = (props: StatusProps) => {
   const {player} = props;
   const [currentRoom, setCurrentRoom] = useState(player.buildingMetaData[player.current_location]);
   const [direction, setCurrentDirection] = useState("");
+  const [deathFlag, setDeathFlag] = useState("");
+  const dialog = useDialogState();
+
 
   const changeRoom = (room_key:string, direction:string)=>{
     console.log("JR NOTE: attempting to change room to", room_key);
@@ -40,6 +46,7 @@ export const ActualGame = (props: StatusProps) => {
       player.spawnNotAMinotaur();
     }
     if(player.buildingMetaData[room_key].unlocked){
+      console.log("JR NOTE: I should be calling be entered.")
       player.current_location = room_key;
       //will spawn companions or extra exits as needed
       player.buildingMetaData[room_key].beEntered(player);
@@ -51,7 +58,24 @@ export const ActualGame = (props: StatusProps) => {
     }
   }
 
+  //if you do ANYTHING other than killing the monster on the spot (in the only way you can) or fleeing
+  //you die here.
+  const checkDeath = ()=>{
+    console.log("JR NOTE: checking death");
+    //popup to explain you have been killed by a shambling horror, message.
+    //when they click anywhere, refresh the entire page to a new seed. reincarnation bb
+    for(let companion of currentRoom.people){
+      console.log("JR NOTE: is this a shambling horror? ", companion.fullName)
+      if(companion.fullName === "Shambling Horror"){
+        console.log("JR NOTE: it is. ", companion.backstory)
+        dialog.setVisible(true); 
+        setDeathFlag(companion.backstory);
+      }
+    }
+  }
+
   const pickupItem = (item:string)=>{
+    checkDeath();
     //add to inventory, should only be called if you have one
     if(player.observer.inventoryMenuLevel>0){
       player.inventory.push(item);
@@ -62,6 +86,7 @@ export const ActualGame = (props: StatusProps) => {
   }
 
   const useItem = (item:string)=>{
+    checkDeath();
     //if there is a locked door nearby, unlock it
     let useable = null;
     if(player.observer.inventoryMenuLevel<=0){
@@ -84,21 +109,37 @@ export const ActualGame = (props: StatusProps) => {
       if(!player.buildingMetaData[room].unlocked){
         player.buildingMetaData[room].unlocked = true;
         removeItemOnce(player.companions, item);
+        removeItemOnce(currentRoom.people, item);
         const horrors = ["is dragged screaming","throws themself headfirst with a sickening crack","fades","is sucked into the keyhole","is dragged screaming by hands that are not hands"];
+        checkDeath();
         return `${item.fullName} ${player.rand.pickFrom(horrors)} into the door barring entry into the ${room}. It is now UNLOCKED!`;
       }
     }
+    checkDeath();
     return useable;
 
   }
 
   return (
     <div>
+      {deathFlag!==""?(
+        
+          <Fragment>
+                  <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
+      <Dialog onClick={()=>{window.location.href = `?seed=${getRandomNumberBetween(0,33333333)}`}} {...dialog} tabIndex={0} aria-label="death" style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"25%", width: "600px"} }>
+        <Popup>
+            <PopupTitle>You have been killed by a Shambling Horror!</PopupTitle>
+            <PopupContent>{deathFlag}  It hurts so much to die. You will be reincarnated once you click. Thems the breaks.</PopupContent>
+        </Popup>
+      </Dialog>
+          </Fragment>
+        
+      ):null}
       <MenuBox angle={0} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
        
 <br></br>
 
-<RenderedRoom player ={player} room={currentRoom} numberFriends={player.companions.length}changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem}/>
+<RenderedRoom player ={player} checkDeath={checkDeath} room={currentRoom} numberFriends={player.companions.length}changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem}/>
       </MenuBox>
     </div>
 
@@ -184,6 +225,7 @@ const [message, setMessage] = useState("");
   }
 
   const checkSnark = (input: string)=>{
+    props.checkDeath();
     const parts = input.split(" ");
     //IF YOU TYPE HELP PRINT OUT THE FIRST OF ALL OF THESE.
     const look_euphamemisms = ["LOOK","SEE","OBSERVE","GLANCE","GAZE","GAPE","STARE","WATCH","INSPECT","EXAMINE","STUDY","SCAN","VIEW","JUDGE","EYE"];
@@ -252,7 +294,6 @@ const [message, setMessage] = useState("");
   }
 
   const checkInventoryItems = (input:string)=>{
-    console.log("JR NOTE: checkInventoryItems input is", input)
     let result = false;
     for(let item of props.player.inventory){
       let parts = item.split(" ");
@@ -274,7 +315,6 @@ const [message, setMessage] = useState("");
   }
 
   const checkRoomItems = (input:string)=>{
-    console.log("JR NOTE: checkRoomItems input is", input)
     let result = false;
     for(let item of room.items){
       let parts = item.split(" ");
@@ -297,14 +337,12 @@ const [message, setMessage] = useState("");
   }
 
   const checkCompanion = (input:string)=>{
-    console.log("JR NOTE: checkCompanion input is", input)
     let result = false;
     let useable = null;
     let person = null;
     for(let item of room.people){
       let parts = item.fullName.split(" ");
       for(let part of parts){
-        console.log("JR NOTE: input is ", input, "part is", part)
         if(part.trim() !=="" && input.includes(part.toUpperCase())){
           person = item;
           break; //so sue me
@@ -314,7 +352,7 @@ const [message, setMessage] = useState("");
     if(person){
       useable = props.useCompanion(person);
     }
-    if(!useable && person && !person.fullName.includes("NotAMinotaur")){
+    if(!useable && person && !person.fullName.includes("NotAMinotaur") && !person.fullName.includes("Shambling Horror")){
       const flavor = [`begs you to explain to them why everything is ROOMS even though none of it makes sense`,`tells you furtively that once everyone is dead there will be a secret but it won't be worth it`,`asks if you have seen the Truth yet`,`explains despondently that there is no end there can never be an end the end is never`,`is pacing nervously`,"is screaming at the top of their lungs 'ITS NOT REAL IM NOT REAL NO ONE IS REAL ONLY TRUTH IS REAL!'",`is muttering quietly to themself`,`seems...off`, "is desperately scratching at the walls", "is carefully measuring their steps and comparing it to each wall","is staring intently into a corner","is looking right through you","is breathing heavily and gritting their teeth","is pounding on the walls and screaming","is quietly reading a book","is chewing on...something","is repeating 'when is a door not a door not a door not a door not a door not a door' over and over again","is begging you to stop playing","is slowly counting each of their fingers, then considering for a moment and recounting. Over and over again","is insisting there never should have been a game here","is pleading with a cruel and unjust god","is desperately trying to find some way to measure time in this place","is begging for you to tell them how long they have been trapped here","is begging you to just turn the game back off","is walking into a wall repeatedly with a dazed expresion on their face","is counting the number of vowels in this room","is listlessly drawing a small stick figure with their own blood","is resolutely attempting to dig through the floor","walks up to you and quietly asks if you might be able to kill them","waits patiently for death","mutters 'the door the door the door the door i am for the door the door the door the door' over and over again","is waiting patiently next to the door with a haunted expression","is chanting 'ThisIsNotAGame' over and over again"];
       setMessage(`${person.fullName} ${pickFrom(flavor)}.`);
       return true;
@@ -337,16 +375,19 @@ const [message, setMessage] = useState("");
         setMessage(`${person.fullName} is lecturing: ${theme.pickPossibilityFor(rand,PHILOSOPHY)}`);
         return true;
       }
+    }else if(person && person.fullName.includes("Shambling Horror") ){
+      setMessage(person.backstory);
+      return true;
     }
     return false;
   }
 
+
+
   const checkRoomName = (input:string)=>{
-    console.log("JR NOTE: checkRoomName input is", input)
     let result = false;
     for(let item of room.neighbors){
       let parts = item.split(" ");
-      console.log("JR NOTE: item is", item, "parts are",parts)
       for(let part of parts){
         if(input.toUpperCase().includes(part.toUpperCase())){
           const result = props.changeRoom(item, "???");
@@ -373,7 +414,6 @@ const [message, setMessage] = useState("");
 
 
   const checkMovement = (input:string)=>{
-    console.log("JR NOTE: checkMovement input is", input)
     let result = null;
     if(input.toUpperCase().includes("NORTH")){
       if(room.neighbors.length >= 2){

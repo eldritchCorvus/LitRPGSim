@@ -503,7 +503,7 @@ const initObjects = () =>{
     object_possibilities[BUGS] =  ["hive","pupa","nest"];
     object_possibilities[ADDICTION] = ["syringe","vial","dice"];
     object_possibilities[SPYING] =["spyglass","camera","disguise"] ;
-    object_possibilities[CLOWNS] =["clown wig","bicycle horn","facepaint","balloon animal","large pants","circus tent","unicycle"] ;
+    object_possibilities[CLOWNS] =["clown wig","bicycle horn","facepaint","balloon animal","large pants","circus tent","unicycle","ringmasters jacket"] ;
     object_possibilities[DOLLS] = ["doll","mannequin","statuette"] ;
     object_possibilities[OBFUSCATION] = ["white-out","sharpie","censor bar"] ;
     object_possibilities[DARKNESS] =  ["sunglasses","blinds","blindfold","darklight"] ;
@@ -966,7 +966,7 @@ const initMonsterDesc = () =>{
     monster_desc[SERVICE] =  ["It constantly repeats 'How can I help you today'? in a brittle, cheerful voice.","Its smile stretches painfully across its face.","Its smile is stapled into place.","Its smile is a rictus of pain and its eyes brim hate.","Its smile appears genuine until you look into its eyes."];
     monster_desc[FAMILY] =  ["It is surrounded by smaller versions of itself.","It drags a small corpse of something that looks like itself behind it.","It cradles a small thing that looks like itself in its arms."];
     monster_desc[MAGIC] =  ["Anything it touches is magically turned into something else at random.","It drags a broken wizard's staff behind it.","It wears an incongrously cheerful wizard's hat with stars."];
-    monster_desc[HEALING] =  ["Wounds constantly open up on its body and then heal.","Any weapon that pierces it is remains stuck in place as the flesh closes up around it.","It is dressed like a sexy nurse.","Its blood appears to be max healing potions."];
+    monster_desc[HEALING] =  ["Wounds constantly open up on its body and then heal.","Any weapon that pierces it remains stuck in place as the flesh closes up around it.","It is dressed like a sexy nurse.","Its blood appears to be max healing potions."];
     monster_desc[PLANTS] = ["Roots bulge through its veins, occasionally piercing skin to put out some leaves.","A mushroom fruiting body pierces out from the top of its skull.","A single blood-red flower blooms from the center of its chest."];
     monster_desc[HUNTING] = ["It waits for you to run.","There is fur sprouting at random from its body.","Its hunched and twisted into a parody of a wolf.","Its fangs are dripping blood and drool in equal measure.","It lopes on all fours.","Its eyes glow with a predatory light."];
     monster_desc[DECAY] = ["Maggots are nesting in the empty sockets where its eyes used to be.","Its body is riddled with holes that maggots crawl in and out of.","Its flesh is rotting and decayed.","Anything it touches rots into a congealed mess."] ;
@@ -985,7 +985,7 @@ const initMonsterDesc = () =>{
     monster_desc[BUGS] =  ["Parts of its flesh seem to be a shifting mat of ants.","Maggots and adult flies spill out of its mouth whenever it opens.","Honey drips out of its empty eye sockets and bees go in and out of them at will."];
     monster_desc[ADDICTION] = ["It holds a broken beer bottle in one hand.","It trails bloody playing cards behind it.","Syringes are jabbed into it at random."];
     monster_desc[SPYING] =["Its unblinking stare never leaves you.","It is made of eyes.","Dozens of eyes float behind it.","Its flesh is riddled with staring eyes.","There is a single, unblinking eye in the center of its face."] ;
-    monster_desc[CLOWNS] =["It has a red rubber clown nose.","It has bright clown make up messily applied to its face.","It wears a colorful curly wig."] ;
+    monster_desc[CLOWNS] =["Its smiling like a dare.","It has a red rubber clown nose.","It has bright clown make up messily applied to its face.","It wears a colorful curly wig."] ;
     monster_desc[DOLLS] = ["It wears a pretty dress and mary-janes.","Its limbs appear to be ball-jointed.","It wears a cracked porcelain mask."] ;
     monster_desc[OBFUSCATION] = ["Parts of it are invisible.","Its features are blurry.","It flickers in and out of visibility.","You sometimes can't hear it at all."] ;
     monster_desc[DARKNESS] =  ["Its shadow is bigger than you would expect.","Its features are dripping shadows like water.","Its visible only through its shadow."] ;
