@@ -236,7 +236,7 @@ const [message, setMessage] = useState("");
     }
     
 
-    setMessage("Shit post: " + input);
+    setMessage("I don't know what to do about: " + input);
     return true;
   }
 
@@ -302,7 +302,8 @@ const [message, setMessage] = useState("");
     for(let item of room.people){
       let parts = item.fullName.split(" ");
       for(let part of parts){
-        if(input.toUpperCase().includes(part.toUpperCase())){
+        console.log("JR NOTE: input is ", input, "part is", part)
+        if(part.trim() !=="" && input.includes(part.toUpperCase())){
           person = item;
           break; //so sue me
         }
