@@ -27,6 +27,7 @@ interface AspectMap {
 }
 //autopopulated by creating aspects
 export const all_aspects:AspectMap = {};
+export const all_aspects_except_null:AspectMap = {};
 
 
 export  class Aspect{
@@ -49,6 +50,9 @@ export  class Aspect{
         });
         this.key = key;
         all_aspects[key]= this;
+        if(this.key !== NULL){
+            all_aspects_except_null[key]= this;
+        }
 
 
     }

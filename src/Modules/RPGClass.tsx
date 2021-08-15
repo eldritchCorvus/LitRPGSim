@@ -26,6 +26,7 @@ interface ClassMap {
 }
 //autopopulated by creating aspects
 export const all_classes:ClassMap = {};
+export const all_classes_except_null:ClassMap = {};
 
 
 export  class RPGClass{
@@ -48,6 +49,9 @@ export  class RPGClass{
         });
         this.key = key;
         all_classes[key]= this;
+        if(key !== NULL){
+            all_classes_except_null[key]= this;
+        }
 
 
     }
