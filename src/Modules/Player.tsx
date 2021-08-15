@@ -9,7 +9,7 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, FREESPIRITED, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { ADJ, CHILDBACKSTORY, FAMILY, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, OBJECT, PHILOSOPHY } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, TWISTING } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
@@ -355,10 +355,10 @@ export class BuildingMetaData {
     items: string[] = []; //you can find items.
     people: Companion[] = []; //you can meet randos.
     description: string = "test";
-    smells: string[] = ["rot"];
-    tastes: string[] = ["raw meat"];
-    feelings: string[] = ["wood"];
-    sounds: string[] = ["chiming bells"];
+    smells: string[] = [];
+    tastes: string[] = [];
+    feelings: string[] = [];
+    sounds: string[] = [];
 
     constructor(key: string, themes: Theme[], unlocked: boolean, rand: SeededRandom, items: string[]) {
         this.key = key;
@@ -376,12 +376,29 @@ export class BuildingMetaData {
     generateDescription = (themes: Theme[]) => {
         let ret = `You see ${this.rand.pickFrom(themes).pickPossibilityFor(this.rand, LOC_DESC)}. `;
         const num = this.rand.getRandomNumberBetween(1, 3);
+        for(let i = 0; i< 3; i++){
+            const theme = this.rand.pickFrom(themes);
+            if(themes.includes(all_themes[TWISTING])){
+                console.log("JR NOTE: it tastes like purple");
+                const scromble = [SMELL, SOUND, TASTE, FEELING];
+                //tastes like purple is a common spiral trope. it is not what it is
+                this.smells.push(theme.pickPossibilityFor(this.rand, this.rand.pickFrom(scromble)));
+                this.sounds.push(theme.pickPossibilityFor(this.rand, this.rand.pickFrom(scromble)));
+                this.tastes.push(theme.pickPossibilityFor(this.rand, this.rand.pickFrom(scromble)));
+                this.feelings.push(theme.pickPossibilityFor(this.rand, this.rand.pickFrom(scromble)));
+            }else{
+                this.smells.push(theme.pickPossibilityFor(this.rand, SMELL));
+                this.sounds.push(theme.pickPossibilityFor(this.rand, SOUND));
+                this.tastes.push(theme.pickPossibilityFor(this.rand, TASTE));
+                this.feelings.push(theme.pickPossibilityFor(this.rand, FEELING));
+            }
+        }
         for (let i = 0; i < num; i++) {
             if (this.rand.nextDouble() > 0.3) {
                 const connectors = ["There's", "There's also", "You also see"];
                 ret += `${this.rand.pickFrom(connectors)} ${this.rand.pickFrom(themes).pickPossibilityFor(this.rand, LOC_DESC)}. `;
             } else {
-                const non_visual_choices = [`The floor feels weirdly of ${this.rand.pickFrom(this.feelings)}.`, `You almost gag against the taste of ${this.rand.pickFrom(this.tastes)}.`, `You almost have to cover your ears to drown out the unending sound of  ${this.rand.pickFrom(this.sounds)}.`, `The reek of ${this.rand.pickFrom(this.smells)} permeates the air.`];
+                const non_visual_choices = [`The floor feels weirdly of ${this.rand.pickFrom(this.feelings)}.`, `You almost gag against the taste of ${this.rand.pickFrom(this.tastes)}.`, `You almost have to cover your ears to drown out the unending sound of ${this.rand.pickFrom(this.sounds)}.`, `The reek of ${this.rand.pickFrom(this.smells)} permeates the air.`];
                 ret += `${this.rand.pickFrom(non_visual_choices)}`;
             }
         }

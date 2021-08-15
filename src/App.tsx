@@ -214,6 +214,7 @@ function App(props: AppProps) {
       <ul style={{display: "none"}}>
         <li>touch, taste, smell, sound all should be associated with theme (and accessible in ActualGame)</li>
         <li>game mode have randoms responses after enter is pressed, clear text, respond to verbs like look etc</li>
+        <li>monster descs</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
              <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
               <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
