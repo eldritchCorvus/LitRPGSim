@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { ABOUT } from "./AppWrapper";
-import { all_aspects, initAspects } from "./Modules/Aspect";
-import { all_interests, initInterests } from "./Modules/Interest";
-import { all_classes, initClasses } from "./Modules/RPGClass";
+import { all_aspects, all_aspects_except_null, initAspects } from "./Modules/Aspect";
+import { all_interests, all_interests_except_null, initInterests } from "./Modules/Interest";
+import { all_classes, all_classes_except_null, initClasses } from "./Modules/RPGClass";
 import { all_stats, initStats } from "./Modules/Stat";
 import { all_themes, initThemes } from "./Modules/Theme";
 import { LinkButton } from "./Screens/Styles";
@@ -67,16 +67,16 @@ function Birthday(props: AppProps) {
       <div className="section">
         Pick four concepts that speak to you:
         <select onChange={(ev) => { setClassName(ev.target.value) }} >
-          {Object.keys(all_classes).map((key) => { return (<option value={key}>{key}</option>) })}
+          {Object.keys(all_classes_except_null).map((key) => { return (<option value={key}>{key}</option>) })}
         </select>
         <select onChange={(ev) => { setAspect(ev.target.value) }}>
-          {Object.keys(all_aspects).map((key) => { return (<option value={key}>{key}</option>) })}
+          {Object.keys(all_aspects_except_null).map((key) => { return (<option value={key}>{key}</option>) })}
         </select>
         <select onChange={(ev) => { setInterest1(ev.target.value) }} value={interest1}>
-          {Object.keys(all_interests).map((key) => { return (<option value={key}>{key}</option>) })}
+          {Object.keys(all_interests_except_null).map((key) => { return (<option value={key}>{key}</option>) })}
         </select>
         <select onChange={(ev) => { setInerest2(ev.target.value) }} value={interest2}>
-          {Object.keys(all_interests).map((key) => { return (<option value={key}>{key}</option>) })}
+          {Object.keys(all_interests_except_null).map((key) => { return (<option value={key}>{key}</option>) })}
         </select>
       </div>
       <div className="section">
