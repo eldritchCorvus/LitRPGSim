@@ -105,7 +105,7 @@ function About(props: AppProps) {
     <div>
       <AboutDom>
         <h1>About ZampanioSim</h1>
-        ZampanioSim is...TODO
+        <Content>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a>I found, which generates a custom RPG setting personalized for you with a shit ton of secrets and almost has LitRPG vibes? </Content>
         <div>
           <LinkButton onClick={() => { props.setMode(BIRTHDAY) }}>Enter Zampanio</LinkButton>
         </div>

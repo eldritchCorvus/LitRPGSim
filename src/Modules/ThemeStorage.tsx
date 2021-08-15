@@ -22,6 +22,10 @@ export const SONG = "SONG";
 export const PHILOSOPHY = "PHILOSOPHY";
 export const LOC_DESC = "LOCATION DESCRIPTION";
 export const MONSTER_DESC = "MONSTER DESCRIPTION";
+export const SMELL = "SMELL";
+export const TASTE = "TASTE";
+export const FEELING = "FEELING";
+export const SOUND = "SOUND";
 
 
 //themes
@@ -102,6 +106,10 @@ export let miracles:ThemePossibilitiesMap = {};
 export let philosophy:ThemePossibilitiesMap = {};
 export let loc_desc:ThemePossibilitiesMap = {};
 export let monster_desc:ThemePossibilitiesMap = {};
+export let sound_possibilities:ThemePossibilitiesMap = {};
+export let taste_possibilities:ThemePossibilitiesMap = {};
+export let feeling_possibilities:ThemePossibilitiesMap = {};
+export let smell_possibilities:ThemePossibilitiesMap = {};
 
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
@@ -170,6 +178,22 @@ export const checkIfAllKeysPresent = ()=>{
 
         if(!(key in monster_desc)){
             console.error("JR NOTE: key", key, "not found in monster_desc");
+        }
+
+        if(!(key in smell_possibilities)){
+            console.error("JR NOTE: key", key, "not found in smell_possibilities");
+        }
+
+        if(!(key in taste_possibilities)){
+            console.error("JR NOTE: key", key, "not found in taste_possibilities");
+        }
+
+        if(!(key in sound_possibilities)){
+            console.error("JR NOTE: key", key, "not found in sound_possibilities");
+        }
+
+        if(!(key in feeling_possibilities)){
+            console.error("JR NOTE: key", key, "not found in feeling_possibilities");
         }
     }
 }
@@ -284,7 +308,7 @@ const initAdjs = () =>{
     adj_possibilities[TECHNOLOGY] = ["technological","advanced","smart","programmatic","procedural"];
     adj_possibilities[TIME] = ["timely","measured","punctual","clock-work","steady","ticking","beating"];
     adj_possibilities[SPACE] = ["celestial","otherworldly","vast","big","open","expansive","boundless","immeasurable","infinite","limitless","enormous","gigantic","giant","cosmic","falling"];
-    adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing","kleptomania"];
+    adj_possibilities[STEALING] = ["stolen","taken","yoinked","missing","kleptomania","expensive"];
     adj_possibilities[FREEDOM] = ["free","unchained","unbound","moving","flying"];
     adj_possibilities[FIRE] = ["flaming","blazing","burning","ashen","burnt"];
     adj_possibilities[LONELY] = ["lonely","isolated","friendless","forsaken","sad"];
@@ -311,7 +335,7 @@ const initAdjs = () =>{
     adj_possibilities[SOUL] = ["defining","delineating","pure"];
     adj_possibilities[ANGER] = ["raging","hating","rebelling","glaring","stampeding","furious"];
     adj_possibilities[WEB] = ["controlling","puppeting","trapping","gossamer","ineluctable","webbed","arachnid","doomed"];
-    adj_possibilities[ROYALTY] = ["ruling","mandating","decreeing","royal","commanding"];
+    adj_possibilities[ROYALTY] = ["ruling","mandating","decreeing","royal","commanding","gold"];
     adj_possibilities[ENDINGS] =["ending","final","ultimate","exhausted"];
     adj_possibilities[KNOWING] = ["knowing","understanding","learning"];
     adj_possibilities[GUIDING] = ["guiding","showing","explaining"];
@@ -321,7 +345,7 @@ const initAdjs = () =>{
     adj_possibilities[ADDICTION] = ["craving","addicting","compelling"];
     adj_possibilities[SPYING] = ["spying","observing","watching","voyeuristic","seeking"];
     adj_possibilities[CLOWNS] = ["honking","funny","prancing","tumbling","joking","jeering","dancing","performing","jesting"];
-    adj_possibilities[DOLLS] = ["delicate","beautiful","unsettling","playing","dressing"];
+    adj_possibilities[DOLLS] = ["delicate","beautiful","unsettling","playing","dressing","plastic","ceramic"];
     adj_possibilities[OBFUSCATION] = ["hiding","hidden","obscured","confusing","blinding","secret","unknowable","censored"];
     adj_possibilities[DARKNESS] = ["darkened","blackened","midnight","blinding"];
     adj_possibilities[KILLING] = ["killing","murderous","massacred","bloody","savage","blood-stained","gory","brutal"];
@@ -972,6 +996,210 @@ const initMonsterDesc = () =>{
 }
 
 
+const initSounds = () =>{
+    sound_possibilities[ART] =  ["scribbling pens","tapping chisels","hushed silence"];
+    sound_possibilities[TECHNOLOGY] =  ["clicking keys","router beeping","whirring fans"];
+    sound_possibilities[SPACE] =  ["a backwards countdown","rocket thrusters","wind"];
+    sound_possibilities[TIME] =  ["ticking clocks","an alarm clock beeping","a metronome"];
+    sound_possibilities[STEALING] =  ["a security alarm blaring","chains rustling","dropping coins"];
+    sound_possibilities[FREEDOM] =  ["winds flapping","locks opening","hushed silence"];
+    sound_possibilities[FIRE] =  ["a fire alarm blaring","a fire roaring","a match being struck"];
+    sound_possibilities[LONELY] =  ["hushed silence","wind","no one at all"];
+    sound_possibilities[OCEAN] =  ["gentle waves","a seagull screeching","water"];
+    sound_possibilities[FLESH] =  ["uncomfortable squelching","slapping meat","bones grinding"];
+    sound_possibilities[BURIED] =  ["dirt shifting","strained rock creaking","the walls groaning as they get closer to you"];
+    sound_possibilities[SCIENCE] =  ["instruments beeping","fans whirring","a lecture"];
+    sound_possibilities[MATH] =  ["a note at exactly 261.63 Hz drawn out","a sine wave","a voice reciting the digits of pi"];
+    sound_possibilities[TWISTING] =  ["echoing laughter","lies","headache"];
+    sound_possibilities[DEATH] =  ["a funeral dirge","a last gasp","wailing sobs"];
+    sound_possibilities[APOCALYPSE] =  ["a nuclear warning siren","instructions to seek shelter against radiation","hushed silence"];
+    sound_possibilities[ANGELS] =  ["angelic singing","a peaceful choir","the trumpets of judgement"];
+    sound_possibilities[LIGHT] =  ["the hum of fluorescent bulbs","a soft hum","a light switch click on"];
+    sound_possibilities[SERVICE] =  ["cleaning","distant servants","service"];
+    sound_possibilities[FAMILY] =  ["children laughing","children playing","family dinner"];
+    sound_possibilities[MAGIC] =  ["a chanting ritual","a summoning circle","a spell being cast"];
+    sound_possibilities[HEALING] =  ["ambient hospital work","a healing spell","a nurse yelling 'stat'"];
+    sound_possibilities[PLANTS] = ["leaves rustling","branches rustling","birds singing"];
+    sound_possibilities[HUNTING] = ["something running away from you","something crying out in fear and exhaustion","growling"];
+    sound_possibilities[DECAY] = ["the walls collapsing from rot","the floor groaning with decay","your own body starting to decay"] ;
+    sound_possibilities[CHOICES] =  ["hushed silence","a game show","a coin landing somewhere"] ;
+    sound_possibilities[ZAP] = ["an electrical hum","lightning striking","a tesla coil"] ;
+    sound_possibilities[LOVE] = ["romantic music","a love ballad","a happy sigh"];
+    sound_possibilities[SOUL] = ["crystals clinking into each other","a mirror shattering","your own voice echoing"] ;
+    sound_possibilities[ANGER] = ["an angry mob","a riot","nails on a chalkboard"] ;
+    sound_possibilities[WEB] =  ["spiders scurrying","a hushed silence","puppets clattering"] ;
+    sound_possibilities[ROYALTY] =  ["a royal procession","courtiers murmoring","a herald speaking"] ;
+    sound_possibilities[ENDINGS] =  ["a voice announcing 'The End'","ending credits music","goodbye for a world","someone saying 'the end is never the end'"] ;
+    sound_possibilities[KNOWING] = ["someone narrating everything you're doing as you do it","all the secrets of the universe whispering themselves to you","a voice listing out facts about the room in no particular order"] ;
+    sound_possibilities[GUIDING] = ["a tour guide instructing you","a teacher telling you what to do","the help text being read aloud to you"] ;
+    sound_possibilities[CRAFTING] =  ["anvils being hammered","wood being chopped","yarn being spun"];
+    sound_possibilities[LANGUAGE] = ["a language you've never heard before","a story about a mysterious game that ends the world","a voice reciting synonyms for lies"] ;
+    sound_possibilities[BUGS] =  ["a hive singing","bugs squirming","insects buzzing"];
+    sound_possibilities[ADDICTION] = ["a jackpot being won","cards being dealt","a roulette being spun"];
+    sound_possibilities[SPYING] =["a camera shutter going off","someone whispering","window blinds being shut"] ;
+    sound_possibilities[CLOWNS] =["a horn being honked","a calliope playing","a circus organ playing"] ;
+    sound_possibilities[DOLLS] = ["a teaparty","plastic creaking","ceramic breaking"] ;
+    sound_possibilities[OBFUSCATION] = ["pig latin","morse code","tap code"] ;
+    sound_possibilities[DARKNESS] =  ["hushed silence","a lightbulb breaking","deep still water"] ;
+    sound_possibilities[KILLING] =  ["a knife plunging into flesh","a gun going off","a death gurgle"];
+    sound_possibilities[MUSIC] =  ["beautiful music","singing","a drum beating"] ;
+    sound_possibilities[DEFENSE] =  ["metal hitting metal","a rallying cry","clanking metal"] ;
+    sound_possibilities[QUESTING] = ["leveling up","a new quest","a role playing game"] ;
+}
+
+const initFeelings = () =>{
+    feeling_possibilities[ART] =  ["drying paint","cold marble","fresh canvas"];
+    feeling_possibilities[TECHNOLOGY] =  ["circuit boards","smooth aluminum","chrome"];
+    feeling_possibilities[SPACE] =  ["infinite space","star stuff","vacuum"];
+    feeling_possibilities[TIME] =  ["smooth glass","petrified wood","fosils"];
+    feeling_possibilities[STEALING] =  ["gold","platinum","jewels"];
+    feeling_possibilities[FREEDOM] =  ["feathers","air","clouds"];
+    feeling_possibilities[FIRE] =  ["ash","charcoal","embers"];
+    feeling_possibilities[LONELY] =  ["cold stone","cold wood","cold metal"];
+    feeling_possibilities[OCEAN] =  ["damp rocks","water","damp sand"];
+    feeling_possibilities[FLESH] =  ["meat","flesh","bone","skin"];
+    feeling_possibilities[BURIED] =  ["dirt","mud","rock"];
+    feeling_possibilities[SCIENCE] =  ["chrome","glass","plastic"];
+    feeling_possibilities[MATH] =  ["raw numbers","mathematically precise planks","plastic"];
+    feeling_possibilities[TWISTING] =  ["angles","shapes","flavors"];
+    feeling_possibilities[DEATH] =  ["bone","smooth wood","marble"];
+    feeling_possibilities[APOCALYPSE] =  ["ash","radiation","grey goo"];
+    feeling_possibilities[ANGELS] =  ["feathers","holy water","relics"];
+    feeling_possibilities[LIGHT] =  ["solid light","lightbulbs","lampshades"];
+    feeling_possibilities[SERVICE] =  ["chains","feathers","cravats"];
+    feeling_possibilities[FAMILY] =  ["photographs","toys","gifts"];
+    feeling_possibilities[MAGIC] =  ["mythril","mana","essence"];
+    feeling_possibilities[HEALING] =  ["bandages","syringes","sheets"];
+    feeling_possibilities[PLANTS] = ["leaves","branches","flowers"];
+    feeling_possibilities[HUNTING] = ["fur","bullets","arrows"];
+    feeling_possibilities[DECAY] = ["rot","decaying animals","rotting corpses"] ;
+    feeling_possibilities[CHOICES] =  ["paving stones","wood","coins"] ;
+    feeling_possibilities[ZAP] = ["electricity","batteries","tesla coils"] ;
+    feeling_possibilities[LOVE] = ["roses","chocolate","wine"];
+    feeling_possibilities[SOUL] = ["gems","mirrors","your own skin"] ;
+    feeling_possibilities[ANGER] = ["heat","capsasin","tear gas"] ;
+    feeling_possibilities[WEB] =  ["spider web","cobwebs","spiders"] ;
+    feeling_possibilities[ROYALTY] =  ["gold","velvet","fur"] ;
+    feeling_possibilities[ENDINGS] =  ["velvet","cold marble","wood"] ;
+    feeling_possibilities[KNOWING] = ["paper","ink","parchment"] ;
+    feeling_possibilities[GUIDING] = ["glass","dirt","metal"] ;
+    feeling_possibilities[CRAFTING] =  ["metal","cloth","wood"];
+    feeling_possibilities[LANGUAGE] = ["paper","parchment","ink"] ;
+    feeling_possibilities[BUGS] =  ["carapaces","worms","worm casings"];
+    feeling_possibilities[ADDICTION] = ["syringes","gaming chips","powder"];
+    feeling_possibilities[SPYING] =["glass","cameras","one-way mirros"] ;
+    feeling_possibilities[CLOWNS] =["rubber","balloons","hair"] ;
+    feeling_possibilities[DOLLS] = ["porcelain","plastic","rubber"] ;
+    feeling_possibilities[OBFUSCATION] = ["nothing at all","nothingness","void"] ;
+    feeling_possibilities[DARKNESS] =  ["shadows","darkness","vantablack"] ;
+    feeling_possibilities[KILLING] =  ["blood","knives","bullets"];
+    feeling_possibilities[MUSIC] =  ["sheet-music","brass","wood"] ;
+    feeling_possibilities[DEFENSE] =  ["iron","steel","bronze","leather"] ;
+    feeling_possibilities[QUESTING] = ["gold","platinum","silver"] ;
+}
+
+const initTastes = () =>{
+    taste_possibilities[ART] =  ["crayons","paint","paper"];
+    taste_possibilities[TECHNOLOGY] =  ["ozone","metal","plastic"];
+    taste_possibilities[SPACE] =  ["stars","wind","infinite cosmic power"];
+    taste_possibilities[TIME] =  ["the future","the past","the present"];
+    taste_possibilities[STEALING] =  ["gold","silver","wealth"];
+    taste_possibilities[FREEDOM] =  ["freedom","independance","birds"];
+    taste_possibilities[FIRE] =  ["ash","fire", "destruction"];
+    taste_possibilities[LONELY] =  ["loneliness","isolation","depression"];
+    taste_possibilities[OCEAN] =  ["sea-salt","the ocean","water"];
+    taste_possibilities[FLESH] =  ["raw meat","flesh","your own blood"];
+    taste_possibilities[BURIED] =  ["dirt","mud","earth"];
+    taste_possibilities[SCIENCE] =  ["chemicals","disinfectant","acetone"];
+    taste_possibilities[MATH] =  ["raw math","numbers","pie"];
+    taste_possibilities[TWISTING] =  ["headaches","corners","fractals"];
+    taste_possibilities[DEATH] =  ["death","mortality","inevitability"];
+    taste_possibilities[APOCALYPSE] =  ["radiation","twinkies","canned food"];
+    taste_possibilities[ANGELS] =  ["wafers","wine","redemption"];
+    taste_possibilities[LIGHT] =  ["broken glass","angel food cake","foam"];
+    taste_possibilities[SERVICE] =  ["restaurant food","feather dusters","chains"];
+    taste_possibilities[FAMILY] =  ["soul food","a home cooked meal","family dinner"];
+    taste_possibilities[MAGIC] =  ["mana","essence","magic"];
+    taste_possibilities[HEALING] =  ["a healing potion","bandaids","antibiotic"];
+    taste_possibilities[PLANTS] = ["leaves","fruit","flowers","spices"];
+    taste_possibilities[HUNTING] = ["cooked meat","gunpowder","bullets"];
+    taste_possibilities[DECAY] = ["rot","corruption","decay"] ;
+    taste_possibilities[CHOICES] =  ["31 flavors","options","choice"] ;
+    taste_possibilities[ZAP] = ["ozone","electricity","copper"] ;
+    taste_possibilities[LOVE] = ["chocolate","a kiss","perfume"];
+    taste_possibilities[SOUL] = ["your own spit","mirrors","window cleaner"] ;
+    taste_possibilities[ANGER] = ["capsasin","pure rage","hatred"] ;
+    taste_possibilities[WEB] =  ["spider webs","cobwebs","spiders"] ;
+    taste_possibilities[ROYALTY] =  ["crown","royal jelly","cake"] ;
+    taste_possibilities[ENDINGS] =  ["the ending","the end","the finale"] ;
+    taste_possibilities[KNOWING] = ["the knowledge of all things","an apple","knowledge"] ;
+    taste_possibilities[GUIDING] = ["potential","assistance","nothing at all"] ;
+    taste_possibilities[CRAFTING] =  ["raw iron","copper","wood"];
+    taste_possibilities[LANGUAGE] = ["ink","a good book","paper"] ;
+    taste_possibilities[BUGS] =  ["bugs","flies","bug droppings"];
+    taste_possibilities[ADDICTION] = ["powder","playing cards","cigarette butts"];
+    taste_possibilities[SPYING] =["paranoia","paranoia","paranoia"] ;
+    taste_possibilities[CLOWNS] =["cake","candy","humor"] ;
+    taste_possibilities[DOLLS] = ["plastic","ceramic","adj"] ;
+    taste_possibilities[OBFUSCATION] = ["nothing at all"] ;
+    taste_possibilities[DARKNESS] =  ["darkness"] ;
+    taste_possibilities[KILLING] =  ["blood","murder","blades"];
+    taste_possibilities[MUSIC] =  ["song"] ;
+    taste_possibilities[DEFENSE] =  ["metal","leather"] ;
+    taste_possibilities[QUESTING] = ["metal","adventure"] ;
+}
+
+const initSmells = () =>{
+    smell_possibilities[ART] =  ["paint","dust","paper"];
+    smell_possibilities[TECHNOLOGY] =  ["ozone","plastic","dust"];
+    smell_possibilities[SPACE] =  ["vacuum","wind","void"];
+    smell_possibilities[TIME] =  ["stale air","the future","the past"];
+    smell_possibilities[STEALING] =  ["wealth","jail","adventure"];
+    smell_possibilities[FREEDOM] =  ["freedom","independance","power"];
+    smell_possibilities[FIRE] =  ["smoke","fire","ash","wood burning"];
+    smell_possibilities[LONELY] =  ["loneliness","isolation","depression"];
+    smell_possibilities[OCEAN] =  ["sea-salt","an ocean breeze","seaweed rotting"];
+    smell_possibilities[FLESH] =  ["sweat","blood","meat"];
+    smell_possibilities[BURIED] =  ["dirt","dust","mud"];
+    smell_possibilities[SCIENCE] =  ["acetone","acid","chemicals"];
+    smell_possibilities[MATH] =  ["raw numbers","apple pie","pie"];
+    smell_possibilities[TWISTING] =  ["headache","code","mazes"];
+    smell_possibilities[DEATH] =  ["death","bones","corpses"];
+    smell_possibilities[APOCALYPSE] =  ["radiation","dust","ash"];
+    smell_possibilities[ANGELS] =  ["incense","redemption",'justice'];
+    smell_possibilities[LIGHT] =  ["ozone"];
+    smell_possibilities[SERVICE] =  ["food","cleaning chemicals","wood polish"];
+    smell_possibilities[FAMILY] =  ["home cooked food","family","home"];
+    smell_possibilities[MAGIC] =  ["mana","essence","reagents"];
+    smell_possibilities[HEALING] =  ["antiseptic","antibiotics","cleaning chemicals"];
+    smell_possibilities[PLANTS] = ["fertilizer","earth","flowers"];
+    smell_possibilities[HUNTING] = ["prey","blood","fear"];
+    smell_possibilities[DECAY] = ["rot","decaying bodies","decay"] ;
+    smell_possibilities[CHOICES] =  ["deceit","justice","lies"] ;
+    smell_possibilities[ZAP] = ["ozone"] ;
+    smell_possibilities[LOVE] = ["chocolate","love","romance"];
+    smell_possibilities[SOUL] = ["yourself"] ;
+    smell_possibilities[ANGER] = ["hatred","anger","violence"] ;
+    smell_possibilities[WEB] =  ["spider webs","dust","cob webs"] ;
+    smell_possibilities[ROYALTY] =  ["incense","spices","gold"] ;
+    smell_possibilities[ENDINGS] =  ["endings"] ;
+    smell_possibilities[KNOWING] = ["knowledge"] ;
+    smell_possibilities[GUIDING] = ["help"] ;
+    smell_possibilities[CRAFTING] =  ["dye","a forge","metal"];
+    smell_possibilities[LANGUAGE] = ["ink","paper","old books"] ;
+    smell_possibilities[BUGS] =  ["honey","a hive","worms"];
+    smell_possibilities[ADDICTION] = ["drugs","cards","money"];
+    smell_possibilities[SPYING] =["powder"] ;
+    smell_possibilities[CLOWNS] =["sweat","sugar","popcorn"] ;
+    smell_possibilities[DOLLS] = ["plastic","porcelain","lavendar"] ;
+    smell_possibilities[OBFUSCATION] = ["nothing at all"] ;
+    smell_possibilities[DARKNESS] =  ["darkness"] ;
+    smell_possibilities[KILLING] =  ["death","blood","gunpowder"];
+    smell_possibilities[MUSIC] =  ["oil","paper","leather"] ;
+    smell_possibilities[DEFENSE] =  ["leather","metal"] ;
+    smell_possibilities[QUESTING] = ["hope"] ;
+}
+
 
 const initGeneralBackstories = () =>{
     general_backstories[ART] = ["would never stop making sculptures if that was an option","can sketch incredibly lifelike portraits","always has a dab of paint behind their ears"];
@@ -1093,5 +1321,9 @@ export const initThemes = ()=>{
     initLocDesc();
     initPhilosophy();
     initMonsterDesc();
+    initSmells();
+    initTastes();
+    initFeelings();
+    initSounds();
 
 }
