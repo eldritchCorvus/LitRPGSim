@@ -14,6 +14,8 @@ import Input, { useCompositeState } from 'reakit';
 import { removeItemOnce } from "../Utils/ArrayUtils";
 import { getRandomNumberBetween, pickFrom } from "../Utils/NonSeededRandUtils";
 import { PHILOSOPHY } from "../Modules/ThemeStorage";
+//the point of ThisIsAGame is to punish the player for forcing dear sweet precious Truth to lie like that and pretend to be a game
+//horror jail for you.
 interface RoomProps {
   room: BuildingMetaData;
   changeRoom: any;
