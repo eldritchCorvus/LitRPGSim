@@ -212,7 +212,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>bug cannot talk to people???</li>
+        <li>touch, taste, smell, sound all should be associated with theme (and accessible in ActualGame)</li>
         <li>game mode have randoms responses after enter is pressed, clear text, respond to verbs like look etc</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
              <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
@@ -251,6 +251,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
       <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>
       <li>quest screen ADDs achievements to the system</li>
       <li>win mode: when you unlock all skills</li>
+      <li>fractal sim plus radio???</li>
       <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
       <li>menu screen you can ONLY get to via hacking (leads to Just Monika But Spades Quiz Mode)</li>
       <li>special seeds that have story content, maybe voice acted stuff</li>
