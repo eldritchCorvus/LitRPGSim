@@ -100,9 +100,13 @@ export function initThemes(){
         string_possibilities[ThemeStorage.GENERALBACKSTORY] = ThemeStorage.general_backstories[key];
         string_possibilities[ThemeStorage.MIRACLE] = ThemeStorage.miracles[key];
         string_possibilities[ThemeStorage.SONG] = ThemeStorage.song_possibilities[key];
-        string_possibilities[ThemeStorage.MONSTER_DESC] = ThemeStorage.song_possibilities[key];
+        string_possibilities[ThemeStorage.MONSTER_DESC] = ThemeStorage.monster_desc[key];
         string_possibilities[ThemeStorage.PHILOSOPHY] = ThemeStorage.philosophy[key];
         string_possibilities[ThemeStorage.LOC_DESC] = ThemeStorage.loc_desc[key];
+        string_possibilities[ThemeStorage.SMELL] = ThemeStorage.smell_possibilities[key];
+        string_possibilities[ThemeStorage.TASTE] = ThemeStorage.taste_possibilities[key];
+        string_possibilities[ThemeStorage.SOUND] = ThemeStorage.sound_possibilities[key];
+        string_possibilities[ThemeStorage.FEELING] = ThemeStorage.feeling_possibilities[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);
