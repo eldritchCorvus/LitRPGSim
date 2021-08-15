@@ -1,7 +1,7 @@
-import { all_aspects, Aspect } from "./Aspect";
-import { all_classes, RPGClass } from "./RPGClass";
+import { all_aspects, all_aspects_except_null, Aspect } from "./Aspect";
+import { all_classes, all_classes_except_null, RPGClass } from "./RPGClass";
 import { CoreSkill, Skill, StatSkill, WasteSkill } from "./Skill";
-import { all_interests, Interest } from "./Interest";
+import { all_interests, all_interests_except_null, Interest } from "./Interest";
 import { all_themes, Theme } from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
@@ -315,7 +315,7 @@ export class Player {
 
         monster.backstory = "It is a monster.";
         for(let theme of themes){
-            monster.backstory + ` ${theme.pickPossibilityFor(this.rand, MONSTER_DESC)}.`;
+            monster.backstory += ` ${theme.pickPossibilityFor(this.rand, MONSTER_DESC)}.`;
         }
         monster.backstory = this.rand.pickFrom(this.collateThemes()).pickPossibilityFor(this.rand, PHILOSOPHY);
         this.companions.push(monster);
@@ -342,11 +342,11 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer = false) {
     if (rand.initial_seed === 13) {
         cl = all_classes["waste"];
     } else {
-        cl = url_class ? all_classes[url_class] : rand.pickFrom(Object.values(all_classes));
+        cl = url_class ? all_classes[url_class] : rand.pickFrom(Object.values(all_classes_except_null));
     }
-    let ap = url_aspect ? all_aspects[url_aspect] : rand.pickFrom(Object.values(all_aspects));
-    let i1 = url_i1 ? all_interests[url_i1] : rand.pickFrom(Object.values(all_interests));
-    let i2 = url_i2 ? all_interests[url_i2] : rand.pickFrom(Object.values(all_interests));
+    let ap = url_aspect ? all_aspects[url_aspect] : rand.pickFrom(Object.values(all_aspects_except_null));
+    let i1 = url_i1 ? all_interests[url_i1] : rand.pickFrom(Object.values(all_interests_except_null));
+    let i2 = url_i2 ? all_interests[url_i2] : rand.pickFrom(Object.values(all_interests_except_null));
 
     cl = cl ? cl : all_classes["null"];
     ap = ap ? ap : all_aspects["null"];
