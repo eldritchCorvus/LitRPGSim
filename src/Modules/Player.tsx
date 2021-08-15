@@ -9,7 +9,7 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, FREESPIRITED, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, TWISTING } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, TWISTING } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
@@ -308,6 +308,19 @@ export class Player {
         this.companions.push(NotAMinotaur);
     }
 
+    spawnAMonster = () => {
+        const monster = new Companion(this.rand)
+        monster.fullName = "Shambling Horror";
+        const themes = this.collateThemes();
+
+        monster.backstory = "It is a monster.";
+        for(let theme of themes){
+            monster.backstory + ` ${theme.pickPossibilityFor(this.rand, MONSTER_DESC)}.`;
+        }
+        monster.backstory = this.rand.pickFrom(this.collateThemes()).pickPossibilityFor(this.rand, PHILOSOPHY);
+        this.companions.push(monster);
+    }
+
     findSkill = (skill_id: string) => {
         const found = this.skills.find((skill) => { return skill.cytoscapeID() === skill_id });
         if (found) {
@@ -429,7 +442,10 @@ export class BuildingMetaData {
         }
         if(player.companions.length === 0){
             player.spawnNotAMinotaur();
+        }else if(player.companions.length === 1 && player.companions[0].fullName.includes("Minotaur")){
+            player.spawnAMonster();
         }
+
     }
 
     assignNeighbors = (possible_neighbor_keys:string[])=>{
