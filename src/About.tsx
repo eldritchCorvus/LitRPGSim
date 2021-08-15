@@ -66,7 +66,8 @@ function NewspostDom(props: PostProps) {
 function About(props: AppProps) {
   const [date, setDate] = useState<string>("1933-03-03");
   const newsposts = [
-    new Newspost("08/14/2021","how can eyes be real if mirrors aren't real? so anyways i made mirrors real just in case","also truth is more true than it was before via being less true than it was before. its okay.")
+    new Newspost("08/15/2021","Spiders can wear hats now.")
+    ,new Newspost("08/14/2021","how can eyes be real if mirrors aren't real? so anyways i made mirrors real just in case","also truth is more true than it was before via being less true than it was before. its okay.")
     ,new Newspost("08/08/2021","eyes and spirals are illegal, i thought you should know. and claiming the menu isn't a menu is equally illegal. maybe more illegal tbh","maybe i should make like, a youtube guide showing why")
     ,new Newspost("08/05/2021","one good thing about ZampanioSim getting leaked early is that I found out that firefox freaking *hates* fuckUpBGButSoftly. my beloved. why. ","at least Truth no longer hates firefox with an unending rage")
     ,new Newspost("08/03/2021","dammit AW just let me know that the faq link is dead... gonna try to see if its cached somewhere (is it old enough for waybackmachine to find it???), if anybody sees anything related to it send it my way, i *swear* im not crazy this is a real thing","also shoutout to 'craig researcher' which a scammer just let me know 'died' adn probably left me a huge fortune")
