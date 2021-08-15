@@ -134,7 +134,7 @@ export class Player {
         this.current_location = this.buildings[0];
         for (let theme of themes) {
             const building: string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
-            this.metaDataForOneBuilding(building, themes, rand)
+            this.metaDataForOneBuilding(building, themes, rand,false)
             this.buildings.push(building);
         }
         console.log("JR NOTE: building meta data is ", this.buildingMetaData)
@@ -142,12 +142,12 @@ export class Player {
         this.positionNeighbors();
     }
 
-    metaDataForOneBuilding = (building: string, themes: Theme[], rand: SeededRandom) => {
+    metaDataForOneBuilding = (building: string, themes: Theme[], rand: SeededRandom, locked: boolean) => {
         const items = [];
         if (rand.nextDouble() > 0.3) {
             items.push(this.generateItem());
         }
-        this.buildingMetaData[building] = new BuildingMetaData(building, themes, rand.nextDouble() > 0.5, rand, items);
+        this.buildingMetaData[building] = new BuildingMetaData(building, themes, locked? !locked:rand.nextDouble() > 0.5, rand, items);
     }
 
 
@@ -424,15 +424,18 @@ export class BuildingMetaData {
     }
 
     beEntered = (player: Player)=>{
+        console.log("JR NOTE: ", this.key, " is entered");
         this.people = [];
         if(this.neighbors.length < 3){
-            if(player.rand.nextDouble()>0.8){
+            if(player.rand.nextDouble()>0.5){
                 const theme = player.rand.pickFrom(Object.values(all_themes));
                 const building:string = titleCase(player.rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
                 //one new random theme but the rest just from player.
-                player.metaDataForOneBuilding(building,[theme, ...player.collateThemes()], player.rand);
+                player.metaDataForOneBuilding(building,[theme, ...player.collateThemes()], player.rand,true);
                 this.neighbors.push(building);
                 player.buildingMetaData[building].neighbors.push(this.key);
+                console.log("JR NOTE: ", this.key, " needs a new neighbor.");
+
             }
         }
 
