@@ -8,6 +8,7 @@ interface InterestMap {
 }
 //autopopulated by creating aspects
 export const all_interests:InterestMap = {};
+export const all_interests_except_null:InterestMap = {};
 
 
 export  class Interest{
@@ -30,6 +31,9 @@ export  class Interest{
         });
         this.key = key;
         all_interests[key]= this;
+        if(this.key !== NULL){
+            all_interests_except_null[key]= this;
+        }
 
 
     }
