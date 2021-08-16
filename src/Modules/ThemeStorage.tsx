@@ -1210,7 +1210,7 @@ const initGeneralBackstories = () =>{
     general_backstories[FREEDOM] = ["never lets anyone tie them down","have travel in their soul","have never been able to settle down anywhere","prides themself in their freedom"];
     general_backstories[FIRE] = ["are always enthralled by fire","have a habit of setting everything on fire","find fire really calming","think fire is the best solution to most problems","think that if you add fire to a problem you have a new problem"];
     general_backstories[LONELY] = ["are somehow always alone","never really bonded with anyone","feel comfortable on their own","have social anxiety","don't feel comfortable in a crowd","mostly just focus on themself"];
-    general_backstories[OCEAN] = ["are married to the sea","love the ocean with all their heart","are always surrounded by a thing fog","can navigate any amount of seas","feel most comfortable in the water","can swim like a fish"];
+    general_backstories[OCEAN] = ["are married to the sea","love the ocean with all their heart","are always surrounded by a thin fog","can navigate any amount of seas","feel most comfortable in the water","can swim like a fish"];
     general_backstories[FLESH]=["genuinely enjoy working out","are remarkably beautiful","have really good bones","really are comfortable in their own skin"];
     general_backstories[BURIED]=["are really calm under pressure","really enjoy digging at the beach","enjoy spelunking as a hobby"];
     general_backstories[SCIENCE] = ["enjoys learning the 'why' of everything","treat life like a series of experiments","always wear a labcoat"];
