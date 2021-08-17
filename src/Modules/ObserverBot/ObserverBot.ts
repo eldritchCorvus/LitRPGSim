@@ -124,6 +124,9 @@ export class ObserverBot{
         }
         window.onclick = ()=>{
             (window as any).recordAction(CLICK,1)
+            //add an extra up to 10 seconds to any time.
+            const gasLight = this.player.rand.getRandomNumberBetween(0,100)*60;
+            this.timeStarted += -1* gasLight;
             this.timeSpentInMenu = Date.now() - this.timeStarted;
             this.timeSpentPlaying = Date.now() - this.timeStarted;
         }
