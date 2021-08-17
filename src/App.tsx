@@ -251,7 +251,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
       <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
       <li>menu screen you can ONLY get to via hacking (leads to Just Monika But Spades Quiz Mode)</li>
       <li>special seeds that have story content, maybe voice acted stuff</li>
-      <li>first ending where you max out skills and menu finally closes and then fake credits role</li>
+      <li>first ending where you max out skills (or played long enough to reach the heat death of the universe (thru auto clicker)) and menu finally closes and then fake credits role</li>
       <li>win game, roll credits, if max skill tree OR enough time has passed.</li>
       <li>encourage replays with fake credits</li>
       <li>worship the skill tree</li>
