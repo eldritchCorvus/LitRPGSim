@@ -101,6 +101,9 @@ function App(props: AppProps) {
               (window as any).setMegaGaslight(false); //okay thats fine
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye1".toLowerCase()){
               mutation.target.src = eye1;
+              (window as any).real_eyes = true;
+
+              (window as any).real_eyes = false;
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye1".toLowerCase()){
               mutation.target.src = real_eye;
               howCanEyesBeRealIfMirrorsArentReal();
@@ -108,8 +111,11 @@ function App(props: AppProps) {
               console.log("JR NOTE: make the eye be the photo-realistic eye again (note will only get picked up in rage mode)")
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye2".toLowerCase()){
               mutation.target.src = eye2;
+              (window as any).real_eyes = false;
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye2".toLowerCase()){
               mutation.target.src = real_eye;
+              (window as any).real_eyes = true;
+
               howCanEyesBeRealIfMirrorsArentReal();
               eyesAreTooRealButDoNotSpeakTheTruth();
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAMenu".toLowerCase()){
@@ -126,6 +132,7 @@ function App(props: AppProps) {
   }
 
   const eyesAreTooRealButDoNotSpeakTheTruth=()=>{
+    (window as any).real_eyes = true;
     let eye2 = document.getElementById('ThisIsAnEye2');
     let eye1 = document.getElementById('ThisIsAnEye1');
 
