@@ -65,6 +65,14 @@ td .infodump{
   animation: frameAnimation 30.3s steps(1) infinite, flicker 10.3s steps(30) infinite ;
 }
 
+.realeyescolor{
+  animation: realeyesbganimation 1.6s steps(255) infinite;
+}
+
+.gaslightbgcolor{
+  animation: gaslightbganimation 30.6s steps(255) infinite;
+}
+
 .chaos{
   animation: frameAnimation 1.3s steps(13) infinite, flicker 10.3s steps(30) infinite ;
   animation-timing-function: ease;
@@ -78,6 +86,19 @@ td .infodump{
   animation: frameAnimation2 0.6s steps(1) infinite;
  }
 
+ @keyframes gaslightbganimation {
+  0% { background-color: #edd387; }
+  33% { background-color: #eed287; }
+  66% { background-color: #edd288; }
+  0% { background-color: #fdd287 }
+}
+
+@keyframes realeyesbganimation {
+  0% { background-color: red; }
+  33% { background-color: green; }
+  66% { background-color: blue; }
+  0% { background-color: yellow }
+}
 
 @keyframes frameAnimation2 {
   0% { background-position: 0px; }
