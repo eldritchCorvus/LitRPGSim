@@ -33,61 +33,84 @@ let sourceImage;
 let outputCanvas;
 //not being functional at all, so sue me
 
-export const cctv_loop =(canvas, source)=>{
+export const cctv_loop = (canvas, source) => {
     //debug
     //TODO make this a loop
     outputCanvas = canvas;
     sourceImage = source;
     // window.requestAnimationFrame()
     oneFrame(0);
-    
+
 }
 
 //autopanning based on time code? back and forth?
-const oneFrame=(frame)=>{
+const oneFrame = (frame) => {
     //odds and evens to decide sin vs cos maybe?
     const buffer = document.createElement("canvas");
     buffer.width = outputCanvas.width;
     buffer.height = outputCanvas.height;
     const context = buffer.getContext("2d");
     //TODO allow camera to pan around to view more than just this bit
-    context.drawImage(sourceImage,0,-400);
-    cctv(buffer,frame);
+    context.drawImage(sourceImage, 0, -400);
+    cctv(buffer, frame);
     const outputContext = outputCanvas.getContext("2d");
-    outputContext.drawImage(buffer,0,0);
-    setTimeout(()=>{
-        window.requestAnimationFrame(()=>{oneFrame(frame+1)})}, 100)
+    outputContext.drawImage(buffer, 0, 0);
+    setTimeout(() => {
+        window.requestAnimationFrame(() => { oneFrame(frame + 1) })
+    }, 100)
 }
 
+const isStaticSpot = (y, height, time_percent, band_width) => {
+    const first = Math.floor(height / 3 - height * time_percent);
+    const second = Math.floor(2 * height / 3 - height * time_percent);
+    const third = Math.floor(height / 4 - height * time_percent);
+    const fourth = height;
+
+    const all = [first, fourth, second, third];
+    for (let i =0; i<all.length; i++) {
+        const item = all[i];
+        if (Math.abs(item - y) < band_width*i) {
+            return true;
+        }
+    }
+
+    return false;
+
+}
 
 //lines of horizontal static that move up the screen.
 //bigger ones that move down
-const cctv=(canvas,timecode)=>{
+const cctv = (canvas, timecode) => {
     const context = canvas.getContext("2d");
     const width = canvas.width;
     const height = canvas.height;
 
     let image_data = context.getImageData(0, 0, canvas.width, canvas.height);
-    const random_num = getRandomNumberBetween(0,255);
+    const random_num = getRandomNumberBetween(0, width);
     const offset = timecode % height;
     let d = image_data.data;
-    const time = (timecode%1000)/1000; //once a second
-    for(let y=0; y<height; y++) {
-        const linerand = (staticHash(random_num, y) % 1000) / 1000;
-        for(var x=0; x<width; x++) {
-          var i = ((y * height) +x) * 4;
-          
-          // this is the static lines
-          if (linerand < time) {      
-            const value = staticHash(x + offset, y + offset);
-            d[i] = value;
-            d[i+1] = value;
-            d[i+2] = value;
-          }
-      
-          // other effects can go here using i like before
+    const time = (timecode % 100) / 100; //once a second
+    for (let y = 0; y < height; y++) {
+        for (var x = 0; x < width; x++) {
+            var i = ((y * height) + x) * 4;
+
+            // this is the static lines
+            if (x%random_num >10 && isStaticSpot(y,height, time, 3)) {
+                const value = staticHash(x + offset, y + offset);
+                d[i] = value;
+                d[i + 1] = value;
+                d[i + 2] = value;
+            }
+
+            // other effects can go here using i like before
         }
-      }
+        if(staticHash(x,y)>200){
+            const value = staticHash(x + offset, y + offset);
+                d[i] = value;
+                d[i + 1] = value;
+                d[i + 2] = value;
+        }
+    }
     context.putImageData(image_data, 0, 0);
 
 }
@@ -96,19 +119,19 @@ function x_y_to_indice(x, y, width) {
     return y * width + x;
 }
 
-function indice_to_y  (indice, width){
-    return Math.floor(indice/width);
+function indice_to_y(indice, width) {
+    return Math.floor(indice / width);
 }
 
-function indice_to_x  (indice, width){
-    return indice%width;
+function indice_to_x(indice, width) {
+    return indice % width;
 }
 
-const staticHash = (x,y)=>{
+const staticHash = (x, y) => {
     let hash = 31;
     hash = ((hash + x) << 13) - (hash + x);
     hash = ((hash + y) << 13) - (hash + y);
-    return Math.abs(hash%255);
+    return Math.abs(hash % 255);
 }
 
 /** thanks pl for this contribution from dart land
