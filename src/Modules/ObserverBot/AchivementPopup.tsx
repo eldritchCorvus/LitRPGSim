@@ -72,7 +72,9 @@ const  AchivementPopup = (props: AchivementProps)=> {
             (root as HTMLElement).style.filter = "blur(0px)";
         }else{
             const root2 = document.querySelector("#ThisIsAGame");
-            (root2 as HTMLElement).style.filter = "blur(0px)";
+            if(root2){
+             (root2 as HTMLElement).style.filter = "blur(0px)";
+            }
         }
     },[visible])
     return(
