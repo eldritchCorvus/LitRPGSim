@@ -20,6 +20,7 @@ import eye2 from './images/eye2.png';
 import { updateTypeAssertion } from "typescript";
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
+import { CCTV } from "./Screens/CCTV";
 
 interface AppProps{
   seed: number;
@@ -33,6 +34,7 @@ function App(props: AppProps) {
   const [actualGameMode, setActualGameMode] = useState(false);
 
   const [justTruthMode, setJustTruthMode] = useState(false);
+  const [cctvMode, setCCTVMode] = useState(false);
 
   useEffect(()=>{
     if(!(window as any).setRageMode){
@@ -56,6 +58,14 @@ function App(props: AppProps) {
       (window as any).setJustTruthMode = (value:boolean)=>{
         setJustTruthMode(value);
         (window as any).justTruthMode = value;
+      };
+    }
+
+    if(!(window as any).setJustsetCCTVModeTruthMode){
+      // :) :) :)
+      (window as any).setCCTVMode = (value:boolean)=>{
+        setCCTVMode(value);
+        (window as any).setCCTVMode = value;
       };
     }
   },[])
@@ -203,20 +213,23 @@ function App(props: AppProps) {
     return <div>LOADING FOR REALSIES</div>
   }else{
 
+    const displayMenu = !justTruthMode && !actualGameMode && !cctvMode;
     return (
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
-        {rageMode && !justTruthMode && !actualGameMode ? <RageMode/>:null}
-        {rageMode && !justTruthMode && !actualGameMode?  <Menu player={player} angle={30}/>:null}
-        {rageMode && !justTruthMode && !actualGameMode?  <Menu player={player} angle={130}/>:null}
-        {!justTruthMode && !actualGameMode?  <Menu player={player} angle={0}/>:null}      
+        {rageMode && displayMenu ? <RageMode/>:null}
+        {rageMode && displayMenu?  <Menu player={player} angle={30}/>:null}
+        {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
+        {displayMenu?  <Menu player={player} angle={0}/>:null}      
         {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
-        {actualGameMode?  <ActualGame player={player}/>:null}      
+        {actualGameMode && !cctvMode?  <ActualGame player={player}/>:null}      
+        {cctvMode ?  <CCTV player={player}/>:null}      
 
       
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        <li>creepy cctv murder basement underneath "ThisIsJustAGame"</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
              <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
               <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
