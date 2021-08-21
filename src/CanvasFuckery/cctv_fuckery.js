@@ -51,7 +51,13 @@ const oneFrame = (frame) => {
     buffer.height = outputCanvas.height;
     const context = buffer.getContext("2d");
     //TODO allow camera to pan around to view more than just this bit
-    context.drawImage(sourceImage, 0, -400);
+    const height = sourceImage.height;
+    //every other pan change direciton
+    let max =height - buffer.height;
+    //TODO need to figure out why this isn't changing direction like i want
+    const direction = Math.floor((frame*10 /max))%2===0?-1:1;
+    const location = (direction*frame*10)%max;
+    context.drawImage(sourceImage, 0, location);
     cctv(buffer, frame);
     const outputContext = outputCanvas.getContext("2d");
     outputContext.drawImage(buffer, 0, 0);
@@ -61,12 +67,13 @@ const oneFrame = (frame) => {
 }
 
 const isStaticSpot = (y, height, time_percent, band_width) => {
-    const first = Math.floor(height / 3 - height * time_percent);
-    const second = Math.floor(2 * height / 3 - height * time_percent);
-    const third = Math.floor(height / 4 - height * time_percent);
-    const fourth = height;
+    const first = -Math.floor(height / 3 - height * time_percent);
+    const second = -Math.floor(2 * height / 3 - height * time_percent);
+    const third = -Math.floor(height / 4 - height * time_percent);
+    const fourth = Math.floor(0- height * time_percent)
+    const fifth =  Math.floor(height- height * time_percent)
 
-    const all = [first, fourth, second, third];
+    const all = [first, fourth, second, fifth,third];
     for (let i =0; i<all.length; i++) {
         const item = all[i];
         if (Math.abs(item - y) < band_width*i) {
@@ -95,7 +102,7 @@ const cctv = (canvas, timecode) => {
             var i = ((y * height) + x) * 4;
 
             // this is the static lines
-            if (x%random_num >10 && isStaticSpot(y,height, time, 3)) {
+            if ( staticHash(y*random_num,x*random_num)>190&& isStaticSpot(y,height, time, 3)) {
                 const value = staticHash(x + offset, y + offset);
                 d[i] = value;
                 d[i + 1] = value;
@@ -104,7 +111,7 @@ const cctv = (canvas, timecode) => {
 
             // other effects can go here using i like before
         }
-        if(staticHash(x,y)>200){
+        if(staticHash(y*random_num,x*random_num)>190){
             const value = staticHash(x + offset, y + offset);
                 d[i] = value;
                 d[i + 1] = value;
