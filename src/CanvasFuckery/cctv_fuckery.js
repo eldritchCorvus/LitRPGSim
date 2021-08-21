@@ -1,3 +1,4 @@
+import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
 
 /*
 so step 1: set up a game mode to display this shit
@@ -24,6 +25,7 @@ parts of a fake live video:
 *choppy framerate??? (posterize time, less frames per second, 10 or so)
 * noise?
 * venetian blinds effect (scan lines,thin, horizontal, black)
+*animated bars of more static
 *wave  warp distortion (sin)(diagonal? follows mouse?)
 
 */
@@ -36,13 +38,78 @@ export const cctv_loop =(canvas, source)=>{
     //TODO make this a loop
     outputCanvas = canvas;
     sourceImage = source;
+    // window.requestAnimationFrame()
     oneFrame(0);
+    
 }
 
-const oneFrame=(timecode)=>{
+//autopanning based on time code? back and forth?
+const oneFrame=(frame)=>{
     //odds and evens to decide sin vs cos maybe?
-    const context = outputCanvas.getContext("2d");
+    const buffer = document.createElement("canvas");
+    buffer.width = outputCanvas.width;
+    buffer.height = outputCanvas.height;
+    const context = buffer.getContext("2d");
     //TODO allow camera to pan around to view more than just this bit
     context.drawImage(sourceImage,0,-400);
+    cctv(buffer,frame);
+    const outputContext = outputCanvas.getContext("2d");
+    outputContext.drawImage(buffer,0,0);
+    setTimeout(()=>{
+        window.requestAnimationFrame(()=>{oneFrame(frame+1)})}, 100)
+}
+
+
+//lines of horizontal static that move up the screen.
+//bigger ones that move down
+const cctv=(canvas,timecode)=>{
+    const context = canvas.getContext("2d");
+    const width = canvas.width;
+    const height = canvas.height;
+
+    let image_data = context.getImageData(0, 0, canvas.width, canvas.height);
+    const random_num = getRandomNumberBetween(0,255);
+    const offset = timecode % height;
+    let d = image_data.data;
+    for (var i = 0; i < d.length; i += 4) {
+        const x = indice_to_x(i,width);
+        const y = indice_to_y(i, width)+random_num+offset;
+        if(height%y<5){
+            const value = staticHash(x+offset, y+offset);
+            d[i] = value;
+            d[i+1] = value;
+            d[i+2] = value; 
+        }
+ 
+    }
+    context.putImageData(image_data, 0, 0);
 
 }
+
+function x_y_to_indice(x, y, width) {
+    return y * width + x;
+}
+
+function indice_to_y  (indice, width){
+    return Math.floor(indice/width);
+}
+
+function indice_to_x  (indice, width){
+    return indice%width;
+}
+
+const staticHash = (x,y)=>{
+    let hash = 31;
+    hash = ((hash + x) << 13) - (hash + x);
+    hash = ((hash + y) << 13) - (hash + y);
+    return Math.abs(hash%255);
+}
+
+/** thanks pl for this contribution from dart land
+ * int hashPair(int x, int y) {
+    int hash = 31;
+    hash = ((hash + x) << 13) - (hash + x);
+    hash = ((hash + y) << 13) - (hash + y);
+    return hash;
+}
+ */
