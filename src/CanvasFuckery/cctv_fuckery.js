@@ -71,17 +71,23 @@ const cctv=(canvas,timecode)=>{
     const random_num = getRandomNumberBetween(0,255);
     const offset = timecode % height;
     let d = image_data.data;
-    for (var i = 0; i < d.length; i += 4) {
-        const x = indice_to_x(i,width);
-        const y = indice_to_y(i, width)+random_num+offset;
-        if(height%y<5){
-            const value = staticHash(x+offset, y+offset);
+    const time = (timecode%1000)/1000; //once a second
+    for(let y=0; y<height; y++) {
+        const linerand = (staticHash(random_num, y) % 1000) / 1000;
+        for(var x=0; x<width; x++) {
+          var i = ((y * height) +x) * 4;
+          
+          // this is the static lines
+          if (linerand < time) {      
+            const value = staticHash(x + offset, y + offset);
             d[i] = value;
             d[i+1] = value;
-            d[i+2] = value; 
+            d[i+2] = value;
+          }
+      
+          // other effects can go here using i like before
         }
- 
-    }
+      }
     context.putImageData(image_data, 0, 0);
 
 }
