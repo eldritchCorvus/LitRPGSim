@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { cctv_loop } from "../CanvasFuckery/cctv_fuckery";
+import cctv from '.././images/murderbasement.jpeg';
+
 import { Player } from "../Modules/Player";
 import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "./Styles";
@@ -17,31 +19,34 @@ export const CCTV = (props: StatusProps) => {
     // competition for my cctv loop as possible
     //also, sure, why not, you're trapped in the murder basement
     // now and thers no way out. have fun!
-    useEffect(()=>{
+    useEffect(() => {
         const body = document.querySelector("body");
-        if(body){
-            console.log("JR NOTE: body is",body.childNodes)
+        if (body) {
+            console.log("JR NOTE: body is", body.childNodes)
             //just fucking remove everything else. inner peace for all.
             body.innerHTML = "";
-            body.style.background= "#000000";
+            body.style.background = "#000000";
             const canvas = document.createElement("canvas");
-            canvas.width = 704;
-            canvas.height = 480;
+            canvas.width = 480;
+            canvas.height = 704;
             canvas.style.marginLeft = "auto";
             canvas.style.marginRight = "auto";
-            canvas.style.display="block";
-
+            canvas.style.display = "block";
+            var img = new Image();
+            img.addEventListener('load', function () {
+                cctv_loop(canvas, img);
+            }, false);
+            img.src = cctv;
             body.append(canvas);
 
-            cctv_loop(canvas);
         }
-        
-    },[]);
+
+    }, []);
 
     return (
 
         <TruthContainer>
-           
+
         </TruthContainer>
     );
 }
