@@ -28,7 +28,7 @@ export const CCTV = (props: StatusProps) => {
             body.style.background = "#000000";
             const canvas = document.createElement("canvas");
             canvas.width = 480;
-            canvas.height = 704;
+            canvas.height = 480;
             canvas.style.marginLeft = "auto";
             canvas.style.marginRight = "auto";
             canvas.style.display = "block";
