@@ -98,7 +98,31 @@ const load_other_images = () => {
 }
 
 
+const drawInLocation = (frame, image, context)=>{
+    const speed = 5;
+    const width = sourceImage.width;
 
+    const height = sourceImage.height;
+
+    
+    if(width>height){
+        let max = width - speed;
+        let location = (frame * speed) % max;
+
+        if (location > width / 2 || location < 0) {
+            location = width - (frame * speed) % max;;
+        }
+        context.drawImage(image, -1 * location,0);
+    }else{
+        let max = height - speed;
+        let location = (frame * speed) % max;
+
+        if (location > height / 2 || location < 0) {
+            location = height - (frame * speed) % max;;
+        }
+        context.drawImage(image, 0, -1 * location);
+    }
+}
 //autopanning based on time code? back and forth?
 const oneFrame = (frame) => {
     //odds and evens to decide sin vs cos maybe?
@@ -106,17 +130,9 @@ const oneFrame = (frame) => {
     buffer.width = outputCanvas.width;
     buffer.height = outputCanvas.height;
     const context = buffer.getContext("2d");
-    //TODO allow camera to pan around to view more than just this bit
-    const height = sourceImage.height;
-    //every other pan change direciton
-    //TODO need to figure out why this isn't changing direction like i want
-    const speed = 5;
-    let max = height - speed;
 
-    let location = (frame * speed) % max;
-    if (location > height / 2 || location < 0) {
-        location = height - (frame * speed) % max;;
-    }
+    //every other pan change direciton
+
     //JR NOTE TODO: shadowy figures come and go, but the server should be there and blinking always
     //JR NOTE TODO: the shadowy figures should be rendered onto the image itself
     //so in addition to source image we want to have a canvas we can render figures onto
@@ -126,8 +142,9 @@ const oneFrame = (frame) => {
     if (frame % 50 < 10) {
         image = sourceImage;
     }
+    drawInLocation(frame, image, context)
 
-    context.drawImage(image, 0, -1 * location);
+   
     const fontSize = 25;
     const padding = 15 + fontSize;
 
