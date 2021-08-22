@@ -85,8 +85,8 @@ const load_other_images=()=>{
 
         if(image_index < keys.length-1){
             image_index ++;
-            console.log("JR NOTE: next image",possibleSourceImagePairs[keys[image_index+1]]);
-            [sourceImage,sourceImage2] = possibleSourceImagePairs[keys[image_index+1]];
+            console.log("JR NOTE: next image",possibleSourceImagePairs[keys[image_index]]);
+            [sourceImage,sourceImage2] = possibleSourceImagePairs[keys[image_index]];
         }else{
             image_index = 0;
             [sourceImage,sourceImage2] = possibleSourceImagePairs[keys[0]];
