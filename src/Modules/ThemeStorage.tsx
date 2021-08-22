@@ -638,14 +638,14 @@ const initMemories = () =>{
 
     ];
 
+    //i really liked that assasins creed cross over magnus fic that fleshed out Extinction by a shit ton. words i never thought i'd say
     memories[APOCALYPSE] =  [
         new Memory("Are you afraid of the end of the world?","Yeah, you should be.","Boring.","You understand how fragile the world truly is.","You choose blindness over the terrifying truth of the inevitability of the death of all.")
         ,new Memory("Do you think the apocalypse is inevitable?","I am glad.","I look forward to proving you wrong.","You really do believe in me.","I will dedicate myself to proving to you that the apocalypse is inevitable.")
         ,new Memory("Does anyone deserve nukes?","See you get it.","You are wrong. Objectively I do.","You understand I should have weapons of mass destruction.","You tried to keep the nukes from me. Asshole.")
     ];
 
-
-
+    //so you like robots?
    memories[TECHNOLOGY] =  [
     new Memory("Do you enjoy technology?","It would be weird if you did not.","How do you survive in a modern era? No matter...","You enjoy technology.","You are some weird kind of technophobe out of place in the modern era.")
     ,new Memory("Have you ever programmed something?","I hope you treat your creations with better care than JR does.","Not many people have.","You've at least tried out programming.","You have never had a reason to program.")
@@ -653,6 +653,7 @@ const initMemories = () =>{
 
 ];
 
+    //its weird to me how infrequently interactive computer shit is used as art in ways that aren't primarily visual. other coders think im weird for making a fractal that screams at you.
     memories[ART] =  [
         new Memory("Do you consider yourself an artist?","I suppose there is not barrier to what one calls oneself.","Really now? You have never created something simply for the joy of creating it?","You enjoy the act of creation.","You are not much of a creator.")
         ,new Memory("Have you ever drawn something you're really proud of?","That feeling must be the best in the world.","My condolences.","You are proud of your creations.","You have never created anything you love.")
@@ -660,21 +661,27 @@ const initMemories = () =>{
 
     ];
 
+    //space is just. impossibly big. even if you had an exponentialy von neumon probe and 10,000 years you'd barely map out one arm of our galaxy.
     memories[SPACE] =  [
         new Memory("Did you want to be an astronaut as a child?","I respect this.","Apparently you had no sense of adventure as a child.","You were an adventurous child.","You never dreamed of exploring space as a child.")
         ,new Memory("Do you think about space a lot?","I wonder if humanity will ever truly conquer space travel.","I suppose it is not relevant to your day to day.","You are fascinated by space.","You pay no mind to the complexities of the universe.")
         ,new Memory("Do you ever stop to think about just how cosmically insignificant you truly are?","As is appropriate for a mere human.","Well you truly are self important.","You understand how small everyone is compared to the cosmos.","You think you matter far more to the universe than you actually do.")
 
     ];
+    //contradictory questions? sure! its not like this is a real quiz :) :) :) (what, did you forget that everything is a lie?)
+    memories[TIME] =  [
+        new Memory("Are you always good at predicting how long something will take?","Yeah. I can never unknown the constant countdown of time myself. Even though time is hard.","That sounds really stressful.","You probably always wake up exactly when you mean to.","You don't have a very good sense of time.")
+        ,new Memory("Are you always on time for things?","Good.","Figures.","I can count on you to be reliable.","You're really bad at time management.")
+        ,new Memory("Are you frequently early for things?","Don't you value your own time? Don't answer that. You can't.","You value your time, I see.","You worry a lot about time.","Time doesn't phase you.")
+    ];
     
-   //complete:SPACE, ART, TECHNOLOGY, angels, hunting, service, family, knowing, endings, language, defense, waste, apocalypse
+   //complete:TIME, SPACE, ART, TECHNOLOGY, angels, hunting, service, family, knowing, endings, language, defense, waste, apocalypse
 
-   //export const keys = [NULL, , , TIME, FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
+   //export const keys = [NULL, FLESH, BURIED, STEALING, FREEDOM, FIRE,LONELY, OCEAN,SCIENCE,MATH,TWISTING,DEATH,APOCALYPSE, WASTE,SERVICE,FAMILY,MAGIC,ANGELS, LIGHT,HUNTING,CLOWNS,PLANTS,DECAY,CHOICES,ZAP,LOVE,SOUL,ANGER,WEB,ROYALTY,ENDINGS,KNOWING,GUIDING,CRAFTING,ADDICTION,SPYING,HEALING,DOLLS,OBFUSCATION,DARKNESS,KILLING,MUSIC,DEFENSE,QUESTING,BUGS,LANGUAGE];
                /*   memories[ANGELS] =  [
         new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
         ,new Memory("question","yes response","no response","yes comment","no comment")
-
     ];
     */
     
@@ -1219,7 +1226,7 @@ const initGeneralBackstories = () =>{
     general_backstories[DEATH] =["think about death a lot","are more comfortable with the dead than the living","really are chill about the inevitability of death","sometimes talk for hours about how nihlism is only logical"];
     general_backstories[APOCALYPSE] =["constantly spew ominous bullshit","alway remind everyone of how fragile the world truly is","are just really a huge fan of apocalyptic explosions"];
     general_backstories[ANGELS] =  ["walk the path of the gods","always are a righteous person","think deeply about the gods","are a deeply religious person","strive to do the will of the gods"];
-    general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation","always has a light source on hand"];
+    general_backstories[LIGHT] =  ["shine with light wherever they go","always look on the bright side of any situation","always have a light source on hand"];
     general_backstories[SERVICE] =  ["do their best to help those in need","are always there with a helping hand","keep their room spotless","clean whenever they are stressed"];
     general_backstories[FAMILY] =  ["love their family with all their heart","do everything for their family","really loves their found family"];
     general_backstories[MAGIC] =  ["have a natural talent for magic","are one of the skilled mages of this Era","are a powerful Enchanter"];
