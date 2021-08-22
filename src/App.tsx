@@ -229,7 +229,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        <li>creepy cctv murder basement underneath "ThisIsJustAGame"</li>
+        <li>shadowy figures on the image itslef, creepy cctv murder basement underneath "ThisIsJustAGame"</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
              <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
               <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
