@@ -32,6 +32,7 @@ export const CCTV = (props: StatusProps) => {
             canvas.style.marginLeft = "auto";
             canvas.style.marginRight = "auto";
             canvas.style.display = "block";
+            canvas.style.padding="20px";
             var img = new Image();
             img.addEventListener('load', function () {
                 cctv_loop(canvas, img);

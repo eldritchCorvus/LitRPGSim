@@ -53,11 +53,15 @@ const oneFrame = (frame) => {
     //TODO allow camera to pan around to view more than just this bit
     const height = sourceImage.height;
     //every other pan change direciton
-    let max =height - buffer.height;
+    let max =height;
     //TODO need to figure out why this isn't changing direction like i want
-    const direction = Math.floor((frame*10 /max))%2===0?-1:1;
-    const location = (direction*frame*10)%max;
-    context.drawImage(sourceImage, 0, location);
+    const speed =5;
+    let location = (frame*speed)%max;
+    console.log("JR NOTE: location is", location, "height is", height)
+    if(location > height/2 ||location < 0){
+        location =  height-(frame*speed)%max;;
+    }
+    context.drawImage(sourceImage, 0, -1*location);
     cctv(buffer, frame);
     const outputContext = outputCanvas.getContext("2d");
     outputContext.drawImage(buffer, 0, 0);
@@ -94,6 +98,8 @@ const cctv = (canvas, timecode) => {
 
     let image_data = context.getImageData(0, 0, canvas.width, canvas.height);
     const random_num = getRandomNumberBetween(0, width);
+    const random_num2 = getRandomNumberBetween(0, height);
+
     const offset = timecode % height;
     let d = image_data.data;
     const time = (timecode % 100) / 100; //once a second
@@ -102,21 +108,27 @@ const cctv = (canvas, timecode) => {
             var i = ((y * height) + x) * 4;
 
             // this is the static lines
-            if ( staticHash(y*random_num,x*random_num)>190&& isStaticSpot(y,height, time, 3)) {
+            if ( staticHash(x*random_num,y*random_num2)>190&& isStaticSpot(y,height, time, 3)) {
                 const value = staticHash(x + offset, y + offset);
                 d[i] = value;
                 d[i + 1] = value;
                 d[i + 2] = value;
             }
 
-            // other effects can go here using i like before
+            if(staticHash(y*random_num,x*random_num2)>253){
+                const ratio = random_num2/255;
+                if(ratio>0.5){
+                    d[i] = 255-Math.floor(d[i]*ratio);
+                    d[i + 1] = 255-Math.floor(d[i]*ratio);
+                    d[i + 2] = 255-Math.floor(d[i]*ratio);
+                }else{
+                    d[i] = Math.floor(d[i]*ratio);
+                    d[i + 1] = Math.floor(d[i]*ratio);
+                    d[i + 2] = Math.floor(d[i]*ratio);
+                }
+            }
         }
-        if(staticHash(y*random_num,x*random_num)>190){
-            const value = staticHash(x + offset, y + offset);
-                d[i] = value;
-                d[i + 1] = value;
-                d[i + 2] = value;
-        }
+
     }
     context.putImageData(image_data, 0, 0);
 
