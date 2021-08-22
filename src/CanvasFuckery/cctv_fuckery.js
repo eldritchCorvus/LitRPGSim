@@ -200,18 +200,21 @@ const cctv = (canvas, timecode) => {
         for (var x = 0; x < width; x++) {
             var i = ((y * height) + x) * 4;
 
-            // barred static
+            // barred static or high contrast black and white
             if (staticHash(x * random_num, y * random_num2) > 190 && isStaticSpot(y, height, time, 3)) {
                 const value = staticHash(x + offset, y + offset);
                 d[i] = value;
                 d[i + 1] = value;
                 d[i + 2] = value;
-            } else {
+            } else {//https://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
                 const r = d[i];
                 const g = d[i + 1];
                 const b = d[i + 2];
-                const v = Math.max(Math.max(r,g),b);
-                d[i] = d[i + 1] = d[i + 2] = v;
+                let v = Math.max(Math.max(r,g),b);
+                //higher the percent the more contrasty it is
+                let contrast = (50/100) + 1;  //convert to decimal & shift range: [0..2]
+                var intercept = 128 * (1 - contrast);
+                d[i] = d[i + 1] = d[i + 2] = v*contrast + intercept;;
             }
 
             //random static
