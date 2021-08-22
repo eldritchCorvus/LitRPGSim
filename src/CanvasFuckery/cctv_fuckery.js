@@ -107,7 +107,7 @@ const cctv = (canvas, timecode) => {
         for (var x = 0; x < width; x++) {
             var i = ((y * height) + x) * 4;
 
-            // this is the static lines
+            // barred static
             if ( staticHash(x*random_num,y*random_num2)>190&& isStaticSpot(y,height, time, 3)) {
                 const value = staticHash(x + offset, y + offset);
                 d[i] = value;
@@ -115,6 +115,7 @@ const cctv = (canvas, timecode) => {
                 d[i + 2] = value;
             }
 
+            //random static
             if(staticHash(y*random_num,x*random_num2)>253){
                 const ratio = random_num2/255;
                 if(ratio>0.5){
@@ -126,6 +127,13 @@ const cctv = (canvas, timecode) => {
                     d[i + 1] = Math.floor(d[i]*ratio);
                     d[i + 2] = Math.floor(d[i]*ratio);
                 }
+            }
+
+            //scan lines
+            if(y%5<2){
+                d[i] = 0;
+                d[i + 1] =  0;
+                d[i + 2] = 0;
             }
         }
 
