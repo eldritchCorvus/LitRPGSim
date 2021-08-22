@@ -75,11 +75,12 @@ export const click = () =>{
   playLightlyFuckedUpBGMusic();
   window.removeEventListener('click', click);
 }
-
+export const beepEffect = () =>{
+  clickAudio.play();
+}
 
 export const clickEffect = () =>{
   clickAudio.play();
-
 }
 
 
