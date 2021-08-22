@@ -38,6 +38,7 @@ let sourceImage;
 let sourceImage2;
 
 let outputCanvas;
+let image_index = 0;
 //not being functional at all, so sue me
 
 export const cctv_loop = (canvas, source,source2) => {
@@ -54,34 +55,41 @@ export const cctv_loop = (canvas, source,source2) => {
     oneFrame(13);
 }
 
+const load_image_with_others = (next_image, images)=>{
+    let img = new Image();
+    const index = images.indexOf(next_image);
+    img.addEventListener('load', function () {
+        possibleSourceImagePairs[next_image] = [img,img];
+        console.log("JR NOTE: image just loaded,",index,"updated possibles to ",possibleSourceImagePairs)
+        if(index <= images.length){
+         load_image_with_others(images[index+1], images);
+        }
+    }, false);
+    img.src = next_image;
+}
+
 //just loads a bunch of images and when they load adds them to the array.
 const load_other_images=()=>{
     //first one is special because of the server animation
     //rest are simple.
     //two images for server blinking
     const images = [tunnel2, tunnel3, tunnel4, tunnel5];
-    for(let image of images){
-        var img = new Image();
-        img.addEventListener('load', function () {
-            possibleSourceImagePairs[img.src] = [img,img];
-        }, false);
-        img.src = image;
-    }
+    load_image_with_others(tunnel2, images);
+    
 
     const click = ()=>{
-        console.log("JR NOTE: click, possibles are", possibleSourceImagePairs)
-        const index = current_image_index();
         const keys = Object.keys(possibleSourceImagePairs);
-        if(index <possibleSourceImagePairs.length){
-            console.log("JR NOTE: next image")
-            sourceImage = possibleSourceImagePairs[keys[index+1]][0];
-            sourceImage2 = possibleSourceImagePairs[keys[index+1]][1];
 
+        
+        console.log("JR NOTE: click, possible numberss are", keys.length,"with index",image_index, "and possibles of",possibleSourceImagePairs)
+
+        if(image_index < keys.length-1){
+            image_index ++;
+            console.log("JR NOTE: next image",possibleSourceImagePairs[keys[image_index+1]]);
+            [sourceImage,sourceImage2] = possibleSourceImagePairs[keys[image_index+1]];
         }else{
-            console.log("JR NOTE: first image", keys, possibleSourceImagePairs[keys[0]])
-
-            sourceImage = possibleSourceImagePairs[keys[0]][0];
-            sourceImage2 = possibleSourceImagePairs[keys[0][1]];
+            image_index = 0;
+            [sourceImage,sourceImage2] = possibleSourceImagePairs[keys[0]];
         }
     }
 
@@ -89,9 +97,7 @@ const load_other_images=()=>{
 
 }
 
-const current_image_index=()=>{
-    return Object.keys(possibleSourceImagePairs).indexOf(sourceImage.src);
-}
+
 
 //autopanning based on time code? back and forth?
 const oneFrame = (frame) => {
@@ -120,7 +126,6 @@ const oneFrame = (frame) => {
     if(frame %50 <10){
         image = sourceImage;
     }
-    console.log("JR NOTE: image is",image)
 
     context.drawImage(image, 0, -1*location);
     const fontSize = 25;
@@ -132,7 +137,7 @@ const oneFrame = (frame) => {
 
     cctv(buffer, frame);
     context.fillText(time,buffer.width-100, padding);
-    const index = 1+current_image_index();
+    const index = 1+image_index;
     context.fillText(`${index}`,padding, padding);
 
     const outputContext = outputCanvas.getContext("2d");
