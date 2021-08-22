@@ -1,5 +1,8 @@
 import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
-import { beepEffect } from "..";
+import tunnel2 from '.././images/tunnel2.jpg';
+import tunnel3 from '.././images/tunnel3.jpg';
+import tunnel4 from '.././images/tunnel4.jpeg';
+import tunnel5 from '.././images/tunnel5.jpeg';
 
 /*
 so step 1: set up a game mode to display this shit
@@ -30,6 +33,7 @@ parts of a fake live video:
 *wave  warp distortion (sin)(diagonal? follows mouse?)
 
 */
+const possibleSourceImagePairs = {};
 let sourceImage;
 let sourceImage2;
 
@@ -42,11 +46,51 @@ export const cctv_loop = (canvas, source,source2) => {
     outputCanvas = canvas;
     sourceImage = source;
     sourceImage2= source2;
+    possibleSourceImagePairs[source.src] =([source, source2]);
     // window.requestAnimationFrame()
+    load_other_images();
     oneFrame(0);
     //doing it twice causes the occasional weird unpredictable glitch
-    oneFrame(130);
+    oneFrame(13);
+}
 
+//just loads a bunch of images and when they load adds them to the array.
+const load_other_images=()=>{
+    //first one is special because of the server animation
+    //rest are simple.
+    //two images for server blinking
+    const images = [tunnel2, tunnel3, tunnel4, tunnel5];
+    for(let image of images){
+        var img = new Image();
+        img.addEventListener('load', function () {
+            possibleSourceImagePairs[img.src] = [img,img];
+        }, false);
+        img.src = image;
+    }
+
+    const click = ()=>{
+        console.log("JR NOTE: click, possibles are", possibleSourceImagePairs)
+        const index = current_image_index();
+        const keys = Object.keys(possibleSourceImagePairs);
+        if(index <possibleSourceImagePairs.length){
+            console.log("JR NOTE: next image")
+            sourceImage = possibleSourceImagePairs[keys[index+1]][0];
+            sourceImage2 = possibleSourceImagePairs[keys[index+1]][1];
+
+        }else{
+            console.log("JR NOTE: first image", keys, possibleSourceImagePairs[keys[0]])
+
+            sourceImage = possibleSourceImagePairs[keys[0]][0];
+            sourceImage2 = possibleSourceImagePairs[keys[0][1]];
+        }
+    }
+
+    window.addEventListener('click', click);
+
+}
+
+const current_image_index=()=>{
+    return Object.keys(possibleSourceImagePairs).indexOf(sourceImage.src);
 }
 
 //autopanning based on time code? back and forth?
@@ -76,9 +120,8 @@ const oneFrame = (frame) => {
     if(frame %50 <10){
         image = sourceImage;
     }
-    if(frame%50===0){
-        beepEffect();
-    }
+    console.log("JR NOTE: image is",image)
+
     context.drawImage(image, 0, -1*location);
     const fontSize = 25;
     const padding = 15+fontSize;
@@ -89,6 +132,8 @@ const oneFrame = (frame) => {
 
     cctv(buffer, frame);
     context.fillText(time,buffer.width-100, padding);
+    const index = 1+current_image_index();
+    context.fillText(`${index}`,padding, padding);
 
     const outputContext = outputCanvas.getContext("2d");
     outputContext.drawImage(buffer, 0, 0);
