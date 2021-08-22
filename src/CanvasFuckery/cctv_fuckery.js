@@ -3,6 +3,8 @@ import tunnel2 from '.././images/tunnel2.jpg';
 import tunnel3 from '.././images/tunnel3.jpg';
 import tunnel4 from '.././images/tunnel4.jpeg';
 import tunnel5 from '.././images/tunnel5.jpeg';
+import tunnel6 from '.././images/tunnel6.jpg';
+import { CameraFeed } from "./camera_feed";
 
 /*
 so step 1: set up a game mode to display this shit
@@ -34,8 +36,7 @@ parts of a fake live video:
 
 */
 const possibleSourceImagePairs = {};
-let sourceImage;
-let sourceImage2;
+let currentFeed;
 
 let outputCanvas;
 let image_index = 0;
@@ -45,9 +46,8 @@ export const cctv_loop = (canvas, source, source2) => {
     //debug
     //TODO make this a loop
     outputCanvas = canvas;
-    sourceImage = source;
-    sourceImage2 = source2;
-    possibleSourceImagePairs[source.src] = ([source, source2]);
+    currentFeed = new CameraFeed(source, source2, []);
+    possibleSourceImagePairs[source.src] = (currentFeed);
     // window.requestAnimationFrame()
     load_other_images();
     oneFrame(0);
@@ -59,7 +59,7 @@ const load_image_with_others = (next_image, images) => {
     let img = new Image();
     const index = images.indexOf(next_image);
     img.addEventListener('load', function () {
-        possibleSourceImagePairs[next_image] = [img, img];
+        possibleSourceImagePairs[next_image] = new CameraFeed(img,img,[]);
         console.log("JR NOTE: image just loaded,", index, "updated possibles to ", possibleSourceImagePairs)
         if (index <= images.length) {
             load_image_with_others(images[index + 1], images);
@@ -73,7 +73,8 @@ const load_other_images = () => {
     //first one is special because of the server animation
     //rest are simple.
     //two images for server blinking
-    const images = [tunnel2, tunnel3, tunnel4, tunnel5];
+    //JR NTOTE TODO also associate them with their meta data.
+    const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
     load_image_with_others(tunnel2, images);
 
 
@@ -85,11 +86,10 @@ const load_other_images = () => {
 
         if (image_index < keys.length - 1) {
             image_index++;
-            console.log("JR NOTE: next image", possibleSourceImagePairs[keys[image_index]]);
-            [sourceImage, sourceImage2] = possibleSourceImagePairs[keys[image_index]];
+            currentFeed = possibleSourceImagePairs[keys[image_index]];
         } else {
             image_index = 0;
-            [sourceImage, sourceImage2] = possibleSourceImagePairs[keys[0]];
+            currentFeed = possibleSourceImagePairs[keys[0]];
         }
     }
 
@@ -100,6 +100,7 @@ const load_other_images = () => {
 
 const drawInLocation = (frame, image, context)=>{
     const speed = 5;
+    let sourceImage = currentFeed.image1;
     const width = sourceImage.width;
 
     const height = sourceImage.height;
@@ -138,9 +139,9 @@ const oneFrame = (frame) => {
     //so in addition to source image we want to have a canvas we can render figures onto
     //because the figures need to be placed relative to the IMAGE and undernath the effects
     //(if i try to place it on the 480x480 shitty ctv they won't be in the right spot)
-    let image = sourceImage2;
+    let image = currentFeed.image2;
     if (frame % 50 < 10) {
-        image = sourceImage;
+        image =  currentFeed.image1;
     }
     drawInLocation(frame, image, context)
 

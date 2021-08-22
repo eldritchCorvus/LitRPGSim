@@ -80,7 +80,7 @@ export const  StatusScreen = (props: StatusProps)=> {
                 }).join(", ")}</StatusContent>
             </StatusRow>
 
-            {player.observer.inventoryMenuLevel>0?<StatusRow>
+            {player.observer.backstoryMenuLevel>0?<StatusRow>
                 <StatusHeader>Backstory:</StatusHeader>
                 <StatusContent>{player.backstory}</StatusContent>
             </StatusRow>:null}
