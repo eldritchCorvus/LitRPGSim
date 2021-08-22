@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { cctv_loop } from "../CanvasFuckery/cctv_fuckery";
 import cctv from '.././images/murderbasement.jpeg';
+import cctv2 from '.././images/murderbasement2.jpeg';
 
 import { Player } from "../Modules/Player";
 import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "./Styles";
+import { justTruthSong } from "..";
 interface StatusProps {
     player: Player;
 }
@@ -22,6 +24,7 @@ export const CCTV = (props: StatusProps) => {
     useEffect(() => {
         const body = document.querySelector("body");
         if (body) {
+            justTruthSong();
             console.log("JR NOTE: body is", body.childNodes)
             //just fucking remove everything else. inner peace for all.
             body.innerHTML = "";
@@ -34,8 +37,13 @@ export const CCTV = (props: StatusProps) => {
             canvas.style.display = "block";
             canvas.style.padding="20px";
             var img = new Image();
+            //two images for server blinking
             img.addEventListener('load', function () {
-                cctv_loop(canvas, img);
+                var img2 = new Image();
+                img2.addEventListener('load', function () {
+                    cctv_loop(canvas, img,img2);
+                }, false);
+                img2.src = cctv2;
             }, false);
             img.src = cctv;
             body.append(canvas);
