@@ -1,4 +1,5 @@
 import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
+import { beepEffect } from "..";
 
 /*
 so step 1: set up a game mode to display this shit
@@ -30,16 +31,21 @@ parts of a fake live video:
 
 */
 let sourceImage;
+let sourceImage2;
+
 let outputCanvas;
 //not being functional at all, so sue me
 
-export const cctv_loop = (canvas, source) => {
+export const cctv_loop = (canvas, source,source2) => {
     //debug
     //TODO make this a loop
     outputCanvas = canvas;
     sourceImage = source;
+    sourceImage2= source2;
     // window.requestAnimationFrame()
     oneFrame(0);
+    //doing it twice causes the occasional weird unpredictable glitch
+    oneFrame(130);
 
 }
 
@@ -53,23 +59,60 @@ const oneFrame = (frame) => {
     //TODO allow camera to pan around to view more than just this bit
     const height = sourceImage.height;
     //every other pan change direciton
-    let max =height;
     //TODO need to figure out why this isn't changing direction like i want
     const speed =5;
+    let max =height-speed;
+
     let location = (frame*speed)%max;
-    console.log("JR NOTE: location is", location, "height is", height)
     if(location > height/2 ||location < 0){
         location =  height-(frame*speed)%max;;
     }
-    context.drawImage(sourceImage, 0, -1*location);
+    //JR NOTE TODO: shadowy figures come and go, but the server should be there and blinking always
+    //JR NOTE TODO: the shadowy figures should be rendered onto the image itself
+    //so in addition to source image we want to have a canvas we can render figures onto
+    //because the figures need to be placed relative to the IMAGE and undernath the effects
+    //(if i try to place it on the 480x480 shitty ctv they won't be in the right spot)
+    let image = sourceImage2;
+    if(frame %50 <10){
+        image = sourceImage;
+    }
+    if(frame%50===0){
+        beepEffect();
+    }
+    context.drawImage(image, 0, -1*location);
+    const fontSize = 25;
+    const padding = 15+fontSize;
+
+    context.fillStyle = "white";
+    context.font = `${fontSize}px serif`;
+    const time = getTimeString(new Date(frame*100));
+
     cctv(buffer, frame);
+    context.fillText(time,buffer.width-100, padding);
+
     const outputContext = outputCanvas.getContext("2d");
     outputContext.drawImage(buffer, 0, 0);
     setTimeout(() => {
         window.requestAnimationFrame(() => { oneFrame(frame + 1) })
     }, 100)
 }
-
+//https://stackoverflow.com/questions/18229022/how-to-show-current-time-in-javascript-in-the-format-hhmmss
+function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+  
+  function getTimeString(date) {
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    // add a zero in front of numbers<10
+    m = checkTime(m);
+    s = checkTime(s);
+    return  h + ":" + m + ":" + s;
+  }
 const isStaticSpot = (y, height, time_percent, band_width) => {
     const first = -Math.floor(height / 3 - height * time_percent);
     const second = -Math.floor(2 * height / 3 - height * time_percent);
@@ -123,14 +166,15 @@ const cctv = (canvas, timecode) => {
                     d[i + 1] = 255-Math.floor(d[i]*ratio);
                     d[i + 2] = 255-Math.floor(d[i]*ratio);
                 }else{
-                    d[i] = Math.floor(d[i]*ratio);
-                    d[i + 1] = Math.floor(d[i]*ratio);
-                    d[i + 2] = Math.floor(d[i]*ratio);
+                   const value = staticHash(x + offset, y + offset);
+                    d[i] =value;
+                    d[i + 1] = 255-value;
+                    d[i + 2] = value;
                 }
             }
 
             //scan lines
-            if(y%5<2){
+            if(y%5<1){
                 d[i] = 0;
                 d[i + 1] =  0;
                 d[i + 2] = 0;
