@@ -45,8 +45,6 @@ let image_index = 0;
 //not being functional at all, so sue me
 
 export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
-    //debug
-    //TODO make this a loop
     monster_left = mon_left;
     monster_right = mon_right;
     outputCanvas = canvas;
@@ -72,7 +70,7 @@ const load_other_images = async() => {
     //3
     spawnPoints.push([]);
     //4
-    spawnPoints.push([new ShadowSpawnPoint((monster_left, monster_right,100,100,1.0,1.0, 300,300))]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right,100,100,1.0,1.0, 300,300)]);
     //5
     spawnPoints.push([]);
     //6
@@ -111,7 +109,7 @@ const getCurrentImage = (frame)=>{
     }
     if(true){
         const spawnpoint = pickFrom(currentFeed.shadow_spawn_points);
-        if(!spawnpoint.shadow_spawned){
+        if(spawnpoint && !spawnpoint.shadow_spawned){
             spawnpoint.spawn();
         }
     }
@@ -120,7 +118,7 @@ const getCurrentImage = (frame)=>{
             image = document.createElement("canvas");
             image.width = currentFeed.image1.width;
             image.height = currentFeed.image1.height;
-            const context = buffer.getContext("2d");
+            const context = image.getContext("2d");
             context.drawImage(image, 0,0);
             spawnpoint.drawMonster(context);
         }
