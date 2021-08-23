@@ -10,6 +10,7 @@ import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "./Styles";
 import { justTruthSong } from "..";
 import { addImageProcess } from "../Utils/URLUtils";
+import ReactDOM from "react-dom";
 interface StatusProps {
     player: Player;
 }
@@ -48,6 +49,11 @@ export const CCTV = (props: StatusProps) => {
             //just fucking remove everything else. inner peace for all.
             body.innerHTML = "";
             body.style.background = "#000000";
+            const div = document.createElement("div");
+            div.id = "text";
+            div.style.color = "white";
+            body.append(div);
+            TextKickoff();
             const canvas = document.createElement("canvas");
             canvas.width = 480;
             canvas.height = 480;
@@ -64,7 +70,19 @@ export const CCTV = (props: StatusProps) => {
     return (
 
         <TruthContainer>
-
         </TruthContainer>
     );
+}
+
+const TextKickoff = ()=>{
+    const ele = document.getElementById('text');
+    if(!ele){
+        return;
+    }
+    ReactDOM.render(
+        <React.StrictMode>
+            <OneCharAtATimeDiv text="You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched."/>
+        </React.StrictMode>,
+        ele
+      );
 }
