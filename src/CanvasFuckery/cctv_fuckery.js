@@ -1,10 +1,10 @@
-import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
+import { getRandomNumberBetween, pickFrom } from "../Utils/NonSeededRandUtils";
 import tunnel2 from '.././images/tunnel2.jpg';
 import tunnel3 from '.././images/tunnel3.jpg';
 import tunnel4 from '.././images/tunnel4.jpeg';
 import tunnel5 from '.././images/tunnel5.jpeg';
 import tunnel6 from '.././images/tunnel6.jpg';
-import { CameraFeed } from "./camera_feed";
+import { CameraFeed, ShadowSpawnPoint } from "./camera_feed";
 import { addImageProcess } from "../Utils/URLUtils";
 
 /*
@@ -64,12 +64,23 @@ const load_other_images = async() => {
     //first one is special because of the server animation
     //rest are simple.
     //two images for server blinking
-    //JR NTOTE TODO also associate them with their meta data.
+    //JR NTOTE TODO some might be regular monster, some might be NotAMinotaur
     const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
+    const spawnPoints = [];
+    //2
+    spawnPoints.push([]);
+    //3
+    spawnPoints.push([]);
+    //4
+    spawnPoints.push([new ShadowSpawnPoint((monster_left, monster_right,100,100,1.0,1.0, 300,300))]);
+    //5
+    spawnPoints.push([]);
+    //6
+    spawnPoints.push([]);
+
     for(let image of images){
         const img = await addImageProcess(image);
-        console.log("JR Note img is", img);
-        possibleSourceImagePairs[image] = new CameraFeed(img,img,[]);
+        possibleSourceImagePairs[image] = new CameraFeed(img,img,spawnPoints[images.indexOf(image)]);
     }
 
 
@@ -92,6 +103,32 @@ const load_other_images = async() => {
 
 }
 
+
+const getCurrentImage = (frame)=>{
+    let image = currentFeed.image2;
+    if (frame % 50 < 10) {
+        image =  currentFeed.image1;
+    }
+    if(true){
+        const spawnpoint = pickFrom(currentFeed.shadow_spawn_points);
+        if(!spawnpoint.shadow_spawned){
+            spawnpoint.spawn();
+        }
+    }
+    for(let spawnpoint of currentFeed.shadow_spawn_points){
+        if(spawnpoint.shadow_spawned){
+            image = document.createElement("canvas");
+            image.width = currentFeed.image1.width;
+            image.height = currentFeed.image1.height;
+            const context = buffer.getContext("2d");
+            context.drawImage(image, 0,0);
+            spawnpoint.drawMonster(context);
+        }
+    }
+         
+
+    return image;
+}
 
 const drawInLocation = (frame, image, context)=>{
     const speed = 5;
@@ -134,10 +171,7 @@ const oneFrame = (frame) => {
     //so in addition to source image we want to have a canvas we can render figures onto
     //because the figures need to be placed relative to the IMAGE and undernath the effects
     //(if i try to place it on the 480x480 shitty ctv they won't be in the right spot)
-    let image = currentFeed.image2;
-    if (frame % 50 < 10) {
-        image =  currentFeed.image1;
-    }
+    let image = getCurrentImage(frame);
     drawInLocation(frame, image, context)
 
    

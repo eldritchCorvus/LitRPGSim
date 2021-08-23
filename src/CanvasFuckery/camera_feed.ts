@@ -1,3 +1,5 @@
+import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
+
 export  class CameraFeed{
     image1:HTMLImageElement;
     image2:HTMLImageElement;
@@ -36,6 +38,42 @@ export  class ShadowSpawnPoint{
         this.end_pos_x = end_pos_x;
         this.end_pos_y = end_pos_y;
         this.scale  = scale;
+    }
+
+    spawn=()=>{
+        this.shadow_spawned = true;
+        this.shadow_current_x = this.start_pos_x;
+        this.shadow_current_y = this.start_pos_y;
+        console.log("JR NOTE: spawning monster at", this.shadow_current_x)
+    }
+
+    drawMonster=(context:CanvasRenderingContext2D)=>{
+        const monster = this.getAppropriateImage();
+        const direction = this.direction();
+        this.shadow_current_x += this.speed * direction;
+        if(Math.random()>0.9){
+            //bob plz, but not too much
+            if(Math.random()>0.5){
+                this.shadow_current_y +=getRandomNumberBetween(0,2);
+            }else{
+                this.shadow_current_y +=-1*getRandomNumberBetween(0,2);  
+            }
+        }
+        context.drawImage(monster, this.shadow_current_x,this.shadow_current_y, monster.width*this.scale, monster.height*this.scale);
+    }
+
+    direction = ()=>{
+        if(this.start_pos_x>this.end_pos_x){
+            return -1;
+        }
+        return 1;
+    }
+
+    getAppropriateImage =()=>{
+        if(this.direction()<0){
+            return this.leftImg;
+        }
+        return this.rightImg;
     }
     
 }
