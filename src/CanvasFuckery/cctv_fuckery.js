@@ -5,6 +5,7 @@ import tunnel4 from '.././images/tunnel4.jpeg';
 import tunnel5 from '.././images/tunnel5.jpeg';
 import tunnel6 from '.././images/tunnel6.jpg';
 import { CameraFeed } from "./camera_feed";
+import { addImageProcess } from "../Utils/URLUtils";
 
 /*
 so step 1: set up a game mode to display this shit
@@ -37,14 +38,17 @@ parts of a fake live video:
 */
 const possibleSourceImagePairs = {};
 let currentFeed;
-
+let monster_left;
+let monster_right;
 let outputCanvas;
 let image_index = 0;
 //not being functional at all, so sue me
 
-export const cctv_loop = (canvas, source, source2) => {
+export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
     //debug
     //TODO make this a loop
+    monster_left = mon_left;
+    monster_right = mon_right;
     outputCanvas = canvas;
     currentFeed = new CameraFeed(source, source2, []);
     possibleSourceImagePairs[source.src] = (currentFeed);
@@ -55,27 +59,18 @@ export const cctv_loop = (canvas, source, source2) => {
     oneFrame(13);
 }
 
-const load_image_with_others = (next_image, images) => {
-    let img = new Image();
-    const index = images.indexOf(next_image);
-    img.addEventListener('load', function () {
-        possibleSourceImagePairs[next_image] = new CameraFeed(img,img,[]);
-        console.log("JR NOTE: image just loaded,", index, "updated possibles to ", possibleSourceImagePairs)
-        if (index <= images.length) {
-            load_image_with_others(images[index + 1], images);
-        }
-    }, false);
-    img.src = next_image;
-}
-
 //just loads a bunch of images and when they load adds them to the array.
-const load_other_images = () => {
+const load_other_images = async() => {
     //first one is special because of the server animation
     //rest are simple.
     //two images for server blinking
     //JR NTOTE TODO also associate them with their meta data.
     const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
-    load_image_with_others(tunnel2, images);
+    for(let image of images){
+        const img = await addImageProcess(image);
+        console.log("JR Note img is", img);
+        possibleSourceImagePairs[image] = new CameraFeed(img,img,[]);
+    }
 
 
     const click = () => {
