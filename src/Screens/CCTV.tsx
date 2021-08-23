@@ -2,11 +2,14 @@ import React, { Fragment, useEffect, useState } from "react";
 import { cctv_loop } from "../CanvasFuckery/cctv_fuckery";
 import cctv from '.././images/murderbasement.jpeg';
 import cctv2 from '.././images/murderbasement2.jpeg';
+import monster1 from '.././images/monsters/doll/1.png';
+import monster2 from '.././images/monsters/doll/1left.png';
 
 import { Player } from "../Modules/Player";
 import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "./Styles";
 import { justTruthSong } from "..";
+import { addImageProcess } from "../Utils/URLUtils";
 interface StatusProps {
     player: Player;
 }
@@ -14,6 +17,22 @@ interface StatusProps {
 
 export const CCTV = (props: StatusProps) => {
     const { player } = props
+
+    
+
+     
+      const startCCTV=async(canvas:HTMLCanvasElement)=>{
+        const bg1 = await addImageProcess(cctv);
+        const bg2 = await addImageProcess(cctv2);
+        //TODO pick a different monster out depending on your themes
+        //obvs we won't have a monster for EVERY scene, but enough.
+        //enough to build the vibe of gaslighting and *why* and difficulty communicating
+        const mon1 = await addImageProcess(monster1);
+        const mon2 = await addImageProcess(monster2);
+        cctv_loop(canvas, bg1, bg2, mon1, mon2);
+
+
+    }
     //the inherent irony of using react to nuke the dom
     // from orbit and then switch to vanilla javascript is not lost on me.
     //consider this performance art
@@ -36,18 +55,8 @@ export const CCTV = (props: StatusProps) => {
             canvas.style.marginRight = "auto";
             canvas.style.display = "block";
             canvas.style.padding="20px";
-            var img = new Image();
-            //two images for server blinking
-            img.addEventListener('load', function () {
-                var img2 = new Image();
-                img2.addEventListener('load', function () {
-                    cctv_loop(canvas, img,img2);
-                }, false);
-                img2.src = cctv2;
-            }, false);
-            img.src = cctv;
             body.append(canvas);
-
+            startCCTV(canvas);
         }
 
     }, []);
