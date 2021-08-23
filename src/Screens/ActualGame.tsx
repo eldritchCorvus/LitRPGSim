@@ -435,6 +435,9 @@ const [message, setMessage] = useState("");
       }
     }else if(input.toUpperCase().includes("WEST")){
       setError("You cannot go WEST. There’s no left turns. None. It doesn't make any sense. But it's NotASpiral, because you can always go forwards. Except when you can't.");
+    }else if(input.toUpperCase().includes("DOWN")){
+      setError("You do not want to go to the BASEMENT TUNNELS. But I guess that is where you are going.");
+      (window as any).setCCTVMode(true)
     }
     if(result){
       setError(result);
