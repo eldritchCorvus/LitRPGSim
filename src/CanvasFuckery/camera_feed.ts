@@ -51,6 +51,7 @@ export  class ShadowSpawnPoint{
         const monster = this.getAppropriateImage();
         const direction = this.direction();
         this.shadow_current_x += this.speed * direction;
+        console.log("JR NOTE: monster x is ", this.shadow_current_x)
         if(Math.random()>0.9){
             //bob plz, but not too much
             if(Math.random()>0.5){
@@ -59,7 +60,18 @@ export  class ShadowSpawnPoint{
                 this.shadow_current_y +=-1*getRandomNumberBetween(0,2);  
             }
         }
-        context.drawImage(monster, this.shadow_current_x,this.shadow_current_y, monster.width*this.scale, monster.height*this.scale);
+        if(direction > 0 && this.shadow_current_x > this.end_pos_x){
+            this.despawn();
+        }else if(direction < 0 && this.shadow_current_x < this.end_pos_x){
+            this.despawn();
+        }else{
+            context.drawImage(monster, this.shadow_current_x,this.shadow_current_y, monster.width*this.scale, monster.height*this.scale);
+        }
+    }
+
+    despawn=()=>{
+        console.log("JR NOTE: despawning because direction is ", this.direction(), "and current is: ",this.shadow_current_x, "and max is ", this.end_pos_x)
+        this.shadow_spawned = false;
     }
 
     direction = ()=>{

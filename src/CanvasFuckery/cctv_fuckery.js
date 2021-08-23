@@ -54,11 +54,11 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
     load_other_images();
     oneFrame(0);
     //doing it twice causes the occasional weird unpredictable glitch
-    oneFrame(13);
+   // oneFrame(13);
 }
 
 //just loads a bunch of images and when they load adds them to the array.
-const load_other_images = async() => {
+const load_other_images = async () => {
     //first one is special because of the server animation
     //rest are simple.
     //two images for server blinking
@@ -70,24 +70,20 @@ const load_other_images = async() => {
     //3
     spawnPoints.push([]);
     //4
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right,100,100,1.0,1.0, 300,300)]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 400, 500, 1.0, 1.0, 1000, 500),new ShadowSpawnPoint(monster_left, monster_right, 1000, 500, 1.0, 1.0, 400, 500)]);
     //5
     spawnPoints.push([]);
     //6
-    spawnPoints.push([]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 750, 0, 5, 0.5, 1000, 240)]);
 
-    for(let image of images){
+    for (let image of images) {
         const img = await addImageProcess(image);
-        possibleSourceImagePairs[image] = new CameraFeed(img,img,spawnPoints[images.indexOf(image)]);
+        possibleSourceImagePairs[image] = new CameraFeed(img, img, spawnPoints[images.indexOf(image)]);
     }
 
 
     const click = () => {
         const keys = Object.keys(possibleSourceImagePairs);
-
-
-        console.log("JR NOTE: click, possible numberss are", keys.length, "with index", image_index, "and possibles of", possibleSourceImagePairs)
-
         if (image_index < keys.length - 1) {
             image_index++;
             currentFeed = possibleSourceImagePairs[keys[image_index]];
@@ -102,49 +98,48 @@ const load_other_images = async() => {
 }
 
 
-const getCurrentImage = (frame)=>{
+const getCurrentImage = (frame) => {
     let image = currentFeed.image2;
     if (frame % 50 < 10) {
-        image =  currentFeed.image1;
+        image = currentFeed.image1;
     }
-    if(true){
+    if (true) {
         const spawnpoint = pickFrom(currentFeed.shadow_spawn_points);
-        if(spawnpoint && !spawnpoint.shadow_spawned){
+        if (spawnpoint && !spawnpoint.shadow_spawned) {
             spawnpoint.spawn();
         }
     }
-    for(let spawnpoint of currentFeed.shadow_spawn_points){
-        if(spawnpoint.shadow_spawned){
-            image = document.createElement("canvas");
-            image.width = currentFeed.image1.width;
-            image.height = currentFeed.image1.height;
-            const context = image.getContext("2d");
-            context.drawImage(image, 0,0);
+    for (let spawnpoint of currentFeed.shadow_spawn_points) {
+        if (spawnpoint.shadow_spawned) {
+            const hacked_image = document.createElement("canvas");
+            hacked_image.width = currentFeed.image1.width;
+            hacked_image.height = currentFeed.image1.height;
+            const context = hacked_image.getContext("2d");
+            context.drawImage(image, 0, 0);
             spawnpoint.drawMonster(context);
+            image = hacked_image;
         }
     }
-         
-
     return image;
 }
 
-const drawInLocation = (frame, image, context)=>{
+const drawInLocation = (frame, image, context) => {
     const speed = 5;
     let sourceImage = currentFeed.image1;
     const width = sourceImage.width;
 
     const height = sourceImage.height;
 
-    
-    if(width>height){
+
+    if (width > height) {
         let max = width - speed;
         let location = (frame * speed) % max;
 
         if (location > width / 2 || location < 0) {
             location = width - (frame * speed) % max;;
         }
-        context.drawImage(image, -1 * location,0);
-    }else{
+        context.drawImage(image, -1 * location, 0);
+    } else {
         let max = height - speed;
         let location = (frame * speed) % max;
 
@@ -172,7 +167,7 @@ const oneFrame = (frame) => {
     let image = getCurrentImage(frame);
     drawInLocation(frame, image, context)
 
-   
+
     const fontSize = 25;
     const padding = 15 + fontSize;
 
@@ -255,11 +250,11 @@ const cctv = (canvas, timecode) => {
                 const r = d[i];
                 const g = d[i + 1];
                 const b = d[i + 2];
-                let v = Math.max(Math.max(r,g),b);
+                let v = Math.max(Math.max(r, g), b);
                 //higher the percent the more contrasty it is
-                let contrast = (50/100) + 1;  //convert to decimal & shift range: [0..2]
+                let contrast = (50 / 100) + 1;  //convert to decimal & shift range: [0..2]
                 var intercept = 128 * (1 - contrast);
-                d[i] = d[i + 1] = d[i + 2] = v*contrast + intercept;;
+                d[i] = d[i + 1] = d[i + 2] = v * contrast + intercept;;
             }
 
             //random static
