@@ -11,6 +11,8 @@ export  class CameraFeed{
 
 }
 
+//TODO also add the possibility of shitty phasmaphobia orbs
+
 //since only one shadow per spawn point at a time just store their pos here
 export  class ShadowSpawnPoint{
     speed:number;
@@ -18,12 +20,16 @@ export  class ShadowSpawnPoint{
     start_pos_y: number;
     end_pos_x: number;
     end_pos_y: number;
+    leftImg:HTMLImageElement;
+    rightImg:HTMLImageElement;
     scale: number;
     shadow_spawned = false;
     shadow_current_x = 0;
     shadow_current_y = 0;
 
-    constructor(start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
+    constructor(leftImg: HTMLImageElement, rightImg: HTMLImageElement, start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
+        this.leftImg  = leftImg;
+        this.rightImg = rightImg;
         this.speed = speed;
         this.start_pos_x = start_pos_x;
         this.start_pos_y = start_pos_y;
