@@ -10,3 +10,11 @@ export function getParameterByName(name:string, url:string|null) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+export const addImageProcess =(src: string)=>{
+  return new Promise((resolve, reject) => {
+    let img = new Image()
+    img.onload = () => resolve(img)
+    img.onerror = reject
+    img.src = src
+  })
+}
