@@ -48,7 +48,9 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
     monster_left = mon_left;
     monster_right = mon_right;
     outputCanvas = canvas;
-    currentFeed = new CameraFeed(source, source2, []);
+    const spawn = [new ShadowSpawnPoint(monster_left, monster_right, -200, 400, 15, 1.0, 800, 400),new ShadowSpawnPoint(monster_left, monster_right, 300, 300, 7, 0.5, 0, 300)];
+
+    currentFeed = new CameraFeed(source, source2, spawn);
     possibleSourceImagePairs[source.src] = (currentFeed);
     // window.requestAnimationFrame()
     load_other_images();
@@ -66,7 +68,7 @@ const load_other_images = async () => {
     const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
     const spawnPoints = [];
     //2
-    spawnPoints.push([]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 69, 229, 2.0, 0.3, 210, 500),new ShadowSpawnPoint(monster_left, monster_right, 283, 184, 15, 1.0, -200, 184)]);
     //3
     spawnPoints.push([]);
     //4
