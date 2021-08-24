@@ -235,8 +235,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-      * less shitty ghosts
-* at least one spawn point per CCTV feed
+        * efficiency pass
 * ghosts vanish if you mouse over
 * ghost orbs that follow mouse
 * lightly themed ghosts (just enough variation for gaslighting)
