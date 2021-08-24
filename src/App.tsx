@@ -21,6 +21,7 @@ import { updateTypeAssertion } from "typescript";
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
 import { CCTV } from "./Screens/CCTV";
+import { getParameterByName } from "./Utils/URLUtils";
 
 interface AppProps{
   seed: number;
@@ -182,7 +183,6 @@ function App(props: AppProps) {
     if(!player){
       window.addEventListener('click', click);
       window.addEventListener('click', clickEffect);
-      fuckUpBGButSoftly();
       const rand = new SeededRandom(props.seed);  
       //order matters, themes are needed for aspects, etc;
       initStats();
@@ -196,6 +196,12 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsNotAnEye2");
       detectDivStatus("ThisIsNotASpiral");
       detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
+      const cctv = getParameterByName("cctv", null);
+      if(cctv){
+        setCCTVMode(true);
+      }else{
+        fuckUpBGButSoftly();
+      }
   }
   },[player])
 /*
@@ -229,6 +235,17 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+      * less shitty ghosts
+* at least one spawn point per CCTV feed
+* ghosts vanish if you mouse over
+* ghost orbs that follow mouse
+* lightly themed ghosts (just enough variation for gaslighting)
+* NotAMinotaur
+* rabbit hole graphic behind menu
+* if you click, cctv with a blank feed and a password box
+* wrong passwords lead to a wall with a rot3 graffiti of what you entered in on it
+* right passwords get custom images and LORE (of some sort)
+* sprinkle right pws at the 'end' of each path and more
         <li>shadowy figures on the image itslef, creepy cctv murder basement underneath "ThisIsJustAGame"</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
              <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
