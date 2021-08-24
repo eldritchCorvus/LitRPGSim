@@ -68,15 +68,15 @@ const load_other_images = async () => {
     const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
     const spawnPoints = [];
     //2
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 69, 229, 2.0, 0.3, 210, 500),new ShadowSpawnPoint(monster_left, monster_right, 283, 184, 15, 1.0, -200, 184)]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 69, 229, 2, 0.3, 210, 500),new ShadowSpawnPoint(monster_left, monster_right, 283, 184, 15, 1.0, -200, 184)]);
     //3
-    spawnPoints.push([]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, -105, 204, 6, 1.0, 680, 500),new ShadowSpawnPoint(monster_left, monster_right, 1000, 500, 1.0, 1.0, 400, 500)]);
     //4
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 400, 500, 1.0, 1.0, 1000, 500),new ShadowSpawnPoint(monster_left, monster_right, 1000, 500, 1.0, 1.0, 400, 500)]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 1000, 500, 60, 2.0, -1000, 500),new ShadowSpawnPoint(monster_left, monster_right, -1000, 500, 60, 2.0, 1000, 500)]);
     //5
-    spawnPoints.push([]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, -800, 130, 30, 1.5, 1500, 130),new ShadowSpawnPoint(monster_left, monster_right, 1000, 130, 60, 2.0, -1000, 130)]);
     //6
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 750, 0, 5, 0.5, 1000, 240)]);
+    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, -100, 300, 2, 0.3, 1600, 300),new ShadowSpawnPoint(monster_left, monster_right, -100, 83, 2, 0.3, 1600, 83)]);
 
     for (let image of images) {
         const img = await addImageProcess(image);

@@ -51,9 +51,9 @@ export const CCTV = (props: StatusProps) => {
             body.style.background = "#000000";
             const div = document.createElement("div");
             div.id = "text";
+            div.innerText="You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched.";
             div.style.color = "white";
             body.append(div);
-            TextKickoff();
             const canvas = document.createElement("canvas");
             canvas.width = 480;
             canvas.height = 480;
@@ -74,15 +74,3 @@ export const CCTV = (props: StatusProps) => {
     );
 }
 
-const TextKickoff = ()=>{
-    const ele = document.getElementById('text');
-    if(!ele){
-        return;
-    }
-    ReactDOM.render(
-        <React.StrictMode>
-            <OneCharAtATimeDiv text="You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched."/>
-        </React.StrictMode>,
-        ele
-      );
-}
