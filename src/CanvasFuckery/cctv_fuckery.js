@@ -105,7 +105,8 @@ const getCurrentImage = (frame) => {
     if (frame % 50 < 10) {
         image = currentFeed.image1;
     }
-    if (true) {
+    //every 30 seconds have a 1 in 4 chance of spawning a ghost
+    if (frame > 300 && frame%300===0 && Math.random()>0.75) {
         const spawnpoint = pickFrom(currentFeed.shadow_spawn_points);
         if (spawnpoint && !spawnpoint.shadow_spawned) {
             spawnpoint.spawn();
