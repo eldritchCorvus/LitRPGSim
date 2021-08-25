@@ -66,7 +66,8 @@ function NewspostDom(props: PostProps) {
 function About(props: AppProps) {
   const [date, setDate] = useState<string>("1933-03-03");
   const newsposts = [
-    new Newspost("08/19/2021","lets all regret having eyes together, shall we?")
+    new Newspost("08/24/2021","look i don't know how or why found footage is a part of the zampanio experience. i just know i feel really proud of how i worked that part of it in.")
+    ,new Newspost("08/19/2021","lets all regret having eyes together, shall we?")
     ,new Newspost("08/16/2021","time is now officially hard","in addition to being the shittiest aspect it just is difficult to form. its difficult to follow without a proper mind")
     ,new Newspost("08/15/2021","Spiders can wear hats now.","also, I guess if you care about that sort of thing, you can now be killed horrifically by monsters. well. just the one monster. it follows you around and even if you can kill it it just comes back slightly different. don't worry about it.")
     ,new Newspost("08/14/2021","how can eyes be real if mirrors aren't real? so anyways i made mirrors real just in case","also truth is more true than it was before via being less true than it was before. its okay.")

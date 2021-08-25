@@ -10,6 +10,7 @@ import voice from './Voice/truthtake3.mp3';
 import funky_voice from './Voice/truth_but_funky.mp3';
 
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
+import ghost from "./Voice/507451__horroraudio__ghost-kid-sigh-less-verb.mp3";
 
 import AppWrapper from './AppWrapper';
 import reportWebVitals from './reportWebVitals';
@@ -41,6 +42,11 @@ export function speak(){
   voiceAudio.play();
 }
 
+export function ghost_sound(){
+  voiceAudio.src = ghost;
+  voiceAudio.play();
+}
+
 export function speakButFunky(){
   voiceAudio.src =funky_voice;
   audio.pause();
@@ -55,13 +61,13 @@ export function justTruthSong(){
  function playLightlyFuckedUpBGMusic(){
   audio.play();
   audio.onended = function() {
-    if(!window.rageMode && !window.justTruthMode){
+    if(!window.rageMode && !window.justTruthMode && !window.cctv){
       if (Math.random() > 0.5) {
         audio.src = helen_kin_song;
       } else {
         audio.src = subtle_heart;
       }
-    }else if (window.justTruthMode){
+    }else if (window.justTruthMode || window.cctv){
       audio.src = heartbeat;
     }else{
       audio.src = heart;
