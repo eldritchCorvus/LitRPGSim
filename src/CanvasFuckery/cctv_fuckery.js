@@ -60,9 +60,19 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
     possibleSourceImagePairs[source.src] = (currentFeed);
     // window.requestAnimationFrame()
     load_other_images();
+    canvas.addEventListener('mousemove', clearGhosts);
     oneFrame(0);
     //doing it twice causes the occasional weird unpredictable glitch except its a race condition so TOO much
     //oneFrame(2);
+}
+
+const clearGhosts = ()=>{
+    console.log("JR NOTE: clearing")
+    for (let spawnpoint of currentFeed.shadow_spawn_points) {
+        if (spawnpoint.shadow_spawned) {
+            spawnpoint.despawn();
+        }
+    }
 }
 
 //just loads a bunch of images and when they load adds them to the array.
