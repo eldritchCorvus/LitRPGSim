@@ -206,7 +206,7 @@ const oneFrame = (frame) => {
 
     context.fillStyle = "white";
     context.font = `${fontSize}px serif`;
-    const time = getTimeString(new Date(hacked_frame * 100));
+    const time = getTimeString(new Date(frame * 100));
 
     cctv(buffer, hacked_frame);
     context.fillText(time, buffer.width - 100, padding);
