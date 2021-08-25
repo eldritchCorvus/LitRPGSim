@@ -20,6 +20,7 @@ export  class CameraFeed{
 
 //since only one shadow per spawn point at a time just store their pos here
 export  class ShadowSpawnPoint{
+    type = "Shadow";
     speed:number;
     start_pos_x: number;
     start_pos_y: number;
@@ -93,6 +94,7 @@ export  class ShadowSpawnPoint{
 
 //watt does not MOVE so much as kind of just. phase into existance. jutter a bit. then leave.
 export class GhostOrbSpawnPoint extends ShadowSpawnPoint{
+    type = "Orb";
 
     constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
 
@@ -107,9 +109,11 @@ export class GhostOrbSpawnPoint extends ShadowSpawnPoint{
         if(Math.random()>0.5){
             //bob plz, but not too much
             if(Math.random()>0.5){
-                this.shadow_current_y +=getRandomNumberBetween(0,10);
+                this.shadow_current_x += -1* getRandomNumberBetween(0,10);
+                this.shadow_current_y +=getRandomNumberBetween(0,15);
             }else{
-                this.shadow_current_y +=-1*getRandomNumberBetween(0,10);  
+                this.shadow_current_x += 1* getRandomNumberBetween(0,10);
+                this.shadow_current_y +=-1*getRandomNumberBetween(0,15);  
             }
         }
         if(this.shadow_current_x > this.end_pos_x){
@@ -122,6 +126,7 @@ export class GhostOrbSpawnPoint extends ShadowSpawnPoint{
 
 //watt does not MOVE so much as kind of just. phase into existance. jutter a bit. then leave.
 export class WattSpawnPoint extends ShadowSpawnPoint{
+    type = "NotAMinotaur";
 
     constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
 

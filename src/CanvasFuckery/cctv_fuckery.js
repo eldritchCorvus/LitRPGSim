@@ -70,7 +70,7 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
 const clearGhosts = ()=>{
     //don't clear ghost orbs this is literally their whole point
     for (let spawnpoint of currentFeed.shadow_spawn_points) {
-        if (spawnpoint.shadow_spawned) {
+        if (spawnpoint.type !== "Orb" && spawnpoint.shadow_spawned) {
             spawnpoint.despawn();
         }
     }
@@ -93,16 +93,16 @@ const load_other_images = async () => {
     }
 
     //2
-    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], 69, 229, 2, 0.3, 210, 500),new ShadowSpawnPoint([monster_left, monster_right], 283, 184, 15, 1.0, -200, 184)]);
+    spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 8, 1.0, 1600, 300)],[new ShadowSpawnPoint([monster_left, monster_right], 69, 229, 2, 0.3, 210, 500),new ShadowSpawnPoint([monster_left, monster_right], 283, 184, 15, 1.0, -200, 184)]);
     //3
-    spawnPoints.push([new WattSpawnPoint(monster_loaded_images, 150, 470, 80, 1.0, 0, 0),new ShadowSpawnPoint([monster_left, monster_right], -105, 204, 6, 1.0, 680, 500),new ShadowSpawnPoint([monster_left, monster_right], 1000, 500, 1.0, 1.0, 400, 500)]);
+    spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 8, 1.0, 1600, 300)],[new WattSpawnPoint(monster_loaded_images, 150, 470, 80, 1.0, 0, 0),new ShadowSpawnPoint([monster_left, monster_right], -105, 204, 6, 1.0, 680, 500),new ShadowSpawnPoint([monster_left, monster_right], 1000, 500, 1.0, 1.0, 400, 500)]);
 
     //4
-    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], 1000, 500, 60, 2.0, -1000, 500),new ShadowSpawnPoint([monster_left, monster_right], -1000, 500, 60, 2.0, 1000, 500)]);
+    spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 8, 1.0, 1600, 300)],[new ShadowSpawnPoint([monster_left, monster_right], 1000, 500, 60, 2.0, -1000, 500),new ShadowSpawnPoint([monster_left, monster_right], -1000, 500, 60, 2.0, 1000, 500)]);
     //5
-    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], -800, 130, 30, 1.5, 1500, 130),new ShadowSpawnPoint([monster_left, monster_right], 1000, 130, 60, 2.0, -1000, 130)]);
+    spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 8, 1.0, 1600, 300)],[new ShadowSpawnPoint([monster_left, monster_right], -800, 130, 30, 1.5, 1500, 130),new ShadowSpawnPoint([monster_left, monster_right], 1000, 130, 60, 2.0, -1000, 130)]);
     //6
-    spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 5, 1.0, 1600, 300)]);
+    spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 8, 1.0, 1600, 300)]);
 
     const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
 
