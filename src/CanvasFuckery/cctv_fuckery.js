@@ -8,9 +8,10 @@ import notAMinotaur1 from '.././images/monsters/NotAMinotaur/0.png';
 import notAMinotaur2 from '.././images/monsters/NotAMinotaur/1.png';
 import notAMinotaur3 from '.././images/monsters/NotAMinotaur/2.png';
 import notAMinotaur4 from '.././images/monsters/NotAMinotaur/3.png';
+import ghost_orb_src from '.././images/monsters/orb.png';
 
 import {ghost_sound} from "../.";
-import { CameraFeed, ShadowSpawnPoint, WattSpawnPoint } from "./camera_feed";
+import { CameraFeed, ShadowSpawnPoint, WattSpawnPoint,GhostOrbSpawnPoint } from "./camera_feed";
 import { addImageProcess } from "../Utils/URLUtils";
 
 /*
@@ -67,6 +68,7 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
 }
 
 const clearGhosts = ()=>{
+    //don't clear ghost orbs this is literally their whole point
     for (let spawnpoint of currentFeed.shadow_spawn_points) {
         if (spawnpoint.shadow_spawned) {
             spawnpoint.despawn();
@@ -81,6 +83,8 @@ const load_other_images = async () => {
     //two images for server blinking
     //JR NTOTE TODO some might be regular monster, some might be NotAMinotaur
     const spawnPoints = [];
+    const ghost_orb = await addImageProcess(ghost_orb_src);
+
     const monster_images = [notAMinotaur1, notAMinotaur2, notAMinotaur3, notAMinotaur4];
     const monster_loaded_images = [];
     for (let image of monster_images) {
@@ -98,7 +102,7 @@ const load_other_images = async () => {
     //5
     spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], -800, 130, 30, 1.5, 1500, 130),new ShadowSpawnPoint([monster_left, monster_right], 1000, 130, 60, 2.0, -1000, 130)]);
     //6
-    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], -100, 300, 2, 0.3, 1600, 300),new ShadowSpawnPoint([monster_left, monster_right], -100, 83, 2, 0.3, 1600, 83)]);
+    spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 5, 1.0, 1600, 300)]);
 
     const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
 
