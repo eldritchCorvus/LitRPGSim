@@ -237,7 +237,6 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-* ghosts vanish if you mouse over
 * ghost orbs that follow mouse
 * lightly themed ghosts (just enough variation for gaslighting)
 * rabbit hole graphic behind menu

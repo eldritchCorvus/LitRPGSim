@@ -67,7 +67,6 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
 }
 
 const clearGhosts = ()=>{
-    console.log("JR NOTE: clearing")
     for (let spawnpoint of currentFeed.shadow_spawn_points) {
         if (spawnpoint.shadow_spawned) {
             spawnpoint.despawn();
