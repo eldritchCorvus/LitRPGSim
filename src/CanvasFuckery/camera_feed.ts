@@ -92,6 +92,35 @@ export  class ShadowSpawnPoint{
 }
 
 //watt does not MOVE so much as kind of just. phase into existance. jutter a bit. then leave.
+export class GhostOrbSpawnPoint extends ShadowSpawnPoint{
+
+    constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
+
+        super(images, start_pos_x, start_pos_y,speed, scale, end_pos_x, end_pos_y );
+    }
+
+    drawMonster=(context:CanvasRenderingContext2D)=>{
+        const direction = this.direction();
+
+        const monster = this.images[0];
+        this.shadow_current_x += this.speed * direction;
+        if(Math.random()>0.5){
+            //bob plz, but not too much
+            if(Math.random()>0.5){
+                this.shadow_current_y +=getRandomNumberBetween(0,10);
+            }else{
+                this.shadow_current_y +=-1*getRandomNumberBetween(0,10);  
+            }
+        }
+        if(this.shadow_current_x > this.end_pos_x){
+            this.despawn();
+        }else{
+            context.drawImage(monster, this.shadow_current_x,this.shadow_current_y, monster.width*this.scale, monster.height*this.scale);
+        }
+    }
+}
+
+//watt does not MOVE so much as kind of just. phase into existance. jutter a bit. then leave.
 export class WattSpawnPoint extends ShadowSpawnPoint{
 
     constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
@@ -100,7 +129,6 @@ export class WattSpawnPoint extends ShadowSpawnPoint{
     }
 
     drawMonster=(context:CanvasRenderingContext2D)=>{
-        this.shadow_current_x ++; //treat it as a frame count.
         const frameCount = this.shadow_current_x-this.start_pos_x;
         const monster = this.getAppropriateImage(frameCount);
         if(frameCount > this.speed){
