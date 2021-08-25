@@ -55,8 +55,8 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
     // window.requestAnimationFrame()
     load_other_images();
     oneFrame(0);
-    //doing it twice causes the occasional weird unpredictable glitch
-   // oneFrame(13);
+    //doing it twice causes the occasional weird unpredictable glitch except its a race condition so TOO much
+    //oneFrame(2);
 }
 
 //just loads a bunch of images and when they load adds them to the array.
@@ -106,7 +106,7 @@ const getCurrentImage = (frame) => {
         image = currentFeed.image1;
     }
     //every 30 seconds have a 1 in 4 chance of spawning a ghost
-    if (frame > 300 && frame%300===0 && Math.random()>0.75) {
+    if (frame > 100 && frame%100===0 && Math.random()>0.5) {
         const spawnpoint = pickFrom(currentFeed.shadow_spawn_points);
         if (spawnpoint && !spawnpoint.shadow_spawned) {
             spawnpoint.spawn();
