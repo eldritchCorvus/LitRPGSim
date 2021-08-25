@@ -1,3 +1,4 @@
+import { start } from "node:repl";
 import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
 
 export  class CameraFeed{
@@ -13,6 +14,8 @@ export  class CameraFeed{
 
 }
 
+
+
 //TODO also add the possibility of shitty phasmaphobia orbs
 
 //since only one shadow per spawn point at a time just store their pos here
@@ -22,16 +25,15 @@ export  class ShadowSpawnPoint{
     start_pos_y: number;
     end_pos_x: number;
     end_pos_y: number;
-    leftImg:HTMLImageElement;
-    rightImg:HTMLImageElement;
+    //left first, then right
+    images: HTMLImageElement[];
     scale: number;
     shadow_spawned = false;
     shadow_current_x = 0;
     shadow_current_y = 0;
 
-    constructor(leftImg: HTMLImageElement, rightImg: HTMLImageElement, start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
-        this.leftImg  = leftImg;
-        this.rightImg = rightImg;
+    constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
+        this.images = images;
         this.speed = speed;
         this.start_pos_x = start_pos_x;
         this.start_pos_y = start_pos_y;
@@ -48,16 +50,17 @@ export  class ShadowSpawnPoint{
     }
 
     drawMonster=(context:CanvasRenderingContext2D)=>{
-        const monster = this.getAppropriateImage();
         const direction = this.direction();
+
+        const monster = this.getAppropriateImage(direction);
         this.shadow_current_x += this.speed * direction;
         console.log("JR NOTE: monster x is ", this.shadow_current_x)
-        if(Math.random()>0.9){
+        if(Math.random()>0.5){
             //bob plz, but not too much
             if(Math.random()>0.5){
-                this.shadow_current_y +=getRandomNumberBetween(0,2);
+                this.shadow_current_y +=getRandomNumberBetween(0,10);
             }else{
-                this.shadow_current_y +=-1*getRandomNumberBetween(0,2);  
+                this.shadow_current_y +=-1*getRandomNumberBetween(0,10);  
             }
         }
         if(direction > 0 && this.shadow_current_x > this.end_pos_x){
@@ -81,11 +84,44 @@ export  class ShadowSpawnPoint{
         return 1;
     }
 
-    getAppropriateImage =()=>{
-        if(this.direction()<0){
-            return this.leftImg;
+    //used for animation for NotAMinotaur
+    getAppropriateImage =(frame: number)=>{
+        if(frame<0){
+            return this.images[0];
         }
-        return this.rightImg;
+        return this.images[1];
+    }
+    
+}
+
+//watt does not MOVE so much as kind of just. phase into existance. jutter a bit. then leave.
+export class WattSpawnPoint extends ShadowSpawnPoint{
+
+    constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
+
+        super(images, start_pos_x, start_pos_y,speed, scale, end_pos_x, end_pos_y );
+    }
+
+    drawMonster=(context:CanvasRenderingContext2D)=>{
+        this.shadow_current_x ++; //treat it as a frame count.
+        const frameCount = this.shadow_current_x-this.start_pos_x;
+        const monster = this.getAppropriateImage(frameCount);
+        if(frameCount > this.speed){
+            this.despawn();
+        }
+        
+        context.drawImage(monster, this.start_pos_x,this.start_pos_y, monster.width*this.scale, monster.height*this.scale);
+
+    }
+
+     //used for animation for NotAMinotaur
+     getAppropriateImage =(frame: number)=>{
+         const number = frame % this.images.length;
+        if(number<this.images.length){
+            return this.images[number];
+        }
+        return this.images[0];
+        
     }
     
 }

@@ -67,6 +67,7 @@ function App(props: AppProps) {
       (window as any).setCCTVMode = (value:boolean)=>{
         setCCTVMode(value);
         (window as any).setCCTVMode = value;
+        (window as any).cctv = value;
       };
     }
   },[])
@@ -198,6 +199,7 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
       const cctv = getParameterByName("cctv", null);
       if(cctv){
+        (window as any).cctv = true;
         setCCTVMode(true);
       }else{
         fuckUpBGButSoftly();
@@ -235,11 +237,9 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        * efficiency pass
 * ghosts vanish if you mouse over
 * ghost orbs that follow mouse
 * lightly themed ghosts (just enough variation for gaslighting)
-* NotAMinotaur
 * rabbit hole graphic behind menu
 * if you click, cctv with a blank feed and a password box
 * wrong passwords lead to a wall with a rot3 graffiti of what you entered in on it

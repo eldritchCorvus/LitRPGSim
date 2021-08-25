@@ -4,7 +4,13 @@ import tunnel3 from '.././images/tunnel3.jpg';
 import tunnel4 from '.././images/tunnel4.jpeg';
 import tunnel5 from '.././images/tunnel5.jpeg';
 import tunnel6 from '.././images/tunnel6.jpg';
-import { CameraFeed, ShadowSpawnPoint } from "./camera_feed";
+import notAMinotaur1 from '.././images/monsters/NotAMinotaur/0.png';
+import notAMinotaur2 from '.././images/monsters/NotAMinotaur/1.png';
+import notAMinotaur3 from '.././images/monsters/NotAMinotaur/2.png';
+import notAMinotaur4 from '.././images/monsters/NotAMinotaur/3.png';
+
+import {ghost_sound} from "../.";
+import { CameraFeed, ShadowSpawnPoint, WattSpawnPoint } from "./camera_feed";
 import { addImageProcess } from "../Utils/URLUtils";
 
 /*
@@ -48,7 +54,7 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
     monster_left = mon_left;
     monster_right = mon_right;
     outputCanvas = canvas;
-    const spawn = [new ShadowSpawnPoint(monster_left, monster_right, -200, 400, 15, 1.0, 800, 400),new ShadowSpawnPoint(monster_left, monster_right, 300, 300, 7, 0.5, 0, 300)];
+    const spawn = [new ShadowSpawnPoint([monster_left, monster_right], -200, 400, 15, 1.0, 800, 400),new ShadowSpawnPoint([monster_left, monster_right], 300, 300, 7, 0.5, 0, 300)];
 
     currentFeed = new CameraFeed(source, source2, spawn);
     possibleSourceImagePairs[source.src] = (currentFeed);
@@ -65,18 +71,27 @@ const load_other_images = async () => {
     //rest are simple.
     //two images for server blinking
     //JR NTOTE TODO some might be regular monster, some might be NotAMinotaur
-    const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
     const spawnPoints = [];
+    const monster_images = [notAMinotaur1, notAMinotaur2, notAMinotaur3, notAMinotaur4];
+    const monster_loaded_images = [];
+    for (let image of monster_images) {
+        const img = await addImageProcess(image);
+        monster_loaded_images.push(img);
+    }
+
     //2
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 69, 229, 2, 0.3, 210, 500),new ShadowSpawnPoint(monster_left, monster_right, 283, 184, 15, 1.0, -200, 184)]);
+    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], 69, 229, 2, 0.3, 210, 500),new ShadowSpawnPoint([monster_left, monster_right], 283, 184, 15, 1.0, -200, 184)]);
     //3
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, -105, 204, 6, 1.0, 680, 500),new ShadowSpawnPoint(monster_left, monster_right, 1000, 500, 1.0, 1.0, 400, 500)]);
+    spawnPoints.push([new WattSpawnPoint(monster_loaded_images, 150, 470, 80, 1.0, 0, 0),new ShadowSpawnPoint([monster_left, monster_right], -105, 204, 6, 1.0, 680, 500),new ShadowSpawnPoint([monster_left, monster_right], 1000, 500, 1.0, 1.0, 400, 500)]);
+
     //4
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, 1000, 500, 60, 2.0, -1000, 500),new ShadowSpawnPoint(monster_left, monster_right, -1000, 500, 60, 2.0, 1000, 500)]);
+    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], 1000, 500, 60, 2.0, -1000, 500),new ShadowSpawnPoint([monster_left, monster_right], -1000, 500, 60, 2.0, 1000, 500)]);
     //5
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, -800, 130, 30, 1.5, 1500, 130),new ShadowSpawnPoint(monster_left, monster_right, 1000, 130, 60, 2.0, -1000, 130)]);
+    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], -800, 130, 30, 1.5, 1500, 130),new ShadowSpawnPoint([monster_left, monster_right], 1000, 130, 60, 2.0, -1000, 130)]);
     //6
-    spawnPoints.push([new ShadowSpawnPoint(monster_left, monster_right, -100, 300, 2, 0.3, 1600, 300),new ShadowSpawnPoint(monster_left, monster_right, -100, 83, 2, 0.3, 1600, 83)]);
+    spawnPoints.push([new ShadowSpawnPoint([monster_left, monster_right], -100, 300, 2, 0.3, 1600, 300),new ShadowSpawnPoint([monster_left, monster_right], -100, 83, 2, 0.3, 1600, 83)]);
+
+    const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
 
     for (let image of images) {
         const img = await addImageProcess(image);
@@ -105,10 +120,11 @@ const getCurrentImage = (frame) => {
     if (frame % 50 < 10) {
         image = currentFeed.image1;
     }
-    //every 30 seconds have a 1 in 4 chance of spawning a ghost
+    //every 10 seconds have a 1 in 2 chance of spawning a ghost
     if (frame > 100 && frame%100===0 && Math.random()>0.5) {
         const spawnpoint = pickFrom(currentFeed.shadow_spawn_points);
         if (spawnpoint && !spawnpoint.shadow_spawned) {
+            ghost_sound();
             spawnpoint.spawn();
         }
     }
