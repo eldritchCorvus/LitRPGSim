@@ -154,6 +154,11 @@ const drawInLocation = (frame, image, context) => {
 }
 //autopanning based on time code? back and forth?
 const oneFrame = (frame) => {
+    //simulate video glitches
+    let hacked_frame = frame;
+    if(frame %30 ===0 || frame %32 === 0 || frame %55 == 0 || frame %111 == 0 || frame %113 == 0 ||  frame %115 == 0){
+        hacked_frame = frame - getRandomNumberBetween(1,30);
+    }
     //odds and evens to decide sin vs cos maybe?
     const buffer = document.createElement("canvas");
     buffer.width = outputCanvas.width;
@@ -167,8 +172,8 @@ const oneFrame = (frame) => {
     //so in addition to source image we want to have a canvas we can render figures onto
     //because the figures need to be placed relative to the IMAGE and undernath the effects
     //(if i try to place it on the 480x480 shitty ctv they won't be in the right spot)
-    let image = getCurrentImage(frame);
-    drawInLocation(frame, image, context)
+    let image = getCurrentImage(hacked_frame);
+    drawInLocation(hacked_frame, image, context)
 
 
     const fontSize = 25;
@@ -176,9 +181,9 @@ const oneFrame = (frame) => {
 
     context.fillStyle = "white";
     context.font = `${fontSize}px serif`;
-    const time = getTimeString(new Date(frame * 100));
+    const time = getTimeString(new Date(hacked_frame * 100));
 
-    cctv(buffer, frame);
+    cctv(buffer, hacked_frame);
     context.fillText(time, buffer.width - 100, padding);
     const index = 1 + image_index;
     context.fillText(`${index}`, padding, padding);
