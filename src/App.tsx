@@ -244,7 +244,7 @@ function App(props: AppProps) {
 * wrong passwords lead to a wall with a rot3 graffiti of what you entered in on it
 * right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more
-        <li>shadowy figures on the image itslef, creepy cctv murder basement underneath "ThisIsJustAGame"</li>
+<li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
              <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
               <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>

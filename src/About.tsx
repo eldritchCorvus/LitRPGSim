@@ -58,7 +58,7 @@ function NewspostDom(props: PostProps) {
         setShowSecret(!showSecret);
       }
      }}>
-      <Content><img alt="jr" src={jr}></img></Content>
+      <Content><img width="75" alt="jr" src={jr}></img></Content>
       <Content>     <Date>{props.post.date}: </Date> {showSecret ? props.post.secret : props.post.post}</Content>
     </Post>
   )
@@ -66,7 +66,8 @@ function NewspostDom(props: PostProps) {
 function About(props: AppProps) {
   const [date, setDate] = useState<string>("1933-03-03");
   const newsposts = [
-    new Newspost("08/24/2021","look i don't know how or why found footage is a part of the zampanio experienceyar. i just know i feel really proud of how i worked that part of it in.")
+    new Newspost("08/25/2021","new avatar who this","my fav part of this new design is it implies my lack of face was *always* a coiled spring, i just chose not to uncoil it")
+    ,new Newspost("08/24/2021","look i don't know how or why found footage is a part of the zampanio experienceyar. i just know i feel really proud of how i worked that part of it in.")
     ,new Newspost("08/19/2021","lets all regret having eyes together, shall we?")
     ,new Newspost("08/16/2021","time is now officially hard","in addition to being the shittiest aspect it just is difficult to form. its difficult to follow without a proper mind")
     ,new Newspost("08/15/2021","Spiders can wear hats now.","also, I guess if you care about that sort of thing, you can now be killed horrifically by monsters. well. just the one monster. it follows you around and even if you can kill it it just comes back slightly different. don't worry about it.")
