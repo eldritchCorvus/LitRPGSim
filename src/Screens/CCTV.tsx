@@ -23,13 +23,13 @@ export const CCTV = (props: StatusProps) => {
 
      
       const startCCTV=async(canvas:HTMLCanvasElement)=>{
-        const bg1 = await addImageProcess(cctv);
-        const bg2 = await addImageProcess(cctv2);
+        const bg1 = await addImageProcess(cctv) as HTMLImageElement;
+        const bg2 = await addImageProcess(cctv2) as HTMLImageElement;
         //TODO pick a different monster out depending on your themes
         //obvs we won't have a monster for EVERY scene, but enough.
         //enough to build the vibe of gaslighting and *why* and difficulty communicating
-        const mon1 = await addImageProcess(monster1);
-        const mon2 = await addImageProcess(monster2);
+        const mon1 = await addImageProcess(monster1) as HTMLImageElement;
+        const mon2 = await addImageProcess(monster2) as HTMLImageElement;
         cctv_ghost_loop(canvas, bg1, bg2, mon1, mon2);
 
 
