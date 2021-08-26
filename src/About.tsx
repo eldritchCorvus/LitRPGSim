@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BIRTHDAY } from "./AppWrapper";
 import { LinkButton } from "./Screens/Styles";
 import jr from "./images/jr.png";
+import fakejr from "./images/falseJR.png";
 
 interface AppProps {
   setMode: any; //lazy don't wanna remember setstate type
@@ -10,6 +11,7 @@ interface AppProps {
 
 interface PostProps {
   post: Newspost;
+  face: boolean;
 }
 
 export const DevLog = styled.table`
@@ -51,14 +53,17 @@ export const Content = styled.td`
 `
 function NewspostDom(props: PostProps) {
   const [showSecret, setShowSecret] = useState(false);
+  const [showSecretFace, setShowSecretFace] = useState(props.face);
 
   return (
     <Post onMouseOver={() => { 
       if(props.post.secret){
         setShowSecret(!showSecret);
+        setShowSecretFace(!showSecret);
+
       }
      }}>
-      <Content><img width="75" alt="jr" src={jr}></img></Content>
+      <Content>{showSecretFace?<img width="75" alt="jr" src={jr}></img>:<img width="75" alt="jr" src={fakejr}></img>}</Content>
       <Content>     <Date>{props.post.date}: </Date> {showSecret ? props.post.secret : props.post.post}</Content>
     </Post>
   )
@@ -105,6 +110,8 @@ function About(props: AppProps) {
     , new Newspost("04/18/2021", "ugh. why did I decide a skill tree was so vital to this simulation? it's HARD to get it looking right rip. but skills are obvs important to actual Zampanio so what can i do. plus its absolutely hilarious seeing things like 'Book Beam' get generated")
     , new Newspost("04/15/2021", "i feel...tentatively hopeful about this project? maybe it goes nowhere but this is my first creative work since the pandemic started so *shrugs*. i'm just happy to be MAKING something. plus im kinda burnt out on homestuck???  and this Zampanio thing is...well i don't wanna spoil the creepypasta faq if you haven't read it yet. i just feel myself spinning up a new obsession is all.")];
 
+    const [showSecret, setShowSecret] = useState(Math.random()>0.5);
+    const face = Math.random()>0.5;
 
   return (
     <div>
@@ -118,9 +125,9 @@ function About(props: AppProps) {
 
       <DevLog>
 
-        <h2>Dev Log:</h2>
+        <h2 onMouseOver={()=>setShowSecret(!showSecret)}><span>Dev Log by</span> <span>{showSecret?"justifiedRecursion":"jadedResearcher"}</span>:</h2>
         {newsposts.map((post) => {
-          return (<NewspostDom post={post} />)
+          return (<NewspostDom post={post} face={face} />)
         })}
       </DevLog>
     </div>
