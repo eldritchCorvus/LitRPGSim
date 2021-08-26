@@ -18,17 +18,23 @@ export const DevLog = styled.table`
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    padding: 50px;
-    width: 1000px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;    width: 1000px;
     background-color: #edd287;
     border-radius: 13px;
 `
 
 export const AboutDom = styled.div`
-    margin-top: 100px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    padding: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
     width: 900px;
     background-color: #edd287;
     border-radius: 13px;
@@ -48,7 +54,7 @@ export const Date = styled.span`
 `
 export const Content = styled.td`
   vertical-align: top;
-  padding: 10px;
+  padding: 5px;
   border-radius: 13px;
 `
 function NewspostDom(props: PostProps) {
@@ -117,7 +123,19 @@ function About(props: AppProps) {
     <div>
       <AboutDom>
         <h1>About ZampanioSim</h1>
-        <Content>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a>I found, which generates a custom RPG setting personalized for you with a shit ton of secrets and almost has LitRPG vibes? </Content>
+        <Content>
+          <p>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a>I found.</p>
+        <p>Given I'm trying to be true to what appears to be for all intents and purposes a creepy pasta, there's going to be themes that might not be for everybody in here!  Without giving away the premise, here's a broad list of content warnings, though a good rule of thumb is that if you're a fan of Zampanio you're probably gonna be okay with this weird fan work I made of it. </p>
+        <p>ALSO! The whole point of Zampanio, simulated or otherwise is the customized experience so don't blame me if you don't get any of these, or get an especially potent dose or something.</p>
+        <p>Finally, Wastes Honor: no jump scares or anything lame and cheap like that. Honestly if you stay on your path and don't be a dick to Zampanio, it'll be perfectly nice to you.</p>
+        <ul>
+          <li>Themes of Unreality</li>
+          <li>Creepy sounds/Ambiance</li>
+          <li>Unsettling Images</li>
+          <li>Violent, Creepy Monsters Described in Text</li>
+        </ul>
+        <p>If I've missed anything I should have had in the warnings, feel free to message me at jadedResearcher at gmail, yeah?</p>
+        </Content>
         <div>
           <LinkButton onClick={() => { props.setMode(BIRTHDAY) }}>Enter Zampanio</LinkButton>
         </div>
