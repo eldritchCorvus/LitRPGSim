@@ -57,7 +57,7 @@ export const cctv_ghost_loop = (canvas:HTMLCanvasElement, source:CanvasImageSour
     outputCanvas = canvas;
     const spawn = [new ShadowSpawnPoint([monster_left, monster_right], -200, 400, 15, 1.0, 800, 400),new ShadowSpawnPoint([monster_left, monster_right], 300, 300, 7, 0.5, 0, 300)];
 
-    const feed = new SpookyCameraFeed(0,[new AnimationFrame(source, 20), new AnimationFrame(source2, 20)], spawn);
+    const feed = new SpookyCameraFeed(0,[new AnimationFrame(source, 2), new AnimationFrame(source2, 20)], spawn);
     cctvs.push(new SpookyCCTV(feed, outputCanvas));
     current_screen = cctvs[0];
     current_screen.play();
@@ -69,7 +69,7 @@ export const cctv_ghost_loop = (canvas:HTMLCanvasElement, source:CanvasImageSour
 
 const clearGhosts = (event: MouseEvent)=>{
     //don't clear ghost orbs this is literally their whole point
-    for (let spawnpoint of current_screen.cameraFeed.shadow_spawn_points) {
+    for (let spawnpoint of (current_screen.cameraFeed as SpookyCameraFeed).shadow_spawn_points) {
         if (spawnpoint.type !== "Orb" && spawnpoint.shadow_spawned) {
             spawnpoint.despawn();
         }else if(spawnpoint.type === "Orb" && spawnpoint.shadow_spawned){
@@ -90,9 +90,9 @@ const load_other_images = async () => {
     const ghost_orb = await addImageProcess(ghost_orb_src) as HTMLImageElement;
 
     const monster_images = [notAMinotaur1, notAMinotaur2, notAMinotaur3, notAMinotaur4];
-    const monster_loaded_images = [];
+    const monster_loaded_images: HTMLImageElement[] = [];
     for (let image of monster_images) {
-        const img = await addImageProcess(image);
+        const img = await addImageProcess(image) as HTMLImageElement;
         monster_loaded_images.push(img);
     }
 
@@ -120,13 +120,18 @@ const load_other_images = async () => {
     const click = () => {
         if (image_index < cctvs.length - 1) {
             image_index++;
+            const frame = current_screen.cameraFeed.current_frame;
             current_screen.stop();
             current_screen = cctvs[image_index];
+            current_screen.cameraFeed.current_frame = frame;
+
             current_screen.play();
         } else {
             image_index = 0;
             current_screen.stop();
+            const frame = current_screen.cameraFeed.current_frame;
             current_screen = cctvs[0];
+            current_screen.cameraFeed.current_frame = frame;
             current_screen.play();
         }
     }
