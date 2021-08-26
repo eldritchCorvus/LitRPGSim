@@ -237,10 +237,9 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-* ghost orbs that follow mouse
-* lightly themed ghosts (just enough variation for gaslighting)
 * rabbit hole graphic behind menu
 * if you click, cctv with a blank feed and a password box
+* one password is aviary full o fanimated gull skeletons
 * wrong passwords lead to a wall with a rot3 graffiti of what you entered in on it
 * right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more
@@ -253,6 +252,7 @@ function App(props: AppProps) {
         <li>add references to https://scp-wiki.wikidot.com/scp-001-ex</li>
         <li>secrets under construction component, shitty geocities gif of construction.</li>
         <li>creepy pastas scattered throughout the site, based on themes, of the form: "You sit down to play a game. It's weirdly obsessed with X. theme1 creepy. then thene2 creepy.  
+        * lightly themed ghosts (just enough variation for gaslighting)
 
 Suddenly, you can feel the pounding behind your eyes. "let me out" you hear, "let me out"."</li>
         <li> quests screen</li>
@@ -272,7 +272,6 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
         <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
         <li>fake chatbot in JUST TRUTH MODE, reference Binary</li>
-
      <li>each page should have secrets that loop in on each other (binary password getting you past options maybe)</li>
       <li>for all statistics, detect dom hax adn react accordingly (including RAGE MODE)</li>
         <li>what happens if i have more menu items than room to display?</li>
@@ -286,6 +285,9 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
       <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
       <li>menu screen you can ONLY get to via hacking (leads to Just Monika But Spades Quiz Mode)</li>
       <li>special seeds that have story content, maybe voice acted stuff</li>
+      <li>credit: Photo 37910249 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</li>
+      <li>Photo 37965548 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</li>
+      <li>Photo 106176433 © Mulderphoto | Dreamstime.com</li>
       <li>first ending where you max out skills (or played long enough to reach the heat death of the universe (thru auto clicker)) and menu finally closes and then fake credits role</li>
       <li>win game, roll credits, if max skill tree OR enough time has passed.</li>
       <li>encourage replays with fake credits</li>

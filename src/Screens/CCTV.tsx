@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { cctv_loop } from "../CanvasFuckery/cctv_fuckery";
+import { cctv_ghost_loop } from "../CanvasFuckery/ghosts";
 import cctv from '.././images/murderbasement.jpeg';
 import cctv2 from '.././images/murderbasement2.jpeg';
 import monster1 from '.././images/monsters/doll/1.png';
@@ -30,7 +30,7 @@ export const CCTV = (props: StatusProps) => {
         //enough to build the vibe of gaslighting and *why* and difficulty communicating
         const mon1 = await addImageProcess(monster1);
         const mon2 = await addImageProcess(monster2);
-        cctv_loop(canvas, bg1, bg2, mon1, mon2);
+        cctv_ghost_loop(canvas, bg1, bg2, mon1, mon2);
 
 
     }
