@@ -36,6 +36,7 @@ function App(props: AppProps) {
 
   const [justTruthMode, setJustTruthMode] = useState(false);
   const [cctvMode, setCCTVMode] = useState(false);
+  const [pwMode, setPWMode] = useState(false);
 
   useEffect(()=>{
     if(!(window as any).setRageMode){
@@ -62,12 +63,21 @@ function App(props: AppProps) {
       };
     }
 
-    if(!(window as any).setJustsetCCTVModeTruthMode){
+    if(!(window as any).setCCTVMode){
       // :) :) :)
       (window as any).setCCTVMode = (value:boolean)=>{
         setCCTVMode(value);
         (window as any).setCCTVMode = value;
         (window as any).cctv = value;
+      };
+    }
+
+    if(!(window as any).setPWMode){
+      // :) :) :)
+      (window as any).setPWMode = (value:boolean)=>{
+        setPWMode(value);
+        (window as any).setPWMode = value;
+        (window as any).pwMode = value;
       };
     }
   },[])
@@ -198,9 +208,14 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsNotASpiral");
       detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
       const cctv = getParameterByName("cctv", null);
+      const pw = getParameterByName("pw", null);
+
       if(cctv){
         (window as any).cctv = true;
         setCCTVMode(true);
+      }else if(pw){
+        (window as any).pwMode = true;
+        setPWMode(true); 
       }else{
         fuckUpBGButSoftly();
       }
@@ -220,8 +235,8 @@ function App(props: AppProps) {
   if(!player){
     return <div>LOADING FOR REALSIES</div>
   }else{
-
-    const displayMenu = !justTruthMode && !actualGameMode && !cctvMode;
+    //there is nothing wrong here. is fine
+    const displayMenu = !justTruthMode && !actualGameMode && !cctvMode && !pwMode;
     return (
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
@@ -230,8 +245,9 @@ function App(props: AppProps) {
         {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
         {displayMenu?  <Menu player={player} angle={0}/>:null}      
         {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
-        {actualGameMode && !cctvMode?  <ActualGame player={player}/>:null}      
-        {cctvMode ?  <CCTV player={player}/>:null}      
+        {actualGameMode && !cctvMode && !pwMode?  <ActualGame player={player}/>:null}      
+        {cctvMode ?  <CCTV ghosts={true} player={player}/>:null}      
+        {pwMode ?  <CCTV ghosts={false}player={player}/>:null}      
 
       
 
