@@ -1,14 +1,51 @@
 import { start } from "node:repl";
 import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
 
+
 export  class CameraFeed{
-    image1:HTMLImageElement;
-    image2:HTMLImageElement;
+    index = 0; //is this the first image in a set? last? just for labeling
+    frames: AnimationFrame[];
+    current_frame = 0;
+
+    constructor(index: number, frames: AnimationFrame[]){
+        this.index = index;
+        this.frames = frames;
+    }
+
+    //how many frames before we repeat?
+    loopLength = ()=>{
+        return this.frames.reduce((a, b) => a + b.durationInFrames, 0);
+    }
+
+    newFrame = (hacked_frame: number)=>{
+        this.current_frame ++;
+        const current_location  = hacked_frame % this.loopLength();
+        const index = 0;
+        //if i go in order, the first frame i find that i have no yet passed is what i return;
+        for(let frame of this.frames){
+            if(current_location < index + frame.durationInFrames){
+                return frame.image;
+            }
+        }
+        //shouldn't get here but this fixes weird bugs and if its glitchy thats part of the charm
+        return this.frames[0].image;
+    }
+
+}
+
+export class AnimationFrame{
+    image: CanvasImageSource;
+    durationInFrames: number;
+    constructor(image: CanvasImageSource, durationInFrames: number){
+        this.image = image;
+        this.durationInFrames = durationInFrames;
+    }
+}
+export  class SpookyCameraFeed extends CameraFeed{
     shadow_spawn_points: ShadowSpawnPoint[];
 
-    constructor(image1: HTMLImageElement, image2: HTMLImageElement, shadow_spawn_points: ShadowSpawnPoint[]){
-        this.image1 = image1;
-        this.image2 = image2;
+    constructor(index: number,frames: AnimationFrame[], shadow_spawn_points: ShadowSpawnPoint[]){
+        super(index,frames);
         this.shadow_spawn_points = shadow_spawn_points;
     }
 

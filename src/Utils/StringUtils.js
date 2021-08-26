@@ -43,6 +43,24 @@ export function domWordMeaningFuckery(){
 
 }
 
+//https://stackoverflow.com/questions/18229022/how-to-show-current-time-in-javascript-in-the-format-hhmmss
+export function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+export function getTimeString(date) {
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    // add a zero in front of numbers<10
+    m = checkTime(m);
+    s = checkTime(s);
+    return h + ":" + m + ":" + s;
+}
+
 function gaslightWordMeanings(sentence, seed_multiplier){
     const words = sentence.split(" ");
     for(let i = 0; i<words.length; i++){
