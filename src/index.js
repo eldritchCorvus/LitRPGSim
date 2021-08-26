@@ -61,13 +61,13 @@ export function justTruthSong(){
  function playLightlyFuckedUpBGMusic(){
   audio.play();
   audio.onended = function() {
-    if(!window.rageMode && !window.justTruthMode && !window.cctv){
+    if(!window.rageMode && !window.justTruthMode && !window.cctv && !window.pwMode){
       if (Math.random() > 0.5) {
         audio.src = helen_kin_song;
       } else {
         audio.src = subtle_heart;
       }
-    }else if (window.justTruthMode || window.cctv){
+    }else if (window.justTruthMode || window.cctv || window.pwMode){
       audio.src = heartbeat;
     }else{
       audio.src = heart;
