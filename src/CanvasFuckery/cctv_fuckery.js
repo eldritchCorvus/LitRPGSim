@@ -4,6 +4,7 @@ import tunnel3 from '.././images/tunnel3.jpg';
 import tunnel4 from '.././images/tunnel4.jpeg';
 import tunnel5 from '.././images/tunnel5.jpeg';
 import tunnel6 from '.././images/tunnel6.jpg';
+
 import notAMinotaur1 from '.././images/monsters/NotAMinotaur/0.png';
 import notAMinotaur2 from '.././images/monsters/NotAMinotaur/1.png';
 import notAMinotaur3 from '.././images/monsters/NotAMinotaur/2.png';
@@ -67,11 +68,15 @@ export const cctv_loop = (canvas, source, source2, mon_right, mon_left) => {
     //oneFrame(2);
 }
 
-const clearGhosts = ()=>{
+const clearGhosts = (event)=>{
     //don't clear ghost orbs this is literally their whole point
     for (let spawnpoint of currentFeed.shadow_spawn_points) {
         if (spawnpoint.type !== "Orb" && spawnpoint.shadow_spawned) {
             spawnpoint.despawn();
+        }else if(spawnpoint.type === "Orb" && spawnpoint.shadow_spawned){
+            const rect = outputCanvas.getBoundingClientRect();
+            spawnpoint.shadow_current_x = event.clientX-rect.left+200;
+            spawnpoint.shadow_current_y = event.clientY-rect.top;
         }
     }
 }
