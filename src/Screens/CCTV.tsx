@@ -12,6 +12,7 @@ import { justTruthSong } from "..";
 import { addImageProcess } from "../Utils/URLUtils";
 import ReactDOM from "react-dom";
 import { Input } from "reakit/Input";
+import { albhed_map } from "../CanvasFuckery/PasswordStorage";
 interface StatusProps {
     player: Player;
     ghosts: boolean;
@@ -85,9 +86,22 @@ export const CCTV = (props: StatusProps) => {
 const PasswordFuckery = () => {
     const [pw, setPW] = useState("");
 
+    const translate = (word: string)=>{
+        let ret = word.toLowerCase();
+        let done = "";
+        for(let i = 0; i<word.length; i++){
+            if((albhed_map as any)[ret[i]] && !done.includes(ret[i])){
+                done += ret[i];
+                ret =ret.replaceAll(ret[i], (albhed_map as any)[ret[i]]);
+            }
+        }
+        return ret;
+    }
+
     //wanted to play around with actually doing input correctly with a sumbmit after seeing a candidate do it
     const onSubmit = (event: FormEvent) => {
-        console.log("JR NOTE: kek", pw);
+        const troll_pw = translate(pw);
+        console.log("JR NOTE: kek", pw, troll_pw);
         event.preventDefault();
         return false;
     }
