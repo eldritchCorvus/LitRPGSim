@@ -3,6 +3,41 @@
   src: url("./Fonts/nunito/Nunito-Regular.ttf");
 }
 
+@font-face {
+  font-family: graffiti_city;
+  src: url("./Fonts/graffiti_city/Graffiti_City.otf");
+}
+
+@font-face {
+  font-family: marsneveneksk;
+  src: url("./Fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf");
+}
+
+@font-face {
+  font-family: mostwasted;
+  src: url("./Fonts/mostwasted/Mostwasted.ttf");
+}
+
+@font-face {
+  font-family: next_custom;
+  src: url("./Fonts/next_custom/Next_Custom.ttf");
+}
+
+@font-face {
+  font-family: sister_spray;
+  src: url("./Fonts/sister_spray/Sister_Spray.ttf");
+}
+
+@font-face {
+  font-family: the_jacatra;
+  src: url("./Fonts/the_jacatra/THE_JACATRA.otf");
+}
+
+@font-face {
+  font-family: urban_heroes;
+  src: url("./Fonts/urban_heroes/Urban_Heroes.ttf");
+}
+
 body {
   margin: 0;
   font-family: 'nunito', sans-serif;
