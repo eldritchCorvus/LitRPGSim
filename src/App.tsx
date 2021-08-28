@@ -256,7 +256,7 @@ function App(props: AppProps) {
 * rabbit hole graphic behind menu
 * if you click, cctv with a blank feed and a password box
 * one password is aviary full o fanimated gull skeletons
-* wrong passwords lead to a wall with a rot3 graffiti of what you entered in on it
+* wrong passwords lead to a wall with a albhedd graffiti of what you entered in on it
 * right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more
 <li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
