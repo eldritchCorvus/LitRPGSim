@@ -13,6 +13,7 @@ import { Input } from "reakit/Input";
 import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
 import { wrong_password } from "../CanvasFuckery/password_result";
 import styled from "@emotion/styled";
+import SeededRandom from "../Utils/SeededRandom";
 interface StatusProps {
     player: Player;
     ghosts: boolean;
@@ -20,6 +21,7 @@ interface StatusProps {
 
 interface PWProps {
     canvas: HTMLCanvasElement;
+    rand: SeededRandom;
 }
 
 export const PWContainer = styled.div`
@@ -103,7 +105,7 @@ export const CCTV = (props: StatusProps) => {
                 div.innerText = "You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched.";
                 startGhostCCTV(canvas);
             } else {
-                PasswordFuckeryKickoff(canvas);
+                PasswordFuckeryKickoff(canvas,new SeededRandom(player.rand.initial_seed));
             }
         }
 
@@ -143,7 +145,7 @@ const PasswordFuckery = (props: PWProps) => {
             console.error("JR NOTE: todo handle correct pws");
         } else {
             const troll_pw = translate(pw);
-            feed = await wrong_password(props.canvas, troll_pw);
+            feed = await wrong_password(props.canvas, troll_pw, props.rand);
             feed.play();
         }
         return false;
@@ -162,7 +164,7 @@ const PasswordFuckery = (props: PWProps) => {
 
 }
 
-const PasswordFuckeryKickoff = (canvas: HTMLCanvasElement) => {
+const PasswordFuckeryKickoff = (canvas: HTMLCanvasElement, rand: SeededRandom) => {
     const ele = document.getElementById('pwfuckery');
     if (!ele) {
         return;
@@ -170,7 +172,7 @@ const PasswordFuckeryKickoff = (canvas: HTMLCanvasElement) => {
 
     ReactDOM.render(
         <React.StrictMode>
-            <PasswordFuckery canvas={canvas} />
+            <PasswordFuckery canvas={canvas} rand={rand}/>
         </React.StrictMode>,
         ele
     );

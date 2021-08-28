@@ -6,10 +6,14 @@ export  class CameraFeed{
     index = 0; //is this the first image in a set? last? just for labeling
     frames: AnimationFrame[];
     current_frame = 0;
+        //if there is graffiti layer it on top of the image.
+        graffitiSpots:GraffitiSpot[];
 
-    constructor(index: number, frames: AnimationFrame[]){
+    constructor(index: number, frames: AnimationFrame[],graffitiSpots:GraffitiSpot[]=[]){
         this.index = index;
         this.frames = frames;
+        this.graffitiSpots = graffitiSpots;
+
     }
 
     //how many frames before we repeat?
@@ -49,6 +53,21 @@ export  class SpookyCameraFeed extends CameraFeed{
         this.shadow_spawn_points = shadow_spawn_points;
     }
 
+}
+
+export class GraffitiSpot  {
+    text: string;
+    upper_left_x: number;
+    upper_left_y:number; 
+    font: string;
+    fontSize: number;
+    constructor(text: string, upper_left_x: number, upper_left_y: number, font ="Times New Roman", fontSize=18){
+        this.text = text;
+        this.upper_left_x = upper_left_x;
+        this.upper_left_y = upper_left_y;
+        this.font = font;
+        this.fontSize = fontSize;
+    }
 }
 
 
