@@ -35,7 +35,7 @@ function App(props: AppProps) {
   const [actualGameMode, setActualGameMode] = useState(false);
 
   const [justTruthMode, setJustTruthMode] = useState(false);
-  const [cctvMode, setCCTVMode] = useState(false);
+  const [ghostMode, setGhostMode] = useState(false);
   const [pwMode, setPWMode] = useState(false);
 
   useEffect(()=>{
@@ -63,12 +63,12 @@ function App(props: AppProps) {
       };
     }
 
-    if(!(window as any).setCCTVMode){
+    if(!(window as any).setGhostMode){
       // :) :) :)
-      (window as any).setCCTVMode = (value:boolean)=>{
-        setCCTVMode(value);
-        (window as any).setCCTVMode = value;
-        (window as any).cctv = value;
+      (window as any).setGhostMode = (value:boolean)=>{
+        setGhostMode(value);
+        (window as any).setGhostMode = value;
+        (window as any).ghost = value;
       };
     }
 
@@ -207,12 +207,12 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsNotAnEye2");
       detectDivStatus("ThisIsNotASpiral");
       detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
-      const cctv = getParameterByName("cctv", null);
+      const ghost = getParameterByName("cctv", null);
       const pw = getParameterByName("pw", null);
 
-      if(cctv){
-        (window as any).cctv = true;
-        setCCTVMode(true);
+      if(ghost){
+        (window as any).ghost = true;
+        setGhostMode(true);
       }else if(pw){
         (window as any).pwMode = true;
         setPWMode(true); 
@@ -236,7 +236,7 @@ function App(props: AppProps) {
     return <div>LOADING FOR REALSIES</div>
   }else{
     //there is nothing wrong here. is fine
-    const displayMenu = !justTruthMode && !actualGameMode && !cctvMode && !pwMode;
+    const displayMenu = !justTruthMode && !actualGameMode && !ghostMode && !pwMode;
     return (
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
@@ -245,17 +245,22 @@ function App(props: AppProps) {
         {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
         {displayMenu?  <Menu player={player} angle={0}/>:null}      
         {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
-        {actualGameMode && !cctvMode && !pwMode?  <ActualGame player={player}/>:null}      
-        {cctvMode ?  <CCTV ghosts={true} player={player}/>:null}      
+        {actualGameMode && !ghostMode && !pwMode?  <ActualGame player={player}/>:null}      
+        {ghostMode ?  <CCTV ghosts={true} player={player}/>:null}      
         {pwMode ?  <CCTV ghosts={false}player={player}/>:null}      
 
       
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        ** why rabbit hole post???
+
 * rabbit hole graphic behind menu
+* attic sim 2x combo, one lies, one truths (like that riddle, except one attic is game mode and one is truth mode)
+* post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * if you click, cctv with a blank feed and a password box
 * one password is aviary full o fanimated gull skeletons
+* another is just skelejr sitting in her wheelchair
 * wrong passwords lead to a wall with a albhedd graffiti of what you entered in on it
 * right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more

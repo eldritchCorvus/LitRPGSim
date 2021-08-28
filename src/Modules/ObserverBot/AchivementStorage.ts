@@ -37,6 +37,10 @@ export class AchivementStorage{
     possibleAchievements:Achievement[] = [];
 
     checkForAchievements = (observer: ObserverBot)=>{
+        //there is no truth in game mode
+        if((window as any).ghost){
+            return;
+        }
         //achievement will take care of displaying anything unlocking on its own, dw
         for(let achievement of this.possibleAchievements){
             if(!achievement.unlocked){

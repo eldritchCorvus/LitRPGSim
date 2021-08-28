@@ -19,7 +19,7 @@ const audio = new Audio(generic_menu_music);
 const voiceAudio = new Audio(voice);
 const clickAudio = new Audio(clickSound);
 
-export let BG_VOLUME = 0.5;
+export let BG_VOLUME = 0.1;
 audio.volume = BG_VOLUME;
 
 export function setVolumeMusic(percent){
@@ -55,19 +55,20 @@ export function speakButFunky(){
 
 export function justTruthSong(){
   audio.src = heartbeat;
+  setVolumeMusic(0.8);
   audio.play();
 }
 
  function playLightlyFuckedUpBGMusic(){
   audio.play();
   audio.onended = function() {
-    if(!window.rageMode && !window.justTruthMode && !window.cctv && !window.pwMode){
+    if(!window.rageMode && !window.justTruthMode && !window.ghost && !window.pwMode){
       if (Math.random() > 0.5) {
         audio.src = helen_kin_song;
       } else {
         audio.src = subtle_heart;
       }
-    }else if (window.justTruthMode || window.cctv || window.pwMode){
+    }else if (window.justTruthMode || window.ghost || window.pwMode){
       audio.src = heartbeat;
     }else{
       audio.src = heart;
