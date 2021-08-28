@@ -3,7 +3,7 @@
 //hack my shit
 
 /*
-each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section
+each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section (print out under cctv ffed)
 */
 export const passwords = {};
 
