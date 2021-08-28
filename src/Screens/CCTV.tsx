@@ -6,14 +6,13 @@ import monster1 from '.././images/monsters/doll/1.png';
 import monster2 from '.././images/monsters/doll/1left.png';
 
 import { Player } from "../Modules/Player";
-import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
-import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "./Styles";
 import { justTruthSong } from "..";
 import { addImageProcess } from "../Utils/URLUtils";
 import ReactDOM from "react-dom";
 import { Input } from "reakit/Input";
 import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
 import { wrong_password } from "../CanvasFuckery/password_result";
+import styled from "@emotion/styled";
 interface StatusProps {
     player: Player;
     ghosts: boolean;
@@ -22,6 +21,37 @@ interface StatusProps {
 interface PWProps {
     canvas: HTMLCanvasElement;
 }
+
+export const PWContainer = styled.div`
+    padding: 10px;
+    margin: 10px;
+    margin-top: 0%;
+    font-weight: 500;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0,0,0,0.5);
+    color: red;
+`
+
+export const Content = styled.table`
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;    width: 1000px;
+    border-radius: 13px;
+`
+
+export const StyledButton = styled.button`
+    display: block;
+    margin-left: 60px;
+    margin-top: 10px;
+`
+
+export const StyledInput = styled(Input)`
+    margin-left: 60px;
+`
 
 
 
@@ -81,8 +111,8 @@ export const CCTV = (props: StatusProps) => {
 
     return (
 
-        <TruthContainer>
-        </TruthContainer>
+        <PWContainer>
+        </PWContainer>
     );
 }
 
@@ -93,25 +123,25 @@ const PasswordFuckery = (props: PWProps) => {
     const [pw, setPW] = useState("");
     let feed;
 
-    const translate = (word: string)=>{
+    const translate = (word: string) => {
         let ret = word.toLowerCase();
         let done = "";
-        for(let i = 0; i<word.length; i++){
-            if((albhed_map as any)[ret[i]] && !done.includes(ret[i])){
+        for (let i = 0; i < word.length; i++) {
+            if ((albhed_map as any)[ret[i]] && !done.includes(ret[i])) {
                 done += ret[i];
-                ret =ret.replaceAll(ret[i], (albhed_map as any)[ret[i]]);
+                ret = ret.replaceAll(ret[i], (albhed_map as any)[ret[i]]);
             }
         }
         return ret;
     }
 
     //wanted to play around with actually doing input correctly with a sumbmit after seeing a candidate do it
-    const onSubmit = async(event: FormEvent) => {
+    const onSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
-        if(Object.keys(passwords).includes(pw)){
+        if (Object.keys(passwords).includes(pw)) {
             console.error("JR NOTE: todo handle correct pws");
-        }else{
+        } else {
             const troll_pw = translate(pw);
             feed = await wrong_password(props.canvas, troll_pw);
             feed.play();
@@ -119,17 +149,15 @@ const PasswordFuckery = (props: PWProps) => {
         return false;
     }
     return (
-        <TruthContainer>
-            <StatusContent>
-                You are down the rabbit hole. It does not end. If you know important words, you may enter them here.
-            </StatusContent>
+        <PWContainer>
+            <Content>
+                <p>You are down the rabbit hole. It does not end. If you know important words, you may enter them here.</p>
+            </Content>
             <form action="" method="post" onSubmit={onSubmit}>
-                <Input onChange={(event) => { setPW(event.target.value) }} placeholder="Type Important WordsHere"></Input>
-                <button>Submit</button>
+                <StyledInput onChange={(event) => { setPW(event.target.value) }} placeholder="Type Important Words Here"></StyledInput>
+                <StyledButton>Submit</StyledButton>
             </form>
-
-
-        </TruthContainer>
+        </PWContainer>
     )
 
 }
@@ -142,7 +170,7 @@ const PasswordFuckeryKickoff = (canvas: HTMLCanvasElement) => {
 
     ReactDOM.render(
         <React.StrictMode>
-            <PasswordFuckery canvas={canvas}/>
+            <PasswordFuckery canvas={canvas} />
         </React.StrictMode>,
         ele
     );
