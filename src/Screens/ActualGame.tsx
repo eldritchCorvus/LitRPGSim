@@ -445,7 +445,7 @@ const [message, setMessage] = useState("");
     }
     return false;
   }
-  const dir_flavor = props.direction.trim()===""?"You have always been here. ":`You head ${props.direction}. You enter the ${room.key}. `;
+  const dir_flavor = props.direction.trim()===""?"You have always been here. This is not for you.":`You head ${props.direction}. You enter the ${room.key}. `;
   return (
     <Fragment>
       <RoomName>{room.key}</RoomName>
