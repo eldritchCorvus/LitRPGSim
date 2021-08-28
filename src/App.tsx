@@ -258,10 +258,8 @@ function App(props: AppProps) {
 * rabbit hole graphic behind menu
 * attic sim 2x combo, one lies, one truths (like that riddle, except one attic is game mode and one is truth mode)
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
-* if you click, cctv with a blank feed and a password box
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
-* wrong passwords lead to a wall with a albhedd graffiti of what you entered in on it
 * right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more
 <li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
