@@ -9,6 +9,7 @@ export class CCTV {
     outputCanvas: HTMLCanvasElement;
     playing = false;
 
+
     //camera feed handles most of what we care about
     constructor(cameraFeed: CameraFeed, outputCanvas: HTMLCanvasElement) {
         this.cameraFeed = cameraFeed;
@@ -74,6 +75,26 @@ export class CCTV {
 
     getCurrentImage = (hacked_frame: number) => {
         let image = this.cameraFeed.newFrame(hacked_frame);
+        //JR NOTE: TODO if theres a graffiti spot you deal with it.
+        for (let gs of this.cameraFeed.graffitiSpots) {
+                const hacked_image = document.createElement("canvas");
+                hacked_image.width = image.width as number;
+                hacked_image.height = image.height as number;
+                const context = hacked_image.getContext("2d");
+                if (!context) {
+                    console.error("How is there not a context???");
+                    return image;
+                }
+                const fontSize = gs.fontSize;
+        
+                context.fillStyle = "#300";
+                //JR NOTE TODO USE CUSTOM FONT
+                context.font = `bold ${fontSize}px ${gs.font}`;
+                context.drawImage(image, 0, 0);
+                context.fillText(gs.text, gs.upper_left_x+fontSize, gs.upper_left_y+fontSize);
+                image = hacked_image;
+    
+        }
         return image;
     }
 
@@ -212,6 +233,8 @@ export class SpookyCCTV extends CCTV {
     }
 
 }
+
+
 
 
 
