@@ -12,11 +12,17 @@ import { justTruthSong } from "..";
 import { addImageProcess } from "../Utils/URLUtils";
 import ReactDOM from "react-dom";
 import { Input } from "reakit/Input";
-import { albhed_map } from "../CanvasFuckery/PasswordStorage";
+import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
+import { wrong_password } from "../CanvasFuckery/password_result";
 interface StatusProps {
     player: Player;
     ghosts: boolean;
 }
+
+interface PWProps {
+    canvas: HTMLCanvasElement;
+}
+
 
 
 export const CCTV = (props: StatusProps) => {
@@ -67,7 +73,7 @@ export const CCTV = (props: StatusProps) => {
                 div.innerText = "You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched.";
                 startGhostCCTV(canvas);
             } else {
-                PasswordFuckeryKickoff();
+                PasswordFuckeryKickoff(canvas);
             }
         }
 
@@ -83,8 +89,9 @@ export const CCTV = (props: StatusProps) => {
 
 
 
-const PasswordFuckery = () => {
+const PasswordFuckery = (props: PWProps) => {
     const [pw, setPW] = useState("");
+    let feed;
 
     const translate = (word: string)=>{
         let ret = word.toLowerCase();
@@ -99,10 +106,16 @@ const PasswordFuckery = () => {
     }
 
     //wanted to play around with actually doing input correctly with a sumbmit after seeing a candidate do it
-    const onSubmit = (event: FormEvent) => {
-        const troll_pw = translate(pw);
-        console.log("JR NOTE: kek", pw, troll_pw);
+    const onSubmit = async(event: FormEvent) => {
         event.preventDefault();
+
+        if(Object.keys(passwords).includes(pw)){
+            console.error("JR NOTE: todo handle correct pws");
+        }else{
+            const troll_pw = translate(pw);
+            feed = await wrong_password(props.canvas, troll_pw);
+            feed.play();
+        }
         return false;
     }
     return (
@@ -121,7 +134,7 @@ const PasswordFuckery = () => {
 
 }
 
-const PasswordFuckeryKickoff = () => {
+const PasswordFuckeryKickoff = (canvas: HTMLCanvasElement) => {
     const ele = document.getElementById('pwfuckery');
     if (!ele) {
         return;
@@ -129,7 +142,7 @@ const PasswordFuckeryKickoff = () => {
 
     ReactDOM.render(
         <React.StrictMode>
-            <PasswordFuckery />
+            <PasswordFuckery canvas={canvas}/>
         </React.StrictMode>,
         ele
     );
