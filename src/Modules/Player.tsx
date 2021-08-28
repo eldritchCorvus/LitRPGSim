@@ -310,7 +310,7 @@ export class Player {
 
     spawnAMonster = () => {
         const monster = new Companion(this.rand)
-        monster.fullName = "Shambling Horror";
+        monster.fullName = "Shambling Horror With Your Face";
         const themes = this.collateThemes();
 
         monster.backstory = "It is a monster.";
