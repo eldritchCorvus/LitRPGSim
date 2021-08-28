@@ -65,9 +65,7 @@ export const ActualGame = (props: StatusProps) => {
     //popup to explain you have been killed by a shambling horror, message.
     //when they click anywhere, refresh the entire page to a new seed. reincarnation bb
     for(let companion of currentRoom.people){
-      console.log("JR NOTE: is this a shambling horror? ", companion.fullName)
-      if(companion.fullName === "Shambling Horror"){
-        console.log("JR NOTE: it is. ", companion.backstory)
+      if(companion.fullName.includes("Shambling Horror")){
         dialog.setVisible(true); 
         setDeathFlag(companion.backstory);
       }
