@@ -213,35 +213,7 @@ function Menu(props: MenuProps) {
 *  hack react to be broken (put the screens or something into window so they can be deleted/fucked up?), allows some force that likes you to contact you, when instead they were being drowned out by the achivement system that hates you.
   */
 
-const refContainer = useRef(null);
 
-function detectDivStatus() {
-  const targetNode = refContainer.current;
-  if (targetNode) {
-    const config = {
-      attributes: true,
-      attributeFilter: ['id'],
-      attributeOldValue: true
-    };
-    const callback = function (mutationsList: any, observer: any) {
-      for (const mutation of mutationsList) {
-        if (mutation.type === 'attributes') {
-          console.log('The ' + mutation.attributeName + ' attribute was modified.',mutation);
-         if(mutation.target.id.toLowerCase() === "ThisIsNotAMenu".toLowerCase()){
-            (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
-          }
-        }
-      }
-    }
-    const ob = new MutationObserver(callback);
-    ob.observe(targetNode, config);
-    setMenuHaxSetup(true);
-  }
-}
-
-useEffect(()=>{
-  detectDivStatus();
-},[refContainer])
 
 
 
@@ -250,7 +222,7 @@ useEffect(()=>{
   }else{
 
     return (
-      <div id="ThisIsAMenu" ref={refContainer}>
+      <div id="ThisIsAMenu">
       <MenuBox className={(window as any).real_eyes?"realeyescolor":"gaslightbgcolor"} angle={props.angle} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?

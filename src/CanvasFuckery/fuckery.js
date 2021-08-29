@@ -48,6 +48,9 @@ export function fuckery() {
     if(!div){
         div = document.getElementById("ThisIsASpiral");
     }
+    if(!div){
+        return;
+    }
 
     const bigBG = document.createElement("canvas");
     bigBG.width = 600 * 3;
@@ -92,7 +95,9 @@ export function fuckery() {
         }
     }
     for (let frame of frames) {
-        frame.getContext("2d").drawImage(eye, frame.width / 2 - 55 / 2, frame.height / 2 - 55 / 2);
+        if(eye){
+            frame.getContext("2d").drawImage(eye, frame.width / 2 - 55 / 2, frame.height / 2 - 55 / 2);
+        }
     }
     const bigContext = bigBG.getContext("2d");
     bigContext.drawImage(frames[0], 0, 0);
@@ -104,6 +109,9 @@ export function fuckery() {
 function fuckUpImage(img, fucking_function, class_name, binary) {
     const frames = [];
     const bg = document.querySelector("#ThisIsNotABG");
+    if(!bg){
+        return;
+    }
 
     for (let i = 0; i < 3; i++) {
         const canvas = document.createElement("canvas");
@@ -144,8 +152,11 @@ function fuckUpImage(img, fucking_function, class_name, binary) {
 
 
     //invert(canvas);
-    bg.style.backgroundImage = `url(${bigBoi.toDataURL()})`;
-    bg.classList.add(class_name);
+    if(bg){
+        bg.style.backgroundImage = `url(${bigBoi.toDataURL()})`;
+        bg.classList.add(class_name);
+    }
+
 
 }
 
