@@ -14,6 +14,8 @@ import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
 import { wrong_password } from "../CanvasFuckery/password_result";
 import styled from "@emotion/styled";
 import SeededRandom from "../Utils/SeededRandom";
+import { CameraFeed } from "../CanvasFuckery/camera_feed";
+import { CCTV } from "../CanvasFuckery/cctv_fuckery";
 interface StatusProps {
     player: Player;
     ghosts: boolean;
@@ -36,12 +38,13 @@ export const PWContainer = styled.div`
     color: red;
 `
 
-export const Content = styled.table`
+export const Content = styled.div`
     margin-left: auto;
     margin-right: auto;
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 25px;    width: 1000px;
+    padding-bottom: 25px;
+    width: 1000px;
     border-radius: 13px;
 `
 
@@ -57,7 +60,7 @@ export const StyledInput = styled(Input)`
 
 
 
-export const CCTV = (props: StatusProps) => {
+export const CCTVScreen = (props: StatusProps) => {
     const { player, ghosts } = props
 
     //real ghost hours
@@ -84,7 +87,6 @@ export const CCTV = (props: StatusProps) => {
         const body = document.querySelector("body");
         if (body) {
             justTruthSong();
-            console.log("JR NOTE: body is", body.childNodes)
             //just fucking remove everything else. inner peace for all.
             body.innerHTML = "";
             body.style.background = "#000000";
@@ -105,7 +107,7 @@ export const CCTV = (props: StatusProps) => {
                 div.innerText = "You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched.";
                 startGhostCCTV(canvas);
             } else {
-                PasswordFuckeryKickoff(canvas,new SeededRandom(player.rand.initial_seed));
+                PasswordFuckeryKickoff(canvas,player.rand);
             }
         }
 
@@ -123,7 +125,8 @@ export const CCTV = (props: StatusProps) => {
 
 const PasswordFuckery = (props: PWProps) => {
     const [pw, setPW] = useState("");
-    let feed;
+    const [feed, setFeed] = useState<CCTV>();
+
 
     const translate = (word: string) => {
         let ret = word.toLowerCase();
@@ -137,6 +140,10 @@ const PasswordFuckery = (props: PWProps) => {
         return ret;
     }
 
+    useEffect(()=>{
+        feed?.play();
+    },[feed]);
+
     //wanted to play around with actually doing input correctly with a sumbmit after seeing a candidate do it
     const onSubmit = async (event: FormEvent) => {
         event.preventDefault();
@@ -145,8 +152,11 @@ const PasswordFuckery = (props: PWProps) => {
             console.error("JR NOTE: todo handle correct pws");
         } else {
             const troll_pw = translate(pw);
-            feed = await wrong_password(props.canvas, troll_pw, props.rand);
-            feed.play();
+            if(feed){
+                feed.stop();
+            }
+            setFeed(await wrong_password(props.canvas, troll_pw, props.rand));
+            //use effect will play it.
         }
         return false;
     }
