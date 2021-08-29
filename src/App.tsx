@@ -20,7 +20,7 @@ import eye2 from './images/eye2.png';
 import { updateTypeAssertion } from "typescript";
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
-import { CCTV } from "./Screens/CCTV";
+import { CCTVScreen } from "./Screens/CCTV";
 import { getParameterByName } from "./Utils/URLUtils";
 
 interface AppProps{
@@ -246,8 +246,8 @@ function App(props: AppProps) {
         {displayMenu?  <Menu player={player} angle={0}/>:null}      
         {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
         {actualGameMode && !ghostMode && !pwMode?  <ActualGame player={player}/>:null}      
-        {ghostMode ?  <CCTV ghosts={true} player={player}/>:null}      
-        {pwMode ?  <CCTV ghosts={false}player={player}/>:null}      
+        {ghostMode ?  <CCTVScreen ghosts={true} player={player}/>:null}      
+        {pwMode ?  <CCTVScreen ghosts={false}player={player}/>:null}      
 
       
 
@@ -255,13 +255,14 @@ function App(props: AppProps) {
       <ul style={{display: "none"}}>
         ** why rabbit hole post???
 
-* rabbit hole graphic behind menu
-* attic sim 2x combo, one lies, one truths (like that riddle, except one attic is game mode and one is truth mode)
+* credits screen reveals rabbit hole (smaller than menu); (happens after full skills)
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
 * right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more
+* attic sim 2x combo, one lies, one truths (like that riddle, except one attic is game mode and one is truth mode)
+
 <li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
              <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
