@@ -58,6 +58,14 @@ body {
 #ThisIsNotABlog{
   display: none;
 }
+
+#rabbit_hole{
+  position: fixed;
+  top: 100px;
+  left: 500px;
+  z-index: -1;
+}
+
 #ThisIsNotASpiral{
   position: fixed;
   width: 600px;
