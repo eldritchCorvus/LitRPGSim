@@ -76,7 +76,6 @@ export const  UnlockSkillPopup = (props: UnlockProps)=> {
 
     //if i depend on dialog here it won't let me dismiss the popup. just deal with it.
     useEffect(()=>{
-            console.log("setting visible because player or skill");
             if(skill && player){
                 dialog.setVisible(true);
             }else{
