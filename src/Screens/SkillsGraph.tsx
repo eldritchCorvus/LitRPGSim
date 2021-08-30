@@ -40,19 +40,16 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
      
 
      useEffect(()=>{
-         console.log("using effect")
          if(cy){
              cy.resize();
             cy.center();
             cy.on('click', 'node', (event:any) => {
-                console.log("setting skill to unlock")
                 setSkillToUnlock(player.findSkill(event.target.id()));
             })
         }
      }, [cy, player, loadScreen])
 
      const extractGraphFromSkills =() =>{
-        console.log("first skill is", props.player.skills[0]);
         
         const temp_data = props.player.rootSkill.convertToCytoscape();
         for(const skill of props.player.skills){
