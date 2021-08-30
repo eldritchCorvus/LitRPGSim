@@ -22,6 +22,7 @@ import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
 import { CCTVScreen } from "./Screens/CCTV";
 import { getParameterByName } from "./Utils/URLUtils";
+import { CreditsScreen } from "./Screens/Credits";
 
 interface AppProps{
   seed: number;
@@ -37,6 +38,8 @@ function App(props: AppProps) {
   const [justTruthMode, setJustTruthMode] = useState(false);
   const [ghostMode, setGhostMode] = useState(false);
   const [pwMode, setPWMode] = useState(false);
+  const [creditsMode, setCreditsMode] = useState(false);
+
 
   useEffect(()=>{
     if(!(window as any).setRageMode){
@@ -67,7 +70,6 @@ function App(props: AppProps) {
       // :) :) :)
       (window as any).setGhostMode = (value:boolean)=>{
         setGhostMode(value);
-        (window as any).setGhostMode = value;
         (window as any).ghost = value;
       };
     }
@@ -76,8 +78,16 @@ function App(props: AppProps) {
       // :) :) :)
       (window as any).setPWMode = (value:boolean)=>{
         setPWMode(value);
-        (window as any).setPWMode = value;
         (window as any).pwMode = value;
+      };
+    }
+
+    if(!(window as any).setCreditsMode){
+      // :) :) :)
+      (window as any).setCreditsMode = (value:boolean)=>{
+        console.log("JR NOTE: setting credits mode to ", value);
+        setCreditsMode(value);
+        (window as any).creditsMode = value;
       };
     }
   },[])
@@ -236,7 +246,7 @@ function App(props: AppProps) {
     return <div>LOADING FOR REALSIES</div>
   }else{
     //there is nothing wrong here. is fine
-    const displayMenu = !justTruthMode && !actualGameMode && !ghostMode && !pwMode;
+    const displayMenu = !justTruthMode && !actualGameMode && !ghostMode && !pwMode && !creditsMode;
     return (
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
@@ -248,14 +258,14 @@ function App(props: AppProps) {
         {actualGameMode && !ghostMode && !pwMode?  <ActualGame player={player}/>:null}      
         {ghostMode ?  <CCTVScreen ghosts={true} player={player}/>:null}      
         {pwMode ?  <CCTVScreen ghosts={false}player={player}/>:null}      
+        {creditsMode ?  <CreditsScreen player={player}/>:null}      
 
       
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        ** why rabbit hole post???
-
-* credits screen reveals rabbit hole (smaller than menu); (happens after full skills)
+        * in ActualGame mode list out all your skills and if you try to do a skill it'll print out an insane lil description of what it does
+* if all skills unlocked roll credits.
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
@@ -305,9 +315,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
       <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
       <li>menu screen you can ONLY get to via hacking (leads to Just Monika But Spades Quiz Mode)</li>
       <li>special seeds that have story content, maybe voice acted stuff</li>
-      <li>credit: Photo 37910249 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</li>
-      <li>Photo 37965548 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</li>
-      <li>Photo 106176433 © Mulderphoto | Dreamstime.com</li>
+      <li>credit: </li>
       <li>first ending where you max out skills (or played long enough to reach the heat death of the universe (thru auto clicker)) and menu finally closes and then fake credits role</li>
       <li>win game, roll credits, if max skill tree OR enough time has passed.</li>
       <li>encourage replays with fake credits</li>

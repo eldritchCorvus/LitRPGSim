@@ -14,6 +14,7 @@ import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
 import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
+import { flushSync } from "react-dom";
 
 export interface BuildingMetaMap {
     [name: string]: BuildingMetaData
@@ -267,6 +268,7 @@ export class Player {
     unlocked_skills_no_stats = () => { return this.skills.filter((skill) => { return skill.unlocked && (skill.type !== "StatSkill") }) };
 
     unlocked_skills = () => { return this.skills.filter((skill) => { return skill.unlocked }) };
+    locked_skills = () => { return this.skills.filter((skill) => { return !skill.unlocked }) };
 
     canAffordSkill = (skill: Skill) => {
         return this.skillPoints >= skill.tier;
@@ -281,7 +283,7 @@ export class Player {
             const stat = (found as StatSkill).stat;
             this.addStat(stat);
         } else if (found.type === "WasteSkill") {
-            console.log("its a waste skill");
+            console.log("its a waste skill :(");
 
             if ((window as any).haxMode) {
                 //:) :) :)
@@ -293,6 +295,17 @@ export class Player {
             console.log("its a core skill");
             this.observer.upgradeMenu(found.name);
         }
+        this.checkIfCompletedSkillTree();
+    }
+
+    checkIfCompletedSkillTree = ()=>{
+        for(let skill of this.skills){
+            if(!skill.unlocked){
+                console.log(`JR NOTE: still have ${this.locked_skills().length} to go!`);
+                return false;
+            }
+        }
+        (window as any).setCreditsMode(true);
     }
 
     addSkillPoints = (points: number) => {

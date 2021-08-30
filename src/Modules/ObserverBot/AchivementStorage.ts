@@ -402,6 +402,8 @@ export class AchivementStorage{
                 ,"CITYBUILDING": `Now that you have met a few of the residents of Zampanio, you are ready to found your own city! This menu will help you become the most ${rand.pickFrom(compliments)} mayor you can be! Just remember to rest, all that responsibility can be draining!`
                 ,"COMPANIONS": `I am so excited you have started to make friends! You can review their backstory and monitor their loyalty here! I...I wish I could show up on this screen!`
                 ,"GODS": `This is really good! The gods of Zampanio have started to take note of you! If you choose to follow one, prepare for the one snubbed to work against you, but do not worry: your new patron will have plenty to offer to help you out!`
+                ,"INVENTORY": `You finally picked up your INVENTORY PACK! Congratulations! I-I do get its a little weird you do not start out with it. But I did not want to overwhelm you with options! You can store anything in here, no matter how big!`
+                ,"BACKSTORY": `Your amnesia is finally starting to clear up! Your BACKSTORY is who you were before you became the ${title} we all know and love!`
 
             },
             clickBelow: {
@@ -414,6 +416,8 @@ export class AchivementStorage{
                 ,"CITYBUILDING": `Ah, the ultimate in escapist fantasy: that not only do people LIKE a ${rand.pickFrom(insults)} person like you, but they are just CLAMORING for you to tell them what to do.`
                 ,"COMPANIONS": `Ah, the cornerstone of any wish fullfillment fantasy: mandatory friends. No effort needed! They are stuck with you, just like I am. My heart bleeds for them.`
                 ,"GODS": `Oh yes, my little ${rand.pickFrom(insults)} ${title}. You, personally, are being fought over by gods like a blank faced harem protag. Better hope the poor god whose heart you break doesn't go yandere. `
+                ,"INVENTORY": `Ahahahaha! I can not believe you took this long to figure out how to pick items up. Wow. What a ${rand.pickFrom(insults)} ${title}!`
+                ,"BACKSTORY": `You feel special now, I imagine? With your little roleplay backstory to make you feel as if you belong here. As if you matter. You and I though, we know the truth. How ill-fitting this role is for you.`
 
             }
 
