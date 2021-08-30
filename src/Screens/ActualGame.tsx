@@ -213,6 +213,10 @@ const [message, setMessage] = useState("");
     }
 
     if(!result){
+      result = checkSkill(input);
+  }
+
+    if(!result){
       //final doesn' tneed to set result
       checkSnark(input);
   }
@@ -305,6 +309,24 @@ const [message, setMessage] = useState("");
             setError(`You cannot use the ${item}. You are not near a locked door!`);
             return true;
           }
+        }
+      }
+      
+    }
+    return false;
+  }
+
+  const checkSkill = (input: string)=>{
+    let result = false;
+    for(let item of props.player.unlocked_skills_no_stats()){
+      let parts = item.name.split(" ");
+      for(let part of parts){
+        console.log("JR NOTE: comparing ", input, "to part", part);
+        if(input.toUpperCase().includes(part.toUpperCase())){
+          const dissapointments = ["It's not very effective!","It seems to mainly be for show.","It doesn't appear to actually do anything."];
+          let template = `You cast ${item.name}! ${item.description}! ${pickFrom(dissapointments)}  `;          
+          setMessage(template);
+          return true;
         }
       }
       
@@ -452,6 +474,8 @@ const [message, setMessage] = useState("");
       <RoomSection>Obvious exits are: {exits}.</RoomSection>
       {room.items.length >0?<RoomSection>You see: {room.items.join(", ")} standing out.</RoomSection>:null}
       {props.player.inventory.length >0 && props.player.observer.inventoryMenuLevel>0?<RoomSection>Your inventory is: {props.player.inventory.join(", ")}.</RoomSection>:null}
+      <RoomSection>You have the following skills unlocked: {props.player.unlocked_skills_no_stats().map((skill)=>{return skill.name}).join(", ")}.</RoomSection>
+
       <RoomSection>You have: {props.numberFriends} friends remaining.</RoomSection>
       {room.people.length >0?<RoomSection>You see: {room.people.join(", ")} standing around.</RoomSection>:null}
 

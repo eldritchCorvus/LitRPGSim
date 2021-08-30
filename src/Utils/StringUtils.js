@@ -12,6 +12,13 @@ export const titleCase = (input)=>{
     return ret.join(" ");
 }
 
+export const sentenceCase = (input)=>{
+    if(!input.length){
+        return input;
+    }
+    return replaceStringAt(input, 0, input[0].toUpperCase());
+}
+
 export function replaceStringAt(str, index, character){
     return str.substr(0, index) + character + str.substr(index+character.length);
 }
