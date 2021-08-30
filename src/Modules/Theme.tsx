@@ -54,8 +54,8 @@ export   class Theme{
         if((key in this.string_possibilities) && this.string_possibilities[key] ){
             return  this.string_possibilities[key];
         }else{
-            console.error(`[ERROR: ${key} NOT FOUND ]`);
-            return [`[ERROR: ${key} NOT FOUND ]`];
+            console.error(`[ERROR: ${key} NOT FOUND ]`, this.string_possibilities);
+            return [`[ERROR: ${key} NOT FOUND]`];
         }        
     }
 
@@ -107,6 +107,7 @@ export function initThemes(){
         string_possibilities[ThemeStorage.TASTE] = ThemeStorage.taste_possibilities[key];
         string_possibilities[ThemeStorage.SOUND] = ThemeStorage.sound_possibilities[key];
         string_possibilities[ThemeStorage.FEELING] = ThemeStorage.feeling_possibilities[key];
+        string_possibilities[ThemeStorage.EFFECTS] = ThemeStorage.effect_possibilities[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);
