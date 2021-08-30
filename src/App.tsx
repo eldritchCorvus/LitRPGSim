@@ -265,7 +265,6 @@ function App(props: AppProps) {
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
         * in ActualGame mode list out all your skills and if you try to do a skill it'll print out an insane lil description of what it does
-* if all skills unlocked roll credits.
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
@@ -289,7 +288,7 @@ Suddenly, you can feel the pounding behind your eyes. "let me out" you hear, "le
          <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
         <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
-    * store missing TEMPLATE PLACEHOLDERS (OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
+    * store missing TEMPLATE PLACEHOLDERS (VISUAL_EFFECT, MONSTER_EFFECT, OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
     * for each theme, write out a super tiny quest or two with TEMPLATE PLACEHOLDERS 
 The city guard knows it takes a PERSON  to catch a thief, and they have come to you.  The ADJ OBJ has been stolen from the LOCATION, with no witnesses. Will you be the one to finally crack the case?" 
 "if there is a companion who has a theme that matches TEMPLATE theme, they slot into anything that needs COMPANION name"

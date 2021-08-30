@@ -66,7 +66,7 @@ const  AchivementPopup = (props: AchivementProps)=> {
 
     useEffect(()=>{
         const root = document.querySelector("#ThisIsNotAGame")
-        if(visible && root && !(window as any).creditsMode){
+        if(visible && root){
             (root as HTMLElement).style.filter = "blur(3px)";
         }else if (root){
             (root as HTMLElement).style.filter = "blur(0px)";
