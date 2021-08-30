@@ -62,8 +62,22 @@ body {
 #rabbit_hole{
   position: fixed;
   top: 100px;
-  left: 500px;
+  left: 450px;
   z-index: -1;
+  cursor: pointer;
+}
+
+#credits{
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
 #ThisIsNotASpiral{

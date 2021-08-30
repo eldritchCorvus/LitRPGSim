@@ -81,7 +81,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
                     }                }
             }
         }else{
-            if(rand.nextDouble()>0.5){
+            if(rand.nextDouble()>0.7){
                 inBetween = new StatSkill(pickStat(parent),parent.tier+1);
             }else{
                 const ret = pickMENU(parent)
@@ -173,7 +173,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             const theme2 = all_themes[rand.pickFrom(skill.theme_keys)];
 
             if(theme1.key !== theme2.key){
-                let tmp = (this.generate_skill_x_times(2,[theme1, theme2], rand));
+                let tmp = (this.generate_skill_x_times(1,[theme1, theme2], rand));
                 tmp = this.only_leave_unique_names(tmp);
                 for(const new_skill of tmp){
                     //no doubles

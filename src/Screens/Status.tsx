@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import {Player} from "../Modules/Player";
 import { Stat, StatMap } from "../Modules/Stat";
 import { all_themes } from "../Modules/Theme";
 import { ADJ, MENU } from "../Modules/ThemeStorage";
 import { uniq } from "../Utils/ArrayUtils";
+import { BACKSTORY, INVENTORY } from "../Utils/constants";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
 import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, BORDERRADIUS, BORDERRADIUSROUND, FONTCOLOR} from "./Styles";
@@ -26,6 +27,9 @@ interface StatProps{
 export const  StatusScreen = (props: StatusProps)=> {
 
     const {player} = props;
+    const inventoryMenuLevel = player.observer.inventoryMenuLevel;
+    const backstoryMenuLevel = player.observer.backstoryMenuLevel;
+
     const StatsSection = (props: StatsProps)=> {
         return(
             <Fragment>
@@ -47,6 +51,19 @@ export const  StatusScreen = (props: StatusProps)=> {
         }
         return uniq(ret).join(', ');
     }
+
+    useEffect(()=>{
+        if(inventoryMenuLevel > 0){
+            console.log("JR NOTE: inventory unlocked");
+            (window as any).menuClick(INVENTORY);
+        }
+        if(backstoryMenuLevel){
+            console.log("JR NOTE: backstory unlocked");
+
+            (window as any).menuClick(BACKSTORY);
+        }
+
+    },[inventoryMenuLevel,backstoryMenuLevel])
 
 
     return (
@@ -108,6 +125,11 @@ export const  StatusScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Skill Points:</StatusHeader>
                 <StatusContent>{player.skillPoints}</StatusContent>
+            </StatusRow>
+
+            <StatusRow>
+                <StatusHeader>Locked Skills:</StatusHeader>
+                <StatusContent>{player.locked_skills().length}</StatusContent>
             </StatusRow>
 
             <StatusRow>
