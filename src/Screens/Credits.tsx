@@ -116,7 +116,7 @@ export const CreditsScreen = (props: StatusProps) => {
         <CreditsContainer>
             <CreditsContent id="credits">
                 <CreditHeader>ZampanioSim Credits</CreditHeader>
-                <CreditParagraph>You have defeated the evil Doctor Slaughter! Congratulations! Don't forget to try again to see what mysteries you missed with your current Title!</CreditParagraph>
+                <CreditParagraph>You have defeated the evil Doctor Slaughter! Congratulations! Don't forget to try again to see what mysteries you missed being restricted to your current Title!</CreditParagraph>
                 <CreditParagraph>Bonus Achievement detected! 100% Completion of SkillTree! Congratulations!</CreditParagraph>
 
                 <CreditLine>

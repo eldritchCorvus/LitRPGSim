@@ -26,6 +26,7 @@ export const SMELL = "SMELL";
 export const TASTE = "TASTE";
 export const FEELING = "FEELING";
 export const SOUND = "SOUND";
+export const EFFECTS = "EFFECTS";
 
 
 //themes
@@ -110,6 +111,7 @@ export let sound_possibilities:ThemePossibilitiesMap = {};
 export let taste_possibilities:ThemePossibilitiesMap = {};
 export let feeling_possibilities:ThemePossibilitiesMap = {};
 export let smell_possibilities:ThemePossibilitiesMap = {};
+export let effect_possibilities:ThemePossibilitiesMap = {};
 
 export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
@@ -194,6 +196,10 @@ export const checkIfAllKeysPresent = ()=>{
 
         if(!(key in feeling_possibilities)){
             console.error("JR NOTE: key", key, "not found in feeling_possibilities");
+        }
+
+        if(!(key in effect_possibilities)){
+            console.error("JR NOTE: key", key, "not found in visual_effect_possibilities");
         }
     }
 }
@@ -1207,6 +1213,59 @@ const initSmells = () =>{
     smell_possibilities[QUESTING] = ["hope"] ;
 }
 
+//used for skills or flavor text in quests
+//things like A shower of healing sparks suffuses the area while a whirlwind of rose petals kicks up.
+const initEffectPossibilities = () =>{
+    effect_possibilities[ART] =  ["a torrent of paint oozes up from the ground","paintbrushes clatter and clack in a swirling circle","paper swirls in a dizzying whirlwind"];
+    effect_possibilities[TECHNOLOGY] =  ["sparks jutter and jolt in the air","circuitry traces itself out in the very air","numbers and equations swirl in the air"];
+    effect_possibilities[SPACE] =  ["vacuum","wind","void"];
+    effect_possibilities[TIME] =  ["stale air","the future","the past"];
+    effect_possibilities[STEALING] =  ["wealth","jail","adventure"];
+    effect_possibilities[FREEDOM] =  ["freedom","independance","power"];
+    effect_possibilities[FIRE] =  ["smoke","fire","ash","wood burning"];
+    effect_possibilities[LONELY] =  ["loneliness","isolation","depression"];
+    effect_possibilities[OCEAN] =  ["sea-salt","an ocean breeze","seaweed rotting"];
+    effect_possibilities[FLESH] =  ["sweat","blood","meat"];
+    effect_possibilities[BURIED] =  ["dirt","dust","mud"];
+    effect_possibilities[SCIENCE] =  ["acetone","acid","chemicals"];
+    effect_possibilities[MATH] =  ["raw numbers","apple pie","pie"];
+    effect_possibilities[TWISTING] =  ["headache","code","mazes"];
+    effect_possibilities[DEATH] =  ["death","bones","corpses"];
+    effect_possibilities[APOCALYPSE] =  ["radiation","dust","ash"];
+    effect_possibilities[ANGELS] =  ["incense","redemption",'justice'];
+    effect_possibilities[LIGHT] =  ["light radiates from all directions","motes of light float in the breeze","a blinding light seems to radiate from the heavens"];
+    effect_possibilities[SERVICE] =  ["food","cleaning chemicals","wood polish"];
+    effect_possibilities[FAMILY] =  ["home cooked food","family","home"];
+    effect_possibilities[MAGIC] =  ["mana","essence","reagents"];
+    effect_possibilities[HEALING] =  ["antiseptic","antibiotics","cleaning chemicals"];
+    effect_possibilities[PLANTS] = ["fertilizer","earth","flowers"];
+    effect_possibilities[HUNTING] = ["prey","blood","fear"];
+    effect_possibilities[DECAY] = ["rot","decaying bodies","decay"] ;
+    effect_possibilities[CHOICES] =  ["deceit","justice","lies"] ;
+    effect_possibilities[ZAP] = ["lightning strikes from the heavens","electrical sparks radiate in every direction","the very floor becomes energized"] ;
+    effect_possibilities[LOVE] = ["chocolate","love","romance"];
+    effect_possibilities[SOUL] = ["yourself"] ;
+    effect_possibilities[ANGER] = ["hatred","anger","violence"] ;
+    effect_possibilities[WEB] =  ["spider webs","dust","cob webs"] ;
+    effect_possibilities[ROYALTY] =  ["incense","spices","gold"] ;
+    effect_possibilities[ENDINGS] =  ["endings"] ;
+    effect_possibilities[KNOWING] = ["knowledge"] ;
+    effect_possibilities[GUIDING] = ["help"] ;
+    effect_possibilities[CRAFTING] =  ["dye","a forge","metal"];
+    effect_possibilities[LANGUAGE] = ["ink","paper","old books"] ;
+    effect_possibilities[BUGS] =  ["honey","a hive","worms"];
+    effect_possibilities[ADDICTION] = ["drugs","cards","money"];
+    effect_possibilities[SPYING] =["powder"] ;
+    effect_possibilities[CLOWNS] =["sweat","sugar","popcorn"] ;
+    effect_possibilities[DOLLS] = ["plastic","porcelain","lavendar"] ;
+    effect_possibilities[OBFUSCATION] = ["nothing at all"] ;
+    effect_possibilities[DARKNESS] =  ["darkness"] ;
+    effect_possibilities[KILLING] =  ["death","blood","gunpowder"];
+    effect_possibilities[MUSIC] =  ["oil","paper","leather"] ;
+    effect_possibilities[DEFENSE] =  ["leather","metal"] ;
+    effect_possibilities[QUESTING] = ["hope"] ;
+}
+
 
 const initGeneralBackstories = () =>{
     general_backstories[ART] = ["would never stop making sculptures if that was an option","can sketch incredibly lifelike portraits","always has a dab of paint behind their ears"];
@@ -1332,5 +1391,6 @@ export const initThemes = ()=>{
     initTastes();
     initFeelings();
     initSounds();
+    initEffectPossibilities();
 
 }
