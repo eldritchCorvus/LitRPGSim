@@ -11,7 +11,7 @@ import { addImageProcess } from "../Utils/URLUtils";
 import ReactDOM from "react-dom";
 import { Input } from "reakit/Input";
 import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
-import { wrong_password } from "../CanvasFuckery/password_result";
+import { right_password, wrong_password } from "../CanvasFuckery/password_result";
 import styled from "@emotion/styled";
 import SeededRandom from "../Utils/SeededRandom";
 import { CameraFeed } from "../CanvasFuckery/camera_feed";
@@ -149,7 +149,7 @@ const PasswordFuckery = (props: PWProps) => {
         event.preventDefault();
 
         if (Object.keys(passwords).includes(pw)) {
-            console.error("JR NOTE: todo handle correct pws");
+            setFeed(await right_password(props.canvas, passwords[pw]));
         } else {
             const troll_pw = translate(pw);
             if(feed){

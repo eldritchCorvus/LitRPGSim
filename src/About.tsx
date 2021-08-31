@@ -77,7 +77,11 @@ function NewspostDom(props: PostProps) {
 function About(props: AppProps) {
   const [date, setDate] = useState<string>("1933-03-03");
   const newsposts = [
-    new Newspost("08/25/2021","new avatar who this","my fav part of this new design is it implies my lack of face was *always* a coiled spring, i just chose not to uncoil it")
+    new Newspost("08/31/2021","theres something calming about actually getting to see what the skills do, finally. fun fact: its nothing","shoutout to the late coleman researcher who definitely left me some money according to this scammer")
+
+    ,new Newspost("08/29/2021","skills are real now but only if you're willing to blaspheme against the concept of simulations","i personally wouldn't recommend blasphemy")
+
+    ,new Newspost("08/25/2021","new avatar who this","my fav part of this new design is it implies my lack of face was *always* a coiled spring, i just chose not to uncoil it")
     ,new Newspost("08/24/2021","look i don't know how or why found footage is a part of the zampanio experienceyar. i just know i feel really proud of how i worked that part of it in.")
     ,new Newspost("08/19/2021","lets all regret having eyes together, shall we?")
     ,new Newspost("08/16/2021","time is now officially hard","in addition to being the shittiest aspect it just is difficult to form. its difficult to follow without a proper mind")
