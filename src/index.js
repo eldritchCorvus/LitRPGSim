@@ -32,6 +32,10 @@ export function playSecret(location){
   audio.play();
 }
 
+export function loadSecretImage(location){
+  return require(`./images/${location}`).default
+}
+
  export function rageModeSong(){
   audio.src = heart;
   audio.play();

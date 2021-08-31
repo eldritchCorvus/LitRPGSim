@@ -1,11 +1,8 @@
 //but JR can't people just get into these passwords without finding them "the right way"?
 //bold of you to assume that THIS isn't the right way and all other ways are cheating
 //hack my shit
+//i dare you
 
-/*
-each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section (print out under cctv ffed)
-*/
-export const passwords = {};
 
 //look, okay, al bhed from ffx is something that for *some* percent of the population feels in their bones
 //so this will drive home a nagging sense of familiarity, that it MUST be important
@@ -44,3 +41,36 @@ export const albhed_map = {
     "z": "W"
 
 }
+
+export class Secret{
+    frames: SourceDurationPair[];
+    music_file_name: string|undefined;
+    text: string|undefined;
+    constructor(frames: SourceDurationPair[], music_file_name: string|undefined, text: string|undefined){
+        this.frames = frames;
+        this.music_file_name = music_file_name;
+        this.text = text;
+    }
+
+}
+
+export class SourceDurationPair{
+    source: string;
+    durationInFrames: number;
+    constructor(source: string, durationInFrames: number){
+        this.source = source;
+        this.durationInFrames = durationInFrames;
+    }
+
+}
+
+
+export interface PasswordMap {
+    [details: string] : Secret;
+}
+/*
+each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section (print out under cctv ffed)
+*/
+export const passwords:PasswordMap = {
+    "THE END IS NEVER": new Secret([new SourceDurationPair("Secrets/the_end_is_never/0.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3.jpg",3)],"4-_Wattathon.mp3","The Child of Fate Deserved Better.")
+};

@@ -297,7 +297,7 @@ const initPeople = () =>{
     person_posibilities[CRAFTING] = ["needle","wood","metal","ore","crystal","rock","log","cloth","ax","pickax","gem","anvil","crucible","hammer","needle"];
     person_posibilities[LANGUAGE] = ["word","rune","speech","book","scroll","tongue","ink","paper","letter"];
     person_posibilities[BUGS] = ["bug","worm","fly","maggot","roach","swarm","plague","hive","locusts"];
-    person_posibilities[ADDICTION] = ["compulsion","habit","high","addiction","dependence"];
+    person_posibilities[ADDICTION] = ["compulsion","habit","high","addiction","dependence","stoner"];
     person_posibilities[SPYING] = ["eye","watcher","observer","listener","spy"];
     person_posibilities[CLOWNS] = ["clown","mime","jester","acrobat","performer","harlequin","ringmaster"];
     person_posibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
@@ -348,7 +348,7 @@ const initAdjs = () =>{
     adj_possibilities[CRAFTING] = ["crafting","mining","logging","building","constructing","carving","smitting"];
     adj_possibilities[LANGUAGE] = ["reading","writing","speaking"];
     adj_possibilities[BUGS] = ["swarming","buzzing","squirming"];
-    adj_possibilities[ADDICTION] = ["craving","addicting","compelling"];
+    adj_possibilities[ADDICTION] = ["craving","addicting","compelling","high"];
     adj_possibilities[SPYING] = ["spying","observing","watching","voyeuristic","seeking"];
     adj_possibilities[CLOWNS] = ["honking","funny","prancing","tumbling","joking","jeering","dancing","performing","jesting"];
     adj_possibilities[DOLLS] = ["delicate","beautiful","unsettling","playing","dressing","plastic","ceramic"];
@@ -506,8 +506,8 @@ const initObjects = () =>{
     object_possibilities[GUIDING] = ["map","walking stick","compass","sextant"] ;
     object_possibilities[CRAFTING] =  ["anvil","hammer","ax","chisel"];
     object_possibilities[LANGUAGE] = ["dictionary","translator","thesaurus","pen","paper","book"] ;
-    object_possibilities[BUGS] =  ["hive","pupa","nest"];
-    object_possibilities[ADDICTION] = ["syringe","vial","dice"];
+    object_possibilities[BUGS] =  ["hive","pupa","nest","egg sack"];
+    object_possibilities[ADDICTION] = ["syringe","vial","dice","cigarette","lighter","joint"];
     object_possibilities[SPYING] =["spyglass","camera","disguise"] ;
     object_possibilities[CLOWNS] =["clown wig","bicycle horn","facepaint","balloon animal","large pants","circus tent","unicycle","ringmasters jacket"] ;
     object_possibilities[DOLLS] = ["doll","mannequin","statuette"] ;
@@ -1218,14 +1218,14 @@ const initSmells = () =>{
 const initEffectPossibilities = () =>{
     effect_possibilities[ART] =  ["a torrent of paint oozes up from the ground","paintbrushes clatter and clack in a swirling circle","paper swirls in a dizzying whirlwind"];
     effect_possibilities[TECHNOLOGY] =  ["sparks jutter and jolt in the air","circuitry traces itself out in the very air","numbers and equations swirl in the air"];
-    effect_possibilities[SPACE] =  ["vacuum","wind","void"];
-    effect_possibilities[TIME] =  ["stale air","the future","the past"];
-    effect_possibilities[STEALING] =  ["wealth","jail","adventure"];
-    effect_possibilities[FREEDOM] =  ["freedom","independance","power"];
-    effect_possibilities[FIRE] =  ["smoke","fire","ash","wood burning"];
-    effect_possibilities[LONELY] =  ["loneliness","isolation","depression"];
-    effect_possibilities[OCEAN] =  ["sea-salt","an ocean breeze","seaweed rotting"];
-    effect_possibilities[FLESH] =  ["sweat","blood","meat"];
+    effect_possibilities[SPACE] =  ["a field of stars fades into existance","a vast galaxy spins into view","you suddenly feel incredibly small as the room grows larger and larger around you"];
+    effect_possibilities[TIME] =  ["a clock appears, its hands spinning wildly backwards","melting clocks phase into existence, dripping on every surface","the sound of steady ticking fills the air"];
+    effect_possibilities[STEALING] =  ["golden coins start falling from the sky","a spotlight centers itself on you","keys begin swirling around you"];
+    effect_possibilities[FREEDOM] =  ["a refreshing breeze kicks up","feathers begin swirling in a whirlwind","you get a strong sense of vertigo, as if you're falling while standing still"];
+    effect_possibilities[FIRE] =  ["smoke pours out of nowhere","flames dance around the edges of the room","the smell of smoke lingers in the air","wood burning"];
+    effect_possibilities[LONELY] =  ["fog drifts in the air","a crowd of indistinct figures press around you","the weight of how alone you are presses into you"];
+    effect_possibilities[OCEAN] =  ["the smell of sea-salt is on the breeze","water begins pooling around your feet","the sound of seagulls fills the air"];
+    effect_possibilities[FLESH] =  ["meat begins pulsing from every surface","blood runs in rivers at your feet","you are suddenly aware that your body is made of meat and thus is edible"];
     effect_possibilities[BURIED] =  ["dirt","dust","mud"];
     effect_possibilities[SCIENCE] =  ["acetone","acid","chemicals"];
     effect_possibilities[MATH] =  ["raw numbers","apple pie","pie"];
@@ -1254,7 +1254,7 @@ const initEffectPossibilities = () =>{
     effect_possibilities[CRAFTING] =  ["dye","a forge","metal"];
     effect_possibilities[LANGUAGE] = ["ink","paper","old books"] ;
     effect_possibilities[BUGS] =  ["honey","a hive","worms"];
-    effect_possibilities[ADDICTION] = ["drugs","cards","money"];
+    effect_possibilities[ADDICTION] = ["drugs","cards","money","pot"];
     effect_possibilities[SPYING] =["powder"] ;
     effect_possibilities[CLOWNS] =["sweat","sugar","popcorn"] ;
     effect_possibilities[DOLLS] = ["plastic","porcelain","lavendar"] ;
