@@ -59,7 +59,8 @@ export class Skill {
         if (themes.length === 1) {
             return sentenceCase(themes[0].pickPossibilityFor(seeded_random, EFFECTS));
         } else {
-            return `${sentenceCase(themes[0].pickPossibilityFor(seeded_random, EFFECTS))} while ${themes[1].pickPossibilityFor(seeded_random, EFFECTS)}`;
+            const transitions = ["while","as","just as","at the same time as","just before"];
+            return `${sentenceCase(themes[0].pickPossibilityFor(seeded_random, EFFECTS))} ${seeded_random.pickFrom(transitions)} ${themes[1].pickPossibilityFor(seeded_random, EFFECTS)}`;
         }
 
     }

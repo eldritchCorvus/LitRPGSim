@@ -6,6 +6,23 @@ import { addImageProcess } from "../Utils/URLUtils";
 import { CCTV } from "./cctv_fuckery";
 import SeededRandom from '../Utils/SeededRandom';
 import { pickFrom } from '../Utils/NonSeededRandUtils';
+import { Secret } from './PasswordStorage';
+import { loadSecretImage, playSecret } from '..';
+
+export const right_password = async (canvas:HTMLCanvasElement, secret:Secret) => {
+    const frames:AnimationFrame[] = [];
+    for(let frame of secret.frames){
+        const image = await addImageProcess(loadSecretImage(frame.source)) as HTMLImageElement;
+        frames.push(new AnimationFrame(image, frame.durationInFrames));
+    }
+    const feed = new CameraFeed(0,frames);
+    if(secret.music_file_name){
+        playSecret(secret.music_file_name);
+    }
+    console.log(secret.text);
+    const cctv = new CCTV(feed, canvas);
+    return cctv;
+}
 
 export const wrong_password = async (canvas:HTMLCanvasElement, password: string,core_rand:SeededRandom) => {
     const wrong_room = await addImageProcess(wrong_answer) as HTMLImageElement;
