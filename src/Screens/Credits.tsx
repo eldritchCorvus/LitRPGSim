@@ -171,6 +171,10 @@ export const CreditsScreen = (props: StatusProps) => {
                 </CreditLine>
 
                 <CreditLine>
+                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 58837940 / Abandoned Computer © Alberto Violante | Dreamstime.com</span></CreditRight>
+                </CreditLine>
+
+                <CreditLine>
                     <CreditLeft>Nunito Font: </CreditLeft> <CreditRight><span>Vernon Adams</span></CreditRight>
                 </CreditLine>
 
