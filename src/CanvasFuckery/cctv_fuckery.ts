@@ -75,7 +75,6 @@ export class CCTV {
 
     getCurrentImage = (hacked_frame: number) => {
         let image = this.cameraFeed.newFrame(hacked_frame);
-        //JR NOTE: TODO if theres a graffiti spot you deal with it.
         for (let gs of this.cameraFeed.graffitiSpots) {
                 const hacked_image = document.createElement("canvas");
                 hacked_image.width = image.width as number;
