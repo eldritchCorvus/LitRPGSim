@@ -144,18 +144,23 @@ const PasswordFuckery = (props: PWProps) => {
         feed?.play();
     },[feed]);
 
+    const setFeedWithSideEffects= async(new_feed: CCTV)=>{
+        if(feed){
+            feed.stop();
+        }
+        setFeed(new_feed);
+    }
+
     //wanted to play around with actually doing input correctly with a sumbmit after seeing a candidate do it
     const onSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
         if (Object.keys(passwords).includes(pw)) {
-            setFeed(await right_password(props.canvas, passwords[pw]));
+            
+            setFeedWithSideEffects(await right_password(props.canvas, passwords[pw]));
         } else {
             const troll_pw = translate(pw);
-            if(feed){
-                feed.stop();
-            }
-            setFeed(await wrong_password(props.canvas, troll_pw, props.rand));
+            setFeedWithSideEffects(await wrong_password(props.canvas, troll_pw, props.rand));
             //use effect will play it.
         }
         return false;
@@ -166,7 +171,7 @@ const PasswordFuckery = (props: PWProps) => {
                 <p>You are down the rabbit hole. It does not end. If you know important words, you may enter them here.</p>
             </Content>
             <form action="" method="post" onSubmit={onSubmit}>
-                <StyledInput onChange={(event) => { setPW(event.target.value) }} placeholder="Type Important Words Here"></StyledInput>
+                <StyledInput onChange={(event) => { setPW(event.target.value.toUpperCase()) }} placeholder="Type Important Words Here"></StyledInput>
                 <StyledButton>Submit</StyledButton>
             </form>
         </PWContainer>

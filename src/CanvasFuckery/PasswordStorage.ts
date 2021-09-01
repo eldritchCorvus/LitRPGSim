@@ -72,5 +72,5 @@ export interface PasswordMap {
 each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section (print out under cctv ffed)
 */
 export const passwords:PasswordMap = {
-    "THE END IS NEVER": new Secret([new SourceDurationPair("Secrets/the_end_is_never/0.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3.jpg",3)],"4-_Wattathon.mp3","The Child of Fate Deserved Better.")
+    "THE END IS NEVER": new Secret([new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"4-_Wattathon.mp3","The Child of Fate Deserved Better.")
 };
