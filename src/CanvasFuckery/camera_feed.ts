@@ -24,10 +24,11 @@ export  class CameraFeed{
     newFrame = (hacked_frame: number)=>{
         this.current_frame ++;
         const current_location  = hacked_frame % this.loopLength();
-        const index = 0;
+        let index = 0;
         //if i go in order, the first frame i find that i have no yet passed is what i return;
         for(let frame of this.frames){
-            if(current_location < index + frame.durationInFrames){
+            index += frame.durationInFrames;
+            if(current_location < index){
                 return frame.image;
             }
         }
