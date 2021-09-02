@@ -199,7 +199,6 @@ function Menu(props: MenuProps) {
   },[currentScreen]);
 
   const handleLoading = useCallback((screen:string) =>{
-    console.log("JR NOTE: i am loading, screen to load is", screen, "current screen is", currentScreen, "next screen is", nextScreen)
     setRefresh(true);
     setNextScreen(screen);
     setCurrentScreen(LOADING);
@@ -207,7 +206,6 @@ function Menu(props: MenuProps) {
 
   useEffect(()=>{
     (window as any).refresh = ()=>{
-      console.log("JR NOTE: i am refreshing, current screen is", currentScreen);
       handleLoading(currentScreen);
     }
 },[currentScreen, handleLoading])

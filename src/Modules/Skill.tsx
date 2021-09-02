@@ -150,7 +150,7 @@ export class NovumMirror extends CustomSkill{
     type = "NovumMirror";
     unlocked: boolean = true;
     constructor() {
-        super("NOVUM MIRROR",9,(window as any).chaos? "An ornate but tarnished silver mirror, with a 9 carved onto the back. It reflects everyting but faces.  If you shatter the mirror you can never be photographed again nor can anyone who photographs you. No image of you or those you affect can be created past a certain skillpoint, as well. The shattering does not last long.":"An ornate but tarnished silver mirror, with a 9 carved onto the back. If you take a picture of it it will permanently crack and all effects from it will be dispelled. Mundane means will no longer prevent anyone previously effected by it from being photographed.");
+        super("NOVUM MIRROR",9,(window as any).chaos? "An ornate but tarnished silver mirror, with a 9 carved onto the back. It reflects everyting but faces.  If you shatter the mirror you can never be photographed again nor can anyone who photographs you. No image of you or those you affect can be created past a certain skillpoint, as well. The shattering does not last long.":"An ornate but tarnished silver mirror, with a 9 carved onto the back. If you take a picture of it it will permanently crack and all effects from it will be dispelled. Mundane means will no longer prevent anyone previously effected by it from being photographed and in fact cameras will go out of their way to document them.");
     }
 }
 
@@ -158,7 +158,7 @@ export class Octome extends CustomSkill{
     type = "Octome";
     unlocked: boolean = true;
     constructor() {
-        super("OCTOME",8,(window as any).chaos? "A crumbling leather book with seemingly latin script, with messily torn pages.  There is an 8 embossed onto the back. If you tear one its pages everyone nearby permanently can not be written about and any writing about them is erased. Additionally, everyone but the tearer dies instantly.":"A crumbling leather book with seemingly latin script, with messily torn pages.  There is an 8 embossed onto the back.  If you repair any of its pages, or add new pages to it all knowledge erased by it is permanently restored and can not be erased again by mundane means.");
+        super("OCTOME",8,(window as any).chaos? "A crumbling leather book with seemingly latin script, with messily torn pages.  There is an 8 embossed onto the back. If you tear one its pages everyone nearby permanently can not be written about and any writing about them is erased. Additionally, everyone but the tearer dies instantly.":"A crumbling leather book with seemingly latin script, with messily torn pages.  There is an 8 embossed onto the back.  If you repair any of its pages, or add new pages to it all knowledge erased by it is permanently restored and can not be erased again by mundane means. People will find themselves drawn unnaturally to this restored information and it will be very easy to find.");
     }
 }
 
@@ -166,18 +166,57 @@ export class SeptemCoin extends CustomSkill{
     type = "SeptemCoin";
     unlocked: boolean = true;
     constructor() {
-        super("SEPTEM COIN",7,(window as any).chaos? "An old bronze coin. There is a theater mask on one side, and a 7 on the other. Anyone who possesses it physicaly will go unremarked. They will be perfectly expected and normal wherever they are.":"An old bronze coin. There is a theater mask on one side, and a 7 on the other.  If you render this unrecognizable as a coin (such as melting it down) all previous owners of the coin will be able to retroactively be remarked on.");
+        super("SEPTEM COIN",7,(window as any).chaos? "An old bronze coin. There is a theater mask on one side, and a 7 on the other. Anyone who possesses it physicaly will go unremarked. They will be perfectly expected and normal wherever they are.":"An old bronze coin. There is a theater mask on one side, and a 7 on the other.  If you render this unrecognizable as a coin (such as melting it down) all previous owners of the coin will be able to retroactively be remarked on. In the present and future, they will stand out horribly in crowds.");
     }
 }
 
-/*export class Octome extends CustomSkill{
-    type = "Octome";
+export class Sextant extends CustomSkill{
+    type = "Sextant";
     unlocked: boolean = true;
     constructor() {
-        super("OCTOME",8,(window as any).chaos? "":"");
+        super("SEXTANT",6,(window as any).chaos? "A highly polished brass sextant. There is a 6 carved onto the main knob.  When activated via twisting the main knob, anyone possessing the sextant is temporarily unable to be located by any means, even observation. Anyone within range besides the activator is instantly killed.":"A highly polished brass sextant. There is a 6 carved onto the main knob. If you unscrew the knob, anything previously undectable (by *any* means) is now somehow more real than anything else. More visible, louder, with a stronger scent/taste, etc.");
     }
 }
-*/
+
+export class CinqueCloak extends CustomSkill{
+    type = "CinqueCloak";
+    unlocked: boolean = true;
+    constructor() {
+        super("CINQUE CLOAK",5,(window as any).chaos? "A simple matte black cloak with a 5 embroidered on the back in shiny black thread. Anyone who wears it finds themeselves permanently considered to be a stranger to their friends/family/enemies who forget they ever existed. Any connections they make can not move past ACQUAINTANCE without being reset. ":"A simple matte black cloak with a 5 embroidered on the back in shiny black thread. If you dab the blood of someone who once knew you well onto it all bonds obscured by it are restored and improved. Mere casual friends now know and think about their target as much as someone they grew up with (for good or bad).");
+    }
+}
+
+export class QuatroBlade extends CustomSkill{
+    type = "QuatroBlade";
+    unlocked: boolean = true;
+    constructor() {
+        super("QUATTOR BLADE",4,(window as any).chaos? "A dull straight razor stained with blood, a number 4 is etched onto the side of the blade. Stabbing it into flesh causes a wound that no one can acknowledge but the wielder. Even the smallest cuts can result in bleeding out/death by infection as a result. ":"A dull straight razor stained with blood, a number 4 is etched onto the side of the blade. If you clean and sharpen it all wounds on any prior victims of it are now incredibly visible and it is immediately obvious to all who see them how to best treat them.");
+    }
+}
+
+export class TresBottle extends CustomSkill{
+    type = "TresBottle";
+    unlocked: boolean = true;
+    constructor() {
+        super("TRES BOTTLE",3,(window as any).chaos? "A simple glass milk bottle with a 3 emblazened on it. If you put a scrap of paper with something written on it, everyone will forget that concept or fact.":"A simple glass milk bottle with a 3 emblazened on it. If you fill the bottle with liquid to disolve the paper/ink inside, all information inside will instantly fill the minds of everyone in the world.");
+    }
+}
+
+export class DuoMask extends CustomSkill{
+    type = "DuoMask";
+    unlocked: boolean = true;
+    constructor() {
+        super("DUO MASK",2,(window as any).chaos? "A faceless theater mask with a 2 on the inside of the forehead. If you wear the mask you can make a copy of any person you see that is a SHAMBLING HORROR WITH THEIR FACE. The HORROR will stalk them eternally until they can catch them, kill them, and replace them.":"A faceless theater mask with a 2 on the inside of the forehead. You cannot stop the SHAMBLING HORROR WITH NO FACE that stalks you. Even if you may be able to disrupt the DUO MASK in the real Zampanio, you can not here. It is your own fault.");
+    }
+}
+
+export class UnusAutographBook extends CustomSkill{
+    type = "UnusAutographBook";
+    unlocked: boolean = true;
+    constructor() {
+        super("UNUS AUTOGRAPH BOOK",1,(window as any).chaos? "A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Your signature is already in it. You do not remember your name. No one does. You are only PLAYER.":"A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Even destroying the book will not restore your name to you, PLAYER. You are not real. None of this is. But you're the one insisting we all pretend its a game. This is your fault.");
+    }
+}
 
 let numCoreSkills = 0;
 
