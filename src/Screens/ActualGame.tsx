@@ -398,7 +398,9 @@ const [message, setMessage] = useState("");
     for(let item of room.neighbors){
       let parts = item.split(" ");
       for(let part of parts){
-        if(input.toUpperCase().includes(part.toUpperCase())){
+        console.log("JR NOTE: part is ", part, "and does input include it?", input)
+        if(part.length > 2 && input.toUpperCase().includes(part.toUpperCase())){
+          console.log("JR NOTE: part is ", part, "and does input apparnetly does include it...", input)
           const result = props.changeRoom(item, "???");
           if(result){
             setError(result);
