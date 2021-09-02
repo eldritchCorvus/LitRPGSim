@@ -1,6 +1,6 @@
 import { Player } from "../Modules/Player";
 import {StatusBlock } from "./Styles";
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import styled from "@emotion/styled";
 interface StatusProps {
     player: Player;
@@ -49,13 +49,6 @@ export const CompanionsScreen = (props: StatusProps) => {
 `
 
     const observer = props.player.observer;
-
-    const [currentName, setCurrentName] = useState(observer.cityName);
-
-    const setCityName = (ev: React.ChangeEvent<HTMLInputElement>) => {
-        observer.cityName = ev.target.value;
-        setCurrentName(ev.target.value);
-    }
 
     return (
         <StatusBlock>

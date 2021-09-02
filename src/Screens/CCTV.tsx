@@ -57,14 +57,8 @@ export const StyledInput = styled(Input)`
     margin-left: 60px;
 `
 
-
-
-export const CCTVScreen = (props: StatusProps) => {
-    const { player, ghosts } = props
-
     //real ghost hours
     const startGhostCCTV = async (canvas: HTMLCanvasElement) => {
-        if (ghosts) {
             const bg1 = await addImageProcess(cctv) as HTMLImageElement;
             const bg2 = await addImageProcess(cctv2) as HTMLImageElement;
             //TODO pick a different monster out depending on your themes
@@ -73,8 +67,13 @@ export const CCTVScreen = (props: StatusProps) => {
             const mon1 = await addImageProcess(monster1) as HTMLImageElement;
             const mon2 = await addImageProcess(monster2) as HTMLImageElement;
             cctv_ghost_loop(canvas, bg1, bg2, mon1, mon2);
-        }
+    
     }
+
+export const CCTVScreen = (props: StatusProps) => {
+    const { player, ghosts } = props
+
+
     //the inherent irony of using react to nuke the dom
     // from orbit and then switch to vanilla javascript is not lost on me.
     //consider this performance art
@@ -110,7 +109,7 @@ export const CCTVScreen = (props: StatusProps) => {
             }
         }
 
-    }, []);
+    }, [ghosts, player, startGhostCCTV]);
 
     return (
 

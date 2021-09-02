@@ -1,7 +1,6 @@
 import { Player } from "../Modules/Player";
-import { StatusHeader, StatusRow, StatusBlock, StatusContent } from "./Styles";
-import { Input } from "reakit/Input";
-import React, { Fragment, useEffect, useState } from "react";
+import {StatusBlock } from "./Styles";
+import React, { Fragment } from "react";
 import styled from "@emotion/styled";
 import { God } from "../Modules/God";
 import { titleCase } from "../Utils/StringUtils";
