@@ -2,11 +2,10 @@ import { Player } from "../Modules/Player";
 import { StatusHeader, StatusRow, StatusBlock, StatusContent, MENU_OPACITY, setOpacity, BGCOLOR, FONTCOLOR, FONTSIZE, BadlyHiddenStatusRow, setFontSize, setFontColor, setBGColor } from "./Styles";
 import { Checkbox } from "reakit/Checkbox";
 import React, { useEffect, useState } from "react";
-import { LoadingScreen } from "./Loading";
 import { OPTIONS } from "../Utils/constants";
 import { BG_VOLUME, playSecret, setVolumeMusic } from "..";
 import { all_themes } from "../Modules/Theme";
-import { MUSIC, SONG } from "../Modules/ThemeStorage";
+import {SONG } from "../Modules/ThemeStorage";
 interface StatusProps {
     player: Player;
     loadScreen: any; //function
@@ -33,17 +32,17 @@ export const OptionsScreen = (props: StatusProps) => {
     const toggle = () => {
         setChecked(!checked);
     }
+    const theme_keys = props.player.theme_keys;
+    const rand = props.player.rand;
 
     useEffect(()=>{
         //pick a theme at random and IF it has a secret song, play it here.
-        const theme_keys = props.player.theme_keys;
-        const rand = props.player.rand;
         const chosen_theme = all_themes[rand.pickFrom(theme_keys)];
         const music = chosen_theme.pickPossibilityFor(rand,SONG);
         if(music && !music.includes("NOT FOUND")){
             playSecret(music);
         }
-    },[])
+    },[theme_keys, rand])
 
 
     const submit = () => {

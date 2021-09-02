@@ -6,7 +6,7 @@ import { all_themes, Theme } from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { SkillGenAlg } from "./SkillGenerationAlgorithms/SkillGenAlg";
 import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
-import { all_stats, FREESPIRITED, LOYAL, Stat, StatMap } from "./Stat";
+import { all_stats, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
 import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, TWISTING } from "./ThemeStorage";
@@ -14,7 +14,6 @@ import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
 import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
-import { flushSync } from "react-dom";
 
 export interface BuildingMetaMap {
     [name: string]: BuildingMetaData
@@ -192,7 +191,6 @@ export class Player {
         } else {
             const modifier_theme = this.rand.pickFrom(themes);
             return titleCase(modifier_theme.pickPossibilityFor(this.rand, ADJ) + " " + object_theme.pickPossibilityFor(this.rand, OBJECT));
-
         }
 
 
@@ -291,7 +289,7 @@ export class Player {
             } else {
                 (window as any).recordAction(HAX_FAIL, 1);
             }
-        } else if (found.type == "CoreSkill") {
+        } else if (found.type === "CoreSkill") {
             console.log("its a core skill");
             this.observer.upgradeMenu(found.name);
         }

@@ -1,6 +1,6 @@
 import {Player} from "../Modules/Player";
 import Cytoscape from 'cytoscape';
-import {StatusRow, StatusBlock,TreeContent} from "./Styles";
+import {StatusRow, StatusBlock} from "./Styles";
 import {useState, useEffect} from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
 import { SKILLGRAPH} from "../Utils/constants";

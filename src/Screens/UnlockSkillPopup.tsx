@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect } from "react";
 import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
 import { Player } from "../Modules/Player";
 import { Skill } from "../Modules/Skill";
@@ -81,7 +80,7 @@ export const  UnlockSkillPopup = (props: UnlockProps)=> {
             }else{
                 dialog.setVisible(false);
             }  
-    },[player, skill])
+    },[player, skill,dialog])
 
     useEffect(()=>{
         const root = document.querySelector("#ThisIsNotAGame")

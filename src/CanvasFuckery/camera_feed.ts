@@ -1,4 +1,3 @@
-import { start } from "node:repl";
 import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
 
 
@@ -153,11 +152,6 @@ export  class ShadowSpawnPoint{
 export class GhostOrbSpawnPoint extends ShadowSpawnPoint{
     type = "Orb";
 
-    constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
-
-        super(images, start_pos_x, start_pos_y,speed, scale, end_pos_x, end_pos_y );
-    }
-
     drawMonster=(context:CanvasRenderingContext2D)=>{
         const direction = this.direction();
 
@@ -184,11 +178,6 @@ export class GhostOrbSpawnPoint extends ShadowSpawnPoint{
 //watt does not MOVE so much as kind of just. phase into existance. jutter a bit. then leave.
 export class WattSpawnPoint extends ShadowSpawnPoint{
     type = "NotAMinotaur";
-
-    constructor(images: HTMLImageElement[], start_pos_x: number, start_pos_y: number, speed: number, scale: number, end_pos_x: number, end_pos_y: number){
-
-        super(images, start_pos_x, start_pos_y,speed, scale, end_pos_x, end_pos_y );
-    }
 
     drawMonster=(context:CanvasRenderingContext2D)=>{
         const frameCount = this.shadow_current_x-this.start_pos_x;

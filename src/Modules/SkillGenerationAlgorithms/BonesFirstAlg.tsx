@@ -5,7 +5,6 @@ import { Aspect } from "../Aspect"
 import { Interest } from "../Interest"
 import { all_classes, RPGClass } from "../RPGClass"
 import { CoreSkill, dangerousWasteHackingFunctions, Skill, SpecialSkill, StatSkill, wasteHackingFunctions, WasteSkill } from "../Skill"
-import { WASTE } from "../Stat"
 import { all_themes, Theme } from "../Theme"
 import { MENU, SUPERMOVE } from "../ThemeStorage"
 import { SkillGenAlg } from "./SkillGenAlg"
@@ -62,7 +61,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         }
 
         //try to do the "safe" hacking functions first, if at all possible
-        if(class_name == all_classes["waste"]){
+        if(class_name === all_classes["waste"]){
             if(rand.nextDouble()>0.5){
                 if(skills.length <30 ||rand.nextDouble()>0.2){
                     inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
@@ -91,7 +90,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
                     inBetween = new StatSkill(pickStat(parent),parent.tier+1);
                 }            }
         }
-        if(inBetween.type == "StatSkill" && rand.nextDouble()>0.5){
+        if(inBetween.type === "StatSkill" && rand.nextDouble()>0.5){
             //too many stats, halve them, plz
             parent.children.push(child); 
             child.parents.push(parent);

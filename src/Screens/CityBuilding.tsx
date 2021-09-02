@@ -1,7 +1,7 @@
 import { Player } from "../Modules/Player";
 import { StatusHeader, StatusRow, StatusBlock, StatusContent } from "./Styles";
 import { Input } from "reakit/Input";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import styled from "@emotion/styled";
 interface StatusProps {
     player: Player;
