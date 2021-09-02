@@ -2,7 +2,7 @@ import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
-import {useEffect, useState,Fragment, useRef} from 'react';
+import {useEffect, useState,Fragment} from 'react';
 import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
@@ -157,7 +157,7 @@ function GodTab(props: TabProps){
 }
 
 function TruthTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  const {tab} = props;
   return(
     <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={TRUTH} onClick={() =>
       {
@@ -172,18 +172,18 @@ function Menu(props: MenuProps) {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
   const [refresh, setRefresh] = useState(true);
-  const [menuHaxSetup, setMenuHaxSetup] = useState(false);
-
   const [nextScreen, setNextScreen] = useState(STATUS);
   const {player} = props;
   const observer = player.observer;
 
   const tab = useTabState();
-  
+
 
   useEffect(()=>{
-      fuckery();
+    fuckery();
   },[])
+
+ 
 
   //screen and tab should stay in sync plz
   useEffect(()=>{
@@ -199,10 +199,18 @@ function Menu(props: MenuProps) {
   },[currentScreen]);
 
   const handleLoading = (screen:string) =>{
+    console.log("JR NOTE: i am loading, screen to load is", screen, "current screen is", currentScreen, "next screen is", nextScreen)
     setRefresh(true);
     setNextScreen(screen);
     setCurrentScreen(LOADING);
   }
+
+  useEffect(()=>{
+    (window as any).refresh = ()=>{
+      console.log("JR NOTE: i am refreshing, current screen is", currentScreen);
+      handleLoading(currentScreen);
+    }
+},[currentScreen, handleLoading])
   /*
   The Layers:
 

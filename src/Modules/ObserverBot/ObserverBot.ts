@@ -278,6 +278,11 @@ export class ObserverBot{
             console.log("JR NOTE: you really like being yelled at i guess");
         }
 
+        (window as any).hackSpawnItemNamed = (name:string)=>{
+            this.player.inventory.push(name);
+            console.log("JR NOTE: both useful for creating true yet false screenshots and speedrunning certain things");
+        }
+
         (window as any).hackSpawnAMonster = ()=>{
             this.player.spawnAMonster();
             console.log("JR NOTE: haha wow that's kinda dumb");

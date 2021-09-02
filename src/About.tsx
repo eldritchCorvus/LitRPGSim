@@ -75,7 +75,6 @@ function NewspostDom(props: PostProps) {
   )
 }
 function About(props: AppProps) {
-  const [date, setDate] = useState<string>("1933-03-03");
   const newsposts = [
     new Newspost("08/31/2021","theres something calming about actually getting to see what the skills do, finally. fun fact: its nothing","shoutout to the late coleman researcher who definitely left me some money according to this scammer")
 

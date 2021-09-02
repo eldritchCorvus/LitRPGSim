@@ -1,11 +1,10 @@
 import wrong_answer from '.././images/room2.jpg';
 
 
-import { CameraFeed, ShadowSpawnPoint, WattSpawnPoint,GhostOrbSpawnPoint, AnimationFrame, GraffitiSpot } from "./camera_feed";
+import { CameraFeed, AnimationFrame, GraffitiSpot } from "./camera_feed";
 import { addImageProcess } from "../Utils/URLUtils";
 import { CCTV } from "./cctv_fuckery";
 import SeededRandom from '../Utils/SeededRandom';
-import { pickFrom } from '../Utils/NonSeededRandUtils';
 import { Secret } from './PasswordStorage';
 import { loadSecretImage, playSecret } from '..';
 

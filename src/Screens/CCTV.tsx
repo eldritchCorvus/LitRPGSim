@@ -1,4 +1,4 @@
-import React, { FormEvent, Fragment, useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { cctv_ghost_loop } from "../CanvasFuckery/ghosts";
 import cctv from '.././images/murderbasement.jpeg';
 import cctv2 from '.././images/murderbasement2.jpeg';
@@ -14,7 +14,6 @@ import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
 import { right_password, wrong_password } from "../CanvasFuckery/password_result";
 import styled from "@emotion/styled";
 import SeededRandom from "../Utils/SeededRandom";
-import { CameraFeed } from "../CanvasFuckery/camera_feed";
 import { CCTV } from "../CanvasFuckery/cctv_fuckery";
 interface StatusProps {
     player: Player;

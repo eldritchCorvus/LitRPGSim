@@ -42,7 +42,7 @@ export function domWordMeaningFuckery(){
         const children = root.querySelectorAll("*");
         for(let child of children){
             const subchildren = child.querySelectorAll("*");
-            if(subchildren.length == 0){
+            if(subchildren.length === 0){
                 child.textContent = gaslightWordMeanings(child.textContent, seed_multiplier);
             }
         }

@@ -19,7 +19,7 @@ export const OneCharAtATimeDiv = (props: RoomProps) => {
 
     useEffect(()=>{
         incrementIndex();
-    },[index]);
+    },[index,incrementIndex]);
 
     useEffect(()=>{
         setIndex(0);

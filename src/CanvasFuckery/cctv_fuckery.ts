@@ -36,7 +36,7 @@ export class CCTV {
         const frame = this.cameraFeed.current_frame;
         const outputCanvas = this.outputCanvas;
         let hacked_frame = frame;
-        if (frame % 30 === 0 || frame % 32 === 0 || frame % 55 == 0 || frame % 111 == 0 || frame % 113 == 0 || frame % 115 == 0) {
+        if (frame % 30 === 0 || frame % 32 === 0 || frame % 55 === 0 || frame % 111 === 0 || frame % 113 === 0 || frame % 115 === 0) {
             hacked_frame = frame - getRandomNumberBetween(1, 30);
         }
         const buffer = document.createElement("canvas");

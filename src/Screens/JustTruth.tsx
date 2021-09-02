@@ -103,7 +103,8 @@ export const JustTruth = (props: StatusProps) => {
 
     const rememberThis = () => {
         if (question) {
-            memories.push(question?.comment())
+             const memories_copies = [...memories, question?.comment()];
+             setMemories(memories_copies);
         }
     }
 
