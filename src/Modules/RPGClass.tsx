@@ -64,18 +64,18 @@ export  class RPGClass{
 
 export function initClasses(seeded_random: SeededRandom){
     //TODO associate each with array of MENU NAMES to be associated with. 
-    new RPGClass("seer", ["Seer", "Watcher", "Guide", "Sherpa", "Eye","Observer","Archivist","Pupil","Detective"],1.3, seeded_random, [all_themes.knowing, all_themes[SPYING], all_themes[GUIDING]]);
-    new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale","Ruler","Martyr"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
-    new RPGClass("bard", ["Bard", "Singer", "Skald", "Teller", "Raconteur"],-2.0, seeded_random, [all_themes.clowns, all_themes.language,all_themes.music]);
-    new RPGClass("knight", ["Angel","Guardian","Knight", "Warrior", "Protector", "Defender", "Swordsman","Soldier","Paladin"],2.0, seeded_random, [all_themes.defense, all_themes.questing]);
-    new RPGClass("page", ["Minion","Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],3.0, seeded_random, [all_themes[QUESTING],all_themes[SERVICE]]);
-    new RPGClass("mage", ["Mage","Wizard","Sorcerer", "Scholar", "Magus", "Enchanter","Warlock"],1.5, seeded_random, [all_themes[MAGIC],all_themes[KNOWING]]);
-    new RPGClass("heir", ["Heir","Succesor","Inheiritor", "Scion", "Descendant"],2.0, seeded_random, [all_themes[FAMILY],all_themes[ROYALTY]]);
-    new RPGClass("maid", ["Maid","Butler","Servant", "Shield-Maiden", "Valkyrie","Einherjar","Saint"],2.0, seeded_random, [all_themes[SERVICE],all_themes[DEFENSE]]);
-    new RPGClass("rogue", ["Rogue","Scoundrel","Villain", "Rascal", "Rat","Wretch","Reprobate"],2.0, seeded_random, [all_themes[STEALING],all_themes[HUNTING]]);
-    new RPGClass("thief", ["Thief","Robber","Burglar", "Mugger", "Pick-Pocket","Cat"],2.0, seeded_random, [all_themes[STEALING],all_themes[DARKNESS]]);
-    new RPGClass("sylph", ["Sylph","Fairy","Mermaid", "Sprite", "Pixie","Siren","Harpy"],2.0, seeded_random, [all_themes[MAGIC],all_themes[FREEDOM]]);
-    new RPGClass("witch", ["Witch","Hag","Crone", "Beldam","Apothecary"],2.0, seeded_random, [all_themes[MAGIC],all_themes[PLANTS]]);
+    new RPGClass("seer", ["Seer", "Watcher", "Guide", "Sherpa", "Eye","Observer","Archivist","Pupil","Detective","Owl","Eagle","Hawk"],1.3, seeded_random, [all_themes.knowing, all_themes[SPYING], all_themes[GUIDING]]);
+    new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale","Ruler","Martyr","Lion","Fox"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
+    new RPGClass("bard", ["Bard", "Singer", "Skald", "Teller", "Raconteur","Canary","Chinchilla"],-2.0, seeded_random, [all_themes.clowns, all_themes.language,all_themes.music]);
+    new RPGClass("knight", ["Armadillo","Pangolin","Angel","Guardian","Knight", "Warrior", "Protector", "Defender", "Swordsman","Soldier","Paladin"],2.0, seeded_random, [all_themes.defense, all_themes.questing]);
+    new RPGClass("page", ["Kitten","Puppy","Minion","Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],3.0, seeded_random, [all_themes[QUESTING],all_themes[SERVICE]]);
+    new RPGClass("mage", ["Raven","Mage","Wizard","Sorcerer", "Scholar", "Magus", "Enchanter","Warlock"],1.5, seeded_random, [all_themes[MAGIC],all_themes[KNOWING]]);
+    new RPGClass("heir", ["Parrot","Heir","Succesor","Inheiritor", "Scion", "Descendant"],2.0, seeded_random, [all_themes[FAMILY],all_themes[ROYALTY]]);
+    new RPGClass("maid", ["Dog","Canine","Maid","Butler","Servant", "Shield-Maiden", "Valkyrie","Einherjar","Saint"],2.0, seeded_random, [all_themes[SERVICE],all_themes[DEFENSE]]);
+    new RPGClass("rogue", ["Ferret","Rogue","Scoundrel","Villain", "Rascal", "Rat","Wretch","Reprobate"],2.0, seeded_random, [all_themes[STEALING],all_themes[HUNTING]]);
+    new RPGClass("thief", ["Raccoon","Thief","Robber","Burglar", "Mugger", "Pick-Pocket","Cat"],2.0, seeded_random, [all_themes[STEALING],all_themes[DARKNESS]]);
+    new RPGClass("sylph", ["Firefly","Sylph","Fairy","Mermaid", "Sprite", "Pixie","Siren","Harpy"],2.0, seeded_random, [all_themes[MAGIC],all_themes[FREEDOM]]);
+    new RPGClass("witch", ["Vulture","Witch","Hag","Crone", "Beldam","Apothecary"],2.0, seeded_random, [all_themes[MAGIC],all_themes[PLANTS]]);
     new RPGClass("null", ["Null"],0.0, seeded_random, [all_themes[WASTE], all_themes[NULL]]);
 
     new RPGClass("waste", ["Waste"],0.0, seeded_random, [all_themes[WASTE], all_themes[APOCALYPSE]]);

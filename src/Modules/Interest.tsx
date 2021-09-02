@@ -79,7 +79,7 @@ export function initInterests(seeded_random: SeededRandom){
     new Interest("soul", ["Soul", "Gem", "Heart","Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(2)]),[all_themes[SOUL]]);
     new Interest("romance", ["Lover", "Partner", "Paramour","Sweetheart"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(2)]),[all_themes[LOVE]]);
     new Interest("electrician", ["Electrician", "Power Plant", "Engineer","Spark"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(2)]),[all_themes[ZAP]]);
-    new Interest("chooser", ["Chooser", "Decision-Maker", "Administrator"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(2)]),[all_themes[CHOICES]]);
+    new Interest("chooser", ["Taste-Maker", "Decision-Maker", "Administrator"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(2)]),[all_themes[CHOICES]]);
     new Interest("decay", ["Zombie", "Corpse", "Ghoul","Lich","Undertaker","Mortician"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(2)]),[all_themes[DECAY]]);
     new Interest("comedy", ["Clown", "Mime", "Ringmaster","Acrobat","Jester","Harlequin"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(2)]),[all_themes[CLOWNS]]);
     new Interest("hunting", ["Hunter", "Nimrod", "Stalker","Hunstman","Predator"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(1), Stat.RAGE(1)]),[all_themes[HUNTING]]);
