@@ -2,7 +2,7 @@ import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
-import {useEffect, useState,Fragment} from 'react';
+import {useEffect, useState,Fragment, useMemo, useCallback} from 'react';
 import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
@@ -198,12 +198,12 @@ function Menu(props: MenuProps) {
     }
   },[currentScreen]);
 
-  const handleLoading = (screen:string) =>{
+  const handleLoading = useCallback((screen:string) =>{
     console.log("JR NOTE: i am loading, screen to load is", screen, "current screen is", currentScreen, "next screen is", nextScreen)
     setRefresh(true);
     setNextScreen(screen);
     setCurrentScreen(LOADING);
-  }
+  },[setRefresh, setNextScreen, setCurrentScreen]);
 
   useEffect(()=>{
     (window as any).refresh = ()=>{
