@@ -4,8 +4,8 @@ import { ABOUT } from "./AppWrapper";
 import { all_aspects, all_aspects_except_null, initAspects } from "./Modules/Aspect";
 import { all_interests, all_interests_except_null, initInterests } from "./Modules/Interest";
 import { all_classes, all_classes_except_null, initClasses } from "./Modules/RPGClass";
-import { all_stats, initStats } from "./Modules/Stat";
-import { all_themes, initThemes } from "./Modules/Theme";
+import {  initStats } from "./Modules/Stat";
+import { initThemes } from "./Modules/Theme";
 import { LinkButton } from "./Screens/Styles";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
@@ -45,7 +45,7 @@ function Birthday(props: AppProps) {
     setInerest2(Object.keys(all_interests)[1]);
     processSeed(date);
 
-  }, [])
+  }, [date])
 
   const processSeed = (value: string) => {
     //date is formatted like 2021-07-20

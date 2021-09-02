@@ -41,11 +41,11 @@ function AppWrapper() {
     return (
       <App seed={seed} />
     )
-  } else if (mode == BIRTHDAY) {
+  } else if (mode === BIRTHDAY) {
     return (
       <Birthday setMode={setMode} />
     )
-  } else if (mode == ABOUT) {
+  } else if (mode === ABOUT) {
     return (
       <About setMode={setMode} />
     )

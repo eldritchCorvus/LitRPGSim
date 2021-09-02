@@ -17,7 +17,6 @@ import real_eye from './images/real_eye.png';
 import eye1 from './images/eye1.png';
 import eye2 from './images/eye2.png';
 
-import { updateTypeAssertion } from "typescript";
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
 import { CCTVScreen } from "./Screens/CCTV";
@@ -270,6 +269,7 @@ function App(props: AppProps) {
 * another is just skelejr sitting in her wheelchair
 * right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more
+*shrine to your god (if you've unlocked gods) can randomly show up in game mode. gives you one guaranteed artifact.
 * attic sim 2x combo, one lies, one truths (like that riddle, except one attic is game mode and one is truth mode)
 *zampanio (not the sim) is designed to spark Obsession in a target and convince them to attempt to enact or oppose the end of the world (the End can either cause the Unbinding of Chaos or the Binding of Madness).  if you unbind chaos then the page reloads and you are a player with every theme at once and then some.  if you bind maddness the page reloads and you are a custom spawned player with a coherent and human created backstory, skills, buildings, etc. regardless of which mode you can do a new ritual to Balance the Scales and return to regular mode. Which ritual you can attempt to do is decided by seed, and in order to Unbind Chaos you need to have 9 specific items spawn (from duskhollow) and attempt to use them in GAme Mode (they all have custome effects) 
 <li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>

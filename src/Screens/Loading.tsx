@@ -7,7 +7,7 @@ interface LoadingProps{
 }
 export const  LoadingScreen = (props: LoadingProps)=> {
     const {loadScreen, nextScreen, refresh} = props
-
+    console.log("JR NOTE: loading props are",props);
     useEffect(()=>{
         if(refresh && loadScreen && nextScreen){
         setTimeout(()=>{
