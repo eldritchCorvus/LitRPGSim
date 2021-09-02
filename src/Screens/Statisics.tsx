@@ -118,7 +118,7 @@ export const  StatisticsScreen = (props: StatusProps)=> {
             </StatusRow>
 
             {
-                props.player.class_name.chosen_name == "Waste"? (
+                props.player.class_name.chosen_name === "Waste"? (
                 <StatusRow>
                 <StatusHeader>Failed Hax Attempts:</StatusHeader>
                 <StatusContent>{observer.failedHaxAttempts}</StatusContent>

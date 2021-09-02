@@ -1,20 +1,14 @@
 import styled from "@emotion/styled";
 import { Fragment, useEffect, useState } from "react";
-import { ABOUT } from "../AppWrapper";
-import { all_aspects, initAspects } from "../Modules/Aspect";
-import { all_interests, initInterests } from "../Modules/Interest";
-import { BuildingMetaData, BuildingMetaMap, Companion, Player } from "../Modules/Player";
-import { all_classes, initClasses } from "../Modules/RPGClass";
-import { all_stats, initStats } from "../Modules/Stat";
-import { all_themes, initThemes } from "../Modules/Theme";
+import { BuildingMetaData, Companion, Player } from "../Modules/Player";
+import { all_themes } from "../Modules/Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
 import { MenuBox, MENU_OPACITY, BORDERRADIUSROUND, FONTCOLOR, BGCOLOR, FONTSIZE } from "./Styles";
-import Input, { Dialog, DialogDisclosure, useCompositeState, useDialogState } from 'reakit';
+import { Dialog, DialogDisclosure, useDialogState } from 'reakit';
 import { removeItemOnce } from "../Utils/ArrayUtils";
 import { getRandomNumberBetween, pickFrom } from "../Utils/NonSeededRandUtils";
 import { PHILOSOPHY } from "../Modules/ThemeStorage";
-import { title } from "node:process";
 import { Popup, PopupTitle, PopupContent } from "../Modules/ObserverBot/AchivementPopup";
 //the point of ThisIsAGame is to punish the player for forcing dear sweet precious Truth to lie like that and pretend to be a game
 //horror jail for you.
@@ -42,7 +36,7 @@ export const ActualGame = (props: StatusProps) => {
 
   const changeRoom = (room_key:string, direction:string)=>{
     console.log("JR NOTE: attempting to change room to", room_key);
-    if(player.companions.length ==0){
+    if(player.companions.length ===0){
       player.spawnNotAMinotaur();
     }
     if(player.buildingMetaData[room_key].unlocked){
@@ -296,7 +290,6 @@ const [message, setMessage] = useState("");
   }
 
   const checkInventoryItems = (input:string)=>{
-    let result = false;
     for(let item of props.player.inventory){
       let parts = item.split(" ");
       for(let part of parts){
@@ -317,7 +310,6 @@ const [message, setMessage] = useState("");
   }
 
   const checkSkill = (input: string)=>{
-    let result = false;
     for(let item of props.player.unlocked_skills_no_stats()){
       let parts = item.name.split(" ");
       for(let part of parts){
@@ -335,7 +327,6 @@ const [message, setMessage] = useState("");
   }
 
   const checkRoomItems = (input:string)=>{
-    let result = false;
     for(let item of room.items){
       let parts = item.split(" ");
       for(let part of parts){
@@ -357,7 +348,6 @@ const [message, setMessage] = useState("");
   }
 
   const checkCompanion = (input:string)=>{
-    let result = false;
     let useable = null;
     let person = null;
     for(let item of room.people){
@@ -405,7 +395,6 @@ const [message, setMessage] = useState("");
 
 
   const checkRoomName = (input:string)=>{
-    let result = false;
     for(let item of room.neighbors){
       let parts = item.split(" ");
       for(let part of parts){
