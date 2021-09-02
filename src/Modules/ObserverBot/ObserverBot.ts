@@ -23,7 +23,7 @@ eventually just flat out linking them to some of its source code, which itself i
 */
 import { Player } from "../Player";
 import { AchivementStorage } from "./AchivementStorage";
-import { WasteSkill } from "../Skill";
+import { CustomSkill, NovumMirror, WasteSkill } from "../Skill";
 import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { all_themes } from "../Theme";
@@ -283,6 +283,18 @@ export class ObserverBot{
             this.player.inventory.push(name);
             (window as any).refresh();
             console.log("JR NOTE: both useful for creating true yet false screenshots and speedrunning certain things");
+        }
+
+        (window as any).spawnSkillWithNameAndDescription = (name:string, desc: string)=>{
+            this.player.skills.push(new CustomSkill(name,13, desc));
+            (window as any).refresh();
+            console.log("JR NOTE: both useful for creating true yet false screenshots and speedrunning certain things");
+        }
+
+        (window as any).spawnNovumMirror = ()=>{
+            this.player.skills.push(new NovumMirror());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
         }
 
         (window as any).hackSpawnAMonster = ()=>{

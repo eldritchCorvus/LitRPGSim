@@ -1,7 +1,7 @@
 import SeededRandom from '../Utils/SeededRandom';
 import * as Stat from './Stat';
 import {Theme, all_themes} from "./Theme";
-import { ANGELS, APOCALYPSE, BURIED, DARKNESS, DEATH, ENDINGS, FAMILY, FIRE, FLESH, FREEDOM, HUNTING, KILLING, KNOWING, LIGHT, LONELY, MUSIC, NULL, OBFUSCATION, OCEAN, PLANTS, QUESTING, SOUL, SPACE, STEALING, TWISTING } from './ThemeStorage';
+import { ANGELS, APOCALYPSE, BURIED, DARKNESS, DEATH, ENDINGS, FAMILY, FIRE, FLESH, FREEDOM, HUNTING, KILLING, KNOWING, LIGHT, LONELY, MUSIC, NULL, OBFUSCATION, OCEAN, PLANTS, QUESTING, SPACE, STEALING, TWISTING } from './ThemeStorage';
 //TODO aspects also have hardcoded skills (with or without themes)
 //some skills are special purpose, for example, the ability to see/upgrade the status screen
 //or see/upgrade your allies (blood would especially be good at this)
