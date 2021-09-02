@@ -137,7 +137,6 @@ export class Player {
             this.metaDataForOneBuilding(building, themes, rand,false)
             this.buildings.push(building);
         }
-        console.log("JR NOTE: building meta data is ", this.buildingMetaData)
         //this is ONLY useful for the actual game which is purposefully stupid hard to find. :)
         this.positionNeighbors();
     }

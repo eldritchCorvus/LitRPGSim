@@ -144,16 +144,16 @@ export class ObserverBot{
                     if(!prevLeft){
                         prevLeft =0;
                     }
-                    if(key === "w" || key == "ArrowUp"){
+                    if(key === "w" || key === "ArrowUp"){
                         notbg.style.top = `${prevTop+10}px`;
                     }
-                    if(key === "s" || key == "ArrowDown"){
+                    if(key === "s" || key === "ArrowDown"){
                         notbg.style.top = `${prevTop-10}px`;
                     }
-                    if(key === "a" || key == "ArrowLeft"){
+                    if(key === "a" || key === "ArrowLeft"){
                         notbg.style.left = `${prevLeft+10}px`;
                     }
-                    if(key === "d" || key == "ArrowRight"){
+                    if(key === "d" || key === "ArrowRight"){
                         notbg.style.left = `${prevLeft-10}px`;
                     }
                 }
@@ -275,79 +275,95 @@ export class ObserverBot{
 
         (window as any).hackSpawnANotAMinotaur = ()=>{
             this.player.spawnNotAMinotaur();
+            (window as any).refresh();
             console.log("JR NOTE: you really like being yelled at i guess");
         }
 
         (window as any).hackSpawnItemNamed = (name:string)=>{
             this.player.inventory.push(name);
+            (window as any).refresh();
             console.log("JR NOTE: both useful for creating true yet false screenshots and speedrunning certain things");
         }
 
         (window as any).hackSpawnAMonster = ()=>{
             this.player.spawnAMonster();
+            (window as any).refresh();
             console.log("JR NOTE: haha wow that's kinda dumb");
         }
         (window as any).hackTimePlayedInSeconds = (value:number)=>{
             console.log("JR NOTE: okay???");
             this.timeStarted = value * 1000 - Date.now();
+            (window as any).refresh();
         }
         
         (window as any).hackSkillPointsGainedFromBattle = (value:number)=>{
             console.log("JR NOTE: lol your funeral");
             this.skillPointsGainedFromBattle = value;
+            (window as any).refresh();
         }
 
         (window as any).hackTimeCombatInSeconds = (value:number)=>{
             console.log("JR NOTE: lol your funeral");
             this.timeSpentInCombat = value * 1000;
+            (window as any).refresh();
         }
 
         (window as any).hackTimeCutscenesInSeconds = (value:number)=>{
             console.log("JR NOTE: lol your funeral");
             this.timeSpentInCutscenes = value * 1000;
+            (window as any).refresh();
         }
 
         (window as any).hackTimeCitybuildingInSeconds = (value:number)=>{
             console.log("JR NOTE: lol your funeral");
             this.timeSpentCityBuilding = value * 1000;
+            (window as any).refresh();
         }
 
         (window as any).hackCityMorale = (value:number)=>{
             console.log("JR NOTE: lol your funeral");
             this.cityMorale = value ;
+            (window as any).refresh();
         }
 
         (window as any).hackOptionsMenuLevel = (value:number)=>{
             console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
             this.optionsMenuLevel = value;
+            (window as any).refresh();
         }
 
         (window as any).hackStatisticsMenuLevel = (value:number)=>{
             console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
             this.statisticsMenuLevel = value;
+            (window as any).refresh();
         }
         (window as any).hackInventoryMenuLevel = (value:number)=>{
             console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
             this.inventoryMenuLevel = value;
+            (window as any).refresh();
         }
         (window as any).hackBackstoryMenuLevel = (value:number)=>{
             console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
             this.backstoryMenuLevel = value;
+            (window as any).refresh();
         }
 
         (window as any).hackGodsMenuLevel = (value:number)=>{
             console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
             this.godsMenuLevel = value;
+            (window as any).refresh();
         }
 
         (window as any).hackCityBuildingMenuLevel = (value:number)=>{
             console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
             this.cityBuildingMenuLevel = value;
+            (window as any).refresh();
         }
 
         (window as any).hackCompanionsMenuLevel = (value:number)=>{
             console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
             this.companionsMenuLevel = value;
+            (window as any).refresh();
         }
     }
 
