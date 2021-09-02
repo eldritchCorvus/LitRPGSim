@@ -23,7 +23,7 @@ eventually just flat out linking them to some of its source code, which itself i
 */
 import { Player } from "../Player";
 import { AchivementStorage } from "./AchivementStorage";
-import { CustomSkill, NovumMirror, WasteSkill } from "../Skill";
+import { CinqueCloak, CustomSkill, DuoMask, NovumMirror, Octome, QuatroBlade, SeptemCoin, Sextant, TresBottle, UnusAutographBook, WasteSkill } from "../Skill";
 import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { all_themes } from "../Theme";
@@ -293,6 +293,54 @@ export class ObserverBot{
 
         (window as any).spawnNovumMirror = ()=>{
             this.player.skills.push(new NovumMirror());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnOctome = ()=>{
+            this.player.skills.push(new Octome());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnSeptumCoin = ()=>{
+            this.player.skills.push(new SeptemCoin());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnSextant = ()=>{
+            this.player.skills.push(new Sextant());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnCinqueCloak = ()=>{
+            this.player.skills.push(new CinqueCloak());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnQuatroBlade = ()=>{
+            this.player.skills.push(new QuatroBlade());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnTresBottle = ()=>{
+            this.player.skills.push(new TresBottle());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnDuoMask = ()=>{
+            this.player.skills.push(new DuoMask());
+            (window as any).refresh();
+            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+        }
+
+        (window as any).spawnUnusAutographBook = ()=>{
+            this.player.skills.push(new UnusAutographBook());
             (window as any).refresh();
             console.log("JR NOTE:  oh are the gods not good enough for you or something???");
         }
