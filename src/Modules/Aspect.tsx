@@ -74,7 +74,7 @@ export  class Aspect{
 
 export function initAspects(seeded_random: SeededRandom){
 
-    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality","Mercy","Charity"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(3)]), [all_themes.healing, all_themes.plants]);
+    new Aspect("life", ["Life", "Growth", "Power", "Evolution", "Vitality","Mercy","Charity","Plants"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(3)]), [all_themes.healing, all_themes.plants]);
     new Aspect("doom", ["Doom", "Death", "Fate", "Destiny", "Inevitability","Perseverance"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(3)]), [all_themes.death, all_themes.web]);
     new Aspect("mind", ["Mind", "Choices", "Thought", "Decisions", "Alternates","Facets"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(3)]), [all_themes.choices, all_themes.zap]);
     new Aspect("heart", ["Heart", "Soul", "Identity", "Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(3)]), [all_themes.soul, all_themes.love]);
