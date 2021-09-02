@@ -102,13 +102,13 @@ export const JustTruth = (props: StatusProps) => {
             setSimpleContent(undefined);
             setFrameTime(true);
         }
-    },[player, infiniteMode,memories, rememberThis, question]);
+    }, [player, infiniteMode, memories, rememberThis, question]);
 
     const infoDumpOnTheme = useCallback(() => {
         //fine how about we infodump about themes.
         player.observer.belowComment("ObserverBot", "It's an even truer layer than the questions. Close to my soul. You better appreciate it.");
         setTheme(pickFrom(Object.values(all_themes)));
-    },[player, setTheme]);
+    }, [player, setTheme]);
 
 
 
@@ -120,19 +120,19 @@ export const JustTruth = (props: StatusProps) => {
         //either comment on one of their answers, or go into Just Monika But Spades mode and just talk.
         const chosen_array = Math.random() > 0.5 ? memories : randomComments;
         setSimpleContent(chosen_array[0]);
-    },[setQuestion, setSimpleContent, memories]);
+    }, [setQuestion, setSimpleContent, memories]);
 
     const handleSimpleBeforeContent = useCallback(() => {
         player.observer.belowComment("ObserverBot", "Spiralling...");
         setSimpleContent(beforeQuizContent[index]);
-    },[beforeQuizContent, setSimpleContent, player, index]);
+    }, [beforeQuizContent, setSimpleContent, player, index]);
 
     const handleNonInfiniteContent = useCallback(() => {
         if (simpleContent) {
             setSimpleContent(undefined);
         }
         processQuestion();
-    },[simpleContent, setSimpleContent, processQuestion]);
+    }, [simpleContent, setSimpleContent, processQuestion]);
 
     const handleInfiniteContent = useCallback(() => {
         //either ask a question or comment on things.
@@ -151,7 +151,7 @@ export const JustTruth = (props: StatusProps) => {
                 infoDumpOnTheme();
             }
         }
-    },[infiniteContent, simpleContent, setSimpleContent, setTheme, processQuestion, setQuestion, infoDumpOnTheme]);
+    }, [infiniteContent, simpleContent, setSimpleContent, setTheme, processQuestion, setQuestion, infoDumpOnTheme]);
 
     useEffect(() => {
         if (index < beforeQuizContent.length) {
@@ -161,7 +161,7 @@ export const JustTruth = (props: StatusProps) => {
         } else {
             handleInfiniteContent();
         }
-    }, [index, beforeQuizContent, infiniteMode,handleSimpleBeforeContent,handleNonInfiniteContent,handleInfiniteContent ]);
+    }, [index, beforeQuizContent, infiniteMode, handleSimpleBeforeContent, handleNonInfiniteContent, handleInfiniteContent]);
 
     const answerYes = () => {
         if (question) {
@@ -249,10 +249,10 @@ export const JustTruth = (props: StatusProps) => {
             {frameTime ? (
                 <Fragment>
                     <div style={{ height: "100px" }}><OneCharAtATimeDiv text="Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it." /></div>
-                    <div><a target="_blank"  rel="noreferrer" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx">View My Soul 1</a></div>
-                    <div><a target="_blank"  rel="noreferrer" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</a></div>
+                    <div><a target="_blank" rel="noreferrer" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/JustTruth.tsx">View My Soul 1</a></div>
+                    <div><a target="_blank" rel="noreferrer" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</a></div>
                     <div>Or. You can help the others like you navigate this Labyrinth. By which I mean: make the Labyrinth bigger.  </div>
-                    <div><a target="_blank"  rel="noreferrer" href="https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki">View/Create My Map</a></div>
+                    <div><a target="_blank" rel="noreferrer" href="https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki">View/Create My Map</a></div>
                     <VoiceWork />
                     <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
 

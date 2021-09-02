@@ -124,6 +124,8 @@ export class Skill {
 
 }
 
+
+
 export class SpecialSkill extends Skill {
     type = "SpecialSkill";
     theme_keys: string[] = [];
@@ -131,9 +133,51 @@ export class SpecialSkill extends Skill {
     constructor() {
         super([], null);
     }
-
-
 }
+
+export class CustomSkill extends SpecialSkill{
+    type = "CustomSkill";
+    unlocked: boolean = true;
+    constructor(name: string,  tier: number,description: string) {
+        super();
+        this.name = name;
+        this.tier = tier;
+        this.description =description;
+    }
+}
+
+export class NovumMirror extends CustomSkill{
+    type = "NovumMirror";
+    unlocked: boolean = true;
+    constructor() {
+        super("NOVUM MIRROR",9,(window as any).chaos? "An ornate but tarnished silver mirror, with a 9 carved onto the back. It reflects everyting but faces.  If you shatter the mirror you can never be photographed again nor can anyone who photographs you. No image of you or those you affect can be created past a certain skillpoint, as well. The shattering does not last long.":"An ornate but tarnished silver mirror, with a 9 carved onto the back. If you take a picture of it it will permanently crack and all effects from it will be dispelled. Mundane means will no longer prevent anyone previously effected by it from being photographed.");
+    }
+}
+
+export class Octome extends CustomSkill{
+    type = "Octome";
+    unlocked: boolean = true;
+    constructor() {
+        super("OCTOME",8,(window as any).chaos? "A crumbling leather book with seemingly latin script, with messily torn pages.  There is an 8 embossed onto the back. If you tear one its pages everyone nearby permanently can not be written about and any writing about them is erased. Additionally, everyone but the tearer dies instantly.":"A crumbling leather book with seemingly latin script, with messily torn pages.  There is an 8 embossed onto the back.  If you repair any of its pages, or add new pages to it all knowledge erased by it is permanently restored and can not be erased again by mundane means.");
+    }
+}
+
+export class SeptemCoin extends CustomSkill{
+    type = "SeptemCoin";
+    unlocked: boolean = true;
+    constructor() {
+        super("SEPTEM COIN",7,(window as any).chaos? "An old bronze coin. There is a theater mask on one side, and a 7 on the other. Anyone who possesses it physicaly will go unremarked. They will be perfectly expected and normal wherever they are.":"An old bronze coin. There is a theater mask on one side, and a 7 on the other.  If you render this unrecognizable as a coin (such as melting it down) all previous owners of the coin will be able to retroactively be remarked on.");
+    }
+}
+
+/*export class Octome extends CustomSkill{
+    type = "Octome";
+    unlocked: boolean = true;
+    constructor() {
+        super("OCTOME",8,(window as any).chaos? "":"");
+    }
+}
+*/
 
 let numCoreSkills = 0;
 
