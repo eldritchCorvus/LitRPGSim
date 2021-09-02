@@ -206,6 +206,12 @@ function App(props: AppProps) {
       window.addEventListener('click', click);
       window.addEventListener('click', clickEffect);
       const rand = new SeededRandom(seed);  
+      //which goal are you forced to?
+      if(rand.nextDouble()>0.5){
+        (window as any).chaos = true;
+      }else{
+        (window as any).chaos = false;
+      }
       //order matters, themes are needed for aspects, etc;
       initStats();
       initThemes();
@@ -265,7 +271,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        * in ActualGame mode list out all your skills and if you try to do a skill it'll print out an insane lil description of what it does
+        *window.chaos exists
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
