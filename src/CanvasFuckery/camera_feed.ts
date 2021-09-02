@@ -185,6 +185,7 @@ export class WattSpawnPoint extends ShadowSpawnPoint{
         if(frameCount > this.speed){
             this.despawn();
         }
+        this.shadow_current_x++;
         
         context.drawImage(monster, this.start_pos_x,this.start_pos_y, monster.width*this.scale, monster.height*this.scale);
 

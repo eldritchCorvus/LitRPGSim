@@ -1,4 +1,4 @@
-import React, { FormEvent, Fragment, useEffect, useState } from "react";
+import React, {useCallback, useEffect, useState } from "react";
 
 
 import { Player } from "../Modules/Player";
@@ -71,12 +71,23 @@ export const CreditRight = styled.div`
 
 
 export const CreditsScreen = (props: StatusProps) => {
-    const { player } = props
-
     /*
     want to pass it a list of CreditLines and CreditHeaders and have it scroll the entire upper div at once.
     */
     const [showSecrets, setShowSecrets] = useState([Math.random() > 0.5]);
+
+    const gaslight = useCallback(() => {
+        const arr = [];
+        const amount = getRandomNumberBetween(0,20);
+        for(let i = 0; i<amount; i++){
+            arr.push(Math.random()>0.5)
+        }
+        setShowSecrets(arr);
+        setTimeout(() => {
+            window.requestAnimationFrame(() => { gaslight() })
+        }, 5000);
+    },[]);
+    
     useEffect(() => {
         gaslight();
         const root = document.querySelector("#ThisIsNotAGame")
@@ -89,7 +100,7 @@ export const CreditsScreen = (props: StatusProps) => {
              (root2 as HTMLElement).style.filter = "blur(0px)";
             }
         }
-    }, [])
+    }, [gaslight])
 
     const getLineSecret = (i: number)=>{
         if(i<showSecrets.length){
@@ -99,17 +110,7 @@ export const CreditsScreen = (props: StatusProps) => {
         }
     }
 
-    const gaslight = () => {
-        const arr = [];
-        const amount = getRandomNumberBetween(0,20);
-        for(let i = 0; i<amount; i++){
-            arr.push(Math.random()>0.5)
-        }
-        setShowSecrets(arr);
-        setTimeout(() => {
-            window.requestAnimationFrame(() => { gaslight() })
-        }, 5000);
-    }
+
 
     return (
 

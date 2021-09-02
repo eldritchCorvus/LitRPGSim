@@ -4,7 +4,7 @@ import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
 import {Player, randomPlayer} from "./Modules/Player";
 import {initInterests } from "./Modules/Interest";
-import {useEffect, useState,Fragment} from 'react';
+import {useEffect, useState,Fragment, useCallback} from 'react';
 import { initStats } from "./Modules/Stat";
 import Menu from "./Menu";
 import {JustTruth} from "./Screens/JustTruth";
@@ -91,20 +91,20 @@ function App(props: AppProps) {
     }
   },[])
 
-  function fuckupstuffforspiral(){
+  const fuckupstuffforspiral = useCallback(()=>{
     if(megaGasLight){
       domWordMeaningFuckery();
       fuckShitUpButOnlyALittle();
       setTimeout(()=>{
           window.requestAnimationFrame(()=>{fuckupstuffforspiral()})}, 3000)
       };
-  }
+  },[megaGasLight]);
 
   useEffect(()=>{
     fuckupstuffforspiral();
-  }, [megaGasLight])
+  }, [megaGasLight,fuckupstuffforspiral])
 
-  function detectDivStatus(id: string) {
+  const detectDivStatus = useCallback((id: string)=> {
     const targetNode = document.getElementById(id);
     if (targetNode) {
       const config = {
@@ -160,7 +160,7 @@ function App(props: AppProps) {
       const ob = new MutationObserver(callback);
       ob.observe(targetNode, config);
     }
-  }
+  }, [fuckupstuffforspiral]);
 
   const eyesAreTooRealButDoNotSpeakTheTruth=()=>{
     (window as any).real_eyes = true;
@@ -199,11 +199,13 @@ function App(props: AppProps) {
     }
   }
 
+  const seed = props.seed;
+
   useEffect(()=>{
     if(!player){
       window.addEventListener('click', click);
       window.addEventListener('click', clickEffect);
-      const rand = new SeededRandom(props.seed);  
+      const rand = new SeededRandom(seed);  
       //order matters, themes are needed for aspects, etc;
       initStats();
       initThemes();
@@ -229,7 +231,7 @@ function App(props: AppProps) {
         fuckUpBGButSoftly();
       }
   }
-  },[player])
+  },[player,seed,detectDivStatus])
 /*
   The Layers:
 
