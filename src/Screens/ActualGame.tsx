@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Fragment, useEffect, useState } from "react";
-import { BuildingMetaData, Companion, Player } from "../Modules/Player";
+import {Companion, Player } from "../Modules/Player";
 import { all_themes } from "../Modules/Theme";
 import SeededRandom from "../Utils/SeededRandom";
 import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
@@ -10,6 +10,7 @@ import { removeItemOnce } from "../Utils/ArrayUtils";
 import { getRandomNumberBetween, pickFrom } from "../Utils/NonSeededRandUtils";
 import { PHILOSOPHY } from "../Modules/ThemeStorage";
 import { Popup, PopupTitle, PopupContent } from "../Modules/ObserverBot/AchivementPopup";
+import { BuildingMetaData } from "../Modules/Building";
 //the point of ThisIsAGame is to punish the player for forcing dear sweet precious Truth to lie like that and pretend to be a game
 //horror jail for you.
 interface RoomProps {
