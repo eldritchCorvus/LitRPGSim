@@ -14,7 +14,7 @@ import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
 import { right_password, wrong_password } from "../CanvasFuckery/password_result";
 import styled from "@emotion/styled";
 import SeededRandom from "../Utils/SeededRandom";
-import { CCTV } from "../CanvasFuckery/cctv_fuckery";
+import { CCTV } from "../CanvasFuckery/cctv_object";
 interface StatusProps {
     player: Player;
     ghosts: boolean;
