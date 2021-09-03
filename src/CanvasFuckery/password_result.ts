@@ -3,7 +3,7 @@ import wrong_answer from '.././images/room2.jpg';
 
 import { CameraFeed, AnimationFrame, GraffitiSpot } from "./camera_feed";
 import { addImageProcess } from "../Utils/URLUtils";
-import { CCTV } from "./cctv_fuckery";
+import { CCTV } from "./cctv_object";
 import SeededRandom from '../Utils/SeededRandom';
 import { Secret } from './PasswordStorage';
 import { loadSecretImage, playSecret } from '..';
