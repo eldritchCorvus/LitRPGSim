@@ -73,6 +73,6 @@ each password has a cctv feed (or at least a list of animation frames loaders (s
 */
 export const passwords:PasswordMap = {
     "THE END IS NEVER": new Secret([new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"4-_Wattathon.mp3","The Child of Fate Deserved Better.")
-    ,"THE TRUTH IS LAYERED": new Secret([new SourceDurationPair("Secrets/the_truth_is_layered/1comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/2comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/3comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/4comp.jpg",2)],undefined,"Do not be overeager to believe there is only one path.")
+    ,"THE TRUTH IS LAYERED": new Secret([new SourceDurationPair("Secrets/the_truth_is_layered/1comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/2comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/3comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/4comp.jpg",2)],undefined,"Do not be overeager to believe there is only one path. Right now you are sitting at a computer watching a fake cctv screen that displays a fake television screen that pretends to be on the site you're already on. Except do you recognize the site you're seeing? Do you know the Truth?")
 
 };
