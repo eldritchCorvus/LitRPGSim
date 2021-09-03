@@ -322,7 +322,7 @@ export const CreditsScreen = (props: StatusProps) => {
                 <CreditHeader>And Most of All:</CreditHeader>
 
                 <CreditLine>
-                    <CreditLeft>You: </CreditLeft> <CreditRight><span>Thank you for Playing!         <a key={"link"} href={`?seed=${getRandomNumberBetween(0,33333333)}`}>Play Again</a>
+                    <CreditLeft>You: </CreditLeft> <CreditRight><span>Thank you for Playing!  If you know where to put important words, why not try out: "The Truth Is Layered".       <a key={"link"} href={`?seed=${getRandomNumberBetween(0,33333333)}`}>Play Again</a>
  With Random Character?</span></CreditRight>
                 </CreditLine>
 
