@@ -9,10 +9,11 @@ import notAMinotaur2 from '.././images/monsters/NotAMinotaur/1.png';
 import notAMinotaur3 from '.././images/monsters/NotAMinotaur/2.png';
 import notAMinotaur4 from '.././images/monsters/NotAMinotaur/3.png';
 import ghost_orb_src from '.././images/monsters/orb.png';
+import eye_src from '.././images/dreamstime_s_119442663.jpg';
 
 import { SpookyCameraFeed, ShadowSpawnPoint, WattSpawnPoint,GhostOrbSpawnPoint, AnimationFrame } from "./camera_feed";
 import { addImageProcess } from "../Utils/URLUtils";
-import { SpookyCCTV } from "./cctv_fuckery";
+import { SpookyCCTV } from "./cctv_object";
 
 /*
 so step 1: set up a game mode to display this shit
@@ -58,7 +59,7 @@ export const cctv_ghost_loop = (canvas:HTMLCanvasElement, source:CanvasImageSour
     const spawn = [new ShadowSpawnPoint([monster_left, monster_right], -200, 400, 15, 1.0, 800, 400),new ShadowSpawnPoint([monster_left, monster_right], 300, 300, 7, 0.5, 0, 300)];
 
     const feed = new SpookyCameraFeed(0,[new AnimationFrame(source, 2), new AnimationFrame(source2, 20)], spawn);
-    cctvs.push(new SpookyCCTV(feed, outputCanvas));
+    cctvs.push(new SpookyCCTV(feed, null,outputCanvas));
     current_screen = cctvs[0];
     current_screen.play();
     // window.requestAnimationFrame()
@@ -88,6 +89,7 @@ const load_other_images = async () => {
     //JR NTOTE TODO some might be regular monster, some might be NotAMinotaur
     const spawnPoints = [];
     const ghost_orb = await addImageProcess(ghost_orb_src) as HTMLImageElement;
+    const eye = await addImageProcess(eye_src) as HTMLImageElement;
 
     const monster_images = [notAMinotaur1, notAMinotaur2, notAMinotaur3, notAMinotaur4];
     const monster_loaded_images: HTMLImageElement[] = [];
@@ -116,7 +118,7 @@ const load_other_images = async () => {
         const img = await addImageProcess(image) as HTMLImageElement;
         const feed = new SpookyCameraFeed(cctvs.length, [new AnimationFrame(img,1)], spawnPoints[index]);
         index ++;
-        cctvs.push(new SpookyCCTV(feed, outputCanvas))
+        cctvs.push(new SpookyCCTV(feed, eye, outputCanvas))
     }
 
 

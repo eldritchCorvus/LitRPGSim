@@ -87,7 +87,6 @@ export class CCTV {
                 const fontSize = gs.fontSize;
         
                 context.fillStyle = "#300";
-                //JR NOTE TODO USE CUSTOM FONT
                 context.font = `bold ${fontSize}px ${gs.font}`;
                 context.drawImage(image, 0, 0);
                 context.fillText(gs.text, gs.upper_left_x+fontSize, gs.upper_left_y+fontSize);
@@ -195,7 +194,14 @@ export class CCTV {
     }
 }
 
+const eyeFrame = getRandomNumberBetween(100,1000);
 export class SpookyCCTV extends CCTV {
+
+    eye: CanvasImageSource|null;
+    constructor(cameraFeed: CameraFeed,eye: CanvasImageSource|null, outputCanvas: HTMLCanvasElement) {
+        super(cameraFeed, outputCanvas);
+        this.eye = eye;
+    }
 
     getCurrentImage = (hacked_frame: number) => {
         let image = this.cameraFeed.newFrame(hacked_frame);
@@ -212,6 +218,10 @@ export class SpookyCCTV extends CCTV {
                 ghost_sound();
                 spawnpoint.spawn();
             }
+        }
+        //occasionally just a single frame of an eye (randomly chosen but only once)
+        if(frame ===eyeFrame && this.eye){
+            return this.eye;
         }
         for (let spawnpoint of spookyCameraFeed.shadow_spawn_points) {
             if (spawnpoint.shadow_spawned) {
