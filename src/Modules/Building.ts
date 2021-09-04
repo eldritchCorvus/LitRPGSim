@@ -1,11 +1,14 @@
 //at first i thought positioning buildings was going to be hard but then i remembered
 
 import { Theme } from "@emotion/react";
+import { pickFrom } from "../Utils/NonSeededRandUtils";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
+import { God } from "./God";
 import { Companion, Player } from "./Player";
+import { artifacts, CustomSkill, generateDescription } from "./Skill";
 import { all_themes } from "./Theme";
-import { LOC_DESC, TWISTING, SMELL, SOUND, TASTE, FEELING, LOCATION } from "./ThemeStorage";
+import { LOC_DESC, TWISTING, SMELL, SOUND, TASTE, FEELING, LOCATION, EFFECTS } from "./ThemeStorage";
 
 //im perfectly fine with "non euclidean" geometry.
 export class BuildingMetaData {
@@ -74,16 +77,22 @@ export class BuildingMetaData {
     }
 
     beEntered = (player: Player)=>{
-        console.log("JR NOTE: ", this.key, " is entered");
         this.people = [];
         if(this.neighbors.length < 3){
             if(player.rand.nextDouble()>0.5){
-                const theme = player.rand.pickFrom(Object.values(all_themes));
-                const building:string = titleCase(player.rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
-                //one new random theme but the rest just from player.
-                player.metaDataForOneBuilding(building,[theme, ...player.collateThemes()], player.rand,true);
-                this.neighbors.push(building);
-                player.buildingMetaData[building].neighbors.push(this.key);
+                if(player.observer.godsMenuLevel>0 && player.rand.nextDouble()>0.5 ){
+                    const temple = player.spawnRandomTemple();
+                    this.neighbors.push(temple.key);
+                    temple.neighbors.push(this.key);
+                }else{
+                    const theme = player.rand.pickFrom(Object.values(all_themes));
+                    const building:string = titleCase(player.rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
+                    //one new random theme but the rest just from player.
+                    player.metaDataForOneBuilding(building,[theme, ...player.collateThemes()], player.rand,true);
+                    this.neighbors.push(building);
+                    player.buildingMetaData[building].neighbors.push(this.key);
+                }
+
             }
         }
 
@@ -114,9 +123,37 @@ export class BuildingMetaData {
     }
 }
 
-
-export class TempleMetaData extends BuildingMetaData{
-    constructor(key: string, description: string, smells: string[], tastes: string[], feelings:string[], sounds:string[],  rand: SeededRandom, items:string[]){
-        super(key, [],true, rand, items);
+/*a god has
+ name: string;
+    domains: Theme[];
+*/
+//note: what artifact it has is a TRUE RANDOM because gods don't have to follow normal rules
+export const spawnTempleForGod = (player: Player, god: God, rand: SeededRandom)=>{
+    //a temple is a regular building with the gods themes and then ALSO skill effects for those themes layered into the description.
+    const artifact = pickFrom(artifacts);
+    const temple = new TempleMetaData(`Temple of ${god.name}`,artifact, god.domains, rand, []);
+    const ambiance1 = pickFrom(god.domains);
+    const ambiance2 = pickFrom(god.domains);
+    if(!player.skills.includes(artifact)){
+        temple.description += `${generateDescription([ambiance1, ambiance2], rand)}. You are suddenly aware of the location of the ${artifact.name}. It was inside you all along.`;
     }
+    return temple;
+
+}
+export class TempleMetaData extends BuildingMetaData{
+    artifact: CustomSkill;
+    constructor(key: string, artifact: CustomSkill, themes: Theme[]|null, rand: SeededRandom, items: string[]) {
+        super(key, themes, true, rand, items);
+        this.artifact = artifact;
+    }
+    
+    beEntered = (player: Player)=>{
+        console.log("JR NOTE: ", this.key, "is being entered. do i have the artifact? ", this.artifact,"?", player.skills.includes(this.artifact))
+        //NO ITEMS, NO COMPANIONS BUT YOU DO GET A SKILL OUT OF NOWHERE. (unless you already have it)
+        if(!player.skills.includes(this.artifact)){
+            console.log("JR NOTE: receiveing skill", this.artifact.name, "has been obtained.")
+            player.skills.push(this.artifact);
+        }
+    }
+    
 } 

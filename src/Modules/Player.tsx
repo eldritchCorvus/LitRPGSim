@@ -14,7 +14,7 @@ import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
 import { removeItemOnce } from "../Utils/ArrayUtils";
-import { BuildingMetaData } from "./Building";
+import { BuildingMetaData, spawnTempleForGod } from "./Building";
 
 export interface BuildingMetaMap {
     [name: string]: BuildingMetaData
@@ -309,6 +309,14 @@ export class Player {
     addSkillPoints = (points: number) => {
         this.skillPoints += points;
         this.observer.skillPointsGainedFromMenu += points;
+    }
+
+    spawnRandomTemple = ()=>{
+        const god = this.rand.pickFrom(this.gods);
+        const temple = spawnTempleForGod(this,god, this.rand);
+        this.buildings.push(temple.key);
+        this.buildingMetaData[temple.key] = temple;
+        return temple;
     }
 
     spawnNotAMinotaur = () => {
