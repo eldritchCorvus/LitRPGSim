@@ -47,7 +47,7 @@ export const ActualGame = (props: StatusProps) => {
       player.buildingMetaData[room_key].beEntered(player);
       setCurrentDirection(direction);
       setCurrentRoom(player.buildingMetaData[room_key]);
-      return null;
+      return "";
     }else{
       return `You cannot enter the ${room_key}, it is locked!`;
     }
@@ -196,25 +196,29 @@ const [message, setMessage] = useState("");
   const checkInput = (unsanitizedInput: string)=>{
     let result = false;
     const input = unsanitizedInput.replaceAll(/[,.?!]/g,"").toUpperCase();
-    result = checkMovement(input);
-    if(!result){
-      result =checkRoomName(input);
-    }
-    if(!result){
-      result = checkCompanion(input);
-    }
-    if(!result){
-        result = checkItem(input);
+    if(checkMovement(input)){
+      return true;
     }
 
-    if(!result){
-      result = checkSkill(input);
-  }
+    if(checkRoomName(input)){
+      return true;
+    }
 
-    if(!result){
-      //final doesn' tneed to set result
-      checkSnark(input);
-  }
+    if(checkCompanion(input)){
+      return true;
+    }
+
+    if(checkItem(input)){
+      return true;
+    }
+
+    if(checkSkill(input)){
+      return true;
+    }
+    console.log("JR NOTE: input is ", input, " and i didn't return")
+    if(checkSnark(input)){
+      return true;
+    }
     
     if(input.toUpperCase().includes("INVENTORY")){
       setError("If you would like your inventory get better at hacking windows. Or find a better title. :) :) :)");
@@ -222,6 +226,7 @@ const [message, setMessage] = useState("");
   }
 
   const checkSnark = (input: string)=>{
+    console.log("JR NOTE: check snark")
     props.checkDeath();
     const parts = input.split(" ");
     //IF YOU TYPE HELP PRINT OUT THE FIRST OF ALL OF THESE.
@@ -399,9 +404,7 @@ const [message, setMessage] = useState("");
     for(let item of room.neighbors){
       let parts = item.split(" ");
       for(let part of parts){
-        console.log("JR NOTE: part is ", part, "and does input include it?", input)
         if(part.length > 2 && input.toUpperCase().includes(part.toUpperCase())){
-          console.log("JR NOTE: part is ", part, "and does input apparnetly does include it...", input)
           const result = props.changeRoom(item, "???");
           if(result){
             setError(result);
@@ -418,7 +421,6 @@ const [message, setMessage] = useState("");
   const checkEnter =(key: string, target: EventTarget)=>{
     //this won't be anything we can actually do anything to so lets have fun.
     if(key === "Enter"){
-      console.log("JR NOTE: target is", target);
       checkInput((target as HTMLInputElement).value);
     }
   }
@@ -426,34 +428,41 @@ const [message, setMessage] = useState("");
 
 
   const checkMovement = (input:string)=>{
-    let result = null;
     if(input.toUpperCase().includes("NORTH")){
       if(room.neighbors.length >= 2){
-        result = changeRoom(room.neighbors[1], "NORTH")
+        setError(changeRoom(room.neighbors[1], "NORTH"));
+        return true;
       }else{
         setError("You cannot go NORTH. There is nothing there. There was always nothing there.");
+        return true;
+
       }
     }else if(input.toUpperCase().includes("SOUTH")){
       if(room.neighbors.length >= 1){
-        result = changeRoom(room.neighbors[0],"SOUTH")
+        setError(changeRoom(room.neighbors[0],"SOUTH"));
+        return true;
       }else{
         setError("You cannot go SOUTH. There is nothing there. There was always nothing there.");
+        return true;
+
       }
     }else if(input.toUpperCase().includes("EAST")){
       if(room.neighbors.length >= 3){
-        result = changeRoom(room.neighbors[2],"EAST")
+        setError(changeRoom(room.neighbors[2],"EAST"));
+        return true;
       }else{
         setError("You cannot go EAST. There is nothing there. There was always nothing there.");
+        return true;
+
       }
     }else if(input.toUpperCase().includes("WEST")){
       setError("You cannot go WEST. There’s no left turns. None. It doesn't make any sense. But it's NotASpiral, because you can always go forwards. Except when you can't.");
+      return true;
     }else if(input.toUpperCase().includes("DOWN")){
       setError("You do not want to go to the BASEMENT TUNNELS. But I guess that is where you are going.");
       (window as any).setCCTVMode(true)
-    }
-    if(result){
-      setError(result);
       return true;
+
     }
     return false;
   }
