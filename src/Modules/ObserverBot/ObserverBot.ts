@@ -350,6 +350,7 @@ export class ObserverBot{
             (window as any).refresh();
             console.log("JR NOTE: haha wow that's kinda dumb");
         }
+
         (window as any).hackTimePlayedInSeconds = (value:number)=>{
             console.log("JR NOTE: okay???");
             this.timeStarted = value * 1000 - Date.now();

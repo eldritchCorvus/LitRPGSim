@@ -18,10 +18,6 @@ export class Skill {
     description = "TODO";
     unlocked: boolean = false;  //TODO this should default to false once no longer developing.
 
-
-
-
-
     constructor(themes: Theme[] = [], seeded_random: SeededRandom | null) {
         this.name = "Debug";
         this.tier = -13;
@@ -31,12 +27,10 @@ export class Skill {
         }
     }
 
-
-
     //separated so we can pass null in to both
     init = (themes: Theme[] = [], seeded_random: SeededRandom) => {
         this.name = this.generateName(themes, seeded_random);
-        this.description = this.generateDescription(themes, seeded_random);
+        this.description = generateDescription(themes, seeded_random);
         if (themes && themes.length > 0) {
             this.theme_keys = themes.map((x) => x.key);
             interface ThemeReducer {
@@ -50,20 +44,6 @@ export class Skill {
         }
     }
 
-    generateDescription(themes: Theme[], seeded_random: SeededRandom) {
-        if (themes.length === 0) {
-            return "";
-        } else if (themes.length > 2) {
-            return "ERROR: more than two themes not yet supported";
-        }
-        if (themes.length === 1) {
-            return sentenceCase(themes[0].pickPossibilityFor(seeded_random, EFFECTS));
-        } else {
-            const transitions = ["while","as","just as","at the same time as","just before"];
-            return `${sentenceCase(themes[0].pickPossibilityFor(seeded_random, EFFECTS))} ${seeded_random.pickFrom(transitions)} ${themes[1].pickPossibilityFor(seeded_random, EFFECTS)}`;
-        }
-
-    }
 
     generateName = (themes: Theme[], seeded_random: SeededRandom) => {
         const generic_bits = ["beam", "touch", "ray", "aura", "signal"];
@@ -124,6 +104,20 @@ export class Skill {
 
 }
 
+
+export const generateDescription =(themes: Theme[], seeded_random: SeededRandom)=> {
+    if (themes.length === 0) {
+        return "";
+    } else if (themes.length > 2) {
+        return "ERROR: more than two themes not yet supported";
+    }
+    if (themes.length === 1) {
+        return sentenceCase(themes[0].pickPossibilityFor(seeded_random, EFFECTS));
+    } else {
+        const transitions = ["while","as","just as","at the same time as","just before"];
+        return `${sentenceCase(themes[0].pickPossibilityFor(seeded_random, EFFECTS))} ${seeded_random.pickFrom(transitions)} ${themes[1].pickPossibilityFor(seeded_random, EFFECTS)}`;
+    }
+}
 
 
 export class SpecialSkill extends Skill {
@@ -217,6 +211,8 @@ export class UnusAutographBook extends CustomSkill{
         super("UNUS AUTOGRAPH BOOK",1,(window as any).chaos? "A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Your signature is already in it. You do not remember your name. No one does. You are only PLAYER.":"A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Even destroying the book will not restore your name to you, PLAYER. You are not real. None of this is. But you're the one insisting we all pretend its a game. This is your fault.");
     }
 }
+
+export const artifacts = [new UnusAutographBook(), new DuoMask(), new TresBottle(), new QuatroBlade(), new CinqueCloak(), new Sextant(), new SeptemCoin(), new Octome(), new NovumMirror()];
 
 let numCoreSkills = 0;
 
