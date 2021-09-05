@@ -473,13 +473,13 @@ const [message, setMessage] = useState("");
       <RoomSection>
       <OneCharAtATimeDiv text={dir_flavor + room.description}></OneCharAtATimeDiv></RoomSection>
       <RoomSection>Obvious exits are: {exits}.</RoomSection>
-      {room.items.length >0?<RoomSection>You see: {room.items.join(", ")} standing out.</RoomSection>:null}
+      {room.items.length >0?<RoomSection>You see: <b>{room.items.join(", ")} </b>standing out.</RoomSection>:null}
+      {room.people.length >0?<RoomSection>You see: <b>{room.people.join(", ")}</b> standing around. They are your friend.</RoomSection>:null}
+
       {props.player.inventory.length >0 && props.player.observer.inventoryMenuLevel>0?<RoomSection>Your inventory is: {props.player.inventory.join(", ")}.</RoomSection>:null}
       <RoomSection>You have the following skills unlocked: {props.player.unlocked_skills_no_stats().map((skill)=>{return skill.name}).join(", ")}.</RoomSection>
 
       <RoomSection>You have: {props.numberFriends} friends remaining.</RoomSection>
-      {room.people.length >0?<RoomSection>You see: {room.people.join(", ")} standing around.</RoomSection>:null}
-
       {error.trim() !== "" ?<ErrorSection>Error: {error}</ErrorSection>:null}
       {message.trim() !== "" ?<RoomSection>Success! <b>{message}</b></RoomSection>:null}
 
