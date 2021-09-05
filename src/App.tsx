@@ -19,7 +19,6 @@ import eye2 from './images/eye2.png';
 
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
-import { CCTVScreen } from "./Screens/CCTV";
 import { getParameterByName } from "./Utils/URLUtils";
 import { CreditsScreen } from "./Screens/Credits";
 
@@ -35,8 +34,7 @@ function App(props: AppProps) {
   const [actualGameMode, setActualGameMode] = useState(false);
 
   const [justTruthMode, setJustTruthMode] = useState(false);
-  const [ghostMode, setGhostMode] = useState(false);
-  const [pwMode, setPWMode] = useState(false);
+
   const [creditsMode, setCreditsMode] = useState(false);
 
 
@@ -62,22 +60,6 @@ function App(props: AppProps) {
       (window as any).setJustTruthMode = (value:boolean)=>{
         setJustTruthMode(value);
         (window as any).justTruthMode = value;
-      };
-    }
-
-    if(!(window as any).setGhostMode){
-      // :) :) :)
-      (window as any).setGhostMode = (value:boolean)=>{
-        setGhostMode(value);
-        (window as any).ghost = value;
-      };
-    }
-
-    if(!(window as any).setPWMode){
-      // :) :) :)
-      (window as any).setPWMode = (value:boolean)=>{
-        setPWMode(value);
-        (window as any).pwMode = value;
       };
     }
 
@@ -205,6 +187,7 @@ function App(props: AppProps) {
     if(!player){
       window.addEventListener('click', click);
       window.addEventListener('click', clickEffect);
+      (window as any).seed = seed;
       const rand = new SeededRandom(seed);  
       //which goal are you forced to?
       if(rand.nextDouble()>0.5){
@@ -224,18 +207,8 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsNotAnEye2");
       detectDivStatus("ThisIsNotASpiral");
       detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
-      const ghost = getParameterByName("cctv", null);
-      const pw = getParameterByName("pw", null);
-
-      if(ghost){
-        (window as any).ghost = true;
-        setGhostMode(true);
-      }else if(pw){
-        (window as any).pwMode = true;
-        setPWMode(true); 
-      }else{
-        fuckUpBGButSoftly();
-      }
+      
+      fuckUpBGButSoftly();
   }
   },[player,seed,detectDivStatus])
 /*
@@ -253,7 +226,7 @@ function App(props: AppProps) {
     return <div>LOADING FOR REALSIES</div>
   }else{
     //there is nothing wrong here. is fine
-    const displayMenu = !justTruthMode && !actualGameMode && !ghostMode && !pwMode && !creditsMode;
+    const displayMenu = !justTruthMode && !actualGameMode  && !creditsMode;
     return (
       <Fragment>
         <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
@@ -262,9 +235,7 @@ function App(props: AppProps) {
         {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
         {displayMenu?  <Menu player={player} angle={0}/>:null}      
         {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
-        {actualGameMode && !ghostMode && !pwMode?  <ActualGame player={player}/>:null}      
-        {ghostMode ?  <CCTVScreen ghosts={true} player={player}/>:null}      
-        {pwMode ?  <CCTVScreen ghosts={false}player={player}/>:null}      
+        {actualGameMode?  <ActualGame player={player}/>:null}      
         {creditsMode ?  <CreditsScreen player={player}/>:null}      
 
       
