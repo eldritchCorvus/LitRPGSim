@@ -5,7 +5,6 @@ import cctv2 from '.././images/murderbasement2.jpeg';
 import monster1 from '.././images/monsters/doll/1.png';
 import monster2 from '.././images/monsters/doll/1left.png';
 
-import { Player } from "../Modules/Player";
 import { justTruthSong } from "..";
 import { addImageProcess } from "../Utils/URLUtils";
 import ReactDOM from "react-dom";
