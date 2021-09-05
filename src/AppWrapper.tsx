@@ -30,6 +30,7 @@ function AppWrapper() {
     const ghost = getParameterByName("cctv", null);
     const pw = getParameterByName("pw", null);
     const end = getParameterByName("end", null);
+    console.log("JR NOTE: end is", end);
 
     if(ghost){
       (window as any).ghost = true;
@@ -85,11 +86,7 @@ function AppWrapper() {
     }
   }, [seed, setSeed]);
 
-  if (seed) {
-    return (
-      <App seed={seed} />
-    )
-  } else if (mode === BIRTHDAY) {
+  if (mode === BIRTHDAY && !seed) {
     return (
       <Birthday setMode={setMode} />
     )
@@ -109,7 +106,11 @@ function AppWrapper() {
     return (
       <CCTVScreen ghosts={false}/> 
     )
-  }
+  }else if (seed) {
+    return (
+      <App seed={seed} />
+    )
+  } 
 }
 
 export default AppWrapper;
