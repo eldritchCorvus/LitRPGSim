@@ -16,7 +16,6 @@ import styled from "@emotion/styled";
 import SeededRandom from "../Utils/SeededRandom";
 import { CCTV } from "../CanvasFuckery/cctv_object";
 interface StatusProps {
-    player: Player;
     ghosts: boolean;
 }
 
@@ -71,7 +70,7 @@ export const StyledInput = styled(Input)`
     }
 
 export const CCTVScreen = (props: StatusProps) => {
-    const { player, ghosts } = props
+    const {ghosts } = props
 
 
     //the inherent irony of using react to nuke the dom
@@ -105,11 +104,11 @@ export const CCTVScreen = (props: StatusProps) => {
                 div.innerText = "You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched.";
                 startGhostCCTV(canvas);
             } else {
-                PasswordFuckeryKickoff(canvas,player.rand);
+                PasswordFuckeryKickoff(canvas,new SeededRandom((window as any).seed));
             }
         }
 
-    }, [ghosts, player, startGhostCCTV]);
+    }, [ghosts, startGhostCCTV]);
 
     return (
 
