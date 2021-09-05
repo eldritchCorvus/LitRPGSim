@@ -71,7 +71,7 @@ export const  StatusScreen = (props: StatusProps)=> {
         <span>
             <StatusRow>
                 <StatusHeader>Name:</StatusHeader>
-                <StatusContent>Unknown (make this editable once)</StatusContent>
+                <StatusContent>Player</StatusContent>
             </StatusRow>
 
             <StatusRow>
