@@ -1,19 +1,19 @@
 import React, { FormEvent, useEffect, useState } from "react";
-import { cctv_ghost_loop } from "../CanvasFuckery/ghosts";
-import cctv from '.././images/murderbasement.jpeg';
-import cctv2 from '.././images/murderbasement2.jpeg';
-import monster1 from '.././images/monsters/doll/1.png';
-import monster2 from '.././images/monsters/doll/1left.png';
+import { cctv_ghost_loop } from "../../CanvasFuckery/ghosts";
+import cctv from '../.././images/murderbasement.jpeg';
+import cctv2 from '../.././images/murderbasement2.jpeg';
+import monster1 from '../.././images/monsters/doll/1.png';
+import monster2 from '../.././images/monsters/doll/1left.png';
 
-import { justTruthSong } from "..";
-import { addImageProcess } from "../Utils/URLUtils";
+import { justTruthSong } from "../..";
+import { addImageProcess } from "../../Utils/URLUtils";
 import ReactDOM from "react-dom";
 import { Input } from "reakit/Input";
-import { albhed_map, passwords } from "../CanvasFuckery/PasswordStorage";
-import { right_password, wrong_password } from "../CanvasFuckery/password_result";
+import { albhed_map, passwords } from "../../CanvasFuckery/PasswordStorage";
+import { right_password, wrong_password } from "../../CanvasFuckery/password_result";
 import styled from "@emotion/styled";
-import SeededRandom from "../Utils/SeededRandom";
-import { CCTV } from "../CanvasFuckery/cctv_object";
+import SeededRandom from "../../Utils/SeededRandom";
+import { CCTV } from "../../CanvasFuckery/cctv_object";
 interface StatusProps {
     ghosts: boolean;
 }
