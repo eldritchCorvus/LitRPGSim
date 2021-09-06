@@ -1,14 +1,14 @@
 //Just Monika but Spades
 import React, { Fragment, useCallback, useEffect, useState } from "react";
-import { justTruthSong, speak } from "..";
-import { Memory } from "../Modules/ObserverBot/Memory";
-import { Player } from "../Modules/Player";
-import { Stat, StatMap } from "../Modules/Stat";
-import { all_themes, Theme } from "../Modules/Theme";
-import { pickFrom, shuffle } from "../Utils/NonSeededRandUtils";
-import { titleCase } from "../Utils/StringUtils";
-import { OneCharAtATimeDiv } from "./OneCharAtATimeDiv";
-import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "./Styles";
+import { justTruthSong, speak } from "../..";
+import { Memory } from "../../Modules/ObserverBot/Memory";
+import { Player } from "../../Modules/Player";
+import { Stat, StatMap } from "../../Modules/Stat";
+import { all_themes, Theme } from "../../Modules/Theme";
+import { pickFrom, shuffle } from "../../Utils/NonSeededRandUtils";
+import { titleCase } from "../../Utils/StringUtils";
+import { OneCharAtATimeDiv } from "../OneCharAtATimeDiv";
+import { RageStyledButton, StatusBlock, StatusContent, StatusHeader, StatusRow, TruthContainer } from "../Styles";
 interface StatusProps {
     player: Player;
 }
