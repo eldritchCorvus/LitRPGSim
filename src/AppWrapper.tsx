@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import About from "./About";
 import App from "./App";
 import Birthday from "./Birthday";
-import { ApocalypseScreen } from "./Screens/ApocalypseScreen";
-import { CCTVScreen } from "./Screens/CCTV";
+import { ApocalypseScreen } from "./Screens/Apocalypse/ApocalypseScreen";
+import { CCTVScreen } from "./Screens/Secrets/CCTV";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
 /*

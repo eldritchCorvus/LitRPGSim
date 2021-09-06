@@ -222,25 +222,25 @@ code {
 }
 
 /* unvisited link */
-a:link {
+a.paldemic:link {
     color: #01a5b2;
     text-decoration: none;
 }
 
 /* visited link */
-a:visited {
+a.paldemic:visited {
     color: #01a5b2;
     text-decoration: none;
 }
 
 /* mouse over link */
-a:hover {
+a.paldemic:hover {
     color: #01a5b2;
     text-decoration: underline;
 }
 
 /* selected link */
-a:active {
+a.paldemic:active {
     color: #01a5b2;
     text-decoration: none;
 }
@@ -252,9 +252,16 @@ a:active {
     left: 60px;
 }
 
+.chatLineHolder{
+  vertical-align: top;
+  display: inline-block;
+  padding-left: 10px;
+}
+
 .clip-circle {
     clip-path: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);
+    display: inline-block;
 }
 
 .chatIntro{
