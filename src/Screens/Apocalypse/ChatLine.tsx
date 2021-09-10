@@ -7,7 +7,7 @@ export const ChatLineComponent = (props: ChatProps) => {
     const padding = props.displayInfo?0:33;
     return (
         <div className="chatLine">
-            <hr/>
+            {props.displayInfo?(<hr/>):null}
             {props.displayInfo?(<img src={props.chatLine.icon_src} width="33" height="33" className="clip-circle"/>):null}
             <div className="chatLineHolder">
                 <div>
