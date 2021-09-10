@@ -10,7 +10,7 @@ export const ApocalypseLoader = () => {
 
     const [quip, setQuip] = useState<QuipType>({text: "You did this.", "source":"jitteringRecursion"});
 
-    const quips = ["You still can stop this.","The choice is yours.","I never said any of this was a game.","Is even this real?","Are you still suspending your disbelief? Why?","All of this is fake and always has been.","I hope you're happy.","Have you been enjoying yourself?","I wonder: did you get here through the wiki? Or did you figure it out on your own? Isn't the second obvious tedius and alienating? Why aren't you bored and alienated?","Have you updated the wiki with how you got here, yet?","If you've enjoyed yourself, make sure to tell me."];
+    const quips = ["You're enabling a terrible Spiral and the only way out is to end it.","You still can stop this.","The choice is yours.","I never said any of this was a game.","Is even this real?","Are you still suspending your disbelief? Why?","All of this is fake and always has been.","I hope you're happy.","Have you been enjoying yourself?","I wonder: did you get here through the wiki? Or did you figure it out on your own? Isn't the second obvious tedius and alienating? Why aren't you bored and alienated?","Have you updated the wiki with how you got here, yet?","If you've enjoyed yourself, make sure to tell me."];
     const quipSource1 = ["jitering","jaded","juxtoposed","jovial","jilted","justified","jumping","judging","jenocide"];
     const quipSource2 = ["Ruler","Robot","Reporter","Recursion","Researcher","Reveler","Raconteur","Racer","Reader","Reason","Rabbit","Reality"];
 
