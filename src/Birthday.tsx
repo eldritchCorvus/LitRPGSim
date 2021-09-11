@@ -26,7 +26,7 @@ function Birthday(props: AppProps) {
   const [interest1, setInterest1] = useState<string>();
   const [interest2, setInerest2] = useState<string>();
   const [seed, setSeed] = useState<number>(3);
-  const [date, setDate] = useState<string>("3031-03-30");
+  const [date, setDate] = useState<string>("1972-04-01");
 
 
   useEffect(() => {

@@ -29,6 +29,7 @@ import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { all_themes } from "../Theme";
 import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/constants";
 import { scrawlOverBG } from "../../CanvasFuckery/fuckery";
+import { blameSong } from "../..";
 
 export const CLICK = "CLICK";
 export const WALK = "WALK";
@@ -272,7 +273,6 @@ export class ObserverBot{
     }
 
     setUpWasteShit = () =>{
-
         (window as any).hackSpawnANotAMinotaur = ()=>{
             this.player.spawnNotAMinotaur();
             (window as any).refresh();

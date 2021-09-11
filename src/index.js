@@ -7,6 +7,8 @@ import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import voice from './Voice/truthtake3.mp3';
+import blame from './SecretMusic/youbrokeit.mp3';
+
 import funky_voice from './Voice/truth_but_funky.mp3';
 
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
@@ -38,6 +40,11 @@ export function loadSecretImage(location){
 
  export function rageModeSong(){
   audio.src = heart;
+  audio.play();
+}
+
+export function blameSong(){
+  audio.src = blame;
   audio.play();
 }
 
