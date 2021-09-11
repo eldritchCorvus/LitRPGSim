@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import not_a_minotaur_src from './../../images/notaminotaur.png';
 import you_src from './../../images/probablyYou.png';
 import { ChatLine, ChatLineComponent } from "./ChatLine";
@@ -48,28 +48,32 @@ export const ChatScreen = () => {
 
     const getCurrentIndex = () => {
         //take the last line in the lines state, get its index in plainLines
-        console.log("JR NOTE: plain lines are", plainLines, "and the last thing we put on screen is", lines[lines.length - 1].text)
-        return plainLines.indexOf(lines[lines.length - 1].text);
+        return plainLinesRef.current.indexOf(linesRef.current[linesRef.current.length - 1].text);
     }
 
 
 
     const addNewLine = () => {
-        console.log("JR NOTE: lines are ", lines, "which means their length is", lines.length)
-        let this_line = plainLines[0];
-        if (lines.length > 0) {
+        console.log("JR NOTE: lines are ", linesRef.current, "which means their length is", linesRef.current.length)
+        let this_line = plainLinesRef.current[0];
+        if (linesRef.current.length > 0) {
             console.log("JR NOTE: actually getting the current index")
             const index = getCurrentIndex() + 1;
             if (index === 0) {
                 setIsTyping(false);
                 return;
             }
-            this_line = plainLines[index];
+            this_line = plainLinesRef.current[index];
         }
         const line = makeNotAMinotaurLine(this_line);
-        const new_lines = [...lines, line];
+        const new_lines = [...linesRef.current, line];
         setLines(new_lines);
         setIsTyping(true);
+        //https://upmostly.com/tutorials/settimeout-in-react-components-using-hooks
+        //god i hate how state and timeout interact. apparently useRef is a work around.
+        setTimeout(()=>{
+            addNewLine();
+         }, 2000)
     }
 
     const addApocalypse = () => {
@@ -96,6 +100,10 @@ export const ChatScreen = () => {
 
     const [lines, setLines] = useState<ChatLine[]>([]);
 
+    const plainLinesRef = useRef(plainLines);
+    plainLinesRef.current = plainLines;
+    const linesRef = useRef(lines);
+    linesRef.current = lines;
 
     const [processedLines, setProcessedLines] = useState<JSX.Element[]>([]);
     //start the minotaur typing
