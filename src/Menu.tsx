@@ -15,6 +15,7 @@ import { CityBuildingScreen } from "./Screens/CityBuilding";
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { CompanionsScreen } from "./Screens/CompanionsScreen";
 import { GodScreen } from "./Screens/GodScreen";
+import { blameSong } from ".";
 
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
@@ -206,6 +207,9 @@ function Menu(props: MenuProps) {
 
   useEffect(()=>{
     (window as any).refresh = ()=>{
+      if( (window as any).rageMode){
+        blameSong();
+    }
       handleLoading(currentScreen);
     }
 },[currentScreen, handleLoading])
