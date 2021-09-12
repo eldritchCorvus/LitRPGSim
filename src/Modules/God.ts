@@ -1,7 +1,7 @@
 import SeededRandom from "../Utils/SeededRandom";
 import { stringtoseed, titleCase } from "../Utils/StringUtils";
-import { Theme } from "./Theme";
-import { MIRACLE } from "./ThemeStorage";
+import { all_themes, Theme } from "./Theme";
+import { KNOWING, MIRACLE } from "./ThemeStorage";
 
 export class God{
     name: string;
@@ -9,10 +9,16 @@ export class God{
     acolyteBonuses: string[];
     //TODO needs Acolyte Bonuses
 
-    constructor(domains: Theme[]){
+    constructor(domains: Theme[], order:boolean){
         this.domains = domains;
-        this.name = this.generateName();
-        this.acolyteBonuses = this.generateBonuses();
+        if(order){
+            this.domains = [all_themes[KNOWING]];
+            this.name = "God of Order";
+            this.acolyteBonuses = ["You may pray to them."];
+        }else{
+            this.name = this.generateName();
+            this.acolyteBonuses = this.generateBonuses();
+        }
 
     }
 

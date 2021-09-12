@@ -59,7 +59,7 @@ export const GodSection = (props: GodProps) => {
                 {god.acolyteBonuses.map((bonus,index)=>{
                     return(
                         <Fragment>
-                            {observer.godsMenuLevel >index? <AcolyteBonus><b>Level {index+1} Acolyte Bonus</b>: {bonus}</AcolyteBonus>:null}
+                            {observer.godsMenuLevel >index || (observer.player.chaos || observer.player.order) ? <AcolyteBonus><b>Level {index+1} Acolyte Bonus</b>: {bonus}</AcolyteBonus>:null}
                         </Fragment>
                     )})}
             </StyledGodSection>);

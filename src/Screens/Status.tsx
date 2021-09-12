@@ -97,12 +97,12 @@ export const  StatusScreen = (props: StatusProps)=> {
                 }).join(", ")}</StatusContent>
             </StatusRow>
 
-            {player.observer.backstoryMenuLevel>0 || player.chaos?<StatusRow>
+            {player.observer.backstoryMenuLevel>0 || player.chaos || player.order?<StatusRow>
                 <StatusHeader>Backstory:</StatusHeader>
                 <StatusContent>{player.backstory}</StatusContent>
             </StatusRow>:null}
 
-            {player.observer.inventoryMenuLevel>0 || player.chaos?<StatusRow>
+            {player.observer.inventoryMenuLevel>0 || player.chaos || player.order?<StatusRow>
                 <StatusHeader>Inventory:</StatusHeader>
                 <StatusContent>{player.inventory.join(", ")}</StatusContent>
             </StatusRow>:null}
