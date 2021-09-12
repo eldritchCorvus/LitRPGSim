@@ -68,7 +68,7 @@ export function initClasses(seeded_random: SeededRandom){
     new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale","Ruler","Martyr","Lion","Fox"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
     new RPGClass("bard", ["Bard", "Singer", "Skald", "Teller", "Raconteur","Canary","Chinchilla"],-2.0, seeded_random, [all_themes.clowns, all_themes.language,all_themes.music]);
     new RPGClass("knight", ["Armadillo","Pangolin","Angel","Guardian","Knight", "Warrior", "Protector", "Defender", "Swordsman","Soldier","Paladin"],2.0, seeded_random, [all_themes.defense, all_themes.questing]);
-    new RPGClass("page", ["Kitten","Puppy","Minion","Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],3.0, seeded_random, [all_themes[QUESTING],all_themes[SERVICE]]);
+    new RPGClass("page", ["Harbinger","Kitten","Puppy","Minion","Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],3.0, seeded_random, [all_themes[QUESTING],all_themes[SERVICE]]);
     new RPGClass("mage", ["Raven","Mage","Wizard","Sorcerer", "Scholar", "Magus", "Enchanter","Warlock"],1.5, seeded_random, [all_themes[MAGIC],all_themes[KNOWING]]);
     new RPGClass("heir", ["Parrot","Heir","Succesor","Inheiritor", "Scion", "Descendant"],2.0, seeded_random, [all_themes[FAMILY],all_themes[ROYALTY]]);
     new RPGClass("maid", ["Dog","Canine","Maid","Butler","Servant", "Shield-Maiden", "Valkyrie","Einherjar","Saint"],2.0, seeded_random, [all_themes[SERVICE],all_themes[DEFENSE]]);
