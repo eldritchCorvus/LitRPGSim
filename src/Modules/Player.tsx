@@ -259,8 +259,13 @@ export class Player {
         for (const key of Object.keys(all_stats)) {
             //0 is baseline neutral human
             let values = [1, 0, -1];
+
             const skill = all_stats[key].copy(rand.pickFrom(values));
-            this.stats[skill.positiveName] = skill;
+            if(this.order){
+                skill.positiveName = "Positive Stat";
+                skill.negativeName = "Negative Stat";
+            }
+            this.stats[skill.key] = skill;
         }
         this.addStats(this.aspect.stats);
         for (const interest of this.interests) {
@@ -277,7 +282,7 @@ export class Player {
     }
 
     addStat = (stat: Stat) => {
-        this.stats[stat.positiveName].add(stat.value * this.class_name.stat_multiplier);
+        this.stats[stat.key].add(stat.value * this.class_name.stat_multiplier);
     }
 
     unlocked_skills_no_stats = () => { return this.skills.filter((skill) => { return skill.unlocked && (skill.type !== "StatSkill") }) };

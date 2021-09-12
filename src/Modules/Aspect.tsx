@@ -61,7 +61,7 @@ export  class Aspect{
         for(const key of Object.keys(stats)){
             //whatever direction and magnitude the sample stat is, do it too
             const skill = stats[key].copy(null);
-            this.stats[skill.positiveName] = skill;
+            this.stats[skill.key] = skill;
         }
     }
 

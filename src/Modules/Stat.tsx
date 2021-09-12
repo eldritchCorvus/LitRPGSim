@@ -43,6 +43,7 @@ export const WASTE = (value=1) =>all_stats[GNOSIS].copy(-1 * value);
 
 export class Stat{
     value: number;
+    key: string;
     positiveName: string;
     negativeName: string;
     //TODO have stats store the things the quip 
@@ -52,8 +53,9 @@ export class Stat{
         this.value = value;
         this.positiveName = positiveName;
         this.negativeName = negativeName;
-        if(!all_stats[positiveName]){
-            all_stats[positiveName] = this;
+        this.key = this.positiveName;
+        if(!all_stats[this.key]){
+            all_stats[this.key] = this;
         }
     }
 
@@ -97,7 +99,7 @@ export const WrapStatsToStatMap = (stats: Stat[]) =>{
         return ret;
     }
     for(const stat of stats){
-        ret[stat.positiveName] = stat;
+        ret[stat.key] = stat;
     }
     return ret;
 }
