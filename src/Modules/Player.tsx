@@ -45,8 +45,10 @@ export class Player {
     order = false;
     chaos = false;
 
-    constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer: boolean) {
+    constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer: boolean,order = false, chaos=false, ) {
         this.rand = rand;
+        this.order = order;
+        this.chaos = chaos;
         this.class_name = class_name;
         this.aspect = aspect;
         this.interests = interests;
@@ -80,7 +82,8 @@ export class Player {
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
         //a god from your first three themes, a god for your back three, you are supposed to pick ones
-        this.gods = [new God(themes.slice(0, 3)), new God(themes.slice(-3))];
+        this.gods = [new God(themes.slice(0, 3),this.order), new God(themes.slice(-3), this.order)];
+
         interests.forEach((interest) => { themes = themes.concat(interest.themes) });
         this.theme_keys = themes.map((x) => x.key);
         this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests, themes, this.rand);
@@ -133,10 +136,13 @@ export class Player {
 
     generateBuildings = (themes: Theme[], rand: SeededRandom) => {
         this.buildings.push("Your House");
-        this.buildingMetaData["Your House"] = new BuildingMetaData("Your House", themes, true, rand, []);
+        this.buildingMetaData["Your House"] = new BuildingMetaData("Your House", this.order,themes, true, rand, []);
         this.current_location = this.buildings[0];
         for (let theme of themes) {
-            const building: string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
+            let building: string = titleCase(rand.pickFrom(theme.getPossibilitiesFor(LOCATION)));
+            if(this.order){
+                building = "Building";
+            }
             this.metaDataForOneBuilding(building, themes, rand,false)
             this.buildings.push(building);
         }
@@ -149,7 +155,7 @@ export class Player {
         if (rand.nextDouble() > 0.3) {
             items.push(this.generateItem());
         }
-        this.buildingMetaData[building] = new BuildingMetaData(building, themes, locked? !locked:rand.nextDouble() > 0.5, rand, items);
+        this.buildingMetaData[building] = new BuildingMetaData(building, this.order, themes, locked? !locked:rand.nextDouble() > 0.5, rand, items);
     }
 
 
@@ -175,11 +181,20 @@ export class Player {
             max = max * 2;
         }
         for (let i = 0; i < max; i++) {
-            this.companions.push(new Companion(rand));
+            const friend = new Companion(rand);
+            if(this.order){
+                friend.fullName = "Friend";
+                friend.backstory = "They are an NPC in a video game. They have no memory.";
+                friend.title = "NPC";
+            }
+            this.companions.push(friend);
         }
     }
 
     generateItem = () => {
+        if(this.order){
+            return "Item";
+        }
         let themes: Theme[] = [];
         themes = themes.concat(this.class_name.themes)
         themes = themes.concat(this.aspect.themes);
@@ -352,8 +367,13 @@ export class Player {
 
 function orderPlayer(rand: SeededRandom){
     console.log("JR NOTE: its an order player")
-    const ret = new Player(all_classes["null"], all_aspects["null"], [all_interests["null"]],rand, false);
-    ret.order = true;
+    const ret = new Player(all_classes["seer"], all_aspects["eye"], [all_interests["null"]],rand, false,true,false);
+    ret.fullName = "Jeffery";
+    ret.title = "Bringer of Order";
+    for(let i = 0; i< ret.skills.length; i ++){
+        ret.skills[i].name = "Skill " + (i+1);
+    }
+    ret.backstory = "They are a character in a video game. They were only just born. They have no memories.";
     //TODO make as much as possible manual
     return ret;
 }
@@ -364,8 +384,7 @@ function chaosPlayer(rand: SeededRandom){
     let i1 = rand.pickFrom(Object.values(all_interests_except_null));
     let i2 = rand.pickFrom(Object.values(all_interests_except_null));
 
-    const ret = new Player(cl, ap,  [...Object.values(all_interests)], rand, false);
-    ret.chaos = true;
+    const ret = new Player(cl, ap,  [...Object.values(all_interests)], rand, false,false,true);
 
     return ret;
 }

@@ -24,13 +24,15 @@ export class BuildingMetaData {
     feelings: string[] = [];
     sounds: string[] = [];
 
-    constructor(key: string, themes: Theme[]|null, unlocked: boolean, rand: SeededRandom, items: string[]) {
+    constructor(key: string, order: boolean, themes: Theme[]|null, unlocked: boolean, rand: SeededRandom, items: string[]) {
         this.key = key;
         this.unlocked = unlocked;
         this.rand = rand;
         this.items = items;
-        if(themes){
+        if(themes && !order){
             this.generateDescription(themes);
+        }else if(order){
+            this.description = "It is a building."
         }
     }
 
@@ -143,7 +145,7 @@ export const spawnTempleForGod = (player: Player, god: God, rand: SeededRandom)=
 export class TempleMetaData extends BuildingMetaData{
     artifact: CustomSkill;
     constructor(key: string, artifact: CustomSkill, themes: Theme[]|null, rand: SeededRandom, items: string[]) {
-        super(key, themes, true, rand, items);
+        super(key, false,themes, true, rand, items);
         this.artifact = artifact;
     }
     
