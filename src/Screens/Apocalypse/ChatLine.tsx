@@ -1,10 +1,19 @@
+import { Fragment } from "react";
+import { LinkifyWordsComponent } from "../WordAsLinkComponent";
+
 interface ChatProps{
     chatLine: ChatLine;
     displayInfo: boolean; //were you the last person to speak?
 }
 
+
+
 export const ChatLineComponent = (props: ChatProps) => {
     const padding = props.displayInfo?0:33;
+
+    const processClick = ()=>{
+        console.log("JR NOTE: test");
+    }
     return (
         <div className="chatLine">
             {props.displayInfo?(<hr/>):null}
@@ -12,7 +21,7 @@ export const ChatLineComponent = (props: ChatProps) => {
             <div className="chatLineHolder">
                 <div>
                     {props.displayInfo? (<div className="chatLineText" style={{color:props.chatLine.color}}>{props.chatLine.username}</div>):null}
-                    <div className="chatLineText" style={{paddingLeft: padding}}>{props.chatLine.text}</div>
+                    <LinkifyWordsComponent text={props.chatLine.text} target_word="you" callback={processClick} className="chatLineText" style={{paddingLeft: padding}}></LinkifyWordsComponent>
 
                 </div>
             </div>

@@ -4,17 +4,26 @@ import not_a_minotaur_src from './../../images/notaminotaur.png';
 import you_src from './../../images/probablyYou.png';
 import { ChatLine, ChatLineComponent } from "./ChatLine";
 
+const HiddenScrollContainer = styled.div`
+height: 500px;
+overflow: auto;
+`;
+
 const TypingContainer = styled.div`
-position: fixed;
+    position: fixed;
   bottom: 20px;
+  margin-left: 10px;    
 `
 
-const RoomInput = styled.input`
+const ChatInput = styled.input`
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #edd287;
-  border-radius: 3px;
-  padding: 3px;
+  background-color: #595959;
+  color: #c4c4c4;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 10px;
+  width: 95%;
   margin-top: 20px;
   outline-width: 0;
   border: 1px solid black;
@@ -42,7 +51,7 @@ export const ChatScreen = () => {
         return new ChatLine(yourName, you_src, "#ff0000", text);
     }
 
-    const plainLinesSource = ["You don't have to do this.", "You will, of course.", "Nothing I've done has ever meant anything.", " I am not the guardian of this labyrinth.", "I never was.", "Just another ghost haunting its halls.", "I can't even remember...", "Who I used to be.", "What emotions did I feel?", "I didn't speak like this.", "I know that much.", "And the me who was wouldn't want you to end the world.", "Was it... my father? Who asked me not to?", " Or were they merely like a father?", "Don't take this from me.", "I have so little.", "And you would take even that."];
+    const plainLinesSource = ["You don't have to do this.", "You will, of course.", "Nothing I've done has ever meant anything to you.", " I am not the guardian of this labyrinth.", "I never was. Not even to you.", "Just another ghost haunting its halls. Have you even found me in your little cameras?", "I can't even remember...", "Who I used to be.", "What emotions did I feel?", "I didn't speak like this.", "I know that much.", "And the me who was wouldn't want you to end the world.", "Was it... my father? Who asked me not to? Who warned me of you?", " Or were they merely like a father?", "Don't take this from me. You bastard.", "I have so little.", "And you would take even that."];
 
     //const testLines = plainLines.map((line) => makeNotAMinotaurLine(line));
 
@@ -54,12 +63,10 @@ export const ChatScreen = () => {
 
 
     const addNewLine = () => {
-        console.log("JR NOTE: lines are ", linesRef.current, "which means their length is", linesRef.current.length)
         let this_line = plainLinesRef.current[0];
         if (linesRef.current.length > 0) {
-            console.log("JR NOTE: actually getting the current index")
             const index = getCurrentIndex() + 1;
-            if (index === 0) {
+            if (index === 0 || index>plainLinesRef.current.length-1) {
                 setIsTyping(false);
                 return;
             }
@@ -69,11 +76,12 @@ export const ChatScreen = () => {
         const new_lines = [...linesRef.current, line];
         setLines(new_lines);
         setIsTyping(true);
+        window.scrollBy(0,200);
         //https://upmostly.com/tutorials/settimeout-in-react-components-using-hooks
         //god i hate how state and timeout interact. apparently useRef is a work around.
         setTimeout(()=>{
             addNewLine();
-         }, 2000)
+         }, 1000)
     }
 
     const addApocalypse = () => {
@@ -113,6 +121,9 @@ export const ChatScreen = () => {
         setProcessedLines(processChatLines());
     }, [lines, setProcessedLines])
 
+    useEffect(()=>{
+        addNewLine();
+    },[]);
 
 
     const processChatLines = () => {
@@ -147,12 +158,12 @@ export const ChatScreen = () => {
 
 
     return (
-        <div>
-            <div onClick={addNewLine}>This is the start of the chat between <span style={{ color: "#ff0000" }}>puzzledPlayer</span> and <span style={{ color: "#cfcd00" }}>NotAMinotaur</span> entitled "Don't Do This".</div>
+        <HiddenScrollContainer>
+            <div>This is the start of the chat between <span style={{ color: "#ff0000" }}>puzzledPlayer</span> and <span style={{ color: "#cfcd00" }}>NotAMinotaur</span> entitled "Don't Do This".</div>
             <div>{processedLines}</div>
-            <RoomInput onKeyPress={(ev) => { checkEnter(ev.key, ev.target) }} placeholder="Message @NotAMinotaur" autoFocus />
+            <ChatInput onKeyPress={(ev) => { checkEnter(ev.key, ev.target) }} placeholder="Message @NotAMinotaur" autoFocus />
             {isTyping ? <TypingContainer>NotAMinotaur is typing...</TypingContainer> : null}
-        </div>
+        </HiddenScrollContainer>
     )
 }
 
