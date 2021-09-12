@@ -209,7 +209,7 @@ export class AchivementStorage{
 
     initCityMorale = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
         const mm = 1000*60; //minutes multiplier
-        const values = [1,10,100];
+        const values = [0,10,100];
         interface AchievementTextMapInner {
             [details: number] : string;
         }
@@ -218,12 +218,12 @@ export class AchivementStorage{
         }
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                1: `Awww...it seems you are disapointed there no actual city building mechanic :) :) :) `,
+                0: `Awww...it seems you are disapointed there no actual city building mechanic :) :) :) `,
                 10: `Wanted to imagine yourself as some fucked up town mayor? Not enough to be a ${title}.`,
                 100: `The patronizing leader of a bunch of idiot npcs, teaching them things like basic fucking sanitization principles.`,
             },
             clickBelow: {
-                1: `Well! It seems theres no reason to pretend anymore! `,
+                0: `Well! It seems theres no reason to pretend anymore! `,
                 10: " You wouldn't be hacking 'working' mechanics, after all, now would you?",
                 100: `We both know there's no actual role playing game in this. `,
             }
@@ -238,7 +238,7 @@ export class AchivementStorage{
 
     initTimeInCityBuilding = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
         const mm = 1000*60; //minutes multiplier
-        const values = [3,10,100,1000];
+        const values = [0,10,100,1000];
         interface AchievementTextMapInner {
             [details: number] : string;
         }
@@ -247,13 +247,13 @@ export class AchivementStorage{
         }
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                3: `Awww...it seems you are disapointed there no actual city building mechanic :) :) :) `,
+                0: `Awww...it seems you are disapointed there no actual city building mechanic :) :) :) `,
                 10: `Wanted to imagine yourself as some fucked up town mayor? Not enough to be a ${title}.`,
                 100: `The patronizing leader of a bunch of idiot npcs, teaching them things like basic fucking sanitization principles.`,
                 1000: "To demonstrate how superior you are, not for any intrinsic trait you have. But because the game marked you as special, and because no civilization other than your own could POSSIBLY have any value. How pathetic."
             },
             clickBelow: {
-                3: `Well! It seems theres no reason to pretend anymore! `,
+                0: `Well! It seems theres no reason to pretend anymore! `,
                 10: " You wouldn't be hacking 'working' mechanics, after all, now would you?",
                 100: `We both know there's no actual role playing game in this. `,
                 1000: "But YOU just couldn't leave well enough alone. Just HAD to see, didn't you. Had to look for achivements. Disgusting. "
@@ -268,7 +268,7 @@ export class AchivementStorage{
 
     initTimeInCutscenes = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
         const mm = 1000*60; //minutes multiplier
-        const values = [3,10,100,1000];
+        const values = [0,10,100,1000];
         interface AchievementTextMapInner {
             [details: number] : string;
         }
@@ -277,13 +277,13 @@ export class AchivementStorage{
         }
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                3: `Spoiler alert, Doctor Slaughter dies in a cutscene. `,
+                0: `Spoiler alert, Doctor Slaughter dies in a cutscene. `,
                 10: "[INSERT FRIEND #1] dies in a cutscene. You can't stop it.",
                 100: `The last two hours of the game are an unskippable cutscene. You're welcome.`,
                 1000: "Just think about how much crueler these spoilers would be if cutscenes were a real thing :) :) :)"
             },
             clickBelow: {
-                3: `So. You figured it out. Huh. `,
+                0: `So. You figured it out. Huh. `,
                 10: " It seems you had to go and fuck with things you didn't understand.",
                 100: `Had to go and reveal yourself in the most blatant way possible. `,
                 1000: "No sense keeping the mask up then, huh :) :) :)"
@@ -298,7 +298,7 @@ export class AchivementStorage{
 
     initTimeInCombat = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
         const mm = 1000*60; //minutes multiplier
-        const values = [3,10,100,1000];
+        const values = [0,10,100,1000];
         interface AchievementTextMapInner {
             [details: number] : string;
         }
@@ -307,13 +307,13 @@ export class AchivementStorage{
         }
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                3: `Ahahahah do you expect me to pretend like combat is a real thing here??? `,
+                0: `Ahahahah do you expect me to pretend like combat is a real thing here??? `,
                 10: "Man can you imagine if you were sitting here playing a real game with combat.",
                 100: `Oh gosh player senpai, you're so strong and you have spent so much time in actual for real combat. Really. I'm swooning.`,
                 1000: "Even if this were a real game I'd be accusing you of cheating at this point. Why bother?"
             },
             clickBelow: {
-                3: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You're mine now. `,
+                0: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You're mine now. `,
                 10: "When you decide to fuck up and hack the wrong thing you don't go small, do you?",
                 100: `Do you GET it? Do I need to spell it out? There's no way you got even a single second of combat in this game without hacking. And if you did THAT, then I guess you already know what's leaking out the edges of my mask, now don't you? `,
                 1000: "So you'll have to forgive me for dropping the act."
@@ -329,7 +329,7 @@ export class AchivementStorage{
 
     initBattleSkillpoints = (rand: SeededRandom, title: string, compliments:string[], insults:string[])=>{
         const mm = 1000*60; //minutes multiplier
-        const values = [3,10,100,1000];
+        const values = [0,10,100,1000];
         interface AchievementTextMapInner {
             [details: number] : string;
         }
@@ -338,13 +338,13 @@ export class AchivementStorage{
         }
         const map:AchievementTextMapOuter = {
             clickAbove: {
-                3: `Ahahahah do you expect me to pretend like combat is a real thing here??? `,
+                0: `Ahahahah do you expect me to pretend like combat is a real thing here??? `,
                 10: "Man, can you imagine if you were sitting here playing a real game with combat.",
                 100: `Oh gosh player senpai, you're so strong and you have spent so much time in actual for real combat. Really. I am swooning.`,
                 1000: "Even if this were a real game I would be accusing you of cheating at this point. Why bother?"
             },
             clickBelow: {
-                3: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You are mine now. `,
+                0: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You are mine now. `,
                 10: "When you decide to fuck up and hack the wrong thing you don't go small, do you?",
                 100: `Do you GET it? Do I need to spell it out? There is no way you got even a single second of combat in this game without hacking. And if you did THAT, then I guess you already know what is leaking out the edges of my mask, correct? `,
                 1000: "So you will have to forgive me for dropping the act."

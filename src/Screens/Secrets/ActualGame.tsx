@@ -460,7 +460,7 @@ const [message, setMessage] = useState("");
       return true;
     }else if(input.toUpperCase().includes("DOWN")){
       setError("You do not want to go to the BASEMENT TUNNELS. But I guess that is where you are going.");
-      (window as any).setCCTVMode(true)
+      (window as any).setGhostMode(true)
       return true;
 
     }
