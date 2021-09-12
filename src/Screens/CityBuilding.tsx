@@ -55,7 +55,7 @@ export const CityBuildingScreen = (props: StatusProps) => {
             <StatusRow onClick={()=>{console.log("What if ThisIsAGame is what the DOM element said???")}}><span style={{display:"none"}}>What if ThisIsAGame tho???</span> </StatusRow>
 
 
-            {observer.cityBuildingMenuLevel > 1 ? (
+            {observer.cityBuildingMenuLevel > 1 || props.player.order || props.player.chaos ? (
                 <Fragment>
                     <div>
                         {props.player.buildings.map((building)=>{
@@ -63,10 +63,10 @@ export const CityBuildingScreen = (props: StatusProps) => {
                             <BuildingLine>
                                 <BuildingHeader>{building}: </BuildingHeader>
                                 <BuildingSection>Status: Unbuilt </BuildingSection>
-                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Assigned Leader: None </BuildingSection>:null}
-                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Morale Boost: 0 </BuildingSection>:null}
-                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Build Points: 0 </BuildingSection>:null}
-                                {observer.cityBuildingMenuLevel > 2 ?<BuildingSection>Locked?: {props.player.buildingMetaData[building].unlocked?"":"🔒"} </BuildingSection>:null}
+                                {observer.cityBuildingMenuLevel > 2 || props.player.order || props.player.chaos ?<BuildingSection>Assigned Leader: None </BuildingSection>:null}
+                                {observer.cityBuildingMenuLevel > 2 || props.player.order || props.player.chaos ?<BuildingSection>Morale Boost: 0 </BuildingSection>:null}
+                                {observer.cityBuildingMenuLevel > 2 || props.player.order || props.player.chaos ?<BuildingSection>Build Points: 0 </BuildingSection>:null}
+                                {observer.cityBuildingMenuLevel > 2 || props.player.order || props.player.chaos ?<BuildingSection>Locked?: {props.player.buildingMetaData[building].unlocked?"":"🔒"} </BuildingSection>:null}
 
                             </BuildingLine>)
                     })}
