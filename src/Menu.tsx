@@ -233,7 +233,7 @@ function Menu(props: MenuProps) {
 
     return (
       <div id="ThisIsAMenu">
-      <MenuBox className={(window as any).real_eyes?"realeyescolor":"gaslightbgcolor"} angle={props.angle} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
+      <MenuBox className={(window as any).real_eyes || player.chaos?"realeyescolor":"gaslightbgcolor"} angle={props.angle} opacity={MENU_OPACITY} mediumRadius={BORDERRADIUSROUND} fontColor={FONTCOLOR} bgColor={BGCOLOR} fontSize={FONTSIZE}>
         {
           currentScreen === LOADING?
             <LoadingScreen loadScreen={setCurrentScreen} nextScreen={nextScreen} refresh={refresh}></LoadingScreen>
