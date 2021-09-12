@@ -248,14 +248,14 @@ function Menu(props: MenuProps) {
 
               {(window as any).rageMode?<TruthTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
-              {observer.statisticsMenuLevel>0?<StatisticsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
-              {observer.cityBuildingMenuLevel>0?<CityTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
-              {observer.companionsMenuLevel>0?<CompanionTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.statisticsMenuLevel>0 || player.chaos?<StatisticsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.cityBuildingMenuLevel>0 || player.chaos?<CityTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.companionsMenuLevel>0 || player.chaos?<CompanionTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
               {observer.godsMenuLevel>0?<GodTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
 
 
-              {observer.optionsMenuLevel>0?<OptionsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.optionsMenuLevel>0|| player.chaos?<OptionsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
             </TabList>
             <TabPanel {...tab}>
@@ -274,28 +274,28 @@ function Menu(props: MenuProps) {
             :) :) :)
           </TabPanel>:null}
 
-            {observer.statisticsMenuLevel>0?<TabPanel {...tab}>
+            {observer.statisticsMenuLevel>0 || player.chaos?<TabPanel {...tab}>
               {currentScreen === STATISTICS?<StatisticsScreen  loadScreen={handleLoading} player={player}></StatisticsScreen>:null}
 
             </TabPanel>:null}
 
-            {observer.cityBuildingMenuLevel>0?<TabPanel {...tab}>
+            {observer.cityBuildingMenuLevel>0 || player.chaos?<TabPanel {...tab}>
               {currentScreen === CITYBUILDING?<CityBuildingScreen  loadScreen={handleLoading} player={player}></CityBuildingScreen>:null}
 
             </TabPanel>:null}
 
-            {observer.companionsMenuLevel>0?<TabPanel {...tab}>
+            {observer.companionsMenuLevel>0 || player.chaos?<TabPanel {...tab}>
               {currentScreen === COMPANIONS?<CompanionsScreen  loadScreen={handleLoading} player={player}></CompanionsScreen>:null}
 
             </TabPanel>:null}
 
-            {observer.godsMenuLevel>0?<TabPanel {...tab}>
+            {observer.godsMenuLevel>0 || player.chaos?<TabPanel {...tab}>
               {currentScreen === GODS?<GodScreen  loadScreen={handleLoading} player={player}></GodScreen>:null}
 
             </TabPanel>:null}
 
 
-            {observer.optionsMenuLevel>0?<TabPanel {...tab}>
+            {observer.optionsMenuLevel>0 || player.chaos?<TabPanel {...tab}>
               {currentScreen === OPTIONS?<OptionsScreen  loadScreen={handleLoading} player={player}></OptionsScreen>:null}
 
             </TabPanel>:null}

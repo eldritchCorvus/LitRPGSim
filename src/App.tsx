@@ -185,6 +185,7 @@ function App(props: AppProps) {
 
   useEffect(()=>{
     if(!player){
+      console.log("JR NOTE: there is no player so making one")
       window.addEventListener('click', click);
       window.addEventListener('click', clickEffect);
       (window as any).seed = seed;
@@ -201,7 +202,9 @@ function App(props: AppProps) {
       initAspects(rand);
       initClasses(rand);
       initInterests(rand);
-      setPlayer(randomPlayer(rand) ); 
+      const player = randomPlayer(rand);
+      console.log("JR NOTE: got a player clled", player)
+      setPlayer(player ); 
       detectDivStatus("ThisIsNotAGame");
       detectDivStatus("ThisIsNotAnEye1");
       detectDivStatus("ThisIsNotAnEye2");
@@ -243,6 +246,7 @@ function App(props: AppProps) {
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
         *window.chaos exists
+        * gaslight cursor revals a radius of true color (hidden yellow things in the pictures?)
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
