@@ -42,6 +42,8 @@ export class Player {
     current_location: string = "";
     companions: Companion[] = [];
     inventory: string[] = [];
+    order = false;
+    chaos = false;
 
     constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer: boolean) {
         this.rand = rand;
@@ -166,7 +168,7 @@ export class Player {
     }
 
     generateCompanions = (rand: SeededRandom) => {
-        let max = rand.getRandomNumberBetween(1, 5);
+        let max = rand.getRandomNumberBetween(1, this.theme_keys.length);
         if (this.theme_keys.includes(LONELY)) {
             max = 1;
         } else if (this.theme_keys.includes(FAMILY)) {
@@ -348,10 +350,36 @@ export class Player {
     }
 }
 
+function orderPlayer(rand: SeededRandom){
+    console.log("JR NOTE: its an order player")
+    const ret = new Player(all_classes["null"], all_aspects["null"], [all_interests["null"]],rand, false);
+    ret.order = true;
+    //TODO make as much as possible manual
+    return ret;
+}
+
+function chaosPlayer(rand: SeededRandom){
+    const cl = rand.pickFrom(Object.values(all_classes_except_null));
+    const ap = rand.pickFrom(Object.values(all_aspects_except_null));
+    let i1 = rand.pickFrom(Object.values(all_interests_except_null));
+    let i2 = rand.pickFrom(Object.values(all_interests_except_null));
+
+    const ret = new Player(cl, ap,  [...Object.values(all_interests)], rand, false);
+    ret.chaos = true;
+
+    return ret;
+}
+
 export function randomPlayer(rand: SeededRandom, shadowPlayer = false) {
-    //TODO if these values are set in the url params use those instead of the seed.
+    let apocalypse: string | null = getParameterByName("apocalypse", null);
+
+    if(apocalypse && apocalypse === "order" && !shadowPlayer){
+        return orderPlayer(rand);
+    }else if(apocalypse && !shadowPlayer){//very deliberately any kind of apocalypse besides order is chaos.  order has definitions, chaos does not.
+        return chaosPlayer(rand);
+    }
+
     let cl;
-    //TODO should really make sure these are valid.
     let url_class: string | null = shadowPlayer ? null : getParameterByName("class", null);
     let url_aspect: string | null = shadowPlayer ? null : getParameterByName("aspect", null);
     let url_i1: string | null = shadowPlayer ? null : getParameterByName("interest1", null);
