@@ -332,7 +332,7 @@ export class Player {
         monster.fullName = "Shambling Horror With Your Face";
         const themes = this.collateThemes();
 
-        monster.backstory = "It is a monster.";
+        monster.backstory = "It is a monster. It is you. You're a monster.";
         for(let theme of themes){
             monster.backstory += ` ${theme.pickPossibilityFor(this.rand, MONSTER_DESC)}`;
         }
