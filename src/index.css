@@ -128,7 +128,7 @@ td .infodump{
 }
 
 .realeyescolor{
-  animation: realeyesbganimation 1.6s steps(255) infinite;
+  animation: realeyesbganimation 5.6s steps(255) infinite;
 }
 
 .gaslightbgcolor{
