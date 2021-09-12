@@ -4,7 +4,7 @@ import {initThemes} from "./Modules/Theme";
 import SeededRandom from "./Utils/SeededRandom";
 import {Player, randomPlayer} from "./Modules/Player";
 import {initInterests } from "./Modules/Interest";
-import {useEffect, useState,Fragment, useCallback} from 'react';
+import {useEffect, useState,Fragment, useCallback, useRef} from 'react';
 import { initStats } from "./Modules/Stat";
 import Menu from "./Menu";
 import {JustTruth} from "./Screens/Secrets/JustTruth";
@@ -21,6 +21,7 @@ import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
 import { getParameterByName } from "./Utils/URLUtils";
 import { CreditsScreen } from "./Screens/Credits";
+import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 
 interface AppProps{
   seed: number;
@@ -28,6 +29,10 @@ interface AppProps{
 
 function App(props: AppProps) {
   const [player, setPlayer] = useState<Player>();
+  const [angle, setAngle] = useState(0);
+  const angleRef = useRef(angle);
+  angleRef.current = angle;
+
   const [rageMode, setRageMode] = useState(false);
   const [megaGasLight, setMegaGaslight] = useState(false);
 
@@ -36,6 +41,19 @@ function App(props: AppProps) {
   const [justTruthMode, setJustTruthMode] = useState(false);
 
   const [creditsMode, setCreditsMode] = useState(false);
+
+  const warpAngles = ()=>{
+    setAngle(getRandomNumberBetween(0,360));
+    setTimeout(()=>{
+      warpAngles();
+   }, 1000)
+  }
+
+  useEffect(()=>{
+    if(player && player.chaos){
+      warpAngles();
+    }
+  }, [player])
 
 
   useEffect(()=>{
@@ -185,7 +203,6 @@ function App(props: AppProps) {
 
   useEffect(()=>{
     if(!player){
-      console.log("JR NOTE: there is no player so making one")
       window.addEventListener('click', click);
       window.addEventListener('click', clickEffect);
       (window as any).seed = seed;
@@ -203,7 +220,10 @@ function App(props: AppProps) {
       initClasses(rand);
       initInterests(rand);
       const player = randomPlayer(rand);
-      console.log("JR NOTE: got a player clled", player)
+      if(player.chaos){
+        setMegaGaslight(true);
+        fuckupstuffforspiral();
+      }
       setPlayer(player ); 
       detectDivStatus("ThisIsNotAGame");
       detectDivStatus("ThisIsNotAnEye1");
@@ -236,7 +256,7 @@ function App(props: AppProps) {
         {rageMode && displayMenu ? <RageMode/>:null}
         {rageMode && displayMenu?  <Menu player={player} angle={30}/>:null}
         {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
-        {displayMenu?  <Menu player={player} angle={0}/>:null}      
+        {displayMenu?  <Menu player={player} angle={angle}/>:null}      
         {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
         {actualGameMode?  <ActualGame player={player}/>:null}      
         {creditsMode ?  <CreditsScreen player={player}/>:null}      
