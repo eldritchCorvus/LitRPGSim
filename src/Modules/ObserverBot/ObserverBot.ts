@@ -436,7 +436,9 @@ export class ObserverBot{
 
 
    handleTrueBG = ()=>{
-       scrawlOverBG(shuffle(this.vitriol));
+       if(!(window as any).apocalypse){
+        scrawlOverBG(shuffle(this.vitriol));
+       }
    }
 
    belowComment = (title: string, text: string)=>{
