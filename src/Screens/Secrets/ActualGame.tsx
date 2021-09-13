@@ -56,7 +56,6 @@ export const ActualGame = (props: StatusProps) => {
   //if you do ANYTHING other than killing the monster on the spot (in the only way you can) or fleeing
   //you die here.
   const checkDeath = () => {
-    console.log("JR NOTE: checking death");
     //popup to explain you have been killed by a shambling horror, message.
     //when they click anywhere, refresh the entire page to a new seed. reincarnation bb
     for (let companion of currentRoom.people) {
