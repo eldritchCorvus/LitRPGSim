@@ -47,7 +47,7 @@ export const ApocalypseScreen = () => {
     const stopLoadingEventually = ()=>{
         setTimeout(()=>{
             setLoading(false);
-         }, 1000)
+         }, 10000)
     }
 
     if(loading){
