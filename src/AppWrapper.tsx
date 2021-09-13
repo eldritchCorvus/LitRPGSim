@@ -64,7 +64,7 @@ function AppWrapper() {
       // :) :) :)
       (window as any).triggerApocalypse = (value:boolean)=>{
         setMode(APOCALYPSE);
-        (window as any).apocalypse = value;
+        (window as any).apocalypse = true;
       };
     }
   },[])
