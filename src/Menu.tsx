@@ -207,6 +207,7 @@ function Menu(props: MenuProps) {
 
   useEffect(()=>{
     (window as any).refresh = ()=>{
+      player.checkForApocalypseConditions();
       if( (window as any).rageMode){
         blameSong();
     }
