@@ -1,6 +1,6 @@
 import { all_aspects, all_aspects_except_null, Aspect } from "./Aspect";
 import { all_classes, all_classes_except_null, RPGClass } from "./RPGClass";
-import { CoreSkill, Skill, StatSkill, WasteSkill } from "./Skill";
+import { artifacts, CoreSkill, Skill, StatSkill, WasteSkill } from "./Skill";
 import { all_interests, all_interests_except_null, Interest } from "./Interest";
 import { all_themes, Theme } from "./Theme";
 import SeededRandom from "../Utils/SeededRandom";
@@ -13,7 +13,7 @@ import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_D
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
-import { removeItemOnce } from "../Utils/ArrayUtils";
+import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
 import { BuildingMetaData, spawnTempleForGod } from "./Building";
 
 export interface BuildingMetaMap {
@@ -294,16 +294,29 @@ export class Player {
         return this.skillPoints >= skill.tier;
     }
 
+    checkForApocalypseConditions = ()=>{
+        let found:string[] = [];
+        const types = artifacts.map((artifact)=>{return artifact.type});
+        for(let skill of this.skills){
+            if(types.includes(skill.type)){
+                found.push(skill.type);
+            }
+        }
+        if(uniq(found).length >= 9){
+            (window as any).triggerApocalypse();
+            return true;
+        }
+        return false;
+    }
+
     unlockSkill = (found: Skill) => {
         this.lastUnlockedSkill = found;
         found.unlocked = true;
         this.skillPoints += -1 * found.tier;
         if (found.type === "StatSkill") {
-            console.log("its a state skill");
             const stat = (found as StatSkill).stat;
             this.addStat(stat);
         } else if (found.type === "WasteSkill") {
-            console.log("its a waste skill :(");
 
             if ((window as any).haxMode) {
                 //:) :) :)
@@ -312,7 +325,6 @@ export class Player {
                 (window as any).recordAction(HAX_FAIL, 1);
             }
         } else if (found.type === "CoreSkill") {
-            console.log("its a core skill");
             this.observer.upgradeMenu(found.name);
         }
         this.checkIfCompletedSkillTree();
