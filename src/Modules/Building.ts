@@ -150,11 +150,11 @@ export class TempleMetaData extends BuildingMetaData{
     }
     
     beEntered = (player: Player)=>{
-        console.log("JR NOTE: ", this.key, "is being entered. do i have the artifact? ", this.artifact,"?", player.skills.includes(this.artifact))
         //NO ITEMS, NO COMPANIONS BUT YOU DO GET A SKILL OUT OF NOWHERE. (unless you already have it)
         if(!player.skills.includes(this.artifact)){
             console.log("JR NOTE: receiveing skill", this.artifact.name, "has been obtained.")
             player.skills.push(this.artifact);
+            player.checkForApocalypseConditions();
         }
     }
     
