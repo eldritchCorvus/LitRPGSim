@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 import { useEffect, useRef, useState } from "react";
+import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
+import { Popup, PopupTitle, PopupContent } from "../../Modules/ObserverBot/AchivementPopup";
+import { getRandomNumberBetween } from "../../Utils/NonSeededRandUtils";
+import { domWordMeaningFuckery } from "../../Utils/StringUtils";
 import not_a_minotaur_src from './../../images/notaminotaur.png';
 import you_src from './../../images/probablyYou.png';
 import { ChatLine, ChatLineComponent } from "./ChatLine";
@@ -81,12 +85,15 @@ export const ChatScreen = () => {
         //god i hate how state and timeout interact. apparently useRef is a work around.
         setTimeout(()=>{
             addNewLine();
-         }, 1000)
+         }, getRandomNumberBetween(1000,5000))
     }
 
     const addApocalypse = () => {
-        const new_lines = [...plainLines];
-        new_lines.concat(makeApocalypseLines());
+        if(plainLinesRef.current.includes("You're doing it.")){
+            return;
+        }
+        let new_lines = plainLinesRef.current.slice(0,getCurrentIndex()+2);
+        new_lines = new_lines.concat(makeApocalypseLines());
         setPlainLines(new_lines);
         addNewLine();
     }
@@ -101,7 +108,22 @@ export const ChatScreen = () => {
         return apocalypseLines;
     }
 
+    const processClick = () => {
+        console.log("JR NOTE: clicks are", clicks);
+        if(clicks=== 0){
+            addApocalypse();
+        }
+        setClicks(clicks + 1);
+        for (let i = 0; i < 8; i++) {
+            domWordMeaningFuckery();
+        }
+    }
 
+
+
+    const dialog = useDialogState();
+
+    const [clicks, setClicks] = useState(0);
 
     const [plainLines, setPlainLines] = useState(plainLinesSource);
     const [isTyping, setIsTyping] = useState(false);
@@ -131,9 +153,9 @@ export const ChatScreen = () => {
         let lastSpeaker: string | null = null;
         for (let line of lines) {
             if (lastSpeaker === line.username) {
-                tmp.push(<ChatLineComponent callback={makeApocalypseLines} chatLine={line} displayInfo={false} />);
+                tmp.push(<ChatLineComponent callback={processClick} chatLine={line} displayInfo={false} />);
             } else {
-                tmp.push(<ChatLineComponent callback={makeApocalypseLines} chatLine={line} displayInfo={true} />);
+                tmp.push(<ChatLineComponent callback={processClick} chatLine={line} displayInfo={true} />);
             }
             lastSpeaker = line.username;
         }
@@ -144,7 +166,6 @@ export const ChatScreen = () => {
         //this won't be anything we can actually do anything to so lets have fun.
         if (key === "Enter") {
             const index = lines.length > 0 ? getCurrentIndex() + 1 : 0;
-
             const text = (target as HTMLInputElement).value;
             const line = makePlayerLine(text);
             const new_lines = [...lines, line];
@@ -156,6 +177,12 @@ export const ChatScreen = () => {
         }
     }
 
+    useEffect(()=>{
+        if(clicks >=9){
+            console.log("JR NOTE: apocalypse time", clicks);
+            dialog.setVisible(true);
+        }
+    },[clicks]);
 
     return (
         <HiddenScrollContainer>
@@ -163,6 +190,13 @@ export const ChatScreen = () => {
             <div>{processedLines}</div>
             <ChatInput onKeyPress={(ev) => { checkEnter(ev.key, ev.target) }} placeholder="Message @NotAMinotaur" autoFocus />
             {isTyping ? <TypingContainer>NotAMinotaur is typing...</TypingContainer> : null}
+            <DialogDisclosure style={{ display: "none" }}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
+            <Dialog onClick={() => { window.location.href = `?seed=${getRandomNumberBetween(0, 33333333)}&apocalypse=${(window as any).chaos?"chaos":"order"}` }} {...dialog} tabIndex={0} aria-label="death" style={{ border: "none", outline: "none", position: "fixed", top: "35%", left: "25%", width: "600px" }}>
+            <Popup>
+              <PopupTitle>You have sucessfully ended the Old World!</PopupTitle>
+              <PopupContent>Finally the {`${(window as any).chaos?"chaos":"order"}`} of the old world can be washed away! Don't say we didn't warn you!</PopupContent>
+            </Popup>
+          </Dialog>
         </HiddenScrollContainer>
     )
 }
