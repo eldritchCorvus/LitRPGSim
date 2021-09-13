@@ -6,6 +6,7 @@ import { Popup, PopupTitle, PopupContent } from "../../Modules/ObserverBot/Achiv
 import { getRandomNumberBetween } from "../../Utils/NonSeededRandUtils";
 
 interface ChatProps {
+    callback: Function;
     chatLine: ChatLine;
     displayInfo: boolean; //were you the last person to speak?
 }
@@ -18,6 +19,9 @@ export const ChatLineComponent = (props: ChatProps) => {
     const dialog = useDialogState();
 
     const processClick = () => {
+        if(clicks === 0){
+            props.callback();
+        }
         setClicks(clicks + 1);
         for (let i = 0; i < 8; i++) {
             domWordMeaningFuckery();
@@ -46,7 +50,7 @@ export const ChatLineComponent = (props: ChatProps) => {
             <Dialog onClick={() => { window.location.href = `?seed=${getRandomNumberBetween(0, 33333333)}&apocalypse=${(window as any).chaos?"chaos":"order"}` }} {...dialog} tabIndex={0} aria-label="death" style={{ border: "none", outline: "none", position: "fixed", top: "35%", left: "25%", width: "600px" }}>
             <Popup>
               <PopupTitle>You have sucessfully ended the Old World!</PopupTitle>
-              <PopupContent>Finally the {`${(window as any).chaos?"chaos":"order"}`} of the old world can be washed away!</PopupContent>
+              <PopupContent>Finally the {`${(window as any).chaos?"chaos":"order"}`} of the old world can be washed away! Don't say we didn't warn you!</PopupContent>
             </Popup>
           </Dialog>
         </div>
