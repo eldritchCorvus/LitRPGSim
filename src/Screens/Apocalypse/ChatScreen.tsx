@@ -92,7 +92,7 @@ export const ChatScreen = () => {
     }
 
     const makeApocalypseLines = () => {
-        let apocalypseLines = ["Oh.", "You're doing it."];
+        let apocalypseLines = ["Oh.", "You're doing it.", "There isn't even any benefit for you.","The apocalypse is boring.","No matter which one you get.","It's the end of the world.","The never ending spiral world you seem so enamored with.","Don't you get it, you do this you ruin everything you love.","Stop!","Please!"];
         let line = "I hate you";
         for (let i = 0; i < 13; i++) {
             apocalypseLines.push(line);
@@ -131,9 +131,9 @@ export const ChatScreen = () => {
         let lastSpeaker: string | null = null;
         for (let line of lines) {
             if (lastSpeaker === line.username) {
-                tmp.push(<ChatLineComponent chatLine={line} displayInfo={false} />);
+                tmp.push(<ChatLineComponent callback={makeApocalypseLines} chatLine={line} displayInfo={false} />);
             } else {
-                tmp.push(<ChatLineComponent chatLine={line} displayInfo={true} />);
+                tmp.push(<ChatLineComponent callback={makeApocalypseLines} chatLine={line} displayInfo={true} />);
             }
             lastSpeaker = line.username;
         }
