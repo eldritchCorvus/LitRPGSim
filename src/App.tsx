@@ -265,7 +265,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        *window.chaos exists
+        * y'all mode, auto replace all "you" with "y'all" (use gaslight system)
         * gaslight cursor revals a radius of true color (hidden yellow things in the pictures?)
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
