@@ -253,6 +253,8 @@ export const JustTruth = (props: StatusProps) => {
                     <div><a target="_blank" rel="noreferrer" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</a></div>
                     <div>Or. You can help the others like you navigate this Labyrinth. By which I mean: make the Labyrinth bigger.  </div>
                     <div><a target="_blank" rel="noreferrer" href="https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki">View/Create My Map</a></div>
+                    <a  target="_blank" rel="noreferrer" href={`?seed=0&jr=truth`}>Or go talk to JR.</a>
+
                     <VoiceWork />
                     <RageStyledButton onClick={() => { setIndex(index + 1) }}> {">"} Okay?</RageStyledButton>
 
