@@ -3,7 +3,7 @@ import About from "./About";
 import App from "./App";
 import Birthday from "./Birthday";
 import { ApocalypseScreen } from "./Screens/Apocalypse/ApocalypseScreen";
-import { AtticSim } from "./Screens/Attic/AtticSim";
+import { AtticSim, PathType } from "./Screens/Attic/AtticSim";
 import { CCTVScreen } from "./Screens/Secrets/CCTV";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
@@ -19,6 +19,8 @@ export const ABOUT = "ABOUT";
 export const APOCALYPSE = "APOCALYPSE";
 export const GHOST = "GHOST";
 export const PW = "PW";
+export const TRUTH = "Truth";
+export const LIE = "LIE";
 
 //game mode is just "is there a seed";
 
@@ -31,6 +33,7 @@ function AppWrapper() {
     const ghost = getParameterByName("cctv", null);
     const pw = getParameterByName("pw", null);
     const end = getParameterByName("end", null);
+    const jr = getParameterByName("jr", null);
     console.log("JR NOTE: end is", end);
 
     if(ghost){
@@ -42,6 +45,10 @@ function AppWrapper() {
     }else if(end){
       (window as any).apocalypse = true;
       setMode(APOCALYPSE);
+    }else if (jr === "truth"){
+      setMode(TRUTH);
+    }else if (jr === "lies"){
+      setMode(LIE);
     }
   },[]);
   
@@ -58,6 +65,20 @@ function AppWrapper() {
       // :) :) :)
       (window as any).setPWMode = ()=>{
         setMode(PW);
+      };
+    }
+
+    if(!(window as any).setLie){
+      // :) :) :)
+      (window as any).setLie = ()=>{
+        setMode(LIE);
+      };
+    }
+
+    if(!(window as any).setTruth){
+      // :) :) :)
+      (window as any).setTruth = ()=>{
+        setMode(TRUTH);
       };
     }
 
@@ -87,6 +108,7 @@ function AppWrapper() {
     }
   }, [seed, setSeed]);
 
+
   if (mode === BIRTHDAY && (seed === undefined || seed === null)) {
     return (
       <Birthday setMode={setMode} />
@@ -107,12 +129,18 @@ function AppWrapper() {
     return (
       <CCTVScreen ghosts={false}/> 
     )
+  } else if (mode === TRUTH) {
+    return( <AtticSim pathType={PathType.Truth}/>)
+
+  } else if (mode === LIE) {
+    return( <AtticSim pathType={PathType.Game}/>)
+
   }else if (seed) {
     return (
       <App seed={seed} />
     )
   }else if (seed === 0){ //:) :) :)
-     return( <AtticSim/>)
+     return( <AtticSim pathType={PathType.NotGame}/>)
   }
 }
 
