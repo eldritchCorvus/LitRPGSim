@@ -171,7 +171,7 @@ export const JustTruth = (props: StatusProps) => {
         }if ( mode === SIMPLECONTENT2) {
             console.log("JR NOTE: path for handleSimpleBeforeContent2");
             handleSimpleContent2();
-        } else if(mode === INFINITE) {
+        } else if(mode === INFINITE || mode === THEME) {
             console.log("JR NOTE: path for handleInfiniteContent");
             handleInfiniteContent();
         }
