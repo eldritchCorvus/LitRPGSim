@@ -514,7 +514,7 @@ const initObjects = () =>{
     object_possibilities[OBFUSCATION] = ["white-out","sharpie","censor bar"] ;
     object_possibilities[DARKNESS] =  ["sunglasses","blinds","blindfold","darklight"] ;
     object_possibilities[KILLING] =  ["knife","machete","gun","blood","bloody bandages","bayonette"];
-    object_possibilities[MUSIC] =  ["flute","guitar","drum"] ;
+    object_possibilities[MUSIC] =  ["flute","guitar","drum","piano"] ;
     object_possibilities[DEFENSE] =  ["shield","armor","helmet"] ;
     object_possibilities[QUESTING] = ["map","rations","notes"] ;
 }
@@ -971,7 +971,7 @@ const initMonsterDesc = () =>{
     monster_desc[BURIED] =  ["Part of its body is buried in the dirt and clawing its way out.","Every time it opens its mouth or eyes dirt pours out.","Its breaths are strained and gasping with each exhale puffing dust out into the air.","A cloud of choking dust surrounds it.","The walls seem to press towards it, straining to crush it and anything near it."];
     monster_desc[SCIENCE] =  ["It listlessly carries a beaker of an unknown chemical.","Its wearing the remains of a lab coat.","There are goggles over its head. They do nothing."];
     monster_desc[MATH] =  ["Numbers circle its head.","The number of limbs it has is fractal.","Its head contains pure geometric shapes."];
-    monster_desc[TWISTING] =  ["Spirals and fractals are tattooed onto its flesh.","All the bones are in its hands.","Every time you look at it it is shaped differently.","Its reflection is distorted and wrong in ways you can not pin down.","Its eyes swirl with madness.","It is lines of code in a program that doesn't even care about it very much.","Its footprints leave behind the smell of madness.","Every time you count its number of limbs or eyes you get a different number. You cannot bring yourself to stop counting.","Its hair spirals and swirsl in ways that don't make sense.","It is elongated and bulbous.","Its limbs are thin and limp, like noodles.","Its hands are the size of its torso.","Its hands are sharp.","Its laugh echoes in a fractal.","Its smile stretches past the confines of its face."];
+    monster_desc[TWISTING] =  ["Instead of a face it has a spiralling spring.","Spirals and fractals are tattooed onto its flesh.","All the bones are in its hands.","Every time you look at it it is shaped differently.","Its reflection is distorted and wrong in ways you can not pin down.","Its eyes swirl with madness.","It is lines of code in a program that doesn't even care about it very much.","Its footprints leave behind the smell of madness.","Every time you count its number of limbs or eyes you get a different number. You cannot bring yourself to stop counting.","Its hair spirals and swirsl in ways that don't make sense.","It is elongated and bulbous.","Its limbs are thin and limp, like noodles.","Its hands are the size of its torso.","Its hands are sharp.","Its laugh echoes in a fractal.","Its smile stretches past the confines of its face."];
     monster_desc[DEATH] =  ["Its head is a grinning skull.","It drags a scythe behind it.","You know for a fact that it is your fate to become it when you die."];
     monster_desc[APOCALYPSE] =  ["It is covered in radiation burns.","It rides a pale horse.","It has old spikes driven through its body, inflamed and painfully healed.","It drags a can of gasoline behind it."];
     monster_desc[ANGELS] =  ["It has tattered and bloody feathered wings.","You know in your bones that god has forsaken it.","A razor sharp fallen halo cuts into its head and neck.","Its wings are as black as sin."];
@@ -1003,7 +1003,7 @@ const initMonsterDesc = () =>{
     monster_desc[OBFUSCATION] = ["Parts of it are invisible.","Its features are blurry.","It flickers in and out of visibility.","You sometimes can't hear it at all."] ;
     monster_desc[DARKNESS] =  ["Its shadow is bigger than you would expect.","Its features are dripping shadows like water.","Its visible only through its shadow."] ;
     monster_desc[KILLING] =  ["Its foot and hand prints are always fresh blood.","A tsunami of blood follows in its wake.","It clutches various weapons in each hand.","Its dripping with killing intent.","It drags a fresh corpse behind it."];
-    monster_desc[MUSIC] =  ["It clutches a microphone.","It carries a broken guitar clutched its chest.","Countless mouths scattered over its body sing in an endless choir."] ;
+    monster_desc[MUSIC] =  ["Its teeth are yellowed piano keys.","It clutches a microphone.","It carries a broken guitar clutched its chest.","Countless mouths scattered over its body sing in an endless choir."] ;
     monster_desc[DEFENSE] =  ["It drags a battered and bloody shield behind it.","Its skin is a hard and shiny carapace in places.","Full plate armor appears to be welded to its joints."] ;
     monster_desc[QUESTING] = ["It is wearing the rusted out remains of formerly shining armor.","It wears the tatters of a once proud cape.","It drags a sack of items behind it that is leaking blood."] ;
 }
