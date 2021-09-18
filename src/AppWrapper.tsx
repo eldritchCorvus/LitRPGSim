@@ -3,6 +3,7 @@ import About from "./About";
 import App from "./App";
 import Birthday from "./Birthday";
 import { ApocalypseScreen } from "./Screens/Apocalypse/ApocalypseScreen";
+import { AtticSim } from "./Screens/Attic/AtticSim";
 import { CCTVScreen } from "./Screens/Secrets/CCTV";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
@@ -86,7 +87,7 @@ function AppWrapper() {
     }
   }, [seed, setSeed]);
 
-  if (mode === BIRTHDAY && !seed) {
+  if (mode === BIRTHDAY && (seed === undefined || seed === null)) {
     return (
       <Birthday setMode={setMode} />
     )
@@ -110,7 +111,9 @@ function AppWrapper() {
     return (
       <App seed={seed} />
     )
-  } 
+  }else if (seed === 0){ //:) :) :)
+     return( <AtticSim/>)
+  }
 }
 
 export default AppWrapper;
