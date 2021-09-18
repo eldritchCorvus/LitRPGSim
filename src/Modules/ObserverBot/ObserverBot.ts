@@ -224,7 +224,6 @@ export class ObserverBot{
 
     nextQuestion = () =>{
         const questions = shuffle(this.memories).filter((memory)=>!memory.asked);
-        console.log("Questions is", questions);
         if(questions.length){
             return questions[0];
         }
