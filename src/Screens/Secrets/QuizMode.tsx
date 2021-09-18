@@ -33,6 +33,7 @@ export const QuizMode = (props: StatusProps) => {
             player.observer.belowComment("ObserverBot", "Time to ask you a question, I guess.");
             setQuestion(memory);
         } else if (!completedPlayerQuestions) {
+            console.log("JR NOTE: competed first question section");
             setCompletedPlayerQuestions(true);
             player.observer.setUpInfiniteMemories();
             setMode(INFINITE);
