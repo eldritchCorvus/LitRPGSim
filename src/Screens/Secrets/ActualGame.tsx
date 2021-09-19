@@ -471,6 +471,12 @@ export const RenderedRoom = (props: RoomProps) => {
   const dir_flavor = props.direction.trim() === "" ? "You have always been here. This is not for you." : `You head ${props.direction}. You enter the ${room.key}. `;
   return (
     <Fragment>
+      <div style={{display:"none"}}>
+        <a href='http://knucklessux.com/InfoTokenReader'>This Is Not Important</a>
+        <a href='http://knucklessux.com/PuzzleBox'>This Is Not Important</a>
+        <a href='http://farragofiction.com/FractalShitpost/'>This Is Not Important</a>
+        
+        </div>
       <RoomName>{room.key}</RoomName>
       <RoomSection>
         <OneCharAtATimeDiv text={dir_flavor + room.description}></OneCharAtATimeDiv></RoomSection>
