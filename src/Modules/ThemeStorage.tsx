@@ -520,6 +520,8 @@ const initObjects = () =>{
     object_possibilities[MUSIC] =  ["flute","guitar","drum","piano"] ;
     object_possibilities[DEFENSE] =  ["shield","armor","helmet"] ;
     object_possibilities[QUESTING] = ["map","rations","notes"] ;
+    object_possibilities[WASTE] = ["javascript console","debugging console","inspect element console"] ;
+
 }
 
 const initMenuOptions = () =>{
