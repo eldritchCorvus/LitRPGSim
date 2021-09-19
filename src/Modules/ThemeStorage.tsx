@@ -374,7 +374,7 @@ const initSuperNames = () =>{
     super_name_possibilities_map[TECHNOLOGY] =  ["Singularity"];
     super_name_possibilities_map[TIME] =  ["Stopped Clock"];
     super_name_possibilities_map[SPACE] =  ["Big Bang"];
-    super_name_possibilities_map[OCEAN] =  ["The Flood"];
+    super_name_possibilities_map[OCEAN] =  ["Ship of Vescillation"];
     super_name_possibilities_map[LONELY] =  ["The Silence"];
     super_name_possibilities_map[FIRE] =  ["The Scoured Earth"];
     super_name_possibilities_map[FREEDOM] =  ["Unending Freedom"];
@@ -395,7 +395,7 @@ const initSuperNames = () =>{
     super_name_possibilities_map[PLANTS] = ["Forest's March"];
     super_name_possibilities_map[HUNTING] = ["Nimrod's Chase"];
     super_name_possibilities_map[DECAY] = ["Mass Grave"] ;
-    super_name_possibilities_map[CHOICES] =  ["Alternate Timeline"] ;
+    super_name_possibilities_map[CHOICES] =  ["Timeline of Theseus"] ;
     super_name_possibilities_map[ZAP] = ["Thor's Banana"] ;
     super_name_possibilities_map[LOVE] = ["Mandatory Shipping Grid"];
     super_name_possibilities_map[SOUL] = ["Know thyself."] ;
