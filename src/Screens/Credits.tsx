@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 
 import { Player } from "../Modules/Player";
@@ -37,26 +37,36 @@ export const CreditsContent = styled.div`
 
 export const CreditHeader = styled.div`
     font-size: 24px;
-    margin: 20px;
+    margin: 18px;
 `
 
 export const CreditParagraph = styled.div`
     font-size: 18px;
-    margin: 20px;
+    margin: 28px;
 `
 
 export const CreditLine = styled.div`
-    font-size: 18px;
-    padding: 5px;
-    margin: 10px;
+    font-size: 14px;
+    padding-bottom: 5px;
+    margin-top: 0px;
     width: 100%;
 `
+export const CreditDoubleLine = styled.div`
+    font-size: 14px;
+    padding-bottom: 5px;
+    margin: 10px;
+    display: inline-block;
+    margin-top: 0px;
+    width: 45%;
+`
+
 
 export const CreditLeft = styled.div`
     text-align: right;
     display: inline-block;
     width: 45%;
     padding-right: 10px;
+    font-weight: bolder;
 
 `
 
@@ -78,34 +88,34 @@ export const CreditsScreen = (props: StatusProps) => {
 
     const gaslight = useCallback(() => {
         const arr = [];
-        const amount = getRandomNumberBetween(0,20);
-        for(let i = 0; i<amount; i++){
-            arr.push(Math.random()>0.5)
+        const amount = getRandomNumberBetween(0, 20);
+        for (let i = 0; i < amount; i++) {
+            arr.push(Math.random() > 0.5)
         }
         setShowSecrets(arr);
         setTimeout(() => {
             window.requestAnimationFrame(() => { gaslight() })
         }, 5000);
-    },[]);
-    
+    }, []);
+
     useEffect(() => {
         gaslight();
         const root = document.querySelector("#ThisIsNotAGame")
 
-        if (root){
+        if (root) {
             (root as HTMLElement).style.filter = "blur(0px)";
-        }else{
+        } else {
             const root2 = document.querySelector("#ThisIsAGame");
-            if(root2){
-             (root2 as HTMLElement).style.filter = "blur(0px)";
+            if (root2) {
+                (root2 as HTMLElement).style.filter = "blur(0px)";
             }
         }
     }, [gaslight])
 
-    const getLineSecret = (i: number)=>{
-        if(i<showSecrets.length){
+    const getLineSecret = (i: number) => {
+        if (i < showSecrets.length) {
             return showSecrets[i];
-        }else{
+        } else {
             return false;
         }
     }
@@ -121,7 +131,7 @@ export const CreditsScreen = (props: StatusProps) => {
                 <CreditParagraph>Bonus Achievement detected! 100% Completion of SkillTree! Congratulations!</CreditParagraph>
 
                 <CreditLine>
-                    <CreditLeft>Based on a Creepypasta Concept By: </CreditLeft> <CreditRight><span>Onapmaz1984</span></CreditRight>
+                    <CreditLeft>Based on a Creepypasta Concept By: </CreditLeft> <CreditRight><span>invertedCentaur1972</span></CreditRight>
                 </CreditLine>
                 <CreditHeader>In House:</CreditHeader>
 
@@ -135,7 +145,7 @@ export const CreditsScreen = (props: StatusProps) => {
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>Shadow Graphics: </CreditLeft> <CreditRight><span><a href = 'http://farragofiction.com/DollSim/index.html?type=427'>Monster Girl Doll Sim</a></span></CreditRight>
+                    <CreditLeft>Shadow Graphics: </CreditLeft> <CreditRight><span><a href='http://farragofiction.com/DollSim/index.html?type=427'>Monster Girl Doll Sim</a></span></CreditRight>
                 </CreditLine>
 
                 <CreditLine>
@@ -148,183 +158,213 @@ export const CreditsScreen = (props: StatusProps) => {
                 <CreditHeader>Free Or Purchased Generic Assets:</CreditHeader>
 
                 <CreditLine>
-                    <CreditLeft>Music: </CreditLeft> <CreditRight><span>RPG_Maker_VX_Ace_Airship</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>Music: </CreditLeft> <CreditRight><span>RPG_Maker_VX_Ace_Airship</span></CreditRight>
+                    </CreditDoubleLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>BG Graphic: </CreditLeft> <CreditRight><span>RPG Maker</span></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Tunnels Under Millbank Prison</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 37965548,37910249 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>BG Graphic: </CreditLeft> <CreditRight><span>RPG Maker</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 106176433 © Mulderphoto | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Tunnels Under Millbank Prison</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 58837940 / Abandoned Computer © Alberto Violante | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 20658184 / Abandoned © Rigmanyi | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 37965548 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 23278565 / Abandoned © Marbury67 | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 87359979, 87359540, 82823450, 109715849, 98438134 / Abandoned © Shermancahal | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 106176433 © Mulderphoto | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 36310251 / Abandoned © Joop Kleuskens | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 37910249 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 143818783 / Abandoned © Mulderphoto | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 58837940 / Abandoned Computer © Alberto Violante | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 107263084 / Abandoned © Ded Mityay | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 20658184 / Abandoned © Rigmanyi | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 25350097 / Abandoned © Oliver Sved | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 66614814 / Abandoned © Lakhesis | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 23278565 / Abandoned © Marbury67 | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 22464803 / Abandoned © Marcel Clemens | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 98716328 / Abandoned © Pbpics | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 87359979 / Abandoned © Shermancahal | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 83560464 / Abandoned © Brad Sauter | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 173272764 / Abandoned © Wirestock | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 36310251 / Abandoned © Joop Kleuskens | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 157842898 / Abandoned © Robkna | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 2585883 / Abandoned © Alexandre Dvihally | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 98438134 / Abandoned © Shermancahal | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 221057172,221013406 / Abandoned © Stepanov Sergei | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 171796278 / Abandoned © Volodymyr Shevchuk | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 87359540 / Abandoned © Shermancahal | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 220377566 / Abandoned © Rawpixelimages | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 80405843 / Abandoned © Denny Gruner | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 143818783 / Abandoned © Mulderphoto | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 33857340 / Abandoned © Fabien Monteil | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 48717225 / Abandoned © Dimitris Kolyris | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 82823450 / Abandoned © Shermancahal | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 142379501 / Abandoned © Scorpionpl | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 207477330 / Abandoned © Ekaterina Senyutina | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 107263084 / Abandoned © Ded Mityay | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 6411480 / Abandoned © Chaoss | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 119442663 © Peter Austin | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>Nunito Font: </CreditLeft> <CreditRight><span>Vernon Adams</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>Graffiti City Font: </CreditLeft> <CreditRight><span>Woodcutter</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 25350097 / Abandoned © Oliver Sved | Dreamstime.com</span></CreditRight>
+                    <CreditDoubleLine>
+                        <CreditLeft>Marsneveneksk Font: </CreditLeft> <CreditRight><span>marsnev</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>Most Wasted Font: </CreditLeft> <CreditRight><span>Koczman Bálint</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
 
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 66614814 / Abandoned © Lakhesis | Dreamstime.com</span></CreditRight>
-                </CreditLine>
 
                 <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 22464803 / Abandoned © Marcel Clemens | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 98716328 / Abandoned © Pbpics | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 83560464 / Abandoned © Brad Sauter | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 173272764 / Abandoned © Wirestock | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 157842898 / Abandoned © Robkna | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 2585883 / Abandoned © Alexandre Dvihally | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 221057172 / Abandoned © Stepanov Sergei | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 221013406 / Abandoned © Stepanov Sergei | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 171796278 / Abandoned © Volodymyr Shevchuk | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 220377566 / Abandoned © Rawpixelimages | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 80405843 / Abandoned © Denny Gruner | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 33857340 / Abandoned © Fabien Monteil | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 48717225 / Abandoned © Dimitris Kolyris | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 142379501 / Abandoned © Scorpionpl | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 207477330 / Abandoned © Ekaterina Senyutina | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 6411480 / Abandoned © Chaoss | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 119442663 © Peter Austin | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 109715849 / Abandoned © Shermancahal | Dreamstime.com</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Nunito Font: </CreditLeft> <CreditRight><span>Vernon Adams</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Graffiti City Font: </CreditLeft> <CreditRight><span>Woodcutter</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Marsneveneksk Font: </CreditLeft> <CreditRight><span>marsnev</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Most Wasted Font: </CreditLeft> <CreditRight><span>Koczman Bálint</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Next Custom Font: </CreditLeft> <CreditRight><span>imagex</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Sister Spray Font: </CreditLeft> <CreditRight><span>imagex</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Urban Heroes Font: </CreditLeft> <CreditRight><span>imagex</span></CreditRight>
+                    <CreditLeft>Next Custom,Sister Spray,Urban Heroes Fonts: </CreditLeft> <CreditRight><span>imagex</span></CreditRight>
                 </CreditLine>
 
                 <CreditHeader>And Most of All:</CreditHeader>
 
-                <CreditLine>
-                    <CreditLeft>You: </CreditLeft> <CreditRight><span>Thank you for Playing!  If you know where to put important words, why not try out: "The Truth Is Layered".   <a key={"link"} href="https://zampaniosim.fandom.com/wiki/ZampanioSim">Explore Wiki?</a>  |  <a key={"link"} href={`?seed=${getRandomNumberBetween(0,33333333)}`}>Play Again</a>
- With Random Character?</span></CreditRight>
-                </CreditLine>
+                <CreditParagraph>
+                    <span>You: Thank you for Playing!  I sure hope you didn't miss any secrets! (What's with all those CCTV image credits???) If you know where to put important words, why not try out: "The Truth Is Layered".
+                        <div>
+                            <a key={"link1"} href="https://zampaniosim.fandom.com/wiki/ZampanioSim">I Wonder If The Wiki Has Secrets?</a>
+                        </div>
+                        <div>
+                            <a key={"link2"} href={`?seed=${getRandomNumberBetween(0, 33333333)}`}>I Wonder What Other Playthroughs Are Like?</a>
+                        </div>
+                        <div>
+                            <a key={"link3"} href={`https://discord.gg/BCeJW9v8wW`}>I Wonder If The Discord Server Is Useful?</a>
+                        </div>
+
+                        </span>
+                </CreditParagraph>
 
             </CreditsContent>
 
