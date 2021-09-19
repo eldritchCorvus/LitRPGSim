@@ -49,7 +49,6 @@ export const AtticSim = (props: AtticProps) => {
         padding: 15px;
         padding-left: 25px;
         cursor: pointer;
-        text-decoration: underline;
     `;
 
     const Container = styled.div`
@@ -105,7 +104,7 @@ export const AtticSim = (props: AtticProps) => {
                 </JRRambleContainer>
                 {ramble.potential_reponses.map((response)=>{
                     return(
-                        <PlayerResponseContainer onClick={()=>{setRamble(response.jr_response)}}>{">"} {response.text}</PlayerResponseContainer>
+                        <PlayerResponseContainer onClick={()=>{setRamble(response.jr_response_function())}}>{">"} {response.text}</PlayerResponseContainer>
                     )
                 })}
             </ChatContainer>
