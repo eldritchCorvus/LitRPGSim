@@ -6,7 +6,7 @@ import { RageStyledButton } from "../Styles"
 interface StatusProps {
     simpleContent: string;
     bumpIndex: Function;
-    unbumpIndex: Function;
+    unbumpIndex: Function | null;
 
 }
 export const SimpleContent =(props: StatusProps)=>{

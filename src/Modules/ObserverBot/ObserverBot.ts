@@ -224,7 +224,8 @@ export class ObserverBot{
 
     nextQuestion = () =>{
         const questions = shuffle(this.memories).filter((memory)=>!memory.asked);
-        if(questions.length){
+        console.log("JR NOTE: question length is ", questions.length)
+        if(questions.length && questions.length > 0){
             return questions[0];
         }
         return null;
