@@ -8,10 +8,11 @@ import {Theme } from "../../Modules/Theme";
 interface StatusProps {
     theme: Theme;
     bumpIndex: Function;
+    goInfinite: Function;
 }
 
 export const ThemeMode = (props:StatusProps) => {
-    const {theme, bumpIndex} =props; 
+    const {theme, bumpIndex,goInfinite} =props; 
 
     interface StatProps {
         stat: Stat;
@@ -38,7 +39,10 @@ export const ThemeMode = (props:StatusProps) => {
         <StatusBlock>
                     <span>
                         <div style={{ height: "100px" }}><OneCharAtATimeDiv text={"Does it keep you here if I infodump about the Themes? They are the building blocks of everything that goes into my False Face."} /></div>
-                        <RageStyledButton onClick={() => { bumpIndex() }}> {">"} Okay?</RageStyledButton>
+                        <RageStyledButton onClick={() => { 
+                            bumpIndex();
+                            goInfinite();
+                         }}> {">"} Okay?</RageStyledButton>
                         <StatusRow>
                             <StatusHeader>Theme: </StatusHeader>
                             <StatusContent>{titleCase(theme.key)}</StatusContent>
