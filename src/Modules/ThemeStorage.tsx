@@ -365,6 +365,8 @@ const initSongs = ()=>{
     song_possibilities[ANGELS] = ["watt_3_but_jr_owns_it.mp3"];
     song_possibilities[LONELY] = ["Finish.mp3"];
     song_possibilities[DARKNESS] = ["turntablist.mp3"];
+    song_possibilities[DECAY] = ["dear_god.mp3"];
+
 }
 
 const initSuperNames = () =>{
