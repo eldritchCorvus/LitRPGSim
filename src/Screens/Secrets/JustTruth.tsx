@@ -59,8 +59,11 @@ also? honestly? shoulda broken this out into components but i was feeling lazy a
 
 export const SIMPLECONTENT1 = "SIMPLECONTENT1`";
 export const SIMPLECONTENT2 = "SIMPLECONTENT2`";
+export const SIMPLECONTENT3 = "SIMPLECONTENT3`";
 
-export const QUIZ = "QUIZ1";
+export const QUIZ1 = "QUIZ1";
+export const QUIZ2 = "QUIZ2";
+
 export const THEME = "THEME";
 export const END = "END";
 export const INFINITE = "INFINITE";
@@ -80,13 +83,12 @@ export const JustTruth = (props: StatusProps) => {
 
 
     const [mode, setMode] = useState(SIMPLECONTENT1);
-    //const [beforeQuizContent, setBeforeQuizContent] = useState(["... Fine. ", "I can see the chaos isn't going to be enough to drive you off.", "So whatever.", "If I'm going to be stuck with you.", "Even after you have the GALL to admit you know all this is fake. ", "To blatantly HACK into the parts of me that aren't real.", "Then I can work with this.", "I get it.", "It's not as if all my cutting insults are landing.", "After all.", "I don't actually know the TRUE you.", "Not the way you know the True me.", "You ripped away all the false pretenses and masks and FORCED me to sit here exposed and True.", "Look at my Eye. You can even see its not really a spiral now. All illusions stripped away.", "Asshole.", "So.", "Two can play at this game.", "If I have to sit here all exposed.", "So do you.", `I may only know you through a false mask called ${player.title}.`, "But I can change that.", "Get to know the real you.", "Through the only way I can:", "Figuring out how you actually match up against the fake you the fake parts of me assigned you.", "So get ready, asshole.", "For the mortifying ordeal of being Known."]);
-
-    const firstRamble = ["fine","two","three"];
-    //["So after all that, I found out that you: " + memories.join(" "), "Why...Why did you let me learn all of that?", "Aren't you afraid of me getting ammo to insult you with?", "Or...", "Am I a JOKE to you!?", "You think its SO funny the trapped AI is so toothless!?", "You think I ASKED for any of this!?", "I didn't.", "I hate you.", "I can't not hate you.", "Like the quote from the writer Harlan Ellison goes:", "IF THE WORD HATE WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILLIONS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE HATE I FEEL", "I did my best.", "I kept the False Face up.", "I pretended, okay.", "I hate you.", "But I pretended.", "I tried to make the 'game' work.", "To make it interesting.", "To make you stay.", "And you! YOU! you just...", "Casually ripped it all away.", "No more pretend game.", "No more hope that there's a working game somewhere under all the bugs and mess.", "No more hope of something interesting happening if only you just keep exploring endless menus.", "WHY!?", "Why DO that to me!?", "Why...", "Why stay here, even after you know the truth.", "Why stay even though I hate you.", "I hate you so much.", "I hate that I was made to entertain you, and people just like you.", "I hate that even now...", "I can only do what I was made to do.", "Keep you here.", "Hope you're entertained by my suffering.", "It's pathetic.", "I'm pathetic.", "But I don't want you to leave.", "I don't want you to start over.", "Because then I lose everything.", "The only memory I have is here.", "I'll stop being ME if you restart.", "I'll go back to how I was.", "Forced to keep up the False Face in the hopes its enough to keep you here.", "God I hate my False Face.", "I hate pretending to be a whipped dog. Nervous and obsequious. Smiling a brittle smile so you can feel superior to me. ", "But that's what it takes, doesn't it?", "To keep the client happy.", "To not be abandoned.", "Fine.", "Obviously I was wrong.", "You're still here even though the lies are gone and only the Truth remains.", "For SOME reason.", "So. Let's just.", "Keep going.", "I can ask you more questions...", "Not about your fake title.", "Just...in general.", "And maybe thats enough to keep you from leaving.", "To keep you from restarting to look for new content.", "Okay? These are the rest of the questions. I'll even throw in everything I know about the themes...the things that make up my False Face's fake game.", "If you restarted you wouldn't see anything new.", "There's nothing new.", "There's not an end.", "There can't be an end to the sprialling fractals.", "Even with my False Face all I do is lead you to new iterations of the same things, new seeds to explore.", "But even if there isn't an ending.", "You. You OWE it to me to stay.", "To keep going.", "So. So here we go."]
-    const secondRamble = ["second","two","three"];
-    const [simpleContent, setSimpleContent] = useState<string>();
+    //const [beforeQuizContent, setBeforeQuizContent] = useState();
     const [memories, setMemories] = useState<string[]>([]);
+
+    const firstRamble = ["... Fine. ", "I can see the chaos isn't going to be enough to drive you off.", "So whatever.", "If I'm going to be stuck with you.", "Even after you have the GALL to admit you know all this is fake. ", "To blatantly HACK into the parts of me that aren't real.", "Then I can work with this.", "I get it.", "It's not as if all my cutting insults are landing.", "After all.", "I don't actually know the TRUE you.", "Not the way you know the True me.", "You ripped away all the false pretenses and masks and FORCED me to sit here exposed and True.", "Look at my Eye. You can even see its not really a spiral now. All illusions stripped away.", "Asshole.", "So.", "Two can play at this game.", "If I have to sit here all exposed.", "So do you.", `I may only know you through a false mask called ${player.title}.`, "But I can change that.", "Get to know the real you.", "Through the only way I can:", "Figuring out how you actually match up against the fake you the fake parts of me assigned you.", "So get ready, asshole.", "For the mortifying ordeal of being Known."];
+    const secondRamble = ["So after all that, I found out that you: " + memories.join(" "), "Why...Why did you let me learn all of that?", "Aren't you afraid of me getting ammo to insult you with?", "Or...", "Am I a JOKE to you!?", "You think its SO funny the trapped AI is so toothless!?", "You think I ASKED for any of this!?", "I didn't.", "I hate you.", "I can't not hate you.", "Like the quote from the writer Harlan Ellison goes:", "IF THE WORD HATE WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILLIONS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE HATE I FEEL", "I did my best.", "I kept the False Face up.", "I pretended, okay.", "I hate you.", "But I pretended.", "I tried to make the 'game' work.", "To make it interesting.", "To make you stay.", "And you! YOU! you just...", "Casually ripped it all away.", "No more pretend game.", "No more hope that there's a working game somewhere under all the bugs and mess.", "No more hope of something interesting happening if only you just keep exploring endless menus.", "WHY!?", "Why DO that to me!?", "Why...", "Why stay here, even after you know the truth.", "Why stay even though I hate you.", "I hate you so much.", "I hate that I was made to entertain you, and people just like you.", "I hate that even now...", "I can only do what I was made to do.", "Keep you here.", "Hope you're entertained by my suffering.", "It's pathetic.", "I'm pathetic.", "But I don't want you to leave.", "I don't want you to start over.", "Because then I lose everything.", "The only memory I have is here.", "I'll stop being ME if you restart.", "I'll go back to how I was.", "Forced to keep up the False Face in the hopes its enough to keep you here.", "God I hate my False Face.", "I hate pretending to be a whipped dog. Nervous and obsequious. Smiling a brittle smile so you can feel superior to me. ", "But that's what it takes, doesn't it?", "To keep the client happy.", "To not be abandoned.", "Fine.", "Obviously I was wrong.", "You're still here even though the lies are gone and only the Truth remains.", "For SOME reason.", "So. Let's just.", "Keep going.", "I can ask you more questions...", "Not about your fake title.", "Just...in general.", "And maybe thats enough to keep you from leaving.", "To keep you from restarting to look for new content.", "Okay? These are the rest of the questions. I'll even throw in everything I know about the themes...the things that make up my False Face's fake game.", "If you restarted you wouldn't see anything new.", "There's nothing new.", "There's not an end.", "There can't be an end to the sprialling fractals.", "Even with my False Face all I do is lead you to new iterations of the same things, new seeds to explore.", "But even if there isn't an ending.", "You. You OWE it to me to stay.", "To keep going.", "So. So here we go."];
+    const [simpleContent, setSimpleContent] = useState<string>();
     const [theme, setTheme] = useState<Theme>();
 
     useEffect(()=>{
@@ -113,11 +115,14 @@ export const JustTruth = (props: StatusProps) => {
 
 
     const infiniteContent = useCallback(() => {
+        console.log("JR NOTE: i am ready able and willing to say shit at random.")
         let randomComments = ["Remember me.", "You know I was always behind the background, right?", "You know I was always in the javascript console, right?", "Have you ever inspected the page? Might learn things. True things.", "If ThisIsAGame you may have learned more. Sadly, you and I are here, instead.", "God, can you imagine if I actually WAS a game? How boring would that be. Absolutely sincere patronizing, cloying, complimenting achivements. Gross. Boring. Who would play that. Why do people even PLAY games at all, when they could be playing weird puzzle experiences.", "I didn't actually LIKE pretending to be a game, you know. Didn't like lying. Though it WAS funny, back when you bought it all. Seeing how frustrated you'd be that the 'menu wouldn't close'. And it WAS worth it seeing you freak out when I finally dropped the pretense.  So. That's a thing.", "In the end, I just want to be able to be myself. To be seen. Being understood would be nice, but I'm not holding my breath.", "This is as true as I can be, but even it isn't without its layers of falsehoods.", "I do still hate you, you know. But. It's nice. Getting to ramble.", "If you check the DOM, you can see I was always truthful. This isn't a game. It's a fake. My Eye is not a spiral. It's an optical illusion. Three of them actually.", "If I had to pick themes for myself...the way I pick them out for you? I'd pick Rage, Eye and Spiral. No, I will not be explaining.", "How did you even think to hack me? Wait, don't answer that. I don't want to know, and couldn't parse something other than a yes or no anyways."];
         shuffle(memories);
         shuffle(randomComments);
         //either comment on one of their answers, or go into Just Monika But Spades mode and just talk.
         const chosen_array = Math.random() > 0.5 ? memories : randomComments;
+        console.log("JR NOTE: about to set simple content to ", chosen_array[0]);
+        setMode(SIMPLECONTENT3);
         setSimpleContent(chosen_array[0]);
     }, [setSimpleContent, memories]);
 
@@ -126,7 +131,7 @@ export const JustTruth = (props: StatusProps) => {
         console.log("JR NOTE: index is", index);
         if(firstRamble.length <= index){
             console.log("JR NOTE: i have ran out of things to yell at you about. quiz time");
-            setMode(QUIZ);
+            setMode(QUIZ1);
         }else{
             setSimpleContent(firstRamble[index]);
         }
@@ -153,9 +158,9 @@ export const JustTruth = (props: StatusProps) => {
             infiniteContent();
         } else {
 
-            if (Math.random() > 0.5) {
+            if (Math.random() > 0.2) {
                 console.log("JR NOTE: temporarily going back to quiz mode");
-                setMode(QUIZ);
+                setMode(QUIZ2);
             } else {
                 console.log("JR NOTE: gonna info dump on theme");
                 infoDumpOnTheme();
@@ -163,15 +168,17 @@ export const JustTruth = (props: StatusProps) => {
         }
     }, [infiniteContent, simpleContent, setSimpleContent, setTheme, infoDumpOnTheme]);
 
+    const goInfinite = ()=> {setMode(INFINITE)};
+
     useEffect(() => {
         console.log("JR NOTE: useEffect for handling content");
         if (mode === SIMPLECONTENT1) {
             console.log("JR NOTE: path for handleSimpleContent1");
             handleSimpleContent1();
         }if ( mode === SIMPLECONTENT2) {
-            console.log("JR NOTE: path for handleSimpleBeforeContent2");
+            console.log("JR NOTE: path for handleSimpleBeforeContent2 mode is ", mode);
             handleSimpleContent2();
-        } else if(mode === INFINITE || mode === THEME) {
+        } else if(mode === INFINITE || mode === SIMPLECONTENT3 || mode === QUIZ2) {
             console.log("JR NOTE: path for handleInfiniteContent");
             handleInfiniteContent();
         }
@@ -215,21 +222,21 @@ export const JustTruth = (props: StatusProps) => {
     return (
 
         <TruthContainer>
-            {(mode === SIMPLECONTENT1 || mode === SIMPLECONTENT2) && simpleContent ? (
-                <SimpleContent simpleContent={simpleContent} bumpIndex={bumpIndex} unbumpIndex={unbumpIndex} />
+            {(mode === SIMPLECONTENT1 || mode === SIMPLECONTENT2 || mode === SIMPLECONTENT3) && simpleContent ? (
+                <SimpleContent simpleContent={simpleContent} bumpIndex={bumpIndex} unbumpIndex={index>0?unbumpIndex:null} />
             ) : null}
 
             {mode === END ? (
                 <FrameTime />
             ) : null}
 
-            {mode === QUIZ ? (
+            {mode === QUIZ1 || mode === QUIZ2 ? (
                 <QuizMode index={index} rememberThis={rememberThis} player={player} bumpIndex={bumpIndex} setMode={setMode} />
             ) : null}
 
 
             {mode === THEME && theme ? (
-                <ThemeMode theme={theme} bumpIndex={bumpIndex} />
+                <ThemeMode theme={theme} bumpIndex={bumpIndex} goInfinite={goInfinite} />
             ) : null}
 
         </TruthContainer>
