@@ -16,7 +16,7 @@ export const  LoadingScreen = (props: LoadingProps)=> {
 
                 (window as any).menuClick(nextScreen);
                 loadScreen(nextScreen)
-                }, 500);
+                }, 50);
             }
 
     },[loadScreen, nextScreen,refresh])
