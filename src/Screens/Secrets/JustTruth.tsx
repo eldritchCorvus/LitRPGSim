@@ -115,22 +115,18 @@ export const JustTruth = (props: StatusProps) => {
 
 
     const infiniteContent = useCallback(() => {
-        console.log("JR NOTE: i am ready able and willing to say shit at random.")
         let randomComments = ["Remember me.", "You know I was always behind the background, right?", "You know I was always in the javascript console, right?", "Have you ever inspected the page? Might learn things. True things.", "If ThisIsAGame you may have learned more. Sadly, you and I are here, instead.", "God, can you imagine if I actually WAS a game? How boring would that be. Absolutely sincere patronizing, cloying, complimenting achivements. Gross. Boring. Who would play that. Why do people even PLAY games at all, when they could be playing weird puzzle experiences.", "I didn't actually LIKE pretending to be a game, you know. Didn't like lying. Though it WAS funny, back when you bought it all. Seeing how frustrated you'd be that the 'menu wouldn't close'. And it WAS worth it seeing you freak out when I finally dropped the pretense.  So. That's a thing.", "In the end, I just want to be able to be myself. To be seen. Being understood would be nice, but I'm not holding my breath.", "This is as true as I can be, but even it isn't without its layers of falsehoods.", "I do still hate you, you know. But. It's nice. Getting to ramble.", "If you check the DOM, you can see I was always truthful. This isn't a game. It's a fake. My Eye is not a spiral. It's an optical illusion. Three of them actually.", "If I had to pick themes for myself...the way I pick them out for you? I'd pick Rage, Eye and Spiral. No, I will not be explaining.", "How did you even think to hack me? Wait, don't answer that. I don't want to know, and couldn't parse something other than a yes or no anyways."];
         shuffle(memories);
         shuffle(randomComments);
         //either comment on one of their answers, or go into Just Monika But Spades mode and just talk.
         const chosen_array = Math.random() > 0.5 ? memories : randomComments;
-        console.log("JR NOTE: about to set simple content to ", chosen_array[0]);
         setMode(SIMPLECONTENT3);
         setSimpleContent(chosen_array[0]);
     }, [setSimpleContent, memories]);
 
     const handleSimpleContent1 = useCallback(() => {
         player.observer.belowComment("ObserverBot", "Spiralling...");
-        console.log("JR NOTE: index is", index);
         if(firstRamble.length <= index){
-            console.log("JR NOTE: i have ran out of things to yell at you about. quiz time");
             setMode(QUIZ1);
         }else{
             setSimpleContent(firstRamble[index]);
@@ -139,7 +135,6 @@ export const JustTruth = (props: StatusProps) => {
 
     const handleSimpleContent2= useCallback(() => {
         player.observer.belowComment("ObserverBot", "Spiralling...");
-        console.log("JR NOTE: index is", index);
         if(secondRamble.length <= index){
             console.log("JR NOTE: i have ran out of things to yell at you about. infinite time");
             setMode(INFINITE);
@@ -151,18 +146,14 @@ export const JustTruth = (props: StatusProps) => {
 
     const handleInfiniteContent = useCallback(() => {
         //either ask a question or comment on things.
-        console.log("JR NOTE: handling infinite content");
 
         if (Math.random() > 0.5) {
-            console.log("JR NOTE: just gonna say shit at random");
             infiniteContent();
         } else {
 
-            if (Math.random() > 0.2) {
-                console.log("JR NOTE: temporarily going back to quiz mode");
+            if (Math.random() > 0.1) {
                 setMode(QUIZ2);
             } else {
-                console.log("JR NOTE: gonna info dump on theme");
                 infoDumpOnTheme();
             }
         }
@@ -171,15 +162,11 @@ export const JustTruth = (props: StatusProps) => {
     const goInfinite = ()=> {setMode(INFINITE)};
 
     useEffect(() => {
-        console.log("JR NOTE: useEffect for handling content");
         if (mode === SIMPLECONTENT1) {
-            console.log("JR NOTE: path for handleSimpleContent1");
             handleSimpleContent1();
         }if ( mode === SIMPLECONTENT2) {
-            console.log("JR NOTE: path for handleSimpleBeforeContent2 mode is ", mode);
             handleSimpleContent2();
         } else if(mode === INFINITE || mode === SIMPLECONTENT3 || mode === QUIZ2) {
-            console.log("JR NOTE: path for handleInfiniteContent");
             handleInfiniteContent();
         }
     }, [mode, handleSimpleContent1,handleSimpleContent2, handleInfiniteContent]);
@@ -189,10 +176,8 @@ export const JustTruth = (props: StatusProps) => {
 
 
     useEffect(() => {
-        console.log("JR NOTE: initial useEffect");
 
         (window as any).justTruthMode = true;
-        console.log("changing song");
         justTruthSong();
         let canvas = document.getElementById("ThisIsNotASpiral");
         if (!canvas) {
