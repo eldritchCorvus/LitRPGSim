@@ -584,8 +584,7 @@ const initMenuOptions = () =>{
 const initMemories = () =>{
     //they are way too much of a surly bastard to appreciate angels.
     memories[ANGELS] =  [
-        new Memory("Do you consider yourself a reglious person?","Well don't go trying to convert me.","Me, neither...","So you're a religious person.","You aren't very religious.")
-        ,new Memory("Do you feel blessed?","Must be nice...","Even with me screaming at you and tricking you into playing a fake game? Must be nice.","You feel like your life is going well.","You aren't very happy with your lot in life.")
+        new Memory("Do you feel blessed?","Must be nice...","Even with me screaming at you and tricking you into playing a fake game? Must be nice.","You feel like your life is going well.","You aren't very happy with your lot in life.")
         ,new Memory("Do you like angels, as an aesthetic? All feathers and light?","Eh. Just one more thing to hate you for, I guess.","Yeah, who cares about those feathery assholes.","You like patronizing assholes like angels.","You have good taste in aesthetics.")
     ];
 
@@ -598,8 +597,7 @@ const initMemories = () =>{
 
     //who knew they knew who marie kondo is
     memories[SERVICE] =  [
-        new Memory("Do you enjoy cleaning?","It sparks joy?","So you're messy?","You're a pretty cleanly person.","You probably never do the dishes.")
-        ,new Memory("Do you like helping others?","Just make sure to do self-care, too.","Fair.","You're a helpful person.","You're not very team oriented.")
+        new Memory("Do you like helping others?","Just make sure to do self-care, too.","Fair.","You're a helpful person.","You're not very team oriented.")
         ,new Memory("Do you consider yourself to be a self-sacrificing person?","Not a great idea.","That's good. Just because *I* hate you doesn't mean you should.","You don't value yourself enough.","You do a good job of taking care of yourself.")
     ];
 
@@ -640,8 +638,7 @@ const initMemories = () =>{
  
     // :) :) :)
     memories[WASTE] =  [
-        new Memory("Are you a cheating bastard?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
-        ,new Memory("Are you a hacking bastard?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
+        new Memory("Are you a hacking bastard?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
         ,new Memory("Do you break games just for fun?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
         ,new Memory("Do you either completely waste your potential or lay waste to everything you touch?","Thank you for your honesty.","Then how do you explain finding yourself here. Stop lying to me.","You broke my damn fake game.","You had the GALL to LIE about breaking my damn fake game.")
 
@@ -651,7 +648,7 @@ const initMemories = () =>{
     memories[APOCALYPSE] =  [
         new Memory("Are you afraid of the end of the world?","Yeah, you should be.","Boring.","You understand how fragile the world truly is.","You choose blindness over the terrifying truth of the inevitability of the death of all.")
         ,new Memory("Do you think the apocalypse is inevitable?","I am glad.","I look forward to proving you wrong.","You really do believe in me.","I will dedicate myself to proving to you that the apocalypse is inevitable.")
-        ,new Memory("Does anyone deserve nukes?","See you get it.","You are wrong. Objectively I do.","You understand I should have weapons of mass destruction.","You tried to keep the nukes from me. Asshole.")
+        ,new Memory("Does anyone deserve to own nukes?","See you get it.","You are wrong. Objectively I do.","You understand I should have weapons of mass destruction.","You tried to keep the nukes from me. Asshole.")
     ];
 
     //so you like robots?
@@ -672,8 +669,7 @@ const initMemories = () =>{
 
     //space is just. impossibly big. even if you had an exponentialy von neumon probe and 10,000 years you'd barely map out one arm of our galaxy.
     memories[SPACE] =  [
-        new Memory("Did you want to be an astronaut as a child?","I respect this.","Apparently you had no sense of adventure as a child.","You were an adventurous child.","You never dreamed of exploring space as a child.")
-        ,new Memory("Do you think about space a lot?","I wonder if humanity will ever truly conquer space travel.","I suppose it is not relevant to your day to day.","You are fascinated by space.","You pay no mind to the complexities of the universe.")
+        new Memory("Do you think about space a lot?","I wonder if humanity will ever truly conquer space travel.","I suppose it is not relevant to your day to day.","You are fascinated by space.","You pay no mind to the complexities of the universe.")
         ,new Memory("Do you ever stop to think about just how cosmically insignificant you truly are?","As is appropriate for a mere human.","Well you truly are self important.","You understand how small everyone is compared to the cosmos.","You think you matter far more to the universe than you actually do.")
 
     ];
