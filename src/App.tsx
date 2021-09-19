@@ -265,7 +265,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
-        *persephone, hades, demeter quest
+        *persephone, hades, demeter quest.  QUESTS are more "combination of side quests and overarching story plot". (think land quests)
         * session 0 is "the game is real i swear" notJR, the core of Truth is "zampanio was never real but the creepypasta faq was" notJR, and the core of game mode is "the game wasn't real and you couldn't accept that" notJR.
         *tie things into timezone like april arg
         * gaslight cursor revals a radius of true color (hidden yellow things in the pictures?)
