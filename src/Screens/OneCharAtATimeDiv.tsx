@@ -7,9 +7,11 @@ interface RoomProps {
 export const OneCharAtATimeDiv = (props: RoomProps) => {
     const {text} = props;
     const [index, setIndex] = useState(0);
+    const [skip, setSkip] = useState(false);
+    
 
     const incrementIndex = useCallback(()=>{
-        if(index < text.length){
+        if(!skip && index < text.length){
             setTimeout(()=>{
                 clickEffect();
                 window.requestAnimationFrame(()=>{setIndex(index +1)})}, 50)
@@ -22,12 +24,13 @@ export const OneCharAtATimeDiv = (props: RoomProps) => {
     },[index,incrementIndex]);
 
     useEffect(()=>{
+        setSkip(false);
         setIndex(0);
     },[text]);
 
     return(
-        <div>
-            {text.substr(0, index)}
+        <div onClick={()=>{setSkip(true)}}>
+            {skip? text:text.substr(0, index)}
         </div>
     )
 
