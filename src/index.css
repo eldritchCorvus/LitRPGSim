@@ -73,12 +73,12 @@ body {
 }
 
 #credits{
-  animation: marquee 25s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 @keyframes marquee {
   0% {
-    transform: translateY(100%);
+    transform: translateY(0%);
   }
   100% {
     transform: translateY(-100%);
