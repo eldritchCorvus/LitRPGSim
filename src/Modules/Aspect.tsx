@@ -77,7 +77,7 @@ export function initAspects(seeded_random: SeededRandom){
     new Aspect("life", ["Demeter","Life", "Growth", "Power", "Evolution", "Vitality","Mercy","Charity","Plants"], seeded_random, Stat.WrapStatsToStatMap([Stat.LIFE(3)]), [all_themes.healing, all_themes.plants]);
     new Aspect("doom", ["Doom", "Death", "Fate", "Destiny", "Inevitability","Perseverance"], seeded_random, Stat.WrapStatsToStatMap([Stat.DOOM(3)]), [all_themes.death, all_themes.web]);
     new Aspect("mind", ["Mind", "Choices", "Thought", "Decisions", "Alternates","Facets"], seeded_random, Stat.WrapStatsToStatMap([Stat.MIND(3)]), [all_themes.choices, all_themes.zap]);
-    new Aspect("heart", ["Heart", "Soul", "Identity", "Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(3)]), [all_themes.soul, all_themes.love]);
+    new Aspect("heart", ["Heart", "Soul", "Identity", "Core"], seeded_random, Stat.WrapStatsToStatMap([Stat.HEART(3)]), [all_themes.soul, all_themes.love, all_themes[OCEAN]]);
     new Aspect("void", ["Dark", "Darkness", "Nothingness", "Emptiness","Void","Lack","Ink","Censor","Envy"], seeded_random, Stat.WrapStatsToStatMap([Stat.VOID(3)]), [all_themes.obfuscation,all_themes.darkness]);
     new Aspect("rage", ["Rage", "Disbelief", "Rebellion", "Mockery","Wrath","Anger"], seeded_random, Stat.WrapStatsToStatMap([Stat.RAGE(3)]), [all_themes.clowns,all_themes.anger, all_themes[TWISTING]]);
     new Aspect("hope", ["Hope", "Belief", "Faith", "Yearning"], seeded_random, Stat.WrapStatsToStatMap([Stat.HOPE(3)]), [all_themes[ANGELS],all_themes[QUESTING]]);
