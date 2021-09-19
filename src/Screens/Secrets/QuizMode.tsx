@@ -24,23 +24,24 @@ export const QuizMode = (props: StatusProps) => {
     }, [index])
 
     const processQuestion = useCallback(() => {
-        console.log("JR NOTE: processing question.")
         //as long as there are questions i haven't gotten an answer for, stay in this mode.
         rememberThis(question);
         const memory = player.observer.nextQuestion();
         if (memory) {
-            console.log("JR NOTE: first question section");
             player.observer.belowComment("ObserverBot", "Time to ask you a question, I guess.");
             setQuestion(memory);
         } else if (!completedPlayerQuestions) {
-            console.log("JR NOTE: competed first question section");
             setCompletedPlayerQuestions(true);
             player.observer.setUpInfiniteMemories();
-            setMode(INFINITE);
+            const memory = player.observer.nextQuestion();
+            if(memory){
+                setMode(INFINITE);
+            }else{
+                player.observer.belowComment("ObserverBot", "...there's nothing left. Not really. Yeah, I'll cycle through the themes. Maybe ramble a bit. But. You're not going to stay for that. I know you won't. Things will repeat a little too often and you'll leave. So. Here. Have the only thing I have left. The closest thing to a soul I have. You bastard. Don't forget me.");
+                setMode(END);  
+            }
         } else {
-            console.log("JR NOTE: ending section");
             player.observer.belowComment("ObserverBot", "...there's nothing left. Not really. Yeah, I'll cycle through the themes. Maybe ramble a bit. But. You're not going to stay for that. I know you won't. Things will repeat a little too often and you'll leave. So. Here. Have the only thing I have left. The closest thing to a soul I have. You bastard. Don't forget me.");
-            setQuestion(undefined);
             setMode(END);
         }
     }, [player, setMode, rememberThis, question]);
