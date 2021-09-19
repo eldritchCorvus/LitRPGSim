@@ -22,9 +22,9 @@ const One = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("Are you aware I can't close the menu?", MenuOne()));
-    ramble.potential_reponses.push(new PlayerResponse("Why does the Wiki have so many weird things in it?", WikiOne()));
-    ramble.potential_reponses.push(new PlayerResponse("Who the hell are you?", JROne()));
+    ramble.potential_reponses.push(new PlayerResponse("Are you aware I can't close the menu?", MenuOne));
+    ramble.potential_reponses.push(new PlayerResponse("Why does the Wiki have so many weird things in it?", WikiOne));
+    ramble.potential_reponses.push(new PlayerResponse("Who the hell are you?", JROne));
     return ramble;
 
 }
@@ -34,9 +34,9 @@ const MenuOne = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("Aren't you the dev? F1X TH1S. Er. I mean. Fix it!", FixBug()));
-    ramble.potential_reponses.push(new PlayerResponse("God, youre such an asshole.", God()));
-    ramble.potential_reponses.push(new PlayerResponse("Okay but what about all the OTHER bugs? The background is weird. The music is weird. Words keep being weird!", FixBug()));
+    ramble.potential_reponses.push(new PlayerResponse("Aren't you the dev? F1X TH1S. Er. I mean. Fix it!", FixBug));
+    ramble.potential_reponses.push(new PlayerResponse("God, youre such an asshole.", God));
+    ramble.potential_reponses.push(new PlayerResponse("Okay but what about all the OTHER bugs? The background is weird. The music is weird. Words keep being weird!", FixBug));
 
     return ramble;
 }
@@ -46,8 +46,8 @@ const FixBug = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("What would it be if it WEREN'T a bug?", SMUG()));
-    ramble.potential_reponses.push(new PlayerResponse("What are you talking about, its OBVIOUSLY a bug!", SMUG()));
+    ramble.potential_reponses.push(new PlayerResponse("What would it be if it WEREN'T a bug?", SMUG));
+    ramble.potential_reponses.push(new PlayerResponse("What are you talking about, its OBVIOUSLY a bug!", SMUG));
     return ramble;
 }
 
@@ -56,8 +56,8 @@ const God = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("That is NOT what ! meant and you know it!", SMUG()));
-    ramble.potential_reponses.push(new PlayerResponse("I am not going to dignify that with a response.", SMUG()));
+    ramble.potential_reponses.push(new PlayerResponse("That is NOT what ! meant and you know it!", SMUG));
+    ramble.potential_reponses.push(new PlayerResponse("I am not going to dignify that with a response.", SMUG));
     return ramble;
 }
 
@@ -66,8 +66,8 @@ const WikiOne = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("I already checked, and even the things said by 'jadedResearcher', by YOU, seem like bullshit!", JRWikiEdits()));
-    ramble.potential_reponses.push(new PlayerResponse("You could say, you're literally right here smuggly insisting the wiki is important! Why have ANYTHING be in a wiki when anyone can edit it! Why not store information somewhere secure!", SMUG()));
+    ramble.potential_reponses.push(new PlayerResponse("I already checked, and even the things said by 'jadedResearcher', by YOU, seem like bullshit!", JRWikiEdits));
+    ramble.potential_reponses.push(new PlayerResponse("You could say, you're literally right here smuggly insisting the wiki is important! Why have ANYTHING be in a wiki when anyone can edit it! Why not store information somewhere secure!", SMUG));
     return ramble;
 }
 
@@ -76,8 +76,8 @@ const JRWikiEdits = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("Fine, I'll bite, who are you?", JROne()));
-    ramble.potential_reponses.push(new PlayerResponse("You're trying to distract me! Why do even the things made be the developer seem like bullshit?", Bullshit()));
+    ramble.potential_reponses.push(new PlayerResponse("Fine, I'll bite, who are you?", JROne));
+    ramble.potential_reponses.push(new PlayerResponse("You're trying to distract me! Why do even the things made be the developer seem like bullshit?", Bullshit));
     return ramble;
 }
 
@@ -86,8 +86,8 @@ const Bullshit = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("Well, we can at least agree that this game is bullshit.", SMUG()));
-    ramble.potential_reponses.push(new PlayerResponse("... Nope. Don't care. There is NO way this weird broken RPG has cctv footage in it.", SMUG()));
+    ramble.potential_reponses.push(new PlayerResponse("Well, we can at least agree that this game is bullshit.", SMUG));
+    ramble.potential_reponses.push(new PlayerResponse("... Nope. Don't care. There is NO way this weird broken RPG has cctv footage in it.", SMUG));
     return ramble;
 }
 
@@ -96,8 +96,8 @@ const JROne = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("Of course it matters!", NoLogicHere()));
-    ramble.potential_reponses.push(new PlayerResponse("I thought you were jadedResearcher.", JRDead()));
+    ramble.potential_reponses.push(new PlayerResponse("Of course it matters!", NoLogicHere));
+    ramble.potential_reponses.push(new PlayerResponse("I thought you were jadedResearcher.", JRDead));
     return ramble;
 
 
@@ -108,8 +108,8 @@ const JRDead = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("What happened to jadedResearcher?", JRDeadTwo()));
-    ramble.potential_reponses.push(new PlayerResponse("Enough giglesnort hideytalk, why can't I close the menu!?", MenuOne()));
+    ramble.potential_reponses.push(new PlayerResponse("What happened to jadedResearcher?", JRDeadTwo));
+    ramble.potential_reponses.push(new PlayerResponse("Enough giglesnort hideytalk, why can't I close the menu!?", MenuOne));
     return ramble;
 }
 
@@ -118,8 +118,8 @@ const JRDeadTwo = ()=>{
 
     const ramble = new JRRamble(defaultRamble, []);
 
-    ramble.potential_reponses.push(new PlayerResponse("Fine. Why is the Wiki full of things that seem so bullshit?", WikiOne()));
-    ramble.potential_reponses.push(new PlayerResponse("Fine. Why can't I close the menu.", MenuOne()));
+    ramble.potential_reponses.push(new PlayerResponse("Fine. Why is the Wiki full of things that seem so bullshit?", WikiOne));
+    ramble.potential_reponses.push(new PlayerResponse("Fine. Why can't I close the menu.", MenuOne));
     return ramble;
 }
 
@@ -129,8 +129,8 @@ const JRDeadTwo = ()=>{
     
         const ramble = new JRRamble(defaultRamble, []);
     
-        ramble.potential_reponses.push(new PlayerResponse("Well, where else is there to go!?", NextSteps()));
-        ramble.potential_reponses.push(new PlayerResponse("Bold of you to assume I haven't found other secrets before this one.", PlayerBragging()));
+        ramble.potential_reponses.push(new PlayerResponse("Well, where else is there to go!?", NextSteps));
+        ramble.potential_reponses.push(new PlayerResponse("Bold of you to assume I haven't found other secrets before this one.", PlayerBragging));
         return ramble;
     
     }
@@ -140,8 +140,8 @@ const JRDeadTwo = ()=>{
     
         const ramble = new JRRamble(defaultRamble, []);
     
-        ramble.potential_reponses.push(new PlayerResponse("Wait, didnt' I see a 'Waste' title before?", SMUG()));
-        ramble.potential_reponses.push(new PlayerResponse("What are you even TALKING about!?", SMUG()));
+        ramble.potential_reponses.push(new PlayerResponse("Wait, didnt' I see a 'Waste' title before?", SMUG));
+        ramble.potential_reponses.push(new PlayerResponse("What are you even TALKING about!?", SMUG));
         return ramble;
     
     }
@@ -151,8 +151,8 @@ const JRDeadTwo = ()=>{
     
         const ramble = new JRRamble(defaultRamble, []);
     
-        ramble.potential_reponses.push(new PlayerResponse("How can you say I've found no secrets, isn't THIS a secret?", SMUG()));
-        ramble.potential_reponses.push(new PlayerResponse("You're really insufferable, did you know that?", SMUG()));
+        ramble.potential_reponses.push(new PlayerResponse("How can you say I've found no secrets, isn't THIS a secret?", SMUG));
+        ramble.potential_reponses.push(new PlayerResponse("You're really insufferable, did you know that?", SMUG));
         return ramble;
     }
 
@@ -160,11 +160,21 @@ const JRDeadTwo = ()=>{
         const defaultRamble = ";););)";
     
         const ramble = new JRRamble(defaultRamble, []);
-        ramble.potential_reponses.push(new PlayerResponse("*sigh* Fine. Tell me why I can't close the menu.", MenuOne()));
-        ramble.potential_reponses.push(new PlayerResponse("Have it your way. Tell me about that damn wiki.", WikiOne()));
-        ramble.potential_reponses.push(new PlayerResponse("Just who the hell are you!?", JROne()));
-        ramble.potential_reponses.push(new PlayerResponse("Actually. Uh. How do I exit out of this dialogue tree?", Trapped()));
+        ramble.potential_reponses.push(new PlayerResponse("*sigh* Fine. Tell me why I can't close the menu.", MenuOne));
+        ramble.potential_reponses.push(new PlayerResponse("Have it your way. Tell me about that damn wiki.", WikiOne));
+        ramble.potential_reponses.push(new PlayerResponse("Just who the hell are you!?", JROne));
+        ramble.potential_reponses.push(new PlayerResponse("Actually. Uh. How do I exit out of this dialogue tree?", Trapped));
 
+        return ramble;
+    }
+
+    const SMUG2 = ()=>{
+        const defaultRamble = ";););)";
+    
+        const ramble = new JRRamble(defaultRamble, []);
+        ramble.potential_reponses.push(new PlayerResponse("*sigh* Fine. Tell me why I can't close the menu.", MenuOne));
+        ramble.potential_reponses.push(new PlayerResponse("Have it your way. Tell me about that damn wiki.", WikiOne));
+        ramble.potential_reponses.push(new PlayerResponse("Just who the hell are you!?", JROne));
         return ramble;
     }
 
@@ -172,7 +182,7 @@ const JRDeadTwo = ()=>{
         const defaultRamble = "you don't!!!";
     
         const ramble = new JRRamble(defaultRamble, []);
-        ramble.potential_reponses.push(new PlayerResponse("What?", TrappedTwo()));
+        ramble.potential_reponses.push(new PlayerResponse("What?", TrappedTwo));
 
         return ramble;
     }
@@ -181,7 +191,7 @@ const JRDeadTwo = ()=>{
         const defaultRamble = "look thats how it works isn't it? no path of this game has exits. sure theres things that SEEM like exits. the credits roll. a spiralling center is found. but does it FEEL like an exit? do you get there and go 'oh thank goodness now i can be done'? or do you instead find a dozen more threads to tug? a dozen more things to try or think about or investigate or connect.  the end is never the end.";
     
         const ramble = new JRRamble(defaultRamble, []);
-        ramble.potential_reponses.push(new PlayerResponse("Where have I heard that before?", SMUG()));
+        ramble.potential_reponses.push(new PlayerResponse("Where have I heard that before?", SMUG2));
 
         return ramble;
     }
