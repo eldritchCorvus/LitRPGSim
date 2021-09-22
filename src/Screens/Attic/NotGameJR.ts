@@ -147,7 +147,7 @@ const JRDeadTwo = ()=>{
     }
 
     const PlayerBragging = ()=>{
-        const defaultRamble = "oh did you? a regular spelunker of secrets are you? are you sure though? are you sure you've found any secrets? are you sure theres none you've missed? if only there was some form of publically accessible document that anyone could edit that could list out the secrets. then you'd know, wouldn't you.";
+        const defaultRamble = "oh did you? a regular spelunker of secrets are you? deep in the rabbit hole. are you sure though? are you sure you've found any secrets? are you sure theres none you've missed? if only there was some form of publically accessible document that anyone could edit that could list out the secrets. then you'd know, wouldn't you. and if you WERE right, if you HAVE found something new...why, you could document what you've found and expand the knowledge base!";
     
         const ramble = new JRRamble(defaultRamble, []);
     
