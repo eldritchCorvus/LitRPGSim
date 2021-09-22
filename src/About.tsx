@@ -76,7 +76,8 @@ function NewspostDom(props: PostProps) {
 }
 function About(props: AppProps) {
   const newsposts = [
-    new Newspost("09/13/2021","Starting to get desperate about finding that FAQ. The forums mostly seem dead, so I'm gathering up whoever I can find in a discord server to try to follow the breadcrumbs.","Note to self: post link to discord once this goes live.")
+    new Newspost("09/21/2021","Bad news: still haven't managed to find that FAQ. Good news: guess who just managed to get their hand on an *actual copy of zampanio*???","Shout out to that weird dead zampanio server for somehow embedding it in a powerpoint???")
+    ,new Newspost("09/13/2021","Starting to get desperate about finding that FAQ. The forums mostly seem dead, so I'm gathering up whoever I can find in a discord server to try to follow the breadcrumbs.","Note to self: post link to discord once this goes live.")
     ,new Newspost("08/31/2021","theres something calming about actually getting to see what the skills do, finally. fun fact: its nothing","shoutout to the late coleman researcher who definitely left me some money according to this scammer")
 
     ,new Newspost("08/29/2021","skills are real now but only if you're willing to blaspheme against the concept of simulations","i personally wouldn't recommend blasphemy")
