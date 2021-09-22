@@ -265,6 +265,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        *ZampanioSimSim where you after you've been killed by a shambling horror you start trying to lure people to play zampaniosim
         *persephone, hades, demeter quest.  QUESTS are more "combination of side quests and overarching story plot". (think land quests)
         * session 0 is "the game is real i swear" notJR, the core of Truth is "zampanio was never real but the creepypasta faq was" notJR, and the core of game mode is "the game wasn't real and you couldn't accept that" notJR.
         * port in fractal shit post (cant compile dart version anymore), associate different states of the fractal with diff words from gaslight array
