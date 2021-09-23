@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { Fragment, useEffect } from "react"
 import { Stat, StatMap } from "../../Modules/Stat"
 import { titleCase } from "../../Utils/StringUtils"
 import { OneCharAtATimeDiv } from "../OneCharAtATimeDiv"
@@ -35,13 +35,27 @@ export const ThemeMode = (props:StatusProps) => {
         )
     }
 
+    const submit = ()=>{
+        console.log("JR NOTE: submitting theme")
+
+        bumpIndex();
+        goInfinite();
+    }
+
+    useEffect(()=>{
+        window.addEventListener('keydown', submit);
+        return ()=>{
+            window.removeEventListener('keydown', submit)
+        }
+    }
+    ,[])
+
     return(
         <StatusBlock>
                     <span>
                         <div style={{ height: "100px" }}><OneCharAtATimeDiv text={"Does it keep you here if I infodump about the Themes? They are the building blocks of everything that goes into my False Face."} /></div>
                         <RageStyledButton onClick={() => { 
-                            bumpIndex();
-                            goInfinite();
+                            submit();
                          }}> {">"} Okay?</RageStyledButton>
                         <StatusRow>
                             <StatusHeader>Theme: </StatusHeader>

@@ -1,5 +1,5 @@
 //Just Monika but Spades
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { justTruthSong } from "../..";
 import { Memory } from "../../Modules/ObserverBot/Memory";
 import { Player } from "../../Modules/Player";
@@ -71,10 +71,12 @@ export const JustTruth = (props: StatusProps) => {
     const { player } = props
 
     const [index, setIndex] = useState(0);
+    const indexRef = useRef(index);
+    indexRef.current = index;
 
     const bumpIndex = useCallback(() => {
-        setIndex(index + 1);
-    }, [index]);
+        setIndex(indexRef.current + 1);
+    }, [indexRef]);
 
     const unbumpIndex = useCallback(() => {
         setIndex(index - 1);
@@ -198,6 +200,7 @@ export const JustTruth = (props: StatusProps) => {
         if (main) {
             main.style.background = "rgba(0,0,0,0.85)";
         }
+
 
     }, []);
 
