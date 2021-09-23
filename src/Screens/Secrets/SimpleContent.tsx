@@ -14,12 +14,10 @@ export const SimpleContent =(props: StatusProps)=>{
     const {simpleContent, bumpIndex, unbumpIndex} =props; 
 
     const submit = ()=>{
-        console.log("JR NOTE: submitting simple content")
         bumpIndex();
     }
 
     useEffect(()=>{
-        console.log("JR NOTE: trying to hook up keyboard commands")
         window.addEventListener('keydown', submit);
         return ()=>{
             window.removeEventListener('keydown', submit)
