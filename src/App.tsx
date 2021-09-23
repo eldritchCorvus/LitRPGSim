@@ -265,6 +265,18 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        truth is broken again
+        hacking the wrong thing, once again, does not start RAGE MODE rip
+      if you die instead of just refresh, start of zampaniosimsim.  completely broken, but gives you the starting prompt of being a shambling horror who needs to get as many ppl as possible exposed to zampanio.
+
+literally index page of ZampanioSimsim
+update death popup to focus on "new character to play as" not reincarnation
+jadedResearcher — Today at 5:08 PM
+note: when its time to go live, have LITRPGSIM e point to something ominous
+jadedResearcher — Today at 7:12 PM
+note: if a shambling horror has spawned and has NOT killed you, save that to local storage and have it kill you the second you reenter game mode
+jadedResearcher — Today at 7:20 PM
+note: make justifiedRecursion wiki and github accounts because as of tonight on the other server, i've been replaced with a shambling horror who is trying to get as many people as possible to play zampaniosim (and become cursed)
         *ZampanioSimSim where you after you've been killed by a shambling horror you start trying to lure people to play zampaniosim
         *persephone, hades, demeter quest.  QUESTS are more "combination of side quests and overarching story plot". (think land quests)
         * session 0 is "the game is real i swear" notJR, the core of Truth is "zampanio was never real but the creepypasta faq was" notJR, and the core of game mode is "the game wasn't real and you couldn't accept that" notJR.
