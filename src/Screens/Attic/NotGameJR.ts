@@ -136,6 +136,7 @@ const JRDeadTwo = ()=>{
     }
 
     const NextSteps = ()=>{
+
         const defaultRamble = "well, if you get tired of taking the straightforward path you can always turn back. and turning right is almost always an option. up and down are even easier sometimes. have you considered acting like a Waste? once you know where the window to the other side is you can do most anything. the key just becomes: do you know what you're doing?";
     
         const ramble = new JRRamble(defaultRamble, []);
