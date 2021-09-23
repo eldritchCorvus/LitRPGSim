@@ -223,9 +223,6 @@ export const JustTruth = (props: StatusProps) => {
     return (
 
         <TruthContainer>
-            <div>
-                The mode is: {mode}
-            </div>
             {(mode === SIMPLECONTENT1 || mode === SIMPLECONTENT2 || mode === SIMPLECONTENT3) && simpleContent ? (
                 <SimpleContent simpleContent={simpleContent} bumpIndex={bumpIndex} unbumpIndex={index > 0 ? unbumpIndex : null} />
             ) : null}
