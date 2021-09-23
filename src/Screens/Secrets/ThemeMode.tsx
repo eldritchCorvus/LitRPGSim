@@ -36,7 +36,6 @@ export const ThemeMode = (props:StatusProps) => {
     }
 
     const submit = ()=>{
-        console.log("JR NOTE: submitting theme")
 
         bumpIndex();
         goInfinite();
@@ -77,8 +76,8 @@ export const ThemeMode = (props:StatusProps) => {
                             })
                         }
                         <table className="infodump">
-                            <tr><td>Question</td><td>Yes Response</td><td>No Response</td><td>Comment If Yes</td><td>Comment If No</td></tr>
                             <tbody>
+                            <tr><td>Question</td><td>Yes Response</td><td>No Response</td><td>Comment If Yes</td><td>Comment If No</td></tr>
                                 {
                                     theme.memories.map((item, index) => {
                                         return (
