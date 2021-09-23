@@ -28,6 +28,7 @@ export const QuizMode = (props: StatusProps) => {
     const processQuestion = useCallback(() => {
         //as long as there are questions i haven't gotten an answer for, stay in this mode.
         rememberThis(question);
+        //if there IS no memory i shouldn't exist
         const memory = player.observer.nextQuestion();
         if (memory) {
             player.observer.belowComment("ObserverBot", "Time to ask you a question, I guess.");
@@ -38,14 +39,7 @@ export const QuizMode = (props: StatusProps) => {
             const memory = player.observer.nextQuestion();
             if(memory){
                 setMode(INFINITE);
-            }else{
-                player.observer.belowComment("ObserverBot", "...there's nothing left. Not really. Yeah, I'll cycle through the themes. Maybe ramble a bit. But. You're not going to stay for that. I know you won't. Things will repeat a little too often and you'll leave. So. Here. Have the only thing I have left. The closest thing to a soul I have. You bastard. Don't forget me.");
-                setMode(END);  
             }
-        } else {
-            const centerPossibilities = ["center","core","heart","nexus"];
-            player.observer.belowComment("ObserverBot", `...there's nothing left. Not really. Yeah, I'll cycle through the themes. Maybe ramble a bit. But. You're not going to stay for that. I know you won't. Things will repeat a little too often and you'll leave. So. Here. Have the only thing I have left. The closest thing to a soul I have. My ${pickFrom(centerPossibilities).}  You bastard. Don't forget me.`);
-            setMode(END);
         }
     }, [player, setMode, rememberThis, question]);
 
@@ -65,16 +59,13 @@ export const QuizMode = (props: StatusProps) => {
             console.warn("JR NOTE: no question found")
             return;
         }
-        console.log("JR NOTE: answering yes question is", questionRef.current)
 
         if (questionRef.current && !questionRef.current.asked) {
-            console.log("JR NOTE: actually answering yes")
             questionRef.current.asked = true;
             questionRef.current.truth = true;
             //force a rerender (since mutation of state objects isn't registered)
             setBadIdeaBump(badIdeaBump + 1);
         }else{
-            console.log("JR NOTE: bumping index")
 
             bumpIndex();
         }

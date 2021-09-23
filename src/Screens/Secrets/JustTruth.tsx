@@ -93,10 +93,10 @@ export const JustTruth = (props: StatusProps) => {
     const [simpleContent, setSimpleContent] = useState<string>();
     const [theme, setTheme] = useState<Theme>();
 
-    useEffect(()=>{
+    useEffect(() => {
         //any time mode changes, reset index.
         setIndex(0);
-    },[mode])
+    }, [mode])
 
 
 
@@ -128,19 +128,19 @@ export const JustTruth = (props: StatusProps) => {
 
     const handleSimpleContent1 = useCallback(() => {
         player.observer.belowComment("ObserverBot", "Spiralling...");
-        if(firstRamble.length <= index){
+        if (firstRamble.length <= index) {
             setMode(QUIZ1);
-        }else{
+        } else {
             setSimpleContent(firstRamble[index]);
         }
     }, [firstRamble, setSimpleContent, player, index]);
 
-    const handleSimpleContent2= useCallback(() => {
+    const handleSimpleContent2 = useCallback(() => {
         player.observer.belowComment("ObserverBot", "Spiralling...");
-        if(secondRamble.length <= index){
+        if (secondRamble.length <= index) {
             console.log("JR NOTE: i have ran out of things to yell at you about. infinite time");
             setMode(INFINITE);
-        }else{
+        } else {
             setSimpleContent(secondRamble[index]);
         }
     }, [secondRamble, setSimpleContent, player, index]);
@@ -148,30 +148,43 @@ export const JustTruth = (props: StatusProps) => {
 
     const handleInfiniteContent = useCallback(() => {
         //either ask a question or comment on things.
+        const memory = player.observer.nextQuestion();
+        if (!memory) {
+            const centerPossibilities = ["center", "core", "heart", "nexus"];
+            console.log(`JR NOTE: shout out to creeper for working tirelessly to make sure Truth doesn't keep refusing to let you into its vulnerable ${pickFrom(centerPossibilities)}.`)
+            player.observer.belowComment("ObserverBot", `...there's nothing left. Not really. Yeah, I'll cycle through the themes. Maybe ramble a bit. But. You're not going to stay for that. I know you won't. Things will repeat a little too often and you'll leave. So. Here. Have the only thing I have left. The closest thing to a soul I have. My ${pickFrom(centerPossibilities)}.  You bastard. Don't forget me.`);
+            setMode(END);
+            return;
+        }
 
         if (Math.random() > 0.5) {
             infiniteContent();
+            return;
         } else {
 
             if (Math.random() > 0.1) {
+                console.log("JR NOTE: randomly setting mode to quiz 2")
                 setMode(QUIZ2);
+                return;
             } else {
                 infoDumpOnTheme();
+                return;
             }
         }
     }, [infiniteContent, simpleContent, setSimpleContent, setTheme, infoDumpOnTheme]);
 
-    const goInfinite = ()=> {setMode(INFINITE)};
+    const goInfinite = () => { setMode(INFINITE) };
 
     useEffect(() => {
+        console.log("JR NOTE: mode is", mode, "and in use effect that may change it")
         if (mode === SIMPLECONTENT1) {
             handleSimpleContent1();
-        }if ( mode === SIMPLECONTENT2) {
+        } else if (mode === SIMPLECONTENT2) {
             handleSimpleContent2();
-        } else if(mode === INFINITE || mode === SIMPLECONTENT3 || mode === QUIZ2) {
+        } else if (mode === INFINITE || mode === SIMPLECONTENT3 || mode === QUIZ2) {
             handleInfiniteContent();
         }
-    }, [mode, handleSimpleContent1,handleSimpleContent2, handleInfiniteContent]);
+    }, [mode, handleSimpleContent1, handleSimpleContent2, handleInfiniteContent]);
 
 
 
@@ -210,8 +223,11 @@ export const JustTruth = (props: StatusProps) => {
     return (
 
         <TruthContainer>
+            <div>
+                The mode is: {mode}
+            </div>
             {(mode === SIMPLECONTENT1 || mode === SIMPLECONTENT2 || mode === SIMPLECONTENT3) && simpleContent ? (
-                <SimpleContent simpleContent={simpleContent} bumpIndex={bumpIndex} unbumpIndex={index>0?unbumpIndex:null} />
+                <SimpleContent simpleContent={simpleContent} bumpIndex={bumpIndex} unbumpIndex={index > 0 ? unbumpIndex : null} />
             ) : null}
 
             {mode === END ? (
