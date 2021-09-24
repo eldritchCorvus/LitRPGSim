@@ -301,7 +301,6 @@ note: make justifiedRecursion wiki and github accounts because as of tonight on 
         * lightly themed ghosts (just enough variation for gaslighting)
 
 Suddenly, you can feel the pounding behind your eyes. "let me out" you hear, "let me out"."</li>
-        <li> quests screen</li>
          <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
         <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
