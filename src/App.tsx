@@ -314,38 +314,13 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
     * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
 <li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
            <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
-        <li>LORE screen re-uses place locations to write little stories about your char finding out facts of the setting</li>
-        <li>"here, have a map of this labrynth.  it makes no sense and was created by madmen and liars.  but if you stare at it enough, you might recognize something important when the time comes"</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
-        <li>fake chatbot in JUST TRUTH MODE, reference Binary</li>
-     <li>each page should have secrets that loop in on each other (binary password getting you past options maybe)</li>
-      <li>for all statistics, detect dom hax adn react accordingly (including RAGE MODE)</li>
-        <li>what happens if i have more menu items than room to display?</li>
-        <li>house of leaves like narrative where being exposed to enough of this makes you want to make your own derivative</li>
-        <li>just truth mode has a secret adventure game in it (randomly generated but using the themes). to access it you click the black under the actual text.</li>
-      <li>status, options, achivements, statistics, skills screen upgrades is gated to menu level</li>
-      <li>inventory screen has initial objects but ACHIEVEMENTS also award items.</li>
       <li>quest screen ADDs achievements to the system</li>
-      <li>win mode: when you unlock all skills</li>
       <li>fractal sim plus radio???</li>
       <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
-      <li>menu screen you can ONLY get to via hacking (leads to Just Monika But Spades Quiz Mode)</li>
-      <li>special seeds that have story content, maybe voice acted stuff</li>
-      <li>credit: </li>
       <li>first ending where you max out skills (or played long enough to reach the heat death of the universe (thru auto clicker)) and menu finally closes and then fake credits role</li>
-      <li>win game, roll credits, if max skill tree OR enough time has passed.</li>
-      <li>encourage replays with fake credits</li>
-      <li>worship the skill tree</li>
-      <li>one custom seed besides 13</li>
-      <li>title system can add/unlock skills like kin eater giving heretic magic</li>
-      <li>waste/seer/mage classes get option screen, etc</li>
-      <li>music, plus fucked up music for rage mode. subtle fuck ups for normal mode?</li>
-        <li>allow literal hacking of DOM too, if they edit statistics page, slorp it up.</li>
-        <li>later, make it so if its your first playthrough (check local storage) and you get waste class it changes to something else.</li>
-        <li>implement more achivment trigger types</li>
+      
         <li>sub titles unlock only when you unlock skills related to them. you have to discover them, essentially</li>
-        <li>murder yellow text</li>
-        <li>skills that unlock other menu screens/upgrade them (replace a stat with it)</li>
         <li>zero player game where you get little mini stories about what you 'did', like "used Medical Crown to heal a king" or whatever.  if the game were working PROPERLY it should praise you for whatever skill you've used the most, but obviously you've never used a single skill so it just picks one at random or glitches out. have console logs about ERORR NO FAVORIE SKILL FOUND etc.</li>
         <li>if i ever do a lets play of zampanio it should be a hacked version that never goes live that is different in many very important ways but subtle at first</li>        
       </ul>
