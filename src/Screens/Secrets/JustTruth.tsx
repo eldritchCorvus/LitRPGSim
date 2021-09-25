@@ -243,3 +243,29 @@ export const JustTruth = (props: StatusProps) => {
         </TruthContainer>
     );
 }
+
+/*
+Getting a lot of really fun feedback for Truth's voice:
+"You've got a knack for poignancy for sure"
+
+ "still not over you bastard. don't forget me. jr how dare you how DARE YOU"
+
+ "does anyone deserve to own nukes
+>no
+you are wrong. objectively i do.
+JHSKDHF okay ai"
+
+ "jr it is UNFAIR for me to be EMOTIONAL over an ai that is VERY CLEAR ABOUT IT HATING ME how dare you /pos"
+
+ "But JustTruthMode is very special
+It does have the undertale affect where you both do not want to play again for the other options
+Or leave, because while you know it’s not real, you can’t doom your “friend” to unhappiness"
+
+"This specific puzzle is very personal
+It’s My Dinner with Hal 9000"
+
+"Zampanio is my new best friend
+I'm genuinely feeling the Undertale affect from it"
+"I really ought to sprite my Best Friend Truth
+"
+*/
