@@ -132,6 +132,8 @@ export const clickEffect = () =>{
   clickAudio.play();
 }
 
+window.localStorage["zampanio"]=true;
+
 
 document.getElementById('ThisIsNotAGame')
 
