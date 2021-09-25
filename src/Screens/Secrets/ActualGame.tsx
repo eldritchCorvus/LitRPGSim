@@ -118,10 +118,10 @@ export const ActualGame = (props: StatusProps) => {
 
         <Fragment>
           <DialogDisclosure style={{ display: "none" }}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-          <Dialog onClick={() => { window.location.href = `?seed=${getRandomNumberBetween(0, 33333333)}` }} {...dialog} tabIndex={0} aria-label="death" style={{ border: "none", outline: "none", position: "fixed", top: "35%", left: "25%", width: "600px" }}>
+          <Dialog onClick={() => { window.location.href = "http://www.farragofiction.com/ZampanioSimSim"}} {...dialog} tabIndex={0} aria-label="death" style={{ border: "none", outline: "none", position: "fixed", top: "35%", left: "25%", width: "600px" }}>
             <Popup>
               <PopupTitle>You have been killed by a Shambling Horror!</PopupTitle>
-              <PopupContent>{deathFlag}  It hurts so much to die. You will be reincarnated once you click. Thems the breaks.</PopupContent>
+              <PopupContent>{deathFlag}  It hurts so much to die. You will have a new life once you click. Thems the breaks.</PopupContent>
             </Popup>
           </Dialog>
         </Fragment>
