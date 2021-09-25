@@ -7,6 +7,10 @@ import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import voice from './Voice/truthtake3.mp3';
+import true_jr from './Voice/true_final_jr.mp3';
+import game_jr from './Voice/game_final_jr.mp3';
+import main_jr from './Voice/main_final_jr.mp3';
+
 import blame from './SecretMusic/youbrokeit.mp3';
 
 import funky_voice from './Voice/truth_but_funky.mp3';
@@ -46,6 +50,33 @@ export function loadSecretImage(location){
 export function blameSong(){
   audio.src = blame;
   audio.play();
+}
+
+export function speakTheTruth(){
+  voiceAudio.src = true_jr;
+  const play = ()=>{
+    voiceAudio.play();
+    window.removeEventListener('click', play)
+  }
+  window.addEventListener('click', play);
+}
+
+export function speakTheLie(){
+  voiceAudio.src = game_jr;
+  const play = ()=>{
+    voiceAudio.play();
+    window.removeEventListener('click', play)
+  }
+  window.addEventListener('click', play);
+}
+
+export function speakTheDefault(){
+  voiceAudio.src = main_jr;
+  const play = ()=>{
+    voiceAudio.play();
+    window.removeEventListener('click', play)
+  }
+  window.addEventListener('click', play);  
 }
 
 export function speak(){

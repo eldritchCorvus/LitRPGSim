@@ -13,10 +13,12 @@ ONE (and only one) PATH MUST BE THE ABSOLUTE TRUTH. Not even the creepypasta FAQ
 (but is it satisfying to read that? don't you want more fiction?)
 */
 
+import { speakTheTruth } from "../..";
 import { JRRamble } from "./JRRamble";
 import { PlayerResponse } from "./PlayerResponse";
 
 export const makeTrueRamble = ()=>{
+    speakTheTruth();
     return One();
 }
 
