@@ -9,6 +9,7 @@
 
 */
 
+import { speakTheDefault } from "../..";
 import { JRRamble } from "./JRRamble";
 import { PlayerResponse } from "./PlayerResponse";
 
@@ -18,7 +19,8 @@ export const makeNotGameRamble = ()=>{
 }
 
 const One = ()=>{
-    const defaultRamble = ":) :) :) !!!  i'm so excited you've been exploring enough to try investigating different sessions! 0 is an obvious edge case, ofc. but good job anyways!!!";
+    speakTheDefault();
+    const defaultRamble = ":) :) :) !!!  i'm SO excited!!!  YOU've been exploring,  haven't you??? 0 is an obvious edge case, ofc. but great job anyways!!!";
 
     const ramble = new JRRamble(defaultRamble, []);
 
