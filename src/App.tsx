@@ -268,7 +268,8 @@ function App(props: AppProps) {
         truth is broken again
         hacking the wrong thing, once again, does not start RAGE MODE rip
       if you die instead of just refresh, start of zampaniosimsim.  completely broken, but gives you the starting prompt of being a shambling horror who needs to get as many ppl as possible exposed to zampanio.
-
+blackbirds cipher
+wasted ominous song (you blew it)
 literally index page of ZampanioSimsim
 update death popup to focus on "new character to play as" not reincarnation
 jadedResearcher — Today at 5:08 PM
