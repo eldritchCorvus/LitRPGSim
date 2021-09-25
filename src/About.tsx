@@ -138,6 +138,8 @@ function About(props: AppProps) {
           <li>Creepy sounds/Ambiance</li>
           <li>Unsettling Images</li>
           <li>Violent, Creepy Monsters Described in Text</li>
+          <li>Player Blaming</li>
+          <li>Player Insulting</li>
           <li>Strong Langauge (Sorry, that's all me, Zampanio itself is probably not so sweary)</li>
         </ul>
         <p>If I've missed anything I should have had in the warnings, feel free to message me at jadedResearcher at gmail, yeah?</p>
