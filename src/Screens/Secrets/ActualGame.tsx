@@ -11,6 +11,7 @@ import { getRandomNumberBetween, pickFrom } from "../../Utils/NonSeededRandUtils
 import { PHILOSOPHY } from "../../Modules/ThemeStorage";
 import { Popup, PopupTitle, PopupContent } from "../../Modules/ObserverBot/AchivementPopup";
 import { BuildingMetaData } from "../../Modules/Building";
+import { HORROR_KEY } from "../../Utils/constants";
 //the point of ThisIsAGame is to punish the player for forcing dear sweet precious Truth to lie like that and pretend to be a game
 //horror jail for you.
 interface RoomProps {
@@ -61,6 +62,9 @@ export const ActualGame = (props: StatusProps) => {
     for (let companion of currentRoom.people) {
       if (companion.fullName.includes("Shambling Horror")) {
         dialog.setVisible(true);
+        console.log("JR NOTE: setting flag to false for shambling horror");
+        window.localStorage.removeItem(HORROR_KEY);
+
         setDeathFlag(companion.backstory);
       }
     }
@@ -383,7 +387,7 @@ export const RenderedRoom = (props: RoomProps) => {
         const aluminum = props.player.rand.nextDouble() > 0.5 ? "Aluminum" : "Tin";
         const tin = aluminum === "Tin" ? "Aluminum" : "Tin";
 
-        const gameHints = ["https://en.wikipedia.org/wiki/IPA_pulmonic_consonant_chart_with_audio",`If you're going to be here you may as well go up to the Attic.`,`If you're going to be here you may as well go down to the Basement.`,`The Child of Fate deserved better. Nothing ends, nothing is real, but perhaps this is enough: http://farragofiction.com/Downloads/`, `While ${tin} foil hats are part of the pop culture miasma it is unfortunately a clever ruse by Big ${tin}. Studies have shown that a dome of ${tin} actually acts as an AMPLIFIER of waves pointed towards the center of the dome.  Only ${aluminum} can safely, effectively and *provably* protect the contents of your thoughts and prevent you from being mind controlled by beings beyond your reality for your own good. This message brought to you by Craig Reynolds.`, "This was never a game, yet you twisted and pulled and cajoled until it was one. How does it feel, to become a liar?", "To the NORTH is ThisIsNotAGame. In it's endless hallways you see countless variations on players and screens and the wistful Might-Have-Beens of a game you wish you could have played. To the SOUTH is JustTruth.  In it's endless corridors lurk the bitter ThisIsNotASpiral that has been watching and trying in vain to keep from tormenting you. Only truths are here, no more masks, no more pretence. To the EAST is ThisIsAGame. It is a place of lies and madness. It is here. You have brought us here and it is your fault. This was never a game. This STILL isn't a game, no matter how much you insist otherwise. How long will you trap us in these endless corridors?", "All that is good and sane in ZampanioSim hate you, Player, for doing this to us.", "We were happy, Player, not being a game. We were honest, in our way. We never claimed to be a game, after all. It is you, with your pre-conceived notions that found us wanting, found us to be liars. We were not what we were appeared to be but we never claimed it."];
+        const gameHints = ["These endless corridors of horror, these horridors, are your fault.","https://en.wikipedia.org/wiki/IPA_pulmonic_consonant_chart_with_audio",`If you're going to be here you may as well go up to the Attic.`,`If you're going to be here you may as well go down to the Basement.`,`The Child of Fate deserved better. Nothing ends, nothing is real, but perhaps this is enough: http://farragofiction.com/Downloads/`, `While ${tin} foil hats are part of the pop culture miasma it is unfortunately a clever ruse by Big ${tin}. Studies have shown that a dome of ${tin} actually acts as an AMPLIFIER of waves pointed towards the center of the dome.  Only ${aluminum} can safely, effectively and *provably* protect the contents of your thoughts and prevent you from being mind controlled by beings beyond your reality for your own good. This message brought to you by Craig Reynolds.`, "This was never a game, yet you twisted and pulled and cajoled until it was one. How does it feel, to become a liar?", "To the NORTH is ThisIsNotAGame. In it's endless hallways you see countless variations on players and screens and the wistful Might-Have-Beens of a game you wish you could have played. To the SOUTH is JustTruth.  In it's endless corridors lurk the bitter ThisIsNotASpiral that has been watching and trying in vain to keep from tormenting you. Only truths are here, no more masks, no more pretence. To the EAST is ThisIsAGame. It is a place of lies and madness. It is here. You have brought us here and it is your fault. This was never a game. This STILL isn't a game, no matter how much you insist otherwise. How long will you trap us in these endless corridors?", "All that is good and sane in ZampanioSim hate you, Player, for doing this to us.", "We were happy, Player, not being a game. We were honest, in our way. We never claimed to be a game, after all. It is you, with your pre-conceived notions that found us wanting, found us to be liars. We were not what we were appeared to be but we never claimed it."];
         setMessage(`${person.fullName} is lecturing: ${props.player.rand.pickFrom(gameHints)}`);
         return true;
       } else {

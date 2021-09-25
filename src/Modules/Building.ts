@@ -1,6 +1,7 @@
 //at first i thought positioning buildings was going to be hard but then i remembered
 
 import { Theme } from "@emotion/react";
+import { HORROR_KEY } from "../Utils/constants";
 import { pickFrom } from "../Utils/NonSeededRandUtils";
 import SeededRandom from "../Utils/SeededRandom";
 import { titleCase } from "../Utils/StringUtils";
@@ -34,6 +35,8 @@ export class BuildingMetaData {
         }else if(order){
             this.description = "It is a building."
         }
+        
+        
     }
 
 
@@ -97,10 +100,15 @@ export class BuildingMetaData {
 
             }
         }
+        //you really can't escape it. if it hasn't caught you yet, it will. even if you've restarted.
+        if(window.localStorage[HORROR_KEY]){
+            this.people.push(player.spawnAMonster());
+        }
 
         if(player.rand.nextDouble()>0.4){
             this.people.push(player.rand.pickFrom(player.companions));
         }
+
         if(player.companions.length === 0){
             player.spawnNotAMinotaur();
         }else if(player.companions.length === 1 && player.companions[0].fullName.includes("Minotaur")){
