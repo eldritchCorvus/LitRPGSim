@@ -18,7 +18,7 @@ export const makeNotGameRamble = ()=>{
 }
 
 const One = ()=>{
-    const defaultRamble = ":) :) :) !!!  i'm so excited you've been exploring enough to try investigating different sessions! 0 is an obvious edge case, ofc. but good job anyways!";
+    const defaultRamble = ":) :) :) !!!  i'm so excited you've been exploring enough to try investigating different sessions! 0 is an obvious edge case, ofc. but good job anyways!!!";
 
     const ramble = new JRRamble(defaultRamble, []);
 
