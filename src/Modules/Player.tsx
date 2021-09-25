@@ -15,6 +15,7 @@ import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
 import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
 import { BuildingMetaData, spawnTempleForGod } from "./Building";
+import { HORROR_KEY } from "../Utils/constants";
 
 export interface BuildingMetaMap {
     [name: string]: BuildingMetaData
@@ -104,6 +105,10 @@ export class Player {
         this.generateBuildings(themes, this.rand);
         for (let i = 0; i < 3; i++) {
             this.inventory.push(this.generateItem());
+        }
+        //you really can't escape it. if it hasn't caught you yet, it will. even if you've restarted.
+        if(window.localStorage[HORROR_KEY]){
+            this.companions.push(this.spawnAMonster());
         }
     }
 
@@ -362,6 +367,7 @@ export class Player {
     }
 
     spawnAMonster = () => {
+        window.localStorage[HORROR_KEY]=true;
         const monster = new Companion(this.rand)
         monster.fullName = "Shambling Horror With Your Face";
         const themes = this.collateThemes();
@@ -371,6 +377,7 @@ export class Player {
             monster.backstory += ` ${theme.pickPossibilityFor(this.rand, MONSTER_DESC)}`;
         }
         this.companions.push(monster);
+        return monster;
     }
 
     findSkill = (skill_id: string) => {

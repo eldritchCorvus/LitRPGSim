@@ -18,6 +18,7 @@ import { JRRamble } from "./JRRamble";
 import { PlayerResponse } from "./PlayerResponse";
 
 export const makeTrueRamble = ()=>{
+    
     speakTheTruth();
     return One();
 }
