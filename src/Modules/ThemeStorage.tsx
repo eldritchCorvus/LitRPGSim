@@ -1323,14 +1323,14 @@ const initChildBackstories = () =>{
     child_backstories[ART] =["had the biggest crayon set as a child","took great pride in their drawings being displayed on the fridge as a child","loved creating little works of art as a child"];
     child_backstories[TECHNOLOGY]=["never got tired of screen time as a child","always loved robots as a child","always had their nose in a screen as a child"];
     child_backstories[TIME] = ["sometimes talk about their childhood as if it were yesterday","always woke up before they had to as a child","never wanted to sleep as a child"];
-    child_backstories[SPACE] = ["were a very patient child","loved high places as a child","was always tall for their age"];
+    child_backstories[SPACE] = ["were a very patient child","loved high places as a child","were always tall for their age"];
     child_backstories[STEALING] =["kept getting into locked places as a child","were always breaking rules as a child","somehow ended up with all their friends toys as a child"];
     child_backstories[FREEDOM] =["could never stay in one place for very long as a child","moved around a lot as a child","wandered around constantly as a child"];
     child_backstories[FIRE] =["burned a lot of their childhood toys","always snuck matches as a child","lost their childhood home to a fire"];
     child_backstories[LONELY] =["were a lonely child","never had any friends as a child","were an orphan as a child","were an only child"];
     child_backstories[OCEAN] =["learned to swim before they learned to walk","grew up in a seaside town","always went with their parents on sea voyages as a child"];
-    child_backstories[FLESH] =["always enjoyed eating meat as a child","were fascinated that everyone was made of meat as a child","was always praised for their physical abilities as a child"];
-    child_backstories[BURIED]=["always loved playing in the sandbox as a kid","really enjoyed weighted blankets as a child","was always the kid who tattled to teachers"];
+    child_backstories[FLESH] =["always enjoyed eating meat as a child","were fascinated that everyone was made of meat as a child","were always praised for their physical abilities as a child"];
+    child_backstories[BURIED]=["always loved playing in the sandbox as a kid","really enjoyed weighted blankets as a child","were always the kid who tattled to teachers"];
     child_backstories[SCIENCE] =["never stopped asking 'why' as a child","always loved learning about science as a child","loved telling people Cool Biology Facts all the time as a child"];
     child_backstories[MATH]=["were a math prodigy growing up","always seemed to remember numbers as a child","took to math easily as a child"];
     child_backstories[TWISTING] = ["are still a child","were never a child","were always a child","were born old and aged backwards","spent a lot of time lost in the backrooms as a child","exploded into a flock of crows when they hit puberty"];
