@@ -2,6 +2,8 @@
 //bold of you to assume that THIS isn't the right way and all other ways are cheating
 //hack my shit
 //i dare you
+//if you want to SHOW UP then what you do is figure out where these passwords are leaked :) :) :)
+//If anyone can explain the origin of each one you'll unlock secret content directly from me
 
 
 //look, okay, al bhed from ffx is something that for *some* percent of the population feels in their bones
@@ -83,5 +85,14 @@ export const passwords:PasswordMap = {
     ,"DODGE THIS MOIST PIMP": new Secret("Other Branches",[new SourceDurationPair("Secrets/dodge_this_moist_pimp/0.jpg",1)],undefined,"Secrets/dodge_this_moist_pimp/0.js")
     ,"LISTEN TO THE TICK OF SECONDS": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/listen_to_the_tick_of_seconds/0.jpg",1)],"458627__tetrisrocker__clock.mp3","Secrets/listen_to_the_tick_of_seconds/0.js")
     ,"IT WILL GUIDE YOU WHERE YOU BELONG": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/it_will_guide_you_where_you_belong/0.jpg",2),new SourceDurationPair("Secrets/it_will_guide_you_where_you_belong/1.jpg",1)],"458627__tetrisrocker__clock.mp3","Secrets/it_will_guide_you_where_you_belong/0.js")
+    ,"SECRETS ARE MORE SUSTAINABLE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/secrets_are_more_sustainable/0.jpg",1)],undefined,"Secrets/secrets_are_more_sustainable/0.js")
+    ,"THE LONGEST TEXT EVER": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/the_longest_text_ever/0.jpg",1)],undefined,"Secrets/the_longest_text_ever/0.js")
+    ,"MERMAID CITY": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/mermaid_city/0.jpg",1)],undefined,"Secrets/mermaid_city/0.js")
+    ,"SCANLATIONS": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/scanlations/0.jpg",1)],undefined,"Secrets/scanlations/0.js")
+    ,"RIP GRUMPY CAT": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/rip_grumpy_cat/0.jpg",1)],undefined,"Secrets/rip_grumpy_cat/0.js")
+    ,"ALL THEORIES ARE VALID": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/all_theories_are_valid/0.jpg",1)],undefined,"Secrets/all_theories_are_valid/0.js")
+    ,"HOW MUCH DO YOU THINK WAFFLES COST": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/how_much_do_you_think_waffles_cost/0.jpg",1)],undefined,"Secrets/how_much_do_you_think_waffles_cost/0.js")
+    ,"DO YOU TRANSVERSE MAZES CLOCKWISE OR COUNTERCLOCKWISE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/do_you_transverse_mazes_clockwise_or_counterclockwise/0.jpg",1)],undefined,"Secrets/do_you_transverse_mazes_clockwise_or_counterclockwise/0.js")
+    ,"DO YOU TRANSVERSE MAZES CLOCKWISE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/do_you_transverse_mazes_clockwise/0.jpg",1)],undefined,"Secrets/do_you_transverse_mazes_clockwise/0.js")
 
 };
