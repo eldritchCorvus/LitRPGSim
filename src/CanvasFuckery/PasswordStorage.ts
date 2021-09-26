@@ -45,11 +45,14 @@ export const albhed_map = {
 export class Secret{
     frames: SourceDurationPair[];
     music_file_name: string|undefined;
-    text: string|undefined;
-    constructor(frames: SourceDurationPair[], music_file_name: string|undefined, text: string|undefined){
+    text: string;
+    title: string;
+    constructor(title: string, frames: SourceDurationPair[], music_file_name: string|undefined, text: string){
         this.frames = frames;
         this.music_file_name = music_file_name;
         this.text = text;
+        this.title = title;
+
     }
 
 }
@@ -72,9 +75,10 @@ export interface PasswordMap {
 each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section (print out under cctv ffed)
 */
 export const passwords:PasswordMap = {
-    "THE END IS NEVER": new Secret([new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"4-_Wattathon.mp3","The Child of Fate Deserved Better.")
-    ,"THE END IS NEVER THE END": new Secret([new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"turntablist.mp3","The Child of Fate Lives Inside My Bathtub.")
-    ,"THE TRUTH IS LAYERED": new Secret([new SourceDurationPair("Secrets/the_truth_is_layered/1comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/2comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/3comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/4comp.jpg",2)],undefined,"Do not be overeager to believe there is only one path. Right now you are sitting at a computer watching a fake cctv screen that displays a fake television screen that pretends to be on the site you're already on. Except do you recognize the site you're seeing? Do you know the Truth?")
-    ,"BEWARE OBLIVION IS AT HAND": new Secret([new SourceDurationPair("Secrets/beware_oblivion_is_at_hand/0.jpg",1)],"dead.mp3","A player of taste, I see.")
+    "THE END IS NEVER": new Secret("Ronin Rambles",[new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"4-_Wattathon.mp3","Secrets/the_end_is_never/3comp.jpg")
+    ,"THE END IS NEVER THE END": new Secret("Ronin Rambles",[new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"turntablist.mp3","Secrets/the_end_is_never/0.js")
+    ,"THE TRUTH IS LAYERED": new Secret("JR Rambles",[new SourceDurationPair("Secrets/the_truth_is_layered/1comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/2comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/3comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/4comp.jpg",2)],undefined, "Secrets/the_truth_is_layered/0.js")
+    ,"BEWARE OBLIVION IS AT HAND": new Secret("JR Rambles",[new SourceDurationPair("Secrets/beware_oblivion_is_at_hand/0.jpg",1)],"dead.mp3","Secrets/beware_oblivion_is_at_hand/0.js")
+    ,"THERE IS SERENITY IN CLOCKWORK": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/there_is_serenity_in_clockwork/0.jpg",1)],"458627__tetrisrocker__clock.mp3","Secrets/there_is_serenity_in_clockwork/0.js")
 
 };

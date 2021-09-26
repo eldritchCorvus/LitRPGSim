@@ -6,7 +6,7 @@ import { addImageProcess } from "../Utils/URLUtils";
 import { CCTV } from "./cctv_object";
 import SeededRandom from '../Utils/SeededRandom';
 import { Secret } from './PasswordStorage';
-import { loadSecretImage, playSecret } from '..';
+import { loadSecretImage, loadSecretText, playSecret } from '..';
 
 export const right_password = async (canvas:HTMLCanvasElement, secret:Secret) => {
     const frames:AnimationFrame[] = [];
@@ -18,9 +18,20 @@ export const right_password = async (canvas:HTMLCanvasElement, secret:Secret) =>
     if(secret.music_file_name){
         playSecret(secret.music_file_name);
     }
-    console.log(secret.text);
+    if(secret.text){
+        processText(secret.title, secret.text);
+    }
     const cctv = new CCTV(feed, canvas);
     return cctv;
+}
+
+const storyConsole = (title: string, text: string)=>{
+    console.log(`%c${title}:\n\n%c  ${text}`, "font-weight: bold;font-family: 'cabin', monospace;color:black; font-size:25px;text-decoration:underline;","font-weight: bold;font-family: 'cabin', monospace;color:black; font-size:13px;");
+}
+
+const processText = (title: string, location:string)=>{
+    const test = loadSecretText(location);
+    storyConsole(title,test);
 }
 
 export const wrong_password = async (canvas:HTMLCanvasElement, password: string,core_rand:SeededRandom) => {
