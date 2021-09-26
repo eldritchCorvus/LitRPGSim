@@ -177,7 +177,6 @@ export class ObserverBot{
     }
 
     upgradeMenu = (name: string)=>{
-        console.log("trying to unlock ", name)
 
         if(name.includes(OPTIONS)){
             this.optionsMenuLevel ++;
@@ -224,7 +223,6 @@ export class ObserverBot{
 
     nextQuestion = () =>{
         const questions = shuffle(this.memories).filter((memory)=>!memory.asked);
-        console.log("JR NOTE: question length is ", questions.length)
         if(questions.length && questions.length > 0){
             return questions[0];
         }
