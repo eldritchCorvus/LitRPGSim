@@ -431,7 +431,7 @@ export const RenderedRoom = (props: RoomProps) => {
 
 
   const checkMovement = (input: string) => {
-    if (input.toUpperCase().includes("NORTH")) {
+    if (input.toUpperCase().includes("NORTH") || input.toUpperCase().includes(" N")) {
       if (room.neighbors.length >= 2) {
         setError(changeRoom(room.neighbors[1], "NORTH"));
         return true;
@@ -440,7 +440,7 @@ export const RenderedRoom = (props: RoomProps) => {
         return true;
 
       }
-    } else if (input.toUpperCase().includes("SOUTH")) {
+    } else if (input.toUpperCase().includes("SOUTH") || input.toUpperCase().includes(" S")) {
       if (room.neighbors.length >= 1) {
         setError(changeRoom(room.neighbors[0], "SOUTH"));
         return true;
@@ -449,7 +449,7 @@ export const RenderedRoom = (props: RoomProps) => {
         return true;
 
       }
-    } else if (input.toUpperCase().includes("EAST")) {
+    } else if (input.toUpperCase().includes("EAST") || input.toUpperCase().includes(" E")) {
       if (room.neighbors.length >= 3) {
         setError(changeRoom(room.neighbors[2], "EAST"));
         return true;
@@ -458,7 +458,7 @@ export const RenderedRoom = (props: RoomProps) => {
         return true;
 
       }
-    } else if (input.toUpperCase().includes("WEST")) {
+    } else if (input.toUpperCase().includes("WEST") || input.toUpperCase().includes(" W")) {
       setError("You cannot go WEST. There’s no left turns. None. It doesn't make any sense. But it's NotASpiral, because you can always go forwards. Except when you can't.");
       return true;
     } else if (input.toUpperCase().includes("DOWN")) {
