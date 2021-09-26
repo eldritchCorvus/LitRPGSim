@@ -80,5 +80,8 @@ export const passwords:PasswordMap = {
     ,"THE TRUTH IS LAYERED": new Secret("JR Rambles",[new SourceDurationPair("Secrets/the_truth_is_layered/1comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/2comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/3comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/4comp.jpg",2)],undefined, "Secrets/the_truth_is_layered/0.js")
     ,"BEWARE OBLIVION IS AT HAND": new Secret("JR Rambles",[new SourceDurationPair("Secrets/beware_oblivion_is_at_hand/0.jpg",1)],"dead.mp3","Secrets/beware_oblivion_is_at_hand/0.js")
     ,"THERE IS SERENITY IN CLOCKWORK": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/there_is_serenity_in_clockwork/0.jpg",1)],"458627__tetrisrocker__clock.mp3","Secrets/there_is_serenity_in_clockwork/0.js")
+    ,"DODGE THIS MOIST PIMP": new Secret("Other Branches",[new SourceDurationPair("Secrets/dodge_this_moist_pimp/0.jpg",1)],undefined,"Secrets/dodge_this_moist_pimp/0.js")
+    ,"LISTEN TO THE TICK OF SECONDS": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/listen_to_the_tick_of_seconds/0.jpg",1)],"458627__tetrisrocker__clock.mp3","Secrets/listen_to_the_tick_of_seconds/0.js")
+    ,"IT WILL GUIDE YOU WHERE YOU BELONG": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/it_will_guide_you_where_you_belong/0.jpg",2),new SourceDurationPair("Secrets/it_will_guide_you_where_you_belong/1.jpg",1)],"458627__tetrisrocker__clock.mp3","Secrets/it_will_guide_you_where_you_belong/0.js")
 
 };
