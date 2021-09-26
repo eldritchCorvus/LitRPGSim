@@ -3,7 +3,8 @@
 //hack my shit
 //i dare you
 //if you want to SHOW UP then what you do is figure out where these passwords are leaked :) :) :)
-//If anyone can explain the origin of each one you'll unlock secret content directly from me
+//if anyone can explain the origin of each one you'll unlock secret content directly from me
+//hell, if you can even do a majority I'd love to hear it, in all sincerity. I love hearing people find my work interesting :)
 
 
 //look, okay, al bhed from ffx is something that for *some* percent of the population feels in their bones
@@ -94,5 +95,11 @@ export const passwords:PasswordMap = {
     ,"HOW MUCH DO YOU THINK WAFFLES COST": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/how_much_do_you_think_waffles_cost/0.jpg",1)],undefined,"Secrets/how_much_do_you_think_waffles_cost/0.js")
     ,"DO YOU TRANSVERSE MAZES CLOCKWISE OR COUNTERCLOCKWISE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/do_you_transverse_mazes_clockwise_or_counterclockwise/0.jpg",1)],undefined,"Secrets/do_you_transverse_mazes_clockwise_or_counterclockwise/0.js")
     ,"DO YOU TRANSVERSE MAZES CLOCKWISE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/do_you_transverse_mazes_clockwise/0.jpg",1)],undefined,"Secrets/do_you_transverse_mazes_clockwise/0.js")
+    ,"COCONUT MALL": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/coconut_mall/0.jpg",1)],undefined,"Secrets/coconut_mall/0.js")
+    ,"VERIFIED FACT": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/verified_fact/0.jpg",1)],undefined,"Secrets/verified_fact/0.js")
+    ,"BLATANT LIE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/blatant_lie/0.jpg",1)],undefined,"Secrets/blatant_lie/0.js")
+    ,"CONTEMPORARY OF PONG": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/contemporary_of_pong/0.jpg",1)],undefined,"Secrets/contemporary_of_pong/0.js")
+    ,"METEOR SHOWER": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/meteor_shower/0.jpg",1)],undefined,"Secrets/meteor_shower/0.js")
+    ,"THE SUSAN ISN'T THERE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/the_susan_isn't_there/0.jpg",1)],undefined,"Secrets/the_susan_isn't_there/0.js")
 
 };
