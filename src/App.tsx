@@ -265,6 +265,7 @@ function App(props: AppProps) {
 
       Fast TODO (yeah)
       <ul style={{display: "none"}}>
+        slow owl sounds in cctv mode
         need more reasons for people to hang around with ghosts
         hacking the wrong thing, once again, does not start RAGE MODE rip
       if you die instead of just refresh, start of zampaniosimsim.  completely broken, but gives you the starting prompt of being a shambling horror who needs to get as many ppl as possible exposed to zampanio.
