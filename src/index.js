@@ -21,6 +21,7 @@ import ghost from "./Voice/507451__horroraudio__ghost-kid-sigh-less-verb.mp3";
 import AppWrapper from './AppWrapper';
 import reportWebVitals from './reportWebVitals';
 
+
 const audio = new Audio(generic_menu_music);
 const voiceAudio = new Audio(voice);
 const clickAudio = new Audio(clickSound);
@@ -40,6 +41,11 @@ export function playSecret(location){
 
 export function loadSecretImage(location){
   return require(`./images/${location}`).default
+}
+
+//the text should be a javascript file exporting const text.
+export function loadSecretText(location){
+  return require(`./images/${location}`).text
 }
 
  export function rageModeSong(){

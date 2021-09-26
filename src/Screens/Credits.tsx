@@ -154,6 +154,16 @@ export const CreditsScreen = (props: StatusProps) => {
                 <CreditLine>
                     <CreditLeft>Voicework: </CreditLeft> <CreditRight><span>{getLineSecret(4) ? "jutteringRiches" : "still just jr"}</span></CreditRight>
                 </CreditLine>
+                <CreditHeader>Fan/Friend Works:</CreditHeader>
+                <CreditLine>
+                    <CreditLeft>Jeffery's Tapes: </CreditLeft> <CreditRight><span>aspiringWatcher</span></CreditRight>
+                </CreditLine>
+                <CreditLine>
+                    <CreditLeft>Dionysus and the Pirates: </CreditLeft> <CreditRight><span>Cathulhu</span></CreditRight>
+                </CreditLine>
+                <CreditLine>
+                    <CreditLeft>Music/Art/FNF Mod/Ronin Ramblings: </CreditLeft> <CreditRight><span>invertedCentaur</span></CreditRight>
+                </CreditLine>
 
                 <CreditHeader>Free Or Purchased Generic Assets:</CreditHeader>
 
