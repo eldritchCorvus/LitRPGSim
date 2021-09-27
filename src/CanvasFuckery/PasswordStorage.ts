@@ -101,5 +101,17 @@ export const passwords:PasswordMap = {
     ,"CONTEMPORARY OF PONG": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/contemporary_of_pong/0.jpg",1)],undefined,"Secrets/contemporary_of_pong/0.js")
     ,"METEOR SHOWER": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/meteor_shower/0.jpg",1)],undefined,"Secrets/meteor_shower/0.js")
     ,"THE SUSAN ISN'T THERE": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/the_susan_isn't_there/0.jpg",1)],undefined,"Secrets/the_susan_isn't_there/0.js")
+    ,"GO TO ZEUS TO PLEAD FOR HER LIFE": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/go_to_zeus_to_plead_for_her_life/0.jpg",2,),new SourceDurationPair("Secrets/go_to_zeus_to_plead_for_her_life/1.jpg",2),new SourceDurationPair("Secrets/go_to_zeus_to_plead_for_her_life/2.jpg",2)],undefined,"Secrets/go_to_zeus_to_plead_for_her_life/0.js")
+    ,"SAY IT TO ESCAPE": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/say_it_to_escape/0.png",2,)],undefined,"Secrets/say_it_to_escape/0.js")
+    ,"PSYCHIATRIC HELP": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/psychiatric_help/0.png",2,)],undefined,"Secrets/psychiatric_help/0.js")
+    ,"THE DOCTOR IS IN": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/the_doctor_is_in/0.jpg",2,),new SourceDurationPair("Secrets/the_doctor_is_in/1.jpg",2),new SourceDurationPair("Secrets/the_doctor_is_in/2.jpg",2)],undefined,"Secrets/the_doctor_is_in/0.js")
+    ,"IT": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/it/0.png",2,)],undefined,"Secrets/it/0.js")
+    ,"OMG EASTER EGG LOLOL!!!!!!111!!1": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/omg_easter_egg_lol/0.png",2,)],undefined,"Secrets/omg_easter_egg_lol/0.js")
+    ,"MEDIAFIRE MYTH": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/mediafire_myth/0.jpg",2,)],undefined,"Secrets/mediafire_myth/0.js")
+    ,"ECHIDNA": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/echidna/0.png",2,)],undefined,"Secrets/echidna/0.js")
+    ,"BALL OF SIN": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/ball_of_sin/0.png",2,)],undefined,"Secrets/ball_of_sin/0.js")
+    ,"CLEAR YOUR MIND": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/clear_your_mind/0.png",2,)],undefined,"Secrets/clear_your_mind/0.js")
+    ,"ZAMPANIO IS A VERY GOOD GAME YOU SHOULD PLAY IT": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/zampanio_is_a_very_good_game_you_should_play_it/0.png",2,)],undefined,"Secrets/zampanio_is_a_very_good_game_you_should_play_it/0.js")
+    ,"THE MIND IS A TERRIBLE THING TO WASTE": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/the_mind_is_a_terrible_thing_to_waste/0.png",2,)],undefined,"Secrets/the_mind_is_a_terrible_thing_to_waste/0.js")
 
-};
+};//omg easter egg lolol!!!!!!111!!1
