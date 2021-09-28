@@ -370,7 +370,7 @@ export const CreditsScreen = (props: StatusProps) => {
                             <a key={"link2"} href={`?seed=${getRandomNumberBetween(0, 33333333)}`}>I Wonder What Other Playthroughs Are Like?</a>
                         </div>
                         <div>
-                            <a key={"link3"} href={`https://discord.gg/BCeJW9v8wW`}>I Wonder If The Discord Server Is Useful?</a>
+                            <a key={"link3"} href={`https://discord.gg/tZmtKwnbac`}>I Wonder If The Discord Server Is Useful?</a>
                         </div>
 
                         </span>
