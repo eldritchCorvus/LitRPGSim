@@ -84,7 +84,6 @@ function App(props: AppProps) {
     if(!(window as any).setCreditsMode){
       // :) :) :)
       (window as any).setCreditsMode = (value:boolean)=>{
-        console.log("JR NOTE: setting credits mode to ", value);
         setCreditsMode(value);
         (window as any).creditsMode = value;
       };
@@ -139,7 +138,6 @@ function App(props: AppProps) {
               mutation.target.src = real_eye;
               howCanEyesBeRealIfMirrorsArentReal();
               eyesAreTooRealButDoNotSpeakTheTruth();
-              console.log("JR NOTE: make the eye be the photo-realistic eye again (note will only get picked up in rage mode)")
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye2".toLowerCase()){
               mutation.target.src = eye2;
               (window as any).real_eyes = false;
@@ -252,7 +250,6 @@ function App(props: AppProps) {
     const displayMenu = !justTruthMode && !actualGameMode  && !creditsMode;
     return (
       <Fragment>
-        <button onClick={()=> setRageMode(!rageMode)}>TEST RAGE MODE PLZ</button>
         {rageMode && displayMenu ? <RageMode/>:null}
         {rageMode && displayMenu?  <Menu player={player} angle={30}/>:null}
         {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}

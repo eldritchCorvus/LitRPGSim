@@ -109,7 +109,6 @@ export const ChatScreen = () => {
     }
 
     const processClick = () => {
-        console.log("JR NOTE: clicks are", clicks);
         if(clicks=== 0){
             addApocalypse();
         }

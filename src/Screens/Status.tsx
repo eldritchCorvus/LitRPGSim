@@ -54,11 +54,9 @@ export const  StatusScreen = (props: StatusProps)=> {
 
     useEffect(()=>{
         if(inventoryMenuLevel > 0){
-            console.log("JR NOTE: inventory unlocked");
             (window as any).menuClick(INVENTORY);
         }
         if(backstoryMenuLevel){
-            console.log("JR NOTE: backstory unlocked");
 
             (window as any).menuClick(BACKSTORY);
         }

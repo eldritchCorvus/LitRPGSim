@@ -41,7 +41,6 @@ export const wrong_password = async (canvas:HTMLCanvasElement, password: string,
     const fonts = ["sister_spray","urban_heroes","the_jacatra","next_custom","mostwasted","marsneveneksk","graffiti_city"];
     rand.nextDouble();
     const font = rand.pickFrom(fonts);
-    console.log("JR NOTE: initial seed is", rand.initial_seed, "and font is", font, "and next double is", rand.nextDouble());
     const feed = new CameraFeed(0,[new AnimationFrame(wrong_room, 1)], [new GraffitiSpot(password,20,250,font,48)]);
 
     

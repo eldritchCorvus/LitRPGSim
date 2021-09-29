@@ -69,6 +69,10 @@ export class AchivementStorage{
         const tmp3= new Achievement("Hacking Failed!",13, new ExceedValueTrigger(0,"failedHaxAttempts"),`Oh no... Please don't be mad.... Hax Mode is currently disabled! You need to enable Hax Mode to perform skill based hacking! I'm so sorry! I think it's in the OPTIONS menu? Does that help?`,`Or, you know, you could just NOT. Both in the sense of you could leave things alone for once in your life, or you could ACTUALLY hack instead of relying on me holding your hand. It's practically not even a puzzle how you'd hack for real.`);
         this.possibleAchievements.push(tmp3);
 
+        //export const dangerousWasteHackingFunctions = 
+        //["hackSkillPointsGainedFromBattle", "hackCityMorale", "hackTimeCombatInSeconds",
+        // "hackTimeCutscenesInSeconds", "hackTimeCitybuildingInSeconds"];
+
         this.initClicks(rand, compliments, insults);
         this.initMenuVisits(rand, title,compliments, insults);
         this.initErrors(rand, compliments, insults);
