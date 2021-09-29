@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import chair from '../../images/chair.png';
 import { JRRamble } from "./JRRamble";
 import { makeLieRamble } from "./LieJR";
@@ -26,8 +26,8 @@ export enum PathType {
 
 export const AtticSim = (props: AtticProps) => {
 
-    const getInitialRamble = ()=>{
-        switch(props.pathType){
+    const getInitialRamble = useCallback(() => {
+        switch (props.pathType) {
             case PathType.NotGame:
                 return makeNotGameRamble();
                 break;
@@ -38,9 +38,9 @@ export const AtticSim = (props: AtticProps) => {
                 return makeTrueRamble();
                 break;
         }
-    }
+    }, []);
 
-    const [ramble, setRamble] = useState(getInitialRamble());
+    const [ramble, setRamble] = useState<JRRamble | null>(null);
 
     const JRRambleContainer = styled.div`
         padding: 15px;
@@ -66,51 +66,56 @@ export const AtticSim = (props: AtticProps) => {
         width: 400px;
     `;
 
-    const killGameStuff = ()=>{
+    const killGameStuff = () => {
         const body = document.querySelector("body");
-        if(body){
-            body.style.backgroundImage="";
+        if (body) {
+            body.style.backgroundImage = "";
             body.className = "paldemicBody";
             body.id = "no";
         }
 
-        const bg:HTMLElement|null = document.querySelector("#ThisIsNotABG");
-        if(bg){
-            bg.style.backgroundImage="";
+        const bg: HTMLElement | null = document.querySelector("#ThisIsNotABG");
+        if (bg) {
+            bg.style.backgroundImage = "";
             bg.id = "no3";
 
         }
 
-        const nas:HTMLElement|null = document.querySelector("#ThisIsNotASpiral");
-        if(nas){
-            nas.style.backgroundImage="";
+        const nas: HTMLElement | null = document.querySelector("#ThisIsNotASpiral");
+        if (nas) {
+            nas.style.backgroundImage = "";
             nas.id = "no2";
         }
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         killGameStuff();
-    },[])
+        setRamble(getInitialRamble());
+    }, [getInitialRamble])
 
 
 
-    return(
-        <Container>
-            <JRImage src = {chair}></JRImage>
-            <ChatContainer>
-                <JRRambleContainer>
-                    {ramble.text}
-                </JRRambleContainer>
-                {ramble.potential_reponses.map((response)=>{
-                    return(
-                        <PlayerResponseContainer onClick={()=>{setRamble(response.jr_response_function())}}>{">"} {response.text}</PlayerResponseContainer>
-                    )
-                })}
-            </ChatContainer>
-        </Container>
-    )
-    
+    if (ramble) {
+        return (
+            <Container>
+                <JRImage src={chair}></JRImage>
+                <ChatContainer>
+                    <JRRambleContainer>
+                        {ramble.text}
+                    </JRRambleContainer>
+                    {ramble.potential_reponses.map((response) => {
+                        return (
+                            <PlayerResponseContainer onClick={() => { setRamble(response.jr_response_function()) }}>{">"} {response.text}</PlayerResponseContainer>
+                        )
+                    })}
+                </ChatContainer>
+            </Container>
+        )
+    } else {
+        return null;
+    }
+
 
 }
 
