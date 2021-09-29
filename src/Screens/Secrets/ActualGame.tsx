@@ -470,9 +470,9 @@ export const RenderedRoom = (props: RoomProps) => {
   return (
     <Fragment>
       <div style={{display:"none"}}>
-        <a href='http://knucklessux.com/InfoTokenReader'>This Is Not Important</a>
-        <a href='http://knucklessux.com/PuzzleBox'>This Is Not Important</a>
-        <a href='http://farragofiction.com/FractalShitpost/'>This Is Not Important</a>
+        <a href='http://knucklessux.com/InfoTokenReader'>This Is Not Important (but it does relate to the PuzzleBox)</a>
+        <a href='http://knucklessux.com/PuzzleBox'>This Is Not Important (but the phrase "guide" may help you)</a>
+        <a href='http://farragofiction.com/FractalShitpost/'>This Is Not Important (but I do want to port it into here one day)</a>
         
         </div>
       <RoomName>{room.key}</RoomName>
