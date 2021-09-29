@@ -113,7 +113,6 @@ const load_other_images = async () => {
     const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
 
     let index = 0;
-    console.log("JR NOTE: images are", images, "and spawn points are", spawnPoints);
     for (let image of images) {
         const img = await addImageProcess(image) as HTMLImageElement;
         const feed = new SpookyCameraFeed(cctvs.length, [new AnimationFrame(img,1)], spawnPoints[index]);
