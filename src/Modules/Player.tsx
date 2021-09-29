@@ -338,7 +338,6 @@ export class Player {
     checkIfCompletedSkillTree = ()=>{
         for(let skill of this.skills){
             if(!skill.unlocked){
-                console.log(`JR NOTE: still have ${this.locked_skills().length} to go!`);
                 return false;
             }
         }

@@ -34,7 +34,6 @@ function AppWrapper() {
     const pw = getParameterByName("pw", null);
     const end = getParameterByName("end", null);
     const jr = getParameterByName("jr", null);
-    console.log("JR NOTE: end is", end);
 
     if(ghost){
       (window as any).ghost = true;
@@ -102,7 +101,6 @@ function AppWrapper() {
         } else {
           initial_seed = parseInt(urlseed);
         }
-        console.log("initial_seed seed is", initial_seed);
         setSeed(initial_seed);
       }
     }
