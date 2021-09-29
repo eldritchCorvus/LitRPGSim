@@ -138,7 +138,6 @@ export const JustTruth = (props: StatusProps) => {
     const handleSimpleContent2 = useCallback(() => {
         player.observer.belowComment("ObserverBot", "Spiralling...");
         if (secondRamble.length <= index) {
-            console.log("JR NOTE: i have ran out of things to yell at you about. infinite time");
             setMode(INFINITE);
         } else {
             setSimpleContent(secondRamble[index]);
@@ -163,7 +162,6 @@ export const JustTruth = (props: StatusProps) => {
         } else {
 
             if (Math.random() > 0.1) {
-                console.log("JR NOTE: randomly setting mode to quiz 2")
                 setMode(QUIZ2);
                 return;
             } else {
@@ -176,7 +174,6 @@ export const JustTruth = (props: StatusProps) => {
     const goInfinite = () => { setMode(INFINITE) };
 
     useEffect(() => {
-        console.log("JR NOTE: mode is", mode, "and in use effect that may change it")
         if (mode === SIMPLECONTENT1) {
             handleSimpleContent1();
         } else if (mode === SIMPLECONTENT2) {

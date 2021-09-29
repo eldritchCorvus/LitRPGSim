@@ -37,12 +37,10 @@ export const ActualGame = (props: StatusProps) => {
 
 
   const changeRoom = (room_key: string, direction: string) => {
-    console.log("JR NOTE: attempting to change room to", room_key);
     if (player.companions.length === 0) {
       player.spawnNotAMinotaur();
     }
     if (player.buildingMetaData[room_key].unlocked) {
-      console.log("JR NOTE: I should be calling be entered.")
       player.current_location = room_key;
       //will spawn companions or extra exits as needed
       player.buildingMetaData[room_key].beEntered(player);
@@ -62,7 +60,6 @@ export const ActualGame = (props: StatusProps) => {
     for (let companion of currentRoom.people) {
       if (companion.fullName.includes("Shambling Horror")) {
         dialog.setVisible(true);
-        console.log("JR NOTE: setting flag to false for shambling horror");
         window.localStorage.removeItem(HORROR_KEY);
 
         setDeathFlag(companion.backstory);
@@ -218,7 +215,6 @@ export const RenderedRoom = (props: RoomProps) => {
     if (checkSkill(input)) {
       return true;
     }
-    console.log("JR NOTE: input is ", input, " and i didn't return")
     if (checkSnark(input)) {
       return true;
     }
@@ -229,7 +225,6 @@ export const RenderedRoom = (props: RoomProps) => {
   }
 
   const checkSnark = (input: string) => {
-    console.log("JR NOTE: check snark")
     props.checkDeath();
     const parts = input.split(" ");
     //IF YOU TYPE HELP PRINT OUT THE FIRST OF ALL OF THESE.
@@ -322,7 +317,6 @@ export const RenderedRoom = (props: RoomProps) => {
     for (let item of props.player.unlocked_skills_no_stats()) {
       let parts = item.name.split(" ");
       for (let part of parts) {
-        console.log("JR NOTE: comparing ", input, "to part", part);
         if (input.toUpperCase().includes(part.toUpperCase())) {
           const dissapointments = ["It's not very effective!", "It seems to mainly be for show.", "It doesn't appear to actually do anything."];
           let template = `You cast ${item.name}! ${item.description}! ${pickFrom(dissapointments)}  `;

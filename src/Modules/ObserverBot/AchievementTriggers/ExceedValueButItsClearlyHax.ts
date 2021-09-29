@@ -14,6 +14,7 @@ export  class ExceedValueTriggerButItsClearlyHax extends AchievementTrigger{
     triggered = (observer: ObserverBot )=>{
 
         const ret =  (observer as any)[this.variableKey] > this.valueToExceed;
+
         if(ret){
             if(!(window as any).rageMode){
                 (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
