@@ -949,7 +949,7 @@ const initLocDesc = () =>{
     loc_desc[SPYING] =["CCTV displays covering the walls, most focused on you", "cameras swiveling to follow your every movement","staring disembodied eyes peering out of every surface, watching you"] ;
     loc_desc[CLOWNS] =["a lifesized figure of a clown slumped against one wall","a miniature circus tent barely fitting inside the room","a book of 1001 jokes that just lists out the last 1001 things you've done in obsessive detail"] ;
     loc_desc[DOLLS] = ["a tea party set out for a collection of broken dolls","a faceless mannequin that somehow seems to always be oriented towards you","eyeless dolls lining the walls"] ;
-    loc_desc[OBFUSCATION] = ["books where every word is blacked out","endless ciphers scribbled onto every surface","an unnatural blur making it hard to make out the specific details of the room"] ;
+    loc_desc[OBFUSCATION] = ["mirrors lining the walls showing only your floating eyeballs and no other part of your body","books where every word is blacked out","endless ciphers scribbled onto every surface","an unnatural blur making it hard to make out the specific details of the room"] ;
     loc_desc[DARKNESS] =  ["a pool of utter blackness in the center of the room","every lightbulb in the room has been smashed","shadows that are darker than seems possible under every object"] ;
     loc_desc[KILLING] =  ["splatters of blood along the wall and floor","a bloody knife discarded on the floor","a chalk outline of a figure clearly murdered"];
     loc_desc[MUSIC] =  ["an ornate grand piano in the center of the room","sheet music repurposed as wall paper",""] ;

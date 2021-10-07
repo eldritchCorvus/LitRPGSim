@@ -76,7 +76,8 @@ function NewspostDom(props: PostProps) {
 }
 function About(props: AppProps) {
   const newsposts = [
-    new Newspost("09/25/2021","things are really starting to come together!!! polish is continuing, a few more secrets!!!",":) :) :)")
+    new Newspost("10/05/2021","trying to herd the spiders in here before Halloween. my plan is, no matter the state of the sim, to 'go live' before then.  i get the feeling i'll be working on this sim for the rest of my natural life (quite happily, don't get me wrong) so no sense in waiting for it 'to be done'!!!","i still wanna add the quest system, maybe unlockable titles instead of them being default, maybe that lore screen i keep promising, you know, the basics. but also THE END IS NEVER THE END and all so there will always be things to add. you should add things too. on a03. on the wiki. anywhere fan works go. maybe if enough of us are making zampanio works we can shake loose what happened to that faq? or play it ourselves? Zampanio is a very good game. You should play it.")
+    ,new Newspost("09/25/2021","things are really starting to come together!!! polish is continuing, a few more secrets!!!",":) :) :)")
     ,new Newspost("09/21/2021","bad news: still haven't managed to find that FAQ. good news: guess who just managed to get their hand on an *actual copy of zampanio*???","Shout out to that weird dead zampanio server for somehow embedding it in a powerpoint???")
     ,new Newspost("09/13/2021","starting to get desperate about finding that FAQ. the forums mostly seem dead, so I'm gathering up whoever I can find in a discord server to try to follow the breadcrumbs.","Note to self: post link to discord once this goes live.")
     ,new Newspost("08/31/2021","theres something calming about actually getting to see what the skills do, finally. fun fact: its nothing","shoutout to the late coleman researcher who definitely left me some money according to this scammer")
@@ -144,6 +145,7 @@ function About(props: AppProps) {
           <li>Strong Langauge (Sorry, that's all me, Zampanio itself is probably not so sweary)</li>
         </ul>
         <p>If I've missed anything I should have had in the warnings, feel free to message me at jadedResearcher at gmail, yeah?</p>
+        <p>PLUS theres the wiki and the zampanio specific (not just this sim) discord (though I'm not just gonna LINK them here, you can find them at the end of the Credits, think of them as a reward!)</p>
         </Content>
         <div>
           <LinkButton onClick={() => { props.setMode(BIRTHDAY) }}>Enter Zampanio</LinkButton>
