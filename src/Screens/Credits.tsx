@@ -367,7 +367,7 @@ export const CreditsScreen = (props: StatusProps) => {
                             <a key={"link1"} href="https://zampaniosim.fandom.com/wiki/ZampanioSim">I Wonder If The Wiki Has Secrets?</a>
                         </div>
                         <div>
-                            <a key={"link2"} href={`?seed=${getRandomNumberBetween(0, 33333333)}`}>I Wonder What Other Playthroughs Are Like?</a>
+                            <a key={"link2"} href={`?seed=13`}>I Wonder What Other Playthroughs Are Like?</a>
                         </div>
                         <div>
                             <a key={"link3"} href={`https://discord.gg/tZmtKwnbac`}>I Wonder If The Discord Server Is Useful?</a>
