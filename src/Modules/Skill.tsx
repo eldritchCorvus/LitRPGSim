@@ -192,7 +192,7 @@ export class TresBottle extends CustomSkill{
     type = "TresBottle";
     unlocked: boolean = true;
     constructor() {
-        super("TRES BOTTLE",3,(window as any).chaos? "A simple glass milk bottle with a 3 emblazened on it. If you put a scrap of paper with something written on it, everyone will forget that concept or fact.":"A simple glass milk bottle with a 3 emblazened on it. If you fill the bottle with liquid to disolve the paper/ink inside, all information inside will instantly fill the minds of everyone in the world.");
+        super("TRES BOTTLE",3,(window as any).chaos? "A simple glass milk bottle with a 3 emblazoned  on it. If you put a scrap of paper with something written on it, everyone will forget that concept or fact.":"A simple glass milk bottle with a 3 emblazened on it. If you fill the bottle with liquid to disolve the paper/ink inside, all information inside will instantly fill the minds of everyone in the world.");
     }
 }
 
