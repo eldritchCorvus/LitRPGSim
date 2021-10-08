@@ -25,11 +25,6 @@ http://www.farragofiction.com/AudioLogs/index.html?passPhrase=storytime
 
 http://www.farragofiction.com/AudioLogs/index.html?passPhrase=shittypuzzles
 
-http://www.farragofiction.com/AudioLogs/index.html?passPhrase=betterthanexpected
-http://www.farragofiction.com/AudioLogs/index.html?passPhrase=wasted
-http://www.farragofiction.com/AudioLogs/index.html?passPhrase=victory
-
-
 
 Zampanio is anything that calls itself Zampanio. Never forget that. 
 
