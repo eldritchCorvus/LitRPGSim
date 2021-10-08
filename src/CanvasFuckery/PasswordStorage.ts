@@ -113,5 +113,6 @@ export const passwords:PasswordMap = {
     ,"CLEAR YOUR MIND": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/clear_your_mind/0.png",2,)],undefined,"Secrets/clear_your_mind/0.js")
     ,"ZAMPANIO IS A VERY GOOD GAME YOU SHOULD PLAY IT": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/zampanio_is_a_very_good_game_you_should_play_it/0.png",2,)],undefined,"Secrets/zampanio_is_a_very_good_game_you_should_play_it/0.js")
     ,"THE MIND IS A TERRIBLE THING TO WASTE": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/the_mind_is_a_terrible_thing_to_waste/0.png",2,)],undefined,"Secrets/the_mind_is_a_terrible_thing_to_waste/0.js")
+    ,"217": new Secret("JR Rambles",[new SourceDurationPair("Secrets/beware_oblivion_is_at_hand/0.jpg",1)],"dead.mp3","Secrets/beware_oblivion_is_at_hand/0.js")
 
 };//omg easter egg lolol!!!!!!111!!1
