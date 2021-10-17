@@ -115,5 +115,6 @@ export const passwords:PasswordMap = {
     ,"THE MIND IS A TERRIBLE THING TO WASTE": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/the_mind_is_a_terrible_thing_to_waste/0.png",2,)],undefined,"Secrets/the_mind_is_a_terrible_thing_to_waste/0.js")
     ,"217": new Secret("JR Rambles",[new SourceDurationPair("Secrets/217/0.jpg",100),new SourceDurationPair("Secrets/217/1.jpg",1)],"justifiedRecursion.mp3","Secrets/217/0.js")
     ,"THINK LIKE A SMITH": new Secret("KR Warning",[new SourceDurationPair("Secrets/think_like_a_smith/0.jpg",30),new SourceDurationPair("Secrets/think_like_a_smith/1.jpg",1),new SourceDurationPair("Secrets/think_like_a_smith/2.jpg",1),new SourceDurationPair("Secrets/think_like_a_smith/3.jpg",1)],"Backrooms.mp3","Secrets/think_like_a_smith/0.js")
+    ,"TOY": new Secret("JR Rambles",[new SourceDurationPair("Secrets/toy/0.jpg",2)],undefined, "Secrets/toy/0.js")
 
 };//omg easter egg lolol!!!!!!111!!1

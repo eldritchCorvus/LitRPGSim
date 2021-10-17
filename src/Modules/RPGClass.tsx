@@ -74,7 +74,7 @@ export function initClasses(seeded_random: SeededRandom){
     new RPGClass("maid", ["Castor","Pollux","Dog","Canine","Maid","Butler","Servant", "Shield-Maiden", "Valkyrie","Einherjar","Saint"],2.0, seeded_random, [all_themes[SERVICE],all_themes[DEFENSE]]);
     new RPGClass("rogue", ["Ferret","Rogue","Scoundrel","Villain", "Rascal", "Rat","Wretch","Reprobate"],2.0, seeded_random, [all_themes[STEALING],all_themes[HUNTING]]);
     new RPGClass("thief", ["Raccoon","Thief","Robber","Burglar", "Mugger", "Pick-Pocket","Cat"],2.0, seeded_random, [all_themes[STEALING],all_themes[DARKNESS]]);
-    new RPGClass("sylph", ["Swan","Firefly","Sylph","Fairy","Mermaid", "Sprite", "Pixie","Siren","Harpy"],2.0, seeded_random, [all_themes[MAGIC],all_themes[FREEDOM]]);
+    new RPGClass("sylph", ["Swan","Firefly","Sylph","Fairy","Mermaid", "Sprite", "Pixie","Siren","Harpy","Connector","Healer","Weaver"],2.0, seeded_random, [all_themes[MAGIC],all_themes[FREEDOM]]);
     new RPGClass("witch", ["Vulture","Witch","Hag","Crone", "Beldam","Apothecary"],2.0, seeded_random, [all_themes[MAGIC],all_themes[PLANTS]]);
     new RPGClass("null", ["Null"],0.0, seeded_random, [all_themes[WASTE], all_themes[NULL]]);
 
