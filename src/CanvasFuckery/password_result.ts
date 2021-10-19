@@ -1,4 +1,4 @@
-import wrong_answer from '.././images/room2.jpg';
+import wrong_answer from '.././images/Secrets/no.jpg';
 
 
 import { CameraFeed, AnimationFrame, GraffitiSpot } from "./camera_feed";
@@ -37,7 +37,7 @@ const processText = (title: string, location:string)=>{
 export const wrong_password = async (canvas:HTMLCanvasElement, password: string,core_rand:SeededRandom) => {
     const wrong_room = await addImageProcess(wrong_answer) as HTMLImageElement;
     //some of these are downright illegible so here's hoping you don't have bad luck
-    const rand = new SeededRandom(core_rand.initial_seed);
+    const rand = new SeededRandom(new Date().getUTCDate());
     const fonts = ["sister_spray","urban_heroes","the_jacatra","next_custom","mostwasted","marsneveneksk","graffiti_city"];
     rand.nextDouble();
     const font = rand.pickFrom(fonts);
