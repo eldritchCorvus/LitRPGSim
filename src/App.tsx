@@ -118,6 +118,7 @@ function App(props: AppProps) {
             if(mutation.target.id.toLowerCase() === "ThisIsAGame".toLowerCase()){
               setActualGameMode(true);
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAGame".toLowerCase()){
+              //JR NOTE: Fun fact, I wasn't aware of the "This Is Not A Game" trope in ARGs when I created this! I am being quite literal here: this is not a game. There is no gameplay. It is however, quite explicitly a work of fiction at every single layer.  Zampanio is a creepy pasta JRAFewLayersDown found, NOT a real game JRAFewLayersDown found.  It's fiction even within the fiction.  But it's fun to pretend, isn't it? At every layer. :) :) :)  Boy was JRAFewLayersDown confused (but happy) to find people who were either VERY committed to the bit or lying for, I don't even know, clout? 
               setActualGameMode(false);
             }else if(mutation.target.id.toLowerCase() === "ThisIsASpiral".toLowerCase()){
               var img = new Image();
@@ -265,8 +266,6 @@ function App(props: AppProps) {
         pretend to know facts about the user, such as they play cookie clicker
         slow owl sounds in cctv mode
         need more reasons for people to hang around with ghosts
-        hacking the wrong thing, once again, does not start RAGE MODE rip
-      if you die instead of just refresh, start of zampaniosimsim.  completely broken, but gives you the starting prompt of being a shambling horror who needs to get as many ppl as possible exposed to zampanio.
 blackbirds cipher
 wasted ominous song (you blew it)
 literally index page of ZampanioSimsim
@@ -274,10 +273,7 @@ update death popup to focus on "new character to play as" not reincarnation
 jadedResearcher — Today at 5:08 PM
 note: when its time to go live, have LITRPGSIM e point to something ominous
 jadedResearcher — Today at 7:12 PM
-note: if a shambling horror has spawned and has NOT killed you, save that to local storage and have it kill you the second you reenter game mode
 jadedResearcher — Today at 7:20 PM
-note: make justifiedRecursion wiki and github accounts because as of tonight on the other server, i've been replaced with a shambling horror who is trying to get as many people as possible to play zampaniosim (and become cursed)
-        *ZampanioSimSim where you after you've been killed by a shambling horror you start trying to lure people to play zampaniosim
         *persephone, hades, demeter quest.  QUESTS are more "combination of side quests and overarching story plot". (think land quests)
         * session 0 is "the game is real i swear" notJR, the core of Truth is "zampanio was never real but the creepypasta faq was" notJR, and the core of game mode is "the game wasn't real and you couldn't accept that" notJR.
         * port in fractal shit post (cant compile dart version anymore), associate different states of the fractal with diff words from gaslight array
@@ -285,9 +281,7 @@ note: make justifiedRecursion wiki and github accounts because as of tonight on 
 * post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
-* right passwords get custom images and LORE (of some sort)
 * sprinkle right pws at the 'end' of each path and more
-* attic sim 2x combo, one lies, one truths (like that riddle, except one attic is game mode and one is truth mode)
 *zampanio (not the sim) is designed to spark Obsession in a target and convince them to attempt to enact or oppose the end of the world (the End can either cause the Unbinding of Chaos or the Binding of Madness).  if you unbind chaos then the page reloads and you are a player with every theme at once and then some.  if you bind maddness the page reloads and you are a custom spawned player with a coherent and human created backstory, skills, buildings, etc. regardless of which mode you can do a new ritual to Balance the Scales and return to regular mode. Which ritual you can attempt to do is decided by seed, and in order to Unbind Chaos you need to have 9 specific items spawn (from duskhollow) and attempt to use them in GAme Mode (they all have custome effects) 
 <li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
         <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
@@ -295,7 +289,6 @@ note: make justifiedRecursion wiki and github accounts because as of tonight on 
               <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
               <li>gigglesnort fnaf mod is creepy pasta</li>
 
-        <li>add references to https://scp-wiki.wikidot.com/scp-001-ex</li>
         <li>secrets under construction component, shitty geocities gif of construction.</li>
         <li>creepy pastas scattered throughout the site, based on themes, of the form: "You sit down to play a game. It's weirdly obsessed with X. theme1 creepy. then thene2 creepy.  
         * lightly themed ghosts (just enough variation for gaslighting)
@@ -312,9 +305,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
     * on player creation, generate quest array from themes. title is procedural from the theme of the template chosen.
     * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)
 <li>https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki</li>
-           <li>2/1/7 is the password to SOMETHING because OBs bday is all divisible by 3 to get that</li>
         <li>link to fake ramble of someone trying to find all the secrets and easter eggs of LitRPGSim (not the fake Zampanio game, the sim) including fake ones</li>
-      <li>quest screen ADDs achievements to the system</li>
       <li>fractal sim plus radio???</li>
       <li>third path: press esc too many times and perma crash the menu, leaving the spiral sitting there goin "..." and it ...panicking and activating win mode????</li>
       <li>first ending where you max out skills (or played long enough to reach the heat death of the universe (thru auto clicker)) and menu finally closes and then fake credits role</li>
