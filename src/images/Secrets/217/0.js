@@ -19,4 +19,10 @@ http://www.farragofiction.com/AudioLogs/index.html?passPhrase=victory
 
 Don't worry if you don't understand the context :) :) :)
 
+Oh, and before I forget?  
+
+http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=litrpg
+
+I thought you might be interested in the origin of this sim. Things sure have changed since that origin!!!
+
 `
