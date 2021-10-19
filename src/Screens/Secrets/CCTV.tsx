@@ -118,7 +118,13 @@ export const CCTVScreen = (props: StatusProps) => {
 
 
 
+/*
+    Rabbits came before gophers. 
 
+    But if you like gophers better, port 70 is your man.
+
+    And if you like what you find, a03 may have more.
+*/
 const PasswordFuckery = (props: PWProps) => {
     const [pw, setPW] = useState("");
     const [feed, setFeed] = useState<CCTV>();
