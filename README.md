@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+yarn start and yarn build are relevant here, for future me.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+:) :) :)
 
-## Available Scripts
+But for everyone who is NOT future me: Hello :) :) :)
 
-In the project directory, you can run:
+"Why JR, why is your code a terrible, fragmented, infinite labrynth that leaves even you lost and confused."
 
-### `yarn start`
+Performance art. Clearly.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In all Truth, the universe was never supposed to be this way. What started out a small little project to get me out of that pandemic funk spiralled out of control, as one does. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+In any case, this is a path of ZampanioSim. 
 
-### `yarn test`
+Of course it is.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you're familiar with my work this is probably the FIRST place you went.
 
-### `yarn build`
+But in addition to it being a terrible labrynth, isn't it more satisying to piece together how it's SUPPOSED to work?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It's why you'll need to show your work for the shoutouts. I accept thorough descriptions of the code, but if you're in that deep, surely you know how to get there live, right?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+And gosh...if you're comfortable reading code...
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Wouldn't it be fun if... you just.
 
-### `yarn eject`
+Cloned this?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Modified it?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Made it your own?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Filled the wiki with screenshots of things people can never reach. Things that aren't quite LIES but neither are they truths. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All paths to and from Zampanio are valid. But you'll forgive me for having a special place in my heart for coding based fanworks :) :) :)
