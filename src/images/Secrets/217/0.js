@@ -25,4 +25,10 @@ http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=litrpg
 
 I thought you might be interested in the origin of this sim. Things sure have changed since that origin!!!
 
+And you know what, as a gift, just for you: 
+
+http://knucklessux.com/InfoTokenReader/?mode=loop
+
+This is a fun tool for creation, though it won't help you learn anything new.
+
 `
