@@ -33,3 +33,5 @@ Made it your own?
 Filled the wiki with screenshots of things people can never reach. Things that aren't quite LIES but neither are they truths. 
 
 All paths to and from Zampanio are valid. But you'll forgive me for having a special place in my heart for coding based fanworks :) :) :)
+
+Because as we all know, the true Minotaur of Zampanio is the collaborators, conspirators, and friends we make along the way. Build out this labrynth. Become a Minotaur.  However you can. However you find most rewarding.
