@@ -165,7 +165,11 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditLeft>Music/Art/FNF Mod/Ronin Ramblings: </CreditLeft> <CreditRight><span>invertedCentaur</span></CreditRight>
                 </CreditLine>
 
-                <CreditHeader>Free Or Purchased Generic Assets:</CreditHeader>
+                <CreditHeader>Outside Assets (Both Generic and Custom):</CreditHeader>
+
+                <CreditLine>
+                    <CreditLeft>Magazine CoverArt: </CreditLeft> <CreditRight><span>https://foxy-alien.tumblr.com/</span></CreditRight>
+                </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
@@ -178,6 +182,7 @@ export const CreditsScreen = (props: StatusProps) => {
 
 
                 <CreditLine>
+                    
                     <CreditDoubleLine>
                         <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Tunnels Under Millbank Prison</span></CreditRight>
                     </CreditDoubleLine>
