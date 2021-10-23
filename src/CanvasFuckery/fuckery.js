@@ -1,4 +1,6 @@
 import background from '.././images/background.jpg';
+import flowerSrc from '.././images/nidhogg_flower.png';
+
 import { THE_END_IS_NEVER } from '../Utils/constants';
 import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
 
@@ -35,20 +37,32 @@ export const fuckUpBG = () => {
     img.src = background;
 }
 
-export const fuckUpBGButSoftly = () => {
+export const fuckUpBGButSoftly = (order, chaos) => {
     var img = new Image();
+    const finish = (flower)=>{
+        fuckUpImage(img, gaslight, "peacefulbg", false, order, chaos,flower);
+    }
     img.addEventListener('load', function () {
-        fuckUpImage(img, gaslight, "peacefulbg", false);
+        if(order || chaos){
+            const flower = new Image();
+            flower.addEventListener('load', function(){
+                finish(flower);
+            });
+            flower.src = flowerSrc;
+        }else{
+            finish();
+        }
+
     }, false);
     img.src = background;
 }
 
 export function fuckery() {
     let div = document.getElementById("ThisIsNotASpiral");
-    if(!div){
+    if (!div) {
         div = document.getElementById("ThisIsASpiral");
     }
-    if(!div){
+    if (!div) {
         return;
     }
 
@@ -85,17 +99,17 @@ export function fuckery() {
     let eye;
     if (window.rageMode) {
         eye = document.getElementById("ThisIsNotAnEye2");
-        if(!eye){
+        if (!eye) {
             eye = document.getElementById("ThisIsAnEye2");
         }
     } else {
         eye = document.getElementById("ThisIsNotAnEye1");
-        if(!eye){
+        if (!eye) {
             eye = document.getElementById("ThisIsAnEye1");
         }
     }
     for (let frame of frames) {
-        if(eye){
+        if (eye) {
             frame.getContext("2d").drawImage(eye, frame.width / 2 - 55 / 2, frame.height / 2 - 55 / 2);
         }
     }
@@ -106,10 +120,10 @@ export function fuckery() {
     div.style.backgroundImage = `url(${bigBG.toDataURL()})`
 }
 
-function fuckUpImage(img, fucking_function, class_name, binary) {
+function fuckUpImage(img, fucking_function, class_name, binary, order, chaos,flower) {
     const frames = [];
     const bg = document.querySelector("#ThisIsNotABG");
-    if(!bg){
+    if (!bg) {
         return;
     }
 
@@ -117,29 +131,18 @@ function fuckUpImage(img, fucking_function, class_name, binary) {
         const canvas = document.createElement("canvas");
         canvas.width = img.width;
         canvas.height = img.height;
-        const context = canvas.getContext("2d");
-        context.drawImage(img, 0, 0);
-        //grayscale(canvas);
-        // edge_detection(canvas);
-        //threshold(canvas);
-        fucking_function(canvas);
-        if (binary) {
-            //draw binary on top plz.
-            const padding = 10;
-            const fontSize = 25;
-            context.fillStyle = "#222222";
-            if (i > 1) {
-                context.fillStyle = "#111111";
-            } else if (i > 2) {
-                context.fillStyle = "#000000";
-            }
-            context.font = `${fontSize}px serif`;
-            for (let i = 0; i < 19; i++) {
-                context.fillText(THE_END_IS_NEVER, padding + fontSize, 325 + i * (fontSize + padding));
+        if ((!order && !chaos) || i !=1) {
+            drawRegularBG(canvas, img, binary,fucking_function,i);
+        }
+        
+        if(flower){
+            if (order) {
+                drawOrderFlowers(canvas,flower);
+            } else {
+                drawChaosFlowers(canvas,flower);
             }
         }
-
-
+        
         frames.push(canvas);
     }
     const bigBoi = document.createElement("canvas");
@@ -150,14 +153,57 @@ function fuckUpImage(img, fucking_function, class_name, binary) {
     bigContext.drawImage(frames[1], 1656, 0);
     bigContext.drawImage(frames[2], 3312, 0);
 
-
     //invert(canvas);
-    if(bg){
+    if (bg) {
         bg.style.backgroundImage = `url(${bigBoi.toDataURL()})`;
         bg.classList.add(class_name);
     }
 
 
+}
+
+function drawRegularBG(canvas, img, binary, fucking_function,i) {
+    const context = canvas.getContext("2d");
+    context.drawImage(img, 0, 0);
+    //grayscale(canvas);
+    // edge_detection(canvas);
+    //threshold(canvas);
+    fucking_function(canvas);
+    if (binary) {
+        //draw binary on top plz.
+        const padding = 10;
+        const fontSize = 25;
+        context.fillStyle = "#222222";
+        if (i > 1) {
+            context.fillStyle = "#111111";
+        } else if (i > 2) {
+            context.fillStyle = "#000000";
+        }
+        context.font = `${fontSize}px serif`;
+        for (let i = 0; i < 19; i++) {
+            context.fillText(THE_END_IS_NEVER, padding + fontSize, 325 + i * (fontSize + padding));
+        }
+    }
+}
+
+function drawOrderFlowers(canvas,flower) {
+    const context = canvas.getContext("2d");
+    const padding = 5;
+    for(let x = 0; x<canvas.width; x+= flower.width+padding){
+        for(let y = 0; y<canvas.height; y+= flower.height+padding){
+            context.drawImage(flower, x, y);
+        }
+    }
+}
+
+function drawChaosFlowers(canvas,flower) {
+    const context = canvas.getContext("2d");
+    const padding = 5;
+    for(let x = 0; x<canvas.width; x+= flower.width+padding){
+        for(let y = 0; y<canvas.height; y+= flower.height+padding){
+            context.drawImage(flower, Math.random()*canvas.width, Math.random()*canvas.height);
+        }
+    }
 }
 
 function jitter(number, offset) {
