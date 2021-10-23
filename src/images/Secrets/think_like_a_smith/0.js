@@ -5,6 +5,8 @@ I'm sending this out as a warning to anyone exploring - about 5 months ago, the 
 
 http://farragofiction.com/AudioLogs/?passPhrase=Backrooms
 
+http://gigglesnort.info/magicant/
+
 
 
 `
