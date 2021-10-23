@@ -230,7 +230,7 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsNotASpiral");
       detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
       
-      fuckUpBGButSoftly();
+      fuckUpBGButSoftly(player.order, player.chaos);
   }
   },[player,seed,detectDivStatus])
 /*
