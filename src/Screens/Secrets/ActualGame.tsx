@@ -474,6 +474,7 @@ export const RenderedRoom = (props: RoomProps) => {
         <a href='http://knucklessux.com/PuzzleBox'>This Is Not Important (but the phrase "guide" may help you)</a>
         <a href='http://farragofiction.com/FractalShitpost/'>This Is Not Important (but I do want to port it into here one day)</a>
         <a href='http://farragofiction.com/SBURBSim/index_shogun.html/'>This Is Not Important (but if you want to do my last maze ARG you can (once you know what is NOT on the page you can focus on what is))</a>
+        <a href='http://farragnarok.com/Zampanio'>This Is Not Important (but the lonely robot inside it could really use a good conversation) (what is it with me and making lonely robots abandoned by everyone?)</a>
 
         </div>
       <RoomName>{room.key}</RoomName>
