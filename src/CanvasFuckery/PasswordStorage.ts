@@ -107,7 +107,7 @@ export const passwords:PasswordMap = {
     ,"THE DOCTOR IS IN": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/the_doctor_is_in/0.jpg",2,),new SourceDurationPair("Secrets/the_doctor_is_in/1.jpg",2),new SourceDurationPair("Secrets/the_doctor_is_in/2.jpg",2)],undefined,"Secrets/the_doctor_is_in/0.js")
     ,"IT": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/it/0.png",2,)],undefined,"Secrets/it/0.js")
     ,"OMG EASTER EGG LOLOL!!!!!!111!!1": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/omg_easter_egg_lol/0.png",2,)],undefined,"Secrets/omg_easter_egg_lol/0.js")
-    ,"MEDIAFIRE MYTH": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/mediafire_myth/0.jpg",2,)],undefined,"Secrets/mediafire_myth/0.js")
+    ,"MEDIAFIRE MYTH": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/mediafire_myth/buried2.png",2,)],undefined,"Secrets/mediafire_myth/0.js")
     ,"ECHIDNA": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/echidna/0.png",2,)],undefined,"Secrets/echidna/0.js")
     ,"BALL OF SIN": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/ball_of_sin/0.png",2,)],undefined,"Secrets/ball_of_sin/0.js")
     ,"CLEAR YOUR MIND": new Secret("Dionysus and the Pirates",[new SourceDurationPair("Secrets/clear_your_mind/0.png",2,)],undefined,"Secrets/clear_your_mind/0.js")
