@@ -2,7 +2,11 @@
 export const text = `
 The captain and officers leave the bridge, going someplace less cramped with chairs, monitors, and consoles to talk, plan, fuck around, whatever it was they did in their meetings. That left a communications technician, a sensors technician, the boy, and me on the bridge. The other two pirates talked for a few minutes then pulled out their personal communicators and played games on them. I made sure everything with the ship was fine, then checked my own communicator for a moment.
 I turned to look at the boy. He was calmly sitting in a chair, staring straight at me. I froze as soon as our eyes made contact, but he just started moving. With a casual roll of his wrist the handcuff just fell off, clanking against the side of the chair. One of the other pirates told the boy to quiet down without looking up from his communicator. The boy leaned back in the chair, resting his elbows on the arms, crossing his legs, and tenting his fingers in front of his chin. His body and facial language were completely different, he lounged like a king, instead of coming across as young and inexperienced I got the unshakeable idea that he was far wiser than any of us, and far, far older. I don’t know how long it was that he held me in place like that.
-The spell was broken when one of the others remarked, “What, you wanna fuck’em too or something? The hell you starin’ like that for?”
+The spell was broken when one of the others remarked, “What, you wanna 
+
+
+
+ hell you starin’ like that for?”
 My gaze snapped to the man that had spoken, he was still looking down at his communicator, he had glanced at me but not the boy. Without thinking I said, “Something isn’t right with him.”
 “Like what?”
 Realizing what I had said I quickly covered my ass, “Well for starters he just effortlessly broke out of the handcuffs.”
