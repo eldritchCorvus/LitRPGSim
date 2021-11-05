@@ -136,9 +136,9 @@ export class ObserverBot{
             const notbg = document.querySelector("#ThisIsNotABG") as HTMLElement;
             const processWalk =(key:string)=>{
                 if(notbg){
-                    let prevTop = parseInt(notbg.style.top);
-                    if(!prevTop){
-                        prevTop =0;
+                    let prevBottom = parseInt(notbg.style.top);
+                    if(!prevBottom){
+                        prevBottom =0;
                     }
 
                     let prevLeft = parseInt(notbg.style.left);
@@ -146,10 +146,10 @@ export class ObserverBot{
                         prevLeft =0;
                     }
                     if(key === "w" || key === "ArrowUp"){
-                        notbg.style.top = `${prevTop+10}px`;
+                        notbg.style.bottom = `${prevBottom+10}px`;
                     }
                     if(key === "s" || key === "ArrowDown"){
-                        notbg.style.top = `${prevTop-10}px`;
+                        notbg.style.bottom = `${prevBottom-10}px`;
                     }
                     if(key === "a" || key === "ArrowLeft"){
                         notbg.style.left = `${prevLeft+10}px`;
@@ -165,7 +165,7 @@ export class ObserverBot{
                 (window as any).recordAction(ERROR,1);
             }else if(evt.key === "w" || evt.key === "a" || evt.key === "s" || evt.key === "d" || evt.key === "ArrowLeft" || evt.key === "ArrowRight" || evt.key === "ArrowUp" || evt.key === "ArrowDown"){
                 (window as any).recordAction(WALK,1)
-                processWalk(evt.key);
+                //processWalk(evt.key);
             }else if (evt.key === " "){
                 (window as any).recordAction(JUMP,1);
             }

@@ -22,6 +22,7 @@ import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
 import { getParameterByName } from "./Utils/URLUtils";
 import { CreditsScreen } from "./Screens/Credits";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
+import { WalkAround } from "./Screens/WalkAround";
 
 interface AppProps{
   seed: number;
@@ -37,6 +38,7 @@ function App(props: AppProps) {
   const [megaGasLight, setMegaGaslight] = useState(false);
 
   const [actualGameMode, setActualGameMode] = useState(false);
+  const [walkMode, setWalkMode] = useState(true);
 
   const [justTruthMode, setJustTruthMode] = useState(false);
 
@@ -54,7 +56,6 @@ function App(props: AppProps) {
       warpAngles();
     }
   }, [player])
-
 
   useEffect(()=>{
     if(!(window as any).setRageMode){
@@ -78,6 +79,14 @@ function App(props: AppProps) {
       (window as any).setJustTruthMode = (value:boolean)=>{
         setJustTruthMode(value);
         (window as any).justTruthMode = value;
+      };
+    }
+
+    if(!(window as any).setWalkMode){
+      // :) :) :)
+      (window as any).setWalkMode = (value:boolean)=>{
+        setWalkMode(value);
+        (window as any).walkMode = value;
       };
     }
 
@@ -248,7 +257,7 @@ function App(props: AppProps) {
     return <div>LOADING FOR REALSIES</div>
   }else{
     //there is nothing wrong here. is fine
-    const displayMenu = !justTruthMode && !actualGameMode  && !creditsMode;
+    const displayMenu = !justTruthMode && !actualGameMode  && !creditsMode && !walkMode;
     return (
       <Fragment>
         {rageMode && displayMenu ? <RageMode/>:null}
@@ -256,7 +265,9 @@ function App(props: AppProps) {
         {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
         {displayMenu?  <Menu player={player} angle={angle}/>:null}      
         {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
-        {actualGameMode?  <ActualGame player={player}/>:null}      
+        {actualGameMode?  <ActualGame player={player}/>:null}
+        {walkMode?  <WalkAround/>:null}      
+      
         {creditsMode ?  <CreditsScreen player={player}/>:null}      
 
       
