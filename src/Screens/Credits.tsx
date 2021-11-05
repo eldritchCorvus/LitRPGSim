@@ -202,6 +202,8 @@ export const CreditsScreen = (props: StatusProps) => {
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
+                    <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span>https://www.deviantart.com/telles0808/art/RPG-Maker-VX-RTP-Tileset-159218223</span></CreditRight>
+
                     </CreditDoubleLine>
                 </CreditLine>
 
@@ -231,6 +233,8 @@ export const CreditsScreen = (props: StatusProps) => {
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
+                    <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span> Indrah  https://forums.rpgmakerweb.com/index.php?threads/indrahs-mv-tiles.46838/</span></CreditRight>
+
                     </CreditDoubleLine>
                 </CreditLine>
 

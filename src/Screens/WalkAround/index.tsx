@@ -1,6 +1,5 @@
 
 import real_eye from './../../images/real_eye.png';
-
 import { Fragment, useEffect, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes } from '../../Modules/Theme';
@@ -30,6 +29,8 @@ export const WalkAround = () => {
     `
 
     const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
+    //this shoould change any time the themes do.
+    const [numberExits, setNumberExits] = useState(3);
 
     const processWalk =(key:string)=>{
         const maxBottom = 350;
@@ -67,10 +68,10 @@ export const WalkAround = () => {
     }
 
     useEffect(() => {
-        window.addEventListener('keydown', handleUserKeyPress);
+        window.addEventListener('keypress', handleUserKeyPress);
     
         return () => {
-          window.removeEventListener('keydown', handleUserKeyPress);
+          window.removeEventListener('keypress', handleUserKeyPress);
         };
       });
 
@@ -86,8 +87,6 @@ export const WalkAround = () => {
             <Player ref={playerRef}src={real_eye} id="player"></Player>
             </RoomContainer>
             <div>TODO:
-                <li>eye can't leave the room</li>
-                <li>initial room has three themes (one is always corruption)</li>
                 <li>between 1 and 3 rooms connect to it</li>
                 <li>the room you are currently in generates child rooms that share at least one theme</li>
                 <li>place holder graphic responds to wasd (eye for now, later an animated gif for walking)</li>
@@ -95,7 +94,7 @@ export const WalkAround = () => {
                 <li>doors can show up NORTH (full door graphic) , SOUTH (carpet overlapping wall), and EAST (carpet overlapping wall)</li>
                 <li>press enter to interact</li>
                 <li>interact with door you go into new room</li>
-                <li>new theme hash in ThemeStorage (can't just make new one cuz want senses and objects etc) has WalkObject. WalkObject has wall graphic, floor graphic and scattered graphics objects with source and text. if any source is null, glitchy placeholder</li>
+                <li>new theme hash in ThemeStorage (can't just make new one cuz want senses and objects etc) has WalkObject. WalkObject has wall graphic, floor graphic, wall scattered graphics and floor scattered graphics objects with source and text. if any source is null, glitchy placeholder</li>
                 <li>render floor, walls, and a few objects from themes</li>
                 <li>when you interact with an object you get its flavor text (even if its glitchy) </li>
                 <li>add glitch effect to WalkObject themes.</li>
