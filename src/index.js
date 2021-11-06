@@ -112,11 +112,14 @@ export function justTruthSong(){
 
 export function playAmbientMazeMusicMadness(){
   audio.src = answerer;
+  audio.loop = true;
+
   audio.play();
 }
 
 export function playHelpDeskMusic(){
   audio.src = seeking_help;
+  audio.loop = true;
   audio.play();
 }
 

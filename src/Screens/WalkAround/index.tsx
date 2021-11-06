@@ -124,7 +124,7 @@ export const WalkAround = () => {
             <Player ref={playerRef}src={real_eye} id="player"></Player>
             </RoomContainer>
             <div>TODO:
-                <li>help desk icon (rounded icon in bottom left, blue, says Help)</li>
+                <li>shit post extensions like 217, 113, etc.  217 says "There's no one here. Leave."</li>
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
                 <li>when you click you go to a fake telephone interface, dial 216 for customer service</li>
                 <li>if you dial it, you get a styled chat window, multiple choice options for talking and a procuedural Level X BULLSHIT DEPARTMENT, BULLSHIT TITTLE (specialist, technician, expert,etc)</li>
