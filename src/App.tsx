@@ -16,6 +16,7 @@ import spiral from './images/approved.gif';
 import real_eye from './images/real_eye.png';
 import eye1 from './images/eye1.png';
 import eye2 from './images/eye2.png';
+import help_icon from './images/Walkabout/icons8-chat-64.png';
 
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
@@ -23,6 +24,7 @@ import { getParameterByName } from "./Utils/URLUtils";
 import { CreditsScreen } from "./Screens/Credits";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 import { WalkAround } from "./Screens/WalkAround";
+import styled from "@emotion/styled";
 
 interface AppProps{
   seed: number;
@@ -50,6 +52,7 @@ function App(props: AppProps) {
       warpAngles();
    }, 1000)
   }
+
 
   useEffect(()=>{
     if(player && player.chaos){
@@ -325,6 +328,7 @@ The city guard knows it takes a PERSON  to catch a thief, and they have come to 
         <li>zero player game where you get little mini stories about what you 'did', like "used Medical Crown to heal a king" or whatever.  if the game were working PROPERLY it should praise you for whatever skill you've used the most, but obviously you've never used a single skill so it just picks one at random or glitches out. have console logs about ERORR NO FAVORIE SKILL FOUND etc.</li>
         <li>if i ever do a lets play of zampanio it should be a hacked version that never goes live that is different in many very important ways but subtle at first</li>        
       </ul>
+
       </Fragment>
     );
   }

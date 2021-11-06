@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import About from "./About";
 import App from "./App";
 import Birthday from "./Birthday";
@@ -7,6 +7,9 @@ import { AtticSim, PathType } from "./Screens/Attic/AtticSim";
 import { CCTVScreen } from "./Screens/Secrets/CCTV";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
+import help_icon from './images/Walkabout/icons8-chat-64.png';
+import styled from "@emotion/styled";
+
 /*
 as simple as possible, handles the three main screens of "enter your birthday", 
 "play the game", "jr rambles about dev log shit"
@@ -23,6 +26,7 @@ export const TRUTH = "Truth";
 export const LIE = "LIE";
 
 //game mode is just "is there a seed";
+
 
 function AppWrapper() {
   const [seed, setSeed] = useState<number>();
@@ -135,7 +139,10 @@ function AppWrapper() {
 
   }else if (seed) {
     return (
-      <App seed={seed} />
+      <Fragment>
+              <App seed={seed} />
+
+      </Fragment>
     )
   }else if (seed === 0){ //:) :) :)
      return( <AtticSim pathType={PathType.NotGame}/>)

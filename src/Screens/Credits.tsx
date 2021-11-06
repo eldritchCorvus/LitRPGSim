@@ -240,6 +240,17 @@ export const CreditsScreen = (props: StatusProps) => {
 
                 <CreditLine>
                     <CreditDoubleLine>
+                        <CreditLeft>Chat Icons </CreditLeft> <CreditRight><span><a target="_blank" href="https://icons8.com/icon/aN2s92EBGxhi/chat">Chat</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span></CreditRight>
+                    </CreditDoubleLine>
+                    <CreditLeft>Phone Clip </CreditLeft> <CreditRight><span>https://freesound.org/people/833-45/sounds/9377/</span></CreditRight>
+
+                    <CreditDoubleLine>
+
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
