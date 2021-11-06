@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import generic_menu_music from './Music/generic_menu_music.mp3';
 import helen_kin_song from './Music/helen_kin_song.mp3';
+import seeking_help from './Music/seeking_help.mp3';
+import answerer from './Music/answerer.mp3';
+
 import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
@@ -107,27 +110,19 @@ export function justTruthSong(){
   audio.play();
 }
 
- function playLightlyFuckedUpBGMusic(){
+export function playAmbientMazeMusicMadness(){
+  audio.src = answerer;
   audio.play();
-  audio.onended = function() {
-    if(!window.rageMode && !window.justTruthMode && !window.ghost && !window.pwMode){
-      if (Math.random() > 0.5) {
-        audio.src = helen_kin_song;
-      } else {
-        audio.src = subtle_heart;
-      }
-    }else if (window.justTruthMode || window.ghost || window.pwMode){
-      audio.src = heartbeat;
-    }else{
-      audio.src = heart;
-    }
-    audio.play();
-};
+}
+
+export function playHelpDeskMusic(){
+  audio.src = seeking_help;
+  audio.play();
 }
 
 export const click = () =>{
   console.log("first click!");
-  playLightlyFuckedUpBGMusic();
+  playAmbientMazeMusicMadness();
   window.removeEventListener('click', click);
 }
 export const beepEffect = () =>{

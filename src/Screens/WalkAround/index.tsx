@@ -10,6 +10,7 @@ import help_icon from './../..//images/Walkabout/icons8-chat-64.png';
 import x_icon from './../..//images/Walkabout/icons8-x-50.png';
 
 import { HelpChatBox } from './HelpChatBox';
+import { playHelpDeskMusic, playAmbientMazeMusicMadness } from '../..';
 
 
 export const WalkAround = () => {
@@ -104,6 +105,14 @@ export const WalkAround = () => {
       });
 
       const playerRef = useRef<HTMLImageElement>(null);
+
+      useEffect(()=>{
+          if(chatHelp){
+            playHelpDeskMusic();
+          }else{
+            playAmbientMazeMusicMadness();
+          }
+      },[chatHelp])
 
 
     return (

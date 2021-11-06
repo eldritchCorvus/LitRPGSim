@@ -37,12 +37,19 @@ export const HelpChatBox = () => {
         }
     `
 
+    const StyledButton = styled.button`
+        color: #1f3f87;
+        background: whie;
+    `   
+
     return(
         <ChatContainer>
             
             <ChatHeader>
                 <p>How can we help?</p>
-                <p>If you know your parties extention, please type it here.</p></ChatHeader>
+                <p>If you know your parties extention, please type it here.</p>
+                <p><input></input><StyledButton>Go</StyledButton></p>
+                </ChatHeader>
             <ChatBody>
                 Lorem ipsum
             </ChatBody>
