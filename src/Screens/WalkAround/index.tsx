@@ -29,8 +29,7 @@ export const WalkAround = () => {
     `
 
     const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
-    //this shoould change any time the themes do.
-    const [numberExits, setNumberExits] = useState(3);
+ 
 
     const processWalk =(key:string)=>{
         const maxBottom = 350;
@@ -87,7 +86,14 @@ export const WalkAround = () => {
             <Player ref={playerRef}src={real_eye} id="player"></Player>
             </RoomContainer>
             <div>TODO:
-                <li>between 1 and 3 rooms connect to it</li>
+                <li>help desk icon</li>
+                <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
+                <li>when you click you go to a fake telephone interface, dial 216 for customer service</li>
+                <li>if you dial it, you get a styled chat window, multiple choice options for talking and a procuedural Level X BULLSHIT DEPARTMENT, BULLSHIT TITTLE (specialist, technician, expert,etc)</li>
+                <li>each specialist doesn't listen to you at all and suggests things but inevitably kills the chat and tells you you need some OTHER person at some other number (a level 3 customer retention specalist, for example) store in hash keyed by number</li>
+                <li>when you dial the number, get a new person. each minute you play you access new frustration levels of content</li>
+                <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
+                <li>how should i detect i'm near a door so i can go into a new room?</li>
                 <li>the room you are currently in generates child rooms that share at least one theme</li>
                 <li>place holder graphic responds to wasd (eye for now, later an animated gif for walking)</li>
                 <li>blank canvas controls bounding boxes (can't move above 100 pixels)</li>

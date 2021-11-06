@@ -5,6 +5,7 @@ import { drawDoors, drawFloor, drawWall, initBlack } from "./canvas_shit";
 
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage} from '../..';
+import SeededRandom from "../../Utils/SeededRandom";
 
 
 
@@ -36,7 +37,11 @@ export const Room:React.FC<RoomProps> = ({themes}) => {
 
     }
 
-    
+    useEffect(()=>{
+        //seed is number of letters in the first themes name.
+        const rand = new SeededRandom(themes[0].key.length);
+        setNumberExits(rand.getRandomNumberBetween(1,3));
+    },[themes]);
 
     useEffect(()=>{
         if(canvasRef.current){
