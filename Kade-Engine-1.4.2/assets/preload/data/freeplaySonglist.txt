@@ -1,0 +1,4 @@
+Spark:watt:1
+Thunderstruck:watt:1
+Wattathon:watt:1
+Cyberstorm:watt:1

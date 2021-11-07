@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DADDY_DEAREST.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="ShadowDown0000" x="0" y="0" width="478" height="750" frameX="0" frameY="-34" frameWidth="478" frameHeight="784"/>
+	<SubTexture name="ShadowDown0001" x="0" y="0" width="478" height="750" frameX="0" frameY="-34" frameWidth="478" frameHeight="784"/>
+	<SubTexture name="ShadowDown0002" x="478" y="0" width="460" height="781" frameX="-9" frameY="-3" frameWidth="478" frameHeight="784"/>
+	<SubTexture name="ShadowDown0003" x="478" y="0" width="460" height="781" frameX="-9" frameY="-3" frameWidth="478" frameHeight="784"/>
+	<SubTexture name="ShadowDown0004" x="938" y="0" width="460" height="784" frameX="-9" frameY="0" frameWidth="478" frameHeight="784"/>
+	<SubTexture name="ShadowDown0005" x="1398" y="0" width="460" height="784" frameX="-9" frameY="0" frameWidth="478" frameHeight="784"/>
+	<SubTexture name="ShadowIdle0000" x="1858" y="0" width="460" height="788" frameX="-12" frameY="0" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0001" x="1858" y="0" width="460" height="788" frameX="-12" frameY="0" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0002" x="2318" y="0" width="468" height="785" frameX="-8" frameY="-3" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0003" x="2318" y="0" width="468" height="785" frameX="-8" frameY="-3" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0004" x="2786" y="0" width="477" height="782" frameX="-4" frameY="-6" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0005" x="3263" y="0" width="477" height="782" frameX="-4" frameY="-6" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0006" x="0" y="788" width="485" height="767" frameX="0" frameY="-21" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0007" x="0" y="788" width="485" height="767" frameX="0" frameY="-21" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0008" x="485" y="788" width="473" height="780" frameX="-6" frameY="-8" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0009" x="485" y="788" width="473" height="780" frameX="-6" frameY="-8" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0010" x="958" y="788" width="460" height="788" frameX="-12" frameY="0" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0011" x="1418" y="788" width="460" height="788" frameX="-12" frameY="0" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0012" x="1418" y="788" width="460" height="788" frameX="-12" frameY="0" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowIdle0013" x="1878" y="788" width="460" height="788" frameX="-12" frameY="0" frameWidth="485" frameHeight="788"/>
+	<SubTexture name="ShadowLeft0000" x="2338" y="788" width="477" height="780" frameX="0" frameY="-13" frameWidth="481" frameHeight="793"/>
+	<SubTexture name="ShadowLeft0001" x="2338" y="788" width="477" height="780" frameX="0" frameY="-13" frameWidth="481" frameHeight="793"/>
+	<SubTexture name="ShadowLeft0002" x="2815" y="788" width="480" height="793" frameX="-1" frameY="0" frameWidth="481" frameHeight="793"/>
+	<SubTexture name="ShadowLeft0003" x="2815" y="788" width="480" height="793" frameX="-1" frameY="0" frameWidth="481" frameHeight="793"/>
+	<SubTexture name="ShadowLeft0004" x="3295" y="788" width="480" height="789" frameX="-1" frameY="-4" frameWidth="481" frameHeight="793"/>
+	<SubTexture name="ShadowLeft0005" x="0" y="1581" width="480" height="789" frameX="-1" frameY="-4" frameWidth="481" frameHeight="793"/>
+	<SubTexture name="ShadowRight0000" x="480" y="1581" width="475" height="792"/>
+	<SubTexture name="ShadowRight0001" x="480" y="1581" width="475" height="792"/>
+	<SubTexture name="ShadowRight0002" x="955" y="1581" width="472" height="781" frameX="0" frameY="-11" frameWidth="475" frameHeight="792"/>
+	<SubTexture name="ShadowRight0003" x="955" y="1581" width="472" height="781" frameX="0" frameY="-11" frameWidth="475" frameHeight="792"/>
+	<SubTexture name="ShadowRight0004" x="1427" y="1581" width="472" height="779" frameX="0" frameY="-13" frameWidth="475" frameHeight="792"/>
+	<SubTexture name="ShadowRight0005" x="1427" y="1581" width="472" height="779" frameX="0" frameY="-13" frameWidth="475" frameHeight="792"/>
+	<SubTexture name="ShadowUp0000" x="1899" y="1581" width="426" height="803" frameX="-13" frameY="-2" frameWidth="452" frameHeight="805"/>
+	<SubTexture name="ShadowUp0001" x="1899" y="1581" width="426" height="803" frameX="-13" frameY="-2" frameWidth="452" frameHeight="805"/>
+	<SubTexture name="ShadowUp0002" x="2325" y="1581" width="452" height="805"/>
+	<SubTexture name="ShadowUp0003" x="2325" y="1581" width="452" height="805"/>
+	<SubTexture name="ShadowUp0004" x="2777" y="1581" width="452" height="805"/>
+	<SubTexture name="ShadowUp0005" x="3229" y="1581" width="452" height="805"/>
+</TextureAtlas>

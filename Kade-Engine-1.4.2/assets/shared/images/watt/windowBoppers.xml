@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="windowBoppers.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bopperBusy0000" x="0" y="0" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0001" x="0" y="0" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0002" x="3479" y="0" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0003" x="3479" y="0" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0004" x="0" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0005" x="0" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0006" x="3479" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0007" x="3479" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0008" x="3479" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0009" x="3479" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0010" x="3479" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0011" x="3479" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperBusy0012" x="3479" y="1191" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0000" x="0" y="2382" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0001" x="0" y="2382" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0002" x="3479" y="2382" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0003" x="3479" y="2382" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0004" x="0" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0005" x="0" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0006" x="3479" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0007" x="3479" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0008" x="3479" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0009" x="3479" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0010" x="3479" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0011" x="3479" y="3573" width="3479" height="1191"/>
+	<SubTexture name="bopperWindows0012" x="3479" y="3573" width="3479" height="1191"/>
+</TextureAtlas>

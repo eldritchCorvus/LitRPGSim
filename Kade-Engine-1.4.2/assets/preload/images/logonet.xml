@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="logonet.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="logobump0000" x="0" y="0" width="679" height="439" frameX="-28" frameY="-18" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0001" x="679" y="0" width="727" height="470" frameX="-4" frameY="-3" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0002" x="0" y="470" width="735" height="475"/>
+	<SubTexture name="logobump0003" x="0" y="470" width="735" height="475"/>
+	<SubTexture name="logobump0004" x="735" y="470" width="711" height="460" frameX="-12" frameY="-8" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0005" x="0" y="945" width="703" height="455" frameX="-16" frameY="-10" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0006" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0007" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0008" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0009" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0010" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0011" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0012" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+	<SubTexture name="logobump0013" x="703" y="945" width="695" height="450" frameX="-20" frameY="-13" frameWidth="735" frameHeight="475"/>
+</TextureAtlas>
