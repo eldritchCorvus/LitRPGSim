@@ -1,3 +1,1 @@
-I'm considering making my github repo a branching labrynth as well. 
-
-Wouldn't that be fun?
+This should be everything from IC needed to run the FNF mod. The other branch didn't like the fact that built files were included.
