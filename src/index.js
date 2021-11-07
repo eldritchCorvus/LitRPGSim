@@ -29,7 +29,7 @@ const audio = new Audio(generic_menu_music);
 const voiceAudio = new Audio(voice);
 const clickAudio = new Audio(clickSound);
 
-export let BG_VOLUME = 0.1;
+export let BG_VOLUME = 1.0;
 audio.volume = BG_VOLUME;
 
 export function setVolumeMusic(percent){

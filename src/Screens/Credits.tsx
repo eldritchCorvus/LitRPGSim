@@ -152,7 +152,7 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditLeft>Shadow Graphics: </CreditLeft> <CreditRight><span>{getLineSecret(3) ? "jeepersRaggy" : "seriously its just jr"}</span></CreditRight>
                 </CreditLine>
                 <CreditLine>
-                    <CreditLeft>Voicework: </CreditLeft> <CreditRight><span>{getLineSecret(4) ? "jutteringRiches" : "still just jr"}</span></CreditRight>
+                    <CreditLeft>Voicework: </CreditLeft> <CreditRight><span>{getLineSecret(4) ? "jutteringRiches" : "still just jr"} and KR</span></CreditRight>
                 </CreditLine>
                 <CreditHeader>Fan/Friend Works:</CreditHeader>
                 <CreditLine>

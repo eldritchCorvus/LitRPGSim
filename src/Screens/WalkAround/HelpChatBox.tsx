@@ -1,4 +1,9 @@
 import styled from "@emotion/styled"
+import { useEffect, useState } from "react"
+import { getRandomNumberBetween } from "../../Utils/NonSeededRandUtils"
+import { PlayerResponse } from "../Attic/PlayerResponse"
+import { HelloWorld, initial_directory } from "./BranchStorage"
+import { CustomerServiceRamble } from "./CustomerServiceRamble"
 
 export const HelpChatBox = () => {
 
@@ -8,7 +13,7 @@ export const HelpChatBox = () => {
         top: 15px;
         margin-top: 65px;
         height: 500px;
-        width: 300px;
+        width: 350px;
         color: white;
         text-decoration: none;
         border-radius: 2px;
@@ -48,7 +53,7 @@ export const HelpChatBox = () => {
     const ChatOptions = styled.div`
         padding: 5px;
         overflow: auto;
-        height: 190px;
+        height: 90px;
     `
 
     const ChatIcon = styled.div`
@@ -88,8 +93,49 @@ export const HelpChatBox = () => {
     `
 
     const CustomerServiceHell = styled.div`
-        height: 300px;
+        height: 400px;
+        overflow: auto;
     `
+
+    interface DirectoryMap {
+        [extension: number]: CustomerServiceRamble;
+    }
+
+    //has initial values in it, but also as the labrynth expands new things get added
+    const [directory, setDirectory] = useState<DirectoryMap>(initial_directory);
+    const [currentRamble, setCurrentRamble] = useState(initial_directory[0]);
+    const [memory, setMemory] = useState<string[][]>([]);
+    const [currentLines, setCurrentLines] = useState<string[][]>([]);
+
+    const processNextRamble = (response: PlayerResponse) => {
+        console.log("JR NOTE: processing next ramble")
+        setMemory([...memory,...currentLines, ["", response.text]], );
+        setCurrentRamble((response.jr_response_function()));
+    }
+
+
+
+    useEffect(() => {
+        const parts = currentRamble.text.split("\n");
+        console.log("JR NOTE: parts are", parts);
+
+        const nextPart = (remaining_parts: string[], processedParts: string[][]) => {
+            console.log("JR NOTE: processing next part, remaining parts are", remaining_parts, "and already processed is", processedParts)
+            if (remaining_parts.length === 0) {
+                return;
+            }
+            const part = remaining_parts[0];
+            setTimeout(() => {
+                if(part != ""){
+                    processedParts = [...processedParts,[currentRamble.initials, part]];
+                    setCurrentLines(processedParts);
+                }
+                nextPart(remaining_parts.slice(1), processedParts);
+            }, getRandomNumberBetween(1, parts.indexOf(part))*1000);
+        }
+        nextPart(parts, []);
+
+    }, [currentRamble]);
 
     return (
         <ChatContainer>
@@ -101,19 +147,29 @@ export const HelpChatBox = () => {
             </ChatHeader>
             <ChatBody>
                 <CustomerServiceHell>
-                    <ChatLine>
-                        <ChatIcon>ED</ChatIcon>
-                        <ChatText>Hi there! You can begin by asking your question below! Someone will be with you shortly. Due to call volume, restriced text only mode has been initiated. Thank you for your patience!</ChatText>
-                    </ChatLine>
+                    {memory.map((m) => {
+                        return (
+                            <ChatLine>
+                                {m[0] !== "" ? (<ChatIcon>{m[0]}</ChatIcon>) : null}
+                                <ChatText>{m[1]}</ChatText>
+                            </ChatLine>)
+                    })}
+                    {currentLines.map((m) => {
+                        return (
+                            <ChatLine>
+                                {m[0] !== "" ? (<ChatIcon>{currentRamble.initials}</ChatIcon>) : null}
+                                <ChatText>{m[1]}</ChatText>
+                            </ChatLine>)
+                    })}
                 </CustomerServiceHell>
 
 
                 <ChatOptions>
-                <ChatOption>TODO: add a JRResponse and Memory to state. these are the options. text of it is at top. but theres memory too. Memory is they said you said. </ChatOption>
-                    <ChatOption>I would like to report a bug with Zampanio.</ChatOption>
-                    <ChatOption>I would like to request a Zampanio Community Edition Guide.</ChatOption>
-                    <ChatOption>I would like to claim my free gift.</ChatOption>
-                    <ChatOption>I would like to speak with an Operator.</ChatOption>
+                    {currentRamble.potential_reponses.map((response) => {
+                        return (
+                            <ChatOption onClick={() => { processNextRamble(response) }}> {response.text}</ChatOption>
+                        )
+                    })}
 
 
                 </ChatOptions>
