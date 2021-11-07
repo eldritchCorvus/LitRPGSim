@@ -29,8 +29,12 @@ export const Debug = ()=>{
     
 
     return ramble;
+}
 
-
+export const Lost = ()=>{
+    const initialRamble = "I'm sorry; I am unable to complete your call as dialed. Please check the number and dial again, or call your operator at exension 0 to help you.";
+    const ramble = new CustomerServiceRamble("TB",initialRamble, []);
+    return ramble;
 }
 
 
@@ -64,4 +68,4 @@ export const HelloWorld = ()=>{
     return ramble;
 }
 
-export const initial_directory ={0: HelloWorld(), 411: Debug()};
+export const initial_directory ={0: HelloWorld(), 411: Debug(),1: Lost()};

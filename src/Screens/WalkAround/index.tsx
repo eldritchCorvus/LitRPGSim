@@ -126,7 +126,6 @@ export const WalkAround = () => {
             <div>TODO:
                 <li>shit post extensions like 217, 113, etc.  217 says "There's no one here. Leave."</li>
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
-                <li>when you click you go to a fake telephone interface, dial 216 for customer service</li>
                 <li>if you dial it, you get a styled chat window, multiple choice options for talking and a procuedural Level X BULLSHIT DEPARTMENT, BULLSHIT TITTLE (specialist, technician, expert,etc)</li>
                 <li>each specialist doesn't listen to you at all and suggests things but inevitably kills the chat and tells you you need some OTHER person at some other number (a level 3 customer retention specalist, for example) store in hash keyed by number</li>
                 <li>when you dial the number, get a new person. each minute you play you access new frustration levels of content</li>

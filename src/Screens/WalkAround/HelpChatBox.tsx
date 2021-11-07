@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useRef, useState } from "react"
 import { getRandomNumberBetween } from "../../Utils/NonSeededRandUtils"
 import { PlayerResponse } from "../Attic/PlayerResponse"
 import { HelloWorld, initial_directory } from "./BranchStorage"
@@ -102,15 +102,29 @@ export const HelpChatBox = () => {
     }
 
     //has initial values in it, but also as the labrynth expands new things get added
+    const initialExtension = 0;
     const [directory, setDirectory] = useState<DirectoryMap>(initial_directory);
-    const [currentRamble, setCurrentRamble] = useState(initial_directory[0]);
+    const [currentRamble, setCurrentRamble] = useState(initial_directory[initialExtension]);
     const [memory, setMemory] = useState<string[][]>([]);
     const [currentLines, setCurrentLines] = useState<string[][]>([]);
+    const [extension, setExtension] = useState(initialExtension);
+    const extensionRef = useRef<HTMLInputElement>(null);
+
 
     const processNextRamble = (response: PlayerResponse) => {
         console.log("JR NOTE: processing next ramble")
         setMemory([...memory,...currentLines, ["", response.text]], );
         setCurrentRamble((response.jr_response_function()));
+    }
+
+    const goToExtension =(extension: number)=>{
+        setMemory([]);
+        setCurrentLines([]);
+        if((extension in directory) ){
+            setCurrentRamble(directory[extension]);
+        }else{
+            setCurrentRamble(directory[1]);
+        }
     }
 
 
@@ -137,13 +151,29 @@ export const HelpChatBox = () => {
 
     }, [currentRamble]);
 
+    const onSubmit = async (event: FormEvent) => {
+        event.preventDefault();
+        if(extensionRef.current){
+            setExtension(parseInt(extensionRef.current.value));
+            goToExtension(parseInt(extensionRef.current.value));
+
+        }
+        return false;
+    }
+
     return (
         <ChatContainer>
 
             <ChatHeader>
                 <p>How can we help?</p>
                 <p>If you know your parties extention, please type it here.</p>
-                <p><input></input><StyledButton>Go</StyledButton></p>
+                <p>
+                <form action="" method="post" onSubmit={onSubmit}> 
+                    <input ref={extensionRef} defaultValue={extension}></input>
+                    <StyledButton>Go</StyledButton>
+
+                    </form>
+                    </p>
             </ChatHeader>
             <ChatBody>
                 <CustomerServiceHell>
