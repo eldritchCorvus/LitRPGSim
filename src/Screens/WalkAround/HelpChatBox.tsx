@@ -166,7 +166,7 @@ export const HelpChatBox = () => {
 
             <ChatHeader>
                 <p>How can we help?</p>
-                <p>If you know your parties extention, please type it here.</p>
+                <p>If you know your party's extention, please type it here.</p>
                 <p>
                 <form action="" method="post" onSubmit={onSubmit}> 
                     <input ref={extensionRef} defaultValue={extension}></input>
