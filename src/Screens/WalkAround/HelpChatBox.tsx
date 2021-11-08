@@ -100,11 +100,11 @@ export const HelpChatBox = () => {
     `
 
     interface DirectoryMap {
-        [extension: number]: CustomerSupportSpecialist;
+        [extension: string]: CustomerSupportSpecialist;
     }
 
     //has initial values in it, but also as the labrynth expands new things get added
-    const initialExtension = 0;
+    const initialExtension = "0";
     //JR NOTE: if i cared about this NOT being a labrynth i could collapse the state. suffer as i have suffered.
     const [directory, setDirectory] = useState<DirectoryMap>(initial_directory);
     const [currentSpecialist, setCurrentSpecialist] = useState(initial_directory[initialExtension]);
@@ -140,7 +140,7 @@ export const HelpChatBox = () => {
         setCurrentRamble((response.jr_response_function()));
     }
 
-    const goToExtension =(extension: number)=>{
+    const goToExtension =(extension: string)=>{
         setMemory([]);
         setCurrentLines([]);
         if((extension in directory) ){
@@ -180,7 +180,7 @@ export const HelpChatBox = () => {
                 if(chatRef.current){
                     chatRef.current.scrollTop = chatRef.current.scrollHeight;
                 }
-            }, getRandomNumberBetween(1, parts.indexOf(part))*1000);
+            }, getRandomNumberBetween(1, parts.indexOf(part))*1000*getRandomNumberBetween(1,5));
         }
         nextPart(parts, []);
 
@@ -189,8 +189,8 @@ export const HelpChatBox = () => {
     const onSubmit = async (event: FormEvent) => {
         event.preventDefault();
         if(extensionRef.current){
-            setExtension(parseInt(extensionRef.current.value));
-            goToExtension(parseInt(extensionRef.current.value));
+            setExtension((extensionRef.current.value));
+            goToExtension((extensionRef.current.value));
 
         }
         return false;

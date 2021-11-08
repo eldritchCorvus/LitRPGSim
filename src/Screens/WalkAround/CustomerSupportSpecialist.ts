@@ -7,10 +7,10 @@ export class CustomerSupportSpecialist {
     name: string;
     initials: string;
     title: string;
-    extension: number;
+    extension: string;
     ramble: CustomerServiceRamble;
 
-    constructor(name: string, extension: number, ramble: CustomerServiceRamble) {
+    constructor(name: string, extension: string, ramble: CustomerServiceRamble) {
         this.title = this.generateTitle();
         this.name = name;
         this.extension = extension;

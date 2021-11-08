@@ -40,6 +40,35 @@ export const Debug = ()=>{
     return ramble;
 }
 
+export const JR = ()=>{
+    const initialRamble = "Hey there :) :) :)";
+    const ramble = new CustomerServiceRamble(initialRamble, []);
+
+    const Branch2 = ()=>{
+        const defaultRamble = "You flatter me!!!\n ANYWAYS I hope you enjoy my game :) :) :)\n Might shed a bit of light on a certain someone stuck in an infinite maze :) :) :)";
+        const ramble =  new CustomerServiceRamble(defaultRamble, []);
+        return ramble;
+    }
+
+    const Branch = ()=>{
+        const defaultRamble = "Oh don't be like that!!!\nIts not like you didn't know this was my game.\nOr did you think some random Waste moded ZampanioSim???";
+        const ramble =  new CustomerServiceRamble(defaultRamble, []);
+        ramble.potential_reponses.push(new PlayerResponse("Isn't that your whole thing? Telling Wastes to do that?", Branch2));
+        ramble.potential_reponses.push(new PlayerResponse("Just because I expected to see you doesn't mean I'm happy about it.", Branch2));
+        ramble.potential_reponses.push(new PlayerResponse("Can you not just leave out the highly indulgent self insert for ONCE!", Branch2));
+
+        return ramble;
+    }
+
+    ramble.potential_reponses.push(new PlayerResponse("What are you doing here.", Branch));
+    ramble.potential_reponses.push(new PlayerResponse("For fucks sake!", Branch));
+    ramble.potential_reponses.push(new PlayerResponse("No. I'm not talking to you.", Branch));
+    ramble.potential_reponses.push(new PlayerResponse("Why am I not surprised to see you here.", Branch));
+    
+
+    return ramble;
+}
+
 export const Lost = ()=>{
     const initialRamble = "I'm sorry; I am unable to complete your call as dialed. Please check the number and dial again, or call your operator at exension 0 to help you.";
     const ramble = new CustomerServiceRamble(initialRamble, []);
@@ -132,6 +161,6 @@ export const randomSpecialist = (frustration_level:number)=>{
     const first_names = ["Craig","John","Jude","Jade","Joey","Rose","Roxy","Jeff","Dave","Dirk","Jove","Jake","Sophie","Jaxon","Basira","Daisy","Martin","Georgie","Sasha","James","Taylor","Victoria","Jean-Paul","Bob","Alice","Carol","Eve","Adam","Rachel","Brian","Aisha","Alexandra","Alex","Tobias","Marco","Cassie","Tom","Lisa","Sarah"," Sylvester","Gordon","Helen","Jamie","Lillian","Mary","Ashton","Peter","Zawhei","Eirikr","Volour","Okarin","Peewee","Hagala","Despap","Othala","Gertrude","Mike","Michael","Peter","Simon","Manuela","Annabel"];
     const last_names = ["Researcher","Gently","Egbert","Claire","Lalonde","Strider","Hussain","King","Stoker","Sims","Blackwood","Barker","James","Blake","Dalon","Vasil","Hebert","Jensen","Lindt","Newell","Laborn","Fell","Wilbourn","Livsey","Lamb","Bacama","Kharun","Reynolds","Braggi","Seelee","Cassan","Folnir","Citato","Grigor","Crew","Robertson","Fairchild","Lukas","Richardson","Dominguez","Cane","Salesa","Shelly"];
     const name =`${ pickFrom(first_names) } ${pickFrom(last_names) } `;
-    return new CustomerSupportSpecialist(name, getRandomNumberBetween(2,999), GenericSupport(frustration_level));
+    return new CustomerSupportSpecialist(name, `${getRandomNumberBetween(2,999)}`, GenericSupport(frustration_level));
 }
-export const initial_directory ={0: new CustomerSupportSpecialist("Support Bot",0,HelloWorld()), 411: new CustomerSupportSpecialist("Debug Bot",411,Debug()),1: new CustomerSupportSpecialist("Not Found",1,Lost())};
+export const initial_directory ={"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Support Bot","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost())};
