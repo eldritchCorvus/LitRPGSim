@@ -13,7 +13,7 @@ export const HelpChatBox = () => {
         right: 15px;
         top: 15px;
         margin-top: 65px;
-        height: 500px;
+        height: 515px;
         width: 350px;
         color: white;
         text-decoration: none;
@@ -53,6 +53,7 @@ export const HelpChatBox = () => {
 
     const ChatOptions = styled.div`
         padding: 5px;
+        margin-top: 15px;
         overflow: auto;
         height: 190px;
     `
@@ -104,9 +105,11 @@ export const HelpChatBox = () => {
 
     //has initial values in it, but also as the labrynth expands new things get added
     const initialExtension = 0;
+    //JR NOTE: if i cared about this NOT being a labrynth i could collapse the state. suffer as i have suffered.
     const [directory, setDirectory] = useState<DirectoryMap>(initial_directory);
     const [currentSpecialist, setCurrentSpecialist] = useState(initial_directory[initialExtension]);
     const [nextSpecialist, setNextSpecialist] = useState(initial_directory[initialExtension]);
+    const [initialTime] = useState(new Date());
 
     const [currentRamble, setCurrentRamble] = useState(initial_directory[initialExtension].ramble);
     const [memory, setMemory] = useState<string[][]>([]);
@@ -117,7 +120,8 @@ export const HelpChatBox = () => {
 
     useEffect(()=>{
         setCurrentRamble(currentSpecialist.ramble);
-        setNextSpecialist(randomSpecialist());
+        const time = (Date.now() - (initialTime as any));
+        setNextSpecialist(randomSpecialist(Math.round(time/1000/60) ));
     },[currentSpecialist])
 
     useEffect(()=>{
