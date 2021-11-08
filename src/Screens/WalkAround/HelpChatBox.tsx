@@ -2,8 +2,9 @@ import styled from "@emotion/styled"
 import { FormEvent, useEffect, useRef, useState } from "react"
 import { getRandomNumberBetween } from "../../Utils/NonSeededRandUtils"
 import { PlayerResponse } from "../Attic/PlayerResponse"
-import { HelloWorld, initial_directory } from "./BranchStorage"
+import { CURRENT_EXTENSION, CURRENT_NAME, CURRENT_TITLE, HelloWorld, initial_directory, NEXT_EXTENSION, NEXT_TITLE, randomSpecialist } from "./BranchStorage"
 import { CustomerServiceRamble } from "./CustomerServiceRamble"
+import { CustomerSupportSpecialist } from "./CustomerSupportSpecialist"
 
 export const HelpChatBox = () => {
 
@@ -53,7 +54,7 @@ export const HelpChatBox = () => {
     const ChatOptions = styled.div`
         padding: 5px;
         overflow: auto;
-        height: 90px;
+        height: 190px;
     `
 
     const ChatIcon = styled.div`
@@ -93,26 +94,44 @@ export const HelpChatBox = () => {
     `
 
     const CustomerServiceHell = styled.div`
-        height: 400px;
+        height: 300px;
         overflow: auto;
     `
 
     interface DirectoryMap {
-        [extension: number]: CustomerServiceRamble;
+        [extension: number]: CustomerSupportSpecialist;
     }
 
     //has initial values in it, but also as the labrynth expands new things get added
     const initialExtension = 0;
     const [directory, setDirectory] = useState<DirectoryMap>(initial_directory);
-    const [currentRamble, setCurrentRamble] = useState(initial_directory[initialExtension]);
+    const [currentSpecialist, setCurrentSpecialist] = useState(initial_directory[initialExtension]);
+    const [nextSpecialist, setNextSpecialist] = useState(initial_directory[initialExtension]);
+
+    const [currentRamble, setCurrentRamble] = useState(initial_directory[initialExtension].ramble);
     const [memory, setMemory] = useState<string[][]>([]);
     const [currentLines, setCurrentLines] = useState<string[][]>([]);
     const [extension, setExtension] = useState(initialExtension);
     const extensionRef = useRef<HTMLInputElement>(null);
+    const chatRef = useRef<HTMLDivElement>(null);
+
+    useEffect(()=>{
+        setCurrentRamble(currentSpecialist.ramble);
+        setNextSpecialist(randomSpecialist());
+    },[currentSpecialist])
+
+    useEffect(()=>{
+        if(!(nextSpecialist.extension in directory)){
+            const tmp = {...directory}
+            tmp[nextSpecialist.extension] = nextSpecialist;
+            setDirectory(tmp)
+        }
+
+    }, [nextSpecialist,directory])
+
 
 
     const processNextRamble = (response: PlayerResponse) => {
-        console.log("JR NOTE: processing next ramble")
         setMemory([...memory,...currentLines, ["", response.text]], );
         setCurrentRamble((response.jr_response_function()));
     }
@@ -121,30 +140,42 @@ export const HelpChatBox = () => {
         setMemory([]);
         setCurrentLines([]);
         if((extension in directory) ){
-            setCurrentRamble(directory[extension]);
+            setCurrentSpecialist(directory[extension])
+            //setCurrentRamble(directory[extension].ramble);
         }else{
-            setCurrentRamble(directory[1]);
+            setCurrentSpecialist(directory[1])
+            //setCurrentRamble(directory[1].ramble);
         }
+    }
+
+    const processScriptingTags = (input: string)=>{
+        let tmp = input.replaceAll(CURRENT_NAME,currentSpecialist.name);
+        tmp = tmp.replaceAll(NEXT_TITLE,nextSpecialist.title);
+        tmp = tmp.replaceAll(CURRENT_TITLE,currentSpecialist.title);
+        tmp = tmp.replaceAll(NEXT_EXTENSION,`${nextSpecialist.extension}`);
+        tmp = tmp.replaceAll(CURRENT_EXTENSION,`${currentSpecialist.extension}`);
+        return tmp;
     }
 
 
 
     useEffect(() => {
         const parts = currentRamble.text.split("\n");
-        console.log("JR NOTE: parts are", parts);
 
         const nextPart = (remaining_parts: string[], processedParts: string[][]) => {
-            console.log("JR NOTE: processing next part, remaining parts are", remaining_parts, "and already processed is", processedParts)
             if (remaining_parts.length === 0) {
                 return;
             }
             const part = remaining_parts[0];
             setTimeout(() => {
                 if(part != ""){
-                    processedParts = [...processedParts,[currentRamble.initials, part]];
+                    processedParts = [...processedParts,[currentSpecialist.initials, part]];
                     setCurrentLines(processedParts);
                 }
                 nextPart(remaining_parts.slice(1), processedParts);
+                if(chatRef.current){
+                    chatRef.current.scrollTop = chatRef.current.scrollHeight;
+                }
             }, getRandomNumberBetween(1, parts.indexOf(part))*1000);
         }
         nextPart(parts, []);
@@ -176,19 +207,19 @@ export const HelpChatBox = () => {
                     </p>
             </ChatHeader>
             <ChatBody>
-                <CustomerServiceHell>
+                <CustomerServiceHell ref={chatRef}>
                     {memory.map((m) => {
                         return (
                             <ChatLine>
                                 {m[0] !== "" ? (<ChatIcon>{m[0]}</ChatIcon>) : null}
-                                <ChatText>{m[1]}</ChatText>
+                                <ChatText>{processScriptingTags(m[1])}</ChatText>
                             </ChatLine>)
                     })}
                     {currentLines.map((m) => {
                         return (
                             <ChatLine>
-                                {m[0] !== "" ? (<ChatIcon>{currentRamble.initials}</ChatIcon>) : null}
-                                <ChatText>{m[1]}</ChatText>
+                                {m[0] !== "" ? (<ChatIcon>{currentSpecialist.initials}</ChatIcon>) : null}
+                                <ChatText>{processScriptingTags(m[1])}</ChatText>
                             </ChatLine>)
                     })}
                 </CustomerServiceHell>
