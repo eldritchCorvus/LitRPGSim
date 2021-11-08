@@ -58,7 +58,7 @@ export const WalkAround = () => {
     `
 
     const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
-    const [chatHelp, setChatHelp] = useState(true);
+    const [chatHelp, setChatHelp] = useState(false);
  
 
     const processWalk =(key:string)=>{

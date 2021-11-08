@@ -10,7 +10,7 @@ export const NEXT_TITLE = "NEXT_TITLE";
 export const NEXT_EXTENSION = "NEXT_EXTENSION";
 export const CURRENT_EXTENSION = "CURRENT_EXTENSION";
 
-
+//NORTH/EAST/NORTH/NORTH/NORTH/NORTH/NORTH/SOUTH/NORTH/EAST/EAST/SOUTH/
 export const Debug = ()=>{
     const initialRamble = "Initial Ramble";
     const ramble = new CustomerServiceRamble(initialRamble, []);
