@@ -7,6 +7,7 @@ import { AtticSim, PathType } from "./Screens/Attic/AtticSim";
 import { CCTVScreen } from "./Screens/Secrets/CCTV";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
 import { getParameterByName } from "./Utils/URLUtils";
+import { CrowSim } from "./Screens/Attic/CrowSim";
 /*
 as simple as possible, handles the three main screens of "enter your birthday", 
 "play the game", "jr rambles about dev log shit"
@@ -133,13 +134,15 @@ function AppWrapper() {
   } else if (mode === LIE) {
     return( <AtticSim pathType={PathType.Game}/>)
 
-  }else if (seed) {
-    return (
-      <App seed={seed} />
-    )
   }else if (seed === 0){ //:) :) :)
      return( <AtticSim pathType={PathType.NotGame}/>)
-  }
+  }else if (seed === 41){ //:) :) :)
+    return(<CrowSim/>)
+ }else if (seed) {
+  return (
+    <App seed={seed} />
+  )
+}
 }
 
 export default AppWrapper;
