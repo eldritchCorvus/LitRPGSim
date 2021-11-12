@@ -124,13 +124,9 @@ export const WalkAround = () => {
             <Player ref={playerRef}src={real_eye} id="player"></Player>
             </RoomContainer>
             <div>TODO:
-                <li>shit post extensions like 217, 113, etc.  217 says "There's no one here. Leave."</li>
+                <li>text should get auto lower cased , shit post extensions like 217, 113, etc.  217 says "There's no one here. Leave."</li>
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
-                <li>if you dial it, you get a styled chat window, multiple choice options for talking and a procuedural Level X BULLSHIT DEPARTMENT, BULLSHIT TITTLE (specialist, technician, expert,etc)</li>
-                <li>each specialist doesn't listen to you at all and suggests things but inevitably kills the chat and tells you you need some OTHER person at some other number (a level 3 customer retention specalist, for example) store in hash keyed by number</li>
-                <li>when you dial the number, get a new person. each minute you play you access new frustration levels of content</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
-                <li>there is no one here. leave.</li>
                 <li>how should i detect i'm near a door so i can go into a new room?</li>
                 <li>the room you are currently in generates child rooms that share at least one theme</li>
                 <li>place holder graphic responds to wasd (eye for now, later an animated gif for walking)</li>
@@ -147,6 +143,7 @@ export const WalkAround = () => {
                 <li>when all friends are dead NAM and ShamblingHorror show up</li>
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
                 <li>have way to get to credits in mod</li>
+                <li>find your coffin and go down and down and down</li>
                 <li>put this on LItRpgsim never tell anyone (also itch.io and steam) (diff base themes corruption steam)</li>
             </div>
             <HelpIcon onClick={()=>setChatHelp(!chatHelp)}><div style={{display:"inline-block", verticalAlign: "top",textAlign: "center"}}>Help</div>{chatHelp?<IconImage src ={x_icon}></IconImage>:<IconImage src ={help_icon}></IconImage>}</HelpIcon>
