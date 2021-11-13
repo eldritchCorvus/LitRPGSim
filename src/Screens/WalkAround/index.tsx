@@ -10,7 +10,7 @@ import help_icon from './../..//images/Walkabout/icons8-chat-64.png';
 import x_icon from './../..//images/Walkabout/icons8-x-50.png';
 
 import { HelpChatBox } from './HelpChatBox';
-import { playHelpDeskMusic, playAmbientMazeMusicMadness } from '../..';
+import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../..';
 
 
 export const WalkAround = () => {
@@ -54,20 +54,52 @@ export const WalkAround = () => {
     const Player = styled.img`
         position: absolute;
         left: 250px;
-        bottom: 50px;
+        top: 350px;
     `
 
     const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
     const [chatHelp, setChatHelp] = useState(false);
 
+    const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
+        const first = (x1-x2)**2;
+        const second = (y1-y2)**2;
+        return (first + second)**0.5 < radius;
+    }
+
     //where is the player? are they near a door?
     const checkForDoor =(top: number, left: number)=>{
+            const SOUTH = [250,475];
+            const NORTH = [250,105];
+            const EAST = [475,250];
+
+        const wanderer_radius = 50;
+        let nearDoor = false;
+
+        if(distanceWithinRadius(wanderer_radius,NORTH[0],NORTH[1] ,left,top)){
+            console.log("JR NOTE: todo go north because ", left, top)
+            nearDoor = true;
+        }
+
+        if(distanceWithinRadius(wanderer_radius,SOUTH[0],SOUTH[1] ,left,top)){
+            console.log("JR NOTE: todo go south", left, top)
+            nearDoor = true;
+        }
+
+        if(distanceWithinRadius(wanderer_radius,EAST[0],EAST[1] ,left,top)){
+            console.log("JR NOTE: todo go east", left, top)
+            nearDoor = true;
+        }
+
+
+        if(nearDoor){
+            doorEffect();
+        }
 
     }
  
 
     const processWalk =(key:string)=>{
-        const minTop = 500-350-15;
+        const minTop = 500-350-30;
         const maxTop = 500-50;
         const maxLeft = 450;
         const minLeft =15;
@@ -75,7 +107,7 @@ export const WalkAround = () => {
         if(p){
             let prevTop = parseInt(p.style.top);
             if(!prevTop){
-                prevTop =500-50-15;
+                prevTop =350;
             }
 
             let prevLeft = parseInt(p.style.left);
@@ -95,6 +127,7 @@ export const WalkAround = () => {
             if((key === "d" || key === "ArrowRight")&& prevLeft < maxLeft ){
                 p.style.left = `${prevLeft+10}px`;
             }
+            checkForDoor(prevTop, prevLeft);
         }
     }
 

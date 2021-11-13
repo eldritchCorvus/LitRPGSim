@@ -140,7 +140,7 @@ export const clickEffect = () =>{
 }
 
 export const doorEffect = () =>{
-  soundEffectAudio.src = doorEffect;
+  soundEffectAudio.src = doorSound;
   soundEffectAudio.play();
 }
 
