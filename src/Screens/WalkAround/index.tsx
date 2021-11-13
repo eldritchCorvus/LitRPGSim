@@ -59,29 +59,35 @@ export const WalkAround = () => {
 
     const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
     const [chatHelp, setChatHelp] = useState(false);
+
+    //where is the player? are they near a door?
+    const checkForDoor =(top: number, left: number)=>{
+
+    }
  
 
     const processWalk =(key:string)=>{
-        const maxBottom = 350;
-        const minBottom = 15;
+        const minTop = 500-350-15;
+        const maxTop = 500-50;
         const maxLeft = 450;
         const minLeft =15;
         const p = playerRef.current;
         if(p){
-            let prevBottom = parseInt(p.style.bottom);
-            if(!prevBottom){
-                prevBottom =50;
+            let prevTop = parseInt(p.style.top);
+            if(!prevTop){
+                prevTop =500-50-15;
             }
 
             let prevLeft = parseInt(p.style.left);
             if(!prevLeft){
                 prevLeft =250;
             }
-            if((key === "s" || key === "ArrowDown")&& prevBottom > minBottom){
-                p.style.bottom = `${prevBottom-10}px`;
+
+            if((key === "s" || key === "ArrowDown")&& prevTop < maxTop){
+                p.style.top = `${prevTop+10}px`;
             }
-            if((key === "w" || key === "ArrowUp")&& prevBottom < maxBottom){
-                p.style.bottom = `${prevBottom+10}px`;
+            if((key === "w" || key === "ArrowUp")&& prevTop > minTop){
+                p.style.top = `${prevTop-10}px`;
             }
             if((key === "a" || key === "ArrowLeft") && prevLeft > minLeft){
                 p.style.left = `${prevLeft-10}px`;

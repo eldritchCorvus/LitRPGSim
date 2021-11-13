@@ -18,6 +18,8 @@ import blame from './SecretMusic/youbrokeit.mp3';
 
 import funky_voice from './Voice/truth_but_funky.mp3';
 
+import doorSound from "./Music/close_door_1.mp3";
+
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
 import ghost from "./Voice/507451__horroraudio__ghost-kid-sigh-less-verb.mp3";
 
@@ -28,6 +30,7 @@ import reportWebVitals from './reportWebVitals';
 const audio = new Audio(generic_menu_music);
 const voiceAudio = new Audio(voice);
 const clickAudio = new Audio(clickSound);
+const soundEffectAudio = new Audio(doorSound);
 
 export let BG_VOLUME = 1.0;
 audio.volume = BG_VOLUME;
@@ -134,6 +137,11 @@ export const beepEffect = () =>{
 
 export const clickEffect = () =>{
   clickAudio.play();
+}
+
+export const doorEffect = () =>{
+  soundEffectAudio.src = doorEffect;
+  soundEffectAudio.play();
 }
 
 window.localStorage["zampanio"]=true;
