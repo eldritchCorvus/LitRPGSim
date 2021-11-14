@@ -190,7 +190,7 @@ export const HelpChatBox = () => {
         event.preventDefault();
         if(extensionRef.current){
             setExtension((extensionRef.current.value));
-            goToExtension((extensionRef.current.value));
+            goToExtension((extensionRef.current.value).toLowerCase());
 
         }
         return false;

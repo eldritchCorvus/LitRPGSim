@@ -46,10 +46,10 @@ export const drawWall = (canvas:HTMLCanvasElement, wallImage:HTMLImageElement) =
     if(!context){
         return;
     }
-    const ptrn = context.createPattern(wallImage, 'repeat-x'); // Create a pattern with this image, and set it to "repeat".
+    const ptrn = context.createPattern(wallImage, 'repeat'); // Create a pattern with this image, and set it to "repeat".
     if(!ptrn){
         return;
     }
     context.fillStyle = ptrn;
-    context.fillRect(padding, padding, canvas.width-padding*2, 150);
+    context.fillRect(padding, padding, canvas.width-padding*2, 120);
 }

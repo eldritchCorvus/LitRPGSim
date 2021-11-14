@@ -6,6 +6,8 @@ import { drawDoors, drawFloor, drawWall, initBlack } from "./canvas_shit";
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
+import { pickFrom } from "../../Utils/NonSeededRandUtils";
+
 
 
 
@@ -25,10 +27,12 @@ export const Room:React.FC<RoomProps> = ({themes}) => {
     const drawRoom = async (canvas: HTMLCanvasElement, themes:Theme[])=>{
         initBlack(canvas);
         //TODO pull this in from theme
-        const floor:any = await addImageProcess(loadSecretImage('Walkabout/woodfloor.png')) as HTMLImageElement;
+        const floor_choices = ["weirdfloor.png","waterfloor.png","tilefloor.png","woodfloor.png","arcanefloor.png","chevronfloor.png","lavafloor.png","metalfloor.png"];
+        const floor:any = await addImageProcess(loadSecretImage(`Walkabout/floor/${pickFrom(floor_choices)}`)) as HTMLImageElement;
         drawFloor(canvas, floor);
         //TODO pull this in from theme
-        const wall:any = await addImageProcess(loadSecretImage('Walkabout/woodwall.png')) as HTMLImageElement;
+        const wall_choices = ["thatchwalls.png","leafwalls.png","brickwalls.png","goldwalls.png","woodwall.png","stonewalls2.png"];
+        const wall:any = await addImageProcess(loadSecretImage(`Walkabout/wall/${pickFrom(wall_choices)}`)) as HTMLImageElement;
         drawWall(canvas,wall);
 
         const door:any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;

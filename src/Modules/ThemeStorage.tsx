@@ -366,6 +366,7 @@ const initSongs = ()=>{
     song_possibilities[LONELY] = ["Finish.mp3"];
     song_possibilities[DARKNESS] = ["turntablist.mp3"];
     song_possibilities[DECAY] = ["dear_god.mp3"];
+    song_possibilities[TECHNOLOGY] =["i_think_its_finished_priska_turbo_time.mp3"];
 
 }
 
