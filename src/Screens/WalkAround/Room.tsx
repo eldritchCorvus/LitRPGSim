@@ -7,18 +7,20 @@ import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
+import { FLOOR, WALL } from "../../Modules/ThemeStorage";
 
 
 
 
 interface RoomProps {
     themes: Theme[];
+    seededRandom: SeededRandom;
   }
 
   const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Room:React.FC<RoomProps> = ({themes}) => {
+export const Room:React.FC<RoomProps> = ({themes,seededRandom}) => {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
        //this shoould change any time the themes do.
@@ -27,12 +29,21 @@ export const Room:React.FC<RoomProps> = ({themes}) => {
     const drawRoom = async (canvas: HTMLCanvasElement, themes:Theme[])=>{
         initBlack(canvas);
         //TODO pull this in from theme
-        const floor_choices = ["weirdfloor.png","waterfloor.png","tilefloor.png","woodfloor.png","arcanefloor.png","chevronfloor.png","lavafloor.png","metalfloor.png"];
-        const floor:any = await addImageProcess(loadSecretImage(`Walkabout/floor/${pickFrom(floor_choices)}`)) as HTMLImageElement;
+        const floor_default_choices = ["woodfloor.png","chevronfloor.png","metalfloor.png"];
+        let floor_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FLOOR)
+        if(!floor_choice || floor_choice.includes("ERROR")){
+            floor_choice = seededRandom.pickFrom(floor_default_choices);
+        }
+        const floor:any = await addImageProcess(loadSecretImage(`Walkabout/floor/${floor_choice}`)) as HTMLImageElement;
         drawFloor(canvas, floor);
         //TODO pull this in from theme
-        const wall_choices = ["thatchwalls.png","leafwalls.png","brickwalls.png","goldwalls.png","woodwall.png","stonewalls2.png"];
-        const wall:any = await addImageProcess(loadSecretImage(`Walkabout/wall/${pickFrom(wall_choices)}`)) as HTMLImageElement;
+
+        const wall_default_choices = ["thatchwalls.png","brickwalls.png","woodwall.png","stonewalls2.png"];
+        let wall_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, WALL)
+        if(!wall_choice || floor_choice.includes("ERROR")){
+            wall_choice = seededRandom.pickFrom(wall_default_choices);
+        }
+        const wall:any = await addImageProcess(loadSecretImage(`Walkabout/wall/${wall_choice}`)) as HTMLImageElement;
         drawWall(canvas,wall);
 
         const door:any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;

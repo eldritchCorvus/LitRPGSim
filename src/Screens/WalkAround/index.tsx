@@ -11,6 +11,7 @@ import x_icon from './../..//images/Walkabout/icons8-x-50.png';
 
 import { HelpChatBox } from './HelpChatBox';
 import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../..';
+import SeededRandom from '../../Utils/SeededRandom';
 
 
 export const WalkAround = () => {
@@ -62,6 +63,7 @@ export const WalkAround = () => {
     `
 
     const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
+    const [seededRandom] = useState(new SeededRandom(216));
     const [chatHelp, setChatHelp] = useState(false);
     const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
     const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
@@ -71,7 +73,12 @@ export const WalkAround = () => {
     }
 
     /*
-        NOTE: new rooms should have all the same rooms as the previous but remove one theme and replace it with another
+        NOTE:
+
+        seeded random here should be based on current 'global' seed plus whether you went north, south or east
+        
+        new rooms should have all the same rooms as the previous but
+         remove one theme and replace it with another
 
         this creates "neighborhoods" of aesthetics, i'm betting
     */
@@ -190,20 +197,19 @@ export const WalkAround = () => {
         <Fragment>
             <RoomContainer>
 
-            <Room themes={themes}/>
+            <Room themes={themes} seededRandom={seededRandom}/>
 
             <Player ref={playerRef}src={real_eye} id="player" leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}></Player>
             </RoomContainer>
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>figure out if i can scale wall images</li>
                 <li>thread walls and floors into theme storage (ONLY APPROPRIATE SHIT, IF NONE PUT NOTHING)</li>
                 <li>if a theme doesn't have a  wall or floor, store defaults in ROOM (wood, stone, etc)</li>
                 <li>pull walls and floor from theme</li>
                 <li>when change room, new room has the same themes as the old one but one at seeded random is gone and one at seeded random is added</li>
                 <li>number of doors is procedural but seeded (at least one).</li>
-                <li>debate making rooms store in memory (like in ThisIsAGame) so you can go backwards</li>
+                <li>all doors lead to the same place because if you force it to be a game it pettily refuses to be a good one</li>
                 <li>when enter room, small chance of sensory flavor text from theme. (smell, sound, etc)</li>
                 <li>spawn wall items (with text) from theme</li>
                 <li>spawn floor items (with text) from theme</li>
