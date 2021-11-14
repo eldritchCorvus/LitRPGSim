@@ -3,7 +3,7 @@ import real_eye from './../../images/real_eye.png';
 
 import { Fragment, useEffect, useRef, useState } from "react"
 import { Room } from './Room';
-import { all_themes } from '../../Modules/Theme';
+import { all_themes, Theme } from '../../Modules/Theme';
 import { BUGS, DECAY, LOVE, TWISTING } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
 import help_icon from './../..//images/Walkabout/icons8-chat-64.png';
@@ -83,25 +83,32 @@ export const WalkAround = () => {
         this creates "neighborhoods" of aesthetics, i'm betting
     */
 
+    const childRoomThemes = (rand: SeededRandom)=>{
+        return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+    }
+
     const goNorth = ()=>{
         //put you to the south
         setSpawnPoint({left: 250, top: 475-50});
+        const tmpRand = new SeededRandom(0+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
-        setThemes([all_themes[TWISTING]]);
+        setThemes(childRoomThemes(tmpRand));
     }
 
     const goSouth = ()=>{
         //put you to the south
         setSpawnPoint({left: 250, top: 105+50});
+        const tmpRand = new SeededRandom(1+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
-        setThemes([all_themes[TWISTING]]);
+        setThemes(childRoomThemes(tmpRand));
     }
 
     const goEast = ()=>{
         //put you to the south
         setSpawnPoint({left: 25+50, top: 250});
+        const tmpRand = new SeededRandom(2+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
-        setThemes([all_themes[TWISTING]]); 
+        setThemes(childRoomThemes(tmpRand));
     }
 
     //where is the player? are they near a door?

@@ -27,6 +27,7 @@ export const Room:React.FC<RoomProps> = ({themes,seededRandom}) => {
        const [numberExits, setNumberExits] = useState(3);
 
     const drawRoom = async (canvas: HTMLCanvasElement, themes:Theme[])=>{
+        console.log("JR NOTE: drawing room with themes",themes);
         initBlack(canvas);
         //TODO pull this in from theme
         const floor_default_choices = ["woodfloor.png","chevronfloor.png","metalfloor.png"];
@@ -40,7 +41,7 @@ export const Room:React.FC<RoomProps> = ({themes,seededRandom}) => {
 
         const wall_default_choices = ["thatchwalls.png","brickwalls.png","woodwall.png","stonewalls2.png"];
         let wall_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, WALL)
-        if(!wall_choice || floor_choice.includes("ERROR")){
+        if(!wall_choice || wall_choice.includes("ERROR")){
             wall_choice = seededRandom.pickFrom(wall_default_choices);
         }
         const wall:any = await addImageProcess(loadSecretImage(`Walkabout/wall/${wall_choice}`)) as HTMLImageElement;
