@@ -211,18 +211,16 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>thread walls and floors into theme storage (ONLY APPROPRIATE SHIT, IF NONE PUT NOTHING)</li>
-                <li>if a theme doesn't have a  wall or floor, store defaults in ROOM (wood, stone, etc)</li>
-                <li>pull walls and floor from theme</li>
-                <li>when change room, new room has the same themes as the old one but one at seeded random is gone and one at seeded random is added</li>
+                <li>propogate most themes as having custom walls and floors</li>
                 <li>number of doors is procedural but seeded (at least one).</li>
                 <li>all doors lead to the same place because if you force it to be a game it pettily refuses to be a good one</li>
                 <li>when enter room, small chance of sensory flavor text from theme. (smell, sound, etc)</li>
-                <li>spawn wall items (with text) from theme</li>
-                <li>spawn floor items (with text) from theme</li>
+                <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>
+                <li>spawn floor items (with text) from theme (both background (carpet, holes, etc) and foreground)</li>
                 <li>if approach an item, flavor text</li>
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
+                <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example) spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>coffin, credits</li>
 
 

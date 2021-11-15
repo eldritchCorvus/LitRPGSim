@@ -388,49 +388,47 @@ const initFloorPossibilities = () =>{
     floor_possibilities[LOVE] = ["carpetfloor.png","fancywoodfloor.png"];
     floor_possibilities[DECAY] = ["geometricfloor.png","brickfloor3.png","stonefloor.png"] ;
     floor_possibilities[BUGS] =  ["darkcorruptionfloor.png","dirtfloor.png","dirtfloor.png","dirtfloor.png"];
-    floor_possibilities[TWISTING] =  ["spiral.png"];
-
+    floor_possibilities[TWISTING] =  ["spiral.png","static.png"];
+    floor_possibilities[BURIED] =  ["dirtfloor.png"];
+    floor_possibilities[OCEAN] =  ["waterfloor2.png","waterfloor.png","waterfloor3.png"];
+    floor_possibilities[DARKNESS] =  ["voidfloor.png"] ;
+    floor_possibilities[ZAP] = ["gratefloor.png","metaltilefloor.png","metalfloor2.png","metalfloor.png","metalboardfloor.png"];
+    floor_possibilities[TECHNOLOGY] =  ["stars.png","gratefloor.png","metaltilefloor.png","metalfloor2.png","metalfloor.png","metalboardfloor.png"];
+    floor_possibilities[SCIENCE] =  ["gratefloor.png","metaltilefloor.png","metalfloor2.png","metalfloor.png","metalboardfloor.png"];
+    floor_possibilities[PLANTS] = ["grassfloor.png","dirtfloor.png","vines.png"];
+    floor_possibilities[HUNTING] = ["grassfloor.png","dirtfloor.png"];
+    floor_possibilities[GUIDING] = ["grassfloor.png","dirtfloor.png","icefloor.png","glassfloor.png","stonefloor.png"] ;
+    floor_possibilities[LIGHT] =  ["lightfloor.png"];
+    floor_possibilities[FIRE] =  ["lavafloor.png","firefloor.png"];
+    floor_possibilities[ENDINGS] =  ["curtains.png"] ;
+    floor_possibilities[OBFUSCATION] = ["static.png","voidfloor.png","weirdfloor.png"] ;
+    floor_possibilities[STEALING] =  ["goldwalls.png"];
+    floor_possibilities[MAGIC] =  ["arcanefloor2.png","arcanefloor.png"];
+    floor_possibilities[ROYALTY] =  ["goldwalls.png"] ;
+    floor_possibilities[SPACE] =  ["stars.png","clouds.png"];
+    floor_possibilities[FREEDOM] =  ["clouds.png"];
+    floor_possibilities[WEB] =  ["web.png"] ;
+    floor_possibilities[HEALING] =  ["tilefloor.png"];
+    floor_possibilities[ADDICTION] = ["carpet.png"];
 
     /*floor_possibilities[ART] =  ["Perfect Moment"];
-    floor_possibilities[TECHNOLOGY] =  ["Singularity"];
     floor_possibilities[TIME] =  ["Stopped Clock"];
-    floor_possibilities[SPACE] =  ["Big Bang"];
-    floor_possibilities[OCEAN] =  ["Ship of Vescillation"];
-    floor_possibilities[LONELY] =  ["The Silence"];
-    floor_possibilities[FIRE] =  ["The Scoured Earth"];
-    floor_possibilities[FREEDOM] =  ["Unending Freedom"];
-    floor_possibilities[STEALING] =  ["All Mine"];
-    floor_possibilities[BURIED] =  ["Fallen Sky"];
+
     floor_possibilities[FLESH] =  ["Physical God"];
-    floor_possibilities[SCIENCE] =  ["E=mc^2"];
     floor_possibilities[MATH] =  ["Calculus Pop Quiz"];
     floor_possibilities[DEATH] =  ["Your Grave"];
     floor_possibilities[APOCALYPSE] =  ["Ragnarok"];
     floor_possibilities[ANGELS] =  ["Judgement Day"];
     floor_possibilities[SERVICE] =  ["Special Service"];
     floor_possibilities[FAMILY] =  ["Sins of the Father"];
-    floor_possibilities[MAGIC] =  ["Ritual of Ragnarok"];
-    floor_possibilities[LIGHT] =  ["Flash Bang"];
-    floor_possibilities[HEALING] =  ["Summon Phoenix"];
-    floor_possibilities[PLANTS] = ["Forest's March"];
-    floor_possibilities[HUNTING] = ["Nimrod's Chase"];
+
     floor_possibilities[CHOICES] =  ["Timeline of Theseus"] ;
-    floor_possibilities[ZAP] = ["Thor's Banana"] ;
     floor_possibilities[SOUL] = ["Know thyself."] ;
     floor_possibilities[ANGER] = ["Dethrone Creation"] ;
-    floor_possibilities[WEB] =  ["Puppet Master"] ;
-    floor_possibilities[ROYALTY] =  ["Excalibur"] ;
-    floor_possibilities[ENDINGS] =  ["The End"] ;
-    floor_possibilities[KNOWING] = ["Omniscience"] ;
-    floor_possibilities[GUIDING] = ["Path To Victory"] ;
     floor_possibilities[CRAFTING] =  ["Legendary Forge"];
-    floor_possibilities[LANGUAGE] = ["Topple the Tower"] ;
-    floor_possibilities[ADDICTION] = ["Dealer's Delight"];
     floor_possibilities[SPYING] =["Surveillance State"] ;
     floor_possibilities[CLOWNS] =["Ringmaster"] ;
     floor_possibilities[DOLLS] = ["Automatonophobia "] ;
-    floor_possibilities[OBFUSCATION] = ["Knowledge Forever Lost"] ;
-    floor_possibilities[DARKNESS] =  ["Night Eternal"] ;
     floor_possibilities[KILLING] =  ["Bloodbath"];
     floor_possibilities[MUSIC] =  ["Symphonic Synthesia"] ;
     floor_possibilities[DEFENSE] =  ["Excalibur"] ;
@@ -438,49 +436,52 @@ const initFloorPossibilities = () =>{
 }
 
 const initWallPossibilities = () =>{
-    wall_possibilities[LOVE] = ["stonewalls.png","goldwalls.png"];
-    wall_possibilities[DECAY] = ["stonewalls2.png","thatchwalls.png"] ;
+    wall_possibilities[LOVE] = ["stonewalls.png","roses.png"];
+    wall_possibilities[DECAY] = ["tattered_curtains.png","stonewalls2.png","thatchwalls.png"] ;
     wall_possibilities[BUGS] =  ["dirtwall.png","darkcorruption.png"];
     wall_possibilities[TWISTING] =  ["spiral.png"];
+    wall_possibilities[ENDINGS] =  ["curtains.png"] ;
+    wall_possibilities[LANGUAGE] = ["books.png"];
+    wall_possibilities[KNOWING] = ["blackboard.png","books.png"];;
+    wall_possibilities[STEALING] =  ["jail.png","goldwalls.png"];
+    wall_possibilities[MATH] =  ["blackboard.png"];
+    wall_possibilities[BURIED] =  ["dirtwall.png"];
+    wall_possibilities[SPACE] = ["stars.png","clouds.png"];
+    wall_possibilities[OCEAN] =  ["waterwall.png"];
+    wall_possibilities[CLOWNS] =["curtains.png"] ;
+    wall_possibilities[WEB] =  ["web.png"] ;
+    wall_possibilities[HEALING] =  ["tilewall.png"];
+    wall_possibilities[FREEDOM] =  ["clouds.png"];
+    wall_possibilities[FIRE] =  ["lavawall.png"];
+    wall_possibilities[LIGHT] =  ["lightwall.png"];
+    wall_possibilities[ZAP] = ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
+    wall_possibilities[TECHNOLOGY] =  ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
+    wall_possibilities[SCIENCE] = ["metalwall1.png","metalwall2.png","metalwall3.png"]
+    wall_possibilities[PLANTS] = ["leafwalls.png","hedgewall.png"];
+    wall_possibilities[HUNTING] = ["leafwalls.png","hedgewall.png"];
+
+    //todo
 
 
     /*wall_possibilities[ART] =  ["Perfect Moment"];
-    wall_possibilities[TECHNOLOGY] =  ["Singularity"];
     wall_possibilities[TIME] =  ["Stopped Clock"];
-    wall_possibilities[SPACE] =  ["Big Bang"];
-    wall_possibilities[OCEAN] =  ["Ship of Vescillation"];
-    wall_possibilities[LONELY] =  ["The Silence"];
-    wall_possibilities[FIRE] =  ["The Scoured Earth"];
-    wall_possibilities[FREEDOM] =  ["Unending Freedom"];
-    wall_possibilities[STEALING] =  ["All Mine"];
-    wall_possibilities[BURIED] =  ["Fallen Sky"];
+
+
     wall_possibilities[FLESH] =  ["Physical God"];
-    wall_possibilities[SCIENCE] =  ["E=mc^2"];
-    wall_possibilities[MATH] =  ["Calculus Pop Quiz"];
     wall_possibilities[DEATH] =  ["Your Grave"];
     wall_possibilities[APOCALYPSE] =  ["Ragnarok"];
     wall_possibilities[ANGELS] =  ["Judgement Day"];
     wall_possibilities[SERVICE] =  ["Special Service"];
     wall_possibilities[FAMILY] =  ["Sins of the Father"];
     wall_possibilities[MAGIC] =  ["Ritual of Ragnarok"];
-    wall_possibilities[LIGHT] =  ["Flash Bang"];
-    wall_possibilities[HEALING] =  ["Summon Phoenix"];
-    wall_possibilities[PLANTS] = ["Forest's March"];
-    wall_possibilities[HUNTING] = ["Nimrod's Chase"];
     wall_possibilities[CHOICES] =  ["Timeline of Theseus"] ;
-    wall_possibilities[ZAP] = ["Thor's Banana"] ;
     wall_possibilities[SOUL] = ["Know thyself."] ;
     wall_possibilities[ANGER] = ["Dethrone Creation"] ;
-    wall_possibilities[WEB] =  ["Puppet Master"] ;
     wall_possibilities[ROYALTY] =  ["Excalibur"] ;
-    wall_possibilities[ENDINGS] =  ["The End"] ;
-    wall_possibilities[KNOWING] = ["Omniscience"] ;
     wall_possibilities[GUIDING] = ["Path To Victory"] ;
     wall_possibilities[CRAFTING] =  ["Legendary Forge"];
-    wall_possibilities[LANGUAGE] = ["Topple the Tower"] ;
     wall_possibilities[ADDICTION] = ["Dealer's Delight"];
     wall_possibilities[SPYING] =["Surveillance State"] ;
-    wall_possibilities[CLOWNS] =["Ringmaster"] ;
     wall_possibilities[DOLLS] = ["Automatonophobia "] ;
     wall_possibilities[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     wall_possibilities[DARKNESS] =  ["Night Eternal"] ;
