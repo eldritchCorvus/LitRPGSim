@@ -15,16 +15,16 @@ import { FLOOR, WALL } from "../../Modules/ThemeStorage";
 interface RoomProps {
     themes: Theme[];
     seededRandom: SeededRandom;
+    numberDoors: number;
   }
 
   const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Room:React.FC<RoomProps> = ({themes,seededRandom}) => {
+export const Room:React.FC<RoomProps> = ({themes,seededRandom,numberDoors}) => {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
        //this shoould change any time the themes do.
-       const [numberExits, setNumberExits] = useState(3);
 
     const drawRoom = async (canvas: HTMLCanvasElement, themes:Theme[])=>{
         console.log("JR NOTE: drawing room with themes",themes);
@@ -49,15 +49,9 @@ export const Room:React.FC<RoomProps> = ({themes,seededRandom}) => {
 
         const door:any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;
         const rug:any = await addImageProcess(loadSecretImage('Walkabout/rug.png')) as HTMLImageElement;
-        drawDoors(canvas,numberExits,door, rug);
+        drawDoors(canvas,numberDoors,door, rug);
 
     }
-
-    useEffect(()=>{
-        //seed is number of letters in the first themes name.
-        const rand = new SeededRandom(themes[0].key.length);
-        setNumberExits(rand.getRandomNumberBetween(1,3));
-    },[themes]);
 
     useEffect(()=>{
         if(canvasRef.current){

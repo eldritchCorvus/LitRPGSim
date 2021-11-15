@@ -62,6 +62,7 @@ export const WalkAround = () => {
         top: ${(props: PlayerProps) => props.topSpawn}px;
     `
 
+    //number of themes/2 is how many doors to have.
     const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
     const [seededRandom] = useState(new SeededRandom(216));
     const [chatHelp, setChatHelp] = useState(false);
@@ -84,7 +85,28 @@ export const WalkAround = () => {
     */
 
     const childRoomThemes = (rand: SeededRandom)=>{
-        return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+        const roll = seededRandom.nextDouble();
+        if(roll>0.6){
+            //add a theme, but don't go over 6
+            if(themes.length < 6){
+                return [...themes,rand.pickFrom(Object.values(all_themes))];
+
+            }else{
+                return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+            }
+
+        }else if (roll > 0.3){
+            //remove a theme, but don't go under one
+            if(themes.length > 1){
+                return [...themes.slice(1)];
+
+            }else{
+                return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+            }
+        }else{
+            //same amount just one different
+            return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+        }
     }
 
     const goNorth = ()=>{
@@ -111,6 +133,8 @@ export const WalkAround = () => {
         setThemes(childRoomThemes(tmpRand));
     }
 
+    const numberDoors=()=>{return (Math.ceil(themes.length+1)/2)}
+
     //where is the player? are they near a door?
     const checkForDoor =(top: number, left: number)=>{
         //TODO check how many doors actually exist
@@ -121,17 +145,20 @@ export const WalkAround = () => {
         const wanderer_radius = 25;
         let nearDoor = false;
 
-        if(distanceWithinRadius(wanderer_radius,NORTH[0],NORTH[1] ,left,top)){
-            nearDoor = true;
-            goNorth();
-        }
 
+
+        //there will ALWAYS be a door to the south at the very minimum
         if(distanceWithinRadius(wanderer_radius,SOUTH[0],SOUTH[1] ,left,top)){
             goSouth();
             nearDoor = true;
         }
 
-        if(distanceWithinRadius(wanderer_radius,EAST[0],EAST[1] ,left,top)){
+        if(numberDoors() > 1 && distanceWithinRadius(wanderer_radius,NORTH[0],NORTH[1] ,left,top)){
+            nearDoor = true;
+            goNorth();
+        }
+
+        if(numberDoors() > 2 && distanceWithinRadius(wanderer_radius,EAST[0],EAST[1] ,left,top)){
             goEast();
             nearDoor = true;
         }
@@ -204,23 +231,22 @@ export const WalkAround = () => {
         <Fragment>
             <RoomContainer>
 
-            <Room themes={themes} seededRandom={seededRandom}/>
+            <Room themes={themes} numberDoors = {numberDoors()} seededRandom={seededRandom}/>
 
             <Player ref={playerRef}src={real_eye} id="player" leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}></Player>
             </RoomContainer>
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>propogate most themes as having custom walls and floors</li>
-                <li>number of doors is procedural but seeded (at least one).</li>
-                <li>all doors lead to the same place because if you force it to be a game it pettily refuses to be a good one</li>
                 <li>when enter room, small chance of sensory flavor text from theme. (smell, sound, etc)</li>
+                <li>front and back wall items for corruption</li>
+                <li>front and back floor items for corruption</li>
                 <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>
                 <li>spawn floor items (with text) from theme (both background (carpet, holes, etc) and foreground)</li>
                 <li>if approach an item, flavor text</li>
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
-                <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example) spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
+                <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>coffin, credits</li>
 
 

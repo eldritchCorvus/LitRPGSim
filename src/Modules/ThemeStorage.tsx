@@ -387,7 +387,7 @@ const initFloorPossibilities = () =>{
 
     floor_possibilities[LOVE] = ["carpetfloor.png","fancywoodfloor.png"];
     floor_possibilities[DECAY] = ["geometricfloor.png","brickfloor3.png","stonefloor.png"] ;
-    floor_possibilities[BUGS] =  ["darkcorruptionfloor.png","dirtfloor.png","dirtfloor.png","dirtfloor.png"];
+    floor_possibilities[BUGS] =  ["dirtfloor.png","dirtfloor.png","dirtfloor.png"];
     floor_possibilities[TWISTING] =  ["spiral.png","static.png"];
     floor_possibilities[BURIED] =  ["dirtfloor.png"];
     floor_possibilities[OCEAN] =  ["waterfloor2.png","waterfloor.png","waterfloor3.png"];

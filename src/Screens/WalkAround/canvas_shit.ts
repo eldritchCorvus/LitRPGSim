@@ -12,14 +12,17 @@ export const drawDoors = (canvas:HTMLCanvasElement,numberExits:number, doorImage
         return;
     }
     if(numberExits > 0){
+        //south
         context.drawImage(rugImage,250,475);
     }
     if(numberExits > 1){
+        //north
         context.drawImage(rugImage,250,105);
         context.drawImage(doorImage,250,37);
 
     }
     if(numberExits > 2){
+        //east
         context.drawImage(rugImage,475,250);
     }
 }
