@@ -410,6 +410,7 @@ const initFloorPossibilities = () =>{
     floor_possibilities[WEB] =  ["web.png"] ;
     floor_possibilities[HEALING] =  ["tilefloor.png"];
     floor_possibilities[ADDICTION] = ["carpet.png"];
+    floor_possibilities[LONELY] = ["snow.png"];
 
     /*floor_possibilities[ART] =  ["Perfect Moment"];
     floor_possibilities[TIME] =  ["Stopped Clock"];
@@ -457,8 +458,9 @@ const initWallPossibilities = () =>{
     wall_possibilities[ZAP] = ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
     wall_possibilities[TECHNOLOGY] =  ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
     wall_possibilities[SCIENCE] = ["metalwall1.png","metalwall2.png","metalwall3.png"]
-    wall_possibilities[PLANTS] = ["leafwalls.png","hedgewall.png"];
-    wall_possibilities[HUNTING] = ["leafwalls.png","hedgewall.png"];
+    wall_possibilities[PLANTS] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
+    wall_possibilities[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
+    wall_possibilities[GUIDING] = ["pinetrees.png"] ;
 
     //todo
 
