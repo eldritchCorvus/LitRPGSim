@@ -69,7 +69,10 @@ export const WalkAround = () => {
     const [flavorText, setFlavorText] = useState<string|undefined>()
     const [chatHelp, setChatHelp] = useState(false);
     const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
-    const [currentPlayerLocation, setCurrentPLayerLocation] = useState({left:250,top:450});
+
+    //useRef is liek state but for when you don't want to trigger a render.
+    const playerLocationRef = useRef(spawnPoint);
+
 
     const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
         const first = (x1-x2)**2;
@@ -142,7 +145,7 @@ export const WalkAround = () => {
     }
 
     useEffect(()=>{
-        setCurrentPLayerLocation({top:spawnPoint.top, left:spawnPoint.left})
+        playerLocationRef.current =({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
 
     const numberDoors=useMemo(()=>{
@@ -215,7 +218,7 @@ export const WalkAround = () => {
                 p.style.left = `${prevLeft+10}px`;
             }
             //because this changes state calling this used to rerender the room (which would rerandomize its appearance), memoizing numberDoors fixed this
-            setCurrentPLayerLocation({top:parseInt(p.style.top), left: parseInt(p.style.top)})
+            playerLocationRef.current=({top:parseInt(p.style.top), left: parseInt(p.style.top)})
             checkForDoor(prevTop, prevLeft);
         }
     }
@@ -248,7 +251,7 @@ export const WalkAround = () => {
             <RoomContainer>
 
             <Room themeKeys={themeKeys} numberDoors = {numberDoors} seededRandom={seededRandom}/>
-            {flavorText ?<FlavorPopup text={flavorText} left={currentPlayerLocation.left} top={currentPlayerLocation.top}/>:null}
+            {flavorText ?<FlavorPopup text={flavorText} left={playerLocationRef.current.left} top={playerLocationRef.current.top}/>:null}
             <Player ref={playerRef}src={real_eye} id="player" leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}></Player>
             </RoomContainer>
             <div>TODO:
