@@ -1,7 +1,7 @@
 
 import real_eye from './../../images/real_eye.png';
 
-import { Fragment, useEffect, useRef, useState } from "react"
+import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
 import { BUGS, DECAY, LOVE, TWISTING } from '../../Modules/ThemeStorage';
@@ -12,6 +12,7 @@ import x_icon from './../..//images/Walkabout/icons8-x-50.png';
 import { HelpChatBox } from './HelpChatBox';
 import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../..';
 import SeededRandom from '../../Utils/SeededRandom';
+import FlavorPopup from './FlavorPopup';
 
 
 export const WalkAround = () => {
@@ -63,10 +64,13 @@ export const WalkAround = () => {
     `
 
     //number of themes/2 is how many doors to have.
-    const [themes,setThemes] = useState([all_themes[BUGS],all_themes[DECAY],all_themes[LOVE]]);
+    const [themeKeys,setThemeKeys] = useState<string[]>([all_themes[BUGS].key,all_themes[DECAY].key,all_themes[LOVE].key]);
     const [seededRandom] = useState(new SeededRandom(216));
+    const [flavorText, setFlavorText] = useState<string|undefined>()
     const [chatHelp, setChatHelp] = useState(false);
     const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
+    const [currentPlayerLocation, setCurrentPLayerLocation] = useState({left:250,top:450});
+
     const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
         const first = (x1-x2)**2;
         const second = (y1-y2)**2;
@@ -88,33 +92,37 @@ export const WalkAround = () => {
         const roll = seededRandom.nextDouble();
         if(roll>0.6){
             //add a theme, but don't go over 6
-            if(themes.length < 6){
-                return [...themes,rand.pickFrom(Object.values(all_themes))];
+            if(themeKeys.length < 6){
+                return [...themeKeys,rand.pickFrom(Object.values(all_themes)).key];
 
             }else{
-                return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+                return [...themeKeys.slice(1),rand.pickFrom(Object.values(all_themes)).key];
             }
 
         }else if (roll > 0.3){
             //remove a theme, but don't go under one
-            if(themes.length > 1){
-                return [...themes.slice(1)];
+            if(themeKeys.length > 1){
+                return [...themeKeys.slice(1)];
 
             }else{
-                return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+                return [...themeKeys.slice(1),rand.pickFrom(Object.values(all_themes)).key];
             }
         }else{
             //same amount just one different
-            return [...themes.slice(1),rand.pickFrom(Object.values(all_themes))];
+            return [...themeKeys.slice(1),rand.pickFrom(Object.values(all_themes)).key];
         }
     }
+
+    useEffect(()=>{
+        setFlavorText(themeKeys.map((theme)=>{return theme}).join(",") + ": todo generate smell/sound etc");
+    },[themeKeys])
 
     const goNorth = ()=>{
         //put you to the south
         setSpawnPoint({left: 250, top: 475-50});
         const tmpRand = new SeededRandom(0+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
-        setThemes(childRoomThemes(tmpRand));
+        setThemeKeys(childRoomThemes(tmpRand));
     }
 
     const goSouth = ()=>{
@@ -122,7 +130,7 @@ export const WalkAround = () => {
         setSpawnPoint({left: 250, top: 105+50});
         const tmpRand = new SeededRandom(1+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
-        setThemes(childRoomThemes(tmpRand));
+        setThemeKeys(childRoomThemes(tmpRand));
     }
 
     const goEast = ()=>{
@@ -130,10 +138,16 @@ export const WalkAround = () => {
         setSpawnPoint({left: 25+50, top: 250});
         const tmpRand = new SeededRandom(2+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
-        setThemes(childRoomThemes(tmpRand));
+        setThemeKeys(childRoomThemes(tmpRand));
     }
 
-    const numberDoors=()=>{return (Math.ceil(themes.length+1)/2)}
+    useEffect(()=>{
+        setCurrentPLayerLocation({top:spawnPoint.top, left:spawnPoint.left})
+    }, [spawnPoint])
+
+    const numberDoors=useMemo(()=>{
+        return Math.ceil(themeKeys.length+1)/2;
+    },[themeKeys]);
 
     //where is the player? are they near a door?
     const checkForDoor =(top: number, left: number)=>{
@@ -153,12 +167,12 @@ export const WalkAround = () => {
             nearDoor = true;
         }
 
-        if(numberDoors() > 1 && distanceWithinRadius(wanderer_radius,NORTH[0],NORTH[1] ,left,top)){
+        if(numberDoors > 1 && distanceWithinRadius(wanderer_radius,NORTH[0],NORTH[1] ,left,top)){
             nearDoor = true;
             goNorth();
         }
 
-        if(numberDoors() > 2 && distanceWithinRadius(wanderer_radius,EAST[0],EAST[1] ,left,top)){
+        if(numberDoors > 2 && distanceWithinRadius(wanderer_radius,EAST[0],EAST[1] ,left,top)){
             goEast();
             nearDoor = true;
         }
@@ -200,6 +214,8 @@ export const WalkAround = () => {
             if((key === "d" || key === "ArrowRight")&& prevLeft < maxLeft ){
                 p.style.left = `${prevLeft+10}px`;
             }
+            //because this changes state calling this used to rerender the room (which would rerandomize its appearance), memoizing numberDoors fixed this
+            setCurrentPLayerLocation({top:parseInt(p.style.top), left: parseInt(p.style.top)})
             checkForDoor(prevTop, prevLeft);
         }
     }
@@ -231,14 +247,14 @@ export const WalkAround = () => {
         <Fragment>
             <RoomContainer>
 
-            <Room themes={themes} numberDoors = {numberDoors()} seededRandom={seededRandom}/>
-
+            <Room themeKeys={themeKeys} numberDoors = {numberDoors} seededRandom={seededRandom}/>
+            {flavorText ?<FlavorPopup text={flavorText} left={currentPlayerLocation.left} top={currentPlayerLocation.top}/>:null}
             <Player ref={playerRef}src={real_eye} id="player" leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}></Player>
             </RoomContainer>
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>when enter room, small chance of sensory flavor text from theme. (smell, sound, etc)</li>
+                <li>when enter room, small chance of sensory flavor text from theme. (smell, sound, etc) centered on wanderer location</li>
                 <li>front and back wall items for corruption (less "3d" so easeir to think about)</li>
                 <li>front and back floor items for corruption</li>
                 <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>
