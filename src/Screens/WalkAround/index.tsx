@@ -258,6 +258,7 @@ export const WalkAround = () => {
 
                 FIVE MINUTE TODO.
                 <li>when enter room, small chance of sensory flavor text from theme. (smell, sound, etc) centered on wanderer location</li>
+                <li>flavor text vanishes after three seconds or when you hit enter</li>
                 <li>front and back wall items for corruption (less "3d" so easeir to think about)</li>
                 <li>front and back floor items for corruption</li>
                 <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>

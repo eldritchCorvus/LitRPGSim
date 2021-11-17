@@ -24,6 +24,7 @@ export const Popup = styled.div`
     font-weight: bold;
     padding-right: 13px;
     margin: 10px;
+    width: 400px;
     background: #d1b056;
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 `
@@ -65,7 +66,7 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
     return(
         <Fragment key={text}>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} style={{border:"none",outline:"none", position: "fixed", top: `${top}px`, left:`${left}px`, width: "600px"} }>
+      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"27%", width: "600px"} }>
         <Popup>
             <PopupContent>{text}</PopupContent>
         </Popup>

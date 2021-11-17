@@ -409,7 +409,7 @@ const initFloorPossibilities = () =>{
     floor_possibilities[FREEDOM] =  ["clouds.png"];
     floor_possibilities[WEB] =  ["web.png"] ;
     floor_possibilities[HEALING] =  ["tilefloor.png"];
-    floor_possibilities[ADDICTION] = ["carpet.png"];
+    floor_possibilities[ADDICTION] = ["carpetfloor.png"];
     floor_possibilities[LONELY] = ["snow.png"];
 
     /*floor_possibilities[ART] =  ["Perfect Moment"];
