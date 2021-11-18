@@ -4,7 +4,7 @@ import real_eye from './../../images/real_eye.png';
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
-import { BUGS, DECAY, LOVE, TWISTING } from '../../Modules/ThemeStorage';
+import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, TWISTING } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
 import help_icon from './../..//images/Walkabout/icons8-chat-64.png';
 import x_icon from './../..//images/Walkabout/icons8-x-50.png';
@@ -117,7 +117,26 @@ export const WalkAround = () => {
     }
 
     useEffect(()=>{
-        setFlavorText(themeKeys.map((theme)=>{return theme}).join(",") + ": todo generate smell/sound etc");
+        const flavorChance = 1.0;
+        if(seededRandom.nextDouble()<flavorChance){
+            const chosen_theme = all_themes[seededRandom.pickFrom(themeKeys)];
+            const senses = [SMELL,SOUND,SMELL,SOUND,SMELL,SOUND,FEELING,FEELING,FEELING,FEELING,TASTE];
+            const sense = seededRandom.pickFrom(senses);
+            let phrase = "";
+            if(sense === SMELL){
+                phrase = `The smell of ${chosen_theme.pickPossibilityFor(seededRandom, sense)} floods your nose.`;
+            }else if(sense === SOUND){
+                phrase = `The sound of ${chosen_theme.pickPossibilityFor(seededRandom, sense)} floods your ears.`;
+
+            }else if(sense === FEELING){
+                phrase = `Everything feels like ${chosen_theme.pickPossibilityFor(seededRandom, sense)}.`;
+
+            }else if(sense ===TASTE){
+                phrase = `Oh god, why can you taste ${chosen_theme.pickPossibilityFor(seededRandom, sense)}.`;
+
+            }
+            setFlavorText(phrase);
+        }
     },[themeKeys])
 
     const goNorth = ()=>{
@@ -267,7 +286,7 @@ export const WalkAround = () => {
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
-                <li>coffin, credits</li>
+                <li>secret hax coffin to the left, credits</li>
 
 
 
