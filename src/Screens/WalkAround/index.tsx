@@ -286,12 +286,8 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
+                <li>why aren't as many items as i think on the floor? (DIAGONAL: im moving x and y at the same time cuz im tired)</li>
                 <li>use x,y,width,height to determine if i can view flavor text</li>
-                <li>along x axis, render items without overlap</li>
-                <li>front and back wall items for corruption (less "3d" so easeir to think about)</li>
-                <li>front and back floor items for corruption</li>
-                <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>
-                <li>spawn floor items (with text) from theme (both background (carpet, holes, etc) and foreground)</li>
                 <li>if approach an item, flavor text</li>
                 <li>spawn wall and floor vents rarely, with text</li>
                 <li>spawn hydration stations</li>

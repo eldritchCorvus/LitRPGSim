@@ -112,6 +112,8 @@ export function initThemes(){
         string_possibilities[ThemeStorage.FLOOR] = ThemeStorage.floor_possibilities[key];
         string_possibilities[ThemeStorage.WALLFOREGROUND] = ThemeStorage.wall_foregrounds[key];
         string_possibilities[ThemeStorage.WALLBACKGROUND] = ThemeStorage.wall_backgrounds[key];
+        string_possibilities[ThemeStorage.FLOORBACKGROUND] = ThemeStorage.floor_backgrounds[key];
+        string_possibilities[ThemeStorage.FLOORFOREGROUND] = ThemeStorage.floor_foregrounds[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);

@@ -71,14 +71,9 @@ export const drawWall = (canvas: HTMLCanvasElement, wallImage: HTMLImageElement)
     context.fillRect(padding, padding, canvas.width - padding * 2, 120);
 }
 
-
-//yes i COULD take in an image but....i want this to have the logic of placing them
-export const drawWallObjects = async (key:string,folder:string,canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
-    /*
-        if rand > 0.5 ,pick a theme at random, grab a WALLBACKGROUND from it.
-        position it a random amount above the bottom of the floor (but not higher than it can be);
-    */
+export const drawWallObjects = async (key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
     let current_x = 0;
+
     const padding = 10;
     const context = canvas.getContext("2d");
     const ret: RenderedItems[] = [];
@@ -86,8 +81,7 @@ export const drawWallObjects = async (key:string,folder:string,canvas: HTMLCanva
     if (!context) {
         return ret;
     }
-    const floor_bottom = 120;
-
+    //todo also need to loop on y.
     while (current_x < canvas.width) {
         const chosen_theme: Theme = seededRandom.pickFrom(themes);
         const item = chosen_theme.pickPossibilityFor(seededRandom, key);
@@ -95,20 +89,59 @@ export const drawWallObjects = async (key:string,folder:string,canvas: HTMLCanva
             const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
             current_x += image.width;
             //don't clip the wall border, don't go past the floor
-            if(current_x+padding+image.width > canvas.width){
+            if (current_x + padding + image.width > canvas.width) {
                 return ret;
             }
-            context.drawImage(image, current_x, seededRandom.getRandomNumberBetween(padding, Math.max(padding,floor_bottom-image.height)));
-            ret.push({ x: current_x, y: 0, width: image.width, height: image.height, flavorText: item.desc })
+            const y = seededRandom.getRandomNumberBetween(padding, Math.max(padding, image.height));
+            context.drawImage(image, current_x, y);
+            ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
 
         } else {
             current_x += 50;
         }
     }
-
-
     return ret;
-
-
-
 }
+
+
+
+//yes i COULD take in an image but....i want this to have the logic of placing them
+export const drawFloorObjects = async (key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
+    let start_x = 0;
+    const floor_bottom = 120;
+    let start_y = floor_bottom;
+
+    const padding = 10;
+    const context = canvas.getContext("2d");
+    const ret: RenderedItems[] = [];
+
+    if (!context) {
+        return ret;
+    }
+
+    //is it a good idea to mutate my for loop while in it? Probably not! but its almost midnight.
+    for(let x = start_x; x<canvas.width-padding;x+=50){
+        for(let y = start_y; x<canvas.height-padding;y+=50){
+            const chosen_theme: Theme = seededRandom.pickFrom(themes);
+            const item = chosen_theme.pickPossibilityFor(seededRandom, key);
+            if (item && item.src && seededRandom.nextDouble() > 0.1) {
+                const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
+                if (x + padding + image.width > canvas.width) {
+                    return ret;
+                }
+    
+                if (y + padding + image.height > canvas.height) {
+                    return ret;
+                }
+                context.drawImage(image, x, y);
+                ret.push({ x: x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+    
+            } else {
+                x += 50;
+                y += 50;
+            }
+        }
+    }
+    return ret;
+}
+
