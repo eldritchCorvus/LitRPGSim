@@ -1159,7 +1159,7 @@ const initSounds = () =>{
     sound_possibilities[HEALING] =  ["ambient hospital work","a healing spell","a nurse yelling 'stat'"];
     sound_possibilities[PLANTS] = ["leaves rustling","branches rustling","birds singing"];
     sound_possibilities[HUNTING] = ["something running away from you","something crying out in fear and exhaustion","growling"];
-    sound_possibilities[DECAY] = ["the walls collapsing from rot","the floor groaning with decay","your own body starting to decay"] ;
+    sound_possibilities[DECAY] = ["walls collapsing from rot","floor groaning with decay","your own body starting to decay"] ;
     sound_possibilities[CHOICES] =  ["hushed silence","a game show","a coin landing somewhere"] ;
     sound_possibilities[ZAP] = ["an electrical hum","lightning striking","a tesla coil"] ;
     sound_possibilities[LOVE] = ["romantic music","a love ballad","a happy sigh"];

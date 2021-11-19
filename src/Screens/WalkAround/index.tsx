@@ -117,23 +117,25 @@ export const WalkAround = () => {
     }
 
     useEffect(()=>{
-        const flavorChance = 1.0;
+        const flavorChance = 0.2;
         if(seededRandom.nextDouble()<flavorChance){
             const chosen_theme = all_themes[seededRandom.pickFrom(themeKeys)];
             const senses = [SMELL,SOUND,SMELL,SOUND,SMELL,SOUND,FEELING,FEELING,FEELING,FEELING,TASTE];
             const sense = seededRandom.pickFrom(senses);
             let phrase = "";
+            const input = chosen_theme.pickPossibilityFor(seededRandom, sense);
             if(sense === SMELL){
-                phrase = `The smell of ${chosen_theme.pickPossibilityFor(seededRandom, sense)} floods your nose.`;
+                const options = [`You breathe through your mouth to avoid the overwhelming smell of ${input}.`,`Why do you suddenly smell ${input}?`,`You catch a faint whiff of ${input}. `,`The smell of ${input} floods your nose.`];
+                phrase = seededRandom.pickFrom(options);
             }else if(sense === SOUND){
-                phrase = `The sound of ${chosen_theme.pickPossibilityFor(seededRandom, sense)} floods your ears.`;
-
+                const options = [`Your ears strain to pick up the sound of ${input}.`,`You can barely think against the cacophony of ${input}.`,`The sound of ${input} is in the air.`,`Your head is splitting with the sound of ${input}.`,`You hear the faint sound of ${input} in the distance.`];
+                phrase = seededRandom.pickFrom(options);
             }else if(sense === FEELING){
-                phrase = `Everything feels like ${chosen_theme.pickPossibilityFor(seededRandom, sense)}.`;
-
+                const options = [`Everything feels like ${input}.`,`Your skin tingles with the sensation of ${input}.`];
+                phrase = seededRandom.pickFrom(options);
             }else if(sense ===TASTE){
-                phrase = `Oh god, why can you taste ${chosen_theme.pickPossibilityFor(seededRandom, sense)}.`;
-
+                const options = [`You can't get the taste of ${input} out of your mouth.`,`Oh god why can you taste ${input}?`];
+                phrase = seededRandom.pickFrom(options);
             }
             setFlavorText(phrase);
         }
@@ -164,6 +166,7 @@ export const WalkAround = () => {
     }
 
     useEffect(()=>{
+        setFlavorText(undefined);
         playerLocationRef.current =({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
 
@@ -247,10 +250,10 @@ export const WalkAround = () => {
     }
 
     useEffect(() => {
-        window.addEventListener('keypress', handleUserKeyPress);
+        window.addEventListener('keydown', handleUserKeyPress);
     
         return () => {
-          window.removeEventListener('keypress', handleUserKeyPress);
+          window.removeEventListener('keydown', handleUserKeyPress);
         };
       });
 
