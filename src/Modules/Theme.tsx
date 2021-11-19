@@ -7,7 +7,7 @@ interface ThemeMap {
 }
 
 interface PossibilitiesListMap {
-    [details: string] : string[];
+    [details: string] : any[];
 }
 
 
@@ -110,6 +110,8 @@ export function initThemes(){
         string_possibilities[ThemeStorage.EFFECTS] = ThemeStorage.effect_possibilities[key];
         string_possibilities[ThemeStorage.WALL] = ThemeStorage.wall_possibilities[key];
         string_possibilities[ThemeStorage.FLOOR] = ThemeStorage.floor_possibilities[key];
+        string_possibilities[ThemeStorage.WALLFOREGROUND] = ThemeStorage.wall_foregrounds[key];
+        string_possibilities[ThemeStorage.WALLBACKGROUND] = ThemeStorage.wall_backgrounds[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
         new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);

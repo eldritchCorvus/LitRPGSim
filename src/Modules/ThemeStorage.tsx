@@ -29,6 +29,9 @@ export const SOUND = "SOUND";
 export const EFFECTS = "EFFECTS";
 export const WALL = "WALL";
 export const FLOOR = "FLOOR";
+export const WALLBACKGROUND = "WALLBACKGROUND";
+export const WALLFOREGROUND = "WALLFOREGROUND";
+
 
 
 
@@ -95,11 +98,22 @@ export interface ThemePossibilitiesMap {
     [details: string] : string[];
 }
 
+export interface  ImageWithDesc{
+    src: string;
+    desc: string;
+}
+export interface ImageWithDescMap {
+    [details: string] : ImageWithDesc[];
+}
+
 export interface MemoryMap {
     [details: string] : Memory[];
 }
 
 //noun_possibility, adj_possibility (glowing, shimmering, walking, ceasing)
+export let wall_foregrounds:ImageWithDescMap={}
+export let wall_backgrounds:ImageWithDescMap={}
+
 export let stats_map:ThemeStatMap = {};
 export let person_posibilities:ThemePossibilitiesMap = {};
 export let object_possibilities:ThemePossibilitiesMap = {};
@@ -411,11 +425,12 @@ const initFloorPossibilities = () =>{
     floor_possibilities[HEALING] =  ["tilefloor.png"];
     floor_possibilities[ADDICTION] = ["carpetfloor.png"];
     floor_possibilities[LONELY] = ["snow.png"];
+    floor_possibilities[FLESH] =  ["flesh.png"];
+
 
     /*floor_possibilities[ART] =  ["Perfect Moment"];
     floor_possibilities[TIME] =  ["Stopped Clock"];
 
-    floor_possibilities[FLESH] =  ["Physical God"];
     floor_possibilities[MATH] =  ["Calculus Pop Quiz"];
     floor_possibilities[DEATH] =  ["Your Grave"];
     floor_possibilities[APOCALYPSE] =  ["Ragnarok"];
@@ -434,6 +449,116 @@ const initFloorPossibilities = () =>{
     floor_possibilities[MUSIC] =  ["Symphonic Synthesia"] ;
     floor_possibilities[DEFENSE] =  ["Excalibur"] ;
     floor_possibilities[QUESTING] = ["Satisfaction"] ;*/
+}
+
+
+const initWallForegrounds= ()=>{
+    wall_foregrounds[DECAY] = [{src:"decayingwindow.png", desc:"TODO"}] ;
+
+    /*wall_possibilities[LOVE] = ["stonewalls.png","roses.png"];
+    wall_foregrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
+    wall_foregrounds[TWISTING] =  ["spiral.png"];
+    wall_foregrounds[ENDINGS] =  ["curtains.png"] ;
+    wall_foregrounds[LANGUAGE] = ["books.png"];
+    wall_foregrounds[KNOWING] = ["blackboard.png","books.png"];;
+    wall_foregrounds[STEALING] =  ["jail.png","goldwalls.png"];
+    wall_foregrounds[MATH] =  ["blackboard.png"];
+    wall_foregrounds[BURIED] =  ["dirtwall.png"];
+    wall_foregrounds[SPACE] = ["stars.png","clouds.png"];
+    wall_foregrounds[OCEAN] =  ["waterwall.png"];
+    wall_foregrounds[CLOWNS] =["curtains.png"] ;
+    wall_foregrounds[WEB] =  ["web.png"] ;
+    wall_foregrounds[HEALING] =  ["tilewall.png"];
+    wall_foregrounds[FREEDOM] =  ["clouds.png"];
+    wall_foregrounds[FIRE] =  ["lavawall.png"];
+    wall_foregrounds[LIGHT] =  ["lightwall.png"];
+    wall_foregrounds[ZAP] = ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
+    wall_foregrounds[TECHNOLOGY] =  ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
+    wall_foregrounds[SCIENCE] = ["metalwall1.png","metalwall2.png","metalwall3.png"]
+    wall_foregrounds[PLANTS] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
+    wall_foregrounds[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
+    wall_foregrounds[GUIDING] = ["pinetrees.png"] ;
+    wall_foregrounds[ART] =  ["Perfect Moment"];
+    wall_foregrounds[TIME] =  ["Stopped Clock"];
+
+
+    wall_foregrounds[FLESH] =  ["Physical God"];
+    wall_foregrounds[DEATH] =  ["Your Grave"];
+    wall_foregrounds[APOCALYPSE] =  ["Ragnarok"];
+    wall_foregrounds[ANGELS] =  ["Judgement Day"];
+    wall_foregrounds[SERVICE] =  ["Special Service"];
+    wall_foregrounds[FAMILY] =  ["Sins of the Father"];
+    wall_foregrounds[MAGIC] =  ["Ritual of Ragnarok"];
+    wall_foregrounds[CHOICES] =  ["Timeline of Theseus"] ;
+    wall_foregrounds[SOUL] = ["Know thyself."] ;
+    wall_foregrounds[ANGER] = ["Dethrone Creation"] ;
+    wall_foregrounds[ROYALTY] =  ["Excalibur"] ;
+    wall_foregrounds[GUIDING] = ["Path To Victory"] ;
+    wall_foregrounds[CRAFTING] =  ["Legendary Forge"];
+    wall_foregrounds[ADDICTION] = ["Dealer's Delight"];
+    wall_foregrounds[SPYING] =["Surveillance State"] ;
+    wall_foregrounds[DOLLS] = ["Automatonophobia "] ;
+    wall_foregrounds[OBFUSCATION] = ["Knowledge Forever Lost"] ;
+    wall_foregrounds[DARKNESS] =  ["Night Eternal"] ;
+    wall_foregrounds[KILLING] =  ["Bloodbath"];
+    wall_foregrounds[MUSIC] =  ["Symphonic Synthesia"] ;
+    wall_foregrounds[DEFENSE] =  ["Excalibur"] ;
+    wall_foregrounds[QUESTING] = ["Satisfaction"] ;*/
+}
+
+const initWallBackgrounds= ()=>{
+    wall_backgrounds[DECAY] = [{src:"decayingwall.png", desc:"TODO"}] ;
+
+    /*
+    wall_backgrounds[LOVE] = ["stonewalls.png","roses.png"];
+    wall_backgrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
+    wall_backgrounds[TWISTING] =  ["spiral.png"];
+    wall_backgrounds[ENDINGS] =  ["curtains.png"] ;
+    wall_backgrounds[LANGUAGE] = ["books.png"];
+    wall_backgrounds[KNOWING] = ["blackboard.png","books.png"];;
+    wall_backgrounds[STEALING] =  ["jail.png","goldwalls.png"];
+    wall_backgrounds[MATH] =  ["blackboard.png"];
+    wall_backgrounds[BURIED] =  ["dirtwall.png"];
+    wall_backgrounds[SPACE] = ["stars.png","clouds.png"];
+    wall_backgrounds[OCEAN] =  ["waterwall.png"];
+    wall_backgrounds[CLOWNS] =["curtains.png"] ;
+    wall_backgrounds[WEB] =  ["web.png"] ;
+    wall_backgrounds[HEALING] =  ["tilewall.png"];
+    wall_backgrounds[FREEDOM] =  ["clouds.png"];
+    wall_backgrounds[FIRE] =  ["lavawall.png"];
+    wall_backgrounds[LIGHT] =  ["lightwall.png"];
+    wall_backgrounds[ZAP] = ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
+    wall_backgrounds[TECHNOLOGY] =  ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
+    wall_backgrounds[SCIENCE] = ["metalwall1.png","metalwall2.png","metalwall3.png"]
+    wall_backgrounds[PLANTS] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
+    wall_backgrounds[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
+    wall_backgrounds[GUIDING] = ["pinetrees.png"] ;
+    wall_backgrounds[ART] =  ["Perfect Moment"];
+    wall_backgrounds[TIME] =  ["Stopped Clock"];
+
+
+    wall_backgrounds[FLESH] =  ["Physical God"];
+    wall_backgrounds[DEATH] =  ["Your Grave"];
+    wall_backgrounds[APOCALYPSE] =  ["Ragnarok"];
+    wall_backgrounds[ANGELS] =  ["Judgement Day"];
+    wall_backgrounds[SERVICE] =  ["Special Service"];
+    wall_backgrounds[FAMILY] =  ["Sins of the Father"];
+    wall_backgrounds[MAGIC] =  ["Ritual of Ragnarok"];
+    wall_backgrounds[CHOICES] =  ["Timeline of Theseus"] ;
+    wall_backgrounds[SOUL] = ["Know thyself."] ;
+    wall_backgrounds[ANGER] = ["Dethrone Creation"] ;
+    wall_backgrounds[ROYALTY] =  ["Excalibur"] ;
+    wall_backgrounds[GUIDING] = ["Path To Victory"] ;
+    wall_backgrounds[CRAFTING] =  ["Legendary Forge"];
+    wall_backgrounds[ADDICTION] = ["Dealer's Delight"];
+    wall_backgrounds[SPYING] =["Surveillance State"] ;
+    wall_backgrounds[DOLLS] = ["Automatonophobia "] ;
+    wall_backgrounds[OBFUSCATION] = ["Knowledge Forever Lost"] ;
+    wall_backgrounds[DARKNESS] =  ["Night Eternal"] ;
+    wall_backgrounds[KILLING] =  ["Bloodbath"];
+    wall_backgrounds[MUSIC] =  ["Symphonic Synthesia"] ;
+    wall_backgrounds[DEFENSE] =  ["Excalibur"] ;
+    wall_backgrounds[QUESTING] = ["Satisfaction"] ;*/
 }
 
 const initWallPossibilities = () =>{
@@ -461,6 +586,8 @@ const initWallPossibilities = () =>{
     wall_possibilities[PLANTS] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     wall_possibilities[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     wall_possibilities[GUIDING] = ["pinetrees.png"] ;
+    wall_possibilities[FLESH] =  ["flesh.png"];
+
 
     //todo
 
@@ -469,7 +596,6 @@ const initWallPossibilities = () =>{
     wall_possibilities[TIME] =  ["Stopped Clock"];
 
 
-    wall_possibilities[FLESH] =  ["Physical God"];
     wall_possibilities[DEATH] =  ["Your Grave"];
     wall_possibilities[APOCALYPSE] =  ["Ragnarok"];
     wall_possibilities[ANGELS] =  ["Judgement Day"];
@@ -1511,6 +1637,8 @@ export const initThemes = ()=>{
     initSongs();
     initFloorPossibilities();
     initWallPossibilities();
+    initWallBackgrounds();
+    initWallForegrounds();
     initLocDesc();
     initPhilosophy();
     initMonsterDesc();

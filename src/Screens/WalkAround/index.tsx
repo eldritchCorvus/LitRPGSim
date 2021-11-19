@@ -13,6 +13,7 @@ import { HelpChatBox } from './HelpChatBox';
 import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../..';
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
+import { getParameterByName } from '../../Utils/URLUtils';
 
 
 export const WalkAround = () => {
@@ -64,8 +65,11 @@ export const WalkAround = () => {
     `
 
     //number of themes/2 is how many doors to have.
-    const [themeKeys,setThemeKeys] = useState<string[]>([all_themes[BUGS].key,all_themes[DECAY].key,all_themes[LOVE].key]);
-    const [seededRandom] = useState(new SeededRandom(216));
+    const url_themes = getParameterByName("themes", null);
+    console.log("JR NOTE: url_themes are", url_themes)
+    const url_seed = getParameterByName("seed", null);
+    const [themeKeys,setThemeKeys] = useState<string[]>(url_themes? url_themes.split(","):[all_themes[BUGS].key,all_themes[DECAY].key,all_themes[LOVE].key]);
+    const [seededRandom] = useState(new SeededRandom(url_seed?parseInt(url_seed,10):216));
     const [flavorText, setFlavorText] = useState<string|undefined>()
     const [chatHelp, setChatHelp] = useState(false);
     const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
@@ -270,6 +274,7 @@ export const WalkAround = () => {
       },[chatHelp])
 
 
+      console.log("JR NOTE: themekeys are",themeKeys)
     return (
         <Fragment>
             <RoomContainer>
@@ -281,6 +286,7 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
+                <li></li>url param for themes
                 <li>front and back wall items for corruption (less "3d" so easeir to think about)</li>
                 <li>front and back floor items for corruption</li>
                 <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>
@@ -291,7 +297,7 @@ export const WalkAround = () => {
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
-                <li>secret hax coffin to the left, credits</li>
+                <li>secret hax coffin to the left,endless dream, credits</li>
 
 
 
@@ -299,7 +305,6 @@ export const WalkAround = () => {
 
                 <li>endless dream inside the coffin</li>
                 <li>EXTREMELY IMPORTANT: should use seeded random for generating new rooms so it can be mapped.</li>
-                <li>text should get auto lower cased , shit post extensions like 217, 113, etc.  217 says "There's no one here. Leave."</li>
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
                 <li>how should i detect i'm near a door so i can go into a new room?</li>
@@ -307,7 +312,6 @@ export const WalkAround = () => {
                 <li>press enter to interact</li>
                 <li>spawnable tape players (add more secret music, including things that are just audio logs from the closer)</li>
 
-                <li>interact with door you go into new room</li>
                 <li>new theme hash in ThemeStorage (can't just make new one cuz want senses and objects etc) has WalkObject. WalkObject has wall graphic, floor graphic, wall scattered graphics and floor scattered graphics objects with source and text. if any source is null, glitchy placeholder</li>
                 <li>render floor, walls, and a few objects from themes</li>
                 <li>when you interact with an object you get its flavor text (even if its glitchy) </li>

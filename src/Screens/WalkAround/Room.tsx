@@ -55,6 +55,7 @@ export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors}) =
 
     useEffect(()=>{
         if(canvasRef.current){
+            console.log("JR NOTE: themes are",themeKeys)
             drawRoom(canvasRef.current, themeKeys.map((theme)=>all_themes[theme]));
         }
     },[canvasRef,themeKeys])
