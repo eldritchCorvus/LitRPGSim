@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
-import { drawDoors, drawFloor, drawWall, initBlack } from "./canvas_shit";
+import {drawDoors, drawFloor, drawWall, drawWallObjects, initBlack, RenderedItems } from "./canvas_shit";
 
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
-import { FLOOR, WALL } from "../../Modules/ThemeStorage";
+import { FLOOR, WALL, WALLBACKGROUND, WALLFOREGROUND } from "../../Modules/ThemeStorage";
 
 
 
@@ -46,10 +46,14 @@ export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors}) =
         }
         const wall:any = await addImageProcess(loadSecretImage(`Walkabout/wall/${wall_choice}`)) as HTMLImageElement;
         drawWall(canvas,wall);
-
+        //TODO actually use these returned items as part of the flavortext calculation
+        //store them in a ref
+        const items1:RenderedItems[] = await drawWallObjects(WALLBACKGROUND,"BackWallObjects",canvas,seededRandom,themes);
         const door:any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;
         const rug:any = await addImageProcess(loadSecretImage('Walkabout/rug.png')) as HTMLImageElement;
         drawDoors(canvas,numberDoors,door, rug);
+        const items2:RenderedItems[] = await drawWallObjects(WALLFOREGROUND,"FrontWallObjects",canvas,seededRandom,themes);
+
 
     }
 

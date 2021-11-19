@@ -453,7 +453,8 @@ const initFloorPossibilities = () =>{
 
 
 const initWallForegrounds= ()=>{
-    wall_foregrounds[DECAY] = [{src:"decayingwindow.png", desc:"TODO"}] ;
+    wall_foregrounds[DECAY] = [{src:"deadvines.png", desc:"TODO"},{src:"rotted_curtains1.png", desc:"TODO"},{src:"rotted_curtains2.png", desc:"TODO"},{src:"rotted_curtains3.png", desc:"TODO"},{src:"decayingwindow.png", desc:"TODO"}] ;
+    wall_foregrounds[BUGS] =  [{src:"waspnest2.png", desc:"TODO"},{src:"bees4.png", desc:"TODO"},{src:"bees.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"},{src:"waspnest.png", desc:"TODO"}];
 
     /*wall_possibilities[LOVE] = ["stonewalls.png","roses.png"];
     wall_foregrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
@@ -507,7 +508,7 @@ const initWallForegrounds= ()=>{
 }
 
 const initWallBackgrounds= ()=>{
-    wall_backgrounds[DECAY] = [{src:"decayingwall.png", desc:"TODO"}] ;
+    wall_backgrounds[DECAY] = [{src:"wallhole.png", desc:"TODO"},{src:"wallholebig.png", desc:"TODO"},{src:"wallcrack.png", desc:"TODO"},{src:"decayingwall.png", desc:"TODO"}] ;
 
     /*
     wall_backgrounds[LOVE] = ["stonewalls.png","roses.png"];

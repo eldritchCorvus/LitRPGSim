@@ -1,4 +1,6 @@
-export const ficlets = [`It's hard, crawling around the vents. It’s hard, and nobody understands.
+export const ficlets = [
+    
+`It's hard, crawling around the vents. It’s hard, and nobody understands.
 
 You hear a lot of things in the vents. It’s why you carry around your tapes: to keep it all in, and close, and safe. Very safe. Safe with you.
 
@@ -10,4 +12,7 @@ One says they’d crawl onto your vents, and pretend to be a wild animal.
 
 Saying is not the same as doing, though. 
 
-You welcome them to try.`];
+You welcome them to try.`
+
+
+];

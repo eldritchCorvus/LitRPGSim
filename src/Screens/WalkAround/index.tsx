@@ -286,7 +286,8 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li></li>url param for themes
+                <li>use x,y,width,height to determine if i can view flavor text</li>
+                <li>along x axis, render items without overlap</li>
                 <li>front and back wall items for corruption (less "3d" so easeir to think about)</li>
                 <li>front and back floor items for corruption</li>
                 <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>
