@@ -59,6 +59,19 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
         }
     },[initialShowing])
 
+    useEffect(()=>{
+        if(text){
+            const timer = setTimeout(()=>{
+                dialog.setVisible(false);
+            }, 1000)
+        
+            return () => {
+              clearTimeout(timer);
+            };
+        }
+
+    },[text,dialog])
+
     //if i depend on dialog here it won't let me dismiss the popup. just deal with it.
     useEffect(()=>{
             dialog.setVisible(true);    
