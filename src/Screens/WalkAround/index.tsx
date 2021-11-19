@@ -283,6 +283,8 @@ export const WalkAround = () => {
                 <li>spawn wall items (with text) from theme (both backgound and foreground (jail bars, curtains etc))</li>
                 <li>spawn floor items (with text) from theme (both background (carpet, holes, etc) and foreground)</li>
                 <li>if approach an item, flavor text</li>
+                <li>spawn wall and floor vents rarely, with text</li>
+                <li>spawn hydration stations</li>
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
