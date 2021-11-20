@@ -107,9 +107,9 @@ export const drawWallObjects = async (key: string, folder: string, canvas: HTMLC
 
 //yes i COULD take in an image but....i want this to have the logic of placing them
 export const drawFloorObjects = async (key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
-    let start_x = 0;
-    const floor_bottom = 120;
-    let start_y = floor_bottom;
+    let current_x = 0;
+    const floor_bottom = 140;
+    let current_y = floor_bottom;
 
     const padding = 10;
     const context = canvas.getContext("2d");
@@ -119,29 +119,41 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
         return ret;
     }
 
-    //is it a good idea to mutate my for loop while in it? Probably not! but its almost midnight.
-    for(let x = start_x; x<canvas.width-padding;x+=50){
-        for(let y = start_y; x<canvas.height-padding;y+=50){
-            const chosen_theme: Theme = seededRandom.pickFrom(themes);
-            const item = chosen_theme.pickPossibilityFor(seededRandom, key);
-            if (item && item.src && seededRandom.nextDouble() > 0.1) {
-                const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
-                if (x + padding + image.width > canvas.width) {
-                    return ret;
+    /*
+        think through: what is it i want to do?
+
+        think of it as a grid, move from left to right, then down a layer and keep going
+
+        you stop when you hit the bottom
+        nested whiles
+    */
+
+        const y_wiggle = 50;
+        while(current_y+padding<canvas.height){
+            current_x = padding;
+            while(current_x <canvas.width){
+                const chosen_theme: Theme = seededRandom.pickFrom(themes);
+                const item = chosen_theme.pickPossibilityFor(seededRandom, key);
+                if (item && item.src && seededRandom.nextDouble() > 0.3) {
+                    const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
+                    current_x += image.width;
+                    //don't clip the wall border, don't go past the floor
+                    if (current_x + padding + image.width > canvas.width) {
+                        break;
+                    }
+                    const y = seededRandom.getRandomNumberBetween(current_y-y_wiggle, current_y+y_wiggle);
+                    if (y + padding + image.height > canvas.height) {
+                        break;
+                    }
+                    context.drawImage(image, current_x, y);
+                    ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+                } else {
+                    current_x += 50;
                 }
-    
-                if (y + padding + image.height > canvas.height) {
-                    return ret;
-                }
-                context.drawImage(image, x, y);
-                ret.push({ x: x, y: y, width: image.width, height: image.height, flavorText: item.desc })
-    
-            } else {
-                x += 50;
-                y += 50;
             }
+            current_y+=y_wiggle;//is there any way i can make this saner?
         }
-    }
+        console.log("JR NOTE: when i finished rendering floor objects, current_x was",current_x,"and current_y was",current_y)
     return ret;
 }
 
