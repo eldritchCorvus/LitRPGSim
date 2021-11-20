@@ -1,6 +1,7 @@
 import { getRandomNumberBetween, pickFrom } from "../../Utils/NonSeededRandUtils";
 import { One } from "../Attic/LieJR";
 import { PlayerResponse } from "../Attic/PlayerResponse";
+import { ficlets } from "./CloserStorage";
 import { CustomerServiceRamble } from "./CustomerServiceRamble";
 import { CustomerSupportSpecialist } from "./CustomerSupportSpecialist";
 
@@ -71,6 +72,12 @@ export const JR = ()=>{
 
 export const Lost = ()=>{
     const initialRamble = "I'm sorry; I am unable to complete your call as dialed. Please check the number and dial again, or call your operator at exension 0 to help you.";
+    const ramble = new CustomerServiceRamble(initialRamble, []);
+    return ramble;
+}
+
+export const CloseButStillTooFar = ()=>{
+    const initialRamble = pickFrom(ficlets);
     const ramble = new CustomerServiceRamble(initialRamble, []);
     return ramble;
 }
@@ -163,4 +170,4 @@ export const randomSpecialist = (frustration_level:number)=>{
     const name =`${ pickFrom(first_names) } ${pickFrom(last_names) } `;
     return new CustomerSupportSpecialist(name, `${getRandomNumberBetween(2,999)}`, GenericSupport(frustration_level));
 }
-export const initial_directory ={"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Support Bot","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost())};
+export const initial_directory ={"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Support Bot","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost()),4631: new CustomerSupportSpecialist("Closer Log","0",CloseButStillTooFar())};

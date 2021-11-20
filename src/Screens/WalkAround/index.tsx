@@ -294,11 +294,6 @@ export const WalkAround = () => {
                 <li>add audio logs to secret music</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>secret hax coffin to the left,endless dream, credits</li>
-                <li>4631 is important number to dial</li>
-
-
-
-
 
                 <li>endless dream inside the coffin</li>
                 <li>EXTREMELY IMPORTANT: should use seeded random for generating new rooms so it can be mapped.</li>
