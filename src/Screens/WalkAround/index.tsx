@@ -14,6 +14,7 @@ import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../.
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
 import { getParameterByName } from '../../Utils/URLUtils';
+import { RenderedItems } from './canvas_shit';
 
 
 export const WalkAround = () => {
@@ -76,6 +77,9 @@ export const WalkAround = () => {
 
     //useRef is liek state but for when you don't want to trigger a render.
     const playerLocationRef = useRef(spawnPoint);
+
+    //room needs to tell me what items it found.
+    const itemsRef = useRef<RenderedItems[]>([]);
 
 
     const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
@@ -279,18 +283,18 @@ export const WalkAround = () => {
         <Fragment>
             <RoomContainer>
 
-            <Room themeKeys={themeKeys} numberDoors = {numberDoors} seededRandom={seededRandom}/>
+            <Room itemsRef={itemsRef} themeKeys={themeKeys} numberDoors = {numberDoors} seededRandom={seededRandom}/>
             {flavorText ?<FlavorPopup text={flavorText} left={playerLocationRef.current.left} top={playerLocationRef.current.top}/>:null}
             <Player ref={playerRef}src={real_eye} id="player" leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}></Player>
             </RoomContainer>
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>use x,y,width,height to determine if i can view flavor text</li>
+                <li>when move, itemsRef x,y,width,height to determine if i can view flavor text (same way as door)</li>
                 <li>if approach an item, flavor text</li>
                 <li>optional weight for items (some need to be rarer)</li>
                 <li>record how many unique flavor texts you've seen (out of how many) store flavor text in local storage</li>
-                <li>ai that eats novel items (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
+                <li>various ai factions that eats novel items and fight each other (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
                 <li>spawn wall and floor vents rarely, with text</li>
                 <li>spawn hydration stations</li>
                 <li>spawn tape players (secret music)</li>

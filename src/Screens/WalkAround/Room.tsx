@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
 import {drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, RenderedItems } from "./canvas_shit";
 
@@ -16,12 +16,13 @@ interface RoomProps {
     themeKeys: string[];
     seededRandom: SeededRandom;
     numberDoors: number;
+    itemsRef: MutableRefObject<RenderedItems[]>;
   }
 
   const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors}) => {
+export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors,itemsRef}) => {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
        //this shoould change any time the themes do.
@@ -55,8 +56,9 @@ export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors}) =
         const items2:RenderedItems[] = await drawWallObjects(WALLFOREGROUND,"FrontWallObjects",canvas,seededRandom,themes);
         const items3:RenderedItems[] = await drawFloorObjects(FLOORBACKGROUND,"UnderFloorObjects",canvas,seededRandom,themes);
         const items4:RenderedItems[] = await drawFloorObjects(FLOORFOREGROUND,"TopFloorObjects",canvas,seededRandom,themes);
-
-
+        const items = items1.concat(items2).concat(items3).concat(items4);
+        console.log("jr note: items are: ",items);
+        itemsRef.current = items;
     }
 
     useEffect(()=>{
