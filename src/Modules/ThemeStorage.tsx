@@ -406,7 +406,7 @@ const initFloorPossibilities = () =>{
     floor_possibilities[LOVE] = ["carpetfloor.png","fancywoodfloor.png"];
     floor_possibilities[DECAY] = ["geometricfloor.png","brickfloor3.png","stonefloor.png"] ;
     floor_possibilities[BUGS] =  ["dirtfloor.png","dirtfloor.png","dirtfloor.png"];
-    floor_possibilities[TWISTING] =  ["spiral.png","static.png"];
+    floor_possibilities[TWISTING] =  ["yellowwallpaper.jpg","spiral.png","static.png"];
     floor_possibilities[BURIED] =  ["dirtfloor.png"];
     floor_possibilities[OCEAN] =  ["waterfloor2.png","waterfloor.png","waterfloor3.png"];
     floor_possibilities[DARKNESS] =  ["voidfloor.png"] ;
@@ -682,7 +682,7 @@ const initWallPossibilities = () =>{
     wall_possibilities[LOVE] = ["stonewalls.png","roses.png"];
     wall_possibilities[DECAY] = ["tattered_curtains.png","stonewalls2.png","thatchwalls.png"] ;
     wall_possibilities[BUGS] =  ["dirtwall.png","darkcorruption.png"];
-    wall_possibilities[TWISTING] =  ["spiral.png"];
+    wall_possibilities[TWISTING] =  ["yellowwallpaper.jpg","spiral.png"];
     wall_possibilities[ENDINGS] =  ["curtains.png"] ;
     wall_possibilities[LANGUAGE] = ["books.png"];
     wall_possibilities[KNOWING] = ["blackboard.png","books.png"];;

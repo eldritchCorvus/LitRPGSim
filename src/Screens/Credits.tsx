@@ -357,6 +357,16 @@ export const CreditsScreen = (props: StatusProps) => {
                     </CreditDoubleLine>
                 </CreditLine>
 
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>Yellow Wallpaper </CreditLeft> <CreditRight><span>12487295 © Zybr78 | Dreamstime.com</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                    </CreditDoubleLine>
+                </CreditLine>
+                
+
 
                 <CreditLine>
                     <CreditDoubleLine>

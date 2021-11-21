@@ -288,13 +288,21 @@ export const WalkAround = () => {
                 FIVE MINUTE TODO.
                 <li>use x,y,width,height to determine if i can view flavor text</li>
                 <li>if approach an item, flavor text</li>
+                <li>optional weight for items (some need to be rarer)</li>
+                <li>record how many unique flavor texts you've seen (out of how many) store flavor text in local storage</li>
+                <li>ai that eats novel items (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
                 <li>spawn wall and floor vents rarely, with text</li>
                 <li>spawn hydration stations</li>
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>secret hax coffin to the left,endless dream, credits</li>
+                <li>post coffin the ai brings all the items its eaten and gives it to you</li>
 
+
+                <li>ai characters spawn? simulation? (of what?)(quotidians?)(i want them to be heavily rule based)(and ominous)</li>
+                <li>their ai responds to words in the flavor text (its not just for you) (drawn to some (you dont have yet), repulsed by others (you do have yet)? can destroy objects?) (the forever present is corrupted)</li>
+                <li>the ai eats items if they encounter it and you haven't yet</li>
                 <li>endless dream inside the coffin</li>
                 <li>EXTREMELY IMPORTANT: should use seeded random for generating new rooms so it can be mapped.</li>
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>

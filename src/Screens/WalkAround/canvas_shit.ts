@@ -118,6 +118,7 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
     if (!context) {
         return ret;
     }
+    context.imageSmoothingEnabled = false;
 
     /*
         think through: what is it i want to do?
@@ -127,7 +128,7 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
         you stop when you hit the bottom
         nested whiles
     */
-
+        const scale = 1.5;
         const y_wiggle = 50;
         while(current_y+padding<canvas.height){
             current_x = padding;
@@ -136,16 +137,16 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
                 const item = chosen_theme.pickPossibilityFor(seededRandom, key);
                 if (item && item.src && seededRandom.nextDouble() > 0.3) {
                     const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
-                    current_x += image.width;
+                    current_x += image.width*scale;
                     //don't clip the wall border, don't go past the floor
-                    if (current_x + padding + image.width > canvas.width) {
+                    if (current_x + padding + image.width*scale > canvas.width) {
                         break;
                     }
                     const y = seededRandom.getRandomNumberBetween(current_y-y_wiggle, current_y+y_wiggle);
-                    if (y + padding + image.height > canvas.height) {
+                    if (y + padding + image.height*scale > canvas.height) {
                         break;
                     }
-                    context.drawImage(image, current_x, y);
+                    context.drawImage(image, current_x, y,image.width*scale,image.height*scale);
                     ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
                 } else {
                     current_x += 50;
