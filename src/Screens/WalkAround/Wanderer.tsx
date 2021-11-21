@@ -7,6 +7,7 @@ import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
 import FlavorPopup from "./FlavorPopup";
+import { spawn } from "child_process";
 
 
 interface WandererProps {
@@ -46,12 +47,13 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
     const playerLocationRef = useRef(spawnPoint);
 
     useEffect(()=>{
-        console.log("JR NOTE: spoint point has changed to", spawnPoint)
+        console.log("JR NOTE: spawn point has changed to", spawnPoint)
         playerLocationRef.current =({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
 
     const goNorth = ()=>{
         //put you to the south
+        console.log("JR NOTE: going north")
         setSpawnPoint({left: 250, top: 475-50});
         const tmpRand = new SeededRandom(0+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
@@ -60,6 +62,8 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
 
     const goSouth = ()=>{
         //put you to the south
+        console.log("JR NOTE: going south")
+
         setSpawnPoint({left: 250, top: 105+50});
         const tmpRand = new SeededRandom(1+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
@@ -67,6 +71,8 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
     }
 
     const goEast = ()=>{
+        console.log("JR NOTE: going east")
+
         //put you to the south
         setSpawnPoint({left: 25+50, top: 250});
         const tmpRand = new SeededRandom(2+seededRandom.getRandomNumberBetween(216,216216216216216));
@@ -201,9 +207,9 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
       });
 
       const playerRef = useRef<HTMLImageElement>(null);
-      console.log("JR NOTE: player loc",playerLocationRef.current)
+      console.log("JR NOTE: player loc",playerLocationRef.current, "spawn point is", spawnPoint)
     return(
-        <Container ref={playerRef} leftSpawn={playerLocationRef.current.left} topSpawn={playerLocationRef.current.top}>
+        <Container ref={playerRef} leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}>
             {flavorText ?<FlavorPopup text={flavorText} left={playerLocationRef.current.left} top={playerLocationRef.current.top}/>:null}
             <Player src={real_eye} id="player"/>    
         </Container>
