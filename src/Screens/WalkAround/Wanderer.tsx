@@ -107,7 +107,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
         const wanderer_radius = 25;
 
         for(let item of itemsRef.current){
-            if(distanceWithinRadius(wanderer_radius,item.x,item.y ,left,top)){
+            if(distanceWithinRadius(wanderer_radius,item.x+item.width/2,item.y+item.height/2 ,left,top)){
                 console.log("JR NOTE: i am near an item ", item.flavorText);
                 addMemoryToWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
