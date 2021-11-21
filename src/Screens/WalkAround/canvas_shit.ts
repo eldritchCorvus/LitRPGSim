@@ -12,6 +12,12 @@ export interface RenderedItems {
     flavorText: string;
 }
 
+export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
+    const first = (x1-x2)**2;
+    const second = (y1-y2)**2;
+    return (first + second)**0.5 < radius;
+}
+
 export const initBlack = (canvas: HTMLCanvasElement) => {
     const context = canvas.getContext("2d");
     if (!context) {

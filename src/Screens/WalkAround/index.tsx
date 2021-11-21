@@ -1,6 +1,3 @@
-
-import real_eye from './../../images/real_eye.png';
-
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
@@ -17,6 +14,7 @@ import { getParameterByName } from '../../Utils/URLUtils';
 import { RenderedItems } from './canvas_shit';
 import { removeItemOnce } from '../../Utils/ArrayUtils';
 import { addStringToArrayWithKey, isStringInArrayWithKey, removeStringFromArrayWithKey } from '../../Utils/LocalStorageUtils';
+import { Wanderer } from './Wanderer';
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -59,40 +57,18 @@ export const WalkAround = () => {
     width: 33px;
     `
 
-    interface PlayerProps {
-        leftSpawn: number;
-        topSpawn: number;
-    }
-    
-
-    const Player = styled.img`
-        position: absolute;
-        left: ${(props: PlayerProps) => props.leftSpawn}px;
-        top: ${(props: PlayerProps) => props.topSpawn}px;
-    `
 
     //number of themes/2 is how many doors to have.
     const url_themes = getParameterByName("themes", null);
-    console.log("JR NOTE: url_themes are", url_themes)
     const url_seed = getParameterByName("seed", null);
-    const [themeKeys,setThemeKeys] = useState<string[]>(url_themes? url_themes.split(","):[all_themes[BUGS].key,all_themes[DECAY].key,all_themes[LOVE].key]);
-    const [seededRandom] = useState(new SeededRandom(url_seed?parseInt(url_seed,10):216));
-    const [flavorText, setFlavorText] = useState<string|undefined>()
+    const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
+    const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
+    const [flavorText, setFlavorText] = useState<string | undefined>()
     const [chatHelp, setChatHelp] = useState(false);
-    const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
 
-    //useRef is liek state but for when you don't want to trigger a render.
-    const playerLocationRef = useRef(spawnPoint);
 
     //room needs to tell me what items it found.
     const itemsRef = useRef<RenderedItems[]>([]);
-
-
-    const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
-        const first = (x1-x2)**2;
-        const second = (y1-y2)**2;
-        return (first + second)**0.5 < radius;
-    }
 
     /*
         NOTE:
@@ -105,234 +81,79 @@ export const WalkAround = () => {
         this creates "neighborhoods" of aesthetics, i'm betting
     */
 
-    const childRoomThemes = (rand: SeededRandom)=>{
+    const childRoomThemes = (rand: SeededRandom) => {
         const roll = seededRandom.nextDouble();
-        if(roll>0.6){
+        if (roll > 0.6) {
             //add a theme, but don't go over 6
-            if(themeKeys.length < 6){
-                return [...themeKeys,rand.pickFrom(Object.values(all_themes)).key];
+            if (themeKeys.length < 6) {
+                return [...themeKeys, rand.pickFrom(Object.values(all_themes)).key];
 
-            }else{
-                return [...themeKeys.slice(1),rand.pickFrom(Object.values(all_themes)).key];
+            } else {
+                return [...themeKeys.slice(1), rand.pickFrom(Object.values(all_themes)).key];
             }
 
-        }else if (roll > 0.3){
+        } else if (roll > 0.3) {
             //remove a theme, but don't go under one
-            if(themeKeys.length > 1){
+            if (themeKeys.length > 1) {
                 return [...themeKeys.slice(1)];
 
-            }else{
-                return [...themeKeys.slice(1),rand.pickFrom(Object.values(all_themes)).key];
+            } else {
+                return [...themeKeys.slice(1), rand.pickFrom(Object.values(all_themes)).key];
             }
-        }else{
+        } else {
             //same amount just one different
-            return [...themeKeys.slice(1),rand.pickFrom(Object.values(all_themes)).key];
+            return [...themeKeys.slice(1), rand.pickFrom(Object.values(all_themes)).key];
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const flavorChance = 0.2;
-        if(seededRandom.nextDouble()<flavorChance){
+        if (seededRandom.nextDouble() < flavorChance) {
             const chosen_theme = all_themes[seededRandom.pickFrom(themeKeys)];
-            const senses = [SMELL,SOUND,SMELL,SOUND,SMELL,SOUND,FEELING,FEELING,FEELING,FEELING,TASTE];
+            const senses = [SMELL, SOUND, SMELL, SOUND, SMELL, SOUND, FEELING, FEELING, FEELING, FEELING, TASTE];
             const sense = seededRandom.pickFrom(senses);
             let phrase = "";
             const input = chosen_theme.pickPossibilityFor(seededRandom, sense);
-            if(sense === SMELL){
-                const options = [`You breathe through your mouth to avoid the overwhelming smell of ${input}.`,`Why do you suddenly smell ${input}?`,`You catch a faint whiff of ${input}. `,`The smell of ${input} floods your nose.`];
+            if (sense === SMELL) {
+                const options = [`You breathe through your mouth to avoid the overwhelming smell of ${input}.`, `Why do you suddenly smell ${input}?`, `You catch a faint whiff of ${input}. `, `The smell of ${input} floods your nose.`];
                 phrase = seededRandom.pickFrom(options);
-            }else if(sense === SOUND){
-                const options = [`Your ears strain to pick up the sound of ${input}.`,`You can barely think against the cacophony of ${input}.`,`The sound of ${input} is in the air.`,`Your head is splitting with the sound of ${input}.`,`You hear the faint sound of ${input} in the distance.`];
+            } else if (sense === SOUND) {
+                const options = [`Your ears strain to pick up the sound of ${input}.`, `You can barely think against the cacophony of ${input}.`, `The sound of ${input} is in the air.`, `Your head is splitting with the sound of ${input}.`, `You hear the faint sound of ${input} in the distance.`];
                 phrase = seededRandom.pickFrom(options);
-            }else if(sense === FEELING){
-                const options = [`Everything feels like ${input}.`,`Your skin tingles with the sensation of ${input}.`];
+            } else if (sense === FEELING) {
+                const options = [`Everything feels like ${input}.`, `Your skin tingles with the sensation of ${input}.`];
                 phrase = seededRandom.pickFrom(options);
-            }else if(sense ===TASTE){
-                const options = [`You can't get the taste of ${input} out of your mouth.`,`Oh god why can you taste ${input}?`];
+            } else if (sense === TASTE) {
+                const options = [`You can't get the taste of ${input} out of your mouth.`, `Oh god why can you taste ${input}?`];
                 phrase = seededRandom.pickFrom(options);
             }
             setFlavorText(phrase);
         }
-    },[themeKeys])
+    }, [themeKeys])
 
-    const goNorth = ()=>{
-        //put you to the south
-        setSpawnPoint({left: 250, top: 475-50});
-        const tmpRand = new SeededRandom(0+seededRandom.getRandomNumberBetween(216,216216216216216));
-        //spawn a new room
-        setThemeKeys(childRoomThemes(tmpRand));
-    }
+    const numberDoors = useMemo(() => {
+        return Math.ceil(themeKeys.length + 1) / 2;
+    }, [themeKeys]);
 
-    const goSouth = ()=>{
-        //put you to the south
-        setSpawnPoint({left: 250, top: 105+50});
-        const tmpRand = new SeededRandom(1+seededRandom.getRandomNumberBetween(216,216216216216216));
-        //spawn a new room
-        setThemeKeys(childRoomThemes(tmpRand));
-    }
-
-    const goEast = ()=>{
-        //put you to the south
-        setSpawnPoint({left: 25+50, top: 250});
-        const tmpRand = new SeededRandom(2+seededRandom.getRandomNumberBetween(216,216216216216216));
-        //spawn a new room
-        setThemeKeys(childRoomThemes(tmpRand));
-    }
-
-
-
-    useEffect(()=>{
-        setFlavorText(undefined);
-        playerLocationRef.current =({top:spawnPoint.top, left:spawnPoint.left})
-    }, [spawnPoint])
-
-    const numberDoors=useMemo(()=>{
-        return Math.ceil(themeKeys.length+1)/2;
-    },[themeKeys]);
-
-    const isMemoryKnowByWanderer = (memory: string)=>{
-        return isStringInArrayWithKey(MEMORY_KEY,memory);
-    }
-
-    const isMemorySacrificedByWanderer = (memory: string)=>{
-        return isStringInArrayWithKey(QUOTIDIAN_KEY,memory);
-    }
-
-    const addMemoryToWanderer = (memory:string)=>{
-        console.log("JR NOTE: I want to add a memory to the wanderer, do i already have it?",isMemoryKnowByWanderer(memory),"do the birds?",!isMemorySacrificedByWanderer(memory))
-        if(!isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
-            addStringToArrayWithKey(MEMORY_KEY,memory);
-        }
-
-    }
-
-    const takeMemoryFromWanderer = (memory:string)=>{
-        if(isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
-            addStringToArrayWithKey(QUOTIDIAN_KEY,memory);
-            removeStringFromArrayWithKey(MEMORY_KEY,memory);
-        }
-    }
-
-
-    //unlike doors, items are not in set locations, check the items ref
-    const checkForItems =(top: number, left: number)=>{
-        //TODO: JR NOTE: im worried setting the flavor text will rerender this which will fuck up my room
-        //might need to pull flavor text down. somehow...
-        //or is that a fever dream from back when i got stuck in a loop trying to move rooms without the game rerendering the room
-        const wanderer_radius = 25;
-
-        for(let item of itemsRef.current){
-            if(distanceWithinRadius(wanderer_radius,item.x,item.y ,left,top)){
-                console.log("JR NOTE: i am near an item ", item.flavorText);
-                addMemoryToWanderer(item.flavorText);
-                setFlavorText(item.flavorText);
-                //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
-                return;
-            }
-        }
-    }
-
-    //where is the player? are they near a door?
-    const checkForDoor =(top: number, left: number)=>{
-        //TODO check how many doors actually exist
-        const SOUTH = [250,475];
-        const NORTH = [250,105];
-        const EAST = [475,250];
-
-        const wanderer_radius = 25;
-        let nearDoor = false;
-
-        //there will ALWAYS be a door to the south at the very minimum
-        if(distanceWithinRadius(wanderer_radius,SOUTH[0],SOUTH[1] ,left,top)){
-            goSouth();
-            nearDoor = true;
-        }
-
-        if(numberDoors > 1 && distanceWithinRadius(wanderer_radius,NORTH[0],NORTH[1] ,left,top)){
-            nearDoor = true;
-            goNorth();
-        }
-
-        if(numberDoors > 2 && distanceWithinRadius(wanderer_radius,EAST[0],EAST[1] ,left,top)){
-            goEast();
-            nearDoor = true;
-        }
-
-
-        if(nearDoor){
-            doorEffect();
-        }
-
-    }
- 
-
-    const processWalk =(key:string)=>{
-        const minTop = 500-350-30;
-        const maxTop = 500-30;
-        const maxLeft = 455;
-        const minLeft =15;
-        const p = playerRef.current;
-        if(p){
-            let prevTop = parseInt(p.style.top);
-            if(!prevTop){
-                prevTop =spawnPoint.top;
-            }
-
-            let prevLeft = parseInt(p.style.left);
-            if(!prevLeft){
-                prevLeft =spawnPoint.left;
-            }
-
-            if((key === "s" || key === "ArrowDown")&& prevTop < maxTop){
-                p.style.top = `${prevTop+10}px`;
-            }
-            if((key === "w" || key === "ArrowUp")&& prevTop > minTop){
-                p.style.top = `${prevTop-10}px`;
-            }
-            if((key === "a" || key === "ArrowLeft") && prevLeft > minLeft){
-                p.style.left = `${prevLeft-10}px`;
-            }
-            if((key === "d" || key === "ArrowRight")&& prevLeft < maxLeft ){
-                p.style.left = `${prevLeft+10}px`;
-            }
-            //because this changes state calling this used to rerender the room (which would rerandomize its appearance), memoizing numberDoors fixed this
-            playerLocationRef.current=({top:parseInt(p.style.top), left: parseInt(p.style.top)})
-            checkForDoor(prevTop, prevLeft);
-            checkForItems(prevTop, prevLeft);
-        }
-    }
-
-    const handleUserKeyPress = (event: KeyboardEvent)=>{
-        processWalk(event.key);
-    }
 
     useEffect(() => {
-        window.addEventListener('keydown', handleUserKeyPress);
-    
-        return () => {
-          window.removeEventListener('keydown', handleUserKeyPress);
-        };
-      });
-
-      const playerRef = useRef<HTMLImageElement>(null);
-
-      useEffect(()=>{
-          if(chatHelp){
+        if (chatHelp) {
             playHelpDeskMusic();
-          }else{
+        } else {
             playAmbientMazeMusicMadness();
-          }
-      },[chatHelp])
+        }
+    }, [chatHelp])
 
+    const makeChild = (tmpRand: SeededRandom) => {
+        setThemeKeys(childRoomThemes(tmpRand));
+    }
 
-      console.log("JR NOTE: themekeys are",themeKeys)
     return (
         <Fragment>
             <RoomContainer>
-
-            <Room itemsRef={itemsRef} themeKeys={themeKeys} numberDoors = {numberDoors} seededRandom={seededRandom}/>
-            {flavorText ?<FlavorPopup text={flavorText} left={playerLocationRef.current.left} top={playerLocationRef.current.top}/>:null}
-            <Player ref={playerRef}src={real_eye} id="player" leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}></Player>
+                <Room itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seededRandom={seededRandom} />
+                {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
+                <Wanderer numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:
 
@@ -374,8 +195,8 @@ export const WalkAround = () => {
                 <li>find your coffin and go down and down and down</li>
                 <li>put this on LItRpgsim never tell anyone (also itch.io and steam) (diff base themes corruption steam)</li>
             </div>
-            <HelpIcon onClick={()=>setChatHelp(!chatHelp)}><div style={{display:"inline-block", verticalAlign: "top",textAlign: "center"}}>Help</div>{chatHelp?<IconImage src ={x_icon}></IconImage>:<IconImage src ={help_icon}></IconImage>}</HelpIcon>
-            {chatHelp? <HelpChatBox/>:null}
+            <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
+            {chatHelp ? <HelpChatBox /> : null}
         </Fragment>
 
     )
