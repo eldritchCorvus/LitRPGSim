@@ -64,7 +64,7 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
         if(text){
             const timer = setTimeout(()=>{
                 dialog.setVisible(false);
-            }, 1000)
+            }, 3000)
         
             return () => {
               clearTimeout(timer);

@@ -46,6 +46,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
     const playerLocationRef = useRef(spawnPoint);
 
     useEffect(()=>{
+        console.log("JR NOTE: spoint point has changed to", spawnPoint)
         playerLocationRef.current =({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
 
@@ -200,9 +201,9 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
       });
 
       const playerRef = useRef<HTMLImageElement>(null);
-
+      console.log("JR NOTE: player loc",playerLocationRef.current)
     return(
-        <Container ref={playerRef} leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}>
+        <Container ref={playerRef} leftSpawn={playerLocationRef.current.left} topSpawn={playerLocationRef.current.top}>
             {flavorText ?<FlavorPopup text={flavorText} left={playerLocationRef.current.left} top={playerLocationRef.current.top}/>:null}
             <Player src={real_eye} id="player"/>    
         </Container>

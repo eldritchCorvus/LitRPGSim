@@ -511,6 +511,7 @@ const initWallForegrounds= ()=>{
     wall_foregrounds[QUESTING] = ["Satisfaction"] ;*/
 }
 
+//don't bothere filling out descs for these yet
 const initWallBackgrounds= ()=>{
     wall_backgrounds[DECAY] = [{src:"wallhole.png", desc:"TODO"},{src:"wallholebig.png", desc:"TODO"},{src:"wallcrack.png", desc:"TODO"},{src:"decayingwall.png", desc:"TODO"}] ;
     wall_backgrounds[BUGS] =[{src:"bees4.png", desc:"TODO"},{src:"bees.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"}];
@@ -567,8 +568,8 @@ const initWallBackgrounds= ()=>{
 
 
 const initFloorForegrounds= ()=>{
-    floor_foregrounds[DECAY] = [{src:"webshelves.png", desc:"TODO"},{src:"webtable.png", desc:"TODO"},{src:"webtable2.png", desc:"TODO"},{src:"deadbush.png", desc:"TODO"},{src:"deadtree.png", desc:"TODO"},{src:"decay_is_an_extant_form_of_life.png", desc:"Decay is an extant form of life."},{src:"decayedwebbox.png", desc:"TODO"},{src:"decayingbarrel.png", desc:"TODO"},{src:"grave.png", desc:"TODO"},{src:"shittycot.png", desc:"TODO"}] ;
-    floor_foregrounds[BUGS] =  [{src:"waspnest2.png", desc:"TODO"},{src:"bees4.png", desc:"TODO"},{src:"bees.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"},{src:"waspnest1.png", desc:"TODO"},{src:"waspnest3.png", desc:"TODO"},{src:"ruined_honey.png", desc:"TODO"},{src:"ruined_wasp_nest.png", desc:"TODO"},{src:"wasp.png", desc:"TODO"}];
+    floor_foregrounds[DECAY] = [{src:"webshelves.png", desc:"These shelves haven't been able to hold anything for a long time."},{src:"webtable.png", desc:"What could be trapped in here, you wonder?"},{src:"webtable2.png", desc:"You peer into its cracks but see nothing inside."},{src:"deadbush.png", desc:"TODO"},{src:"deadtree.png", desc:"What did this look like when it was alive, you wonder."},{src:"decay_is_an_extant_form_of_life.png", desc:"In your heart you know decay is an extant form of life."},{src:"decayedwebbox.png", desc:"This rotten box can't be used to hold anything anymore."},{src:"decayingbarrel.png", desc:"The barrel stinks of fermentation and rot."},{src:"grave.png", desc:"You wonder who is buried and rotting here."},{src:"shittycot.png", desc:"The cot stinks of rot."}] ;
+    floor_foregrounds[BUGS] =  [{src:"waspnest2.png", desc:"There is a wasp nest here."},{src:"bees4.png", desc:"The bees are buzzing and crawling and flying everwhere."},{src:"bees.png", desc:"The Swarm is judging you."},{src:"bees3.png", desc:"Incessent buzzing."},{src:"bees2.png", desc:"You skin crawls just looking at these buzzing insects."},{src:"waspnest1.png", desc:"There is a wasp nest here. It is filled with holes."},{src:"waspnest3.png", desc:"If you let the inhabitants of this waspnest love you, you could be a nest, too."},{src:"ruined_honey.png", desc:"Someone has already raided this bee hive."},{src:"ruined_wasp_nest.png", desc:"Who destroyed this wasp nest?"},{src:"wasp.png", desc:"It seems to be a large statue of a wasp."}];
 
     /*floor_foregrounds[LOVE] = ["stonewalls.png","roses.png"];
     floor_foregrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
@@ -621,6 +622,7 @@ const initFloorForegrounds= ()=>{
     floor_foregrounds[QUESTING] = ["Satisfaction"] ;*/
 }
 
+//don't bother filling out descs for these yet
 const initFloorBackgrounds= ()=>{
     floor_backgrounds[DECAY] = [{src:"darkhole.png", desc:"TODO"}] ;
     floor_backgrounds[BUGS] =  [{src:"bees.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees4.png", desc:"TODO"}];

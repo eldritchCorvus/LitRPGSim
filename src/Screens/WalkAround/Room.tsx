@@ -56,7 +56,7 @@ export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors,ite
         const items2:RenderedItems[] = await drawWallObjects(WALLFOREGROUND,"FrontWallObjects",canvas,seededRandom,themes);
         const items3:RenderedItems[] = await drawFloorObjects(FLOORBACKGROUND,"UnderFloorObjects",canvas,seededRandom,themes);
         const items4:RenderedItems[] = await drawFloorObjects(FLOORFOREGROUND,"TopFloorObjects",canvas,seededRandom,themes);
-        const items = items1.concat(items2).concat(items3).concat(items4);
+        const items = items2.concat(items4);
         console.log("jr note: items are: ",items);
         itemsRef.current = items;
     }
