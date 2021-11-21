@@ -6,6 +6,7 @@ export const isStringInArrayWithKey =(key:string,target:string)=>{
 
 export const addStringToArrayWithKey =(key:string,target:string)=>{
   const tmp = valueAsArray(key);
+  console.log("JR NOTE: going to add", target, "to array", tmp)
   tmp.push(target);
   localStorage[key] = JSON.stringify(tmp);
 }
@@ -17,6 +18,16 @@ export const removeStringFromArrayWithKey =(key:string,target:string)=>{
   localStorage[key] = JSON.stringify(tmp);
 }
 
+export const initEmptyArrayAtKey =(key:string)=>{
+  const tmp:any[] = [];
+  localStorage[key] = JSON.stringify(tmp);
+  return tmp;
+}
+
 export const valueAsArray = (key: string)=>{
-  return JSON.parse(localStorage[key]) as any[];
+  if(localStorage[key]){
+    return JSON.parse(localStorage[key]) as any[];
+  }else{
+    return initEmptyArrayAtKey(key);
+  }
 }

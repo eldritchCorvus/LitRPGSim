@@ -567,7 +567,7 @@ const initWallBackgrounds= ()=>{
 
 
 const initFloorForegrounds= ()=>{
-    floor_foregrounds[DECAY] = [{src:"webshelves.png", desc:"TODO"},{src:"webtable.png", desc:"TODO"},{src:"webtable2.png", desc:"TODO"},{src:"deadbush.png", desc:"TODO"},{src:"deadtree.png", desc:"TODO"},{src:"decay_is_an_extant_form_of_life.png", desc:"Dcay is an extant form of life."},{src:"decayedwebbox.png", desc:"TODO"},{src:"decayingbarrel.png", desc:"TODO"},{src:"grave.png", desc:"TODO"},{src:"shittycot.png", desc:"TODO"}] ;
+    floor_foregrounds[DECAY] = [{src:"webshelves.png", desc:"TODO"},{src:"webtable.png", desc:"TODO"},{src:"webtable2.png", desc:"TODO"},{src:"deadbush.png", desc:"TODO"},{src:"deadtree.png", desc:"TODO"},{src:"decay_is_an_extant_form_of_life.png", desc:"Decay is an extant form of life."},{src:"decayedwebbox.png", desc:"TODO"},{src:"decayingbarrel.png", desc:"TODO"},{src:"grave.png", desc:"TODO"},{src:"shittycot.png", desc:"TODO"}] ;
     floor_foregrounds[BUGS] =  [{src:"waspnest2.png", desc:"TODO"},{src:"bees4.png", desc:"TODO"},{src:"bees.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"},{src:"waspnest1.png", desc:"TODO"},{src:"waspnest3.png", desc:"TODO"},{src:"ruined_honey.png", desc:"TODO"},{src:"ruined_wasp_nest.png", desc:"TODO"},{src:"wasp.png", desc:"TODO"}];
 
     /*floor_foregrounds[LOVE] = ["stonewalls.png","roses.png"];

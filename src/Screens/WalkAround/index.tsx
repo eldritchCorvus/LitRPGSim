@@ -199,29 +199,14 @@ export const WalkAround = () => {
     }
 
     const addMemoryToWanderer = (memory:string)=>{
-        if(!isMemoryKnowByWanderer(memory)){
-            initWandererMemory();
-            initQuotidianMemory();
-        }
+        console.log("JR NOTE: I want to add a memory to the wanderer, do i already have it?",isMemoryKnowByWanderer(memory),"do the birds?",!isMemorySacrificedByWanderer(memory))
         if(!isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
             addStringToArrayWithKey(MEMORY_KEY,memory);
         }
 
     }
 
-    const initWandererMemory = ()=>{
-        localStorage[MEMORY_KEY] = JSON.stringify([]);
-    }
-
-    const initQuotidianMemory = ()=>{
-        localStorage[QUOTIDIAN_KEY] = JSON.stringify([]);
-    }
-
     const takeMemoryFromWanderer = (memory:string)=>{
-        if(!isMemoryKnowByWanderer(memory)){
-            initWandererMemory();
-            initQuotidianMemory();
-        }
         if(isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
             addStringToArrayWithKey(QUOTIDIAN_KEY,memory);
             removeStringFromArrayWithKey(MEMORY_KEY,memory);
@@ -238,8 +223,9 @@ export const WalkAround = () => {
 
         for(let item of itemsRef.current){
             if(distanceWithinRadius(wanderer_radius,item.x,item.y ,left,top)){
-                setFlavorText(item.flavorText);
+                console.log("JR NOTE: i am near an item ", item.flavorText);
                 addMemoryToWanderer(item.flavorText);
+                setFlavorText(item.flavorText);
                 //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
                 return;
             }
@@ -255,8 +241,6 @@ export const WalkAround = () => {
 
         const wanderer_radius = 25;
         let nearDoor = false;
-
-
 
         //there will ALWAYS be a door to the south at the very minimum
         if(distanceWithinRadius(wanderer_radius,SOUTH[0],SOUTH[1] ,left,top)){
@@ -353,7 +337,7 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>when move, itemsRef x,y,width,height to determine if i can view flavor text (same way as door)</li>
+                <li>take away flavor text state from this file, give it to child in the hope we don't rerender room</li>
                 <li>why is it so hard to position flavor text???</li>
                 <li>optional weight for items (some need to be rarer)</li>
                 <li>record how many unique flavor texts you've seen (out of how many) store flavor text in local storage</li>
