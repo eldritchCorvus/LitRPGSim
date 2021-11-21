@@ -15,6 +15,12 @@ import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
 import { getParameterByName } from '../../Utils/URLUtils';
 import { RenderedItems } from './canvas_shit';
+import { removeItemOnce } from '../../Utils/ArrayUtils';
+import { addStringToArrayWithKey, isStringInArrayWithKey, removeStringFromArrayWithKey } from '../../Utils/LocalStorageUtils';
+
+//a memory can NOT be in both places at once.
+export const MEMORY_KEY = "WANDERER_MEMORY";
+export const QUOTIDIAN_KEY = "QUOTIDIAN_HOARD";
 
 
 export const WalkAround = () => {
@@ -184,6 +190,62 @@ export const WalkAround = () => {
         return Math.ceil(themeKeys.length+1)/2;
     },[themeKeys]);
 
+    const isMemoryKnowByWanderer = (memory: string)=>{
+        return isStringInArrayWithKey(MEMORY_KEY,memory);
+    }
+
+    const isMemorySacrificedByWanderer = (memory: string)=>{
+        return isStringInArrayWithKey(QUOTIDIAN_KEY,memory);
+    }
+
+    const addMemoryToWanderer = (memory:string)=>{
+        if(!isMemoryKnowByWanderer(memory)){
+            initWandererMemory();
+            initQuotidianMemory();
+        }
+        if(!isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
+            addStringToArrayWithKey(MEMORY_KEY,memory);
+        }
+
+    }
+
+    const initWandererMemory = ()=>{
+        localStorage[MEMORY_KEY] = JSON.stringify([]);
+    }
+
+    const initQuotidianMemory = ()=>{
+        localStorage[QUOTIDIAN_KEY] = JSON.stringify([]);
+    }
+
+    const takeMemoryFromWanderer = (memory:string)=>{
+        if(!isMemoryKnowByWanderer(memory)){
+            initWandererMemory();
+            initQuotidianMemory();
+        }
+        if(isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
+            addStringToArrayWithKey(QUOTIDIAN_KEY,memory);
+            removeStringFromArrayWithKey(MEMORY_KEY,memory);
+        }
+    }
+
+
+    //unlike doors, items are not in set locations, check the items ref
+    const checkForItems =(top: number, left: number)=>{
+        //TODO: JR NOTE: im worried setting the flavor text will rerender this which will fuck up my room
+        //might need to pull flavor text down. somehow...
+        //or is that a fever dream from back when i got stuck in a loop trying to move rooms without the game rerendering the room
+        const wanderer_radius = 25;
+
+        for(let item of itemsRef.current){
+            if(distanceWithinRadius(wanderer_radius,item.x,item.y ,left,top)){
+                setFlavorText(item.flavorText);
+                addMemoryToWanderer(item.flavorText);
+                //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
+                return;
+            }
+        }
+    }
+
     //where is the player? are they near a door?
     const checkForDoor =(top: number, left: number)=>{
         //TODO check how many doors actually exist
@@ -252,6 +314,7 @@ export const WalkAround = () => {
             //because this changes state calling this used to rerender the room (which would rerandomize its appearance), memoizing numberDoors fixed this
             playerLocationRef.current=({top:parseInt(p.style.top), left: parseInt(p.style.top)})
             checkForDoor(prevTop, prevLeft);
+            checkForItems(prevTop, prevLeft);
         }
     }
 
@@ -291,17 +354,17 @@ export const WalkAround = () => {
 
                 FIVE MINUTE TODO.
                 <li>when move, itemsRef x,y,width,height to determine if i can view flavor text (same way as door)</li>
-                <li>if approach an item, flavor text</li>
+                <li>why is it so hard to position flavor text???</li>
                 <li>optional weight for items (some need to be rarer)</li>
                 <li>record how many unique flavor texts you've seen (out of how many) store flavor text in local storage</li>
-                <li>various ai factions that eats novel items and fight each other (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
+                <li>warn player if the ai eats a memory you have in addition to the item, various ai factions that eats novel items and fight each other (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
                 <li>spawn wall and floor vents rarely, with text</li>
                 <li>spawn hydration stations</li>
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>secret hax coffin to the left,endless dream, credits</li>
-                <li>post coffin the ai brings all the items its eaten and gives it to you</li>
+                <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories</li>
 
 
                 <li>ai characters spawn? simulation? (of what?)(quotidians?)(i want them to be heavily rule based)(and ominous)</li>
