@@ -145,6 +145,7 @@ export const WalkAround = () => {
     }, [chatHelp])
 
     const makeChild = (tmpRand: SeededRandom) => {
+        setFlavorText(undefined);
         setThemeKeys(childRoomThemes(tmpRand));
     }
 
@@ -173,6 +174,7 @@ export const WalkAround = () => {
 
 
                 <li>ai characters spawn? simulation? (of what?)(quotidians?)(i want them to be heavily rule based)(and ominous)</li>
+                <li>lightly animated bees and others (two frames max)</li>
                 <li>their ai responds to words in the flavor text (its not just for you) (drawn to some (you dont have yet), repulsed by others (you do have yet)? can destroy objects?) (the forever present is corrupted)</li>
                 <li>the ai eats items if they encounter it and you haven't yet</li>
                 <li>endless dream inside the coffin</li>

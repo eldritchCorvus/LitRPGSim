@@ -49,15 +49,15 @@ export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors,ite
         drawWall(canvas,wall);
         //TODO actually use these returned items as part of the flavortext calculation
         //store them in a ref
-        //const items1:RenderedItems[] = await drawWallObjects(WALLBACKGROUND,"BackWallObjects",canvas,seededRandom,themes);
+        const items1:RenderedItems[] = await drawWallObjects(WALLBACKGROUND,"BackWallObjects",canvas,seededRandom,themes);
         const door:any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;
         const rug:any = await addImageProcess(loadSecretImage('Walkabout/rug.png')) as HTMLImageElement;
         drawDoors(canvas,numberDoors,door, rug);
-        //const items2:RenderedItems[] = await drawWallObjects(WALLFOREGROUND,"FrontWallObjects",canvas,seededRandom,themes);
-        //const items3:RenderedItems[] = await drawFloorObjects(FLOORBACKGROUND,"UnderFloorObjects",canvas,seededRandom,themes);
-        //const items4:RenderedItems[] = await drawFloorObjects(FLOORFOREGROUND,"TopFloorObjects",canvas,seededRandom,themes);
-        //const items = items2.concat(items4);
-        //itemsRef.current = items;
+        const items2:RenderedItems[] = await drawWallObjects(WALLFOREGROUND,"FrontWallObjects",canvas,seededRandom,themes);
+        const items3:RenderedItems[] = await drawFloorObjects(FLOORBACKGROUND,"UnderFloorObjects",canvas,seededRandom,themes);
+        const items4:RenderedItems[] = await drawFloorObjects(FLOORFOREGROUND,"TopFloorObjects",canvas,seededRandom,themes);
+        const items = items2.concat(items4);
+        itemsRef.current = items;
     }
 
     useEffect(()=>{

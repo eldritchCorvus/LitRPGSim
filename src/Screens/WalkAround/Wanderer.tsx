@@ -42,13 +42,12 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
 
     const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
     const [flavorText, setFlavorText] = useState<string|undefined>();
+    const [playerLocation, setPlayerLocation] = useState(spawnPoint);
 
-    //useRef is liek state but for when you don't want to trigger a render.
-    const playerLocationRef = useRef(spawnPoint);
 
     useEffect(()=>{
         console.log("JR NOTE: spawn point has changed to", spawnPoint)
-        playerLocationRef.current =({top:spawnPoint.top, left:spawnPoint.left})
+        setPlayerLocation({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
 
     const goNorth = ()=>{
@@ -163,32 +162,24 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
         const maxTop = 500-30;
         const maxLeft = 455;
         const minLeft =15;
-        const p = playerRef.current;
-        if(p){
-            let prevTop = parseInt(p.style.top);
-            if(!prevTop){
-                prevTop =spawnPoint.top;
-            }
+        if(playerLocation){
+            let prevTop = playerLocation.top;
 
-            let prevLeft = parseInt(p.style.left);
-            if(!prevLeft){
-                prevLeft =spawnPoint.left;
-            }
+            let prevLeft = playerLocation.left;
 
             if((key === "s" || key === "ArrowDown")&& prevTop < maxTop){
-                p.style.top = `${prevTop+10}px`;
+                prevTop += 10;
             }
             if((key === "w" || key === "ArrowUp")&& prevTop > minTop){
-                p.style.top = `${prevTop-10}px`;
+                prevTop += -10
             }
             if((key === "a" || key === "ArrowLeft") && prevLeft > minLeft){
-                p.style.left = `${prevLeft-10}px`;
+                prevLeft += -10;
             }
             if((key === "d" || key === "ArrowRight")&& prevLeft < maxLeft ){
-                p.style.left = `${prevLeft+10}px`;
+                prevLeft += 10;
             }
-            //because this changes state calling this used to rerender the room (which would rerandomize its appearance), memoizing numberDoors fixed this
-            playerLocationRef.current=({top:parseInt(p.style.top), left: parseInt(p.style.top)})
+            setPlayerLocation({top: prevTop, left: prevLeft});
             checkForDoor(prevTop, prevLeft);
             checkForItems(prevTop, prevLeft);
         }
@@ -206,11 +197,10 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
         };
       });
 
-      const playerRef = useRef<HTMLImageElement>(null);
-      console.log("JR NOTE: player loc",playerLocationRef.current, "spawn point is", spawnPoint)
+      console.log("JR NOTE: player loc",playerLocation, "spawn point is", spawnPoint)
     return(
-        <Container ref={playerRef} leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}>
-            {flavorText ?<FlavorPopup text={flavorText} left={playerLocationRef.current.left} top={playerLocationRef.current.top}/>:null}
+        <Container leftSpawn={playerLocation.left} topSpawn={playerLocation.top}>
+            {flavorText ?<FlavorPopup text={flavorText} left={playerLocation.left} top={playerLocation.top}/>:null}
             <Player src={real_eye} id="player"/>    
         </Container>
  )
