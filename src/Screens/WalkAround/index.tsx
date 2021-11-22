@@ -131,7 +131,7 @@ export const WalkAround = () => {
     }
 
     useEffect(()=>{
-        const flavorChance = 0.2;
+        const flavorChance = 0.3;
         if(seededRandom.nextDouble()<flavorChance){
             const chosen_theme = all_themes[seededRandom.pickFrom(themeKeys)];
             const senses = [SMELL,SOUND,SMELL,SOUND,SMELL,SOUND,FEELING,FEELING,FEELING,FEELING,TASTE];
@@ -330,7 +330,7 @@ export const WalkAround = () => {
         <Fragment>
             <RoomContainer>
 
-            <Room itemsRef={itemsRef} themeKeys={themeKeys} numberDoors = {numberDoors} seededRandom={seededRandom}/>
+            <Room itemsRef={itemsRef} themeKeys={themeKeys} numberDoors = {numberDoors}/>
             {flavorText ?<FlavorPopup text={flavorText} left={playerLocationRef.current.left} top={playerLocationRef.current.top}/>:null}
             <Player ref={playerRef}src={real_eye} id="player" leftSpawn={spawnPoint.left} topSpawn={spawnPoint.top}></Player>
             </RoomContainer>

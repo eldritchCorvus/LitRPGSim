@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useMemo, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
 import {drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, RenderedItems } from "./canvas_shit";
 
@@ -14,7 +14,6 @@ import { FLOOR, FLOORBACKGROUND, FLOORFOREGROUND, WALL, WALLBACKGROUND, WALLFORE
 
 interface RoomProps {
     themeKeys: string[];
-    seededRandom: SeededRandom;
     numberDoors: number;
     itemsRef: MutableRefObject<RenderedItems[]>;
   }
@@ -22,7 +21,20 @@ interface RoomProps {
   const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Room:React.FC<RoomProps> = ({themeKeys,seededRandom,numberDoors,itemsRef}) => {
+export const Room:React.FC<RoomProps> = ({themeKeys,numberDoors,itemsRef}) => {
+
+    //given the same themes  in the same order you'll get the same room (so even if the vdom is a little bitch and triggers a rerender when theres a pop up we'll never know)
+    const seededRandom = useMemo(()=>{
+        let value = 0;
+        let theme_index = 0;
+        for(let tk in themeKeys){
+            theme_index ++;
+            for(let i =0; i<tk.length; i++){
+                value += theme_index *tk.charCodeAt(i);
+            }
+        }
+       return new SeededRandom(value);
+    },[themeKeys]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
        //this shoould change any time the themes do.
