@@ -568,16 +568,22 @@ const initWallBackgrounds= ()=>{
 
 
 const initFloorForegrounds= ()=>{
-    floor_foregrounds[DECAY] = [{src:"webshelves.png", desc:"These shelves haven't been able to hold anything for a long time."},{src:"webtable.png", desc:"What could be trapped in here, you wonder?"},{src:"webtable2.png", desc:"You peer into its cracks but see nothing inside."},{src:"deadbush.png", desc:"The bush is rotting."},{src:"deadtree.png", desc:"What did this look like when it was alive, you wonder."},{src:"decay_is_an_extant_form_of_life.png", desc:"In your heart you know decay is an extant form of life."},{src:"decayedwebbox.png", desc:"This rotten box can't be used to hold anything anymore."},{src:"decayingbarrel.png", desc:"The barrel stinks of fermentation and rot."},{src:"grave.png", desc:"You wonder who is buried and rotting here."},{src:"shittycot.png", desc:"The cot stinks of rot."}] ;
+    floor_foregrounds[DECAY] = [{src:"corpse_blossom.png", desc:"It stinks of death and decay."},{src:"webshelves.png", desc:"These shelves haven't been able to hold anything for a long time."},{src:"webtable.png", desc:"What could be trapped in here, you wonder?"},{src:"webtable2.png", desc:"You peer into its cracks but see nothing inside."},{src:"deadbush.png", desc:"The bush is rotting."},{src:"deadtree.png", desc:"What did this look like when it was alive, you wonder."},{src:"decay_is_an_extant_form_of_life.png", desc:"In your heart you know decay is an extant form of life."},{src:"decayedwebbox.png", desc:"This rotten box can't be used to hold anything anymore."},{src:"decayingbarrel.png", desc:"The barrel stinks of fermentation and rot."},{src:"grave.png", desc:"You wonder who is buried and rotting here."},{src:"shittycot.png", desc:"The cot stinks of rot."}] ;
     floor_foregrounds[BUGS] =  [{src:"waspnest2.png", desc:"There is a wasp nest here."},{src:"bees4.png", desc:"The bees are buzzing and crawling and flying everwhere."},{src:"bees.png", desc:"The Swarm is judging you."},{src:"bees3.png", desc:"Incessent buzzing."},{src:"bees2.png", desc:"You skin crawls just looking at these buzzing insects."},{src:"waspnest1.png", desc:"There is a wasp nest here. It is filled with holes."},{src:"waspnest3.png", desc:"If you let the inhabitants of this waspnest love you, you could be a nest, too."},{src:"ruined_honey.png", desc:"Someone has already raided this bee hive."},{src:"ruined_wasp_nest.png", desc:"Who destroyed this wasp nest?"},{src:"wasp.png", desc:"It seems to be a large statue of a wasp."}];
+    floor_foregrounds[LOVE] = [{src:"wine2.png", desc:"If only there was someone to share this with."},{src:"wine.png", desc:"Oh to be on a picnic with someone you love."},{src:"necklace.png", desc:"Someone beautiful could wear this."},{src:"jwelerybox.png", desc:"A cherished gift."},{src:"flowers.png", desc:"A gift for a significant other."},{src:"dress.png", desc:"Just looking at this pretty dress makes you wish you could remember going to dances."},{src:"angelstatue.png", desc:"Love is war."},{src:"bear.png", desc:"It feels soft and cuddly."},];
+    floor_foregrounds[STEALING] =  [{src:"cookingpot.png", desc:"Reminds you of being on the run from the law."},{src:"fancychest.png", desc:"You wonder what kind of loot is in here."},{src:"goldingots.png", desc:"There is NO way you're going to be able to carry these out of here."},{src:"jwelerybox.png", desc:"A tidy fortune in jewels."},{src:"necklace.png", desc:"You wonder how much this would be worth on the blackmarket."},{src:"pileofgold1.png", desc:"You are practically drooling seeing so much gold."},{src:"pileofgold2.png", desc:"You want to bathe in this like Scrooge McDuck."},{src:"pileofgoldsmaller.png", desc:"What could you buy with this?"},{src:"smallgoldpile.png", desc:"A modest fortune yours for the taking."}];
+    floor_foregrounds[LANGUAGE] = [{src:"writingtablet.png", desc:"A forgotten language is perfectly translated here for you."},{src:"smallbookshelf.png", desc:"It's all your favorite childhood books."},{src:"obelisk.png", desc:"It's a rosetta stone for every language reading out 'Zampanio is a really good game. You should play it.'"},{src:"books.png", desc:"Language is used masterfully in these volumes of poetry."},{src:"books.png", desc:"Somehow each book claims you are the author."},{src:"bigbookshelf.png", desc:"All of the literary classics."},{src:"bigbookshelf.png", desc:"Dozens upon dozens of books in every language."}];
+    floor_foregrounds[KNOWING] = [{src:"writingtablet.png", desc:"You need to know more."},{src:"writingtablet.png", desc:"The thoughts currently in your head are perfectly etched here."},{src:"smallbookshelf.png", desc:"The tomes list out the forgotten secrets of every civilization."},{src:"scrolls.png", desc:"Forbidden knowledge floods your mind and you can't Unknow it."},{src:"books.png", desc:"Spoilers for all of fiction is somehow contained in these few volumes."},{src:"books.png", desc:"The thoughts of everyone you've ever known are detailed here."},{src:"bigbookshelf.png", desc:"Everything you would need to perfectly navigate this maze is listed here, if only you could remember it."},{src:"bigbookshelf.png", desc:"The identity of the Eye Killer is here, long past the point where you could use it."}];
+    floor_foregrounds[ROYALTY] =  [{src:"jwelerybox.png", desc:"Crown jewels."},{src:"pileofgold2.png", desc:"The wealth of an Empire."},{src:"pileofgold1.png", desc:"The wealth of a kingdom."},{src:"princessbed.png", desc:"A bed fit for royalty."},{src:"smallgoldpile.png", desc:"The taxes you are due."},{src:"throne.png", desc:"Your rightful place."}] ;
+    floor_foregrounds[SCIENCE] = [{src:"smallbookshelf.png", desc:"Textbooks organized by scientific discipline line these shelves."},{src:"science.png", desc:"Oh, the discoveries you could make with enough patience and equipment."},{src:"morewine.png", desc:"You get the distinct urge to do science seeing this well stocked lab."},{src:"jars.png", desc:"Specimen jars."}]
+    floor_foregrounds[CRAFTING] =  [{src:"armor3.png", desc:"A master made this armor, you can tell."},{src:"armor2.png", desc:"You frown as you study the flaws of this piece of armor."},{src:"armor.png", desc:"You appreciate the craftsmanship here."},{src:"hammer.png", desc:"The heft of this hammer is just perfect for forging."},{src:"metalingots.png", desc:"Fresh ingots ripe for being turned into more useful materials."},{src:"pickax.png", desc:"You feel the strange urge to craft some mines."},{src:"shovel.png", desc:"You just want to turn the soil with your hands and MAKE something with it."},{src:"stumpwithax.png", desc:"You feel a distinct urge to go chop some trees."},{src:"well.png", desc:"Enough water to cool a thousand forges."}];
+    floor_foregrounds[BURIED] =  [{src:"grave.png", desc:"You hear faint scratching from underneath."},{src:"grave.png", desc:"You could sleep under here forever buried."},{src:"pickax.png", desc:"With this you could dig and dig and dig deep into the earth until no one could ever save you."},{src:"pit.png", desc:"The warm embrace of the earth awaits. Why must you cling so to the cold, unforgiving sky?"},{src:"pit2.png", desc:"Down and down it goes. You want to jump in."},{src:"well.png", desc:"It goes so deep into the earth. You cannot see the bottom. The concept of a bottom is anathema to this well."},{src:"shovel.png", desc:"DIG"}];
+    floor_foregrounds[ANGELS] =  [{src:"writingtablet.png", desc:"The words of your gods are written here."},{src:"obelisk.png", desc:"It lists out the praises of the gods."},{src:"jars.png", desc:"Jars of holy water."},{src:"iceglacier.png", desc:"It feels holy."},{src:"angelstatue.png", desc:"The angels bless you."}];
+    floor_foregrounds[DEATH] =  [{src:"hospitalbed.png", desc:"Someone died here."},{src:"grave.png", desc:"It simply says 'everyone' on it."},{src:"grave.png", desc:"It is yours."},{src:"grave.png", desc:"It's inscription is too worn with age to read."},{src:"grave.png", desc:"Somehow you know it has the name of your best friend."},{src:"grave.png", desc:"If you had a family, they would be listed here, you're sure of it."},{src:"grave.png", desc:"It has your name on it."},{src:"decayingbarrel.png", desc:"Even the works of man eventually die."},{src:"deadtree.png", desc:"You wonder what killed it before you remember it doesn't matter."},{src:"deadbush.png", desc:"A reminder that death comes to us all."},{src:"corpse_blossom.png", desc:"It reeks of death."},{src:"angelstatue.png", desc:"In your bones you know no beautific afterlife awaits."}];
 
-    /*floor_foregrounds[LOVE] = ["stonewalls.png","roses.png"];
-    floor_foregrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
+    /*
     floor_foregrounds[TWISTING] =  ["spiral.png"];
     floor_foregrounds[ENDINGS] =  ["curtains.png"] ;
-    floor_foregrounds[LANGUAGE] = ["books.png"];
-    floor_foregrounds[KNOWING] = ["blackboard.png","books.png"];;
-    floor_foregrounds[STEALING] =  ["jail.png","goldwalls.png"];
     floor_foregrounds[MATH] =  ["blackboard.png"];
     floor_foregrounds[BURIED] =  ["dirtwall.png"];
     floor_foregrounds[SPACE] = ["stars.png","clouds.png"];
@@ -590,27 +596,20 @@ const initFloorForegrounds= ()=>{
     floor_foregrounds[LIGHT] =  ["lightwall.png"];
     floor_foregrounds[ZAP] = ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
     floor_foregrounds[TECHNOLOGY] =  ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
-    floor_foregrounds[SCIENCE] = ["metalwall1.png","metalwall2.png","metalwall3.png"]
     floor_foregrounds[PLANTS] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     floor_foregrounds[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     floor_foregrounds[GUIDING] = ["pinetrees.png"] ;
     floor_foregrounds[ART] =  ["Perfect Moment"];
     floor_foregrounds[TIME] =  ["Stopped Clock"];
-
-
     floor_foregrounds[FLESH] =  ["Physical God"];
-    floor_foregrounds[DEATH] =  ["Your Grave"];
     floor_foregrounds[APOCALYPSE] =  ["Ragnarok"];
-    floor_foregrounds[ANGELS] =  ["Judgement Day"];
     floor_foregrounds[SERVICE] =  ["Special Service"];
     floor_foregrounds[FAMILY] =  ["Sins of the Father"];
     floor_foregrounds[MAGIC] =  ["Ritual of Ragnarok"];
     floor_foregrounds[CHOICES] =  ["Timeline of Theseus"] ;
     floor_foregrounds[SOUL] = ["Know thyself."] ;
     floor_foregrounds[ANGER] = ["Dethrone Creation"] ;
-    floor_foregrounds[ROYALTY] =  ["Excalibur"] ;
     floor_foregrounds[GUIDING] = ["Path To Victory"] ;
-    floor_foregrounds[CRAFTING] =  ["Legendary Forge"];
     floor_foregrounds[ADDICTION] = ["Dealer's Delight"];
     floor_foregrounds[SPYING] =["Surveillance State"] ;
     floor_foregrounds[DOLLS] = ["Automatonophobia "] ;

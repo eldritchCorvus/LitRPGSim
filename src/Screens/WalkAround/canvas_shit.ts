@@ -136,12 +136,13 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
     */
         const scale = 1.5;
         const y_wiggle = 50;
+        const clutter_rate = seededRandom.nextDouble(); //smaller is more cluttered
         while(current_y+padding<canvas.height){
             current_x = padding;
             while(current_x <canvas.width){
                 const chosen_theme: Theme = seededRandom.pickFrom(themes);
                 const item = chosen_theme.pickPossibilityFor(seededRandom, key);
-                if (item && item.src && seededRandom.nextDouble() > 0.3) {
+                if (item && item.src && seededRandom.nextDouble() > clutter_rate) {
                     const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
                     current_x += image.width*scale;
                     //don't clip the wall border, don't go past the floor

@@ -159,15 +159,15 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>take away flavor text state from this file, give it to child in the hope we don't rerender room</li>
-                <li>why is it so hard to position flavor text???</li>
-                <li>optional weight for items (some need to be rarer)</li>
-                <li>record how many unique flavor texts you've seen (out of how many) store flavor text in local storage</li>
+                <li>add objects</li>
+                <li>guest book is repurposed viking book</li>
+                <li>tweak item placement alg (bookshelves are good example to show how current alg has layering)</li>
                 <li>warn player if the ai eats a memory you have in addition to the item, various ai factions that eats novel items and fight each other (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
                 <li>spawn wall and floor vents rarely, with text</li>
                 <li>spawn hydration stations</li>
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
+                <li>when you enter a room, pick a few themes and tell a small creepy story about them, gopher style</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>secret hax coffin to the left,endless dream, credits</li>
                 <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories</li>
