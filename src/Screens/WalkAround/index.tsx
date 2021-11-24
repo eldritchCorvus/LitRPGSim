@@ -160,7 +160,6 @@ export const WalkAround = () => {
 
                 FIVE MINUTE TODO.
                 <li>add objects</li>
-                <li>on birthday page turn class/aspect/interests into theme list for first room</li>
                 <li>guest book is repurposed viking book</li>
                 <li>tweak item placement alg (bookshelves are good example to show how current alg has layering)</li>
                 <li>warn player if the ai eats a memory you have in addition to the item, various ai factions that eats novel items and fight each other (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
