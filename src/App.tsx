@@ -213,7 +213,7 @@ function App(props: AppProps) {
   const seed = props.seed;
 
   const updateURLParams=(player: Player)=>{
-    var pageUrl = '?' + `themes=${player.theme_keys}`;
+    var pageUrl = '?' + `seed=${seed}&themes=${player.theme_keys}`;
     window.history.pushState('', '', pageUrl);
   }
 
@@ -246,7 +246,9 @@ function App(props: AppProps) {
       detectDivStatus("ThisIsNotAnEye2");
       detectDivStatus("ThisIsNotASpiral");
       detectDivStatus("ThisIsAMenu"); //JR NOTE: TODO this can't work here, because this div isn't on page load
-      updateURLParams(player);
+      if(!getParameterByName("themes", null)){
+        updateURLParams(player);
+      }
       fuckUpBGButSoftly(player.order, player.chaos);
   }
   },[player,seed,detectDivStatus])
