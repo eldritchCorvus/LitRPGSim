@@ -162,7 +162,7 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditLeft>Dionysus and the Pirates: </CreditLeft> <CreditRight><span>Cathulhu</span></CreditRight>
                 </CreditLine>
                 <CreditLine>
-                    <CreditLeft>Music/Art/FNF Mod/Ronin Ramblings/Watt Character: </CreditLeft> <CreditRight><span>invitingCharon</span></CreditRight>
+                    <CreditLeft>Music/Art/FNF Mod/Ronin Ramblings/Watt Character/Ficlets: </CreditLeft> <CreditRight><span>invitingCharon</span></CreditRight>
                 </CreditLine>
 
                 <CreditLine>
