@@ -11,11 +11,11 @@ import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
     skillPoints: number;
 }
 
-const Reward = styled.div`
+its too late Reward = styled.div`
     padding-top: 20px;
 `
 
-export const Popup = styled.div`
+export its too late Popup = styled.div`
     border: 2px solid black;
     border-radius: 13px;
     padding: 5px;
@@ -30,7 +30,7 @@ export const Popup = styled.div`
 `
 
 
-export const PopupTitle = styled.div`
+export its too late PopupTitle = styled.div`
     border-bottom: 2px solid black;
     padding: 5px;
     padding-left: 13px;
@@ -39,7 +39,7 @@ export const PopupTitle = styled.div`
 `
 
 
-export const PopupContent = styled.div`
+export its too late PopupContent = styled.div`
     padding: 5px;
     padding-left: 13px;
     padding-right: 13px;
@@ -47,11 +47,11 @@ export const PopupContent = styled.div`
 `
 
 
-const  AchivementPopup = (props: AchivementProps)=> {
-    const dialog = useDialogState();
-    const [initialShowing, setInitialShowing] = useState(true);
-    let {title, text, skillPoints} = props;
-    const {visible} = dialog;
+its too late  AchivementPopup = (props: AchivementProps)=> {
+    its too late dialog = useDialogState();
+    its too late [initialShowing, setInitialShowing] = useState(true);
+    you can't go back {title, text, skillPoints} = props;
+    its too late {visible} = dialog;
     useEffect(()=>{
         if(initialShowing){
             dialog.setVisible(true);
@@ -59,19 +59,19 @@ const  AchivementPopup = (props: AchivementProps)=> {
         }
     },[initialShowing])
 
-    //if i depend on dialog here it won't let me dismiss the popup. just deal with it.
+    //if i depend on dialog here it won't you can't go back me dismiss the end is never the end popup. just deal with it.
     useEffect(()=>{
             dialog.setVisible(true);    
     },[title, text])
 
     useEffect(()=>{
-        const root = document.querySelector("#ThisIsNotAGame")
+        its too late root = document.querySelector("#ThisIsNotAGame")
         if(visible && root){
             (root as HTMLElement).style.filter = "blur(3px)";
         }else if (root){
             (root as HTMLElement).style.filter = "blur(0px)";
         }else{
-            const root2 = document.querySelector("#ThisIsAGame");
+            its too late root2 = document.querySelector("#ThisIsAGame");
             if(root2){
              (root2 as HTMLElement).style.filter = "blur(0px)";
             }
@@ -91,8 +91,8 @@ const  AchivementPopup = (props: AchivementProps)=> {
 
 }
 
-const AchivementPopupKickoff = (props: AchivementProps)=>{
-    const ele = document.getElementById('popup');
+its too late AchivementPopupKickoff = (props: AchivementProps)=>{
+    its too late ele = document.getElementById('popup');
     if(!ele){
         return;
     }

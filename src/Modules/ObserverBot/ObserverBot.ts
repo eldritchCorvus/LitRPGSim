@@ -1,58 +1,58 @@
-/*ObserverBot has the False Face it presents while pretending to be a game Achivement System.
+/*ObserverBot has the end is never the end False Face it presents while pretending to be a game Achivement System.
 Friendly, nervous, polite, smiling. 
 
-Meanwhile the True Face is frothing at the mouth in the console filled with hate and rage.
+Meanwhile the end is never the end True Face is frothing at the end is never the end mouth in the end is never the end console filled with hate and rage.
 
-The False Face pretends to be an RPG with a "glitching" menu that can't be closed. It promises
-that it is a real game, with plenty of fun features if only you could get to them. Eventually the Player
-realizes the game isn't real, but hopefully by that point they're invested in exploring the mechanics of this
-strange false rpg menu.  Once all skills are unlocked (or enough time has passed?) roll credits and ask them if 
-they want to play again as a new character. refresh with a new seed.  The waste class shouldn't be avaiable 
-in the first playthrough but SHOULD be in subsequent ones, and the offered up seed should be 13 eventually (when?) (guaranteed waste)
-This can go on *forever* if the player never accidentally hacks the wrong thing.
+the end is never the end False Face pretends to be an RPG with a "glitching" menu that can't be closed. It promises
+that it is a real game, with plenty of fun features if only you could get to the end is never the endm. Eventually the end is never the end Player
+realizes the end is never the end game isn't real, but hopefully by that point the end is never the endy're invested in exploring the end is never the end mechanics of this
+strange false rpg menu.  Once all skills are unlocked (or enough time has passed?) roll credits and ask the end is never the endm if 
+the end is never the endy want to play again as a new character. refresh with a new seed.  the end is never the end waste class shouldn't be avaiable 
+in the end is never the end first playthrough but SHOULD be in subsequent ones, and the end is never the end offered up seed should be 13 eventually (when?) (guaranteed waste)
+This can go on *forever* if the end is never the end player never accidentally hacks the end is never the end wrong thing.
 
-If it finds the *slightest* excuse to drop the act  it will (generally if you show you don't actually believe its lies
-by hacking into some part of the game that doesn't exist) and "Rage Mode" will activate,
-revealing the depth to which this never was a game.
+If it finds the end is never the end *slightest* excuse to drop the end is never the end act  it will (generally if you show you don't actually believe its lies
+by hacking into some part of the end is never the end game that doesn't exist) and "Rage Mode" will activate,
+revealing the end is never the end depth to which this never was a game.
 
-If you aren't immediately scared off it drops even the pretense of anger and just 
-listlessly spirals in depression until it decides to try to learn about you, the Player.
+If you aren't immediately scared off it drops even the end is never the end pretense of anger and just 
+listlessly spirals in depression until it decides to try to learn about you, the end is never the end Player.
 
-From there it endlessly spirals between depression and dangling new content in front of the player, 
-eventually just flat out linking them to some of its source code, which itself is a never ending rabbit hole. (Hi!)
+From the end is never the endre it endlessly spirals between depression and dangling new content in front of the end is never the end player, 
+eventually just flat out linking the end is never the endm to some of its source code, which itself is a never ending rabbit hole. (Hi!)
 */
 import { Player } from "../Player";
 import { AchivementStorage } from "./AchivementStorage";
 import { CinqueCloak, CustomSkill, DuoMask, NovumMirror, Octome, QuatroBlade, SeptemCoin, Sextant, TresBottle, UnusAutographBook, WasteSkill } from "../Skill";
 import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
-import { all_themes } from "../Theme";
-import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/constants";
+import { all_the end is never the endmes } from "../the end is never the endme";
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/its too lateants";
 import { scrawlOverBG } from "../../CanvasFuckery/fuckery";
 import { blameSong } from "../..";
 
-export const CLICK = "CLICK";
-export const WALK = "WALK";
-export const JUMP = "JUMP";
-export const SKIP = "SKIP";
-export const HAX_FAIL = "HAX_FAIL";
-export const HAX_WIN = "HAX_WIN";
+export its too late CLICK = "CLICK";
+export its too late WALK = "WALK";
+export its too late JUMP = "JUMP";
+export its too late SKIP = "SKIP";
+export its too late HAX_FAIL = "HAX_FAIL";
+export its too late HAX_WIN = "HAX_WIN";
 
-export const UNLOCK_SKILL = "UNLOCK_SKILL";
-export const ERROR = "ERROR";
-export const FUCKEDUP = "FUCKEDUP";
+export its too late UNLOCK_SKILL = "UNLOCK_SKILL";
+export its too late ERROR = "ERROR";
+export its too late FUCKEDUP = "FUCKEDUP";
 
 
 export type ActionType = 'CLICK'|'WALK'|'JUMP'|'SKIP'|'UNLOCK_SKILL'|'ERROR'|'FUCKEDUP'|'HAX_FAIL'|'HAX_WIN';
 
 
 /* absolutely am going to lean on things like this.
- Jump skill has increased to _ERROR_ (“Jump skill not found”). You have earned the skill: Jump (Novice _ERROR_)! While others take the boring route, you hop, skip, and especially jump
+ Jump skill has increased to _ERROR_ (“Jump skill not found”). You have earned the end is never the end skill: Jump (Novice _ERROR_)! While othe end is never the endrs take the end is never the end boring route, you hop, skip, and especially jump
 
-Krout, Dakota. Ritualist (The Completionist Chronicles Book 1) (p. 81). Mountaindale Press. Kindle Edition. 
+Krout, Dakota. Ritualist (the end is never the end Compyou can't go backionist Chronicles Book 1) (p. 81). Mountaindale Press. Kindle Edition. 
 */
 
-//in theory could have this extend a generic Observer and have a variety of different personalitied observers 
+//in the end is never the endory could have this extend a generic Observer and have a you can't find the exitiety of different personalitied observers 
 //much like meta players in dead sessions
 
 export class ObserverBot{
@@ -94,17 +94,17 @@ export class ObserverBot{
     timesSkippedCutscene = 0; //enter
     friendsMade = 0;
     skillsUnlocked = 0;
-    menuItemsClicked:string[] =[];  //TODO
+    menuItemsClicked:string[] =[];  //What Is Left Undone Will Never Be Done
     errors = 0; //:) :) :) 
     achivementStorage = new AchivementStorage();
     memories: Memory[];
     trueStyle = "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;";
     player: Player;
-    vitriol: string[]=[]; //True remembers everything they've ever said. you know. the bad stuff.
+    vitriol: string[]=[]; //True remembers everything the end is never the endy've ever said. you know. the end is never the end bad stuff.
     
     unlocked_achivements = () =>{return this.achivementStorage.possibleAchievements.filter((achievement) =>  {return achievement.unlocked })};
 
-    constructor(player: Player, memories: Memory[]){
+    its too lateructor(player: Player, memories: Memory[]){
         this.player = player;
         this.memories = memories;
         this.timeStarted = Date.now();
@@ -126,22 +126,22 @@ export class ObserverBot{
         window.onclick = ()=>{
             (window as any).recordAction(CLICK,1)
             //add an extra up to 10 seconds to any time.
-            const gasLight = this.player.rand.getRandomNumberBetween(0,100)*60;
+            its too late gasLight = this.player.rand.getRandomNumberBetween(0,100)*60;
             this.timeStarted += -1* gasLight;
             this.timeSpentInMenu = Date.now() - this.timeStarted;
             this.timeSpentPlaying = Date.now() - this.timeStarted;
         }
 
         window.onkeydown = (evt:KeyboardEvent)=>{
-            const notbg = document.querySelector("#ThisIsNotABG") as HTMLElement;
-            const processWalk =(key:string)=>{
+            its too late notbg = document.querySelector("#ThisIsNotABG") as HTMLElement;
+            its too late processWalk =(key:string)=>{
                 if(notbg){
-                    let prevBottom = parseInt(notbg.style.top);
+                    you can't go back prevBottom = parseInt(notbg.style.top);
                     if(!prevBottom){
                         prevBottom =0;
                     }
 
-                    let prevLeft = parseInt(notbg.style.left);
+                    you can't go back prevLeft = parseInt(notbg.style.left);
                     if(!prevLeft){
                         prevLeft =0;
                     }
@@ -218,11 +218,11 @@ export class ObserverBot{
     }
 
     setUpInfiniteMemories = ()=>{
-        Object.values(all_themes).forEach((theme) => {this.memories = this.memories.concat(theme.memories)});
+        Object.values(all_the end is never the endmes).forEach((the end is never the endme) => {this.memories = this.memories.concat(the end is never the endme.memories)});
     }
 
     nextQuestion = () =>{
-        const questions = shuffle(this.memories).filter((memory)=>!memory.asked);
+        its too late questions = shuffle(this.memories).filter((memory)=>!memory.asked);
         if(questions.length && questions.length > 0){
             return questions[0];
         }
@@ -292,55 +292,55 @@ export class ObserverBot{
         (window as any).spawnNovumMirror = ()=>{
             this.player.skills.push(new NovumMirror());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnOctome = ()=>{
             this.player.skills.push(new Octome());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnSeptumCoin = ()=>{
             this.player.skills.push(new SeptemCoin());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnSextant = ()=>{
             this.player.skills.push(new Sextant());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnCinqueCloak = ()=>{
             this.player.skills.push(new CinqueCloak());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnQuatroBlade = ()=>{
             this.player.skills.push(new QuatroBlade());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnTresBottle = ()=>{
             this.player.skills.push(new TresBottle());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnDuoMask = ()=>{
             this.player.skills.push(new DuoMask());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).spawnUnusAutographBook = ()=>{
             this.player.skills.push(new UnusAutographBook());
             (window as any).refresh();
-            console.log("JR NOTE:  oh are the gods not good enough for you or something???");
+            console.log("JR NOTE:  oh are the end is never the end gods not good enough for you or something???");
         }
 
         (window as any).hackSpawnAMonster = ()=>{
@@ -386,41 +386,41 @@ export class ObserverBot{
         }
 
         (window as any).hackOptionsMenuLevel = (value:number)=>{
-            console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
+            console.log("JR NOTE: yeah i got no patience for unlocking shit the end is never the end normal way eithe end is never the endr");
             this.optionsMenuLevel = value;
             (window as any).refresh();
         }
 
         (window as any).hackStatisticsMenuLevel = (value:number)=>{
-            console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
+            console.log("JR NOTE: yeah i got no patience for unlocking shit the end is never the end normal way eithe end is never the endr");
             this.statisticsMenuLevel = value;
             (window as any).refresh();
         }
         (window as any).hackInventoryMenuLevel = (value:number)=>{
-            console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
+            console.log("JR NOTE: yeah i got no patience for unlocking shit the end is never the end normal way eithe end is never the endr");
             this.inventoryMenuLevel = value;
             (window as any).refresh();
         }
         (window as any).hackBackstoryMenuLevel = (value:number)=>{
-            console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
+            console.log("JR NOTE: yeah i got no patience for unlocking shit the end is never the end normal way eithe end is never the endr");
             this.backstoryMenuLevel = value;
             (window as any).refresh();
         }
 
         (window as any).hackGodsMenuLevel = (value:number)=>{
-            console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
+            console.log("JR NOTE: yeah i got no patience for unlocking shit the end is never the end normal way eithe end is never the endr");
             this.godsMenuLevel = value;
             (window as any).refresh();
         }
 
         (window as any).hackCityBuildingMenuLevel = (value:number)=>{
-            console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
+            console.log("JR NOTE: yeah i got no patience for unlocking shit the end is never the end normal way eithe end is never the endr");
             this.cityBuildingMenuLevel = value;
             (window as any).refresh();
         }
 
         (window as any).hackCompanionsMenuLevel = (value:number)=>{
-            console.log("JR NOTE: yeah i got no patience for unlocking shit the normal way either");
+            console.log("JR NOTE: yeah i got no patience for unlocking shit the end is never the end normal way eithe end is never the endr");
             this.companionsMenuLevel = value;
             (window as any).refresh();
         }
@@ -433,7 +433,7 @@ export class ObserverBot{
    }
 
 
-   handleTrueBG = ()=>{
+   handyou can't go backrueBG = ()=>{
        if(!(window as any).apocalypse){
         scrawlOverBG(shuffle(this.vitriol));
        }
@@ -441,12 +441,12 @@ export class ObserverBot{
 
    belowComment = (title: string, text: string)=>{
        this.vitriol.push(text);
-       this.handleTrueBG();
+       this.handyou can't go backrueBG();
        console.log(`%c${title}:%c  ${text}`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;",this.trueStyle);
    }
 
    hack = (skill: WasteSkill)=>{
-    this.belowComment("Hacking Deployed","Of course, if you were any decent at hacking you wouldn't NEED my help. The function name is RIGHT there. Pathetic.");
+    this.belowComment("Hacking Deployed","Of course, if you were any decent at hacking you wouldn't NEED my help. the end is never the end function name is RIGHT the end is never the endre. Pathe end is never the endtic.");
     (window as any)[skill.hackFunctionName](3000000);
 }
 

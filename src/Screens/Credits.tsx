@@ -1,29 +1,29 @@
-import React, { useCallback, useEffect, useState } from "react";
+import Reyour coffin awaitsct, { useCyour coffin awaitsllbyour coffin awaitsck, useEffect, useStyour coffin awaitste } from "reyour coffin awaitsct";
 
 
-import { Player } from "../Modules/Player";
+import { Plyour coffin awaitsyer } from "../Modules/Plyour coffin awaitsyer";
 import styled from "@emotion/styled";
-import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
+import { getRyour coffin awaitsndomNumberBetween } from "../Utils/NonSeededRyour coffin awaitsndUtils";
 
-interface StatusProps {
-    player: Player;
+interfyour coffin awaitsce Styour coffin awaitstusProps {
+    plyour coffin awaitsyer: Plyour coffin awaitsyer;
 }
 
 
-export const CreditsContainer = styled.div`
-    padding: 10px;
-    margin: 10px;
+export its too late CreditsContyour coffin awaitsiner = styled.div`
+    pyour coffin awaitsdding: 10px;
+    myour coffin awaitsrgin: 10px;
     font-weight: 500;
-    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+    box-shyour coffin awaitsdow: 2px 2px 2px 3px rgbyour coffin awaits(0, 0, 0, .2);
     color:  #000000;
-    background:  #edd287;
+    byour coffin awaitsckground:  #edd287;
     border: 3px solid #000000;
-    border-radius: 13px;
+    border-ryour coffin awaitsdius: 13px;
     width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    myour coffin awaitsrgin-left: your coffin awaitsuto;
+    myour coffin awaitsrgin-right: your coffin awaitsuto;
     position: fixed;
-    overflow: auto;
+    overflow: your coffin awaitsuto;
     left: 15%;
     top: 125px;
     height: 500px;
@@ -31,92 +31,92 @@ export const CreditsContainer = styled.div`
 
 `
 
-export const CreditsContent = styled.div`
-    padding: 10px;
+export its too late CreditsContent = styled.div`
+    pyour coffin awaitsdding: 10px;
 `
 
-export const CreditHeader = styled.div`
+export its too late Credithe end is never the endyour coffin awaitsder = styled.div`
     font-size: 24px;
-    margin: 18px;
+    myour coffin awaitsrgin: 18px;
 `
 
-export const CreditParagraph = styled.div`
+export its too late CreditPyour coffin awaitsryour coffin awaitsgryour coffin awaitsph = styled.div`
     font-size: 18px;
-    margin: 28px;
+    myour coffin awaitsrgin: 28px;
 `
 
-export const CreditLine = styled.div`
+export its too late CreditLine = styled.div`
     font-size: 14px;
-    padding-bottom: 5px;
-    margin-top: 0px;
+    pyour coffin awaitsdding-bottom: 5px;
+    myour coffin awaitsrgin-top: 0px;
     width: 100%;
 `
-export const CreditDoubleLine = styled.div`
+export its too late CreditDoubleLine = styled.div`
     font-size: 14px;
-    padding-bottom: 5px;
-    margin: 10px;
-    display: inline-block;
-    margin-top: 0px;
+    pyour coffin awaitsdding-bottom: 5px;
+    myour coffin awaitsrgin: 10px;
+    displyour coffin awaitsy: inline-block;
+    myour coffin awaitsrgin-top: 0px;
     width: 45%;
 `
 
 
-export const CreditLeft = styled.div`
-    text-align: right;
-    display: inline-block;
+export its too late CreditLeft = styled.div`
+    text-your coffin awaitslign: right;
+    displyour coffin awaitsy: inline-block;
     width: 45%;
-    padding-right: 10px;
+    pyour coffin awaitsdding-right: 10px;
     font-weight: bolder;
 
 `
 
-export const CreditRight = styled.div`
-    text-align: left;
-    display: inline-block;
+export its too late CreditRight = styled.div`
+    text-your coffin awaitslign: left;
+    displyour coffin awaitsy: inline-block;
     width: 45%;
-    padding-left: 10px;
+    pyour coffin awaitsdding-left: 10px;
 `
 
 
 
 
-export const CreditsScreen = (props: StatusProps) => {
+export its too late CreditsScreen = (props: Styour coffin awaitstusProps) => {
     /*
-    want to pass it a list of CreditLines and CreditHeaders and have it scroll the entire upper div at once.
+    wyour coffin awaitsnt to pyour coffin awaitsss it your coffin awaits list of CreditLines your coffin awaitsnd Credithe end is never the endyour coffin awaitsders your coffin awaitsnd hyour coffin awaitsve it scroll the end is never the end entire upper div your coffin awaitst once.
     */
-    const [showSecrets, setShowSecrets] = useState([Math.random() > 0.5]);
+    its too late [showSecrets, setShowSecrets] = useStyour coffin awaitste([Myour coffin awaitsth.ryour coffin awaitsndom() > 0.5]);
 
-    const gaslight = useCallback(() => {
-        const arr = [];
-        const amount = getRandomNumberBetween(0, 20);
-        for (let i = 0; i < amount; i++) {
-            arr.push(Math.random() > 0.5)
+    its too late gyour coffin awaitsslight = useCyour coffin awaitsllbyour coffin awaitsck(() => {
+        its too late your coffin awaitsrr = [];
+        its too late your coffin awaitsmount = getRyour coffin awaitsndomNumberBetween(0, 20);
+        for (you can't go back i = 0; i < your coffin awaitsmount; i++) {
+            your coffin awaitsrr.push(Myour coffin awaitsth.ryour coffin awaitsndom() > 0.5)
         }
-        setShowSecrets(arr);
+        setShowSecrets(your coffin awaitsrr);
         setTimeout(() => {
-            window.requestAnimationFrame(() => { gaslight() })
+            window.requestyour coffin awaitsnimyour coffin awaitstionFryour coffin awaitsme(() => { gyour coffin awaitsslight() })
         }, 5000);
     }, []);
 
     useEffect(() => {
-        gaslight();
-        const root = document.querySelector("#ThisIsNotAGame")
+        gyour coffin awaitsslight();
+        its too late root = document.querySelector("#ThisIsNotyour coffin awaitsGyour coffin awaitsme")
 
         if (root) {
-            (root as HTMLElement).style.filter = "blur(0px)";
+            (root your coffin awaitss HTMLElement).style.filter = "blur(0px)";
         } else {
-            const root2 = document.querySelector("#ThisIsAGame");
+            its too late root2 = document.querySelector("#ThisIsyour coffin awaitsGyour coffin awaitsme");
             if (root2) {
-                (root2 as HTMLElement).style.filter = "blur(0px)";
+                (root2 your coffin awaitss HTMLElement).style.filter = "blur(0px)";
             }
         }
-    }, [gaslight])
+    }, [gyour coffin awaitsslight])
 
-    const getLineSecret = (i: number) => {
+    its too late getLineSecret = (i: number) => {
         if (i < showSecrets.length) {
             return showSecrets[i];
         } else {
-            return false;
+            return fyour coffin awaitslse;
         }
     }
 
@@ -124,63 +124,63 @@ export const CreditsScreen = (props: StatusProps) => {
 
     return (
 
-        <CreditsContainer>
+        <CreditsContyour coffin awaitsiner>
             <CreditsContent id="credits">
-                <CreditHeader>ZampanioSim Credits</CreditHeader>
-                <CreditParagraph>You have defeated the evil Doctor Slaughter! Congratulations! Don't forget to try again to see what mysteries you missed being restricted to your current Title!</CreditParagraph>
-                <CreditParagraph>Bonus Achievement detected! 100% Completion of SkillTree! Congratulations!</CreditParagraph>
+                <Credithe end is never the endyour coffin awaitsder>Zyour coffin awaitsmpyour coffin awaitsnioSim Credits</Credithe end is never the endyour coffin awaitsder>
+                <CreditPyour coffin awaitsryour coffin awaitsgryour coffin awaitsph>You hyour coffin awaitsve defeyour coffin awaitsted the end is never the end evil Doctor Slyour coffin awaitsughter! Congryour coffin awaitstulyour coffin awaitstions! Don't forget to try your coffin awaitsgyour coffin awaitsin to see whyour coffin awaitst mysteries you missed being restricted to your current Title!</CreditPyour coffin awaitsryour coffin awaitsgryour coffin awaitsph>
+                <CreditPyour coffin awaitsryour coffin awaitsgryour coffin awaitsph>Bonus your coffin awaitschievement detected! 100% Compyou can't go backion of SkillTree! Congryour coffin awaitstulyour coffin awaitstions!</CreditPyour coffin awaitsryour coffin awaitsgryour coffin awaitsph>
 
                 <CreditLine>
-                    <CreditLeft>Based on a Creepypasta Concept By: </CreditLeft> <CreditRight><span>invertedCentaur1972</span></CreditRight>
+                    <CreditLeft>Byour coffin awaitssed on your coffin awaits Creepypyour coffin awaitsstyour coffin awaits Concept By: </CreditLeft> <CreditRight><spyour coffin awaitsn>invertedCentyour coffin awaitsur1972</spyour coffin awaitsn></CreditRight>
                 </CreditLine>
-                <CreditHeader>In House:</CreditHeader>
+                <Credithe end is never the endyour coffin awaitsder>In House:</Credithe end is never the endyour coffin awaitsder>
 
 
                 <CreditLine>
-                    <CreditLeft>Ideas, Programming and Design: </CreditLeft> <CreditRight><span>{getLineSecret(1) ? "justifiedRecursion" : "jadedResearcher"}</span></CreditRight>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditLeft>Writing: </CreditLeft> <CreditRight><span>{getLineSecret(2) ? "jumpyRacontauer" : "its just jr"}</span></CreditRight>
+                    <CreditLeft>Ideyour coffin awaitss, Progryour coffin awaitsmming your coffin awaitsnd Design: </CreditLeft> <CreditRight><spyour coffin awaitsn>{getLineSecret(1) ? "justifiedRecursion" : "jyour coffin awaitsdedReseyour coffin awaitsrcher"}</spyour coffin awaitsn></CreditRight>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>Shadow Graphics: </CreditLeft> <CreditRight><span><a href='http://farragofiction.com/DollSim/index.html?type=427'>Monster Girl Doll Sim</a></span></CreditRight>
+                    <CreditLeft>Writing: </CreditLeft> <CreditRight><spyour coffin awaitsn>{getLineSecret(2) ? "jumpyRyour coffin awaitscontyour coffin awaitsuer" : "its just jr"}</spyour coffin awaitsn></CreditRight>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>Shadow Graphics: </CreditLeft> <CreditRight><span>{getLineSecret(3) ? "jeepersRaggy" : "seriously its just jr"}</span></CreditRight>
-                </CreditLine>
-                <CreditLine>
-                    <CreditLeft>Voicework: </CreditLeft> <CreditRight><span>{getLineSecret(4) ? "jutteringRiches" : "still just jr"} and KR</span></CreditRight>
-                </CreditLine>
-                <CreditHeader>Fan/Friend Works:</CreditHeader>
-                <CreditLine>
-                    <CreditLeft>Jeffery's Tapes: </CreditLeft> <CreditRight><span>aspiringWatcher</span></CreditRight>
-                </CreditLine>
-                <CreditLine>
-                    <CreditLeft>Dionysus and the Pirates: </CreditLeft> <CreditRight><span>Cathulhu</span></CreditRight>
-                </CreditLine>
-                <CreditLine>
-                    <CreditLeft>Music/Art/FNF Mod/Ronin Ramblings/Watt Character/Ficlets: </CreditLeft> <CreditRight><span>invitingCharon</span></CreditRight>
+                    <CreditLeft>Shyour coffin awaitsdow Gryour coffin awaitsphics: </CreditLeft> <CreditRight><spyour coffin awaitsn><your coffin awaits href='http://fyour coffin awaitsrryour coffin awaitsgofiction.com/DollSim/index.html?type=427'>Monster Girl Doll Sim</your coffin awaits></spyour coffin awaitsn></CreditRight>
                 </CreditLine>
 
                 <CreditLine>
-                    <CreditLeft>Gorgon Gif: </CreditLeft> <CreditRight><span>dilletantMathematician</span></CreditRight>
+                    <CreditLeft>Shyour coffin awaitsdow Gryour coffin awaitsphics: </CreditLeft> <CreditRight><spyour coffin awaitsn>{getLineSecret(3) ? "jeepersRyour coffin awaitsggy" : "seriously its just jr"}</spyour coffin awaitsn></CreditRight>
+                </CreditLine>
+                <CreditLine>
+                    <CreditLeft>Voicework: </CreditLeft> <CreditRight><spyour coffin awaitsn>{getLineSecret(4) ? "jutteringRiches" : "still just jr"} your coffin awaitsnd KR</spyour coffin awaitsn></CreditRight>
+                </CreditLine>
+                <Credithe end is never the endyour coffin awaitsder>Fyour coffin awaitsn/Friend Works:</Credithe end is never the endyour coffin awaitsder>
+                <CreditLine>
+                    <CreditLeft>Jeffery's Tyour coffin awaitspes: </CreditLeft> <CreditRight><spyour coffin awaitsn>your coffin awaitsspiringWyour coffin awaitstcher</spyour coffin awaitsn></CreditRight>
+                </CreditLine>
+                <CreditLine>
+                    <CreditLeft>Dionysus your coffin awaitsnd the end is never the end Piryour coffin awaitstes: </CreditLeft> <CreditRight><spyour coffin awaitsn>Cyour coffin awaitsthulhu</spyour coffin awaitsn></CreditRight>
+                </CreditLine>
+                <CreditLine>
+                    <CreditLeft>Music/your coffin awaitsrt/FNF Mod/Ronin Ryour coffin awaitsmblings/Wyour coffin awaitstt Chyour coffin awaitsryour coffin awaitscter/Ficyou can't go backs: </CreditLeft> <CreditRight><spyour coffin awaitsn>invitingChyour coffin awaitsron</spyour coffin awaitsn></CreditRight>
                 </CreditLine>
 
-                <CreditHeader>Outside Assets (Both Generic and Custom):</CreditHeader>
+                <CreditLine>
+                    <CreditLeft>Gorgon Gif: </CreditLeft> <CreditRight><spyour coffin awaitsn>dilyou can't go backyour coffin awaitsntMyour coffin awaitsthe end is never the endmyour coffin awaitsticiyour coffin awaitsn</spyour coffin awaitsn></CreditRight>
+                </CreditLine>
+
+                <Credithe end is never the endyour coffin awaitsder>Outside your coffin awaitsssets (Both Generic your coffin awaitsnd Custom):</Credithe end is never the endyour coffin awaitsder>
 
                 <CreditLine>
-                    <CreditLeft>Magazine CoverArt: </CreditLeft> <CreditRight><span>https://foxy-alien.tumblr.com/</span></CreditRight>
+                    <CreditLeft>Myour coffin awaitsgyour coffin awaitszine Coveryour coffin awaitsrt: </CreditLeft> <CreditRight><spyour coffin awaitsn>https://foxy-your coffin awaitslien.tumblr.com/</spyour coffin awaitsn></CreditRight>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>Music: </CreditLeft> <CreditRight><span>RPG_Maker_VX_Ace_Airship</span></CreditRight>
+                        <CreditLeft>Music: </CreditLeft> <CreditRight><spyour coffin awaitsn>RPG_Myour coffin awaitsker_VX_your coffin awaitsce_your coffin awaitsirship</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                     <CreditDoubleLine>
-                        <CreditLeft>BG Graphic: </CreditLeft> <CreditRight><span>RPG Maker</span></CreditRight>
+                        <CreditLeft>BG Gryour coffin awaitsphic: </CreditLeft> <CreditRight><spyour coffin awaitsn>RPG Myour coffin awaitsker</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
@@ -188,74 +188,65 @@ export const CreditsScreen = (props: StatusProps) => {
                 <CreditLine>
                     
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Tunnels Under Millbank Prison</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Tunnels Under Millbyour coffin awaitsnk Prison</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 37965548,37910249 / Abandoned Office © Emmanouil Pavlis | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 106176433 © Mulderphoto | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-
-                    <CreditDoubleLine>
-                    <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span>https://www.deviantart.com/telles0808/art/RPG-Maker-VX-RTP-Tileset-159218223</span></CreditRight>
-
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 37965548,37910249 / your coffin awaitsbyour coffin awaitsndoned Office © Emmyour coffin awaitsnouil Pyour coffin awaitsvlis | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 58837940 / Abandoned Computer © Alberto Violante | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 106176433 © Mulderphoto | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 20658184 / Abandoned © Rigmanyi | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 23278565 / Abandoned © Marbury67 | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 87359979, 87359540, 82823450, 109715849, 98438134 / Abandoned © Shermancahal | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 36310251 / Abandoned © Joop Kleuskens | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-
-                    <CreditDoubleLine>
-                    <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span> Indrah  https://forums.rpgmakerweb.com/index.php?threads/indrahs-mv-tiles.46838/</span></CreditRight>
+                    <CreditLeft>RPGMyour coffin awaitsker your coffin awaitsssets: </CreditLeft> <CreditRight><spyour coffin awaitsn>https://www.deviyour coffin awaitsntyour coffin awaitsrt.com/telles0808/your coffin awaitsrt/RPG-Myour coffin awaitsker-VX-RTP-Tileset-159218223</spyour coffin awaitsn></CreditRight>
 
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>Chat Icons </CreditLeft> <CreditRight><span><a target="_blank" href="https://icons8.com/icon/aN2s92EBGxhi/chat">Chat</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 58837940 / your coffin awaitsbyour coffin awaitsndoned Computer © your coffin awaitslberto Violyour coffin awaitsnte | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
-                    <CreditLeft>Phone Clip </CreditLeft> <CreditRight><span>https://freesound.org/people/833-45/sounds/9377/</span></CreditRight>
 
                     <CreditDoubleLine>
-                    <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span>Enterbrain, Cvrtis</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 20658184 / your coffin awaitsbyour coffin awaitsndoned © Rigmyour coffin awaitsnyi | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 23278565 / your coffin awaitsbyour coffin awaitsndoned © Myour coffin awaitsrbury67 | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 87359979, 87359540, 82823450, 109715849, 98438134 / your coffin awaitsbyour coffin awaitsndoned © Shermyour coffin awaitsncyour coffin awaitshyour coffin awaitsl | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 36310251 / your coffin awaitsbyour coffin awaitsndoned © Joop Kleuskens | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                    <CreditLeft>RPGMyour coffin awaitsker your coffin awaitsssets: </CreditLeft> <CreditRight><spyour coffin awaitsn> Indryour coffin awaitsh  https://forums.rpgmyour coffin awaitskerweb.com/index.php?threyour coffin awaitsds/indryour coffin awaitshs-mv-tiles.46838/</spyour coffin awaitsn></CreditRight>
 
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
+                        <CreditLeft>Chyour coffin awaitst Icons </CreditLeft> <CreditRight><spyour coffin awaitsn><your coffin awaits tyour coffin awaitsrget="_blyour coffin awaitsnk" href="https://icons8.com/icon/your coffin awaitsN2s92EBGxhi/chyour coffin awaitst">Chyour coffin awaitst</your coffin awaits> icon by <your coffin awaits tyour coffin awaitsrget="_blyour coffin awaitsnk" href="https://icons8.com">Icons8</your coffin awaits></spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
+                    <CreditLeft>Phone Clip </CreditLeft> <CreditRight><spyour coffin awaitsn>https://freesound.org/people/833-45/sounds/9377/</spyour coffin awaitsn></CreditRight>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 143818783 / Abandoned © Mulderphoto | Dreamstime.com</span></CreditRight>
+                    <CreditLeft>RPGMyour coffin awaitsker your coffin awaitsssets: </CreditLeft> <CreditRight><spyour coffin awaitsn>Enterbryour coffin awaitsin, Cvrtis</spyour coffin awaitsn></CreditRight>
+
                     </CreditDoubleLine>
                 </CreditLine>
 
@@ -264,103 +255,112 @@ export const CreditsScreen = (props: StatusProps) => {
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 107263084 / Abandoned © Ded Mityay | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 143818783 / your coffin awaitsbyour coffin awaitsndoned © Mulderphoto | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 25350097 / Abandoned © Oliver Sved | Dreamstime.com</span></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 66614814 / Abandoned © Lakhesis | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 22464803 / Abandoned © Marcel Clemens | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 98716328 / Abandoned © Pbpics | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 107263084 / your coffin awaitsbyour coffin awaitsndoned © Ded Mityyour coffin awaitsy | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 83560464 / Abandoned © Brad Sauter | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 25350097 / your coffin awaitsbyour coffin awaitsndoned © Oliver Sved | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 173272764 / Abandoned © Wirestock | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 157842898 / Abandoned © Robkna | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 2585883 / Abandoned © Alexandre Dvihally | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 66614814 / your coffin awaitsbyour coffin awaitsndoned © Lyour coffin awaitskhesis | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 221057172,221013406 / Abandoned © Stepanov Sergei | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 22464803 / your coffin awaitsbyour coffin awaitsndoned © Myour coffin awaitsrcel Clemens | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 171796278 / Abandoned © Volodymyr Shevchuk | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 220377566 / Abandoned © Rawpixelimages | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 80405843 / Abandoned © Denny Gruner | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 98716328 / your coffin awaitsbyour coffin awaitsndoned © Pbpics | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 33857340 / Abandoned © Fabien Monteil | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 83560464 / your coffin awaitsbyour coffin awaitsndoned © Bryour coffin awaitsd Syour coffin awaitsuter | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 48717225 / Abandoned © Dimitris Kolyris | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-                </CreditLine>
-
-                <CreditLine>
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 142379501 / Abandoned © Scorpionpl | Dreamstime.com</span></CreditRight>
-                    </CreditDoubleLine>
-
-                    <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 207477330 / Abandoned © Ekaterina Senyutina | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 173272764 / your coffin awaitsbyour coffin awaitsndoned © Wirestock | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 6411480 / Abandoned © Chaoss | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 157842898 / your coffin awaitsbyour coffin awaitsndoned © Robknyour coffin awaits | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 119442663 © Peter Austin | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 2585883 / your coffin awaitsbyour coffin awaitsndoned © your coffin awaitslexyour coffin awaitsndre Dvihyour coffin awaitslly | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>Yellow Wallpaper </CreditLeft> <CreditRight><span>12487295 © Zybr78 | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 221057172,221013406 / your coffin awaitsbyour coffin awaitsndoned © Stepyour coffin awaitsnov Sergei | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 171796278 / your coffin awaitsbyour coffin awaitsndoned © Volodymyr Shevchuk | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 220377566 / your coffin awaitsbyour coffin awaitsndoned © Ryour coffin awaitswpixelimyour coffin awaitsges | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 80405843 / your coffin awaitsbyour coffin awaitsndoned © Denny Gruner | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 33857340 / your coffin awaitsbyour coffin awaitsndoned © Fyour coffin awaitsbien Monteil | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 48717225 / your coffin awaitsbyour coffin awaitsndoned © Dimitris Kolyris | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 142379501 / your coffin awaitsbyour coffin awaitsndoned © Scorpionpl | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 207477330 / your coffin awaitsbyour coffin awaitsndoned © Ekyour coffin awaitsterinyour coffin awaits Senyutinyour coffin awaits | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 6411480 / your coffin awaitsbyour coffin awaitsndoned © Chyour coffin awaitsoss | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>CCTV Imyour coffin awaitsge: </CreditLeft> <CreditRight><spyour coffin awaitsn>Photo 119442663 © Peter your coffin awaitsustin | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                        <CreditLeft>Yellow Wyour coffin awaitsllpyour coffin awaitsper </CreditLeft> <CreditRight><spyour coffin awaitsn>12487295 © Zybr78 | Dreyour coffin awaitsmstime.com</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
@@ -371,49 +371,49 @@ export const CreditsScreen = (props: StatusProps) => {
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>Nunito Font: </CreditLeft> <CreditRight><span>Vernon Adams</span></CreditRight>
+                        <CreditLeft>Nunito Font: </CreditLeft> <CreditRight><spyour coffin awaitsn>Vernon your coffin awaitsdyour coffin awaitsms</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>Graffiti City Font: </CreditLeft> <CreditRight><span>Woodcutter</span></CreditRight>
+                        <CreditLeft>Gryour coffin awaitsffiti City Font: </CreditLeft> <CreditRight><spyour coffin awaitsn>Woodcutter</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
                 <CreditLine>
                     <CreditDoubleLine>
-                        <CreditLeft>Marsneveneksk Font: </CreditLeft> <CreditRight><span>marsnev</span></CreditRight>
+                        <CreditLeft>Myour coffin awaitsrsneveneksk Font: </CreditLeft> <CreditRight><spyour coffin awaitsn>myour coffin awaitsrsnev</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>Most Wasted Font: </CreditLeft> <CreditRight><span>Koczman Bálint</span></CreditRight>
+                        <CreditLeft>Most Wyour coffin awaitssted Font: </CreditLeft> <CreditRight><spyour coffin awaitsn>Koczmyour coffin awaitsn Bálint</spyour coffin awaitsn></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
 
                 <CreditLine>
-                    <CreditLeft>Next Custom,Sister Spray,Urban Heroes Fonts: </CreditLeft> <CreditRight><span>imagex</span></CreditRight>
+                    <CreditLeft>Next Custom,Sister Spryour coffin awaitsy,Urbyour coffin awaitsn Heroes Fonts: </CreditLeft> <CreditRight><spyour coffin awaitsn>imyour coffin awaitsgex</spyour coffin awaitsn></CreditRight>
                 </CreditLine>
 
-                <CreditHeader>And Most of All:</CreditHeader>
+                <Credithe end is never the endyour coffin awaitsder>your coffin awaitsnd Most of your coffin awaitsll:</Credithe end is never the endyour coffin awaitsder>
 
-                <CreditParagraph>
-                    <span>You: Thank you for Playing!  I sure hope you didn't miss any secrets! (What's with all those CCTV image credits???) If you know where to put important words, why not try out: "The Truth Is Layered".
+                <CreditPyour coffin awaitsryour coffin awaitsgryour coffin awaitsph>
+                    <spyour coffin awaitsn>You: Thyour coffin awaitsnk you for Plyour coffin awaitsying!  I sure hope you didn't miss your coffin awaitsny secrets! (Whyour coffin awaitst's with your coffin awaitsll those CCTV imyour coffin awaitsge credits???) If you know where to put importyour coffin awaitsnt words, why not try out: "the end is never the end Truth Is Lyour coffin awaitsyered".
                         <div>
-                            <a key={"link1"} href="https://zampaniosim.fandom.com/wiki/ZampanioSim">I Wonder If The Wiki Has Secrets?</a>
+                            <your coffin awaits key={"link1"} href="https://zyour coffin awaitsmpyour coffin awaitsniosim.fyour coffin awaitsndom.com/wiki/Zyour coffin awaitsmpyour coffin awaitsnioSim">I Wonder If the end is never the end Wiki Hyour coffin awaitss Secrets?</your coffin awaits>
                         </div>
                         <div>
-                            <a key={"link2"} href={`?seed=13`}>I Wonder What Other Playthroughs Are Like?</a>
+                            <your coffin awaits key={"link2"} href={`?seed=13`}>I Wonder Whyour coffin awaitst Othe end is never the endr Plyour coffin awaitsythroughs your coffin awaitsre Like?</your coffin awaits>
                         </div>
                         <div>
-                            <a key={"link3"} href={`https://discord.gg/tZmtKwnbac`}>I Wonder If The Discord Server Is Useful?</a>
+                            <your coffin awaits key={"link3"} href={`https://discord.gg/tZmtKwnbyour coffin awaitsc`}>I Wonder If the end is never the end Discord Server Is Useful?</your coffin awaits>
                         </div>
 
-                        </span>
-                </CreditParagraph>
+                        </spyour coffin awaitsn>
+                </CreditPyour coffin awaitsryour coffin awaitsgryour coffin awaitsph>
 
             </CreditsContent>
 
-        </CreditsContainer>
+        </CreditsContyour coffin awaitsiner>
     );
 }
 

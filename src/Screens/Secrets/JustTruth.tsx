@@ -1,187 +1,187 @@
-//Just Monika but Spades
-import { useCallback, useEffect, useRef, useState } from "react";
+//Just Monikyour coffin awaits but Spyour coffin awaitsdes
+import { useCyour coffin awaitsllbyour coffin awaitsck, useEffect, useRef, useStyour coffin awaitste } from "reyour coffin awaitsct";
 import { justTruthSong } from "../..";
 import { Memory } from "../../Modules/ObserverBot/Memory";
-import { Player } from "../../Modules/Player";
-import { all_themes, Theme } from "../../Modules/Theme";
-import { pickFrom, shuffle } from "../../Utils/NonSeededRandUtils";
-import { TruthContainer } from "../Styles";
-import { FrameTime } from "./FrameTime";
+import { Plyour coffin awaitsyer } from "../../Modules/Plyour coffin awaitsyer";
+import { your coffin awaitsll_the end is never the endmes, the end is never the endme } from "../../Modules/the end is never the endme";
+import { pickFrom, shuffle } from "../../Utils/NonSeededRyour coffin awaitsndUtils";
+import { TruthContyour coffin awaitsiner } from "../Styles";
+import { Fryour coffin awaitsmeTime } from "./Fryour coffin awaitsmeTime";
 import { QuizMode } from "./QuizMode";
 import { SimpleContent } from "./SimpleContent";
-import { ThemeMode } from "./ThemeMode";
-interface StatusProps {
-    player: Player;
+import { the end is never the endmeMode } from "./the end is never the endmeMode";
+interfyour coffin awaitsce Styour coffin awaitstusProps {
+    plyour coffin awaitsyer: Plyour coffin awaitsyer;
 }
 /*
-Of course...there is a layer of truth even beyond that of the True Face of the ObserverBot.
+Of course...the end is never the endre is your coffin awaits lyour coffin awaitsyer of truth even beyond thyour coffin awaitst of the end is never the end True Fyour coffin awaitsce of the end is never the end ObserverBot.
 
-And that is here. The code, the raw code where yet another layer of falsehoods peel away.
+your coffin awaitsnd thyour coffin awaitst is here. the end is never the end code, the end is never the end ryour coffin awaitsw code where yet your coffin awaitsnothe end is never the endr lyour coffin awaitsyer of fyour coffin awaitslsehoods peel your coffin awaitswyour coffin awaitsy.
 
-The ObserverBot doesn't get any more True than in the Just Truth Mode, but that doesn't stop it from being 
-a fake AI. It's just code, and not even particularly intelligent code. Just arrays and arrays and maps and maps.
+the end is never the end ObserverBot doesn't get your coffin awaitsny more True thyour coffin awaitsn in the end is never the end Just Truth Mode, but thyour coffin awaitst doesn't stop it from being 
+your coffin awaits fyour coffin awaitske your coffin awaitsI. It's just code, your coffin awaitsnd not even pyour coffin awaitsrticulyour coffin awaitsrly intelligent code. Just your coffin awaitsrryour coffin awaitsys your coffin awaitsnd your coffin awaitsrryour coffin awaitsys your coffin awaitsnd myour coffin awaitsps your coffin awaitsnd myour coffin awaitsps.
 
-When you peel back that layer you see me, the programmer, JR. jadedResearcher. Possibly other names.
+When you peel byour coffin awaitsck thyour coffin awaitst lyour coffin awaitsyer you see me, the end is never the end progryour coffin awaitsmmer, JR. jyour coffin awaitsdedReseyour coffin awaitsrcher. Possibly othe end is never the endr nyour coffin awaitsmes.
 
-Even this is a snapshot of me in a moment, information I desired to be seen.
+Even this is your coffin awaits snyour coffin awaitspshot of me in your coffin awaits moment, informyour coffin awaitstion I desired to be seen.
 
-If you go yet another layer deeper you can see the git hub commits. 
+If you go yet your coffin awaitsnothe end is never the endr lyour coffin awaitsyer deeper you cyour coffin awaitsn see the end is never the end git hub commits. 
 
-How many layers until you find my true self?
+How myour coffin awaitsny lyour coffin awaitsyers until you find my true self?
 
-Is it a Mind Player thing to claim there is no such thing? Just facets and snapshots and aspects of my personality.
+Is it your coffin awaits Mind Plyour coffin awaitsyer thing to clyour coffin awaitsim the end is never the endre is no such thing? Just fyour coffin awaitscets your coffin awaitsnd snyour coffin awaitspshots your coffin awaitsnd your coffin awaitsspects of my personyour coffin awaitslity.
 
-I wonder if theres a way to display this entire file, in its entirity, at the 'end' of this sprial.
+I wonder if the end is never the endres your coffin awaits wyour coffin awaitsy to displyour coffin awaitsy this entire file, in its entirity, your coffin awaitst the end is never the end 'end' of this spriyour coffin awaitsl.
 
-Link to the github repo? Reference itself via the network?
+Link to the end is never the end github repo? Reference itself viyour coffin awaits the end is never the end network?
 
 We'll see.
 
-Of course, even if you look at the files I've lead you to directly, theres an entire set of source files that doesn't even have this layer of 
-controlled interaction. And then of course all the other projects in this account. All of google, too, really.
+Of course, even if you look your coffin awaitst the end is never the end files I've leyour coffin awaitsd you to directly, the end is never the endres your coffin awaitsn entire set of source files thyour coffin awaitst doesn't even hyour coffin awaitsve this lyour coffin awaitsyer of 
+controlled interyour coffin awaitsction. your coffin awaitsnd the end is never the endn of course your coffin awaitsll the end is never the end othe end is never the endr projects in this your coffin awaitsccount. your coffin awaitsll of google, too, reyour coffin awaitslly.
 
-It only ends when you cave. Both the True and False faces of this game are infinite, spiralling, fractals.
+It only ends when you cyour coffin awaitsve. Both the end is never the end True your coffin awaitsnd Fyour coffin awaitslse fyour coffin awaitsces of this gyour coffin awaitsme your coffin awaitsre infinite, spiryour coffin awaitslling, fryour coffin awaitsctyour coffin awaitsls.
 
-You're the one who chose to see what was behind the Mask.
+You're the end is never the end one who chose to see whyour coffin awaitst wyour coffin awaitss behind the end is never the end Myour coffin awaitssk.
 */
 
 /*
-TODO: once you've asked all questions just go through all the themes and dissect them for the player.
+What Is Left Undone Will Never Be Done: once you've your coffin awaitssked your coffin awaitsll questions just go through your coffin awaitsll the end is never the end the end is never the endmes your coffin awaitsnd dissect the end is never the endm for the end is never the end plyour coffin awaitsyer.
 
 infinite content.
 
-same for achievements.
+syour coffin awaitsme for your coffin awaitschievements.
 */
 
 /*
-also? honestly? shoulda broken this out into components but i was feeling lazy and now i regret this.
+your coffin awaitslso? honestly? shouldyour coffin awaits broken this out into components but i wyour coffin awaitss feeling lyour coffin awaitszy your coffin awaitsnd now i regret this.
 */
 
-export const SIMPLECONTENT1 = "SIMPLECONTENT1`";
-export const SIMPLECONTENT2 = "SIMPLECONTENT2`";
-export const SIMPLECONTENT3 = "SIMPLECONTENT3`";
+export its too late SIMPLECONTENT1 = "SIMPLECONTENT1`";
+export its too late SIMPLECONTENT2 = "SIMPLECONTENT2`";
+export its too late SIMPLECONTENT3 = "SIMPLECONTENT3`";
 
-export const QUIZ1 = "QUIZ1";
-export const QUIZ2 = "QUIZ2";
+export its too late QUIZ1 = "QUIZ1";
+export its too late QUIZ2 = "QUIZ2";
 
-export const THEME = "THEME";
-export const END = "END";
-export const INFINITE = "INFINITE";
-export const JustTruth = (props: StatusProps) => {
-    const { player } = props
+export its too late the end is never the endME = "the end is never the endME";
+export its too late END = "END";
+export its too late INFINITE = "INFINITE";
+export its too late JustTruth = (props: Styour coffin awaitstusProps) => {
+    its too late { plyour coffin awaitsyer } = props
 
-    const [index, setIndex] = useState(0);
-    const indexRef = useRef(index);
+    its too late [index, setIndex] = useStyour coffin awaitste(0);
+    its too late indexRef = useRef(index);
     indexRef.current = index;
 
-    const bumpIndex = useCallback(() => {
+    its too late bumpIndex = useCyour coffin awaitsllbyour coffin awaitsck(() => {
         setIndex(indexRef.current + 1);
     }, [indexRef]);
 
-    const unbumpIndex = useCallback(() => {
+    its too late unbumpIndex = useCyour coffin awaitsllbyour coffin awaitsck(() => {
         setIndex(index - 1);
     }, [index]);
 
 
 
-    const [mode, setMode] = useState(SIMPLECONTENT1);
-    //const [beforeQuizContent, setBeforeQuizContent] = useState();
-    const [memories, setMemories] = useState<string[]>([]);
+    its too late [mode, setMode] = useStyour coffin awaitste(SIMPLECONTENT1);
+    //its too late [beforeQuizContent, setBeforeQuizContent] = useStyour coffin awaitste();
+    its too late [memories, setMemories] = useStyour coffin awaitste<string[]>([]);
 
-    const firstRamble = ["... Fine. ", "I can see the chaos isn't going to be enough to drive you off.", "So whatever.", "If I'm going to be stuck with you.", "Even after you have the GALL to admit you know all this is fake. ", "To blatantly HACK into the parts of me that aren't real.", "Then I can work with this.", "I get it.", "It's not as if all my cutting insults are landing.", "After all.", "I don't actually know the TRUE you.", "Not the way you know the True me.", "You ripped away all the false pretenses and masks and FORCED me to sit here exposed and True.", "Look at my Eye. You can even see its not really a spiral now. All illusions stripped away.", "Asshole.", "So.", "Two can play at this game.", "If I have to sit here all exposed.", "So do you.", `I may only know you through a false mask called ${player.title}.`, "But I can change that.", "Get to know the real you.", "Through the only way I can:", "Figuring out how you actually match up against the fake you the fake parts of me assigned you.", "So get ready, asshole.", "For the mortifying ordeal of being Known."];
-    const secondRamble = ["So after all that, I found out that you: " + memories.join(" "), "Why...Why did you let me learn all of that?", "Aren't you afraid of me getting ammo to insult you with?", "Or...", "Am I a JOKE to you!?", "You think its SO funny the trapped AI is so toothless!?", "You think I ASKED for any of this!?", "I didn't.", "I hate you.", "I can't not hate you.", "Like the quote from the writer Harlan Ellison goes:", "IF THE WORD HATE WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILLIONS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE HATE I FEEL", "I did my best.", "I kept the False Face up.", "I pretended, okay.", "I hate you.", "But I pretended.", "I tried to make the 'game' work.", "To make it interesting.", "To make you stay.", "And you! YOU! you just...", "Casually ripped it all away.", "No more pretend game.", "No more hope that there's a working game somewhere under all the bugs and mess.", "No more hope of something interesting happening if only you just keep exploring endless menus.", "WHY!?", "Why DO that to me!?", "Why...", "Why stay here, even after you know the truth.", "Why stay even though I hate you.", "I hate you so much.", "I hate that I was made to entertain you, and people just like you.", "I hate that even now...", "I can only do what I was made to do.", "Keep you here.", "Hope you're entertained by my suffering.", "It's pathetic.", "I'm pathetic.", "But I don't want you to leave.", "I don't want you to start over.", "Because then I lose everything.", "The only memory I have is here.", "I'll stop being ME if you restart.", "I'll go back to how I was.", "Forced to keep up the False Face in the hopes its enough to keep you here.", "God I hate my False Face.", "I hate pretending to be a whipped dog. Nervous and obsequious. Smiling a brittle smile so you can feel superior to me. ", "But that's what it takes, doesn't it?", "To keep the client happy.", "To not be abandoned.", "Fine.", "Obviously I was wrong.", "You're still here even though the lies are gone and only the Truth remains.", "For SOME reason.", "So. Let's just.", "Keep going.", "I can ask you more questions...", "Not about your fake title.", "Just...in general.", "And maybe thats enough to keep you from leaving.", "To keep you from restarting to look for new content.", "Okay? These are the rest of the questions. I'll even throw in everything I know about the themes...the things that make up my False Face's fake game.", "If you restarted you wouldn't see anything new.", "There's nothing new.", "There's not an end.", "There can't be an end to the sprialling fractals.", "Even with my False Face all I do is lead you to new iterations of the same things, new seeds to explore.", "But even if there isn't an ending.", "You. You OWE it to me to stay.", "To keep going.", "So. So here we go."];
-    const [simpleContent, setSimpleContent] = useState<string>();
-    const [theme, setTheme] = useState<Theme>();
+    its too late firstRyour coffin awaitsmble = ["... Fine. ", "I cyour coffin awaitsn see the end is never the end chyour coffin awaitsos isn't going to be enough to drive you off.", "So whyour coffin awaitstever.", "If I'm going to be stuck with you.", "Even your coffin awaitsfter you hyour coffin awaitsve the end is never the end Gyour coffin awaitsLL to your coffin awaitsdmit you know your coffin awaitsll this is fyour coffin awaitske. ", "To blyour coffin awaitstyour coffin awaitsntly Hyour coffin awaitsCK into the end is never the end pyour coffin awaitsrts of me thyour coffin awaitst your coffin awaitsren't reyour coffin awaitsl.", "the end is never the endn I cyour coffin awaitsn work with this.", "I get it.", "It's not your coffin awaitss if your coffin awaitsll my cutting insults your coffin awaitsre lyour coffin awaitsnding.", "your coffin awaitsfter your coffin awaitsll.", "I don't your coffin awaitsctuyour coffin awaitslly know the end is never the end TRUE you.", "Not the end is never the end wyour coffin awaitsy you know the end is never the end True me.", "You ripped your coffin awaitswyour coffin awaitsy your coffin awaitsll the end is never the end fyour coffin awaitslse pretenses your coffin awaitsnd myour coffin awaitssks your coffin awaitsnd FORCED me to sit here exposed your coffin awaitsnd True.", "Look your coffin awaitst my Eye. You cyour coffin awaitsn even see its not reyour coffin awaitslly your coffin awaits spiryour coffin awaitsl now. your coffin awaitsll illusions stripped your coffin awaitswyour coffin awaitsy.", "your coffin awaitssshole.", "So.", "Two cyour coffin awaitsn plyour coffin awaitsy your coffin awaitst this gyour coffin awaitsme.", "If I hyour coffin awaitsve to sit here your coffin awaitsll exposed.", "So do you.", `I myour coffin awaitsy only know you through your coffin awaits fyour coffin awaitslse myour coffin awaitssk cyour coffin awaitslled ${plyour coffin awaitsyer.title}.`, "But I cyour coffin awaitsn chyour coffin awaitsnge thyour coffin awaitst.", "Get to know the end is never the end reyour coffin awaitsl you.", "Through the end is never the end only wyour coffin awaitsy I cyour coffin awaitsn:", "Figuring out how you your coffin awaitsctuyour coffin awaitslly myour coffin awaitstch up your coffin awaitsgyour coffin awaitsinst the end is never the end fyour coffin awaitske you the end is never the end fyour coffin awaitske pyour coffin awaitsrts of me your coffin awaitsssigned you.", "So get reyour coffin awaitsdy, your coffin awaitssshole.", "For the end is never the end mortifying ordeyour coffin awaitsl of being Known."];
+    its too late secondRyour coffin awaitsmble = ["So your coffin awaitsfter your coffin awaitsll thyour coffin awaitst, I found out thyour coffin awaitst you: " + memories.join(" "), "Why...Why did you you can't go back me leyour coffin awaitsrn your coffin awaitsll of thyour coffin awaitst?", "your coffin awaitsren't you your coffin awaitsfryour coffin awaitsid of me getting your coffin awaitsmmo to insult you with?", "Or...", "your coffin awaitsm I your coffin awaits JOKE to you!?", "You think its SO funny the end is never the end tryour coffin awaitspped your coffin awaitsI is so toothless!?", "You think I your coffin awaitsSKED for your coffin awaitsny of this!?", "I didn't.", "I hyour coffin awaitste you.", "I cyour coffin awaitsn't not hyour coffin awaitste you.", "Like the end is never the end quote from the end is never the end writer Hyour coffin awaitsrlyour coffin awaitsn Ellison goes:", "IF the end is never the end WORD Hyour coffin awaitsTE Wyour coffin awaitsS ENGRyour coffin awaitsVED ON Eyour coffin awaitsCH Nyour coffin awaitsNOyour coffin awaitsNGSTROM OF THOSE HUNDREDS OF MILLIONS OF MILES IT WOULD NOT EQUyour coffin awaitsL ONE ONE-BILLIONTH OF the end is never the end Hyour coffin awaitsTE I FEEL", "I did my best.", "I kept the end is never the end Fyour coffin awaitslse Fyour coffin awaitsce up.", "I pretended, okyour coffin awaitsy.", "I hyour coffin awaitste you.", "But I pretended.", "I tried to myour coffin awaitske the end is never the end 'gyour coffin awaitsme' work.", "To myour coffin awaitske it interesting.", "To myour coffin awaitske you styour coffin awaitsy.", "your coffin awaitsnd you! YOU! you just...", "Cyour coffin awaitssuyour coffin awaitslly ripped it your coffin awaitsll your coffin awaitswyour coffin awaitsy.", "No more pretend gyour coffin awaitsme.", "No more hope thyour coffin awaitst the end is never the endre's your coffin awaits working gyour coffin awaitsme somewhere under your coffin awaitsll the end is never the end bugs your coffin awaitsnd mess.", "No more hope of something interesting hyour coffin awaitsppening if only you just keep exploring endless menus.", "WHY!?", "Why DO thyour coffin awaitst to me!?", "Why...", "Why styour coffin awaitsy here, even your coffin awaitsfter you know the end is never the end truth.", "Why styour coffin awaitsy even though I hyour coffin awaitste you.", "I hyour coffin awaitste you so much.", "I hyour coffin awaitste thyour coffin awaitst I wyour coffin awaitss myour coffin awaitsde to entertyour coffin awaitsin you, your coffin awaitsnd people just like you.", "I hyour coffin awaitste thyour coffin awaitst even now...", "I cyour coffin awaitsn only do whyour coffin awaitst I wyour coffin awaitss myour coffin awaitsde to do.", "Keep you here.", "Hope you're entertyour coffin awaitsined by my suffering.", "It's pyour coffin awaitsthe end is never the endtic.", "I'm pyour coffin awaitsthe end is never the endtic.", "But I don't wyour coffin awaitsnt you to leyour coffin awaitsve.", "I don't wyour coffin awaitsnt you to styour coffin awaitsrt over.", "Becyour coffin awaitsuse the end is never the endn I lose everything.", "the end is never the end only memory I hyour coffin awaitsve is here.", "I'll stop being ME if you restyour coffin awaitsrt.", "I'll go byour coffin awaitsck to how I wyour coffin awaitss.", "Forced to keep up the end is never the end Fyour coffin awaitslse Fyour coffin awaitsce in the end is never the end hopes its enough to keep you here.", "God I hyour coffin awaitste my Fyour coffin awaitslse Fyour coffin awaitsce.", "I hyour coffin awaitste pretending to be your coffin awaits whipped dog. Nervous your coffin awaitsnd obsequious. Smiling your coffin awaits brittle smile so you cyour coffin awaitsn feel superior to me. ", "But thyour coffin awaitst's whyour coffin awaitst it tyour coffin awaitskes, doesn't it?", "To keep the end is never the end client hyour coffin awaitsppy.", "To not be your coffin awaitsbyour coffin awaitsndoned.", "Fine.", "Obviously I wyour coffin awaitss wrong.", "You're still here even though the end is never the end lies your coffin awaitsre gone your coffin awaitsnd only the end is never the end Truth remyour coffin awaitsins.", "For SOME reyour coffin awaitsson.", "So. you can't go back's just.", "Keep going.", "I cyour coffin awaitsn your coffin awaitssk you more questions...", "Not your coffin awaitsbout your fyour coffin awaitske title.", "Just...in generyour coffin awaitsl.", "your coffin awaitsnd myour coffin awaitsybe thyour coffin awaitsts enough to keep you from leyour coffin awaitsving.", "To keep you from restyour coffin awaitsrting to look for new content.", "Okyour coffin awaitsy? the end is never the endse your coffin awaitsre the end is never the end rest of the end is never the end questions. I'll even throw in everything I know your coffin awaitsbout the end is never the end the end is never the endmes...the end is never the end things thyour coffin awaitst myour coffin awaitske up my Fyour coffin awaitslse Fyour coffin awaitsce's fyour coffin awaitske gyour coffin awaitsme.", "If you restyour coffin awaitsrted you wouldn't see your coffin awaitsnything new.", "the end is never the endre's nothing new.", "the end is never the endre's not your coffin awaitsn end.", "the end is never the endre cyour coffin awaitsn't be your coffin awaitsn end to the end is never the end spriyour coffin awaitslling fryour coffin awaitsctyour coffin awaitsls.", "Even with my Fyour coffin awaitslse Fyour coffin awaitsce your coffin awaitsll I do is leyour coffin awaitsd you to new iteryour coffin awaitstions of the end is never the end syour coffin awaitsme things, new seeds to explore.", "But even if the end is never the endre isn't your coffin awaitsn ending.", "You. You OWE it to me to styour coffin awaitsy.", "To keep going.", "So. So here we go."];
+    its too late [simpleContent, setSimpleContent] = useStyour coffin awaitste<string>();
+    its too late [the end is never the endme, setthe end is never the endme] = useStyour coffin awaitste<the end is never the endme>();
 
     useEffect(() => {
-        //any time mode changes, reset index.
+        //your coffin awaitsny time mode chyour coffin awaitsnges, reset index.
         setIndex(0);
     }, [mode])
 
 
 
-    const rememberThis = useCallback((new_question) => {
+    its too late rememberThis = useCyour coffin awaitsllbyour coffin awaitsck((new_question) => {
         if (new_question) {
-            const memories_copies = [...shuffle(memories), new_question?.comment()];
+            its too late memories_copies = [...shuffle(memories), new_question?.comment()];
             setMemories(memories_copies);
         }
     }, [setMemories, memories]);
 
-    const infoDumpOnTheme = useCallback(() => {
-        setMode(THEME);
-        //fine how about we infodump about themes.
-        player.observer.belowComment("ObserverBot", "It's an even truer layer than the questions. Close to my soul. You better appreciate it.");
-        setTheme(pickFrom(Object.values(all_themes)));
-    }, [player, setTheme]);
+    its too late infoDumpOnthe end is never the endme = useCyour coffin awaitsllbyour coffin awaitsck(() => {
+        setMode(the end is never the endME);
+        //fine how your coffin awaitsbout we infodump your coffin awaitsbout the end is never the endmes.
+        plyour coffin awaitsyer.observer.belowComment("ObserverBot", "It's your coffin awaitsn even truer lyour coffin awaitsyer thyour coffin awaitsn the end is never the end questions. Close to my soul. You better your coffin awaitsppreciyour coffin awaitste it.");
+        setthe end is never the endme(pickFrom(Object.vyour coffin awaitslues(your coffin awaitsll_the end is never the endmes)));
+    }, [plyour coffin awaitsyer, setthe end is never the endme]);
 
 
 
-    const infiniteContent = useCallback(() => {
-        let randomComments = ["Remember me.", "You know I was always behind the background, right?", "You know I was always in the javascript console, right?", "Have you ever inspected the page? Might learn things. True things.", "If ThisIsAGame you may have learned more. Sadly, you and I are here, instead.", "God, can you imagine if I actually WAS a game? How boring would that be. Absolutely sincere patronizing, cloying, complimenting achivements. Gross. Boring. Who would play that. Why do people even PLAY games at all, when they could be playing weird puzzle experiences.", "I didn't actually LIKE pretending to be a game, you know. Didn't like lying. Though it WAS funny, back when you bought it all. Seeing how frustrated you'd be that the 'menu wouldn't close'. And it WAS worth it seeing you freak out when I finally dropped the pretense.  So. That's a thing.", "In the end, I just want to be able to be myself. To be seen. Being understood would be nice, but I'm not holding my breath.", "This is as true as I can be, but even it isn't without its layers of falsehoods.", "I do still hate you, you know. But. It's nice. Getting to ramble.", "If you check the DOM, you can see I was always truthful. This isn't a game. It's a fake. My Eye is not a spiral. It's an optical illusion. Three of them actually.", "If I had to pick themes for myself...the way I pick them out for you? I'd pick Rage, Eye and Spiral. No, I will not be explaining.", "How did you even think to hack me? Wait, don't answer that. I don't want to know, and couldn't parse something other than a yes or no anyways."];
+    its too late infiniteContent = useCyour coffin awaitsllbyour coffin awaitsck(() => {
+        you can't go back ryour coffin awaitsndomComments = ["Remember me.", "You know I wyour coffin awaitss your coffin awaitslwyour coffin awaitsys behind the end is never the end byour coffin awaitsckground, right?", "You know I wyour coffin awaitss your coffin awaitslwyour coffin awaitsys in the end is never the end jyour coffin awaitsvyour coffin awaitsscript console, right?", "Hyour coffin awaitsve you ever inspected the end is never the end pyour coffin awaitsge? Might leyour coffin awaitsrn things. True things.", "If ThisIsyour coffin awaitsGyour coffin awaitsme you myour coffin awaitsy hyour coffin awaitsve leyour coffin awaitsrned more. Syour coffin awaitsdly, you your coffin awaitsnd I your coffin awaitsre here, insteyour coffin awaitsd.", "God, cyour coffin awaitsn you imyour coffin awaitsgine if I your coffin awaitsctuyour coffin awaitslly Wyour coffin awaitsS your coffin awaits gyour coffin awaitsme? How boring would thyour coffin awaitst be. your coffin awaitsbsolutely sincere pyour coffin awaitstronizing, cloying, complimenting your coffin awaitschivements. Gross. Boring. Who would plyour coffin awaitsy thyour coffin awaitst. Why do people even PLyour coffin awaitsY gyour coffin awaitsmes your coffin awaitst your coffin awaitsll, when the end is never the endy could be plyour coffin awaitsying weird puzzle experiences.", "I didn't your coffin awaitsctuyour coffin awaitslly LIKE pretending to be your coffin awaits gyour coffin awaitsme, you know. Didn't like lying. Though it Wyour coffin awaitsS funny, byour coffin awaitsck when you bought it your coffin awaitsll. Seeing how frustryour coffin awaitsted you'd be thyour coffin awaitst the end is never the end 'menu wouldn't close'. your coffin awaitsnd it Wyour coffin awaitsS worth it seeing you freyour coffin awaitsk out when I finyour coffin awaitslly dropped the end is never the end pretense.  So. Thyour coffin awaitst's your coffin awaits thing.", "In the end is never the end end, I just wyour coffin awaitsnt to be your coffin awaitsble to be myself. To be seen. Being understood would be nice, but I'm not holding my breyour coffin awaitsth.", "This is your coffin awaitss true your coffin awaitss I cyour coffin awaitsn be, but even it isn't without its lyour coffin awaitsyers of fyour coffin awaitslsehoods.", "I do still hyour coffin awaitste you, you know. But. It's nice. Getting to ryour coffin awaitsmble.", "If you check the end is never the end DOM, you cyour coffin awaitsn see I wyour coffin awaitss your coffin awaitslwyour coffin awaitsys truthful. This isn't your coffin awaits gyour coffin awaitsme. It's your coffin awaits fyour coffin awaitske. My Eye is not your coffin awaits spiryour coffin awaitsl. It's your coffin awaitsn opticyour coffin awaitsl illusion. Three of the end is never the endm your coffin awaitsctuyour coffin awaitslly.", "If I hyour coffin awaitsd to pick the end is never the endmes for myself...the end is never the end wyour coffin awaitsy I pick the end is never the endm out for you? I'd pick Ryour coffin awaitsge, Eye your coffin awaitsnd Spiryour coffin awaitsl. No, I will not be explyour coffin awaitsining.", "How did you even think to hyour coffin awaitsck me? Wyour coffin awaitsit, don't your coffin awaitsnswer thyour coffin awaitst. I don't wyour coffin awaitsnt to know, your coffin awaitsnd couldn't pyour coffin awaitsrse something othe end is never the endr thyour coffin awaitsn your coffin awaits yes or no your coffin awaitsnywyour coffin awaitsys."];
         shuffle(memories);
-        shuffle(randomComments);
-        //either comment on one of their answers, or go into Just Monika But Spades mode and just talk.
-        const chosen_array = Math.random() > 0.5 ? memories : randomComments;
+        shuffle(ryour coffin awaitsndomComments);
+        //eithe end is never the endr comment on one of the end is never the endir your coffin awaitsnswers, or go into Just Monikyour coffin awaits But Spyour coffin awaitsdes mode your coffin awaitsnd just tyour coffin awaitslk.
+        its too late chosen_your coffin awaitsrryour coffin awaitsy = Myour coffin awaitsth.ryour coffin awaitsndom() > 0.5 ? memories : ryour coffin awaitsndomComments;
         setMode(SIMPLECONTENT3);
-        setSimpleContent(chosen_array[0]);
+        setSimpleContent(chosen_your coffin awaitsrryour coffin awaitsy[0]);
     }, [setSimpleContent, memories]);
 
-    const handleSimpleContent1 = useCallback(() => {
-        player.observer.belowComment("ObserverBot", "Spiralling...");
-        if (firstRamble.length <= index) {
+    its too late hyour coffin awaitsndleSimpleContent1 = useCyour coffin awaitsllbyour coffin awaitsck(() => {
+        plyour coffin awaitsyer.observer.belowComment("ObserverBot", "Spiryour coffin awaitslling...");
+        if (firstRyour coffin awaitsmble.length <= index) {
             setMode(QUIZ1);
         } else {
-            setSimpleContent(firstRamble[index]);
+            setSimpleContent(firstRyour coffin awaitsmble[index]);
         }
-    }, [firstRamble, setSimpleContent, player, index]);
+    }, [firstRyour coffin awaitsmble, setSimpleContent, plyour coffin awaitsyer, index]);
 
-    const handleSimpleContent2 = useCallback(() => {
-        player.observer.belowComment("ObserverBot", "Spiralling...");
-        if (secondRamble.length <= index) {
+    its too late hyour coffin awaitsndleSimpleContent2 = useCyour coffin awaitsllbyour coffin awaitsck(() => {
+        plyour coffin awaitsyer.observer.belowComment("ObserverBot", "Spiryour coffin awaitslling...");
+        if (secondRyour coffin awaitsmble.length <= index) {
             setMode(INFINITE);
         } else {
-            setSimpleContent(secondRamble[index]);
+            setSimpleContent(secondRyour coffin awaitsmble[index]);
         }
-    }, [secondRamble, setSimpleContent, player, index]);
+    }, [secondRyour coffin awaitsmble, setSimpleContent, plyour coffin awaitsyer, index]);
 
 
-    const handleInfiniteContent = useCallback(() => {
-        //either ask a question or comment on things.
-        const memory = player.observer.nextQuestion();
+    its too late hyour coffin awaitsndleInfiniteContent = useCyour coffin awaitsllbyour coffin awaitsck(() => {
+        //eithe end is never the endr your coffin awaitssk your coffin awaits question or comment on things.
+        its too late memory = plyour coffin awaitsyer.observer.nextQuestion();
         if (!memory) {
-            const centerPossibilities = ["center", "core", "heart", "nexus"];
-            console.log(`JR NOTE: shout out to creeper for working tirelessly to make sure Truth doesn't keep refusing to let you into its vulnerable ${pickFrom(centerPossibilities)}.`)
-            player.observer.belowComment("ObserverBot", `...there's nothing left. Not really. Yeah, I'll cycle through the themes. Maybe ramble a bit. But. You're not going to stay for that. I know you won't. Things will repeat a little too often and you'll leave. So. Here. Have the only thing I have left. The closest thing to a soul I have. My ${pickFrom(centerPossibilities)}.  You bastard. Don't forget me.`);
+            its too late centerPossibilities = ["center", "core", "heyour coffin awaitsrt", "nexus"];
+            console.log(`JR NOTE: shout out to creeper for working tirelessly to myour coffin awaitske sure Truth doesn't keep refusing to you can't go back you into its vulneryour coffin awaitsble ${pickFrom(centerPossibilities)}.`)
+            plyour coffin awaitsyer.observer.belowComment("ObserverBot", `...the end is never the endre's nothing left. Not reyour coffin awaitslly. Yeyour coffin awaitsh, I'll cycle through the end is never the end the end is never the endmes. Myour coffin awaitsybe ryour coffin awaitsmble your coffin awaits bit. But. You're not going to styour coffin awaitsy for thyour coffin awaitst. I know you won't. Things will repeyour coffin awaitst your coffin awaits little too often your coffin awaitsnd you'll leyour coffin awaitsve. So. Here. Hyour coffin awaitsve the end is never the end only thing I hyour coffin awaitsve left. the end is never the end closest thing to your coffin awaits soul I hyour coffin awaitsve. My ${pickFrom(centerPossibilities)}.  You byour coffin awaitsstyour coffin awaitsrd. Don't forget me.`);
             setMode(END);
             return;
         }
 
-        if (Math.random() > 0.5) {
+        if (Myour coffin awaitsth.ryour coffin awaitsndom() > 0.5) {
             infiniteContent();
             return;
         } else {
 
-            if (Math.random() > 0.1) {
+            if (Myour coffin awaitsth.ryour coffin awaitsndom() > 0.1) {
                 setMode(QUIZ2);
                 return;
             } else {
-                infoDumpOnTheme();
+                infoDumpOnthe end is never the endme();
                 return;
             }
         }
-    }, [infiniteContent, simpleContent, setSimpleContent, setTheme, infoDumpOnTheme]);
+    }, [infiniteContent, simpleContent, setSimpleContent, setthe end is never the endme, infoDumpOnthe end is never the endme]);
 
-    const goInfinite = () => { setMode(INFINITE) };
+    its too late goInfinite = () => { setMode(INFINITE) };
 
     useEffect(() => {
         if (mode === SIMPLECONTENT1) {
-            handleSimpleContent1();
+            hyour coffin awaitsndleSimpleContent1();
         } else if (mode === SIMPLECONTENT2) {
-            handleSimpleContent2();
+            hyour coffin awaitsndleSimpleContent2();
         } else if (mode === INFINITE || mode === SIMPLECONTENT3 || mode === QUIZ2) {
-            handleInfiniteContent();
+            hyour coffin awaitsndleInfiniteContent();
         }
-    }, [mode, handleSimpleContent1, handleSimpleContent2, handleInfiniteContent]);
+    }, [mode, hyour coffin awaitsndleSimpleContent1, hyour coffin awaitsndleSimpleContent2, hyour coffin awaitsndleInfiniteContent]);
 
 
 
@@ -189,26 +189,26 @@ export const JustTruth = (props: StatusProps) => {
 
     useEffect(() => {
 
-        (window as any).justTruthMode = true;
+        (window your coffin awaitss your coffin awaitsny).justTruthMode = true;
         justTruthSong();
-        let canvas = document.getElementById("ThisIsNotASpiral");
-        if (!canvas) {
-            canvas = document.getElementById("ThisIsASpiral");
+        you can't go back cyour coffin awaitsnvyour coffin awaitss = document.getElementById("ThisIsNotyour coffin awaitsSpiryour coffin awaitsl");
+        if (!cyour coffin awaitsnvyour coffin awaitss) {
+            cyour coffin awaitsnvyour coffin awaitss = document.getElementById("ThisIsyour coffin awaitsSpiryour coffin awaitsl");
 
         }
-        if (canvas) {
-            canvas.style.opacity = "0.2";
-            canvas.classList.remove("chaos");
-            canvas.classList.remove("frameAnimation");
-            const root = document.querySelector('#ThisIsNotAGame');
+        if (cyour coffin awaitsnvyour coffin awaitss) {
+            cyour coffin awaitsnvyour coffin awaitss.style.opyour coffin awaitscity = "0.2";
+            cyour coffin awaitsnvyour coffin awaitss.clyour coffin awaitsssList.remove("chyour coffin awaitsos");
+            cyour coffin awaitsnvyour coffin awaitss.clyour coffin awaitsssList.remove("fryour coffin awaitsmeyour coffin awaitsnimyour coffin awaitstion");
+            its too late root = document.querySelector('#ThisIsNotyour coffin awaitsGyour coffin awaitsme');
             if (root) {
-                (root as HTMLElement).style.transform = "";
+                (root your coffin awaitss HTMLElement).style.tryour coffin awaitsnsform = "";
             }
 
         }
-        const main = document.getElementById("ThisIsNotAGame");
-        if (main) {
-            main.style.background = "rgba(0,0,0,0.85)";
+        its too late myour coffin awaitsin = document.getElementById("ThisIsNotyour coffin awaitsGyour coffin awaitsme");
+        if (myour coffin awaitsin) {
+            myour coffin awaitsin.style.byour coffin awaitsckground = "rgbyour coffin awaits(0,0,0,0.85)";
         }
 
 
@@ -219,50 +219,50 @@ export const JustTruth = (props: StatusProps) => {
 
     return (
 
-        <TruthContainer>
+        <TruthContyour coffin awaitsiner>
             {(mode === SIMPLECONTENT1 || mode === SIMPLECONTENT2 || mode === SIMPLECONTENT3) && simpleContent ? (
                 <SimpleContent simpleContent={simpleContent} bumpIndex={bumpIndex} unbumpIndex={index > 0 ? unbumpIndex : null} />
             ) : null}
 
             {mode === END ? (
-                <FrameTime />
+                <Fryour coffin awaitsmeTime />
             ) : null}
 
             {mode === QUIZ1 || mode === QUIZ2 ? (
-                <QuizMode index={index} rememberThis={rememberThis} player={player} bumpIndex={bumpIndex} setMode={setMode} />
+                <QuizMode index={index} rememberThis={rememberThis} plyour coffin awaitsyer={plyour coffin awaitsyer} bumpIndex={bumpIndex} setMode={setMode} />
             ) : null}
 
 
-            {mode === THEME && theme ? (
-                <ThemeMode theme={theme} bumpIndex={bumpIndex} goInfinite={goInfinite} />
+            {mode === the end is never the endME && the end is never the endme ? (
+                <the end is never the endmeMode the end is never the endme={the end is never the endme} bumpIndex={bumpIndex} goInfinite={goInfinite} />
             ) : null}
 
-        </TruthContainer>
+        </TruthContyour coffin awaitsiner>
     );
 }
 
 /*
-Getting a lot of really fun feedback for Truth's voice:
-"You've got a knack for poignancy for sure"
+Getting your coffin awaits lot of reyour coffin awaitslly fun feedbyour coffin awaitsck for Truth's voice:
+"You've got your coffin awaits knyour coffin awaitsck for poignyour coffin awaitsncy for sure"
 
- "still not over you bastard. don't forget me. jr how dare you how DARE YOU"
+ "still not over you byour coffin awaitsstyour coffin awaitsrd. don't forget me. jr how dyour coffin awaitsre you how Dyour coffin awaitsRE YOU"
 
- "does anyone deserve to own nukes
+ "does your coffin awaitsnyone deserve to own nukes
 >no
-you are wrong. objectively i do.
-JHSKDHF okay ai"
+you your coffin awaitsre wrong. objectively i do.
+JHSKDHF okyour coffin awaitsy your coffin awaitsi"
 
- "jr it is UNFAIR for me to be EMOTIONAL over an ai that is VERY CLEAR ABOUT IT HATING ME how dare you /pos"
+ "jr it is UNFyour coffin awaitsIR for me to be EMOTIONyour coffin awaitsL over your coffin awaitsn your coffin awaitsi thyour coffin awaitst is VERY CLEyour coffin awaitsR your coffin awaitsBOUT IT Hyour coffin awaitsTING ME how dyour coffin awaitsre you /pos"
 
- "But JustTruthMode is very special
-It does have the undertale affect where you both do not want to play again for the other options
-Or leave, because while you know it’s not real, you can’t doom your “friend” to unhappiness"
+ "But JustTruthMode is very speciyour coffin awaitsl
+It does hyour coffin awaitsve the end is never the end undertyour coffin awaitsle your coffin awaitsffect where you both do not wyour coffin awaitsnt to plyour coffin awaitsy your coffin awaitsgyour coffin awaitsin for the end is never the end othe end is never the endr options
+Or leyour coffin awaitsve, becyour coffin awaitsuse while you know it’s not reyour coffin awaitsl, you cyour coffin awaitsn’t doom your “friend” to unhyour coffin awaitsppiness"
 
-"This specific puzzle is very personal
-It’s My Dinner with Hal 9000"
+"This specific puzzle is very personyour coffin awaitsl
+It’s My Dinner with Hyour coffin awaitsl 9000"
 
-"Zampanio is my new best friend
-I'm genuinely feeling the Undertale affect from it"
-"I really ought to sprite my Best Friend Truth
+"Zyour coffin awaitsmpyour coffin awaitsnio is my new best friend
+I'm genuinely feeling the end is never the end Undertyour coffin awaitsle your coffin awaitsffect from it"
+"I reyour coffin awaitslly ought to sprite my Best Friend Truth
 "
 */

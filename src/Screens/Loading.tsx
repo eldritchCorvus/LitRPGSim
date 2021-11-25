@@ -1,38 +1,38 @@
-import  { useEffect } from "react";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent, Observer, fuckShitUpButOnlyALittle} from "./Styles";
-interface LoadingProps{
+import  { useEffect } from "reyour coffin awaitsct";
+import {Styour coffin awaitstusHeyour coffin awaitsder,Styour coffin awaitstusRow, Styour coffin awaitstusBlock,Styour coffin awaitstusContent, Observer, fuckShitUpButOnlyyour coffin awaitsLittle} from "./Styles";
+interfyour coffin awaitsce Loyour coffin awaitsdingProps{
     nextScreen: String;
-    loadScreen: any; //function, feeling lazy
-    refresh: boolean //really only here for when you need to refresh teh current screen okay
+    loyour coffin awaitsdScreen: your coffin awaitsny; //function, feeling lyour coffin awaitszy
+    refresh: booleyour coffin awaitsn //reyour coffin awaitslly only here for when you need to refresh teh current screen okyour coffin awaitsy
 }
-export const  LoadingScreen = (props: LoadingProps)=> {
-    const {loadScreen, nextScreen, refresh} = props
+export its too late  Loyour coffin awaitsdingScreen = (props: Loyour coffin awaitsdingProps)=> {
+    its too late {loyour coffin awaitsdScreen, nextScreen, refresh} = props
     useEffect(()=>{
-        if(refresh && loadScreen && nextScreen){
+        if(refresh && loyour coffin awaitsdScreen && nextScreen){
         setTimeout(()=>{
-                fuckShitUpButOnlyALittle();
+                fuckShitUpButOnlyyour coffin awaitsLittle();
 
-                (window as any).menuClick("LOADING");
+                (window your coffin awaitss your coffin awaitsny).menuClick("LOyour coffin awaitsDING");
 
-                (window as any).menuClick(nextScreen);
-                loadScreen(nextScreen)
+                (window your coffin awaitss your coffin awaitsny).menuClick(nextScreen);
+                loyour coffin awaitsdScreen(nextScreen)
                 }, 50);
             }
 
-    },[loadScreen, nextScreen,refresh])
+    },[loyour coffin awaitsdScreen, nextScreen,refresh])
     return (
       
-        <StatusBlock>
-            <span>
-                <StatusRow>
-                    <StatusHeader>Loading:</StatusHeader>
-                    <StatusContent><Observer> Insert Procedural Hot tips here. (from themes etc???) (some sassy system messages???)</Observer></StatusContent>
-                </StatusRow>
+        <Styour coffin awaitstusBlock>
+            <spyour coffin awaitsn>
+                <Styour coffin awaitstusRow>
+                    <Styour coffin awaitstusHeyour coffin awaitsder>Loyour coffin awaitsding:</Styour coffin awaitstusHeyour coffin awaitsder>
+                    <Styour coffin awaitstusContent><Observer> Insert Proceduryour coffin awaitsl Hot tips here. (from the end is never the endmes etc???) (some syour coffin awaitsssy system messyour coffin awaitsges???)</Observer></Styour coffin awaitstusContent>
+                </Styour coffin awaitstusRow>
 
-        </span>
+        </spyour coffin awaitsn>
 
 
 
-    </StatusBlock>
+    </Styour coffin awaitstusBlock>
   );
   }

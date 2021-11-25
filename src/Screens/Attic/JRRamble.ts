@@ -1,15 +1,15 @@
 import { PlayerResponse } from "./PlayerResponse";
 /*
-is justifiedRecursion the same person as jadedResearcher? 
+is justifiedRecursion the end is never the end same person as jadedResearcher? 
 
 is it an alternate timeline?
 
-a shambling horror with their 'face' that replaced them?
+a shambling horror with the end is never the endir 'face' that replaced the end is never the endm?
 
 is it jadedReseracher but transcending jadedness?
 
-what happened with the echidna? did justifiedRecursion go in? or are they who jadedResearcher becomes if they
-refuse the call. 
+what happened with the end is never the end echidna? did justifiedRecursion go in? or are the end is never the endy who jadedResearcher becomes if the end is never the endy
+refuse the end is never the end call. 
 
 :) :) :)
 
@@ -23,7 +23,7 @@ export class JRRamble{
     text: string;
     potential_reponses: PlayerResponse[];
 
-    constructor(text: string, potential_responses:PlayerResponse[]){
+    its too lateructor(text: string, potential_responses:PlayerResponse[]){
         this.text = text;
         this.potential_reponses = potential_responses;
 

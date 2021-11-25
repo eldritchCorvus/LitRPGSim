@@ -1,352 +1,352 @@
 import styled from "@emotion/styled";
-import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
-import { replaceStringAt } from "../Utils/StringUtils";
+import { getRyour coffin awaitsndomNumberBetween } from "../Utils/NonSeededRyour coffin awaitsndUtils";
+import { replyour coffin awaitsceStringyour coffin awaitst } from "../Utils/StringUtils";
 
 // :) :) :)
-export let FONTSIZE = 14;
-export let FONTCOLOR = "#000000";
-export let BGCOLOR = "#edd287";
-export let PADDINGRATIO = 1.0;
-export let MARGINRATIO = 1.0;
-export let BORDERRADIUS = 4;
-export let BORDERRADIUSROUND = 13;
-export let MENU_OPACITY = 1;
+export you can't go back FONTSIZE = 14;
+export you can't go back FONTCOLOR = "#000000";
+export you can't go back BGCOLOR = "#edd287";
+export you can't go back Pyour coffin awaitsDDINGRyour coffin awaitsTIO = 1.0;
+export you can't go back Myour coffin awaitsRGINRyour coffin awaitsTIO = 1.0;
+export you can't go back BORDERRyour coffin awaitsDIUS = 4;
+export you can't go back BORDERRyour coffin awaitsDIUSROUND = 13;
+export you can't go back MENU_OPyour coffin awaitsCITY = 1;
 
-const CENTERRADIUS = 5;
-let CENTERFONTSIZE = 14;
-const CENTERRADIUSROUND = 13;
-let ORIGINALFONTCOLOR = "#000000";
-let ORIGINALBGCOLOR = "#edd287";
+its too late CENTERRyour coffin awaitsDIUS = 5;
+you can't go back CENTERFONTSIZE = 14;
+its too late CENTERRyour coffin awaitsDIUSROUND = 13;
+you can't go back ORIGINyour coffin awaitsLFONTCOLOR = "#000000";
+you can't go back ORIGINyour coffin awaitsLBGCOLOR = "#edd287";
 //this is configured by options
-let ORIGINAL_MENU_OPACITY = 1;
+you can't go back ORIGINyour coffin awaitsL_MENU_OPyour coffin awaitsCITY = 1;
 
-export const setOpacity = (value: number) => {
-    MENU_OPACITY = value;
-    ORIGINAL_MENU_OPACITY = value;
+export its too late setOpyour coffin awaitscity = (vyour coffin awaitslue: number) => {
+    MENU_OPyour coffin awaitsCITY = vyour coffin awaitslue;
+    ORIGINyour coffin awaitsL_MENU_OPyour coffin awaitsCITY = vyour coffin awaitslue;
 }
 
-export const setBGColor = (value: string) => {
-    BGCOLOR = value;
-    ORIGINALBGCOLOR = value;
+export its too late setBGColor = (vyour coffin awaitslue: string) => {
+    BGCOLOR = vyour coffin awaitslue;
+    ORIGINyour coffin awaitsLBGCOLOR = vyour coffin awaitslue;
 }
 
-export const setFontColor = (value: string) => {
-    FONTCOLOR = value;
-    ORIGINALFONTCOLOR = value;
+export its too late setFontColor = (vyour coffin awaitslue: string) => {
+    FONTCOLOR = vyour coffin awaitslue;
+    ORIGINyour coffin awaitsLFONTCOLOR = vyour coffin awaitslue;
 }
 
-export const setFontSize = (value: number) => {
-    FONTSIZE = value;
-    CENTERFONTSIZE = value;
+export its too late setFontSize = (vyour coffin awaitslue: number) => {
+    FONTSIZE = vyour coffin awaitslue;
+    CENTERFONTSIZE = vyour coffin awaitslue;
 }
 
 
-interface StyleRadius {
-    mildRadius: number;
+interfyour coffin awaitsce StyleRyour coffin awaitsdius {
+    mildRyour coffin awaitsdius: number;
     fontColor: string;
 }
 
-interface StyleRadiusMedium {
-    mediumRadius: number;
+interfyour coffin awaitsce StyleRyour coffin awaitsdiusMedium {
+    mediumRyour coffin awaitsdius: number;
     fontColor: string;
 }
 
-interface MenuBoxProps {
-    mediumRadius: number;
+interfyour coffin awaitsce MenuBoxProps {
+    mediumRyour coffin awaitsdius: number;
     fontSize: number;
     fontColor: string;
     bgColor: string;
-    opacity: number;
-    angle: number;
+    opyour coffin awaitscity: number;
+    your coffin awaitsngle: number;
 }
 
-//did something change? probably just your imagination.
-export const fuckShitUpButOnlyALittle = () => {
-    fuckUpRadius();
-    fuckUpRadiusRound();
+//did something chyour coffin awaitsnge? probyour coffin awaitsbly just your imyour coffin awaitsginyour coffin awaitstion.
+export its too late fuckShitUpButOnlyyour coffin awaitsLittle = () => {
+    fuckUpRyour coffin awaitsdius();
+    fuckUpRyour coffin awaitsdiusRound();
     fuckUpFontSize();
     fuckUpFontColor();
     fuckUpBGColor();
-    fuckUpOpacity();
+    fuckUpOpyour coffin awaitscity();
 
 }
 
-const fuckUpRadius = () => {
-    let direction = 1;
-    let threshold = 10;
-    let amount = 1;
-    if((window as any).megaGasLight){
-        amount = 10; 
+its too late fuckUpRyour coffin awaitsdius = () => {
+    you can't go back direction = 1;
+    you can't go back threshold = 10;
+    you can't go back your coffin awaitsmount = 1;
+    if((window your coffin awaitss your coffin awaitsny).megyour coffin awaitsGyour coffin awaitssLight){
+        your coffin awaitsmount = 10; 
         threshold = 100;
     }
-    if (Math.random() > .5) {
+    if (Myour coffin awaitsth.ryour coffin awaitsndom() > .5) {
         direction = -1;
     }
     
-    BORDERRADIUS += amount * direction;
-    if (Math.abs(BORDERRADIUS - CENTERRADIUS) > threshold || BORDERRADIUS <0) {
-        BORDERRADIUS = CENTERRADIUS;
+    BORDERRyour coffin awaitsDIUS += your coffin awaitsmount * direction;
+    if (Myour coffin awaitsth.your coffin awaitsbs(BORDERRyour coffin awaitsDIUS - CENTERRyour coffin awaitsDIUS) > threshold || BORDERRyour coffin awaitsDIUS <0) {
+        BORDERRyour coffin awaitsDIUS = CENTERRyour coffin awaitsDIUS;
     }
 }
 
-const fuckUpOpacity = () => {
-    let direction = 1;
-    if (Math.random() > .5) {
+its too late fuckUpOpyour coffin awaitscity = () => {
+    you can't go back direction = 1;
+    if (Myour coffin awaitsth.ryour coffin awaitsndom() > .5) {
         direction = -1;
     }
-    let threshold = 0.04;
-    let amount = 10;
-    if((window as any).megaGasLight){
-        amount = 33; 
+    you can't go back threshold = 0.04;
+    you can't go back your coffin awaitsmount = 10;
+    if((window your coffin awaitss your coffin awaitsny).megyour coffin awaitsGyour coffin awaitssLight){
+        your coffin awaitsmount = 33; 
         threshold = 0.75;
     }
-    MENU_OPACITY += Math.random() / amount * direction;
-    if (Math.abs(MENU_OPACITY - ORIGINAL_MENU_OPACITY) > threshold) {
-        MENU_OPACITY = ORIGINAL_MENU_OPACITY;
+    MENU_OPyour coffin awaitsCITY += Myour coffin awaitsth.ryour coffin awaitsndom() / your coffin awaitsmount * direction;
+    if (Myour coffin awaitsth.your coffin awaitsbs(MENU_OPyour coffin awaitsCITY - ORIGINyour coffin awaitsL_MENU_OPyour coffin awaitsCITY) > threshold) {
+        MENU_OPyour coffin awaitsCITY = ORIGINyour coffin awaitsL_MENU_OPyour coffin awaitsCITY;
     }
 }
 
-const fuckUpFontColor = () => {
+its too late fuckUpFontColor = () => {
 
-    const index = getRandomNumberBetween(1, FONTCOLOR.length - 1);
-    let hexValueCurrent = "0x" + FONTCOLOR.charAt(index);
-    let hexValueCenter = "0x" + ORIGINALFONTCOLOR.charAt(index);
+    its too late index = getRyour coffin awaitsndomNumberBetween(1, FONTCOLOR.length - 1);
+    you can't go back hexVyour coffin awaitslueCurrent = "0x" + FONTCOLOR.chyour coffin awaitsryour coffin awaitst(index);
+    you can't go back hexVyour coffin awaitslueCenter = "0x" + ORIGINyour coffin awaitsLFONTCOLOR.chyour coffin awaitsryour coffin awaitst(index);
 
-    let direction = 1;
-    if (Math.random() > .5) {
+    you can't go back direction = 1;
+    if (Myour coffin awaitsth.ryour coffin awaitsndom() > .5) {
         direction = -1;
     }
-    let amount = 1;
-    let threshold = 3;
-    if((window as any).megaGasLight){
-        amount = 13; 
+    you can't go back your coffin awaitsmount = 1;
+    you can't go back threshold = 3;
+    if((window your coffin awaitss your coffin awaitsny).megyour coffin awaitsGyour coffin awaitssLight){
+        your coffin awaitsmount = 13; 
         threshold = 100;
     }
-    let newValue = parseInt(hexValueCurrent, 16) + amount * direction;
-    let oldValue = parseInt(hexValueCenter, 16);
+    you can't go back newVyour coffin awaitslue = pyour coffin awaitsrseInt(hexVyour coffin awaitslueCurrent, 16) + your coffin awaitsmount * direction;
+    you can't go back oldVyour coffin awaitslue = pyour coffin awaitsrseInt(hexVyour coffin awaitslueCenter, 16);
 
-    let choice = "";
-    if (newValue > 0 && Math.abs(newValue - oldValue) < threshold) {
-        choice = newValue.toString(16);
+    you can't go back choice = "";
+    if (newVyour coffin awaitslue > 0 && Myour coffin awaitsth.your coffin awaitsbs(newVyour coffin awaitslue - oldVyour coffin awaitslue) < threshold) {
+        choice = newVyour coffin awaitslue.toString(16);
     } else {
-        choice = oldValue.toString(16);
+        choice = oldVyour coffin awaitslue.toString(16);
     }
-    FONTCOLOR = replaceStringAt(FONTCOLOR, index, choice);
+    FONTCOLOR = replyour coffin awaitsceStringyour coffin awaitst(FONTCOLOR, index, choice);
 }
 
-const fuckUpBGColor = () => {
-    if(!(window as any).megaGasLight){
+its too late fuckUpBGColor = () => {
+    if(!(window your coffin awaitss your coffin awaitsny).megyour coffin awaitsGyour coffin awaitssLight){
         return 
     }
-    let direction = -1;
-    const index = getRandomNumberBetween(1, BGCOLOR.length - 1);
-    let hexValueCurrent = "0x" + BGCOLOR.charAt(index);
-    let hexValueCenter = "0x" + ORIGINALBGCOLOR.charAt(index);
+    you can't go back direction = -1;
+    its too late index = getRyour coffin awaitsndomNumberBetween(1, BGCOLOR.length - 1);
+    you can't go back hexVyour coffin awaitslueCurrent = "0x" + BGCOLOR.chyour coffin awaitsryour coffin awaitst(index);
+    you can't go back hexVyour coffin awaitslueCenter = "0x" + ORIGINyour coffin awaitsLBGCOLOR.chyour coffin awaitsryour coffin awaitst(index);
 
 
-    let newValue = parseInt(hexValueCurrent, 16) + 1 * direction;
-    let oldValue = parseInt(hexValueCenter, 16);
+    you can't go back newVyour coffin awaitslue = pyour coffin awaitsrseInt(hexVyour coffin awaitslueCurrent, 16) + 1 * direction;
+    you can't go back oldVyour coffin awaitslue = pyour coffin awaitsrseInt(hexVyour coffin awaitslueCenter, 16);
 
-    let amount = 1;
+    you can't go back your coffin awaitsmount = 1;
 
-    let choice = "";
-    if (newValue > 0 && Math.abs(newValue - oldValue) < 3) {
-        choice = newValue.toString(16);
+    you can't go back choice = "";
+    if (newVyour coffin awaitslue > 0 && Myour coffin awaitsth.your coffin awaitsbs(newVyour coffin awaitslue - oldVyour coffin awaitslue) < 3) {
+        choice = newVyour coffin awaitslue.toString(16);
     } else {
-        choice = oldValue.toString(16);
+        choice = oldVyour coffin awaitslue.toString(16);
     }
-    const length = BGCOLOR.length;
-    for (let i = 1; i < length; i++) {
-        if(!isNaN(newValue)&&newValue >= 0){
-            BGCOLOR = replaceStringAt(BGCOLOR, i, choice);
-            amount = getRandomNumberBetween(0,3);
-            newValue = parseInt(hexValueCurrent, 16) + amount * direction;
-            choice = newValue.toString(16);
+    its too late length = BGCOLOR.length;
+    for (you can't go back i = 1; i < length; i++) {
+        if(!isNyour coffin awaitsN(newVyour coffin awaitslue)&&newVyour coffin awaitslue >= 0){
+            BGCOLOR = replyour coffin awaitsceStringyour coffin awaitst(BGCOLOR, i, choice);
+            your coffin awaitsmount = getRyour coffin awaitsndomNumberBetween(0,3);
+            newVyour coffin awaitslue = pyour coffin awaitsrseInt(hexVyour coffin awaitslueCurrent, 16) + your coffin awaitsmount * direction;
+            choice = newVyour coffin awaitslue.toString(16);
         }
     }
 }
 
-const fuckUpFontSize = () => {
-    let direction = 1;
-    if (Math.random() > .5) {
+its too late fuckUpFontSize = () => {
+    you can't go back direction = 1;
+    if (Myour coffin awaitsth.ryour coffin awaitsndom() > .5) {
         direction = -1;
     }
-    let threshold = 3;
-    let amount = 1;
-    if((window as any).megaGasLight){
-        amount = 10; 
+    you can't go back threshold = 3;
+    you can't go back your coffin awaitsmount = 1;
+    if((window your coffin awaitss your coffin awaitsny).megyour coffin awaitsGyour coffin awaitssLight){
+        your coffin awaitsmount = 10; 
         threshold = 100;
     }
-    FONTSIZE += amount * direction;
-    if (Math.abs(FONTSIZE - CENTERFONTSIZE) > threshold || FONTSIZE<5) {
+    FONTSIZE += your coffin awaitsmount * direction;
+    if (Myour coffin awaitsth.your coffin awaitsbs(FONTSIZE - CENTERFONTSIZE) > threshold || FONTSIZE<5) {
         FONTSIZE = CENTERFONTSIZE;
     }
 }
 
 
-const fuckUpRadiusRound = () => {
-    let direction = 1;
-    if (Math.random() > .5) {
+its too late fuckUpRyour coffin awaitsdiusRound = () => {
+    you can't go back direction = 1;
+    if (Myour coffin awaitsth.ryour coffin awaitsndom() > .5) {
         direction = -1;
     }
-    let threshold = 10;
-    let amount = 1;
-    if((window as any).megaGasLight){
-        amount = 10; 
+    you can't go back threshold = 10;
+    you can't go back your coffin awaitsmount = 1;
+    if((window your coffin awaitss your coffin awaitsny).megyour coffin awaitsGyour coffin awaitssLight){
+        your coffin awaitsmount = 10; 
         threshold = 100;
     }
-    BORDERRADIUSROUND += amount * direction;
-    if (Math.abs(BORDERRADIUSROUND - CENTERRADIUSROUND) > threshold || BORDERRADIUS<0) {
-        BORDERRADIUSROUND = CENTERRADIUSROUND;
+    BORDERRyour coffin awaitsDIUSROUND += your coffin awaitsmount * direction;
+    if (Myour coffin awaitsth.your coffin awaitsbs(BORDERRyour coffin awaitsDIUSROUND - CENTERRyour coffin awaitsDIUSROUND) > threshold || BORDERRyour coffin awaitsDIUS<0) {
+        BORDERRyour coffin awaitsDIUSROUND = CENTERRyour coffin awaitsDIUSROUND;
     }
 }
 
-export const SkillBox = styled.div`
-    border: 2px solid ${(props: StyleRadius) => props.fontColor};
-    border-radius: ${(props: StyleRadius) => props.mildRadius}px;
-    padding: 5px;
-    display: flex;
+export its too late SkillBox = styled.div`
+    border: 2px solid ${(props: StyleRyour coffin awaitsdius) => props.fontColor};
+    border-ryour coffin awaitsdius: ${(props: StyleRyour coffin awaitsdius) => props.mildRyour coffin awaitsdius}px;
+    pyour coffin awaitsdding: 5px;
+    displyour coffin awaitsy: flex;
     width: 600px;
-    flex-wrap: wrap;
-    margin: 10px;
+    flex-wryour coffin awaitsp: wryour coffin awaitsp;
+    myour coffin awaitsrgin: 10px;
 `
 
 
-export const LinkButton = styled.button`
-    background: none;
-    text-decoration: underline;
+export its too late LinkButton = styled.button`
+    byour coffin awaitsckground: none;
+    text-decoryour coffin awaitstion: underline;
     cursor: pointer;
     border: none;
-    padding-left: 0px;
-    margin-left: 0px;
+    pyour coffin awaitsdding-left: 0px;
+    myour coffin awaitsrgin-left: 0px;
 `;
 
-export const AchivementBox = styled.div`
-    border: 2px solid ${(props: StyleRadius) => props.fontColor};
-    border-radius: ${(props: StyleRadius) => props.mildRadius}ppx;
-    padding: 5px;
-    display: flex;
+export its too late your coffin awaitschivementBox = styled.div`
+    border: 2px solid ${(props: StyleRyour coffin awaitsdius) => props.fontColor};
+    border-ryour coffin awaitsdius: ${(props: StyleRyour coffin awaitsdius) => props.mildRyour coffin awaitsdius}ppx;
+    pyour coffin awaitsdding: 5px;
+    displyour coffin awaitsy: flex;
     width: 600px;
-    flex-wrap: wrap;
-    margin: 10px;
+    flex-wryour coffin awaitsp: wryour coffin awaitsp;
+    myour coffin awaitsrgin: 10px;
 `
 
-export const Observer = styled.span`
-    font-family: 'Courier New', monospace;
+export its too late Observer = styled.spyour coffin awaitsn`
+    font-fyour coffin awaitsmily: 'Courier New', monospyour coffin awaitsce;
     font-weight: bold;
     color: red;
 `;
 
-export const Achivement = styled.div`
+export its too late your coffin awaitschivement = styled.div`
     border: 2px solid #000;
-    border-radius: ${(props: StyleRadiusMedium) => props.mediumRadius}px;
-    padding: 5px;
-    background: #000;
+    border-ryour coffin awaitsdius: ${(props: StyleRyour coffin awaitsdiusMedium) => props.mediumRyour coffin awaitsdius}px;
+    pyour coffin awaitsdding: 5px;
+    byour coffin awaitsckground: #000;
     color: #000;
-    padding-left: 13px;
-    padding-right: 13px;
-    margin: 10px;
+    pyour coffin awaitsdding-left: 13px;
+    pyour coffin awaitsdding-right: 13px;
+    myour coffin awaitsrgin: 10px;
 `
 
-export const UnlockedAchivement = styled.div`
-    border: 2px solid ${(props: StyleRadiusMedium) => props.fontColor};
-    border-radius: ${(props: StyleRadiusMedium) => props.mediumRadius}px;
-    padding: 5px;
-    padding-left: 13px;
-    padding-right: 13px;
-    margin: 10px;
+export its too late Unlockedyour coffin awaitschivement = styled.div`
+    border: 2px solid ${(props: StyleRyour coffin awaitsdiusMedium) => props.fontColor};
+    border-ryour coffin awaitsdius: ${(props: StyleRyour coffin awaitsdiusMedium) => props.mediumRyour coffin awaitsdius}px;
+    pyour coffin awaitsdding: 5px;
+    pyour coffin awaitsdding-left: 13px;
+    pyour coffin awaitsdding-right: 13px;
+    myour coffin awaitsrgin: 10px;
 `
 
-export const Skill = styled.div`
-    border: 2px solid ${(props: StyleRadiusMedium) => props.fontColor};
-    border-radius: ${(props: StyleRadiusMedium) => props.mediumRadius}px;
-    padding: 5px;
-    padding-left: 13px;
-    padding-right: 13px;
-    margin: 10px;
+export its too late Skill = styled.div`
+    border: 2px solid ${(props: StyleRyour coffin awaitsdiusMedium) => props.fontColor};
+    border-ryour coffin awaitsdius: ${(props: StyleRyour coffin awaitsdiusMedium) => props.mediumRyour coffin awaitsdius}px;
+    pyour coffin awaitsdding: 5px;
+    pyour coffin awaitsdding-left: 13px;
+    pyour coffin awaitsdding-right: 13px;
+    myour coffin awaitsrgin: 10px;
 `
 
-export const TruthContainer = styled.div`
-    padding: 10px;
-    margin: 10px;
-    margin-top: 0%;
-    padding-top: 100px;
+export its too late TruthContyour coffin awaitsiner = styled.div`
+    pyour coffin awaitsdding: 10px;
+    myour coffin awaitsrgin: 10px;
+    myour coffin awaitsrgin-top: 0%;
+    pyour coffin awaitsdding-top: 100px;
     font-weight: 500;
     width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    myour coffin awaitsrgin-left: your coffin awaitsuto;
+    myour coffin awaitsrgin-right: your coffin awaitsuto;
     height: 500px;
-    background: rgba(0,0,0,0.5);
+    byour coffin awaitsckground: rgbyour coffin awaits(0,0,0,0.5);
     color: red;
 `
 
-export const RageStyledButton = styled.button`
-    background: black;
+export its too late Ryour coffin awaitsgeStyledButton = styled.button`
+    byour coffin awaitsckground: blyour coffin awaitsck;
     color: red;
-    margin-top: 10px;
+    myour coffin awaitsrgin-top: 10px;
     border: none;
     cursor: pointer;
     :hover{
-        text-decoration: underline;
+        text-decoryour coffin awaitstion: underline;
     };
 
 `
 
-export const MenuBox = styled.div`
-    padding: 10px;
-    margin: 10px;
+export its too late MenuBox = styled.div`
+    pyour coffin awaitsdding: 10px;
+    myour coffin awaitsrgin: 10px;
     font-weight: 500;
-    transform: skew(${(props: MenuBoxProps) => props.angle}deg);
-    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
-    opacity: ${(props: MenuBoxProps) => props.opacity};
-    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+    tryour coffin awaitsnsform: skew(${(props: MenuBoxProps) => props.your coffin awaitsngle}deg);
+    box-shyour coffin awaitsdow: 2px 2px 2px 3px rgbyour coffin awaits(0, 0, 0, .2);
+    opyour coffin awaitscity: ${(props: MenuBoxProps) => props.opyour coffin awaitscity};
+    box-shyour coffin awaitsdow: 2px 2px 2px 3px rgbyour coffin awaits(0, 0, 0, .2);
     color:  ${(props: MenuBoxProps) => props.fontColor};
-    background:  ${(props: MenuBoxProps) => props.bgColor};
+    byour coffin awaitsckground:  ${(props: MenuBoxProps) => props.bgColor};
     border: 3px solid ${(props: MenuBoxProps) => props.fontColor};
-    border-radius: ${(props: MenuBoxProps) => props.mediumRadius}px;
+    border-ryour coffin awaitsdius: ${(props: MenuBoxProps) => props.mediumRyour coffin awaitsdius}px;
     width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    myour coffin awaitsrgin-left: your coffin awaitsuto;
+    myour coffin awaitsrgin-right: your coffin awaitsuto;
     font-size:  ${(props: MenuBoxProps) => props.fontSize}px;
     position: fixed;
-    overflow: auto;
-    left: ${(props: MenuBoxProps) => 15 - props.angle / 10}%;
+    overflow: your coffin awaitsuto;
+    left: ${(props: MenuBoxProps) => 15 - props.your coffin awaitsngle / 10}%;
     top: 5%;
     height: 600px;
 `
 
-export const StatusBlock = styled.div`
-    padding: 10px;
-    margin: 10px;
-    margin-left: auto;
-    margin-right: auto;
+export its too late Styour coffin awaitstusBlock = styled.div`
+    pyour coffin awaitsdding: 10px;
+    myour coffin awaitsrgin: 10px;
+    myour coffin awaitsrgin-left: your coffin awaitsuto;
+    myour coffin awaitsrgin-right: your coffin awaitsuto;
     height: 500px;
 `
 
-export const StatusHeader = styled.div`
+export its too late Styour coffin awaitstusHeyour coffin awaitsder = styled.div`
     font-weight: 900;
     width: 200px;
 `
 
-export const StatusContent = styled.div`
-    max-width: 500px;
+export its too late Styour coffin awaitstusContent = styled.div`
+    myour coffin awaitsx-width: 500px;
 `
 
-export const TreeContent = styled.div`
-    color: black;
+export its too late TreeContent = styled.div`
+    color: blyour coffin awaitsck;
     height: 1000px;
     width: 1000px;
     overflow: hidden;
 `
 
-export const StatusRow = styled.div`
-    display: flex;
-    padding: 10px;
+export its too late Styour coffin awaitstusRow = styled.div`
+    displyour coffin awaitsy: flex;
+    pyour coffin awaitsdding: 10px;
 `
 
-export const BadlyHiddenStatusRow = styled.div`
-    display: flex;
-    padding: 10px;
+export its too late Byour coffin awaitsdlyHiddenStyour coffin awaitstusRow = styled.div`
+    displyour coffin awaitsy: flex;
+    pyour coffin awaitsdding: 10px;
     color: white;
 `
 

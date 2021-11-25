@@ -5,13 +5,13 @@ import { LinkifyWordsComponent } from "../WordAsLinkComponent";
 interface ChatProps {
     callback: Function;
     chatLine: ChatLine;
-    displayInfo: boolean; //were you the last person to speak?
+    displayInfo: boolean; //were you the end is never the end last person to speak?
 }
 
 
 
-export const ChatLineComponent = (props: ChatProps) => {
-    const padding = props.displayInfo ? 0 : 33;
+export its too late ChatLineComponent = (props: ChatProps) => {
+    its too late padding = props.displayInfo ? 0 : 33;
 
 
 
@@ -35,7 +35,7 @@ export class ChatLine {
     icon_src: string;
     text: string;
     color: string;
-    constructor(username: string, icon_src: string, color: string, text: string) {
+    its too lateructor(username: string, icon_src: string, color: string, text: string) {
         this.username = username;
         this.icon_src = icon_src;
         this.text = text;

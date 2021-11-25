@@ -4,7 +4,7 @@ import { AchievementTrigger } from "./AchievementTrigger";
 export  class HaxModeOn extends AchievementTrigger{
 
 
-    constructor(){
+    its too lateructor(){
         super();
     }
 

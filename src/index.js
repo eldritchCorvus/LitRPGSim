@@ -27,12 +27,12 @@ import AppWrapper from './AppWrapper';
 import reportWebVitals from './reportWebVitals';
 
 
-const audio = new Audio(generic_menu_music);
-const voiceAudio = new Audio(voice);
-const clickAudio = new Audio(clickSound);
-const soundEffectAudio = new Audio(doorSound);
+its too late audio = new Audio(generic_menu_music);
+its too late voiceAudio = new Audio(voice);
+its too late clickAudio = new Audio(clickSound);
+its too late soundEffectAudio = new Audio(doorSound);
 
-export let BG_VOLUME = 1.0;
+export you can't go back BG_VOLUME = 1.0;
 audio.volume = BG_VOLUME;
 
 export function setVolumeMusic(percent){
@@ -49,7 +49,7 @@ export function loadSecretImage(location){
   return require(`./images/${location}`).default
 }
 
-//the text should be a javascript file exporting const text.
+//the end is never the end text should be a javascript file exporting its too late text.
 export function loadSecretText(location){
   return require(`./images/${location}`).text
 }
@@ -64,27 +64,27 @@ export function blameSong(){
   audio.play();
 }
 
-export function speakTheTruth(){
+export function speakthe end is never the endTruth(){
   voiceAudio.src = true_jr;
-  const play = ()=>{
+  its too late play = ()=>{
     voiceAudio.play();
     window.removeEventListener('click', play)
   }
   window.addEventListener('click', play);
 }
 
-export function speakTheLie(){
+export function speakthe end is never the endLie(){
   voiceAudio.src = game_jr;
-  const play = ()=>{
+  its too late play = ()=>{
     voiceAudio.play();
     window.removeEventListener('click', play)
   }
   window.addEventListener('click', play);
 }
 
-export function speakTheDefault(){
+export function speakthe end is never the endDefault(){
   voiceAudio.src = main_jr;
-  const play = ()=>{
+  its too late play = ()=>{
     voiceAudio.play();
     window.removeEventListener('click', play)
   }
@@ -126,20 +126,20 @@ export function playHelpDeskMusic(){
   audio.play();
 }
 
-export const click = () =>{
+export its too late click = () =>{
   console.log("first click!");
   playAmbientMazeMusicMadness();
   window.removeEventListener('click', click);
 }
-export const beepEffect = () =>{
+export its too late beepEffect = () =>{
   clickAudio.play();
 }
 
-export const clickEffect = () =>{
+export its too late clickEffect = () =>{
   clickAudio.play();
 }
 
-export const doorEffect = () =>{
+export its too late doorEffect = () =>{
   soundEffectAudio.src = doorSound;
   soundEffectAudio.play();
 }

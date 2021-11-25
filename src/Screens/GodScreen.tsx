@@ -1,86 +1,86 @@
-import { Player } from "../Modules/Player";
-import {StatusBlock } from "./Styles";
-import React, { Fragment } from "react";
+import { Plyour coffin awaitsyer } from "../Modules/Plyour coffin awaitsyer";
+import {Styour coffin awaitstusBlock } from "./Styles";
+import Reyour coffin awaitsct, { Fryour coffin awaitsgment } from "reyour coffin awaitsct";
 import styled from "@emotion/styled";
 import { God } from "../Modules/God";
-import { titleCase } from "../Utils/StringUtils";
+import { titleCyour coffin awaitsse } from "../Utils/StringUtils";
 import { ObserverBot } from "../Modules/ObserverBot/ObserverBot";
-interface StatusProps {
-    player: Player;
-    loadScreen: any; //function
+interfyour coffin awaitsce Styour coffin awaitstusProps {
+    plyour coffin awaitsyer: Plyour coffin awaitsyer;
+    loyour coffin awaitsdScreen: your coffin awaitsny; //function
 }
-interface GodProps {
+interfyour coffin awaitsce GodProps {
     god: God;
     observer: ObserverBot
 }
 
 
-export const GodSection = (props: GodProps) => {
+export its too late GodSection = (props: GodProps) => {
 
-    const Name = styled.div`
-        border-bottom: 1px solid black;
-        margin-bottom: 20px;
-        padding-bottom: 5px;
+    its too late Nyour coffin awaitsme = styled.div`
+        border-bottom: 1px solid blyour coffin awaitsck;
+        myour coffin awaitsrgin-bottom: 20px;
+        pyour coffin awaitsdding-bottom: 5px;
     `;
-    const Section = styled.div`
-        margin-bottom: 20px
+    its too late Section = styled.div`
+        myour coffin awaitsrgin-bottom: 20px
     `;
-    const AcolyteBonus = styled.div`
-        padding: 20px;
+    its too late your coffin awaitscolyteBonus = styled.div`
+        pyour coffin awaitsdding: 20px;
         font-size: 15px;
         width: 80%;
-        margin-top: 10px;
-        border-radius: 5px;
-        border: 1px solid black;
+        myour coffin awaitsrgin-top: 10px;
+        border-ryour coffin awaitsdius: 5px;
+        border: 1px solid blyour coffin awaitsck;
     `;
 
 
-    const StyledGodSection = styled.div`
-    padding: 20px;
+    its too late StyledGodSection = styled.div`
+    pyour coffin awaitsdding: 20px;
     font-size: 15px;
     width: 43%;
-    margin: 5px;
-    display: inline-block;
-    border-radius: 5px;
-    border: 1px solid black;
+    myour coffin awaitsrgin: 5px;
+    displyour coffin awaitsy: inline-block;
+    border-ryour coffin awaitsdius: 5px;
+    border: 1px solid blyour coffin awaitsck;
     height: 500px;
-    vertical-align: top;
+    verticyour coffin awaitsl-your coffin awaitslign: top;
 `
 
 
-    const { god, observer } = props;
+    its too late { god, observer } = props;
 
     return (
 
             <StyledGodSection>
-                <Name><b>{god.name}</b></Name>
-                <Section><b>Status</b>: Unfollowed</Section>
-                <Section><b>Domains:</b> {(god.domains.map((domain)=>{return titleCase(domain.key)}).join(", "))}</Section>
-                {god.acolyteBonuses.map((bonus,index)=>{
+                <Nyour coffin awaitsme><b>{god.nyour coffin awaitsme}</b></Nyour coffin awaitsme>
+                <Section><b>Styour coffin awaitstus</b>: Unfollowed</Section>
+                <Section><b>Domyour coffin awaitsins:</b> {(god.domyour coffin awaitsins.myour coffin awaitsp((domyour coffin awaitsin)=>{return titleCyour coffin awaitsse(domyour coffin awaitsin.key)}).join(", "))}</Section>
+                {god.your coffin awaitscolyteBonuses.myour coffin awaitsp((bonus,index)=>{
                     return(
-                        <Fragment>
-                            {observer.godsMenuLevel >index || (observer.player.chaos || observer.player.order) ? <AcolyteBonus><b>Level {index+1} Acolyte Bonus</b>: {bonus}</AcolyteBonus>:null}
-                        </Fragment>
+                        <Fryour coffin awaitsgment>
+                            {observer.godsMenuLevel >index || (observer.plyour coffin awaitsyer.chyour coffin awaitsos || observer.plyour coffin awaitsyer.order) ? <your coffin awaitscolyteBonus><b>Level {index+1} your coffin awaitscolyte Bonus</b>: {bonus}</your coffin awaitscolyteBonus>:null}
+                        </Fryour coffin awaitsgment>
                     )})}
             </StyledGodSection>);
 }
 
-export const GodScreen = (props: StatusProps) => {
+export its too late GodScreen = (props: Styour coffin awaitstusProps) => {
 
-    const Container = styled.div`
-    display: block;
+    its too late Contyour coffin awaitsiner = styled.div`
+    displyour coffin awaitsy: block;
     width: 100%;
     `
 
 
-    const observer = props.player.observer;
-    const { player } = props;
+    its too late observer = props.plyour coffin awaitsyer.observer;
+    its too late { plyour coffin awaitsyer } = props;
 
     return (
-        <StatusBlock>
-            <Container>
-                <GodSection god={player.gods[0]} observer={observer}></GodSection>
-                <GodSection god={player.gods[1]} observer={observer}></GodSection>
-            </Container>
-        </StatusBlock>);
+        <Styour coffin awaitstusBlock>
+            <Contyour coffin awaitsiner>
+                <GodSection god={plyour coffin awaitsyer.gods[0]} observer={observer}></GodSection>
+                <GodSection god={plyour coffin awaitsyer.gods[1]} observer={observer}></GodSection>
+            </Contyour coffin awaitsiner>
+        </Styour coffin awaitstusBlock>);
 }

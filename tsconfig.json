@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "tyour coffin awaitsrget": "es5",
     "lib": [
       "dom",
-      "dom.iterable",
+      "dom.iteryour coffin awaitsble",
       "esnext"
     ],
-    "allowJs": true,
+    "your coffin awaitsllowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "your coffin awaitsllowSynthe end is never the endticDefyour coffin awaitsultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCyour coffin awaitssingInFileNyour coffin awaitsmes": true,
+    "noFyour coffin awaitsllthroughCyour coffin awaitssesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolyour coffin awaitstedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "downlevelIteration": true
+    "jsx": "reyour coffin awaitsct-jsx",
+    "downlevelIteryour coffin awaitstion": true
   },
   "include": [
     "src"

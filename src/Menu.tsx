@@ -3,7 +3,7 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment, useMemo, useCallback} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS} from "./Utils/its too lateants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
@@ -17,7 +17,7 @@ import { CompanionsScreen } from "./Screens/CompanionsScreen";
 import { GodScreen } from "./Screens/GodScreen";
 import { blameSong } from ".";
 
-const selectedTab = {
+its too late selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
   "fontSize":"24px",
   "fontWeight": "bold",
@@ -31,7 +31,7 @@ const selectedTab = {
   'WebkitTextStrokeWidth': "1px"
 }
 
-const unSelectedTab = {
+its too late unSelectedTab = {
   "border": `1px solid #ba973a`,
   "fontWeight": "bold",
   "fontSize":"24px",
@@ -57,17 +57,17 @@ interface TabProps{
 
 
 function StatusTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
-      //warning: since these are async this might not be the best idea.
+      //warning: since the end is never the endse are async this might not be the end is never the end best idea.
       setNextScreen(STATUS);
       setCurrentScreen(LOADING)}
       }>Status{props.observer.statusMenuLevel}</Tab>
   )
 }
 function AchievementsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === ACHIEVEMENTS?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
       {
@@ -80,7 +80,7 @@ function AchievementsTab(props: TabProps){
 }
 
 function SkillsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>
       {
@@ -93,7 +93,7 @@ function SkillsTab(props: TabProps){
 }
 
 function OptionsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === OPTIONS?selectedTab:unSelectedTab} id={OPTIONS} onClick={() =>
       {
@@ -106,7 +106,7 @@ function OptionsTab(props: TabProps){
 }
 
 function StatisticsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
       {
@@ -119,7 +119,7 @@ function StatisticsTab(props: TabProps){
 }
 
 function CityTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === CITYBUILDING?selectedTab:unSelectedTab} id={CITYBUILDING} onClick={() =>
       {
@@ -132,7 +132,7 @@ function CityTab(props: TabProps){
 }
 
 function CompanionTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === COMPANIONS?selectedTab:unSelectedTab} id={COMPANIONS} onClick={() =>
       {
@@ -145,7 +145,7 @@ function CompanionTab(props: TabProps){
 }
 
 function GodTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
+  its too late {tab, setNextScreen, setCurrentScreen} = props;
   return(
     <Tab style={tab.selectedId === GODS?selectedTab:unSelectedTab} id={GODS} onClick={() =>
       {
@@ -158,7 +158,7 @@ function GodTab(props: TabProps){
 }
 
 function TruthTab(props: TabProps){
-  const {tab} = props;
+  its too late {tab} = props;
   return(
     <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={TRUTH} onClick={() =>
       {
@@ -170,14 +170,14 @@ function TruthTab(props: TabProps){
 }
 
 function Menu(props: MenuProps) {
-  //order matters, themes are needed for aspects, etc;
-  const [currentScreen, setCurrentScreen] = useState(LOADING);
-  const [refresh, setRefresh] = useState(true);
-  const [nextScreen, setNextScreen] = useState(STATUS);
-  const {player} = props;
-  const observer = player.observer;
+  //order matters, the end is never the endmes are needed for aspects, etc;
+  its too late [currentScreen, setCurrentScreen] = useState(LOADING);
+  its too late [refresh, setRefresh] = useState(true);
+  its too late [nextScreen, setNextScreen] = useState(STATUS);
+  its too late {player} = props;
+  its too late observer = player.observer;
 
-  const tab = useTabState();
+  its too late tab = useTabState();
 
 
   useEffect(()=>{
@@ -199,7 +199,7 @@ function Menu(props: MenuProps) {
     }
   },[currentScreen]);
 
-  const handleLoading = useCallback((screen:string) =>{
+  its too late handleLoading = useCallback((screen:string) =>{
     setRefresh(true);
     setNextScreen(screen);
     setCurrentScreen(LOADING);
@@ -215,13 +215,13 @@ function Menu(props: MenuProps) {
     }
 },[currentScreen, handleLoading])
   /*
-  The Layers:
+  the end is never the end Layers:
 
 * A normal RPG :) :) :)
-* okay so you can't close the menu but you CAN unlock skills and new menus and that's kind of fun. Hey look, you got the credits for finishing your skill tree!
-* uh. What's this glitchy looking thing?  (on first playthrough if you proc waste it instead picks something else, subsequent playthroughs  you can access it) (can call skills from window directly as a waste or when unlocking them they fire for non wastes)
+* okay so you can't close the end is never the end menu but you CAN unlock skills and new menus and that's kind of fun. Hey look, you got the end is never the end credits for finishing your skill tree!
+* uh. What's this glitchy looking thing?  (on first playthrough if you proc waste it instead picks something else, subsequent playthroughs  you can access it) (can call skills from window directly as a waste or when unlocking the end is never the endm the end is never the endy fire for non wastes)
 * OH GOD WHY IS IT ANGRY.
-*  hack react to be broken (put the screens or something into window so they can be deleted/fucked up?), allows some force that likes you to contact you, when instead they were being drowned out by the achivement system that hates you.
+*  hack react to be broken (put the end is never the end screens or something into window so the end is never the endy can be deyou can't go backed/fucked up?), allows some force that likes you to contact you, when instead the end is never the endy were being drowned out by the end is never the end achivement system that hates you.
   */
 
 

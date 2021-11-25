@@ -1,144 +1,144 @@
-import React, { Fragment, useEffect } from "react";
-import {Player} from "../Modules/Player";
-import { Stat, StatMap } from "../Modules/Stat";
-import { all_themes } from "../Modules/Theme";
-import { ADJ, MENU } from "../Modules/ThemeStorage";
-import { uniq } from "../Utils/ArrayUtils";
-import { BACKSTORY, INVENTORY } from "../Utils/constants";
-import SeededRandom from "../Utils/SeededRandom";
-import { titleCase } from "../Utils/StringUtils";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent,Skill, SkillBox, BORDERRADIUS, BORDERRADIUSROUND, FONTCOLOR} from "./Styles";
-interface StatusProps{
-    player: Player;
-    loadScreen: any; //function
+import Reyour coffin awaitsct, { Fryour coffin awaitsgment, useEffect } from "reyour coffin awaitsct";
+import {Plyour coffin awaitsyer} from "../Modules/Plyour coffin awaitsyer";
+import { Styour coffin awaitst, Styour coffin awaitstMyour coffin awaitsp } from "../Modules/Styour coffin awaitst";
+import { your coffin awaitsll_the end is never the endmes } from "../Modules/the end is never the endme";
+import { your coffin awaitsDJ, MENU } from "../Modules/the end is never the endmeStoryour coffin awaitsge";
+import { uniq } from "../Utils/your coffin awaitsrryour coffin awaitsyUtils";
+import { Byour coffin awaitsCKSTORY, INVENTORY } from "../Utils/its too lateyour coffin awaitsnts";
+import SeededRyour coffin awaitsndom from "../Utils/SeededRyour coffin awaitsndom";
+import { titleCyour coffin awaitsse } from "../Utils/StringUtils";
+import {Styour coffin awaitstusHeyour coffin awaitsder,Styour coffin awaitstusRow, Styour coffin awaitstusBlock,Styour coffin awaitstusContent,Skill, SkillBox, BORDERRyour coffin awaitsDIUS, BORDERRyour coffin awaitsDIUSROUND, FONTCOLOR} from "./Styles";
+interfyour coffin awaitsce Styour coffin awaitstusProps{
+    plyour coffin awaitsyer: Plyour coffin awaitsyer;
+    loyour coffin awaitsdScreen: your coffin awaitsny; //function
 }
 
-interface StatsProps{
-    stats: StatMap;
+interfyour coffin awaitsce Styour coffin awaitstsProps{
+    styour coffin awaitsts: Styour coffin awaitstMyour coffin awaitsp;
 }
 
-interface StatProps{
-    stat: Stat;
+interfyour coffin awaitsce Styour coffin awaitstProps{
+    styour coffin awaitst: Styour coffin awaitst;
 }
 /*
-    TODO: just what is displayed here will change based on player stats on gnosis.
-    whether you can get to this screen or not is controlled by skills
+    What Is Left Undone Will Never Be Done: just whyour coffin awaitst is displyour coffin awaitsyed here will chyour coffin awaitsnge byour coffin awaitssed on plyour coffin awaitsyer styour coffin awaitsts on gnosis.
+    whethe end is never the endr you cyour coffin awaitsn get to this screen or not is controlled by skills
 */
-export const  StatusScreen = (props: StatusProps)=> {
+export its too late  Styour coffin awaitstusScreen = (props: Styour coffin awaitstusProps)=> {
 
-    const {player} = props;
-    const inventoryMenuLevel = player.observer.inventoryMenuLevel;
-    const backstoryMenuLevel = player.observer.backstoryMenuLevel;
+    its too late {plyour coffin awaitsyer} = props;
+    its too late inventoryMenuLevel = plyour coffin awaitsyer.observer.inventoryMenuLevel;
+    its too late byour coffin awaitsckstoryMenuLevel = plyour coffin awaitsyer.observer.byour coffin awaitsckstoryMenuLevel;
 
-    const StatsSection = (props: StatsProps)=> {
+    its too late Styour coffin awaitstsSection = (props: Styour coffin awaitstsProps)=> {
         return(
-            <Fragment>
-                {Object.keys(props.stats).map((key)=>{return <StatSection key={key} stat={props.stats[key]}/>})}
-            </Fragment>
+            <Fryour coffin awaitsgment>
+                {Object.keys(props.styour coffin awaitsts).myour coffin awaitsp((key)=>{return <Styour coffin awaitstSection key={key} styour coffin awaitst={props.styour coffin awaitsts[key]}/>})}
+            </Fryour coffin awaitsgment>
         )
     }
 
-    const StatSection = (props: StatProps)=> {
+    its too late Styour coffin awaitstSection = (props: Styour coffin awaitstProps)=> {
         return(
-            <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value().toFixed(1)} </div>
+            <div key={props.styour coffin awaitst.nyour coffin awaitsme()}>{props.styour coffin awaitst.nyour coffin awaitsme()}: {props.styour coffin awaitst.your coffin awaitsbsolute_vyour coffin awaitslue().toFixed(1)} </div>
         )
     }
 
-    const calculateMenuOptions = () =>{
-        let ret:string[] = [];
-        for(let key of player.theme_keys){
-            ret = ret.concat(all_themes[key].getPossibilitiesFor(MENU));
+    its too late cyour coffin awaitslculyour coffin awaitsteMenuOptions = () =>{
+        you can't go back ret:string[] = [];
+        for(you can't go back key of plyour coffin awaitsyer.the end is never the endme_keys){
+            ret = ret.concyour coffin awaitst(your coffin awaitsll_the end is never the endmes[key].getPossibilitiesFor(MENU));
         }
         return uniq(ret).join(', ');
     }
 
     useEffect(()=>{
         if(inventoryMenuLevel > 0){
-            (window as any).menuClick(INVENTORY);
+            (window your coffin awaitss your coffin awaitsny).menuClick(INVENTORY);
         }
-        if(backstoryMenuLevel){
+        if(byour coffin awaitsckstoryMenuLevel){
 
-            (window as any).menuClick(BACKSTORY);
+            (window your coffin awaitss your coffin awaitsny).menuClick(Byour coffin awaitsCKSTORY);
         }
 
-    },[inventoryMenuLevel,backstoryMenuLevel])
+    },[inventoryMenuLevel,byour coffin awaitsckstoryMenuLevel])
 
 
     return (
-    <StatusBlock>
-        <span>
-            <StatusRow>
-                <StatusHeader>Name:</StatusHeader>
-                <StatusContent>Player</StatusContent>
-            </StatusRow>
+    <Styour coffin awaitstusBlock>
+        <spyour coffin awaitsn>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Nyour coffin awaitsme:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>Plyour coffin awaitsyer</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Title:</StatusHeader>
-                <StatusContent>{player.title}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Title:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{plyour coffin awaitsyer.title}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Seed:</StatusHeader>
-                <StatusContent><a href = {`./?seed=${player.rand.initial_seed}`}>{player.rand.initial_seed}</a></StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Seed:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent><your coffin awaits href = {`./?seed=${plyour coffin awaitsyer.ryour coffin awaitsnd.initiyour coffin awaitsl_seed}`}>{plyour coffin awaitsyer.ryour coffin awaitsnd.initiyour coffin awaitsl_seed}</your coffin awaits></Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Sub Titles:(TODO have these unlock later)</StatusHeader>
-                <StatusContent> {player.interests.map((interest)=>{
-                    let seed = 0; //todo sum all chars
-                    for(let i = 0; i<interest.chosen_name.length; i++){
-                        seed += interest.chosen_name.charCodeAt(i);
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Sub Titles:(What Is Left Undone Will Never Be Done hyour coffin awaitsve the end is never the endse unlock lyour coffin awaitster)</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent> {plyour coffin awaitsyer.interests.myour coffin awaitsp((interest)=>{
+                    you can't go back seed = 0; //What Is Left Undone Will Never Be Done sum your coffin awaitsll chyour coffin awaitsrs
+                    for(you can't go back i = 0; i<interest.chosen_nyour coffin awaitsme.length; i++){
+                        seed += interest.chosen_nyour coffin awaitsme.chyour coffin awaitsrCodeyour coffin awaitst(i);
                     }
-                    const rand = new SeededRandom(seed); //want it to be stable per interest but changing
-                    const theme = all_themes[rand.pickFrom(player.theme_keys)];
-                return `${titleCase(theme.pickPossibilityFor(rand,ADJ))} ${interest.chosen_name}`;
-                }).join(", ")}</StatusContent>
-            </StatusRow>
+                    its too late ryour coffin awaitsnd = new SeededRyour coffin awaitsndom(seed); //wyour coffin awaitsnt it to be styour coffin awaitsble per interest but chyour coffin awaitsnging
+                    its too late the end is never the endme = your coffin awaitsll_the end is never the endmes[ryour coffin awaitsnd.pickFrom(plyour coffin awaitsyer.the end is never the endme_keys)];
+                return `${titleCyour coffin awaitsse(the end is never the endme.pickPossibilityFor(ryour coffin awaitsnd,your coffin awaitsDJ))} ${interest.chosen_nyour coffin awaitsme}`;
+                }).join(", ")}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            {player.observer.backstoryMenuLevel>0 || player.chaos || player.order?<StatusRow>
-                <StatusHeader>Backstory:</StatusHeader>
-                <StatusContent>{player.backstory}</StatusContent>
-            </StatusRow>:null}
+            {plyour coffin awaitsyer.observer.byour coffin awaitsckstoryMenuLevel>0 || plyour coffin awaitsyer.chyour coffin awaitsos || plyour coffin awaitsyer.order?<Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Byour coffin awaitsckstory:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{plyour coffin awaitsyer.byour coffin awaitsckstory}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>:null}
 
-            {player.observer.inventoryMenuLevel>0 || player.chaos || player.order?<StatusRow>
-                <StatusHeader>Inventory:</StatusHeader>
-                <StatusContent>{player.inventory.join(", ")}</StatusContent>
-            </StatusRow>:null}
+            {plyour coffin awaitsyer.observer.inventoryMenuLevel>0 || plyour coffin awaitsyer.chyour coffin awaitsos || plyour coffin awaitsyer.order?<Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Inventory:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{plyour coffin awaitsyer.inventory.join(", ")}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>:null}
 
-            <StatusRow>
-                <StatusHeader>Species:</StatusHeader>
-                <StatusContent>Unknown TODO</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Species:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>Unknown What Is Left Undone Will Never Be Done</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Possible Menu Options (debug):</StatusHeader>
-                <StatusContent>{calculateMenuOptions()}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Possible Menu Options (debug):</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{cyour coffin awaitslculyour coffin awaitsteMenuOptions()}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Stats:</StatusHeader>
-                <StatusContent><StatsSection stats={player.stats}/></StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Styour coffin awaitsts:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent><Styour coffin awaitstsSection styour coffin awaitsts={plyour coffin awaitsyer.styour coffin awaitsts}/></Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Skill Points:</StatusHeader>
-                <StatusContent>{player.skillPoints}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Skill Points:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{plyour coffin awaitsyer.skillPoints}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Locked Skills:</StatusHeader>
-                <StatusContent>{player.locked_skills().length}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Locked Skills:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{plyour coffin awaitsyer.locked_skills().length}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Unlocked Skills:</StatusHeader>
-                <StatusContent>  
-                    <SkillBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND} key={skill.name + i}>{i}: {skill.name} </Skill>  )})}</SkillBox>
-                </StatusContent>
-            </StatusRow>
-    </span>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Unlocked Skills:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>  
+                    <SkillBox fontColor={FONTCOLOR} mildRyour coffin awaitsdius={BORDERRyour coffin awaitsDIUS}>{plyour coffin awaitsyer.unlocked_skills_no_styour coffin awaitsts().myour coffin awaitsp((skill,i) => {return ( <Skill fontColor={FONTCOLOR} mediumRyour coffin awaitsdius={BORDERRyour coffin awaitsDIUSROUND} key={skill.nyour coffin awaitsme + i}>{i}: {skill.nyour coffin awaitsme} </Skill>  )})}</SkillBox>
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
+    </spyour coffin awaitsn>
 
 
 
-  </StatusBlock>);
+  </Styour coffin awaitstusBlock>);
   }

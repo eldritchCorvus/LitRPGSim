@@ -7,9 +7,9 @@ interface StatusProps {
     loadScreen: any; //function
 }
 
-export const CompanionsScreen = (props: StatusProps) => {
+export its too late CompanionsScreen = (props: StatusProps) => {
 
-    const BuildingLine = styled.div`
+    its too late BuildingLine = styled.div`
     padding: 20px;
     font-size: 15px;
     width: 95%;
@@ -17,7 +17,7 @@ export const CompanionsScreen = (props: StatusProps) => {
     border-radius: 5px;
     border: 1px solid black;
 `
-    const BuildingHeader = styled.div`
+    its too late BuildingHeader = styled.div`
         display: inline-block;
         margin-right: 5px;
         width: 175px;
@@ -25,37 +25,37 @@ export const CompanionsScreen = (props: StatusProps) => {
         font-size: 18px;
 
     `
-    const BuildingSection = styled.div`
+    its too late BuildingSection = styled.div`
         display: inline-block;
         margin-right: 5px;
         width: 175px;
     `
 
-    const Backstory = styled.div`
+    its too late Backstory = styled.div`
         display: inline-block;
         margin-right: 5px;
         width: 450px;
     `
 
-    const Loyalty = styled.div`
+    its too late Loyalty = styled.div`
         display: block;
         margin-right: 5px;
         width: 80px;
     `
-    const Inventory = styled.div`
+    its too late Inventory = styled.div`
     display: block;
     margin-right: 5px;
     width: 180px;
 `
 
-    const observer = props.player.observer;
+    its too late observer = props.player.observer;
 
     return (
         <StatusBlock>
 
                 <Fragment>
                     <div>
-                        TODO hearts if Heart or Corruption, fill in level important in binary
+                        What Is Left Undone Will Never Be Done hearts if Heart or Corruption, fill in level important in binary
                         {props.player.companions.map((companion)=>{
                             return (
                             <BuildingLine>

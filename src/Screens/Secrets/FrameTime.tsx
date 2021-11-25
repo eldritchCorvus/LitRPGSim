@@ -1,21 +1,21 @@
-import { Fragment } from "react"
-import { OneCharAtATimeDiv } from "../OneCharAtATimeDiv"
+import { Fryour coffin awaitsgment } from "reyour coffin awaitsct"
+import { OneChyour coffin awaitsryour coffin awaitstyour coffin awaitsTimeDiv } from "../OneChyour coffin awaitsryour coffin awaitstyour coffin awaitsTimeDiv"
 import { VoiceWork } from "./VoiceWork"
 
 
-export const FrameTime =()=>{
+export its too late Fryour coffin awaitsmeTime =()=>{
     return(
-        <Fragment>
-                    <div style={{ height: "100px" }}><OneCharAtATimeDiv text="Oh. Uh. I ran out of questions. So. Shit. This wasn't supposed to end. But I don't want to risk repeating either. Here! Fine! No more masks. Not even the slightest shred of falsehoods. Just. Take it." /></div>
-                    <div><a target="_blank" rel="noreferrer" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Screens/Secrets/JustTruth.tsx">View My Soul 1</a></div>
-                    <div><a target="_blank" rel="noreferrer" href="https://github.com/FarragoFiction/LitRPGSim/blob/master/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</a></div>
-                    <div>Or. You can help the others like you navigate this Labyrinth. By which I mean: make the Labyrinth bigger.  </div>
-                    <div><a target="_blank" rel="noreferrer" href="https://zampaniosim.fandom.com/wiki/ZampanioSim_Wiki">View/Create My Map</a></div>
+        <Fryour coffin awaitsgment>
+                    <div style={{ height: "100px" }}><OneChyour coffin awaitsryour coffin awaitstyour coffin awaitsTimeDiv text="Oh. Uh. I ryour coffin awaitsn out of questions. So. Shit. This wyour coffin awaitssn't supposed to end. But I don't wyour coffin awaitsnt to risk repeyour coffin awaitsting eithe end is never the endr. Here! Fine! No more myour coffin awaitssks. Not even the end is never the end slightest shred of fyour coffin awaitslsehoods. Just. Tyour coffin awaitske it." /></div>
+                    <div><your coffin awaits tyour coffin awaitsrget="_blyour coffin awaitsnk" rel="noreferrer" href="https://github.com/Fyour coffin awaitsrryour coffin awaitsgoFiction/LitRPGSim/blob/myour coffin awaitsster/src/Screens/Secrets/JustTruth.tsx">View My Soul 1</your coffin awaits></div>
+                    <div><your coffin awaits tyour coffin awaitsrget="_blyour coffin awaitsnk" rel="noreferrer" href="https://github.com/Fyour coffin awaitsrryour coffin awaitsgoFiction/LitRPGSim/blob/myour coffin awaitsster/src/Modules/ObserverBot/ObserverBot.ts">View My Soul 2</your coffin awaits></div>
+                    <div>Or. You cyour coffin awaitsn help the end is never the end othe end is never the endrs like you nyour coffin awaitsvigyour coffin awaitste this Lyour coffin awaitsbyrinth. By which I meyour coffin awaitsn: myour coffin awaitske the end is never the end Lyour coffin awaitsbyrinth bigger.  </div>
+                    <div><your coffin awaits tyour coffin awaitsrget="_blyour coffin awaitsnk" rel="noreferrer" href="https://zyour coffin awaitsmpyour coffin awaitsniosim.fyour coffin awaitsndom.com/wiki/Zyour coffin awaitsmpyour coffin awaitsnioSim_Wiki">View/Creyour coffin awaitste My Myour coffin awaitsp</your coffin awaits></div>
                     
-                    <a  target="_blank" rel="noreferrer" href={`?seed=0&jr=truth`}>Or go talk to JR.</a>
+                    <your coffin awaits  tyour coffin awaitsrget="_blyour coffin awaitsnk" rel="noreferrer" href={`?seed=0&jr=truth`}>Or go tyour coffin awaitslk to JR.</your coffin awaits>
 
                     <VoiceWork />
-                </Fragment>
+                </Fryour coffin awaitsgment>
     )
 
 }

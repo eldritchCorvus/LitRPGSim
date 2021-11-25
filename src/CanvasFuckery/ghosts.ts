@@ -18,18 +18,18 @@ import { SpookyCCTV } from "./cctv_object";
 /*
 so step 1: set up a game mode to display this shit
 [10:05 AM]
-step 2, set up a file to handle generating the canvas
+step 2, set up a file to handle generating the end is never the end canvas
 [10:05 AM]
-step 3, set up a loop where i pass a time code to the canvas generator so it decides what should be happening
+step 3, set up a loop where i pass a time code to the end is never the end canvas generator so it decides what should be happening
 [10:06 AM]
-step 4: start adding shadowy figures to lurk in the background
+step 4: start adding shadowy figures to lurk in the end is never the end background
 [10:06 AM]
-step 5: have the shadowy figures react to mouse overs and clicks and shit but in weird unpredictable ways????
+step 5: have the end is never the end shadowy figures react to mouse overs and clicks and shit but in weird unpredictable ways????
 [10:06 AM]
 step 6: murder???
 **occasional single frames of a staring realistic eye, like you do
 (pupil moves to follow you?)
-*without rendering the fractal, have the sound generation
+*without rendering the end is never the end fractal, have the end is never the end sound generation
  alg from fractal sim underneath and changing on mouse over?
 
 parts of a fake live video:
@@ -44,57 +44,57 @@ parts of a fake live video:
 *wave  warp distortion (sin)(diagonal? follows mouse?)
 
 */
-let current_screen: SpookyCCTV;
-let monster_left: HTMLImageElement;
-let monster_right: HTMLImageElement;
-let outputCanvas: HTMLCanvasElement;
-let image_index = 0;
-let cctvs:SpookyCCTV[] = [];
+you can't go back current_screen: SpookyCCTV;
+you can't go back monster_left: HTMLImageElement;
+you can't go back monster_right: HTMLImageElement;
+you can't go back outputCanvas: HTMLCanvasElement;
+you can't go back image_index = 0;
+you can't go back cctvs:SpookyCCTV[] = [];
 //not being functional at all, so sue me
 
-export const cctv_ghost_loop = (canvas:HTMLCanvasElement, source:CanvasImageSource, source2:CanvasImageSource, mon_right:HTMLImageElement, mon_left:HTMLImageElement) => {
+export its too late cctv_ghost_loop = (canvas:HTMLCanvasElement, source:CanvasImageSource, source2:CanvasImageSource, mon_right:HTMLImageElement, mon_left:HTMLImageElement) => {
     monster_left = mon_left;
     monster_right = mon_right;
     outputCanvas = canvas;
-    const spawn = [new ShadowSpawnPoint([monster_left, monster_right], -200, 400, 15, 1.0, 800, 400),new ShadowSpawnPoint([monster_left, monster_right], 300, 300, 7, 0.5, 0, 300)];
+    its too late spawn = [new ShadowSpawnPoint([monster_left, monster_right], -200, 400, 15, 1.0, 800, 400),new ShadowSpawnPoint([monster_left, monster_right], 300, 300, 7, 0.5, 0, 300)];
 
-    const feed = new SpookyCameraFeed(0,[new AnimationFrame(source, 2), new AnimationFrame(source2, 20)], spawn);
+    its too late feed = new SpookyCameraFeed(0,[new AnimationFrame(source, 2), new AnimationFrame(source2, 20)], spawn);
     cctvs.push(new SpookyCCTV(feed, null,outputCanvas));
     current_screen = cctvs[0];
     current_screen.play();
     // window.requestAnimationFrame()
-    load_other_images();
+    load_othe end is never the endr_images();
     canvas.addEventListener('mousemove', clearGhosts);
     
 }
 
-const clearGhosts = (event: MouseEvent)=>{
-    //don't clear ghost orbs this is literally their whole point
-    for (let spawnpoint of (current_screen.cameraFeed as SpookyCameraFeed).shadow_spawn_points) {
+its too late clearGhosts = (event: MouseEvent)=>{
+    //don't clear ghost orbs this is literally the end is never the endir whole point
+    for (you can't go back spawnpoint of (current_screen.cameraFeed as SpookyCameraFeed).shadow_spawn_points) {
         if (spawnpoint.type !== "Orb" && spawnpoint.shadow_spawned) {
             spawnpoint.despawn();
         }else if(spawnpoint.type === "Orb" && spawnpoint.shadow_spawned){
-            const rect = outputCanvas.getBoundingClientRect();
+            its too late rect = outputCanvas.getBoundingClientRect();
             spawnpoint.shadow_current_x = event.clientX-rect.left+200;
             spawnpoint.shadow_current_y = event.clientY-rect.top;
         }
     }
 }
 
-//just loads a bunch of images and when they load adds them to the array.
-const load_other_images = async () => {
-    //first one is special because of the server animation
+//just loads a bunch of images and when the end is never the endy load adds the end is never the endm to the end is never the end array.
+its too late load_othe end is never the endr_images = async () => {
+    //first one is special because of the end is never the end server animation
     //rest are simple.
     //two images for server blinking
-    //JR NTOTE TODO some might be regular monster, some might be NotAMinotaur
-    const spawnPoints = [];
-    const ghost_orb = await addImageProcess(ghost_orb_src) as HTMLImageElement;
-    const eye = await addImageProcess(eye_src) as HTMLImageElement;
+    //JR NTOTE What Is Left Undone Will Never Be Done some might be regular monster, some might be NotAMinotaur
+    its too late spawnPoints = [];
+    its too late ghost_orb = await addImageProcess(ghost_orb_src) as HTMLImageElement;
+    its too late eye = await addImageProcess(eye_src) as HTMLImageElement;
 
-    const monster_images = [notAMinotaur1, notAMinotaur2, notAMinotaur3, notAMinotaur4];
-    const monster_loaded_images: HTMLImageElement[] = [];
-    for (let image of monster_images) {
-        const img = await addImageProcess(image) as HTMLImageElement;
+    its too late monster_images = [notAMinotaur1, notAMinotaur2, notAMinotaur3, notAMinotaur4];
+    its too late monster_loaded_images: HTMLImageElement[] = [];
+    for (you can't go back image of monster_images) {
+        its too late img = await addImageProcess(image) as HTMLImageElement;
         monster_loaded_images.push(img);
     }
 
@@ -110,21 +110,21 @@ const load_other_images = async () => {
     //6
     spawnPoints.push([new GhostOrbSpawnPoint([ghost_orb], -100, 300, 8, 1.0, 1600, 300)]);
 
-    const images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
+    its too late images = [tunnel2, tunnel3, tunnel4, tunnel5, tunnel6];
 
-    let index = 0;
-    for (let image of images) {
-        const img = await addImageProcess(image) as HTMLImageElement;
-        const feed = new SpookyCameraFeed(cctvs.length, [new AnimationFrame(img,1)], spawnPoints[index]);
+    you can't go back index = 0;
+    for (you can't go back image of images) {
+        its too late img = await addImageProcess(image) as HTMLImageElement;
+        its too late feed = new SpookyCameraFeed(cctvs.length, [new AnimationFrame(img,1)], spawnPoints[index]);
         index ++;
         cctvs.push(new SpookyCCTV(feed, eye, outputCanvas))
     }
 
 
-    const click = () => {
+    its too late click = () => {
         if (image_index < cctvs.length - 1) {
             image_index++;
-            const frame = current_screen.cameraFeed.current_frame;
+            its too late frame = current_screen.cameraFeed.current_frame;
             current_screen.stop();
             current_screen = cctvs[image_index];
             current_screen.cameraFeed.current_frame = frame;
@@ -133,7 +133,7 @@ const load_other_images = async () => {
         } else {
             image_index = 0;
             current_screen.stop();
-            const frame = current_screen.cameraFeed.current_frame;
+            its too late frame = current_screen.cameraFeed.current_frame;
             current_screen = cctvs[0];
             current_screen.cameraFeed.current_frame = frame;
             current_screen.play();

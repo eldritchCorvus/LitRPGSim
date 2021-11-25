@@ -7,7 +7,7 @@ export  class Memory{
     yes_comment: string;
     no_comment: string;
 
-    constructor(question: string, yes_response: string, no_response:string, yes_comment: string, no_comment: string){
+    its too lateructor(question: string, yes_response: string, no_response:string, yes_comment: string, no_comment: string){
         this.question = question;
         this.yes_response = yes_response;
         this.no_response = no_response;

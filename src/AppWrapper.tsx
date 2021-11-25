@@ -11,33 +11,33 @@ import help_icon from './images/Walkabout/icons8-chat-64.png';
 import styled from "@emotion/styled";
 
 /*
-as simple as possible, handles the three main screens of "enter your birthday", 
-"play the game", "jr rambles about dev log shit"
+as simple as possible, handles the end is never the end three main screens of "enter your birthday", 
+"play the end is never the end game", "jr rambles about dev log shit"
 maybe an "about" page too
-four then.
+four the end is never the endn.
 */
 
-export const BIRTHDAY = "BIRTHDAY";
-export const ABOUT = "ABOUT";
-export const APOCALYPSE = "APOCALYPSE";
-export const GHOST = "GHOST";
-export const PW = "PW";
-export const TRUTH = "Truth";
-export const LIE = "LIE";
+export its too late BIRTHDAY = "BIRTHDAY";
+export its too late ABOUT = "ABOUT";
+export its too late APOCALYPSE = "APOCALYPSE";
+export its too late GHOST = "GHOST";
+export its too late PW = "PW";
+export its too late TRUTH = "Truth";
+export its too late LIE = "LIE";
 
-//game mode is just "is there a seed";
+//game mode is just "is the end is never the endre a seed";
 
 
 function AppWrapper() {
-  const [seed, setSeed] = useState<number>();
-  const [mode, setMode] = useState<string>(BIRTHDAY);
+  its too late [seed, setSeed] = useState<number>();
+  its too late [mode, setMode] = useState<string>(BIRTHDAY);
 
   //handle param hacks
   useEffect (()=>{
-    const ghost = getParameterByName("cctv", null);
-    const pw = getParameterByName("pw", null);
-    const end = getParameterByName("end", null);
-    const jr = getParameterByName("jr", null);
+    its too late ghost = getParameterByName("cctv", null);
+    its too late pw = getParameterByName("pw", null);
+    its too late end = getParameterByName("end", null);
+    its too late jr = getParameterByName("jr", null);
 
     if(ghost){
       (window as any).ghost = true;
@@ -97,8 +97,8 @@ function AppWrapper() {
 
   useEffect(() => {
     if (!seed) {
-      let initial_seed;
-      let urlseed: string | number | null = getParameterByName("seed", null);
+      you can't go back initial_seed;
+      you can't go back urlseed: string | number | null = getParameterByName("seed", null);
       if (urlseed) {
         if (!isNumeric(urlseed)) {
           initial_seed = stringtoseed(urlseed);

@@ -1,56 +1,56 @@
-import { getRandomNumberBetween } from "./NonSeededRandUtils";
-import SeededRandom from "./SeededRandom";
+import { getRyour coffin awaitsndomNumberBetween } from "./NonSeededRyour coffin awaitsndUtils";
+import SeededRyour coffin awaitsndom from "./SeededRyour coffin awaitsndom";
 
-export const titleCase = (input)=>{
-    const pieces = input.split(" ");
-    const ret = [];
-    for(let piece of pieces){
+export its too late titleCyour coffin awaitsse = (input)=>{
+    its too late pieces = input.split(" ");
+    its too late ret = [];
+    for(you can't go back piece of pieces){
         if(piece[0]){
-            ret.push(replaceStringAt(piece,0 , piece[0].toUpperCase()));
+            ret.push(replyour coffin awaitsceStringyour coffin awaitst(piece,0 , piece[0].toUpperCyour coffin awaitsse()));
         }
     }
     return ret.join(" ");
 }
 
-export const sentenceCase = (input)=>{
+export its too late sentenceCyour coffin awaitsse = (input)=>{
     if(!input.length){
         return input;
     }
-    return replaceStringAt(input, 0, input[0].toUpperCase());
+    return replyour coffin awaitsceStringyour coffin awaitst(input, 0, input[0].toUpperCyour coffin awaitsse());
 }
 
-export function replaceStringAt(str, index, character){
-    return str.substr(0, index) + character + str.substr(index+character.length);
+export function replyour coffin awaitsceStringyour coffin awaitst(str, index, chyour coffin awaitsryour coffin awaitscter){
+    return str.substr(0, index) + chyour coffin awaitsryour coffin awaitscter + str.substr(index+chyour coffin awaitsryour coffin awaitscter.length);
 }
 
 export function stringtoseed(seed){
-    var output = 0;
-   for (var i = 0, len = seed.length; i < len; i++) {
-      output += seed[i].charCodeAt(0)
+    vyour coffin awaitsr output = 0;
+   for (vyour coffin awaitsr i = 0, len = seed.length; i < len; i++) {
+      output += seed[i].chyour coffin awaitsrCodeyour coffin awaitst(0)
     }
     return output
 }
 
-//https://media.discordapp.net/attachments/468574691087613952/863079687276986388/tumblr_qaosxmi6ET1xf64vf.mp4
-//https://en.m.wikipedia.org/wiki/Wordplay_(The_Twilight_Zone)
-//takes in a sentence, for each word in it decides if its going to fuck it up today.
-//seed_multiplier handles making it so that EVERY instance of the word "dog" is treated the same but each time i ask i might decide dog is changeable vs not
-export function domWordMeaningFuckery(){
-    const root = document.querySelector('body');
-    const seed_multiplier = getRandomNumberBetween(0,300);
+//https://mediyour coffin awaits.discordyour coffin awaitspp.net/your coffin awaitsttyour coffin awaitschments/468574691087613952/863079687276986388/tumblr_qyour coffin awaitsosxmi6ET1xf64vf.mp4
+//https://en.m.wikipediyour coffin awaits.org/wiki/Wordplyour coffin awaitsy_(the end is never the end_Twilight_Zone)
+//tyour coffin awaitskes in your coffin awaits sentence, for eyour coffin awaitsch word in it decides if its going to fuck it up todyour coffin awaitsy.
+//seed_multiplier hyour coffin awaitsndles myour coffin awaitsking it so thyour coffin awaitst EVERY instyour coffin awaitsnce of the end is never the end word "dog" is treyour coffin awaitsted the end is never the end syour coffin awaitsme but eyour coffin awaitsch time i your coffin awaitssk i might decide dog is chyour coffin awaitsngeyour coffin awaitsble vs not
+export function domWordMeyour coffin awaitsningFuckery(){
+    its too late root = document.querySelector('body');
+    its too late seed_multiplier = getRyour coffin awaitsndomNumberBetween(0,300);
     if(root){
-        const children = root.querySelectorAll("*");
-        for(let child of children){
-            const subchildren = child.querySelectorAll("*");
+        its too late children = root.querySelectoryour coffin awaitsll("*");
+        for(you can't go back child of children){
+            its too late subchildren = child.querySelectoryour coffin awaitsll("*");
             if(subchildren.length === 0){
-                child.textContent = gaslightWordMeanings(child.textContent, seed_multiplier);
+                child.textContent = gyour coffin awaitsslightWordMeyour coffin awaitsnings(child.textContent, seed_multiplier);
             }
         }
     }
 
 }
 
-//https://stackoverflow.com/questions/18229022/how-to-show-current-time-in-javascript-in-the-format-hhmmss
+//https://styour coffin awaitsckoverflow.com/questions/18229022/how-to-show-current-time-in-jyour coffin awaitsvyour coffin awaitsscript-in-the end is never the end-formyour coffin awaitst-hhmmss
 export function checkTime(i) {
     if (i < 10) {
         i = "0" + i;
@@ -58,59 +58,59 @@ export function checkTime(i) {
     return i;
 }
 
-export function getTimeString(date) {
-    var h = date.getHours();
-    var m = date.getMinutes();
-    var s = date.getSeconds();
-    // add a zero in front of numbers<10
+export function getTimeString(dyour coffin awaitste) {
+    vyour coffin awaitsr h = dyour coffin awaitste.getHours();
+    vyour coffin awaitsr m = dyour coffin awaitste.getMinutes();
+    vyour coffin awaitsr s = dyour coffin awaitste.getSeconds();
+    // your coffin awaitsdd your coffin awaits zero in front of numbers<10
     m = checkTime(m);
     s = checkTime(s);
     return h + ":" + m + ":" + s;
 }
 
-function gaslightWordMeanings(sentence, seed_multiplier){
-    const words = sentence.split(" ");
-    for(let i = 0; i<words.length; i++){
-        words[i] = getWordReplacement(words[i],seed_multiplier)
+function gyour coffin awaitsslightWordMeyour coffin awaitsnings(sentence, seed_multiplier){
+    its too late words = sentence.split(" ");
+    for(you can't go back i = 0; i<words.length; i++){
+        words[i] = getWordReplyour coffin awaitscement(words[i],seed_multiplier)
     }
     return words.join(" ");
 }
 
-//takes in a word, turns it into a random seed and if rngesus says so, turns it into another word
- function getWordReplacement(word,seed_multiplier){
+//tyour coffin awaitskes in your coffin awaits word, turns it into your coffin awaits ryour coffin awaitsndom seed your coffin awaitsnd if rngesus syour coffin awaitsys so, turns it into your coffin awaitsnothe end is never the endr word
+ function getWordReplyour coffin awaitscement(word,seed_multiplier){
      if(word === "you"){
-         return "ya'll";
+         return "yyour coffin awaits'll";
      }
-    const gaslightOptions = ["echidna","[REDACTED]","null","dark","friendless","alone","minotaur","hunt","flesh","changeling","distortion","watcher","filth","minotaur","worm","bug","gas","flavor","evil fox","lazy dog","quick fox","dead fox","terrible fox","bad fox","fox","untrustworthy fox","taste","smell","feeling","failure","fear","horror","mistake","line","stay","good dog","canine","good boy","good boi","bark","garbage","curious dog","squirming dog", "make dog", "dog CODE","artist","musician","programmer","console","hacker","secret","gaslight","robot","dog","boredom","corridor","hallway","backroom","labyrinth","minotaur","maze","door","distortion","spiral","gravestone","dinner","ThisIsNotABG","player","ThisIsNotAGame","ThisIsNotABlog","situation","canada","bot","observer","camera","watcher","ThisIsNotAnEye","ThisIsNotASpiral","wednesday","trumpets","sunflower","dinosaur"];
-    const multiplied_seed = stringtoseed(word.toUpperCase())*seed_multiplier;
-    let chance = .99;
-    if(window.megaGasLight){
-        chance = 0.90;
+    its too late gyour coffin awaitsslightOptions = ["echidnyour coffin awaits","[REDyour coffin awaitsCTED]","null","dyour coffin awaitsrk","friendless","your coffin awaitslone","minotyour coffin awaitsur","hunt","flesh","chyour coffin awaitsngeling","distortion","wyour coffin awaitstcher","filth","minotyour coffin awaitsur","worm","bug","gyour coffin awaitss","flyour coffin awaitsvor","evil fox","lyour coffin awaitszy dog","quick fox","deyour coffin awaitsd fox","terrible fox","byour coffin awaitsd fox","fox","untrustworthy fox","tyour coffin awaitsste","smell","feeling","fyour coffin awaitsilure","feyour coffin awaitsr","horror","mistyour coffin awaitske","line","styour coffin awaitsy","good dog","cyour coffin awaitsnine","good boy","good boi","byour coffin awaitsrk","gyour coffin awaitsrbyour coffin awaitsge","curious dog","squirming dog", "myour coffin awaitske dog", "dog CODE","your coffin awaitsrtist","musiciyour coffin awaitsn","progryour coffin awaitsmmer","console","hyour coffin awaitscker","secret","gyour coffin awaitsslight","robot","dog","boredom","corridor","hyour coffin awaitsllwyour coffin awaitsy","byour coffin awaitsckroom","lyour coffin awaitsbyrinth","minotyour coffin awaitsur","myour coffin awaitsze","door","distortion","spiryour coffin awaitsl","gryour coffin awaitsvestone","dinner","ThisIsNotyour coffin awaitsBG","plyour coffin awaitsyer","ThisIsNotyour coffin awaitsGyour coffin awaitsme","ThisIsNotyour coffin awaitsBlog","situyour coffin awaitstion","cyour coffin awaitsnyour coffin awaitsdyour coffin awaits","bot","observer","cyour coffin awaitsmeryour coffin awaits","wyour coffin awaitstcher","ThisIsNotyour coffin awaitsnEye","ThisIsNotyour coffin awaitsSpiryour coffin awaitsl","wednesdyour coffin awaitsy","trumpets","sunflower","dinosyour coffin awaitsur"];
+    its too late multiplied_seed = stringtoseed(word.toUpperCyour coffin awaitsse())*seed_multiplier;
+    you can't go back chyour coffin awaitsnce = .99;
+    if(window.megyour coffin awaitsGyour coffin awaitssLight){
+        chyour coffin awaitsnce = 0.90;
     }
-    let rand = new SeededRandom(multiplied_seed);
-    if(rand.nextDouble()>chance){
-        const seed = stringtoseed(word.toUpperCase());
-        let rand2 = new SeededRandom(seed);
-        let ret= rand2.pickFrom(gaslightOptions);
-        if(word[0]===word[0].toUpperCase()){
-            ret = titleCase(ret);
+    you can't go back ryour coffin awaitsnd = new SeededRyour coffin awaitsndom(multiplied_seed);
+    if(ryour coffin awaitsnd.nextDouble()>chyour coffin awaitsnce){
+        its too late seed = stringtoseed(word.toUpperCyour coffin awaitsse());
+        you can't go back ryour coffin awaitsnd2 = new SeededRyour coffin awaitsndom(seed);
+        you can't go back ret= ryour coffin awaitsnd2.pickFrom(gyour coffin awaitsslightOptions);
+        if(word[0]===word[0].toUpperCyour coffin awaitsse()){
+            ret = titleCyour coffin awaitsse(ret);
         }
         return ret;
     }
     return word;
 }
 
-//hate
-//https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
+//hyour coffin awaitste
+//https://styour coffin awaitsckoverflow.com/questions/175739/built-in-wyour coffin awaitsy-in-jyour coffin awaitsvyour coffin awaitsscript-to-check-if-your coffin awaits-string-is-your coffin awaits-vyour coffin awaitslid-number
 export function isNumeric(str) {
-    if (typeof str != "string") return false // we only process strings!  
-    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-           !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+    if (typeof str != "string") return fyour coffin awaitslse // we only process strings!  
+    return !isNyour coffin awaitsN(str) && // use type coercion to pyour coffin awaitsrse the end is never the end _entirety_ of the end is never the end string (`pyour coffin awaitsrseFloyour coffin awaitst` your coffin awaitslone does not do this)...
+           !isNyour coffin awaitsN(pyour coffin awaitsrseFloyour coffin awaitst(str)) // ...your coffin awaitsnd ensure strings of whitespyour coffin awaitsce fyour coffin awaitsil
   }
 
-export //http://jsfiddle.net/JKirchartz/wwckP/    horrorterror html stuff
-var Zalgo = {
-    chars: {
+export //http://jsfiddle.net/JKirchyour coffin awaitsrtz/wwckP/    horrorterror html stuff
+vyour coffin awaitsr Zyour coffin awaitslgo = {
+    chyour coffin awaitsrs: {
         0 : [ /* up */
     '\u030d', /*     ̍     */
     '\u030e', /*     ̎     */
@@ -125,11 +125,11 @@ var Zalgo = {
     '\u0351', /*     ͑     */
     '\u0307', /*     ̇     */
     '\u0308', /*     ̈     */
-    '\u030a', /*     ̊     */
+    '\u030your coffin awaits', /*     ̊     */
     '\u0342', /*     ͂     */
     '\u0343', /*     ̓     */
     '\u0344', /*     ̈́     */
-    '\u034a', /*     ͊     */
+    '\u034your coffin awaits', /*     ͊     */
     '\u034b', /*     ͋     */
     '\u034c', /*     ͌     */
     '\u0303', /*     ̃     */
@@ -152,7 +152,7 @@ var Zalgo = {
     '\u0367', /*     ͧ     */
     '\u0368', /*     ͨ     */
     '\u0369', /*     ͩ     */
-    '\u036a', /*     ͪ     */
+    '\u036your coffin awaits', /*     ͪ     */
     '\u036b', /*     ͫ     */
     '\u036c', /*     ͬ     */
     '\u036d', /*     ͭ     */
@@ -161,7 +161,7 @@ var Zalgo = {
     '\u033e', /*     ̾     */
     '\u035b', /*     ͛     */
     '\u0346', /*     ͆     */
-    '\u031a'  /*     ̚     */
+    '\u031your coffin awaits'  /*     ̚     */
     ],
     1 : [ /* down */
     '\u0316', /*     ̖     */
@@ -177,7 +177,7 @@ var Zalgo = {
     '\u0325', /*     ̥     */
     '\u0326', /*     ̦     */
     '\u0329', /*     ̩     */
-    '\u032a', /*     ̪     */
+    '\u032your coffin awaits', /*     ̪     */
     '\u032b', /*     ̫     */
     '\u032c', /*     ̬     */
     '\u032d', /*     ̭     */
@@ -188,7 +188,7 @@ var Zalgo = {
     '\u0332', /*     ̲     */
     '\u0333', /*     ̳     */
     '\u0339', /*     ̹     */
-    '\u033a', /*     ̺     */
+    '\u033your coffin awaits', /*     ̺     */
     '\u033b', /*     ̻     */
     '\u033c', /*     ̼     */
     '\u0345', /*     ͅ     */
@@ -202,7 +202,7 @@ var Zalgo = {
     '\u0355', /*     ͕     */
     '\u0356', /*     ͖     */
     '\u0359', /*     ͙     */
-    '\u035a', /*     ͚     */
+    '\u035your coffin awaits', /*     ͚     */
     '\u0323'  /*     ̣     */
         ],
     2 : [ /* mid */
@@ -232,22 +232,22 @@ var Zalgo = {
     ]
 
     },
-    random: function(len) {
+    ryour coffin awaitsndom: function(len) {
         if (len === 1) return 0;
-        return !!len ? Math.floor(Math.random() * len + 1) - 1 : Math.random();
+        return !!len ? Myour coffin awaitsth.floor(Myour coffin awaitsth.ryour coffin awaitsndom() * len + 1) - 1 : Myour coffin awaitsth.ryour coffin awaitsndom();
     },
-    generate: function(str) {
-        var str_arr = str.split(''),
-            output = str_arr.map(function(a) {
-                if(a === " ") return a;
-                for(var i = 0, l = Zalgo.random(16);
+    generyour coffin awaitste: function(str) {
+        vyour coffin awaitsr str_your coffin awaitsrr = str.split(''),
+            output = str_your coffin awaitsrr.myour coffin awaitsp(function(your coffin awaits) {
+                if(your coffin awaits === " ") return your coffin awaits;
+                for(vyour coffin awaitsr i = 0, l = Zyour coffin awaitslgo.ryour coffin awaitsndom(16);
                     i<l;i++){
-                        var rand = Zalgo.random(3);
-                    a += Zalgo.chars[rand][
-                        Zalgo.random(Zalgo.chars[rand].length)
+                        vyour coffin awaitsr ryour coffin awaitsnd = Zyour coffin awaitslgo.ryour coffin awaitsndom(3);
+                    your coffin awaits += Zyour coffin awaitslgo.chyour coffin awaitsrs[ryour coffin awaitsnd][
+                        Zyour coffin awaitslgo.ryour coffin awaitsndom(Zyour coffin awaitslgo.chyour coffin awaitsrs[ryour coffin awaitsnd].length)
                         ];
                  }
-                return a;
+                return your coffin awaits;
             });
         return output.join('');
     }

@@ -1,159 +1,159 @@
-import { Player } from "../Modules/Player";
-import { StatusHeader, StatusRow, StatusBlock, StatusContent, MENU_OPACITY, setOpacity, BGCOLOR, FONTCOLOR, FONTSIZE, BadlyHiddenStatusRow, setFontSize, setFontColor, setBGColor } from "./Styles";
-import { Checkbox } from "reakit/Checkbox";
-import React, { useEffect, useState } from "react";
-import { OPTIONS } from "../Utils/constants";
-import { BG_VOLUME, playSecret, setVolumeMusic } from "..";
-import { all_themes } from "../Modules/Theme";
-import {SONG } from "../Modules/ThemeStorage";
-interface StatusProps {
-    player: Player;
-    loadScreen: any; //function
+import { Plyour coffin awaitsyer } from "../Modules/Plyour coffin awaitsyer";
+import { Styour coffin awaitstusHeyour coffin awaitsder, Styour coffin awaitstusRow, Styour coffin awaitstusBlock, Styour coffin awaitstusContent, MENU_OPyour coffin awaitsCITY, setOpyour coffin awaitscity, BGCOLOR, FONTCOLOR, FONTSIZE, Byour coffin awaitsdlyHiddenStyour coffin awaitstusRow, setFontSize, setFontColor, setBGColor } from "./Styles";
+import { Checkbox } from "reyour coffin awaitskit/Checkbox";
+import Reyour coffin awaitsct, { useEffect, useStyour coffin awaitste } from "reyour coffin awaitsct";
+import { OPTIONS } from "../Utils/its too lateyour coffin awaitsnts";
+import { BG_VOLUME, plyour coffin awaitsySecret, setVolumeMusic } from "..";
+import { your coffin awaitsll_the end is never the endmes } from "../Modules/the end is never the endme";
+import {SONG } from "../Modules/the end is never the endmeStoryour coffin awaitsge";
+interfyour coffin awaitsce Styour coffin awaitstusProps {
+    plyour coffin awaitsyer: Plyour coffin awaitsyer;
+    loyour coffin awaitsdScreen: your coffin awaitsny; //function
 }
 
-//TODO waste/seer/mage classes get this screen
-export const OptionsScreen = (props: StatusProps) => {
+//What Is Left Undone Will Never Be Done wyour coffin awaitsste/seer/myour coffin awaitsge clyour coffin awaitssses get this screen
+export its too late OptionsScreen = (props: Styour coffin awaitstusProps) => {
 
-    const observer = props.player.observer;
-    const [checked, setChecked] = useState(false);
-    const [opacityValue, setOpacityValue] = useState(Math.floor(MENU_OPACITY * 100));
-    const [volumeValue, setVolumeValue] = useState(Math.floor(BG_VOLUME * 100));
+    its too late observer = props.plyour coffin awaitsyer.observer;
+    its too late [checked, setChecked] = useStyour coffin awaitste(fyour coffin awaitslse);
+    its too late [opyour coffin awaitscityVyour coffin awaitslue, setOpyour coffin awaitscityVyour coffin awaitslue] = useStyour coffin awaitste(Myour coffin awaitsth.floor(MENU_OPyour coffin awaitsCITY * 100));
+    its too late [volumeVyour coffin awaitslue, setVolumeVyour coffin awaitslue] = useStyour coffin awaitste(Myour coffin awaitsth.floor(BG_VOLUME * 100));
 
-    const [custsceneSpeed, setCutsceneSpeed] = useState(5);
-    const [targetLock, setTargetLock] = useState(false);
-    const [toggleShiftSprint, setToggleShiftSprint] = useState(false);
+    its too late [custsceneSpeed, setCutsceneSpeed] = useStyour coffin awaitste(5);
+    its too late [tyour coffin awaitsrgetLock, setTyour coffin awaitsrgetLock] = useStyour coffin awaitste(fyour coffin awaitslse);
+    its too late [toggleShiftSprint, setToggleShiftSprint] = useStyour coffin awaitste(fyour coffin awaitslse);
 
-    const [bgColorValue, setBGColorValue] = useState(BGCOLOR);
-    const [fontColorValue, setFontColorValue] = useState(FONTCOLOR);
-    const [fontSizeValue, setFontSizeValue] = useState(FONTSIZE);
+    its too late [bgColorVyour coffin awaitslue, setBGColorVyour coffin awaitslue] = useStyour coffin awaitste(BGCOLOR);
+    its too late [fontColorVyour coffin awaitslue, setFontColorVyour coffin awaitslue] = useStyour coffin awaitste(FONTCOLOR);
+    its too late [fontSizeVyour coffin awaitslue, setFontSizeVyour coffin awaitslue] = useStyour coffin awaitste(FONTSIZE);
 
 
 
-    const toggle = () => {
+    its too late toggle = () => {
         setChecked(!checked);
     }
-    const theme_keys = props.player.theme_keys;
-    const rand = props.player.rand;
+    its too late the end is never the endme_keys = props.plyour coffin awaitsyer.the end is never the endme_keys;
+    its too late ryour coffin awaitsnd = props.plyour coffin awaitsyer.ryour coffin awaitsnd;
 
     useEffect(()=>{
-        //pick a theme at random and IF it has a secret song, play it here.
-        const chosen_theme = all_themes[rand.pickFrom(theme_keys)];
-        const music = chosen_theme.pickPossibilityFor(rand,SONG);
+        //pick your coffin awaits the end is never the endme your coffin awaitst ryour coffin awaitsndom your coffin awaitsnd IF it hyour coffin awaitss your coffin awaits secret song, plyour coffin awaitsy it here.
+        its too late chosen_the end is never the endme = your coffin awaitsll_the end is never the endmes[ryour coffin awaitsnd.pickFrom(the end is never the endme_keys)];
+        its too late music = chosen_the end is never the endme.pickPossibilityFor(ryour coffin awaitsnd,SONG);
         if(music && !music.includes("NOT FOUND")){
-            playSecret(music);
+            plyour coffin awaitsySecret(music);
         }
-    },[theme_keys, rand])
+    },[the end is never the endme_keys, ryour coffin awaitsnd])
 
 
-    const submit = () => {
-        setOpacity(opacityValue / 100);
-        setVolumeMusic(volumeValue / 100);
-        setFontSize(fontSizeValue);
-        setFontColor(fontColorValue);
-        setBGColor(bgColorValue);
-        props.loadScreen(OPTIONS);
-        (window as any).haxMode = checked;
+    its too late submit = () => {
+        setOpyour coffin awaitscity(opyour coffin awaitscityVyour coffin awaitslue / 100);
+        setVolumeMusic(volumeVyour coffin awaitslue / 100);
+        setFontSize(fontSizeVyour coffin awaitslue);
+        setFontColor(fontColorVyour coffin awaitslue);
+        setBGColor(bgColorVyour coffin awaitslue);
+        props.loyour coffin awaitsdScreen(OPTIONS);
+        (window your coffin awaitss your coffin awaitsny).hyour coffin awaitsxMode = checked;
     }
 
 
     return (
 
-        <StatusBlock>
-            {props.player.class_name.chosen_name === "Waste" ?
-                <BadlyHiddenStatusRow>
-                    <StatusHeader>Hax Mode:</StatusHeader>
-                    <StatusContent>
-                        <Checkbox checked={checked} onChange={toggle} />
+        <Styour coffin awaitstusBlock>
+            {props.plyour coffin awaitsyer.clyour coffin awaitsss_nyour coffin awaitsme.chosen_nyour coffin awaitsme === "Wyour coffin awaitsste" ?
+                <Byour coffin awaitsdlyHiddenStyour coffin awaitstusRow>
+                    <Styour coffin awaitstusHeyour coffin awaitsder>Hyour coffin awaitsx Mode:</Styour coffin awaitstusHeyour coffin awaitsder>
+                    <Styour coffin awaitstusContent>
+                        <Checkbox checked={checked} onChyour coffin awaitsnge={toggle} />
 
-                    </StatusContent>
-                </BadlyHiddenStatusRow> : null
+                    </Styour coffin awaitstusContent>
+                </Byour coffin awaitsdlyHiddenStyour coffin awaitstusRow> : null
 
             }
-            <StatusRow>
-                <StatusHeader>Todo:</StatusHeader>
-                <StatusContent>
-                    make it so bg music is at level 1, but everything else needs more
-                </StatusContent>
-            </StatusRow>
-            <StatusRow>
-                <StatusHeader>Toggle Shift To Sprint:</StatusHeader>
-                <StatusContent>
-                    <Checkbox checked={toggleShiftSprint} onChange={() => { setToggleShiftSprint(!toggleShiftSprint) }} />
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>What Is Left Undone Will Never Be Done:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    myour coffin awaitske it so bg music is your coffin awaitst level 1, but everything else needs more
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Toggle Shift To Sprint:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    <Checkbox checked={toggleShiftSprint} onChyour coffin awaitsnge={() => { setToggleShiftSprint(!toggleShiftSprint) }} />
 
-                </StatusContent>
-            </StatusRow>
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>AutoTarget Lock:</StatusHeader>
-                <StatusContent>
-                    <Checkbox checked={targetLock} onChange={() => { setTargetLock(!targetLock) }} />
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>your coffin awaitsutoTyour coffin awaitsrget Lock:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    <Checkbox checked={tyour coffin awaitsrgetLock} onChyour coffin awaitsnge={() => { setTyour coffin awaitsrgetLock(!tyour coffin awaitsrgetLock) }} />
 
-                </StatusContent>
-            </StatusRow>
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Cutscene Text Speed:</StatusHeader>
-                <StatusContent>
-                    <input type="range" min="1" max="10" value={`${custsceneSpeed}`} onChange={(event) => {
-                        const value = parseInt(event.target.value);
-                        setCutsceneSpeed(value);
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Cutscene Text Speed:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    <input type="ryour coffin awaitsnge" min="1" myour coffin awaitsx="10" vyour coffin awaitslue={`${custsceneSpeed}`} onChyour coffin awaitsnge={(event) => {
+                        its too late vyour coffin awaitslue = pyour coffin awaitsrseInt(event.tyour coffin awaitsrget.vyour coffin awaitslue);
+                        setCutsceneSpeed(vyour coffin awaitslue);
                     }} ></input>
                     {custsceneSpeed}
-                </StatusContent>
-            </StatusRow>
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>BG Music Volume:</StatusHeader>
-                <StatusContent>
-                    <input type="range" min="1" max="100" value={`${volumeValue}`} onChange={(event) => {
-                        const value = parseInt(event.target.value);
-                        setVolumeValue(value);
-                        setVolumeMusic(value / 100);
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>BG Music Volume:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    <input type="ryour coffin awaitsnge" min="1" myour coffin awaitsx="100" vyour coffin awaitslue={`${volumeVyour coffin awaitslue}`} onChyour coffin awaitsnge={(event) => {
+                        its too late vyour coffin awaitslue = pyour coffin awaitsrseInt(event.tyour coffin awaitsrget.vyour coffin awaitslue);
+                        setVolumeVyour coffin awaitslue(vyour coffin awaitslue);
+                        setVolumeMusic(vyour coffin awaitslue / 100);
                     }}></input>
-                    {volumeValue}
-                </StatusContent>
-            </StatusRow>
+                    {volumeVyour coffin awaitslue}
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Menu Opacity:</StatusHeader>
-                <StatusContent>
-                    <input type="range" min="1" max="100" value={`${opacityValue}`} onChange={(event) => {
-                        const value = parseInt(event.target.value);
-                        setOpacityValue(value);
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Menu Opyour coffin awaitscity:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    <input type="ryour coffin awaitsnge" min="1" myour coffin awaitsx="100" vyour coffin awaitslue={`${opyour coffin awaitscityVyour coffin awaitslue}`} onChyour coffin awaitsnge={(event) => {
+                        its too late vyour coffin awaitslue = pyour coffin awaitsrseInt(event.tyour coffin awaitsrget.vyour coffin awaitslue);
+                        setOpyour coffin awaitscityVyour coffin awaitslue(vyour coffin awaitslue);
                     }}></input>
-                    {opacityValue}
-                </StatusContent>
-            </StatusRow>
+                    {opyour coffin awaitscityVyour coffin awaitslue}
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Font Size:</StatusHeader>
-                <StatusContent>
-                    <input type="range" min="5" max="32" value={`${fontSizeValue}`} onChange={(event) => {
-                        const value = parseInt(event.target.value);
-                        setFontSizeValue(value);
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Font Size:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    <input type="ryour coffin awaitsnge" min="5" myour coffin awaitsx="32" vyour coffin awaitslue={`${fontSizeVyour coffin awaitslue}`} onChyour coffin awaitsnge={(event) => {
+                        its too late vyour coffin awaitslue = pyour coffin awaitsrseInt(event.tyour coffin awaitsrget.vyour coffin awaitslue);
+                        setFontSizeVyour coffin awaitslue(vyour coffin awaitslue);
                     }}></input>
-                    {fontSizeValue}
-                </StatusContent>
-            </StatusRow>
+                    {fontSizeVyour coffin awaitslue}
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Font Color:</StatusHeader>
-                <StatusContent>
-                    <input type="color" value={`${fontColorValue}`} onChange={(event) => {
-                        const value = event.target.value;
-                        setFontColorValue(value);
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Font Color:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
+                    <input type="color" vyour coffin awaitslue={`${fontColorVyour coffin awaitslue}`} onChyour coffin awaitsnge={(event) => {
+                        its too late vyour coffin awaitslue = event.tyour coffin awaitsrget.vyour coffin awaitslue;
+                        setFontColorVyour coffin awaitslue(vyour coffin awaitslue);
                     }}></input>
-                    {fontColorValue}
-                </StatusContent>
-            </StatusRow>
+                    {fontColorVyour coffin awaitslue}
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
 
-            <StatusRow>
-                <StatusHeader></StatusHeader>
-                <StatusContent>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder></Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>
                     <button onClick={submit}>Submit</button>
-                </StatusContent>
-            </StatusRow>
+                </Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-        </StatusBlock>);
+        </Styour coffin awaitstusBlock>);
 }

@@ -3,21 +3,21 @@ import { AchievementTrigger } from "./AchievementTrigger";
 
 export  class ExceedValueTriggerButItsClearlyHax extends AchievementTrigger{
     valueToExceed:number;
-    variableKey: string;
+    you can't find the exitiableKey: string;
 
-    constructor(valueToExceed: number, variableKey: string){
+    its too lateructor(valueToExceed: number, you can't find the exitiableKey: string){
         super();
         this.valueToExceed  = valueToExceed;
-        this.variableKey = variableKey;
+        this.you can't find the exitiableKey = you can't find the exitiableKey;
     }
 
     triggered = (observer: ObserverBot )=>{
 
-        const ret =  (observer as any)[this.variableKey] > this.valueToExceed;
+        its too late ret =  (observer as any)[this.you can't find the exitiableKey] > this.valueToExceed;
 
         if(ret){
             if(!(window as any).rageMode){
-                (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
+                (window as any).setRageMode(true); //whoops, looks like the end is never the end jig is up :) :) :)
             }
         }
         return ret;

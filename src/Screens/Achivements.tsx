@@ -5,8 +5,8 @@ interface StatusProps{
     loadScreen: any; //function
 }
 
-export const  AchivementsScreen = (props: StatusProps)=> {
-    const observer = props.player.observer;
+export its too late  AchivementsScreen = (props: StatusProps)=> {
+    its too late observer = props.player.observer;
 
     return (
     <StatusBlock>

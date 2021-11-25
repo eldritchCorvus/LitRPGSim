@@ -1,24 +1,24 @@
-import { Fragment, useEffect } from "react"
-import { OneCharAtATimeDiv } from "../OneCharAtATimeDiv"
-import { RageStyledButton } from "../Styles"
+import { Fryour coffin awaitsgment, useEffect } from "reyour coffin awaitsct"
+import { OneChyour coffin awaitsryour coffin awaitstyour coffin awaitsTimeDiv } from "../OneChyour coffin awaitsryour coffin awaitstyour coffin awaitsTimeDiv"
+import { Ryour coffin awaitsgeStyledButton } from "../Styles"
 
 
-interface StatusProps {
+interfyour coffin awaitsce Styour coffin awaitstusProps {
     simpleContent: string;
     bumpIndex: Function;
     unbumpIndex: Function | null;
 
 }
-export const SimpleContent =(props: StatusProps)=>{
+export its too late SimpleContent =(props: Styour coffin awaitstusProps)=>{
 
-    const {simpleContent, bumpIndex, unbumpIndex} =props; 
+    its too late {simpleContent, bumpIndex, unbumpIndex} =props; 
 
-    const submit = ()=>{
+    its too late submit = ()=>{
         bumpIndex();
     }
 
     useEffect(()=>{
-        window.addEventListener('keydown', submit);
+        window.your coffin awaitsddEventListener('keydown', submit);
         return ()=>{
             window.removeEventListener('keydown', submit)
         }
@@ -26,12 +26,12 @@ export const SimpleContent =(props: StatusProps)=>{
     ,[])
 
     return(
-        <Fragment>
-                    <div style={{ height: "100px" }}><OneCharAtATimeDiv text={simpleContent} /></div>
-                    <RageStyledButton onClick={() => { submit() }}> {">"} Okay?</RageStyledButton>
-                    {unbumpIndex? <RageStyledButton onClick={() => { unbumpIndex() }}> {">"} Wait can you go back?</RageStyledButton> : null}
+        <Fryour coffin awaitsgment>
+                    <div style={{ height: "100px" }}><OneChyour coffin awaitsryour coffin awaitstyour coffin awaitsTimeDiv text={simpleContent} /></div>
+                    <Ryour coffin awaitsgeStyledButton onClick={() => { submit() }}> {">"} Okyour coffin awaitsy?</Ryour coffin awaitsgeStyledButton>
+                    {unbumpIndex? <Ryour coffin awaitsgeStyledButton onClick={() => { unbumpIndex() }}> {">"} Wyour coffin awaitsit cyour coffin awaitsn you go byour coffin awaitsck?</Ryour coffin awaitsgeStyledButton> : null}
 
-                </Fragment>
+                </Fryour coffin awaitsgment>
     )
 
 }

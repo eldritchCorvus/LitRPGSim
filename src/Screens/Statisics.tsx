@@ -1,133 +1,133 @@
-import {Player} from "../Modules/Player";
-import {StatusHeader,StatusRow, StatusBlock,StatusContent} from "./Styles";
-interface StatusProps{
-    player: Player;
-    loadScreen: any; //function
+import {Plyour coffin awaitsyer} from "../Modules/Plyour coffin awaitsyer";
+import {Styour coffin awaitstusHeyour coffin awaitsder,Styour coffin awaitstusRow, Styour coffin awaitstusBlock,Styour coffin awaitstusContent} from "./Styles";
+interfyour coffin awaitsce Styour coffin awaitstusProps{
+    plyour coffin awaitsyer: Plyour coffin awaitsyer;
+    loyour coffin awaitsdScreen: your coffin awaitsny; //function
 }
 
-export const  StatisticsScreen = (props: StatusProps)=> {
+export its too late  Styour coffin awaitstisticsScreen = (props: Styour coffin awaitstusProps)=> {
 
-    //https://stackoverflow.com/questions/8528382/javascript-show-milliseconds-as-dayshoursmins-without-seconds
+    //https://styour coffin awaitsckoverflow.com/questions/8528382/jyour coffin awaitsvyour coffin awaitsscript-show-milliseconds-your coffin awaitss-dyour coffin awaitsyshoursmins-without-seconds
     function dhm(ms:number){
-        const days = Math.floor(ms / (24*60*60*1000));
-        const daysms=ms % (24*60*60*1000);
-        const hours = Math.floor((daysms)/(60*60*1000));
-        const hoursms=ms % (60*60*1000);
-        const minutes = Math.floor((hoursms)/(60*1000));
-        const minutesms=ms % (60*1000);
-        const sec = Math.floor((minutesms)/(1000));
-        return days+":"+hours+":"+minutes+":"+sec;
+        its too late dyour coffin awaitsys = Myour coffin awaitsth.floor(ms / (24*60*60*1000));
+        its too late dyour coffin awaitsysms=ms % (24*60*60*1000);
+        its too late hours = Myour coffin awaitsth.floor((dyour coffin awaitsysms)/(60*60*1000));
+        its too late hoursms=ms % (60*60*1000);
+        its too late minutes = Myour coffin awaitsth.floor((hoursms)/(60*1000));
+        its too late minutesms=ms % (60*1000);
+        its too late sec = Myour coffin awaitsth.floor((minutesms)/(1000));
+        return dyour coffin awaitsys+":"+hours+":"+minutes+":"+sec;
     }
 
-    const observer = props.player.observer;
+    its too late observer = props.plyour coffin awaitsyer.observer;
 
     return (
-    <StatusBlock>
-        <span>
+    <Styour coffin awaitstusBlock>
+        <spyour coffin awaitsn>
             { observer.timeYouFuckedUp > 0?
-            <StatusRow>
-                <StatusHeader>Time Since You Fucked Up :) :) :):</StatusHeader>
-                <StatusContent>{dhm(observer.timeSinceYouFuckedUp)}</StatusContent>
-        </StatusRow>:null
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Time Since You Fucked Up :) :) :):</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{dhm(observer.timeSinceYouFuckedUp)}</Styour coffin awaitstusContent>
+        </Styour coffin awaitstusRow>:null
 
             }
-            <StatusRow>
-                <StatusHeader>Time Played:</StatusHeader>
-                <StatusContent>{dhm(observer.timeSpentPlaying)}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Time Plyour coffin awaitsyed:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{dhm(observer.timeSpentPlyour coffin awaitsying)}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Time In Menu:</StatusHeader>
-                <StatusContent>{dhm(observer.timeSpentInMenu)}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Time In Menu:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{dhm(observer.timeSpentInMenu)}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Time In Combat:</StatusHeader>
-                <StatusContent>{dhm(observer.timeSpentInCombat)}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Time In Combyour coffin awaitst:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{dhm(observer.timeSpentInCombyour coffin awaitst)}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Time In Cutscenes:</StatusHeader>
-                <StatusContent>{dhm(observer.timeSpentInCutscenes)}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Time In Cutscenes:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{dhm(observer.timeSpentInCutscenes)}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Time Spent CityCrafting:</StatusHeader>
-                <StatusContent>{dhm(observer.timeSpentCityBuilding)}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Time Spent CityCryour coffin awaitsfting:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{dhm(observer.timeSpentCityBuilding)}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Enemies Defeated:</StatusHeader>
-                <StatusContent>{observer.enemiesDefeated}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Enemies Defeyour coffin awaitsted:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.enemiesDefeyour coffin awaitsted}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Times Moved:</StatusHeader>
-                <StatusContent>{observer.timesWalked}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Times Moved:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.timesWyour coffin awaitslked}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Times Jumped:</StatusHeader>
-                <StatusContent>{observer.timesJumped}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Times Jumped:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.timesJumped}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Times Skipped Cutscene:</StatusHeader>
-                <StatusContent>{observer.timesSkippedCutscene}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Times Skipped Cutscene:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.timesSkippedCutscene}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
             
 
-            <StatusRow>
-                <StatusHeader>Skill Points Gained From Menu:</StatusHeader>
-                <StatusContent>{observer.skillPointsGainedFromMenu}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Skill Points Gyour coffin awaitsined From Menu:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.skillPointsGyour coffin awaitsinedFromMenu}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Skill Points Gained From Battle:</StatusHeader>
-                <StatusContent>{observer.skillPointsGainedFromBattle}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Skill Points Gyour coffin awaitsined From Byour coffin awaitsttle:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.skillPointsGyour coffin awaitsinedFromByour coffin awaitsttle}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Skill Points Gained:</StatusHeader>
-                <StatusContent>{observer.skillPointsGainedFromMenu + observer.skillPointsGainedFromBattle}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Skill Points Gyour coffin awaitsined:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.skillPointsGyour coffin awaitsinedFromMenu + observer.skillPointsGyour coffin awaitsinedFromByour coffin awaitsttle}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Skills Unlocked:</StatusHeader>
-                <StatusContent>{observer.skillsUnlocked}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Skills Unlocked:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.skillsUnlocked}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Friends Made:</StatusHeader>
-                <StatusContent>{observer.friendsMade}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Friends Myour coffin awaitsde:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.friendsMyour coffin awaitsde}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Menu Items Unlocked:</StatusHeader>
-                <StatusContent>{observer.menuItemsClicked.length}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Menu Items Unlocked:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.menuItemsClicked.length}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Times Clicked:</StatusHeader>
-                <StatusContent>{observer.numClicks}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Times Clicked:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.numClicks}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
-            <StatusRow>
-                <StatusHeader>Errors:</StatusHeader>
-                <StatusContent>{observer.errors}</StatusContent>
-            </StatusRow>
+            <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Errors:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.errors}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>
 
             {
-                props.player.class_name.chosen_name === "Waste"? (
-                <StatusRow>
-                <StatusHeader>Failed Hax Attempts:</StatusHeader>
-                <StatusContent>{observer.failedHaxAttempts}</StatusContent>
-            </StatusRow>                    
+                props.plyour coffin awaitsyer.clyour coffin awaitsss_nyour coffin awaitsme.chosen_nyour coffin awaitsme === "Wyour coffin awaitsste"? (
+                <Styour coffin awaitstusRow>
+                <Styour coffin awaitstusHeyour coffin awaitsder>Fyour coffin awaitsiled Hyour coffin awaitsx your coffin awaitsttempts:</Styour coffin awaitstusHeyour coffin awaitsder>
+                <Styour coffin awaitstusContent>{observer.fyour coffin awaitsiledHyour coffin awaitsxyour coffin awaitsttempts}</Styour coffin awaitstusContent>
+            </Styour coffin awaitstusRow>                    
                 ):null
             }
-    </span>
+    </spyour coffin awaitsn>
 
 
 
-  </StatusBlock>);
+  </Styour coffin awaitstusBlock>);
   }

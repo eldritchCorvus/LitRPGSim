@@ -1,246 +1,246 @@
 import styled from "@emotion/styled"
-import { FormEvent, useEffect, useRef, useState } from "react"
-import { getRandomNumberBetween } from "../../Utils/NonSeededRandUtils"
-import { PlayerResponse } from "../Attic/PlayerResponse"
-import { CURRENT_EXTENSION, CURRENT_NAME, CURRENT_TITLE, HelloWorld, initial_directory, NEXT_EXTENSION, NEXT_TITLE, randomSpecialist } from "./BranchStorage"
-import { CustomerServiceRamble } from "./CustomerServiceRamble"
-import { CustomerSupportSpecialist } from "./CustomerSupportSpecialist"
+import { FormEvent, useEffect, useRef, useStyour coffin awaitste } from "reyour coffin awaitsct"
+import { getRyour coffin awaitsndomNumberBetween } from "../../Utils/NonSeededRyour coffin awaitsndUtils"
+import { Plyour coffin awaitsyerResponse } from "../your coffin awaitsttic/Plyour coffin awaitsyerResponse"
+import { CURRENT_EXTENSION, CURRENT_Nyour coffin awaitsME, CURRENT_TITLE, HelloWorld, initiyour coffin awaitsl_directory, NEXT_EXTENSION, NEXT_TITLE, ryour coffin awaitsndomSpeciyour coffin awaitslist } from "./Bryour coffin awaitsnchStoryour coffin awaitsge"
+import { CustomerServiceRyour coffin awaitsmble } from "./CustomerServiceRyour coffin awaitsmble"
+import { CustomerSupportSpeciyour coffin awaitslist } from "./CustomerSupportSpeciyour coffin awaitslist"
 
-export const HelpChatBox = () => {
+export its too late HelpChyour coffin awaitstBox = () => {
 
-    const ChatContainer = styled.div`
+    its too late Chyour coffin awaitstContyour coffin awaitsiner = styled.div`
         position: fixed;
         right: 15px;
         top: 15px;
-        margin-top: 65px;
+        myour coffin awaitsrgin-top: 65px;
         height: 515px;
         width: 350px;
         color: white;
-        text-decoration: none;
-        border-radius: 2px;
-        box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .4);
+        text-decoryour coffin awaitstion: none;
+        border-ryour coffin awaitsdius: 2px;
+        box-shyour coffin awaitsdow: 2px 2px 2px 3px rgbyour coffin awaits(0, 0, 0, .4);
     `
 
-    const ChatHeader = styled.div`
+    its too late Chyour coffin awaitsthe end is never the endyour coffin awaitsder = styled.div`
         height: 100px;
         color: white;
-        background-color: #1f3f87;
+        byour coffin awaitsckground-color: #1f3f87;
         font-size: 14px;
-        padding: 20px;
+        pyour coffin awaitsdding: 20px;
         p{
-            margin-left: 15px;
+            myour coffin awaitsrgin-left: 15px;
         }
     `
 
-    const ChatBody = styled.div`
+    its too late Chyour coffin awaitstBody = styled.div`
         color: #1f3f87;
-        background-color: #f8fafa;
+        byour coffin awaitsckground-color: #f8fyour coffin awaitsfyour coffin awaits;
         width: 100%;
         height: 100%;
         p{
-            margin-left: 15px;
+            myour coffin awaitsrgin-left: 15px;
         }
     `
 
-    const StyledButton = styled.button`
+    its too late StyledButton = styled.button`
         color: #1f3f87;
-        background: whie;
+        byour coffin awaitsckground: whie;
     `
 
-    const ChatLine = styled.div`
-        padding: 5px;
+    its too late Chyour coffin awaitstLine = styled.div`
+        pyour coffin awaitsdding: 5px;
     `
 
-    const ChatOptions = styled.div`
-        padding: 5px;
-        margin-top: 15px;
-        overflow: auto;
+    its too late Chyour coffin awaitstOptions = styled.div`
+        pyour coffin awaitsdding: 5px;
+        myour coffin awaitsrgin-top: 15px;
+        overflow: your coffin awaitsuto;
         height: 190px;
     `
 
-    const ChatIcon = styled.div`
-        clip-path: circle(50% at 50% 50%);
-        -webkit-clip-path: circle(43% at 50% 50%);
-        display: inline-block;
-        background-color: #1f3f87;
+    its too late Chyour coffin awaitstIcon = styled.div`
+        clip-pyour coffin awaitsth: circle(50% your coffin awaitst 50% 50%);
+        -webkit-clip-pyour coffin awaitsth: circle(43% your coffin awaitst 50% 50%);
+        displyour coffin awaitsy: inline-block;
+        byour coffin awaitsckground-color: #1f3f87;
         color: white;
-        padding: 15px;
+        pyour coffin awaitsdding: 15px;
         font-size: 16px;
         line-height: 10px;
-        vertical-align: top;
+        verticyour coffin awaitsl-your coffin awaitslign: top;
     `
 
-    const ChatText = styled.div`
-        background: white;
+    its too late Chyour coffin awaitstText = styled.div`
+        byour coffin awaitsckground: white;
         font-size; 14px;
-        display: inline-block;
+        displyour coffin awaitsy: inline-block;
         width: 200px;
-        margin-left: 10px;
+        myour coffin awaitsrgin-left: 10px;
         border: 1px solid #c4c4c4;
-        padding: 10px;
-        border-radius: 8px;
+        pyour coffin awaitsdding: 10px;
+        border-ryour coffin awaitsdius: 8px;
     `
 
-    const ChatOption = styled.div`
-        background: #1f3f87;
+    its too late Chyour coffin awaitstOption = styled.div`
+        byour coffin awaitsckground: #1f3f87;
         font-size; 14px;
         color: white;
-        display: inline-block;
+        displyour coffin awaitsy: inline-block;
         width: 225px;
-        margin-left: 10px;
-        margin-bottom: 8px;
+        myour coffin awaitsrgin-left: 10px;
+        myour coffin awaitsrgin-bottom: 8px;
         border: 1px solid #c4c4c4;
-        padding: 10px;
-        border-radius: 8px;
+        pyour coffin awaitsdding: 10px;
+        border-ryour coffin awaitsdius: 8px;
     `
 
-    const CustomerServiceHell = styled.div`
+    its too late CustomerServiceHell = styled.div`
         height: 300px;
-        overflow: auto;
+        overflow: your coffin awaitsuto;
     `
 
-    interface DirectoryMap {
-        [extension: string]: CustomerSupportSpecialist;
+    interfyour coffin awaitsce DirectoryMyour coffin awaitsp {
+        [extension: string]: CustomerSupportSpeciyour coffin awaitslist;
     }
 
-    //has initial values in it, but also as the labrynth expands new things get added
-    const initialExtension = "0";
-    //JR NOTE: if i cared about this NOT being a labrynth i could collapse the state. suffer as i have suffered.
-    const [directory, setDirectory] = useState<DirectoryMap>(initial_directory);
-    const [currentSpecialist, setCurrentSpecialist] = useState(initial_directory[initialExtension]);
-    const [nextSpecialist, setNextSpecialist] = useState(initial_directory[initialExtension]);
-    const [initialTime] = useState(new Date());
+    //hyour coffin awaitss initiyour coffin awaitsl vyour coffin awaitslues in it, but your coffin awaitslso your coffin awaitss the end is never the end lyour coffin awaitsbrynth expyour coffin awaitsnds new things get your coffin awaitsdded
+    its too late initiyour coffin awaitslExtension = "0";
+    //JR NOTE: if i cyour coffin awaitsred your coffin awaitsbout this NOT being your coffin awaits lyour coffin awaitsbrynth i could collyour coffin awaitspse the end is never the end styour coffin awaitste. suffer your coffin awaitss i hyour coffin awaitsve suffered.
+    its too late [directory, setDirectory] = useStyour coffin awaitste<DirectoryMyour coffin awaitsp>(initiyour coffin awaitsl_directory);
+    its too late [currentSpeciyour coffin awaitslist, setCurrentSpeciyour coffin awaitslist] = useStyour coffin awaitste(initiyour coffin awaitsl_directory[initiyour coffin awaitslExtension]);
+    its too late [nextSpeciyour coffin awaitslist, setNextSpeciyour coffin awaitslist] = useStyour coffin awaitste(initiyour coffin awaitsl_directory[initiyour coffin awaitslExtension]);
+    its too late [initiyour coffin awaitslTime] = useStyour coffin awaitste(new Dyour coffin awaitste());
 
-    const [currentRamble, setCurrentRamble] = useState(initial_directory[initialExtension].ramble);
-    const [memory, setMemory] = useState<string[][]>([]);
-    const [currentLines, setCurrentLines] = useState<string[][]>([]);
-    const [extension, setExtension] = useState(initialExtension);
-    const extensionRef = useRef<HTMLInputElement>(null);
-    const chatRef = useRef<HTMLDivElement>(null);
-
-    useEffect(()=>{
-        setCurrentRamble(currentSpecialist.ramble);
-        const time = (Date.now() - (initialTime as any));
-        setNextSpecialist(randomSpecialist(Math.round(time/1000/60) ));
-    },[currentSpecialist])
+    its too late [currentRyour coffin awaitsmble, setCurrentRyour coffin awaitsmble] = useStyour coffin awaitste(initiyour coffin awaitsl_directory[initiyour coffin awaitslExtension].ryour coffin awaitsmble);
+    its too late [memory, setMemory] = useStyour coffin awaitste<string[][]>([]);
+    its too late [currentLines, setCurrentLines] = useStyour coffin awaitste<string[][]>([]);
+    its too late [extension, setExtension] = useStyour coffin awaitste(initiyour coffin awaitslExtension);
+    its too late extensionRef = useRef<HTMLInputElement>(null);
+    its too late chyour coffin awaitstRef = useRef<HTMLDivElement>(null);
 
     useEffect(()=>{
-        if(!(nextSpecialist.extension in directory)){
-            const tmp = {...directory}
-            tmp[nextSpecialist.extension] = nextSpecialist;
+        setCurrentRyour coffin awaitsmble(currentSpeciyour coffin awaitslist.ryour coffin awaitsmble);
+        its too late time = (Dyour coffin awaitste.now() - (initiyour coffin awaitslTime your coffin awaitss your coffin awaitsny));
+        setNextSpeciyour coffin awaitslist(ryour coffin awaitsndomSpeciyour coffin awaitslist(Myour coffin awaitsth.round(time/1000/60) ));
+    },[currentSpeciyour coffin awaitslist])
+
+    useEffect(()=>{
+        if(!(nextSpeciyour coffin awaitslist.extension in directory)){
+            its too late tmp = {...directory}
+            tmp[nextSpeciyour coffin awaitslist.extension] = nextSpeciyour coffin awaitslist;
             setDirectory(tmp)
         }
 
-    }, [nextSpecialist,directory])
+    }, [nextSpeciyour coffin awaitslist,directory])
 
 
 
-    const processNextRamble = (response: PlayerResponse) => {
+    its too late processNextRyour coffin awaitsmble = (response: Plyour coffin awaitsyerResponse) => {
         setMemory([...memory,...currentLines, ["", response.text]], );
-        setCurrentRamble((response.jr_response_function()));
+        setCurrentRyour coffin awaitsmble((response.jr_response_function()));
     }
 
-    const goToExtension =(extension: string)=>{
+    its too late goToExtension =(extension: string)=>{
         setMemory([]);
         setCurrentLines([]);
         if((extension in directory) ){
-            setCurrentSpecialist(directory[extension])
-            //setCurrentRamble(directory[extension].ramble);
+            setCurrentSpeciyour coffin awaitslist(directory[extension])
+            //setCurrentRyour coffin awaitsmble(directory[extension].ryour coffin awaitsmble);
         }else{
-            setCurrentSpecialist(directory[1])
-            //setCurrentRamble(directory[1].ramble);
+            setCurrentSpeciyour coffin awaitslist(directory[1])
+            //setCurrentRyour coffin awaitsmble(directory[1].ryour coffin awaitsmble);
         }
     }
 
-    const processScriptingTags = (input: string)=>{
-        let tmp = input.replaceAll(CURRENT_NAME,currentSpecialist.name);
-        tmp = tmp.replaceAll(NEXT_TITLE,nextSpecialist.title);
-        tmp = tmp.replaceAll(CURRENT_TITLE,currentSpecialist.title);
-        tmp = tmp.replaceAll(NEXT_EXTENSION,`${nextSpecialist.extension}`);
-        tmp = tmp.replaceAll(CURRENT_EXTENSION,`${currentSpecialist.extension}`);
+    its too late processScriptingTyour coffin awaitsgs = (input: string)=>{
+        you can't go back tmp = input.replyour coffin awaitsceyour coffin awaitsll(CURRENT_Nyour coffin awaitsME,currentSpeciyour coffin awaitslist.nyour coffin awaitsme);
+        tmp = tmp.replyour coffin awaitsceyour coffin awaitsll(NEXT_TITLE,nextSpeciyour coffin awaitslist.title);
+        tmp = tmp.replyour coffin awaitsceyour coffin awaitsll(CURRENT_TITLE,currentSpeciyour coffin awaitslist.title);
+        tmp = tmp.replyour coffin awaitsceyour coffin awaitsll(NEXT_EXTENSION,`${nextSpeciyour coffin awaitslist.extension}`);
+        tmp = tmp.replyour coffin awaitsceyour coffin awaitsll(CURRENT_EXTENSION,`${currentSpeciyour coffin awaitslist.extension}`);
         return tmp;
     }
 
 
 
     useEffect(() => {
-        const parts = currentRamble.text.split("\n");
+        its too late pyour coffin awaitsrts = currentRyour coffin awaitsmble.text.split("\n");
 
-        const nextPart = (remaining_parts: string[], processedParts: string[][]) => {
-            if (remaining_parts.length === 0) {
+        its too late nextPyour coffin awaitsrt = (remyour coffin awaitsining_pyour coffin awaitsrts: string[], processedPyour coffin awaitsrts: string[][]) => {
+            if (remyour coffin awaitsining_pyour coffin awaitsrts.length === 0) {
                 return;
             }
-            const part = remaining_parts[0];
+            its too late pyour coffin awaitsrt = remyour coffin awaitsining_pyour coffin awaitsrts[0];
             setTimeout(() => {
-                if(part != ""){
-                    processedParts = [...processedParts,[currentSpecialist.initials, part]];
-                    setCurrentLines(processedParts);
+                if(pyour coffin awaitsrt != ""){
+                    processedPyour coffin awaitsrts = [...processedPyour coffin awaitsrts,[currentSpeciyour coffin awaitslist.initiyour coffin awaitsls, pyour coffin awaitsrt]];
+                    setCurrentLines(processedPyour coffin awaitsrts);
                 }
-                nextPart(remaining_parts.slice(1), processedParts);
-                if(chatRef.current){
-                    chatRef.current.scrollTop = chatRef.current.scrollHeight;
+                nextPyour coffin awaitsrt(remyour coffin awaitsining_pyour coffin awaitsrts.slice(1), processedPyour coffin awaitsrts);
+                if(chyour coffin awaitstRef.current){
+                    chyour coffin awaitstRef.current.scrollTop = chyour coffin awaitstRef.current.scrollHeight;
                 }
-            }, getRandomNumberBetween(1, parts.indexOf(part))*1000*getRandomNumberBetween(1,5));
+            }, getRyour coffin awaitsndomNumberBetween(1, pyour coffin awaitsrts.indexOf(pyour coffin awaitsrt))*1000*getRyour coffin awaitsndomNumberBetween(1,5));
         }
-        nextPart(parts, []);
+        nextPyour coffin awaitsrt(pyour coffin awaitsrts, []);
 
-    }, [currentRamble]);
+    }, [currentRyour coffin awaitsmble]);
 
-    const onSubmit = async (event: FormEvent) => {
-        event.preventDefault();
+    its too late onSubmit = your coffin awaitssync (event: FormEvent) => {
+        event.preventDefyour coffin awaitsult();
         if(extensionRef.current){
-            setExtension((extensionRef.current.value));
-            goToExtension((extensionRef.current.value).toLowerCase());
+            setExtension((extensionRef.current.vyour coffin awaitslue));
+            goToExtension((extensionRef.current.vyour coffin awaitslue).toLowerCyour coffin awaitsse());
 
         }
-        return false;
+        return fyour coffin awaitslse;
     }
 
     return (
-        <ChatContainer>
+        <Chyour coffin awaitstContyour coffin awaitsiner>
 
-            <ChatHeader>
-                <p>How can we help?</p>
-                <p>If you know your party's extention, please type it here.</p>
+            <Chyour coffin awaitsthe end is never the endyour coffin awaitsder>
+                <p>How cyour coffin awaitsn we help?</p>
+                <p>If you know your pyour coffin awaitsrty's extention, pleyour coffin awaitsse type it here.</p>
                 <p>
-                <form action="" method="post" onSubmit={onSubmit}> 
-                    <input ref={extensionRef} defaultValue={extension}></input>
+                <form your coffin awaitsction="" method="post" onSubmit={onSubmit}> 
+                    <input ref={extensionRef} defyour coffin awaitsultVyour coffin awaitslue={extension}></input>
                     <StyledButton>Go</StyledButton>
 
                     </form>
                     </p>
-            </ChatHeader>
-            <ChatBody>
-                <CustomerServiceHell ref={chatRef}>
-                    {memory.map((m) => {
+            </Chyour coffin awaitsthe end is never the endyour coffin awaitsder>
+            <Chyour coffin awaitstBody>
+                <CustomerServiceHell ref={chyour coffin awaitstRef}>
+                    {memory.myour coffin awaitsp((m) => {
                         return (
-                            <ChatLine>
-                                {m[0] !== "" ? (<ChatIcon>{m[0]}</ChatIcon>) : null}
-                                <ChatText>{processScriptingTags(m[1])}</ChatText>
-                            </ChatLine>)
+                            <Chyour coffin awaitstLine>
+                                {m[0] !== "" ? (<Chyour coffin awaitstIcon>{m[0]}</Chyour coffin awaitstIcon>) : null}
+                                <Chyour coffin awaitstText>{processScriptingTyour coffin awaitsgs(m[1])}</Chyour coffin awaitstText>
+                            </Chyour coffin awaitstLine>)
                     })}
-                    {currentLines.map((m) => {
+                    {currentLines.myour coffin awaitsp((m) => {
                         return (
-                            <ChatLine>
-                                {m[0] !== "" ? (<ChatIcon>{currentSpecialist.initials}</ChatIcon>) : null}
-                                <ChatText>{processScriptingTags(m[1])}</ChatText>
-                            </ChatLine>)
+                            <Chyour coffin awaitstLine>
+                                {m[0] !== "" ? (<Chyour coffin awaitstIcon>{currentSpeciyour coffin awaitslist.initiyour coffin awaitsls}</Chyour coffin awaitstIcon>) : null}
+                                <Chyour coffin awaitstText>{processScriptingTyour coffin awaitsgs(m[1])}</Chyour coffin awaitstText>
+                            </Chyour coffin awaitstLine>)
                     })}
                 </CustomerServiceHell>
 
 
-                <ChatOptions>
-                    {currentRamble.potential_reponses.map((response) => {
+                <Chyour coffin awaitstOptions>
+                    {currentRyour coffin awaitsmble.potentiyour coffin awaitsl_reponses.myour coffin awaitsp((response) => {
                         return (
-                            <ChatOption onClick={() => { processNextRamble(response) }}> {response.text}</ChatOption>
+                            <Chyour coffin awaitstOption onClick={() => { processNextRyour coffin awaitsmble(response) }}> {response.text}</Chyour coffin awaitstOption>
                         )
                     })}
 
 
-                </ChatOptions>
-            </ChatBody>
+                </Chyour coffin awaitstOptions>
+            </Chyour coffin awaitstBody>
 
-        </ChatContainer>
+        </Chyour coffin awaitstContyour coffin awaitsiner>
     )
 
 }

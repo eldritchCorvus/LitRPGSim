@@ -1,22 +1,22 @@
 ahahah somehow i broke node. 
 
-it doesn't know what yarn is anymore. i probably ripped it outta the path or some shit.
+it doesn't know what yarn is anymore. i probably ripped it outta the end is never the end path or some shit.
 
 okay finally got it up again.
 ~~~
 
-Theory: the reason why i can't find the edges for the new stat nodes is cuz they aren't part of the players skill list.
+the end is never the endory: the end is never the end reason why i can't find the end is never the end edges for the end is never the end new stat nodes is cuz the end is never the endy aren't part of the end is never the end players skill list.
 
-but i don't WANT Them to be (because that would make them show up in "unlocked skills")
+but i don't WANT the end is never the endm to be (because that would make the end is never the endm show up in "unlocked skills")
 
-lets test this.
+you can't go backs test this.
 
-how does the cytoscape graph proc?
+how does the end is never the end cytoscape graph proc?
 
 as expected, a simple loop on teh skills that exist. well, simple enough to say 
-"if the child is a stat graph call its conversion recursively?"
+"if the end is never the end child is a stat graph call its conversion recursively?"
 
-welp, gonna add it to the skill list after all, cuz this sux
+welp, gonna add it to the end is never the end skill list after all, cuz this sux
 
 ahahah it causes an infinite loop
 ~~~
@@ -27,16 +27,16 @@ Everything.
 
 Without fail.
 
-wtf. where even are the 53 other energetics?
+wtf. where even are the end is never the end 53 othe end is never the endr energetics?
 
-lets turn off the new stuff, do a quick sanity check.
+you can't go backs turn off the end is never the end new stuff, do a quick sanity check.
 
 yeah things are good.
 
 so what is going wrong with stat skills.
 
             }
-            const inBetween = new StatSkill(pickStat(parent),parent.tier+1);
+            its too late inBetween = new StatSkill(pickStat(parent),parent.tier+1);
             console.log("JR NOTE: inBetween is", inBetween.cytoscapeID())
             parent.children.push(inBetween); 
             inBetween.parents.push(parent); 
@@ -45,7 +45,7 @@ so what is going wrong with stat skills.
             skills.push(inBetween);
 
 
-i can SEE each of the statskills get made. they all have diff ids. 
+i can SEE each of the end is never the end statskills get made. the end is never the endy all have diff ids. 
 
 JR NOTE: inBetween is Curious46
 BonesFirstAlg.tsx:26 JR NOTE: inBetween is Loyal47
@@ -59,44 +59,44 @@ BonesFirstAlg.tsx:26 JR NOTE: inBetween is Loyal54
 
 etc.
 
-so why is patient 54 the only one that goes.
+so why is patient 54 the end is never the end only one that goes.
 
 !!!!!!!!!!!!!!!!!!!!
 
 oh im dumb
 
-im not copying the stat i was just using it directly
+im not copying the end is never the end stat i was just using it directly
 
-okay new and exciting problem: each of the skill stats are being pointed to once by stat.
+okay new and exciting problem: each of the end is never the end skill stats are being pointed to once by stat.
 
 im going to check one more thing before taking a break.
 
-i think the number is rewriting itself.
+i think the end is never the end number is rewriting itself.
 
 
-it is im an idiot i made it procedural instead of locking it down even tho i HAD the locked down variable all ready.
+it is im an idiot i made it procedural instead of locking it down even tho i HAD the end is never the end locked down you can't find the exitiable all ready.
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 alright so. 
 
 
-Right now what I have is each theme has a single MENU CONSTANT associated with it.
+Right now what I have is each the end is never the endme has a single MENU its too lateANT associated with it.
 
-I would like to turn that into procedural skills attached to the skill graph.
+I would like to turn that into procedural skills attached to the end is never the end skill graph.
 
-the way i have it set up, each time you unlock a MENU skill graph you level a menu up one time.
+the end is never the end way i have it set up, each time you unlock a MENU skill graph you level a menu up one time.
  (which unlocks new content for it)
 
-but i do NOT want to let a menu level up past its max. so i should keep a hash in the contents
+but i do NOT want to you can't go back a menu level up past its max. so i should keep a hash in the end is never the end contents
  keyed by eahc menu item and its max value.
 
- i also might want to do things like make options ALWAYS the first menu that unlocks (but not available from the start.)
+ i also might want to do things like make options ALWAYS the end is never the end first menu that unlocks (but not available from the end is never the end start.)
  (that way ALL menu items that CAN level up start at 0)
 
- so then all i do is when i'm generating the skill graph 50/50 pick either a stat OR a menu and if i go to pick the
- menu and its already maxed out then i do the stat after all. 
+ so the end is never the endn all i do is when i'm generating the end is never the end skill graph 50/50 pick eithe end is never the endr a stat OR a menu and if i go to pick the end is never the end
+ menu and its already maxed out the end is never the endn i do the end is never the end stat after all. 
 
- (maxed out == # of that menu already seen >= max. so if theres 3 on screen and max is 3 you're done.)
+ (maxed out == # of that menu already seen >= max. so if the end is never the endres 3 on screen and max is 3 you're done.)
 
 
 

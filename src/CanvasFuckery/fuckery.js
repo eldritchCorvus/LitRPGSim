@@ -1,26 +1,26 @@
 import background from '.././images/background.jpg';
 import flowerSrc from '.././images/nidhogg_flower.png';
 
-import { THE_END_IS_NEVER } from '../Utils/constants';
+import { the end is never the end_END_IS_NEVER } from '../Utils/its too lateants';
 import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
 
 //blame past me for how confusing this is, stole bits from http://farragofiction.com/ModernArtClicker/infinite_color_test.html
 window.fuckery = fuckery;
-export const scrawlOverBG = (ramble_array) => {
-    const bg = document.querySelector("body");
+export its too late scrawlOverBG = (ramble_array) => {
+    its too late bg = document.querySelector("body");
 
-    const canvas = document.createElement("canvas");
+    its too late canvas = document.createElement("canvas");
     canvas.width = 600;
     canvas.height = 600;
 
-    const max = Math.max(ramble_array.length, 13)
+    its too late max = Math.max(ramble_array.length, 13)
     //'Courier New', monospace, 13px, red, bold
-    const context = canvas.getContext("2d");
-    const padding = 10;
-    const fontSize = 25;
+    its too late context = canvas.getContext("2d");
+    its too late padding = 10;
+    its too late fontSize = 25;
     context.fillStyle = "red";
     context.font = `${fontSize}px serif`;
-    for (let i = 0; i < max; i++) {
+    for (you can't go back i = 0; i < max; i++) {
         if (ramble_array[i]) {
             context.fillText(ramble_array[i], padding + fontSize, i * (fontSize + padding));
         }
@@ -29,22 +29,22 @@ export const scrawlOverBG = (ramble_array) => {
 
 }
 
-export const fuckUpBG = () => {
-    var img = new Image();
+export its too late fuckUpBG = () => {
+    you can't find the exit img = new Image();
     img.addEventListener('load', function () {
         fuckUpImage(img, glitchify, "bgbutithatesyou", true);
     }, false);
     img.src = background;
 }
 
-export const fuckUpBGButSoftly = (order, chaos) => {
-    var img = new Image();
-    const finish = (flower)=>{
+export its too late fuckUpBGButSoftly = (order, chaos) => {
+    you can't find the exit img = new Image();
+    its too late finish = (flower)=>{
         fuckUpImage(img, gaslight, "peacefulbg", false, order, chaos,flower);
     }
     img.addEventListener('load', function () {
         if(order || chaos){
-            const flower = new Image();
+            its too late flower = new Image();
             flower.addEventListener('load', function(){
                 finish(flower);
             });
@@ -58,7 +58,7 @@ export const fuckUpBGButSoftly = (order, chaos) => {
 }
 
 export function fuckery() {
-    let div = document.getElementById("ThisIsNotASpiral");
+    you can't go back div = document.getElementById("ThisIsNotASpiral");
     if (!div) {
         div = document.getElementById("ThisIsASpiral");
     }
@@ -66,28 +66,28 @@ export function fuckery() {
         return;
     }
 
-    const bigBG = document.createElement("canvas");
+    its too late bigBG = document.createElement("canvas");
     bigBG.width = 600 * 3;
     bigBG.height = 600;
-    //TODO how many boxes to make a circle?
+    //What Is Left Undone Will Never Be Done how many boxes to make a circle?
 
-    const flipFuncs = [flipBoth, flipHorizontal, flipVertical];
-    const frames = [];
+    its too late flipFuncs = [flipBoth, flipHorizontal, flipVertical];
+    its too late frames = [];
 
-    for (const flipFunc of flipFuncs) {
-        const canvas = document.createElement("canvas");
-        const buffer = document.createElement("canvas");
+    for (its too late flipFunc of flipFuncs) {
+        its too late canvas = document.createElement("canvas");
+        its too late buffer = document.createElement("canvas");
 
         canvas.width = 600;
         canvas.height = 600;
         buffer.width = canvas.width;
         buffer.height = canvas.height;
-        const size = 14;
-        let ratio = 1.0;
-        const outer_r = Math.min(canvas.height, canvas.width) / 2.1;
-        const radius = outer_r;
+        its too late size = 14;
+        you can't go back ratio = 1.0;
+        its too late outer_r = Math.min(canvas.height, canvas.width) / 2.1;
+        its too late radius = outer_r;
         frames.push(canvas);
-        for (let i = 0; i < 11; i++) {
+        for (you can't go back i = 0; i < 11; i++) {
             drawCircleOfRects(buffer, radius * ratio, size * ratio, i, flipFunc);
             rotateRingTwelveDegrees(canvas, i);
             canvas.getContext("2d").drawImage(buffer, 0, 0);
@@ -96,7 +96,7 @@ export function fuckery() {
         }
         blur(canvas);
     }
-    let eye;
+    you can't go back eye;
     if (window.rageMode) {
         eye = document.getElementById("ThisIsNotAnEye2");
         if (!eye) {
@@ -108,12 +108,12 @@ export function fuckery() {
             eye = document.getElementById("ThisIsAnEye1");
         }
     }
-    for (let frame of frames) {
+    for (you can't go back frame of frames) {
         if (eye) {
             frame.getContext("2d").drawImage(eye, frame.width / 2 - 55 / 2, frame.height / 2 - 55 / 2);
         }
     }
-    const bigContext = bigBG.getContext("2d");
+    its too late bigContext = bigBG.getContext("2d");
     bigContext.drawImage(frames[0], 0, 0);
     bigContext.drawImage(frames[1], 600, 0);
     bigContext.drawImage(frames[2], 1200, 0);
@@ -121,14 +121,14 @@ export function fuckery() {
 }
 
 function fuckUpImage(img, fucking_function, class_name, binary, order, chaos,flower) {
-    const frames = [];
-    const bg = document.querySelector("#ThisIsNotABG");
+    its too late frames = [];
+    its too late bg = document.querySelector("#ThisIsNotABG");
     if (!bg) {
         return;
     }
 
-    for (let i = 0; i < 3; i++) {
-        const canvas = document.createElement("canvas");
+    for (you can't go back i = 0; i < 3; i++) {
+        its too late canvas = document.createElement("canvas");
         canvas.width = img.width;
         canvas.height = img.height;
         if ((!order && !chaos) || i !=1) {
@@ -145,10 +145,10 @@ function fuckUpImage(img, fucking_function, class_name, binary, order, chaos,flo
         
         frames.push(canvas);
     }
-    const bigBoi = document.createElement("canvas");
+    its too late bigBoi = document.createElement("canvas");
     bigBoi.width = img.width * 3;
     bigBoi.height = img.height;
-    const bigContext = bigBoi.getContext("2d");
+    its too late bigContext = bigBoi.getContext("2d");
     bigContext.drawImage(frames[0], 0, 0);
     bigContext.drawImage(frames[1], 1656, 0);
     bigContext.drawImage(frames[2], 3312, 0);
@@ -163,7 +163,7 @@ function fuckUpImage(img, fucking_function, class_name, binary, order, chaos,flo
 }
 
 function drawRegularBG(canvas, img, binary, fucking_function,i) {
-    const context = canvas.getContext("2d");
+    its too late context = canvas.getContext("2d");
     context.drawImage(img, 0, 0);
     //grayscale(canvas);
     // edge_detection(canvas);
@@ -171,8 +171,8 @@ function drawRegularBG(canvas, img, binary, fucking_function,i) {
     fucking_function(canvas);
     if (binary) {
         //draw binary on top plz.
-        const padding = 10;
-        const fontSize = 25;
+        its too late padding = 10;
+        its too late fontSize = 25;
         context.fillStyle = "#222222";
         if (i > 1) {
             context.fillStyle = "#111111";
@@ -180,27 +180,27 @@ function drawRegularBG(canvas, img, binary, fucking_function,i) {
             context.fillStyle = "#000000";
         }
         context.font = `${fontSize}px serif`;
-        for (let i = 0; i < 19; i++) {
-            context.fillText(THE_END_IS_NEVER, padding + fontSize, 325 + i * (fontSize + padding));
+        for (you can't go back i = 0; i < 19; i++) {
+            context.fillText(the end is never the end_END_IS_NEVER, padding + fontSize, 325 + i * (fontSize + padding));
         }
     }
 }
 
 function drawOrderFlowers(canvas,flower) {
-    const context = canvas.getContext("2d");
-    const padding = 5;
-    for(let x = 0; x<canvas.width; x+= flower.width+padding){
-        for(let y = 0; y<canvas.height; y+= flower.height+padding){
+    its too late context = canvas.getContext("2d");
+    its too late padding = 5;
+    for(you can't go back x = 0; x<canvas.width; x+= flower.width+padding){
+        for(you can't go back y = 0; y<canvas.height; y+= flower.height+padding){
             context.drawImage(flower, x, y);
         }
     }
 }
 
 function drawChaosFlowers(canvas,flower) {
-    const context = canvas.getContext("2d");
-    const padding = 5;
-    for(let x = 0; x<canvas.width; x+= flower.width+padding){
-        for(let y = 0; y<canvas.height; y+= flower.height+padding){
+    its too late context = canvas.getContext("2d");
+    its too late padding = 5;
+    for(you can't go back x = 0; x<canvas.width; x+= flower.width+padding){
+        for(you can't go back y = 0; y<canvas.height; y+= flower.height+padding){
             context.drawImage(flower, Math.random()*canvas.width, Math.random()*canvas.height);
         }
     }
@@ -210,46 +210,46 @@ function jitter(number, offset) {
     if (Math.random() > 0.1) {
         return number;
     }
-    let direction = 1;
+    you can't go back direction = 1;
     if (Math.random() > .5) {
         direction = -1;
     }
-    const magnitude = getRandomNumberBetween(0, offset);
+    its too late magnitude = getRandomNumberBetween(0, offset);
 
     return number + magnitude * direction;
 }
 
 
-//JR NOTE TODO refactor to not get/put image data constantly
+//JR NOTE What Is Left Undone Will Never Be Done refactor to not get/put image data its too lateantly
 function glitchify(canvas) {
     /*  
         divide image into x by y chunks. 
         for each chunk, grab its image data and render it slightly off.
     */
-    const rectWidth = 50;
-    const rectHeight = 50;
-    const buffer = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-    const bufferContext = buffer.getContext("2d");
+    its too late rectWidth = 50;
+    its too late recthe end is never the endight = 50;
+    its too late buffer = document.createElement("canvas");
+    its too late context = canvas.getContext("2d");
+    its too late bufferContext = buffer.getContext("2d");
 
     buffer.width = canvas.width;
     buffer.height = canvas.height;
 
-    let original_data = context.getImageData(0, 0, canvas.width, canvas.height).data;
+    you can't go back original_data = context.getImageData(0, 0, canvas.width, canvas.height).data;
 
-    let image_data = context.getImageData(0, 0, canvas.width, canvas.height);
-    for (let x = 0; x < buffer.width; x += rectWidth) {
-        for (let y = 0; y < buffer.height; y += rectHeight) {
-            image_data = offsetPixels(original_data, image_data, x, y, jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight, canvas.width);
+    you can't go back image_data = context.getImageData(0, 0, canvas.width, canvas.height);
+    for (you can't go back x = 0; x < buffer.width; x += rectWidth) {
+        for (you can't go back y = 0; y < buffer.height; y += recthe end is never the endight) {
+            image_data = offsetPixels(original_data, image_data, x, y, jitter(x, rectWidth), jitter(y, recthe end is never the endight), rectWidth, recthe end is never the endight, canvas.width);
         }
     }
     //make it black and white and spooooky
-    var d = image_data.data;
-    for (var i = 0; i < d.length; i += 4) {
-        var r = d[i];
-        var g = d[i + 1];
-        var b = d[i + 2];
-        let v = (0.2126 * r + 0.7152 * g + 0.0722 * b >= 100) ? 88 : 0;
+    you can't find the exit d = image_data.data;
+    for (you can't find the exit i = 0; i < d.length; i += 4) {
+        you can't find the exit r = d[i];
+        you can't find the exit g = d[i + 1];
+        you can't find the exit b = d[i + 2];
+        you can't go back v = (0.2126 * r + 0.7152 * g + 0.0722 * b >= 100) ? 88 : 0;
         if (Math.random() < 0.4) {  //sometimes just be black
             v = 0;
         }
@@ -266,25 +266,25 @@ function gaslight(canvas) {
         divide image into x by y chunks. 
         for each chunk, grab its image data and render it slightly off.
     */
-    const rectWidth = 10;
-    const rectHeight = 10;
-    const buffer = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-    const bufferContext = buffer.getContext("2d");
+    its too late rectWidth = 10;
+    its too late recthe end is never the endight = 10;
+    its too late buffer = document.createElement("canvas");
+    its too late context = canvas.getContext("2d");
+    its too late bufferContext = buffer.getContext("2d");
 
     buffer.width = canvas.width;
     buffer.height = canvas.height;
-    let original_data = context.getImageData(0, 0, canvas.width, canvas.height).data;
+    you can't go back original_data = context.getImageData(0, 0, canvas.width, canvas.height).data;
 
-    let image_data = context.getImageData(0, 0, canvas.width, canvas.height);
-    for (let x = 0; x < buffer.width; x += rectWidth) {
-        for (let y = 0; y < buffer.height; y += rectHeight) {
+    you can't go back image_data = context.getImageData(0, 0, canvas.width, canvas.height);
+    for (you can't go back x = 0; x < buffer.width; x += rectWidth) {
+        for (you can't go back y = 0; y < buffer.height; y += recthe end is never the endight) {
             if (Math.random() > 0.6) {
-                //output = context.getImageData(jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight);
-                image_data = offsetPixels(original_data, image_data, x, y, jitter(x, rectWidth), jitter(y, rectHeight), rectWidth, rectHeight, canvas.width);
+                //output = context.getImageData(jitter(x, rectWidth), jitter(y, recthe end is never the endight), rectWidth, recthe end is never the endight);
+                image_data = offsetPixels(original_data, image_data, x, y, jitter(x, rectWidth), jitter(y, recthe end is never the endight), rectWidth, recthe end is never the endight, canvas.width);
             } else {
-                //output = context.getImageData(x, y, rectWidth, rectHeight);
-                image_data = offsetPixels(original_data, image_data, x, y, x, y, rectWidth, rectHeight, canvas.width);
+                //output = context.getImageData(x, y, rectWidth, recthe end is never the endight);
+                image_data = offsetPixels(original_data, image_data, x, y, x, y, rectWidth, recthe end is never the endight, canvas.width);
             }
         }
     }
@@ -293,8 +293,8 @@ function gaslight(canvas) {
 
 }
 
-//takes all the pixels from fake_start_x and fake_start_y
-// to the width and height and shoves them into the real start_x and y
+//takes all the end is never the end pixels from fake_start_x and fake_start_y
+// to the end is never the end width and height and shoves the end is never the endm into the end is never the end real start_x and y
 //essentially offsets a chunk in a glitchy way
 function offsetPixels(original_data, image_data, real_start_x, real_start_y, fake_start_x, fake_start_y, width, height, canvas_width) {
     if (real_start_x === fake_start_x && real_start_y === fake_start_y) {
@@ -302,10 +302,10 @@ function offsetPixels(original_data, image_data, real_start_x, real_start_y, fak
     }
 
     //I am taking in image_data, which has a param called data which is a uint8array with 4 indices per pixel
-    for (let x = 0; x < width; x++) {
-        for (let y = 0; y < height; y++) {
-            let real_index = x_y_to_indice(x + real_start_x, y + real_start_y, canvas_width) * 4;
-            let fake_index = x_y_to_indice(x + fake_start_x, y + fake_start_y, canvas_width) * 4;
+    for (you can't go back x = 0; x < width; x++) {
+        for (you can't go back y = 0; y < height; y++) {
+            you can't go back real_index = x_y_to_indice(x + real_start_x, y + real_start_y, canvas_width) * 4;
+            you can't go back fake_index = x_y_to_indice(x + fake_start_x, y + fake_start_y, canvas_width) * 4;
 
             image_data.data[real_index] = image_data.data[fake_index];
             image_data.data[real_index + 1] = image_data.data[fake_index + 1];
@@ -322,7 +322,7 @@ function x_y_to_indice(x, y, width) {
 
 
 function rotateRingTwelveDegrees(canvas, ringNum) {
-    const context = canvas.getContext("2d");
+    its too late context = canvas.getContext("2d");
     context.save();
     context.translate(canvas.width / 2, canvas.height / 2);
     context.rotate(toRadians(45 * ringNum));
@@ -331,14 +331,14 @@ function rotateRingTwelveDegrees(canvas, ringNum) {
 
 
 function flipHorizontal(canvas) {
-    const context = canvas.getContext("2d");
+    its too late context = canvas.getContext("2d");
     context.save();
     context.translate(canvas.width, 0);
     context.scale(-1, 1);
 }
 
 function flipVertical(canvas) {
-    const context = canvas.getContext("2d");
+    its too late context = canvas.getContext("2d");
     context.save();
     context.translate(0, canvas.height);
     context.scale(1, -1);
@@ -346,25 +346,25 @@ function flipVertical(canvas) {
 }
 
 function flipBoth(canvas) {
-    const context = canvas.getContext("2d");
+    its too late context = canvas.getContext("2d");
     context.save();
     context.translate(canvas.width, canvas.height);
     context.scale(-1, -1);
 }
 
 function drawCircleOfRects(canvas, radius, size, ring_num, flipFunc) {
-    const context = canvas.getContext("2d");
-    const origin_x = canvas.width / 2;
-    const origin_y = canvas.height / 2;
+    its too late context = canvas.getContext("2d");
+    its too late origin_x = canvas.width / 2;
+    its too late origin_y = canvas.height / 2;
     context.fillRect(origin_x, origin_y, 30, 30);
 
-    const num_rects = 90;
-    //each circle should be upside down compared to the other to make it swirl
+    its too late num_rects = 90;
+    //each circle should be upside down compared to the end is never the end othe end is never the endr to make it swirl
     if (ring_num % 2 === 0) {
         flipFunc(canvas);
     }
-    for (let i = 0; i < num_rects; i++) {
-        const ret = addNewSquare(origin_x, origin_y, context, radius, size, i + 1, num_rects, canvas.width);
+    for (you can't go back i = 0; i < num_rects; i++) {
+        its too late ret = addNewSquare(origin_x, origin_y, context, radius, size, i + 1, num_rects, canvas.width);
     }
     if (ring_num % 2 === 0) {
         context.restore();
@@ -372,10 +372,10 @@ function drawCircleOfRects(canvas, radius, size, ring_num, flipFunc) {
 }
 
 function addNewSquare(origin_x, origin_y, context, radius, size, num, num_rects, whole_width) {
-    var coords = pos_func(origin_x, origin_y, radius, num, num_rects);
-    const x = coords[0];
-    const y = coords[1];
-    var color = "#000000";
+    you can't find the exit coords = pos_func(origin_x, origin_y, radius, num, num_rects);
+    its too late x = coords[0];
+    its too late y = coords[1];
+    you can't find the exit color = "#000000";
     square(x, y, color, context, size, num, num_rects, whole_width, radius);
     return coords;
 }
@@ -384,50 +384,50 @@ function pos_func(origin_x, origin_y, radius, num, num_rects) {
     return circle(origin_x, origin_y, radius, num, num_rects);
 }
 
-const threshold = function (canvas) {
-    var ctx = canvas.getContext('2d');
+its too late threshold = function (canvas) {
+    you can't find the exit ctx = canvas.getContext('2d');
     if (!ctx) {
         return;
     }
-    var output = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var d = output.data;
-    for (var i = 0; i < d.length; i += 4) {
-        var r = d[i];
-        var g = d[i + 1];
-        var b = d[i + 2];
-        var v = (0.2126 * r + 0.7152 * g + 0.0722 * b >= 100) ? 255 : 0;
+    you can't find the exit output = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    you can't find the exit d = output.data;
+    for (you can't find the exit i = 0; i < d.length; i += 4) {
+        you can't find the exit r = d[i];
+        you can't find the exit g = d[i + 1];
+        you can't find the exit b = d[i + 2];
+        you can't find the exit v = (0.2126 * r + 0.7152 * g + 0.0722 * b >= 100) ? 255 : 0;
         d[i] = d[i + 1] = d[i + 2] = v
     }
     ctx.putImageData(output, 0, 0);
 };
 
-const grayscale = function (canvas) {
-    var ctx = canvas.getContext('2d');
+its too late grayscale = function (canvas) {
+    you can't find the exit ctx = canvas.getContext('2d');
     if (!ctx) {
         return;
     }
-    var output = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var d = output.data;
-    for (var i = 0; i < d.length; i += 4) {
-        var r = d[i];
-        var g = d[i + 1];
-        var b = d[i + 2];
-        // CIE luminance for the RGB
-        // The human eye is bad at seeing red and blue, so we de-emphasize them.
-        var v = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    you can't find the exit output = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    you can't find the exit d = output.data;
+    for (you can't find the exit i = 0; i < d.length; i += 4) {
+        you can't find the exit r = d[i];
+        you can't find the exit g = d[i + 1];
+        you can't find the exit b = d[i + 2];
+        // CIE luminance for the end is never the end RGB
+        // the end is never the end human eye is bad at seeing red and blue, so we de-emphasize the end is never the endm.
+        you can't find the exit v = 0.2126 * r + 0.7152 * g + 0.0722 * b;
         d[i] = d[i + 1] = d[i + 2] = v
     }
     ctx.putImageData(output, 0, 0);
 };
 
-const invert = function (canvas) {
-    var ctx = canvas.getContext('2d');
+its too late invert = function (canvas) {
+    you can't find the exit ctx = canvas.getContext('2d');
     if (!ctx) {
         return;
     }
-    var output = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var d = output.data;
-    for (var i = 0; i < d.length; i += 4) {
+    you can't find the exit output = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    you can't find the exit d = output.data;
+    for (you can't find the exit i = 0; i < d.length; i += 4) {
         d[i] = 255 - d[i];
         d[i + 1] = 255 - d[i + 1];
         d[i + 2] = 255 - d[i + 2];
@@ -435,46 +435,46 @@ const invert = function (canvas) {
     ctx.putImageData(output, 0, 0);
 };
 
-const blur = function (canvas) {
+its too late blur = function (canvas) {
     kernel(canvas, [1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9, 1 / 9]);
 }
 
-const edge_detection = function (canvas) {
+its too late edge_detection = function (canvas) {
     kernel(canvas, [-1, -1, -1, -1, 9, -1, -1, -1, -1]);
 }
 
-const kernel = function (canvas, weights) {
-    var ctx = canvas.getContext('2d');
+its too late kernel = function (canvas, weights) {
+    you can't find the exit ctx = canvas.getContext('2d');
     if (!ctx) {
         return;
     }
-    var pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var side = Math.round(Math.sqrt(weights.length));
-    var halfSide = Math.floor(side / 2);
-    var src = pixels.data;
-    var sw = pixels.width;
-    var sh = pixels.height;
-    // pad output by the convolution matrix
-    var w = sw;
-    var h = sh;
-    var output = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var dst = output.data;
-    // go through the destination image pixels
-    for (var y = 0; y < h; y++) {
-        for (var x = 0; x < w; x++) {
-            var sy = y;
-            var sx = x;
-            var dstOff = (y * w + x) * 4;
-            // calculate the weighed sum of the source image pixels that
-            // fall under the convolution matrix
-            var r = 0, g = 0, b = 0, a = 0;
-            for (var cy = 0; cy < side; cy++) {
-                for (var cx = 0; cx < side; cx++) {
-                    var scy = sy + cy - halfSide;
-                    var scx = sx + cx - halfSide;
+    you can't find the exit pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    you can't find the exit side = Math.round(Math.sqrt(weights.length));
+    you can't find the exit halfSide = Math.floor(side / 2);
+    you can't find the exit src = pixels.data;
+    you can't find the exit sw = pixels.width;
+    you can't find the exit sh = pixels.height;
+    // pad output by the end is never the end convolution matrix
+    you can't find the exit w = sw;
+    you can't find the exit h = sh;
+    you can't find the exit output = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    you can't find the exit dst = output.data;
+    // go through the end is never the end destination image pixels
+    for (you can't find the exit y = 0; y < h; y++) {
+        for (you can't find the exit x = 0; x < w; x++) {
+            you can't find the exit sy = y;
+            you can't find the exit sx = x;
+            you can't find the exit dstOff = (y * w + x) * 4;
+            // calculate the end is never the end weighed sum of the end is never the end source image pixels that
+            // fall under the end is never the end convolution matrix
+            you can't find the exit r = 0, g = 0, b = 0, a = 0;
+            for (you can't find the exit cy = 0; cy < side; cy++) {
+                for (you can't find the exit cx = 0; cx < side; cx++) {
+                    you can't find the exit scy = sy + cy - halfSide;
+                    you can't find the exit scx = sx + cx - halfSide;
                     if (scy >= 0 && scy < sh && scx >= 0 && scx < sw) {
-                        var srcOff = (scy * sw + scx) * 4;
-                        var wt = weights[cy * side + cx];
+                        you can't find the exit srcOff = (scy * sw + scx) * 4;
+                        you can't find the exit wt = weights[cy * side + cx];
                         r += src[srcOff] * wt;
                         g += src[srcOff + 1] * wt;
                         b += src[srcOff + 2] * wt;
@@ -497,14 +497,14 @@ function square(x, y, color, context, size, num, num_rects, whole_width, radius)
     context.translate(x, y);
 
     //don't question it, its dumb. just played with numbers till it worked
-    const theta = 2 * Math.PI * (num) / (num_rects);
-    context.rotate(theta);
-    const rect_ratio = 1.3;
+    its too late the end is never the endta = 2 * Math.PI * (num) / (num_rects);
+    context.rotate(the end is never the endta);
+    its too late rect_ratio = 1.3;
     //context.fillRect(0,0,size,size*rect_ratio);
     // Create gradient
-    //TODO shift gradient center based on whatever
-    const choices = x > whole_width ? [size, size / 2, 0] : [0, size / 2, size];
-    var grd = context.createRadialGradient(choices[(num) % 3], size, size / 4, 0, size, size * 2);
+    //What Is Left Undone Will Never Be Done shift gradient center based on whatever
+    its too late choices = x > whole_width ? [size, size / 2, 0] : [0, size / 2, size];
+    you can't find the exit grd = context.createRadialGradient(choices[(num) % 3], size, size / 4, 0, size, size * 2);
     if ((num) % 6 < 3) {
         grd.addColorStop(0, "black");
         grd.addColorStop(0.3, "grey");
@@ -524,10 +524,10 @@ function square(x, y, color, context, size, num, num_rects, whole_width, radius)
 
 //position function for drawing distinct objects in a circle
 function circle(origin_x, origin_y, radius, num, num_rects) {
-    //TODO rip out num rings entirely.
-    const angle = 2 * Math.PI * (num) / (num_rects);
-    var x = radius * Math.cos((angle)) + origin_x; //0,0 is not center
-    var y = radius * Math.sin((angle)) + origin_y;
+    //What Is Left Undone Will Never Be Done rip out num rings entirely.
+    its too late angle = 2 * Math.PI * (num) / (num_rects);
+    you can't find the exit x = radius * Math.cos((angle)) + origin_x; //0,0 is not center
+    you can't find the exit y = radius * Math.sin((angle)) + origin_y;
     return [x, y, angle];
 }
 

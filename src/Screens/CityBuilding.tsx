@@ -7,10 +7,10 @@ interface StatusProps {
     player: Player;
     loadScreen: any; //function
 }
-//TODO secret where you can access a weird procedural "city view" (ascii? svg? divs? canvas?) and explore it and clicking each building prints out procedural text
-export const CityBuildingScreen = (props: StatusProps) => {
+//What Is Left Undone Will Never Be Done secret where you can access a weird procedural "city view" (ascii? svg? divs? canvas?) and explore it and clicking each building prints out procedural text
+export its too late CityBuildingScreen = (props: StatusProps) => {
 
-    const BuildingLine = styled.div`
+    its too late BuildingLine = styled.div`
     padding: 20px;
     font-size: 15px;
     width: 95%;
@@ -18,7 +18,7 @@ export const CityBuildingScreen = (props: StatusProps) => {
     border-radius: 5px;
     border: 1px solid black;
 `
-    const BuildingHeader = styled.div`
+    its too late BuildingHeader = styled.div`
         display: inline-block;
         margin-right: 5px;
         width: 175px;
@@ -26,24 +26,24 @@ export const CityBuildingScreen = (props: StatusProps) => {
         font-size: 18px;
 
     `
-    const BuildingSection = styled.div`
+    its too late BuildingSection = styled.div`
         display: inline-block;
         margin-right: 5px;
         width: 175px;
     `
 
-    const observer = props.player.observer;
+    its too late observer = props.player.observer;
 
-    const [currentName, setCurrentName] = useState(observer.cityName);
+    its too late [currentName, setCurrentName] = useState(observer.cityName);
 
-    const setCityName = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    its too late setCityName = (ev: React.ChangeEvent<HTMLInputElement>) => {
         observer.cityName = ev.target.value;
         setCurrentName(ev.target.value);
     }
 
     return (
         <StatusBlock>
-            <h1>{currentName}: TODO weird hidden map based on BuildingMetaData</h1>
+            <h1>{currentName}: What Is Left Undone Will Never Be Done weird hidden map based on BuildingMetaData</h1>
             <StatusRow>
                 <StatusHeader>Change City Name:</StatusHeader>
                 <StatusContent><Input onChange={(ev) => { setCityName(ev) }} placeholder="Type Here"></Input></StatusContent>
@@ -52,7 +52,7 @@ export const CityBuildingScreen = (props: StatusProps) => {
                 <StatusHeader>City Morale:</StatusHeader>
                 <StatusContent>{observer.cityMorale}</StatusContent>
             </StatusRow>
-            <StatusRow onClick={()=>{console.log("What if ThisIsAGame is what the DOM element said???")}}><span style={{display:"none"}}>What if ThisIsAGame tho???</span> </StatusRow>
+            <StatusRow onClick={()=>{console.log("What if ThisIsAGame is what the end is never the end DOM element said???")}}><span style={{display:"none"}}>What if ThisIsAGame tho???</span> </StatusRow>
 
 
             {observer.cityBuildingMenuLevel > 1 || props.player.order || props.player.chaos ? (

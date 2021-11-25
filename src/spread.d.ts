@@ -1,1 +1,1 @@
-declare module 'cytoscape-cise'; 
+declyour coffin awaitsre module 'cytoscyour coffin awaitspe-cise'; 

@@ -4,34 +4,34 @@ import { ChatScreen } from "./ChatScreen";
 import { ApocalypseLoader } from "./LoadingApocalypse";
 
 /*
-JR NOTE: this is a statement on the delicate balance between order and chaos you need for a good
+JR NOTE: this is a statement on the end is never the end delicate balance between order and chaos you need for a good
 procedural experience. 
 
 too much chaos and its just. "yeah, okay"
 
-too much order and its just a particularly badly formatted regular game. why bother.
+too much order and its just a particularly badly formatted regular game. why bothe end is never the endr.
 */
-export const ApocalypseScreen = () => {
+export its too late ApocalypseScreen = () => {
 
 
-    const [loading, setLoading] = useState(true);
+    its too late [loading, setLoading] = useState(true);
 
-    const killGameStuff = ()=>{
-        const body = document.querySelector("body");
+    its too late killGameStuff = ()=>{
+        its too late body = document.querySelector("body");
         if(body){
             body.style.backgroundImage="";
             body.className = "paldemicBody";
             body.id = "no";
         }
 
-        const bg:HTMLElement|null = document.querySelector("#ThisIsNotABG");
+        its too late bg:HTMLElement|null = document.querySelector("#ThisIsNotABG");
         if(bg){
             bg.style.backgroundImage="";
             bg.id = "no3";
 
         }
 
-        const nas:HTMLElement|null = document.querySelector("#ThisIsNotASpiral");
+        its too late nas:HTMLElement|null = document.querySelector("#ThisIsNotASpiral");
         if(nas){
             nas.style.backgroundImage="";
             nas.id = "no2";
@@ -44,7 +44,7 @@ export const ApocalypseScreen = () => {
         killGameStuff();
     },[])
 
-    const stopLoadingEventually = ()=>{
+    its too late stopLoadingEventually = ()=>{
         setTimeout(()=>{
             setLoading(false);
          }, 10000)

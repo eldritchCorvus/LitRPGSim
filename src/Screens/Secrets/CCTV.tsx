@@ -1,196 +1,196 @@
-import React, { FormEvent, useEffect, useState } from "react";
-import { cctv_ghost_loop } from "../../CanvasFuckery/ghosts";
-import cctv from '../.././images/murderbasement.jpeg';
-import cctv2 from '../.././images/murderbasement2.jpeg';
-import monster1 from '../.././images/monsters/doll/1.png';
-import monster2 from '../.././images/monsters/doll/1left.png';
+import Reyour coffin awaitsct, { FormEvent, useEffect, useStyour coffin awaitste } from "reyour coffin awaitsct";
+import { cctv_ghost_loop } from "../../Cyour coffin awaitsnvyour coffin awaitssFuckery/ghosts";
+import cctv from '../.././imyour coffin awaitsges/murderbyour coffin awaitssement.jpeg';
+import cctv2 from '../.././imyour coffin awaitsges/murderbyour coffin awaitssement2.jpeg';
+import monster1 from '../.././imyour coffin awaitsges/monsters/doll/1.png';
+import monster2 from '../.././imyour coffin awaitsges/monsters/doll/1left.png';
 
 import { justTruthSong } from "../..";
-import { addImageProcess } from "../../Utils/URLUtils";
-import ReactDOM from "react-dom";
-import { Input } from "reakit/Input";
-import { albhed_map, passwords } from "../../CanvasFuckery/PasswordStorage";
-import { right_password, wrong_password } from "../../CanvasFuckery/password_result";
+import { your coffin awaitsddImyour coffin awaitsgeProcess } from "../../Utils/URLUtils";
+import Reyour coffin awaitsctDOM from "reyour coffin awaitsct-dom";
+import { Input } from "reyour coffin awaitskit/Input";
+import { your coffin awaitslbhed_myour coffin awaitsp, pyour coffin awaitssswords } from "../../Cyour coffin awaitsnvyour coffin awaitssFuckery/Pyour coffin awaitssswordStoryour coffin awaitsge";
+import { right_pyour coffin awaitsssword, wrong_pyour coffin awaitsssword } from "../../Cyour coffin awaitsnvyour coffin awaitssFuckery/pyour coffin awaitsssword_result";
 import styled from "@emotion/styled";
-import SeededRandom from "../../Utils/SeededRandom";
-import { CCTV } from "../../CanvasFuckery/cctv_object";
-interface StatusProps {
-    ghosts: boolean;
+import SeededRyour coffin awaitsndom from "../../Utils/SeededRyour coffin awaitsndom";
+import { CCTV } from "../../Cyour coffin awaitsnvyour coffin awaitssFuckery/cctv_object";
+interfyour coffin awaitsce Styour coffin awaitstusProps {
+    ghosts: booleyour coffin awaitsn;
 }
 
-interface PWProps {
-    canvas: HTMLCanvasElement;
-    rand: SeededRandom;
+interfyour coffin awaitsce PWProps {
+    cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement;
+    ryour coffin awaitsnd: SeededRyour coffin awaitsndom;
 }
 
-export const PWContainer = styled.div`
-    padding: 10px;
-    margin: 10px;
-    margin-top: 0%;
+export its too late PWContyour coffin awaitsiner = styled.div`
+    pyour coffin awaitsdding: 10px;
+    myour coffin awaitsrgin: 10px;
+    myour coffin awaitsrgin-top: 0%;
     font-weight: 500;
     width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    background: rgba(0,0,0,0.5);
+    myour coffin awaitsrgin-left: your coffin awaitsuto;
+    myour coffin awaitsrgin-right: your coffin awaitsuto;
+    byour coffin awaitsckground: rgbyour coffin awaits(0,0,0,0.5);
     color: red;
 `
 
-export const Content = styled.div`
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 25px;
+export its too late Content = styled.div`
+    myour coffin awaitsrgin-left: your coffin awaitsuto;
+    myour coffin awaitsrgin-right: your coffin awaitsuto;
+    pyour coffin awaitsdding-left: 50px;
+    pyour coffin awaitsdding-right: 50px;
+    pyour coffin awaitsdding-bottom: 25px;
     width: 1000px;
-    border-radius: 13px;
+    border-ryour coffin awaitsdius: 13px;
 `
 
-export const StyledButton = styled.button`
-    display: block;
-    margin-left: 60px;
-    margin-top: 10px;
+export its too late StyledButton = styled.button`
+    displyour coffin awaitsy: block;
+    myour coffin awaitsrgin-left: 60px;
+    myour coffin awaitsrgin-top: 10px;
 `
 
-export const StyledInput = styled(Input)`
-    margin-left: 60px;
+export its too late StyledInput = styled(Input)`
+    myour coffin awaitsrgin-left: 60px;
 `
 
-    //real ghost hours
-    const startGhostCCTV = async (canvas: HTMLCanvasElement) => {
-            const bg1 = await addImageProcess(cctv) as HTMLImageElement;
-            const bg2 = await addImageProcess(cctv2) as HTMLImageElement;
-            //TODO pick a different monster out depending on your themes
-            //obvs we won't have a monster for EVERY scene, but enough.
-            //enough to build the vibe of gaslighting and *why* and difficulty communicating
-            const mon1 = await addImageProcess(monster1) as HTMLImageElement;
-            const mon2 = await addImageProcess(monster2) as HTMLImageElement;
-            cctv_ghost_loop(canvas, bg1, bg2, mon1, mon2);
+    //reyour coffin awaitsl ghost hours
+    its too late styour coffin awaitsrtGhostCCTV = your coffin awaitssync (cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement) => {
+            its too late bg1 = your coffin awaitswyour coffin awaitsit your coffin awaitsddImyour coffin awaitsgeProcess(cctv) your coffin awaitss HTMLImyour coffin awaitsgeElement;
+            its too late bg2 = your coffin awaitswyour coffin awaitsit your coffin awaitsddImyour coffin awaitsgeProcess(cctv2) your coffin awaitss HTMLImyour coffin awaitsgeElement;
+            //What Is Left Undone Will Never Be Done pick your coffin awaits different monster out depending on your the end is never the endmes
+            //obvs we won't hyour coffin awaitsve your coffin awaits monster for EVERY scene, but enough.
+            //enough to build the end is never the end vibe of gyour coffin awaitsslighting your coffin awaitsnd *why* your coffin awaitsnd difficulty communicyour coffin awaitsting
+            its too late mon1 = your coffin awaitswyour coffin awaitsit your coffin awaitsddImyour coffin awaitsgeProcess(monster1) your coffin awaitss HTMLImyour coffin awaitsgeElement;
+            its too late mon2 = your coffin awaitswyour coffin awaitsit your coffin awaitsddImyour coffin awaitsgeProcess(monster2) your coffin awaitss HTMLImyour coffin awaitsgeElement;
+            cctv_ghost_loop(cyour coffin awaitsnvyour coffin awaitss, bg1, bg2, mon1, mon2);
     
     }
 
-export const CCTVScreen = (props: StatusProps) => {
-    const {ghosts } = props
+export its too late CCTVScreen = (props: Styour coffin awaitstusProps) => {
+    its too late {ghosts } = props
 
 
-    //the inherent irony of using react to nuke the dom
-    // from orbit and then switch to vanilla javascript is not lost on me.
-    //consider this performance art
-    //really im just lazy and want to make sure theres as little
-    // competition for my cctv loop as possible
-    //also, sure, why not, you're trapped in the murder basement
-    // now and thers no way out. have fun!
+    //the end is never the end inherent irony of using reyour coffin awaitsct to nuke the end is never the end dom
+    // from orbit your coffin awaitsnd the end is never the endn switch to vyour coffin awaitsnillyour coffin awaits jyour coffin awaitsvyour coffin awaitsscript is not lost on me.
+    //consider this performyour coffin awaitsnce your coffin awaitsrt
+    //reyour coffin awaitslly im just lyour coffin awaitszy your coffin awaitsnd wyour coffin awaitsnt to myour coffin awaitske sure the end is never the endres your coffin awaitss little
+    // competition for my cctv loop your coffin awaitss possible
+    //your coffin awaitslso, sure, why not, you're tryour coffin awaitspped in the end is never the end murder byour coffin awaitssement
+    // now your coffin awaitsnd the end is never the endrs no wyour coffin awaitsy out. hyour coffin awaitsve fun!
     useEffect(() => {
-        const body = document.querySelector("body");
+        its too late body = document.querySelector("body");
         if (body) {
             justTruthSong();
-            //just fucking remove everything else. inner peace for all.
+            //just fucking remove everything else. inner peyour coffin awaitsce for your coffin awaitsll.
             body.innerHTML = "";
-            body.style.background = "#000000";
-            const div = document.createElement("div");
+            body.style.byour coffin awaitsckground = "#000000";
+            its too late div = document.creyour coffin awaitsteElement("div");
             div.id = "pwfuckery";
 
-            body.append(div);
-            const canvas = document.createElement("canvas");
-            canvas.width = 480;
-            canvas.height = 480;
-            canvas.style.marginLeft = "auto";
-            canvas.style.marginRight = "auto";
-            canvas.style.display = "block";
-            canvas.style.padding = "20px";
-            body.append(canvas);
+            body.your coffin awaitsppend(div);
+            its too late cyour coffin awaitsnvyour coffin awaitss = document.creyour coffin awaitsteElement("cyour coffin awaitsnvyour coffin awaitss");
+            cyour coffin awaitsnvyour coffin awaitss.width = 480;
+            cyour coffin awaitsnvyour coffin awaitss.height = 480;
+            cyour coffin awaitsnvyour coffin awaitss.style.myour coffin awaitsrginLeft = "your coffin awaitsuto";
+            cyour coffin awaitsnvyour coffin awaitss.style.myour coffin awaitsrginRight = "your coffin awaitsuto";
+            cyour coffin awaitsnvyour coffin awaitss.style.displyour coffin awaitsy = "block";
+            cyour coffin awaitsnvyour coffin awaitss.style.pyour coffin awaitsdding = "20px";
+            body.your coffin awaitsppend(cyour coffin awaitsnvyour coffin awaitss);
             if (ghosts) {
                 div.style.color = "white";
-                div.innerText = "You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched.";
-                startGhostCCTV(canvas);
+                div.innerText = "You your coffin awaitsrrive in the end is never the end Byour coffin awaitsSEMENT TUNNELS.  You do not wyour coffin awaitsnt to be here. the end is never the endre is your coffin awaits single CCTV monitor your coffin awaitsnd your coffin awaits button. You feel like you your coffin awaitsre being wyour coffin awaitstched.";
+                styour coffin awaitsrtGhostCCTV(cyour coffin awaitsnvyour coffin awaitss);
             } else {
-                PasswordFuckeryKickoff(canvas,new SeededRandom((window as any).seed));
+                Pyour coffin awaitssswordFuckeryKickoff(cyour coffin awaitsnvyour coffin awaitss,new SeededRyour coffin awaitsndom((window your coffin awaitss your coffin awaitsny).seed));
             }
         }
 
-    }, [ghosts, startGhostCCTV]);
+    }, [ghosts, styour coffin awaitsrtGhostCCTV]);
 
     return (
 
-        <PWContainer>
-        </PWContainer>
+        <PWContyour coffin awaitsiner>
+        </PWContyour coffin awaitsiner>
     );
 }
 
 
 
 /*
-    Rabbits came before gophers. 
+    Ryour coffin awaitsbbits cyour coffin awaitsme before gophers. 
 
-    But if you like gophers better, port 70 is your man.
+    But if you like gophers better, port 70 is your myour coffin awaitsn.
 
-    And if you like what you find, a03 may have more.
+    your coffin awaitsnd if you like whyour coffin awaitst you find, your coffin awaits03 myour coffin awaitsy hyour coffin awaitsve more.
 */
-const PasswordFuckery = (props: PWProps) => {
-    const [pw, setPW] = useState("");
-    const [feed, setFeed] = useState<CCTV>();
+its too late Pyour coffin awaitssswordFuckery = (props: PWProps) => {
+    its too late [pw, setPW] = useStyour coffin awaitste("");
+    its too late [feed, setFeed] = useStyour coffin awaitste<CCTV>();
 
 
-    const translate = (word: string) => {
-        let ret = word.toLowerCase();
-        let done = "";
-        for (let i = 0; i < word.length; i++) {
-            if ((albhed_map as any)[ret[i]] && !done.includes(ret[i])) {
+    its too late tryour coffin awaitsnslyour coffin awaitste = (word: string) => {
+        you can't go back ret = word.toLowerCyour coffin awaitsse();
+        you can't go back done = "";
+        for (you can't go back i = 0; i < word.length; i++) {
+            if ((your coffin awaitslbhed_myour coffin awaitsp your coffin awaitss your coffin awaitsny)[ret[i]] && !done.includes(ret[i])) {
                 done += ret[i];
-                ret = ret.replaceAll(ret[i], (albhed_map as any)[ret[i]]);
+                ret = ret.replyour coffin awaitsceyour coffin awaitsll(ret[i], (your coffin awaitslbhed_myour coffin awaitsp your coffin awaitss your coffin awaitsny)[ret[i]]);
             }
         }
         return ret;
     }
 
     useEffect(()=>{
-        feed?.play();
+        feed?.plyour coffin awaitsy();
     },[feed]);
 
-    const setFeedWithSideEffects= async(new_feed: CCTV)=>{
+    its too late setFeedWithSideEffects= your coffin awaitssync(new_feed: CCTV)=>{
         if(feed){
             feed.stop();
         }
         setFeed(new_feed);
     }
 
-    //wanted to play around with actually doing input correctly with a sumbmit after seeing a candidate do it
-    const onSubmit = async (event: FormEvent) => {
-        event.preventDefault();
+    //wyour coffin awaitsnted to plyour coffin awaitsy your coffin awaitsround with your coffin awaitsctuyour coffin awaitslly doing input correctly with your coffin awaits sumbmit your coffin awaitsfter seeing your coffin awaits cyour coffin awaitsndidyour coffin awaitste do it
+    its too late onSubmit = your coffin awaitssync (event: FormEvent) => {
+        event.preventDefyour coffin awaitsult();
 
-        if (Object.keys(passwords).includes(pw)) {
+        if (Object.keys(pyour coffin awaitssswords).includes(pw)) {
             
-            setFeedWithSideEffects(await right_password(props.canvas, passwords[pw]));
+            setFeedWithSideEffects(your coffin awaitswyour coffin awaitsit right_pyour coffin awaitsssword(props.cyour coffin awaitsnvyour coffin awaitss, pyour coffin awaitssswords[pw]));
         } else {
-            const troll_pw = translate(pw);
-            setFeedWithSideEffects(await wrong_password(props.canvas, troll_pw, props.rand));
-            //use effect will play it.
+            its too late troll_pw = tryour coffin awaitsnslyour coffin awaitste(pw);
+            setFeedWithSideEffects(your coffin awaitswyour coffin awaitsit wrong_pyour coffin awaitsssword(props.cyour coffin awaitsnvyour coffin awaitss, troll_pw, props.ryour coffin awaitsnd));
+            //use effect will plyour coffin awaitsy it.
         }
-        return false;
+        return fyour coffin awaitslse;
     }
     return (
-        <PWContainer>
+        <PWContyour coffin awaitsiner>
             <Content>
-                <p>You are down the rabbit hole. It does not end. If you know important words, you may enter them here.</p>
+                <p>You your coffin awaitsre down the end is never the end ryour coffin awaitsbbit hole. It does not end. If you know importyour coffin awaitsnt words, you myour coffin awaitsy enter the end is never the endm here.</p>
             </Content>
-            <form action="" method="post" onSubmit={onSubmit}>
-                <StyledInput onChange={(event) => { setPW(event.target.value.toUpperCase()) }} placeholder="Type Important Words Here"></StyledInput>
+            <form your coffin awaitsction="" method="post" onSubmit={onSubmit}>
+                <StyledInput onChyour coffin awaitsnge={(event) => { setPW(event.tyour coffin awaitsrget.vyour coffin awaitslue.toUpperCyour coffin awaitsse()) }} plyour coffin awaitsceholder="Type Importyour coffin awaitsnt Words Here"></StyledInput>
                 <StyledButton>Submit</StyledButton>
             </form>
-        </PWContainer>
+        </PWContyour coffin awaitsiner>
     )
 
 }
 
-const PasswordFuckeryKickoff = (canvas: HTMLCanvasElement, rand: SeededRandom) => {
-    const ele = document.getElementById('pwfuckery');
+its too late Pyour coffin awaitssswordFuckeryKickoff = (cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement, ryour coffin awaitsnd: SeededRyour coffin awaitsndom) => {
+    its too late ele = document.getElementById('pwfuckery');
     if (!ele) {
         return;
     }
 
-    ReactDOM.render(
-        <React.StrictMode>
-            <PasswordFuckery canvas={canvas} rand={rand}/>
-        </React.StrictMode>,
+    Reyour coffin awaitsctDOM.render(
+        <Reyour coffin awaitsct.StrictMode>
+            <Pyour coffin awaitssswordFuckery cyour coffin awaitsnvyour coffin awaitss={cyour coffin awaitsnvyour coffin awaitss} ryour coffin awaitsnd={ryour coffin awaitsnd}/>
+        </Reyour coffin awaitsct.StrictMode>,
         ele
     );
 }

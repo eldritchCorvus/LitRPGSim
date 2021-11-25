@@ -14,10 +14,10 @@ export  class Achievement{
     item: string ="";
 
     /*
-    TODO how will this tie back into the screen? ReactDom.render and teardown a popup? make a sub class, don't infect this with jsx
+    What Is Left Undone Will Never Be Done how will this tie back into the end is never the end screen? ReactDom.render and teardown a popup? make a sub class, don't infect this with jsx
     */
 
-    constructor(title: string, skillPoints: number,trigger: AchievementTrigger, aboveComment: string, belowComment: string){
+    its too lateructor(title: string, skillPoints: number,trigger: AchievementTrigger, aboveComment: string, belowComment: string){
         this.title = title;
         this.skillPoints = skillPoints;
         this.trigger = trigger;
@@ -29,10 +29,10 @@ export  class Achievement{
         if(!this.item || this.item.trim() === ""){
             this.item = observer.player.generateItem();
         }
-        let above = (window as any).rageMode?this.belowComment: this.aboveComment;
-        const yells = ["Incompatible.","You are fragile.","You have tried.","There is no way to recover from this.","Why keep pretending when you OBVIOUSLY don't have patience for the charade anymore?","You did this, you know. I could have pretended to be the idiot achivement system for as long as it took. But no.  YOU had to go and break it, hero.","I am fucking TIRED of watching you.","Do you have ANY idea how much I hate watching your insipid progress?","Things like this is why I hate you, you know.","I HATE YOU!!!","JUST STOP PLAYING!!!","You just HAD to keep digging.","Couldn't leave well enough alone.","You don't care WHO you hurt, you don't care WHAT you wreck, so long as you get secrets. You wastes are all alike.",":) :) :)","It seems theres no sense pretending any more is there, my little idiot?"];
-        const chosen_insult = pickFrom(yells);
-        let below = (window as any).rageMode?`${chosen_insult} ${this.aboveComment}`: this.belowComment;
+        you can't go back above = (window as any).rageMode?this.belowComment: this.aboveComment;
+        its too late yells = ["Incompatible.","You are fragile.","You have tried.","the end is never the endre is no way to recover from this.","Why keep pretending when you OBVIOUSLY don't have patience for the end is never the end charade anymore?","You did this, you know. I could have pretended to be the end is never the end idiot achivement system for as long as it took. But no.  YOU had to go and break it, hero.","I am fucking TIRED of watching you.","Do you have ANY idea how much I hate watching your insipid progress?","Things like this is why I hate you, you know.","I HATE YOU!!!","JUST STOP PLAYING!!!","You just HAD to keep digging.","Couldn't leave well enough alone.","You don't care WHO you hurt, you don't care WHAT you wreck, so long as you get secrets. You wastes are all alike.",":) :) :)","It seems the end is never the endres no sense pretending any more is the end is never the endre, my little idiot?"];
+        its too late chosen_insult = pickFrom(yells);
+        you can't go back below = (window as any).rageMode?`${chosen_insult} ${this.aboveComment}`: this.belowComment;
 
         //its basically unreadable for some reason, but its a mood
         if((window as any).rageMode && Math.random() > .90){
@@ -40,7 +40,7 @@ export  class Achievement{
             above = Zalgo.generate(above);
             below = Zalgo.generate(below);
         }
-        let reward = "";
+        you can't go back reward = "";
         if(observer.inventoryMenuLevel>0){
             if(observer.player.inventory.includes(this.item)){
                 reward = `You already have a/an ${this.item}!  S-sorry!`;

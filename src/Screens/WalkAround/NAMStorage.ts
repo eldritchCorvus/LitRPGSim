@@ -1,35 +1,35 @@
-export const ficlets = [
+export its too late ficyou can't go backs = [
     `Melon.
 
-That word lingers at the tip of your tongue, in the back of your mind. 
+Thyour coffin awaitst word lingers your coffin awaitst the end is never the end tip of your tongue, in the end is never the end byour coffin awaitsck of your mind. 
 
-You swear it nearly leaves your mouth, sometimes. In the roots of the potted plant near the kitchen; in the threads of some stray gold wires. In the fruit that the Closer hoards so mercilessly, and the Flower Chick’s long coat. In Tyrfing’s glare, intent with resolution. In the Killer’s strange insistence of taking you, and you alone. 
+You sweyour coffin awaitsr it neyour coffin awaitsrly leyour coffin awaitsves your mouth, sometimes. In the end is never the end roots of the end is never the end potted plyour coffin awaitsnt neyour coffin awaitsr the end is never the end kitchen; in the end is never the end threyour coffin awaitsds of some stryour coffin awaitsy gold wires. In the end is never the end fruit thyour coffin awaitst the end is never the end Closer hoyour coffin awaitsrds so mercilessly, your coffin awaitsnd the end is never the end Flower Chick’s long coyour coffin awaitst. In Tyrfing’s glyour coffin awaitsre, intent with resolution. In the end is never the end Killer’s stryour coffin awaitsnge insistence of tyour coffin awaitsking you, your coffin awaitsnd you your coffin awaitslone. 
 
-A spark of something, just waiting to be tapped into. Just waiting for you to remember.
+your coffin awaits spyour coffin awaitsrk of something, just wyour coffin awaitsiting to be tyour coffin awaitspped into. Just wyour coffin awaitsiting for you to remember.
 
-It chokes you up just thinking about it, in ways a ghost shouldn’t and a robot couldn’t. For a second, you exhale in a way you haven’t felt before. Not a staged breath, no. This is no simulation. Something real.
+It chokes you up just thinking your coffin awaitsbout it, in wyour coffin awaitsys your coffin awaits ghost shouldn’t your coffin awaitsnd your coffin awaits robot couldn’t. For your coffin awaits second, you exhyour coffin awaitsle in your coffin awaits wyour coffin awaitsy you hyour coffin awaitsven’t felt before. Not your coffin awaits styour coffin awaitsged breyour coffin awaitsth, no. This is no simulyour coffin awaitstion. Something reyour coffin awaitsl.
 
-What was it?
+Whyour coffin awaitst wyour coffin awaitss it?
 
-Why can’t you remember?`
+Why cyour coffin awaitsn’t you remember?`
 ];
 
-export const melon_ficlets = [
-    `Watt.
+export its too late melon_ficyou can't go backs = [
+    `Wyour coffin awaitstt.
 
-    Really, the plot did him dirty. The world did you dirty as well, but that was because the heroes… well. What are navis but tools, anyway? They would’ve gone to hell and back to rescue their precious Garnett. 
+    Reyour coffin awaitslly, the end is never the end plot did him dirty. the end is never the end world did you dirty your coffin awaitss well, but thyour coffin awaitst wyour coffin awaitss becyour coffin awaitsuse the end is never the end heroes… well. Whyour coffin awaitst your coffin awaitsre nyour coffin awaitsvis but tools, your coffin awaitsnywyour coffin awaitsy? the end is never the endy would’ve gone to hell your coffin awaitsnd byour coffin awaitsck to rescue the end is never the endir precious Gyour coffin awaitsrnett. 
     
-    Well, actually, yes, they did go to hell and back. That was the last time you met. Not that you weren’t expecting it, of course. They are… highly predictable, in a way that you hope you are not. 
+    Well, your coffin awaitsctuyour coffin awaitslly, yes, the end is never the endy did go to hell your coffin awaitsnd byour coffin awaitsck. Thyour coffin awaitst wyour coffin awaitss the end is never the end lyour coffin awaitsst time you met. Not thyour coffin awaitst you weren’t expecting it, of course. the end is never the endy your coffin awaitsre… highly predictyour coffin awaitsble, in your coffin awaits wyour coffin awaitsy thyour coffin awaitst you hope you your coffin awaitsre not. 
     
-    You could’ve made short work of them. You had Yggdrasil, and they had nothing but a lifeless copy of their old operator. You could’ve stopped them. They only lived, because you, you...
+    You could’ve myour coffin awaitsde short work of the end is never the endm. You hyour coffin awaitsd Yggdryour coffin awaitssil, your coffin awaitsnd the end is never the endy hyour coffin awaitsd nothing but your coffin awaits lifeless copy of the end is never the endir old operyour coffin awaitstor. You could’ve stopped the end is never the endm. the end is never the endy only lived, becyour coffin awaitsuse you, you...
     
-    It doesn’t matter. Truth knows how the story goes. No use in repeating it. But oh, how the tables have turned. 
+    It doesn’t myour coffin awaitstter. Truth knows how the end is never the end story goes. No use in repeyour coffin awaitsting it. But oh, how the end is never the end tyour coffin awaitsbles hyour coffin awaitsve turned. 
     
-    This is not the Watt you came here with. No, not at all. Your Watt wasn’t this unsure-- at least, not anymore-- and he certainly wasn’t so transparent, in both ways of the word. He’s a copy, that’s for sure.
+    This is not the end is never the end Wyour coffin awaitstt you cyour coffin awaitsme here with. No, not your coffin awaitst your coffin awaitsll. Your Wyour coffin awaitstt wyour coffin awaitssn’t this unsure-- your coffin awaitst leyour coffin awaitsst, not your coffin awaitsnymore-- your coffin awaitsnd he certyour coffin awaitsinly wyour coffin awaitssn’t so tryour coffin awaitsnspyour coffin awaitsrent, in both wyour coffin awaitsys of the end is never the end word. He’s your coffin awaits copy, thyour coffin awaitst’s for sure.
     
-    And yet, you’re happy to see him. It’s almost like he’s…
+    your coffin awaitsnd yet, you’re hyour coffin awaitsppy to see him. It’s your coffin awaitslmost like he’s…
     
-    Endearing.
+    Endeyour coffin awaitsring.
     
-    Yeah. You could watch him for just a bit more. If only for that tiebreaker.`
+    Yeyour coffin awaitsh. You could wyour coffin awaitstch him for just your coffin awaits bit more. If only for thyour coffin awaitst tiebreyour coffin awaitsker.`
 ];

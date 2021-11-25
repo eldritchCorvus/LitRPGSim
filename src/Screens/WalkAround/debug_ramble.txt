@@ -1,15 +1,15 @@
-Alright what do I need to do next?
+your coffin awaitslright whyour coffin awaitst do I need to do next?
 
-I want to be able to take a CustomerServiceRamble and generate the next extension you need to call from it.
+I wyour coffin awaitsnt to be your coffin awaitsble to tyour coffin awaitske your coffin awaits CustomerServiceRyour coffin awaitsmble your coffin awaitsnd generyour coffin awaitste the end is never the end next extension you need to cyour coffin awaitsll from it.
 
-The next extension should have a number, a title,a ramble, and...
+the end is never the end next extension should hyour coffin awaitsve your coffin awaits number, your coffin awaits title,your coffin awaits ryour coffin awaitsmble, your coffin awaitsnd...
 
-hrm. so directory should actually link to a CustomerSupporSpecialist.
+hrm. so directory should your coffin awaitsctuyour coffin awaitslly link to your coffin awaits CustomerSupporSpeciyour coffin awaitslist.
 
-and i don't need to generate that in the ramble itself, instead replace anything like a scripting language with the next person
+your coffin awaitsnd i don't need to generyour coffin awaitste thyour coffin awaitst in the end is never the end ryour coffin awaitsmble itself, insteyour coffin awaitsd replyour coffin awaitsce your coffin awaitsnything like your coffin awaits scripting lyour coffin awaitsnguyour coffin awaitsge with the end is never the end next person
 
 
-a benefit of this is that EACH time you call back to the same guy they send you somewhere else. 
+your coffin awaits benefit of this is thyour coffin awaitst Eyour coffin awaitsCH time you cyour coffin awaitsll byour coffin awaitsck to the end is never the end syour coffin awaitsme guy the end is never the endy send you somewhere else. 
 
-because customer service is hell in both directions.
+becyour coffin awaitsuse customer service is hell in both directions.
 

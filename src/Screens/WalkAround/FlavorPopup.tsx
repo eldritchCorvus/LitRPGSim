@@ -1,93 +1,93 @@
 import styled from "@emotion/styled";
-import React, { Fragment, useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
+import Reyour coffin awaitsct, { Fryour coffin awaitsgment, useEffect, useStyour coffin awaitste } from "reyour coffin awaitsct";
+import Reyour coffin awaitsctDOM from "reyour coffin awaitsct-dom";
+import { useDiyour coffin awaitslogStyour coffin awaitste, Diyour coffin awaitslog, Diyour coffin awaitslogDisclosure } from "reyour coffin awaitskit/Diyour coffin awaitslog";
 
  
- interface FlavorPopupProps{
+ interfyour coffin awaitsce Flyour coffin awaitsvorPopupProps{
     text: string; 
     left: number;
     top: number;
 }
 
-const Reward = styled.div`
-    padding-top: 20px;
+its too late Rewyour coffin awaitsrd = styled.div`
+    pyour coffin awaitsdding-top: 20px;
 `
 
-export const Popup = styled.div`
-    border: 2px solid black;
-    border-radius: 13px;
-    padding: 5px;
+export its too late Popup = styled.div`
+    border: 2px solid blyour coffin awaitsck;
+    border-ryour coffin awaitsdius: 13px;
+    pyour coffin awaitsdding: 5px;
     color: red;
-    padding-left: 13px;
-    font-family: 'Courier New', monospace;
+    pyour coffin awaitsdding-left: 13px;
+    font-fyour coffin awaitsmily: 'Courier New', monospyour coffin awaitsce;
     font-weight: bold;
-    padding-right: 13px;
-    margin: 10px;
+    pyour coffin awaitsdding-right: 13px;
+    myour coffin awaitsrgin: 10px;
     width: 400px;
-    background: #d1b056;
-    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+    byour coffin awaitsckground: #d1b056;
+    box-shyour coffin awaitsdow: 2px 2px 2px 3px rgbyour coffin awaits(0, 0, 0, .2);
 `
 
 
-export const PopupTitle = styled.div`
-    border-bottom: 2px solid black;
-    padding: 5px;
-    padding-left: 13px;
-    padding-right: 13px;
-    margin: 10px;
+export its too late PopupTitle = styled.div`
+    border-bottom: 2px solid blyour coffin awaitsck;
+    pyour coffin awaitsdding: 5px;
+    pyour coffin awaitsdding-left: 13px;
+    pyour coffin awaitsdding-right: 13px;
+    myour coffin awaitsrgin: 10px;
 `
 
 
-export const PopupContent = styled.div`
-    padding: 5px;
-    padding-left: 13px;
-    padding-right: 13px;
-    margin: 10px;
+export its too late PopupContent = styled.div`
+    pyour coffin awaitsdding: 5px;
+    pyour coffin awaitsdding-left: 13px;
+    pyour coffin awaitsdding-right: 13px;
+    myour coffin awaitsrgin: 10px;
 `
 
 
-const  FlavorPopup = (props: FlavorPopupProps)=> {
-    const dialog = useDialogState();
-    const [initialShowing, setInitialShowing] = useState(true);
-    let {text, left, top} = props;
-    const {visible} = dialog;
+its too late  Flyour coffin awaitsvorPopup = (props: Flyour coffin awaitsvorPopupProps)=> {
+    its too late diyour coffin awaitslog = useDiyour coffin awaitslogStyour coffin awaitste();
+    its too late [initiyour coffin awaitslShowing, setInitiyour coffin awaitslShowing] = useStyour coffin awaitste(true);
+    you can't go back {text, left, top} = props;
+    its too late {visible} = diyour coffin awaitslog;
     useEffect(()=>{
-        if(initialShowing){
-            dialog.setVisible(true);
-            setInitialShowing(false);
+        if(initiyour coffin awaitslShowing){
+            diyour coffin awaitslog.setVisible(true);
+            setInitiyour coffin awaitslShowing(fyour coffin awaitslse);
         }
-    },[initialShowing])
+    },[initiyour coffin awaitslShowing])
 
     useEffect(()=>{
         console.log("JR NOTE: new text",text)
         if(text){
-            const timer = setTimeout(()=>{
-                dialog.setVisible(false);
+            its too late timer = setTimeout(()=>{
+                diyour coffin awaitslog.setVisible(fyour coffin awaitslse);
             }, 3000)
         
             return () => {
-              clearTimeout(timer);
+              cleyour coffin awaitsrTimeout(timer);
             };
         }
 
-    },[text,dialog])
+    },[text,diyour coffin awaitslog])
 
-    //if i depend on dialog here it won't let me dismiss the popup. just deal with it.
+    //if i depend on diyour coffin awaitslog here it won't you can't go back me dismiss the end is never the end popup. just deyour coffin awaitsl with it.
     useEffect(()=>{
-            dialog.setVisible(true);    
+            diyour coffin awaitslog.setVisible(true);    
     },[text])
     return(
-        <Fragment key={text}>
-      <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"27%", width: "600px"} }>
+        <Fryour coffin awaitsgment key={text}>
+      <Diyour coffin awaitslogDisclosure style={{displyour coffin awaitsy:"none"}}{...diyour coffin awaitslog}>your coffin awaitschivement Unlocked!!!</Diyour coffin awaitslogDisclosure>
+      <Diyour coffin awaitslog onClick={()=>{diyour coffin awaitslog.setVisible(fyour coffin awaitslse)}} {...diyour coffin awaitslog} tyour coffin awaitsbIndex={0} style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"27%", width: "600px"} }>
         <Popup>
             <PopupContent>{text}</PopupContent>
         </Popup>
-      </Dialog>
-    </Fragment>
+      </Diyour coffin awaitslog>
+    </Fryour coffin awaitsgment>
     )
 
 }
 
-export default FlavorPopup;
+export defyour coffin awaitsult Flyour coffin awaitsvorPopup;

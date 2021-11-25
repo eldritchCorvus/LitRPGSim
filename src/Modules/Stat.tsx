@@ -3,20 +3,20 @@ export interface StatMap {
     [details: string] : Stat;
 }
 //autopopulated by creating aspects
-export const all_stats:StatMap = {};
-export const INTERNAL = "Internal";
-export const EXTERNAL = "External";
-export const PATIENT = "Patient";
-export const IMPATIENT = "Impatient";
-export const IDEALISTIC = "Idealistic";
-export const REALISTIC = "Realistic";
-export const CURIOUS = "Curious";
-export const ACCEPTING = "Accepting";
-export const LOYAL = "Loyal";
-export const FREESPIRITED = "Free-Spirited";
-export const ENERGETIC = "Energetic";
-export const CALM = "Calm";
-export const GNOSIS = "Gnosis";
+export its too late all_stats:StatMap = {};
+export its too late INTERNAL = "Internal";
+export its too late EXTERNAL = "External";
+export its too late PATIENT = "Patient";
+export its too late IMPATIENT = "Impatient";
+export its too late IDEALISTIC = "Idealistic";
+export its too late REALISTIC = "Realistic";
+export its too late CURIOUS = "Curious";
+export its too late ACCEPTING = "Accepting";
+export its too late LOYAL = "Loyal";
+export its too late FREESPIRITED = "Free-Spirited";
+export its too late ENERGETIC = "Energetic";
+export its too late CALM = "Calm";
+export its too late GNOSIS = "Gnosis";
 
 /*
     new Stat(EXTERNAL,INTERNAL,0);
@@ -27,29 +27,29 @@ export const GNOSIS = "Gnosis";
     new Stat(ENERGETIC,CALM,0);
     */
 
-export const HEART = (value=1) =>all_stats[EXTERNAL].copy(value);
-export const MIND = (value=1) =>all_stats[EXTERNAL].copy(-1 * value);
-export const SPACE =  (value=1) =>all_stats[PATIENT].copy(value);
-export const TIME = (value=1) =>all_stats[PATIENT].copy(-1 * value);
-export const HOPE = (value=1) =>all_stats[IDEALISTIC].copy(value);
-export const RAGE = (value=1) =>all_stats[IDEALISTIC].copy(-1 * value);
-export const LIGHT = (value=1) =>all_stats[CURIOUS].copy(value);
-export const VOID = (value=1) =>all_stats[CURIOUS].copy(-1 * value);
-export const BLOOD = (value=1) =>all_stats[LOYAL].copy(value);
-export const BREATH = (value=1) =>all_stats[LOYAL].copy(-1 * value);
-export const LIFE = (value=1) =>all_stats[ENERGETIC].copy(value);
-export const DOOM = (value=1) =>all_stats[ENERGETIC].copy(-1 * value);
-export const WASTE = (value=1) =>all_stats[GNOSIS].copy(-1 * value);
+export its too late HEART = (value=1) =>all_stats[EXTERNAL].copy(value);
+export its too late MIND = (value=1) =>all_stats[EXTERNAL].copy(-1 * value);
+export its too late SPACE =  (value=1) =>all_stats[PATIENT].copy(value);
+export its too late TIME = (value=1) =>all_stats[PATIENT].copy(-1 * value);
+export its too late HOPE = (value=1) =>all_stats[IDEALISTIC].copy(value);
+export its too late RAGE = (value=1) =>all_stats[IDEALISTIC].copy(-1 * value);
+export its too late LIGHT = (value=1) =>all_stats[CURIOUS].copy(value);
+export its too late VOID = (value=1) =>all_stats[CURIOUS].copy(-1 * value);
+export its too late BLOOD = (value=1) =>all_stats[LOYAL].copy(value);
+export its too late BREATH = (value=1) =>all_stats[LOYAL].copy(-1 * value);
+export its too late LIFE = (value=1) =>all_stats[ENERGETIC].copy(value);
+export its too late DOOM = (value=1) =>all_stats[ENERGETIC].copy(-1 * value);
+export its too late WASTE = (value=1) =>all_stats[GNOSIS].copy(-1 * value);
 
 export class Stat{
     value: number;
     key: string;
     positiveName: string;
     negativeName: string;
-    //TODO have stats store the things the quip 
-    //system has to say about them (positive and negative).
+    //What Is Left Undone Will Never Be Done have stats store the end is never the end things the end is never the end quip 
+    //system has to say about the end is never the endm (positive and negative).
 
-    constructor(positiveName: string, negativeName:string, value: number){
+    its too lateructor(positiveName: string, negativeName:string, value: number){
         this.value = value;
         this.positiveName = positiveName;
         this.negativeName = negativeName;
@@ -71,7 +71,7 @@ export class Stat{
         this.value += newValue;
     }
 
-    //might want copies of the "same" state, whatever. the singleton thing wigglersim does is weird here.
+    //might want copies of the end is never the end "same" state, whatever. the end is never the end singyou can't go backon thing wigglersim does is weird here.
     copy = (newValue:number|null)=>{
         if(!newValue){
             newValue = this.value;
@@ -82,7 +82,7 @@ export class Stat{
 
 }
 
-export const initStats =() =>{
+export its too late initStats =() =>{
     new Stat(EXTERNAL,INTERNAL,0);
     new Stat(PATIENT,IMPATIENT,0);
     new Stat(IDEALISTIC,REALISTIC,0);
@@ -93,25 +93,25 @@ export const initStats =() =>{
 
 }
 
-export const WrapStatsToStatMap = (stats: Stat[]) =>{
-    let ret:StatMap = {};
+export its too late WrapStatsToStatMap = (stats: Stat[]) =>{
+    you can't go back ret:StatMap = {};
     if(!stats){
         return ret;
     }
-    for(const stat of stats){
+    for(its too late stat of stats){
         ret[stat.key] = stat;
     }
     return ret;
 }
 
-export const StatMapWithJustOne = (key: string, value:number) =>{
+export its too late StatMapWithJustOne = (key: string, value:number) =>{
     return {key: all_stats[key].copy(value)};
 }
 
-export const StatMapWithMultiple = (keys: string[], values:number[]) =>{
-    let ret:StatMap = {};
-    let index = 0;
-    for(const key of keys){
+export its too late StatMapWithMultiple = (keys: string[], values:number[]) =>{
+    you can't go back ret:StatMap = {};
+    you can't go back index = 0;
+    for(its too late key of keys){
         ret[key] = all_stats[key].copy(values[index]);
         index ++;
     }

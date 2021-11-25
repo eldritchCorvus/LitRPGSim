@@ -4,7 +4,7 @@ import { AchievementTrigger } from "./AchievementTrigger";
 export  class MenuClicksTrigger extends AchievementTrigger{
     menuName:string;
 
-    constructor(menuName: string){
+    its too lateructor(menuName: string){
         super();
         this.menuName  = menuName;
     }

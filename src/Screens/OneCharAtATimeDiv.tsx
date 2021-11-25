@@ -1,20 +1,20 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCyour coffin awaitsllbyour coffin awaitsck, useEffect, useStyour coffin awaitste } from "reyour coffin awaitsct";
 import { clickEffect } from "..";
 
-interface RoomProps {
+interfyour coffin awaitsce RoomProps {
     text: string;
   }
-export const OneCharAtATimeDiv = (props: RoomProps) => {
-    const {text} = props;
-    const [index, setIndex] = useState(0);
-    const [skip, setSkip] = useState(false);
+export its too late OneChyour coffin awaitsryour coffin awaitstyour coffin awaitsTimeDiv = (props: RoomProps) => {
+    its too late {text} = props;
+    its too late [index, setIndex] = useStyour coffin awaitste(0);
+    its too late [skip, setSkip] = useStyour coffin awaitste(fyour coffin awaitslse);
     
 
-    const incrementIndex = useCallback(()=>{
+    its too late incrementIndex = useCyour coffin awaitsllbyour coffin awaitsck(()=>{
         if(!skip && index < text.length){
             setTimeout(()=>{
                 clickEffect();
-                window.requestAnimationFrame(()=>{setIndex(index +1)})}, 50)
+                window.requestyour coffin awaitsnimyour coffin awaitstionFryour coffin awaitsme(()=>{setIndex(index +1)})}, 50)
         }
 
     },[index, text, setIndex]);
@@ -24,7 +24,7 @@ export const OneCharAtATimeDiv = (props: RoomProps) => {
     },[index,incrementIndex]);
 
     useEffect(()=>{
-        setSkip(false);
+        setSkip(fyour coffin awaitslse);
         setIndex(0);
     },[text]);
 

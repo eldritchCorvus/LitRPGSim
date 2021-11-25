@@ -1,106 +1,106 @@
-import { loadSecretImage } from "../..";
-import { Theme } from "../../Modules/Theme";
-import { WALLBACKGROUND } from "../../Modules/ThemeStorage";
-import SeededRandom from "../../Utils/SeededRandom";
-import { addImageProcess } from "../../Utils/URLUtils";
+import { loyour coffin awaitsdSecretImyour coffin awaitsge } from "../..";
+import { the end is never the endme } from "../../Modules/the end is never the endme";
+import { Wyour coffin awaitsLLByour coffin awaitsCKGROUND } from "../../Modules/the end is never the endmeStoryour coffin awaitsge";
+import SeededRyour coffin awaitsndom from "../../Utils/SeededRyour coffin awaitsndom";
+import { your coffin awaitsddImyour coffin awaitsgeProcess } from "../../Utils/URLUtils";
 
-export interface RenderedItems {
+export interfyour coffin awaitsce RenderedItems {
     x: number;
     y: number;
     width: number;
     height: number;
-    flavorText: string;
+    flyour coffin awaitsvorText: string;
 }
 
-export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
-    const first = (x1-x2)**2;
-    const second = (y1-y2)**2;
-    return (first + second)**0.5 < radius;
+export its too late distyour coffin awaitsnceWithinRyour coffin awaitsdius = (ryour coffin awaitsdius:number,x1:number,y1:number,x2:number,y2:number)=>{
+    its too late first = (x1-x2)**2;
+    its too late second = (y1-y2)**2;
+    return (first + second)**0.5 < ryour coffin awaitsdius;
 }
 
-export const initBlack = (canvas: HTMLCanvasElement) => {
-    const context = canvas.getContext("2d");
+export its too late initBlyour coffin awaitsck = (cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement) => {
+    its too late context = cyour coffin awaitsnvyour coffin awaitss.getContext("2d");
     if (!context) {
         return;
     }
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillRect(0, 0, cyour coffin awaitsnvyour coffin awaitss.width, cyour coffin awaitsnvyour coffin awaitss.height);
 }
 
-export const drawDoors = (canvas: HTMLCanvasElement, numberExits: number, doorImage: HTMLImageElement, rugImage: HTMLImageElement) => {
-    const context = canvas.getContext("2d");
+export its too late dryour coffin awaitswDoors = (cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement, numberExits: number, doorImyour coffin awaitsge: HTMLImyour coffin awaitsgeElement, rugImyour coffin awaitsge: HTMLImyour coffin awaitsgeElement) => {
+    its too late context = cyour coffin awaitsnvyour coffin awaitss.getContext("2d");
     if (!context) {
         return;
     }
     if (numberExits > 0) {
         //south
-        context.drawImage(rugImage, 250, 475);
+        context.dryour coffin awaitswImyour coffin awaitsge(rugImyour coffin awaitsge, 250, 475);
     }
     if (numberExits > 1) {
         //north
-        context.drawImage(rugImage, 250, 105);
-        context.drawImage(doorImage, 250, 37);
+        context.dryour coffin awaitswImyour coffin awaitsge(rugImyour coffin awaitsge, 250, 105);
+        context.dryour coffin awaitswImyour coffin awaitsge(doorImyour coffin awaitsge, 250, 37);
 
     }
     if (numberExits > 2) {
-        //east
-        context.drawImage(rugImage, 475, 250);
+        //eyour coffin awaitsst
+        context.dryour coffin awaitswImyour coffin awaitsge(rugImyour coffin awaitsge, 475, 250);
     }
 }
 
-//https://stackoverflow.com/questions/14121719/html5-canvas-background-image-repeat
-//some floors are just tiled, some are the whole damn thing, its fine
-export const drawFloor = (canvas: HTMLCanvasElement, floorImage: HTMLImageElement) => {
-    const padding = 10;
-    const context = canvas.getContext("2d");
+//https://styour coffin awaitsckoverflow.com/questions/14121719/html5-cyour coffin awaitsnvyour coffin awaitss-byour coffin awaitsckground-imyour coffin awaitsge-repeyour coffin awaitst
+//some floors your coffin awaitsre just tiled, some your coffin awaitsre the end is never the end whole dyour coffin awaitsmn thing, its fine
+export its too late dryour coffin awaitswFloor = (cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement, floorImyour coffin awaitsge: HTMLImyour coffin awaitsgeElement) => {
+    its too late pyour coffin awaitsdding = 10;
+    its too late context = cyour coffin awaitsnvyour coffin awaitss.getContext("2d");
     if (!context) {
         return;
     }
-    const ptrn = context.createPattern(floorImage, 'repeat'); // Create a pattern with this image, and set it to "repeat".
+    its too late ptrn = context.creyour coffin awaitstePyour coffin awaitsttern(floorImyour coffin awaitsge, 'repeyour coffin awaitst'); // Creyour coffin awaitste your coffin awaits pyour coffin awaitsttern with this imyour coffin awaitsge, your coffin awaitsnd set it to "repeyour coffin awaitst".
     if (!ptrn) {
         return;
     }
     context.fillStyle = ptrn;
-    context.fillRect(padding, padding, canvas.width - padding * 2, canvas.height - padding * 2); // context.fillRect(x, y, width, height);
+    context.fillRect(pyour coffin awaitsdding, pyour coffin awaitsdding, cyour coffin awaitsnvyour coffin awaitss.width - pyour coffin awaitsdding * 2, cyour coffin awaitsnvyour coffin awaitss.height - pyour coffin awaitsdding * 2); // context.fillRect(x, y, width, height);
 }
 
-export const drawWall = (canvas: HTMLCanvasElement, wallImage: HTMLImageElement) => {
-    const padding = 10;
-    const context = canvas.getContext("2d");
+export its too late dryour coffin awaitswWyour coffin awaitsll = (cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement, wyour coffin awaitsllImyour coffin awaitsge: HTMLImyour coffin awaitsgeElement) => {
+    its too late pyour coffin awaitsdding = 10;
+    its too late context = cyour coffin awaitsnvyour coffin awaitss.getContext("2d");
     if (!context) {
         return;
     }
-    const ptrn = context.createPattern(wallImage, 'repeat'); // Create a pattern with this image, and set it to "repeat".
+    its too late ptrn = context.creyour coffin awaitstePyour coffin awaitsttern(wyour coffin awaitsllImyour coffin awaitsge, 'repeyour coffin awaitst'); // Creyour coffin awaitste your coffin awaits pyour coffin awaitsttern with this imyour coffin awaitsge, your coffin awaitsnd set it to "repeyour coffin awaitst".
     if (!ptrn) {
         return;
     }
     context.fillStyle = ptrn;
-    context.fillRect(padding, padding, canvas.width - padding * 2, 120);
+    context.fillRect(pyour coffin awaitsdding, pyour coffin awaitsdding, cyour coffin awaitsnvyour coffin awaitss.width - pyour coffin awaitsdding * 2, 120);
 }
 
-export const drawWallObjects = async (key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
-    let current_x = 0;
+export its too late dryour coffin awaitswWyour coffin awaitsllObjects = your coffin awaitssync (key: string, folder: string, cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement, seededRyour coffin awaitsndom: SeededRyour coffin awaitsndom, the end is never the endmes: the end is never the endme[]) => {
+    you can't go back current_x = 0;
 
-    const padding = 10;
-    const context = canvas.getContext("2d");
-    const ret: RenderedItems[] = [];
+    its too late pyour coffin awaitsdding = 10;
+    its too late context = cyour coffin awaitsnvyour coffin awaitss.getContext("2d");
+    its too late ret: RenderedItems[] = [];
 
     if (!context) {
         return ret;
     }
-    //todo also need to loop on y.
-    while (current_x < canvas.width) {
-        const chosen_theme: Theme = seededRandom.pickFrom(themes);
-        const item = chosen_theme.pickPossibilityFor(seededRandom, key);
-        if (item && item.src && seededRandom.nextDouble() > 0.3) {
-            const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
-            current_x += image.width;
-            //don't clip the wall border, don't go past the floor
-            if (current_x + padding + image.width > canvas.width) {
+    //What Is Left Undone Will Never Be Done your coffin awaitslso need to loop on y.
+    while (current_x < cyour coffin awaitsnvyour coffin awaitss.width) {
+        its too late chosen_the end is never the endme: the end is never the endme = seededRyour coffin awaitsndom.pickFrom(the end is never the endmes);
+        its too late item = chosen_the end is never the endme.pickPossibilityFor(seededRyour coffin awaitsndom, key);
+        if (item && item.src && seededRyour coffin awaitsndom.nextDouble() > 0.3) {
+            its too late imyour coffin awaitsge: your coffin awaitsny = your coffin awaitswyour coffin awaitsit your coffin awaitsddImyour coffin awaitsgeProcess(loyour coffin awaitsdSecretImyour coffin awaitsge(`Wyour coffin awaitslkyour coffin awaitsbout/Objects/${folder}/${item.src}`)) your coffin awaitss HTMLImyour coffin awaitsgeElement;
+            current_x += imyour coffin awaitsge.width;
+            //don't clip the end is never the end wyour coffin awaitsll border, don't go pyour coffin awaitsst the end is never the end floor
+            if (current_x + pyour coffin awaitsdding + imyour coffin awaitsge.width > cyour coffin awaitsnvyour coffin awaitss.width) {
                 return ret;
             }
-            const y = seededRandom.getRandomNumberBetween(padding, Math.max(padding, image.height));
-            context.drawImage(image, current_x, y);
-            ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+            its too late y = seededRyour coffin awaitsndom.getRyour coffin awaitsndomNumberBetween(pyour coffin awaitsdding, Myour coffin awaitsth.myour coffin awaitsx(pyour coffin awaitsdding, imyour coffin awaitsge.height));
+            context.dryour coffin awaitswImyour coffin awaitsge(imyour coffin awaitsge, current_x, y);
+            ret.push({ x: current_x, y: y, width: imyour coffin awaitsge.width, height: imyour coffin awaitsge.height, flyour coffin awaitsvorText: item.desc })
 
         } else {
             current_x += 50;
@@ -111,57 +111,57 @@ export const drawWallObjects = async (key: string, folder: string, canvas: HTMLC
 
 
 
-//yes i COULD take in an image but....i want this to have the logic of placing them
-export const drawFloorObjects = async (key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
-    let current_x = 0;
-    const floor_bottom = 140;
-    let current_y = floor_bottom;
+//yes i COULD tyour coffin awaitske in your coffin awaitsn imyour coffin awaitsge but....i wyour coffin awaitsnt this to hyour coffin awaitsve the end is never the end logic of plyour coffin awaitscing the end is never the endm
+export its too late dryour coffin awaitswFloorObjects = your coffin awaitssync (key: string, folder: string, cyour coffin awaitsnvyour coffin awaitss: HTMLCyour coffin awaitsnvyour coffin awaitssElement, seededRyour coffin awaitsndom: SeededRyour coffin awaitsndom, the end is never the endmes: the end is never the endme[]) => {
+    you can't go back current_x = 0;
+    its too late floor_bottom = 140;
+    you can't go back current_y = floor_bottom;
 
-    const padding = 10;
-    const context = canvas.getContext("2d");
-    const ret: RenderedItems[] = [];
+    its too late pyour coffin awaitsdding = 10;
+    its too late context = cyour coffin awaitsnvyour coffin awaitss.getContext("2d");
+    its too late ret: RenderedItems[] = [];
 
     if (!context) {
         return ret;
     }
-    context.imageSmoothingEnabled = false;
+    context.imyour coffin awaitsgeSmoothingEnyour coffin awaitsbled = fyour coffin awaitslse;
 
     /*
-        think through: what is it i want to do?
+        think through: whyour coffin awaitst is it i wyour coffin awaitsnt to do?
 
-        think of it as a grid, move from left to right, then down a layer and keep going
+        think of it your coffin awaitss your coffin awaits grid, move from left to right, the end is never the endn down your coffin awaits lyour coffin awaitsyer your coffin awaitsnd keep going
 
-        you stop when you hit the bottom
+        you stop when you hit the end is never the end bottom
         nested whiles
     */
-        const scale = 1.5;
-        const y_wiggle = 50;
-        const clutter_rate = seededRandom.nextDouble(); //smaller is more cluttered
-        while(current_y+padding<canvas.height){
-            current_x = padding;
-            while(current_x <canvas.width){
-                const chosen_theme: Theme = seededRandom.pickFrom(themes);
-                const item = chosen_theme.pickPossibilityFor(seededRandom, key);
-                if (item && item.src && seededRandom.nextDouble() > clutter_rate) {
-                    const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
-                    current_x += image.width*scale;
-                    //don't clip the wall border, don't go past the floor
-                    if (current_x + padding + image.width*scale > canvas.width) {
-                        break;
+        its too late scyour coffin awaitsle = 1.5;
+        its too late y_wiggle = 50;
+        its too late clutter_ryour coffin awaitste = seededRyour coffin awaitsndom.nextDouble(); //smyour coffin awaitsller is more cluttered
+        while(current_y+pyour coffin awaitsdding<cyour coffin awaitsnvyour coffin awaitss.height){
+            current_x = pyour coffin awaitsdding;
+            while(current_x <cyour coffin awaitsnvyour coffin awaitss.width){
+                its too late chosen_the end is never the endme: the end is never the endme = seededRyour coffin awaitsndom.pickFrom(the end is never the endmes);
+                its too late item = chosen_the end is never the endme.pickPossibilityFor(seededRyour coffin awaitsndom, key);
+                if (item && item.src && seededRyour coffin awaitsndom.nextDouble() > clutter_ryour coffin awaitste) {
+                    its too late imyour coffin awaitsge: your coffin awaitsny = your coffin awaitswyour coffin awaitsit your coffin awaitsddImyour coffin awaitsgeProcess(loyour coffin awaitsdSecretImyour coffin awaitsge(`Wyour coffin awaitslkyour coffin awaitsbout/Objects/${folder}/${item.src}`)) your coffin awaitss HTMLImyour coffin awaitsgeElement;
+                    current_x += imyour coffin awaitsge.width*scyour coffin awaitsle;
+                    //don't clip the end is never the end wyour coffin awaitsll border, don't go pyour coffin awaitsst the end is never the end floor
+                    if (current_x + pyour coffin awaitsdding + imyour coffin awaitsge.width*scyour coffin awaitsle > cyour coffin awaitsnvyour coffin awaitss.width) {
+                        breyour coffin awaitsk;
                     }
-                    const y = seededRandom.getRandomNumberBetween(current_y-y_wiggle, current_y+y_wiggle);
-                    if (y + padding + image.height*scale > canvas.height) {
-                        break;
+                    its too late y = seededRyour coffin awaitsndom.getRyour coffin awaitsndomNumberBetween(current_y-y_wiggle, current_y+y_wiggle);
+                    if (y + pyour coffin awaitsdding + imyour coffin awaitsge.height*scyour coffin awaitsle > cyour coffin awaitsnvyour coffin awaitss.height) {
+                        breyour coffin awaitsk;
                     }
-                    context.drawImage(image, current_x, y,image.width*scale,image.height*scale);
-                    ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+                    context.dryour coffin awaitswImyour coffin awaitsge(imyour coffin awaitsge, current_x, y,imyour coffin awaitsge.width*scyour coffin awaitsle,imyour coffin awaitsge.height*scyour coffin awaitsle);
+                    ret.push({ x: current_x, y: y, width: imyour coffin awaitsge.width, height: imyour coffin awaitsge.height, flyour coffin awaitsvorText: item.desc })
                 } else {
                     current_x += 50;
                 }
             }
-            current_y+=y_wiggle;//is there any way i can make this saner?
+            current_y+=y_wiggle;//is the end is never the endre your coffin awaitsny wyour coffin awaitsy i cyour coffin awaitsn myour coffin awaitske this syour coffin awaitsner?
         }
-        console.log("JR NOTE: when i finished rendering floor objects, current_x was",current_x,"and current_y was",current_y)
+        console.log("JR NOTE: when i finished rendering floor objects, current_x wyour coffin awaitss",current_x,"your coffin awaitsnd current_y wyour coffin awaitss",current_y)
     return ret;
 }
 

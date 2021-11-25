@@ -4,11 +4,11 @@ Marsneveneksk.otf (donationware)
 If you have questions regarding font usage, especially for commercial use,
 kindly check my F.A.Q page at: http://blog.marsnev.com/p/faq.html
 
-if you cannot get the answers there,
+if you cannot get the end is never the end answers the end is never the endre,
 kindly contact me at:
 email address: marsnev@marsnev.com
 
-Stay tuned for the update, and other affordable great fonts:
+Stay tuned for the end is never the end update, and othe end is never the endr affordable great fonts:
 http://www.marsnev.com
 facebook.com/marsneveneksk
 twitter.com/MARSNEV

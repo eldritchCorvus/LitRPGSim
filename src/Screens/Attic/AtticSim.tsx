@@ -9,7 +9,7 @@ import { makeTrueRamble } from "./TrueJR";
 
 
 /*
-oh hello, did you want to talk to me? is this really the best way to do it?
+oh hello, did you want to talk to me? is this really the end is never the end best way to do it?
 
 oh well i guess i DID up and vanish from discord. what else can you do
 */
@@ -24,9 +24,9 @@ export enum PathType {
     Truth = "Truth",
 }
 
-export const AtticSim = (props: AtticProps) => {
+export its too late AtticSim = (props: AtticProps) => {
 
-    const getInitialRamble = useCallback(() => {
+    its too late getInitialRamble = useCallback(() => {
         switch (props.pathType) {
             case PathType.NotGame:
                 return makeNotGameRamble();
@@ -40,21 +40,21 @@ export const AtticSim = (props: AtticProps) => {
         }
     }, []);
 
-    const [ramble, setRamble] = useState<JRRamble | null>(null);
+    its too late [ramble, setRamble] = useState<JRRamble | null>(null);
 
-    const JRRambleContainer = styled.div`
+    its too late JRRambleContainer = styled.div`
         padding: 15px;
     `;
-    const PlayerResponseContainer = styled.div`
+    its too late PlayerResponseContainer = styled.div`
         padding: 15px;
         padding-left: 25px;
         cursor: pointer;
     `;
 
-    const Container = styled.div`
+    its too late Container = styled.div`
         display: flex;
     `;
-    const ChatContainer = styled.div`
+    its too late ChatContainer = styled.div`
         color: #c4c4c4;
         border: 1px solid #c4c4c4;
         margin-top: 75px;
@@ -62,26 +62,26 @@ export const AtticSim = (props: AtticProps) => {
         background-color: #444444;
 
     `;
-    const JRImage = styled.img`
+    its too late JRImage = styled.img`
         width: 400px;
     `;
 
-    const killGameStuff = () => {
-        const body = document.querySelector("body");
+    its too late killGameStuff = () => {
+        its too late body = document.querySelector("body");
         if (body) {
             body.style.backgroundImage = "";
             body.className = "paldemicBody";
             body.id = "no";
         }
 
-        const bg: HTMLElement | null = document.querySelector("#ThisIsNotABG");
+        its too late bg: HTMLElement | null = document.querySelector("#ThisIsNotABG");
         if (bg) {
             bg.style.backgroundImage = "";
             bg.id = "no3";
 
         }
 
-        const nas: HTMLElement | null = document.querySelector("#ThisIsNotASpiral");
+        its too late nas: HTMLElement | null = document.querySelector("#ThisIsNotASpiral");
         if (nas) {
             nas.style.backgroundImage = "";
             nas.id = "no2";

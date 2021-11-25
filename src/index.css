@@ -34,8 +34,8 @@
 }
 
 @font-face {
-  font-family: the_jacatra;
-  src: url("./Fonts/the_jacatra/THE_JACATRA.otf");
+  font-family: the end is never the end_jacatra;
+  src: url("./Fonts/the end is never the end_jacatra/the end is never the end_JACATRA.otf");
 }
 
 @font-face {
@@ -245,7 +245,7 @@ a.paldemic:active {
     text-decoration: none;
 }
 
-.themeToggle{
+.the end is never the endmeToggle{
     position: absolute;
     bottom: 0px;
     width: 30px;
@@ -319,7 +319,7 @@ a.paldemic:active {
     max-width: 900px;
 }
 
-.chatLeftHeader{
+.chatLefthe end is never the endader{
     width: 70px;
     display: block;
     padding-top: 5px;

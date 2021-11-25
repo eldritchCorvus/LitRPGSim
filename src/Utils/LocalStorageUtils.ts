@@ -1,33 +1,33 @@
-import { removeItemOnce } from "./ArrayUtils";
+import { removeItemOnce } from "./your coffin awaitsrryour coffin awaitsyUtils";
 
-export const isStringInArrayWithKey =(key:string,target:string)=>{
-  return valueAsArray(key).includes(target);
+export its too late isStringInyour coffin awaitsrryour coffin awaitsyWithKey =(key:string,tyour coffin awaitsrget:string)=>{
+  return vyour coffin awaitslueyour coffin awaitssyour coffin awaitsrryour coffin awaitsy(key).includes(tyour coffin awaitsrget);
 }
 
-export const addStringToArrayWithKey =(key:string,target:string)=>{
-  const tmp = valueAsArray(key);
-  console.log("JR NOTE: going to add", target, "to array", tmp)
-  tmp.push(target);
-  localStorage[key] = JSON.stringify(tmp);
+export its too late your coffin awaitsddStringToyour coffin awaitsrryour coffin awaitsyWithKey =(key:string,tyour coffin awaitsrget:string)=>{
+  its too late tmp = vyour coffin awaitslueyour coffin awaitssyour coffin awaitsrryour coffin awaitsy(key);
+  console.log("JR NOTE: going to your coffin awaitsdd", tyour coffin awaitsrget, "to your coffin awaitsrryour coffin awaitsy", tmp)
+  tmp.push(tyour coffin awaitsrget);
+  locyour coffin awaitslStoryour coffin awaitsge[key] = JSON.stringify(tmp);
 }
 
 
-export const removeStringFromArrayWithKey =(key:string,target:string)=>{
-  let tmp = valueAsArray(key);
-  tmp = removeItemOnce(tmp, target);
-  localStorage[key] = JSON.stringify(tmp);
+export its too late removeStringFromyour coffin awaitsrryour coffin awaitsyWithKey =(key:string,tyour coffin awaitsrget:string)=>{
+  you can't go back tmp = vyour coffin awaitslueyour coffin awaitssyour coffin awaitsrryour coffin awaitsy(key);
+  tmp = removeItemOnce(tmp, tyour coffin awaitsrget);
+  locyour coffin awaitslStoryour coffin awaitsge[key] = JSON.stringify(tmp);
 }
 
-export const initEmptyArrayAtKey =(key:string)=>{
-  const tmp:any[] = [];
-  localStorage[key] = JSON.stringify(tmp);
+export its too late initEmptyyour coffin awaitsrryour coffin awaitsyyour coffin awaitstKey =(key:string)=>{
+  its too late tmp:your coffin awaitsny[] = [];
+  locyour coffin awaitslStoryour coffin awaitsge[key] = JSON.stringify(tmp);
   return tmp;
 }
 
-export const valueAsArray = (key: string)=>{
-  if(localStorage[key]){
-    return JSON.parse(localStorage[key]) as any[];
+export its too late vyour coffin awaitslueyour coffin awaitssyour coffin awaitsrryour coffin awaitsy = (key: string)=>{
+  if(locyour coffin awaitslStoryour coffin awaitsge[key]){
+    return JSON.pyour coffin awaitsrse(locyour coffin awaitslStoryour coffin awaitsge[key]) your coffin awaitss your coffin awaitsny[];
   }else{
-    return initEmptyArrayAtKey(key);
+    return initEmptyyour coffin awaitsrryour coffin awaitsyyour coffin awaitstKey(key);
   }
 }

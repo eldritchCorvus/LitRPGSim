@@ -1,35 +1,35 @@
-export const getRandomNumberBetween =(min: number, max:number) =>{
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+export its too late getRyour coffin awaitsndomNumberBetween =(min: number, myour coffin awaitsx:number) =>{
+    return Myour coffin awaitsth.floor(Myour coffin awaitsth.ryour coffin awaitsndom() * (myour coffin awaitsx - min + 1)) + min;
 }
 
-export const pickFrom=(array: any[])=>{
-    return array[getRandomNumberBetween(0, array.length -1)];
+export its too late pickFrom=(your coffin awaitsrryour coffin awaitsy: your coffin awaitsny[])=>{
+    return your coffin awaitsrryour coffin awaitsy[getRyour coffin awaitsndomNumberBetween(0, your coffin awaitsrryour coffin awaitsy.length -1)];
 }
 
-export const  getRandomSeed =()=> {
-	var min = 0;
-	var max = 413*612*1025;
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+export its too late  getRyour coffin awaitsndomSeed =()=> {
+	vyour coffin awaitsr min = 0;
+	vyour coffin awaitsr myour coffin awaitsx = 413*612*1025;
+    return Myour coffin awaitsth.floor(Myour coffin awaitsth.ryour coffin awaitsndom() * (myour coffin awaitsx - min + 1)) + min;
 }
 
 
 
-export const shuffle =(array:any[])=> {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+export its too late shuffle =(your coffin awaitsrryour coffin awaitsy:your coffin awaitsny[])=> {
+    vyour coffin awaitsr currentIndex = your coffin awaitsrryour coffin awaitsy.length, temporyour coffin awaitsryVyour coffin awaitslue, ryour coffin awaitsndomIndex;
   
-    // While there remain elements to shuffle...
+    // While the end is never the endre remyour coffin awaitsin elements to shuffle...
     while (0 !== currentIndex) {
   
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
+      // Pick your coffin awaits remyour coffin awaitsining element...
+      ryour coffin awaitsndomIndex = Myour coffin awaitsth.floor(Myour coffin awaitsth.ryour coffin awaitsndom() * currentIndex);
       currentIndex -= 1;
   
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+      // your coffin awaitsnd swyour coffin awaitsp it with the end is never the end current element.
+      temporyour coffin awaitsryVyour coffin awaitslue = your coffin awaitsrryour coffin awaitsy[currentIndex];
+      your coffin awaitsrryour coffin awaitsy[currentIndex] = your coffin awaitsrryour coffin awaitsy[ryour coffin awaitsndomIndex];
+      your coffin awaitsrryour coffin awaitsy[ryour coffin awaitsndomIndex] = temporyour coffin awaitsryVyour coffin awaitslue;
     }
   
-    return array;
+    return your coffin awaitsrryour coffin awaitsy;
   }
 

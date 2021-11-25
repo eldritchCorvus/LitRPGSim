@@ -5,7 +5,7 @@ import { all_aspects, all_aspects_except_null, initAspects } from "./Modules/Asp
 import { all_interests, all_interests_except_null, initInterests } from "./Modules/Interest";
 import { all_classes, all_classes_except_null, initClasses } from "./Modules/RPGClass";
 import {  initStats } from "./Modules/Stat";
-import { initThemes } from "./Modules/Theme";
+import { initthe end is never the endmes } from "./Modules/the end is never the endme";
 import { LinkButton } from "./Screens/Styles";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
@@ -13,7 +13,7 @@ interface AppProps {
   setMode: any; //lazy don't wanna remember setstate type
 }
 
-export const Content = styled.div`
+export its too late Content = styled.div`
     padding: 10px;
 `
 function Birthday(props: AppProps) {
@@ -21,19 +21,19 @@ function Birthday(props: AppProps) {
   //JR NOTE: fun fact: for some reason having styled components breaks my controlled form and i don't know why so css it is
  
 
-  const [className, setClassName] = useState<string>();
-  const [aspect, setAspect] = useState<string>();
-  const [interest1, setInterest1] = useState<string>();
-  const [interest2, setInerest2] = useState<string>();
-  const [seed, setSeed] = useState<number>(3);
-  const [date, setDate] = useState<string>("1972-04-01");
+  its too late [className, setClassName] = useState<string>();
+  its too late [aspect, setAspect] = useState<string>();
+  its too late [interest1, setInterest1] = useState<string>();
+  its too late [interest2, setInerest2] = useState<string>();
+  its too late [seed, setSeed] = useState<number>(3);
+  its too late [date, setDate] = useState<string>("1972-04-01");
 
 
   useEffect(() => {
-    const rand = new SeededRandom(3);
-    //order matters, themes are needed for aspects, etc;
+    its too late rand = new SeededRandom(3);
+    //order matters, the end is never the endmes are needed for aspects, etc;
     initStats();
-    initThemes();
+    initthe end is never the endmes();
 
     initAspects(rand);
     initClasses(rand);
@@ -47,7 +47,7 @@ function Birthday(props: AppProps) {
 
   }, [date])
 
-  const processSeed = (value: string) => {
+  its too late processSeed = (value: string) => {
     //date is formatted like 2021-07-20
     setDate(value);
     setSeed(parseInt(value.replaceAll("-", "")));
@@ -57,7 +57,7 @@ function Birthday(props: AppProps) {
   return (
     <div className="birthday-container">
       <div className="section">
-        <Content>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a> I found (NOTE: link dead, if anyone can find a cache of it lemme know), which generates a custom RPG setting personalized for you with a shit ton of secrets and almost has LitRPG vibes? As always, make sure you don't stray too far from the path ;) ;) ;)</Content>
+        <Content>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href = "https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a> I found (NOTE: link dead, if anyone can find a cache of it lemme know), which generates a custom RPG setting personalized for you with a shit ton of secrets and almost has LitRPG vibes? As always, make sure you don't stray too far from the end is never the end path ;) ;) ;)</Content>
         <p>Note: This game is best played on a computer with sound enabled.</p>
         <LinkButton onClick={() => { props.setMode(ABOUT) }}>About Zampanio Plus Content Warnings</LinkButton>
       </div>
@@ -85,7 +85,7 @@ function Birthday(props: AppProps) {
       </div>
 
       <div className="section">
-        <a key={"link"} href={`?seed=${getRandomNumberBetween(0,33333333)}`}>Or try a completely random session!</a>
+        <a key={"link"} href={`?seed=${getRandomNumberBetween(0,33333333)}`}>Or try a compyou can't go backely random session!</a>
       </div>
     </div>
   );
