@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
 import { drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, RenderedItems } from "./canvas_shit";
 
@@ -16,16 +16,16 @@ interface RoomProps {
     themeKeys: string[];
     seed: number;
     numberDoors: number;
+    canvasRef: RefObject<HTMLCanvasElement>;
     itemsRef: MutableRefObject<RenderedItems[]>;
 }
 
 const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Room: React.FC<RoomProps> = ({ themeKeys, seed, numberDoors, itemsRef }) => {
+export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef, numberDoors, itemsRef }) => {
     const seededRandom = new SeededRandom(seed);
 
-    const canvasRef = useRef<HTMLCanvasElement>(null);
     //this shoould change any time the themes do.
 
     const updateURLParams = (seed: number, theme_keys: string[]) => {

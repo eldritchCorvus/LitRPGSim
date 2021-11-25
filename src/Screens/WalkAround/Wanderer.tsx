@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import {distanceWithinRadius, drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, RenderedItems } from "./canvas_shit";
 import real_eye from './../../images/real_eye.png';
 import { doorEffect, loadSecretImage} from '../..';
@@ -179,6 +179,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
             if((key === "d" || key === "ArrowRight")&& prevLeft < maxLeft ){
                 prevLeft += 10;
             }
+            console.log("JR NOTE: afterw alking loc is ", prevTop, prevLeft);
             setPlayerLocation({top: prevTop, left: prevLeft});
             checkForDoor(prevTop, prevLeft);
             checkForItems(prevTop, prevLeft);
@@ -189,13 +190,31 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
         processWalk(event.key);
     }
 
+    const handleClick = (event: MouseEvent)=>{
+        //todo
+        console.log("JR NOTE: Click at: event", event);
+    }
+
+
     useEffect(() => {
         window.addEventListener('keydown', handleUserKeyPress);
     
         return () => {
           window.removeEventListener('keydown', handleUserKeyPress);
         };
-      });
+      },[]);
+
+     /* //because its on the canvas it should be relative to it.
+      useEffect(() => {
+          if(canvasRef.current){
+            canvasRef.current.addEventListener('mousedown', handleClick);
+
+            return () => {
+                canvasRef.current?.removeEventListener('mousedown', handleClick);
+            };
+          }
+
+      },[canvasRef]);*/
 
       console.log("JR NOTE: player loc",playerLocation, "spawn point is", spawnPoint)
     return(
