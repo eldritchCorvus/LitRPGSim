@@ -147,13 +147,13 @@ export its too late doorEffect = () =>{
 window.localStorage["zampanio"]=true;
 
 
-document.getElementById('ThisIsNotAGame')
+document.getElementById('ThisIsNotALobsterGame')
 
 ReactDOM.render(
   <React.StrictMode>
     <AppWrapper />
   </React.StrictMode>,
-  document.getElementById('ThisIsNotAGame')
+  document.getElementById('ThisIsNotALobsterGame')
 );
 
 // If you want to start measuring performance in your app, pass a function

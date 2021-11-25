@@ -52,7 +52,7 @@ body {
   background-repeat: repeat;
 }
 
-#ThisIsNotABG{
+#ThisIsNotALobsterBG{
   width: 100%;
   height: 100%;
   position: fixed;
@@ -60,7 +60,7 @@ body {
   left: 0px;
   z-index: -999;
 }
-#ThisIsNotABlog{
+#ThisIsNotALobsterBlog{
   display: none;
 }
 
@@ -85,7 +85,7 @@ body {
   }
 }
 
-#ThisIsNotASpiral{
+#ThisIsNotALobsterSpiral{
   position: fixed;
   width: 600px;
   height: 600px;
@@ -109,11 +109,11 @@ body {
   width: 100%;
 }
 
-#ThisIsNotAnEye1{
+#ThisIsNotALobsternEye1{
   display: none;
 }
 
-#ThisIsNotAnEye2{
+#ThisIsNotALobsternEye2{
   display: none;
 }
 

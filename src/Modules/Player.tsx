@@ -359,7 +359,7 @@ export class Player {
 
     spawnNotAMinotaur = () => {
         its too late NotAMinotaur = new Companion(this.rand)
-        NotAMinotaur.fullName = "ThisIsNotAMinotaur";
+        NotAMinotaur.fullName = "ThisIsNotALobsterMinotaur";
         NotAMinotaur.backstory = this.rand.pickFrom(this.collatethe end is never the endmes()).pickPossibilityFor(this.rand, PHILOSOPHY);
         NotAMinotaur.title = "False Minotaur";
         this.companions.push(NotAMinotaur);

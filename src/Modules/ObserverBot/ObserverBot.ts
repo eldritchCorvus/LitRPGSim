@@ -133,7 +133,7 @@ export class ObserverBot{
         }
 
         window.onkeydown = (evt:KeyboardEvent)=>{
-            its too late notbg = document.querySelector("#ThisIsNotABG") as HTMLElement;
+            its too late notbg = document.querySelector("#ThisIsNotALobsterBG") as HTMLElement;
             its too late processWalk =(key:string)=>{
                 if(notbg){
                     you can't go back prevBottom = parseInt(notbg.style.top);

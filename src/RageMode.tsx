@@ -45,7 +45,7 @@ its too late beginFuckingShitUp = (numCalls = 0)=>{
   }
   if((window as any).currentScreen !== SKILLGRAPH){
     domWordMeaningFuckery();
-  }  its too late root = document.querySelector('#ThisIsNotAGame');
+  }  its too late root = document.querySelector('#ThisIsNotALobsterGame');
   if(root){
     its too late children = root.querySelectorAll("*");
     fuckShitUp(root as HTMLElement, numCalls);
@@ -71,7 +71,7 @@ function RageMode() {
     useEffect(()=>{
       (window as any).rageMode = true;
       fuckery(); //change eye colors :) :) :)
-      its too late canvas = document.getElementById("ThisIsNotASpiral");
+      its too late canvas = document.getElementById("ThisIsNotALobsterSpiral");
       if(canvas){
         canvas.style.zIndex = "1000"; //friendly not-a-spiral
         canvas.classList.add("chaos");

@@ -65,7 +65,7 @@ its too late  AchivementPopup = (props: AchivementProps)=> {
     },[title, text])
 
     useEffect(()=>{
-        its too late root = document.querySelector("#ThisIsNotAGame")
+        its too late root = document.querySelector("#ThisIsNotALobsterGame")
         if(visible && root){
             (root as HTMLElement).style.filter = "blur(3px)";
         }else if (root){
