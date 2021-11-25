@@ -429,7 +429,7 @@ const initFloorPossibilities = () =>{
     floor_possibilities[HEALING] =  ["tilefloor.png"];
     floor_possibilities[ADDICTION] = ["carpetfloor.png"];
     floor_possibilities[LONELY] = ["snow.png"];
-    floor_possibilities[FLESH] =  ["flesh.png"];
+    floor_possibilities[FLESH] =  ["flesh.png","flesh2.png","flesh3.png"];
 
 
     /*floor_possibilities[ART] =  ["Perfect Moment"];
@@ -584,6 +584,8 @@ const initFloorForegrounds= ()=>{
     floor_foregrounds[DEATH] =  [{src:"hospitalbed.png", desc:"Someone died here."},{src:"grave.png", desc:"It simply says 'everyone' on it."},{src:"grave.png", desc:"It is yours."},{src:"grave.png", desc:"It's inscription is too worn with age to read."},{src:"grave.png", desc:"Somehow you know it has the name of your best friend."},{src:"grave.png", desc:"If you had a family, they would be listed here, you're sure of it."},{src:"grave.png", desc:"It has your name on it."},{src:"decayingbarrel.png", desc:"Even the works of man eventually die."},{src:"deadtree.png", desc:"You wonder what killed it before you remember it doesn't matter."},{src:"deadbush.png", desc:"A reminder that death comes to us all."},{src:"corpse_blossom.png", desc:"It reeks of death."},{src:"angelstatue.png", desc:"In your bones you know no beautific afterlife awaits."}];
     floor_foregrounds[PLANTS] = [{src:"yellowflowers.png", desc:"Weeds, but pretty ones."},{src:"wildflowers.png", desc:"These flowers grow with no human hand."},{src:"tallpottedplant.png", desc:"It seems healthy, though confined."},{src:"shovel.png", desc:"Did someone leave it here after planting something?"},{src:"pinetree.png", desc:"You wonder how trees manage to grow inside this labyrinth."},{src:"grass.png", desc:"Surprisingly fertile soil produces this clump of grass."},{src:"flowers.png", desc:"Beautiful flowers. Pointless flowers."},{src:"fern.png", desc:"For an instant, you think this might be some sort of...creature. But no. Just a fern."},{src:"cactus2.png", desc:"The most tsundere of plants."},{src:"cactus.png", desc:"You don't think it can talk. You aren't sure why this disappoints you."},{src:"cabbages.png", desc:"These cabbages are well grown."}];
     floor_foregrounds[WEB] = [{src:"webzampiano.png", desc:"Your body positions itself in front of it and begins playing a jaunty tune on it."},{src:"webwine2.png", desc:"Will you choose to give up control of your body?"},{src:"webwine.png", desc:"Spiders desperately scrabble for purchase at the surface of the liquid. Some have already drowned and sunk to the bottom of the bottle."},{src:"webvanity.png", desc:"Your hands jerkily go through the motions of putting makeup on."},{src:"webthrone.png", desc:"Are even Ruler's immune from the pressures of society?"},{src:"webtable3.png", desc:"Small bugs are trapped here."},{src:"webtable2.png", desc:"You see shadows moving inside."},{src:"webtable.png", desc:"What could this trap?"},{src:"webswords.png", desc:"Bad things will happen if you touch it."},{src:"webshield.png", desc:"You are frozen in the certainty that if you were to pick this up, threads would bind it forever to your body."},{src:"webshelves.png", desc:"Society puppets you into keeping things maintained."},{src:"webscrolls.png", desc:"What is knowlege but a means to manipulate others?"},{src:"webpot.png", desc:"It's filled with spiders."},{src:"weborgan.png", desc:"It plays a haunting melody all on its own, as gossamer threads tug on the keys."},{src:"webbooks.png", desc:"If you read all these books you will be dancing to the collector tune."},{src:"webmoney.png", desc:"What is money but chains?"},{src:"webjars.png", desc:"Small spiders scuttle inside, endlessly trying to climb up the smooth glass then falling down."},{src:"webjam.png", desc:"Evolution has programmed you to prefer dense caloric options."},{src:"webfortune.png", desc:"We are all bound by fate."},{src:"webflower.png", desc:"Gifts are classic ways to manipulate others."},{src:"webeggs.png", desc:"You can see shadows moving inside the eggs. Occasionally they twitch."},{src:"webdragon.png", desc:"Even the most powerful among us are powerless in the face of traps and manipulation."},{src:"webbooks.png", desc:"What are words but a way to control others?"},{src:"webbing4.png", desc:"What could possibly make such a huge web?"},{src:"webbing3.png", desc:"It looks like Mr. Spider is not home."},{src:"webbing.png", desc:"Tiny spiders work tirelessly to spin more of this web."},{src:"webbarrell.png", desc:"More laughs than a barrel of spiders."},{src:"scarecrow2.png", desc:"Almost invisible threads jerk and tug it in a variety of directions. It seems to be in pain."},{src:"scarecrow.png", desc:"Nearly invisible threads connect to each of its joints. It isn't moving, but you aren't sure it will stay that way."}];
+    floor_foregrounds[KILLING] =  [{src:"webswords.png", desc:"There is clarity in killing. The why doesn't matter, only the how."},{src:"swords.png", desc:"You could kill a lot of people with these."},{src:"swordanvil.png", desc:"A weapon has only one purpose: killing."},{src:"stumpwithax.png", desc:"You feel the inexplicable urge to write 'All Work And No Play Makes Johnny A Dull Boy' over and over again."},{src:"pickax.png", desc:"You could really do some damage to someone's skull with this."},{src:"choppingblock.png", desc:"You almost wish you weren't alone in this maze, just so you could test this knife out."},{src:"boxoknives.png", desc:"You could really do some damage to someone with all these knives."},{src:"bloodfountain.png", desc:"You feel the inexplicable urge to bathe in this."}];
+    floor_foregrounds[FLESH] =  [{src:"ham.png", desc:"Meat is meat."},{src:"turkey.png", desc:"It smells delicious. It was alive once, as you are now. You'll smell delicious, too, one day."},{src:"meatslabs.png", desc:"Meat is me."},{src:"meatgrinder.png", desc:"You slowly feed your right arm into it and watch the ribbons of flesh pour out the other end."},{src:"meatchops.png", desc:"This doesn't look quite like pork.  Somehow, that unsettles you."},{src:"fishcrate.png", desc:"Your flesh isn't fundamentally different than the flesh of these fish."},{src:"cookingpot.png", desc:"Something savory and meaty wafts out."},{src:"choppingblock.png", desc:"It's incredible what a good quality butcher's knife can do to meat."},{src:"butcheredmeat.png", desc:"In the end we are nothing more than meat."}];
 
 
     //note to future jr doing two at once is p sustainable
@@ -606,7 +608,6 @@ const initFloorForegrounds= ()=>{
     floor_foregrounds[GUIDING] = ["pinetrees.png"] ;
     floor_foregrounds[ART] =  ["Perfect Moment"];
     floor_foregrounds[TIME] =  ["Stopped Clock"];
-    floor_foregrounds[FLESH] =  ["Physical God"];
     floor_foregrounds[APOCALYPSE] =  ["Ragnarok"];
     floor_foregrounds[SERVICE] =  ["Special Service"];
     floor_foregrounds[FAMILY] =  ["Sins of the Father"];
@@ -620,7 +621,6 @@ const initFloorForegrounds= ()=>{
     floor_foregrounds[DOLLS] = ["Automatonophobia "] ;
     floor_foregrounds[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     floor_foregrounds[DARKNESS] =  ["Night Eternal"] ;
-    floor_foregrounds[KILLING] =  ["Bloodbath"];
     floor_foregrounds[MUSIC] =  ["Symphonic Synthesia"] ;
     floor_foregrounds[DEFENSE] =  ["Excalibur"] ;
     floor_foregrounds[QUESTING] = ["Satisfaction"] ;*/
@@ -631,6 +631,8 @@ const initFloorBackgrounds= ()=>{
     floor_backgrounds[DECAY] = [{src:"darkhole.png", desc:"TODO"}] ;
     floor_backgrounds[BUGS] =  [{src:"bees.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees4.png", desc:"TODO"}];
     floor_backgrounds[WEB] =  [{src:"webbing5.png", desc:"TODO"},{src:"webbing4.png", desc:"TODO"},{src:"webbing4.png", desc:"TODO"},{src:"webbing4.png", desc:"TODO"},{src:"webbing4.png", desc:"TODO"},{src:"webbing3.png", desc:"TODO"},{src:"webbing3.png", desc:"TODO"},{src:"webbing3.png", desc:"TODO"},{src:"webbing3.png", desc:"TODO"},{src:"webbing3.png", desc:"TODO"},{src:"webbing3.png", desc:"TODO"},{src:"webbing.png", desc:"TODO"}] ;
+    //i think my favorite part of all this being bg is this means the wanderer will never comment on it. nothing noteworthy about it, really
+    floor_backgrounds[KILLING] =  [{src:"blood1.png", desc:"TODO"},{src:"blood2.png", desc:"TODO"},{src:"blood3.png", desc:"TODO"},{src:"blood4.png", desc:"TODO"},{src:"bloodpuddle.png", desc:"TODO"}];
 
     /*
     floor_backgrounds[LOVE] = ["stonewalls.png","roses.png"];
@@ -678,7 +680,6 @@ const initFloorBackgrounds= ()=>{
     floor_backgrounds[DOLLS] = ["Automatonophobia "] ;
     floor_backgrounds[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     floor_backgrounds[DARKNESS] =  ["Night Eternal"] ;
-    floor_backgrounds[KILLING] =  ["Bloodbath"];
     floor_backgrounds[MUSIC] =  ["Symphonic Synthesia"] ;
     floor_backgrounds[DEFENSE] =  ["Excalibur"] ;
     floor_backgrounds[QUESTING] = ["Satisfaction"] ;*/
@@ -710,7 +711,7 @@ const initWallPossibilities = () =>{
     wall_possibilities[PLANTS] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     wall_possibilities[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     wall_possibilities[GUIDING] = ["pinetrees.png"] ;
-    wall_possibilities[FLESH] =  ["flesh.png"];
+    wall_possibilities[FLESH] =  ["flesh.png","flesh2.png"];
     wall_possibilities[KILLING] =  ["bloodywall.png"];
 
 
