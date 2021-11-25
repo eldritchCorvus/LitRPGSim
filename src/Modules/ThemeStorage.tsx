@@ -460,6 +460,7 @@ const initWallForegrounds= ()=>{
     wall_foregrounds[DECAY] = [{src:"deadvines.png", desc:"TODO"},{src:"rotted_curtains1.png", desc:"TODO"},{src:"rotted_curtains2.png", desc:"TODO"},{src:"rotted_curtains3.png", desc:"TODO"},{src:"decayingwindow.png", desc:"TODO"}] ;
     wall_foregrounds[BUGS] =  [{src:"waspnest2.png", desc:"TODO"},{src:"bees4.png", desc:"TODO"},{src:"bees.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"},{src:"waspnest.png", desc:"TODO"}];
     wall_foregrounds[WEB] =  [{src:"webcurtains2.png", desc:"TODO"},{src:"webcurtains.png", desc:"TODO"},{src:"webbing5.png", desc:"TODO"},{src:"webbing4.png", desc:"TODO"},{src:"webbing3.png", desc:"TODO"},{src:"webbing2.png", desc:"TODO"},{src:"webbing.png", desc:"TODO"}] ;
+    wall_foregrounds[KILLING] =  [{src:"drippingblood.png", desc:"TODO"}];
 
     /*wall_possibilities[LOVE] = ["stonewalls.png","roses.png"];
     wall_foregrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
@@ -505,7 +506,6 @@ const initWallForegrounds= ()=>{
     wall_foregrounds[DOLLS] = ["Automatonophobia "] ;
     wall_foregrounds[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     wall_foregrounds[DARKNESS] =  ["Night Eternal"] ;
-    wall_foregrounds[KILLING] =  ["Bloodbath"];
     wall_foregrounds[MUSIC] =  ["Symphonic Synthesia"] ;
     wall_foregrounds[DEFENSE] =  ["Excalibur"] ;
     wall_foregrounds[QUESTING] = ["Satisfaction"] ;*/
@@ -516,6 +516,7 @@ const initWallBackgrounds= ()=>{
     wall_backgrounds[DECAY] = [{src:"wallhole.png", desc:"TODO"},{src:"wallholebig.png", desc:"TODO"},{src:"wallcrack.png", desc:"TODO"},{src:"decayingwall.png", desc:"TODO"}] ;
     wall_backgrounds[BUGS] =[{src:"bees4.png", desc:"TODO"},{src:"bees.png", desc:"TODO"},{src:"bees3.png", desc:"TODO"},{src:"bees2.png", desc:"TODO"}];
     wall_backgrounds[WEB] =  [{src:"webpainting3.png", desc:"TODO"},{src:"webpainting2.png", desc:"TODO"},{src:"webpainting.png", desc:"TODO"},{src:"webmirror.png", desc:"TODO"},{src:"webclock.png", desc:"TODO"}] ;
+    wall_backgrounds[KILLING] =  [{src: "bloodywall.png",desc: "TODO"}];
 
     /*
     wall_backgrounds[LOVE] = ["stonewalls.png","roses.png"];
@@ -562,7 +563,6 @@ const initWallBackgrounds= ()=>{
     wall_backgrounds[DOLLS] = ["Automatonophobia "] ;
     wall_backgrounds[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     wall_backgrounds[DARKNESS] =  ["Night Eternal"] ;
-    wall_backgrounds[KILLING] =  ["Bloodbath"];
     wall_backgrounds[MUSIC] =  ["Symphonic Synthesia"] ;
     wall_backgrounds[DEFENSE] =  ["Excalibur"] ;
     wall_backgrounds[QUESTING] = ["Satisfaction"] ;*/
@@ -711,6 +711,7 @@ const initWallPossibilities = () =>{
     wall_possibilities[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     wall_possibilities[GUIDING] = ["pinetrees.png"] ;
     wall_possibilities[FLESH] =  ["flesh.png"];
+    wall_possibilities[KILLING] =  ["bloodywall.png"];
 
 
     //todo
@@ -737,7 +738,6 @@ const initWallPossibilities = () =>{
     wall_possibilities[DOLLS] = ["Automatonophobia "] ;
     wall_possibilities[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     wall_possibilities[DARKNESS] =  ["Night Eternal"] ;
-    wall_possibilities[KILLING] =  ["Bloodbath"];
     wall_possibilities[MUSIC] =  ["Symphonic Synthesia"] ;
     wall_possibilities[DEFENSE] =  ["Excalibur"] ;
     wall_possibilities[QUESTING] = ["Satisfaction"] ;*/

@@ -245,6 +245,7 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditLeft>Phone Clip </CreditLeft> <CreditRight><span>https://freesound.org/people/833-45/sounds/9377/</span></CreditRight>
 
                     <CreditDoubleLine>
+                    <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span>Enterbrain, Cvrtis</span></CreditRight>
 
                     </CreditDoubleLine>
                 </CreditLine>

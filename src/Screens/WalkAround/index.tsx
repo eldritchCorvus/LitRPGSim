@@ -169,7 +169,7 @@ export const WalkAround = () => {
                 <li>add audio logs to secret music</li>
                 <li>when you enter a room, pick a few themes and tell a small creepy story about them, gopher style</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
-                <li>secret hax coffin to the left,endless dream, credits</li>
+                <li>secret hax coffin to the left,endless dream, credits, apocalyse</li>
                 <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories</li>
 
 

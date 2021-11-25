@@ -29,7 +29,8 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, numberDoors, itemsR
     //this shoould change any time the themes do.
 
     const updateURLParams = (seed: number, theme_keys: string[]) => {
-        var pageUrl = '?' + `seed=${seed}&themes=${theme_keys}`;
+        const ominousBullshit = ["its no good","its too late","you cant go back","you cant find the exit","your coffin awaits"];
+        var pageUrl = '?' + `seed=${seed}&themes=${theme_keys}&warning=${seededRandom.pickFrom(ominousBullshit)}`;
         window.history.pushState('', '', pageUrl);
     }
 
