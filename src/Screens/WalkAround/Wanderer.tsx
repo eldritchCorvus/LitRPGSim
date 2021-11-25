@@ -193,7 +193,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
 
     const handleClick = (event: MouseEvent)=>{
         //todo
-        console.log("JR NOTE: Click at: event", event);
+        console.log("JR NOTE: Click at: event, memory says i need to compare this to the canvas bounding box", event);
     }
 
 
