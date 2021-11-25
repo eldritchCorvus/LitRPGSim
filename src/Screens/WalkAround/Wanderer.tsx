@@ -12,6 +12,8 @@ import { spawn } from "child_process";
 
 interface WandererProps {
     itemsRef: MutableRefObject<RenderedItems[]>;
+    canvasRef: RefObject<HTMLCanvasElement>;
+
     seededRandom: SeededRandom;
     makeChild: Function;
     numberDoors:number;
@@ -20,7 +22,7 @@ interface WandererProps {
   const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChild,numberDoors}) => {
+export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRandom,makeChild,numberDoors}) => {
 
     interface PlayerProps {
         leftSpawn: number;
@@ -46,13 +48,11 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
 
 
     useEffect(()=>{
-        console.log("JR NOTE: spawn point has changed to", spawnPoint)
         setPlayerLocation({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
 
     const goNorth = ()=>{
         //put you to the south
-        console.log("JR NOTE: going north")
         setSpawnPoint({left: 250, top: 475-50});
         const tmpRand = new SeededRandom(0+seededRandom.getRandomNumberBetween(216,216216216216216));
         //spawn a new room
@@ -61,7 +61,6 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
 
     const goSouth = ()=>{
         //put you to the south
-        console.log("JR NOTE: going south")
 
         setSpawnPoint({left: 250, top: 105+50});
         const tmpRand = new SeededRandom(1+seededRandom.getRandomNumberBetween(216,216216216216216));
@@ -70,7 +69,6 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
     }
 
     const goEast = ()=>{
-        console.log("JR NOTE: going east")
 
         //put you to the south
         setSpawnPoint({left: 25+50, top: 250});
@@ -162,6 +160,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
         const maxTop = 500-30;
         const maxLeft = 455;
         const minLeft =15;
+
         if(playerLocation){
             let prevTop = playerLocation.top;
 
@@ -171,15 +170,17 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
                 prevTop += 10;
             }
             if((key === "w" || key === "ArrowUp")&& prevTop > minTop){
+
                 prevTop += -10
             }
             if((key === "a" || key === "ArrowLeft") && prevLeft > minLeft){
+
                 prevLeft += -10;
             }
             if((key === "d" || key === "ArrowRight")&& prevLeft < maxLeft ){
+
                 prevLeft += 10;
             }
-            console.log("JR NOTE: afterw alking loc is ", prevTop, prevLeft);
             setPlayerLocation({top: prevTop, left: prevLeft});
             checkForDoor(prevTop, prevLeft);
             checkForItems(prevTop, prevLeft);
@@ -196,15 +197,16 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
     }
 
 
+    //past jr note: you'll THINK this needs an empty dependency array.  somehow this makes it so the wanderer can only move in a tiny box. not going to investiate this rn. don't worry about it.
     useEffect(() => {
         window.addEventListener('keydown', handleUserKeyPress);
     
         return () => {
           window.removeEventListener('keydown', handleUserKeyPress);
         };
-      },[]);
+      });
 
-     /* //because its on the canvas it should be relative to it.
+     //because its on the canvas it should be relative to it.
       useEffect(() => {
           if(canvasRef.current){
             canvasRef.current.addEventListener('mousedown', handleClick);
@@ -214,7 +216,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,seededRandom,makeChil
             };
           }
 
-      },[canvasRef]);*/
+      },[canvasRef]);
 
       console.log("JR NOTE: player loc",playerLocation, "spawn point is", spawnPoint)
     return(
