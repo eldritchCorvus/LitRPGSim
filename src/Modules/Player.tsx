@@ -415,10 +415,10 @@ function chaosPlayer(rand: SeededRandom){
 export function randomPlayer(rand: SeededRandom, shadowPlayer = false) {
     let apocalypse: string | null = getParameterByName("apocalypse", null);
 
-    if(apocalypse && apocalypse === "order" && !shadowPlayer){
-        return orderPlayer(rand);
-    }else if(apocalypse && !shadowPlayer){//very deliberately any kind of apocalypse besides order is chaos.  order has definitions, chaos does not.
+    if(apocalypse && apocalypse === "chaos" && !shadowPlayer){
         return chaosPlayer(rand);
+    }else if(apocalypse && !shadowPlayer){//very deliberately any kind of apocalypse besides order is chaos.  order has definitions, chaos does not.
+        return orderPlayer(rand);
     }
 
     let cl;
