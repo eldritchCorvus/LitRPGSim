@@ -161,6 +161,7 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
+                <li>finish making it so you can click on doors and items</li>
                 <li>add objects</li>
                 <li>guest book is repurposed viking book</li>
                 <li>jr in attic, but its a lobster. this is never explained.</li>

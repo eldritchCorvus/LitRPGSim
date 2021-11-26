@@ -242,7 +242,6 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditDoubleLine>
                         <CreditLeft>Chat Icons </CreditLeft> <CreditRight><span><a target="_blank" href="https://icons8.com/icon/aN2s92EBGxhi/chat">Chat</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span></CreditRight>
                     </CreditDoubleLine>
-                    <CreditLeft>Phone Clip </CreditLeft> <CreditRight><span>https://freesound.org/people/833-45/sounds/9377/</span></CreditRight>
 
                     <CreditDoubleLine>
                     <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span>Enterbrain, Cvrtis</span></CreditRight>
@@ -252,10 +251,21 @@ export const CreditsScreen = (props: StatusProps) => {
 
                 <CreditLine>
                     <CreditDoubleLine>
+                    <CreditLeft>Phone Clip </CreditLeft> <CreditRight><span>https://freesound.org/people/833-45/sounds/9377/</span></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 143818783 / Abandoned © Mulderphoto | Dreamstime.com</span></CreditRight>
+                    <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span>Aesica and Kadokawa/Degica</span></CreditRight>
+
+                    </CreditDoubleLine>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditDoubleLine>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>RPGMaker Assets: </CreditLeft> <CreditRight><span><a href = 'https://www.deviantart.com/nicnubill/art/REQUEST-March-440357119'>https://www.deviantart.com/nicnubill/art/REQUEST-March-440357119</a></span></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
