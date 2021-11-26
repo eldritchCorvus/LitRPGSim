@@ -162,6 +162,7 @@ export const WalkAround = () => {
 
                 FIVE MINUTE TODO.
                 <li>finish making it so you can click on doors and items</li>
+                <li>gigglesnort more crow ciphers</li>
                 <li>add objects</li>
                 <li>guest book is repurposed viking book</li>
                 <li>jr in attic, but its a lobster. this is never explained.</li>
