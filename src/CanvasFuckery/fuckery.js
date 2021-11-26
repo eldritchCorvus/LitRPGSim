@@ -1,5 +1,8 @@
 import background from '.././images/background.jpg';
 import flowerSrc from '.././images/nidhogg_flower.png';
+import clownSrc from '.././images/clown.png';
+import lobsterSrc from '.././images/lobster.png';
+import { getParameterByName } from "../Utils/URLUtils";
 
 import { THE_END_IS_NEVER } from '../Utils/constants';
 import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
@@ -44,11 +47,21 @@ export const fuckUpBGButSoftly = (order, chaos) => {
     }
     img.addEventListener('load', function () {
         if(order || chaos){
+            
             const flower = new Image();
             flower.addEventListener('load', function(){
                 finish(flower);
             });
-            flower.src = flowerSrc;
+            if( getParameterByName("apocalypse", null)==="lobster"){
+                flower.src = lobsterSrc;
+
+            }else if( getParameterByName("apocalypse", null) ==="clown"){
+                flower.src = clownSrc;
+
+            }else{
+                flower.src = flowerSrc;
+
+            }
         }else{
             finish();
         }
