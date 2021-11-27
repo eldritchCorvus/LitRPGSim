@@ -135,9 +135,89 @@ export const GenericSupport = (frustration_level: number)=>{
     return ramble;
 }
 
+const GTKQQIS = ()=>{
+    const defaultRamble = "Founded in [REDACTED], the Eyedol Games subsidary of QQIS handles customer support, customer satisfaction research, and general market analysis.\nIf you've ever found yourself delighted by an Eyedol Games product before you even knew you wanted it, you can thank QQIS!\n\nIf you'd like to opt out of our Customer Smiles Initiative its a phone call away!";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Oh.", QQ));
+    return ramble;
+}
+
+const GSWQQIS = ()=>{
+    const defaultRamble = "QQIS responds best to clear, succinct phrases!\nDuring periods of high call volume, mass quantities of new trainees are brought on and Restricted Text Only Mode is initiated.\nPlease be patient as we train our new employees!";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Oh.", QQ));
+    return ramble;
+}
+
+const Listen = ()=>{
+    const defaultRamble = "InQQuisitive Beings trademarked Mimicry System has a known error when fed repetitive data. \nDuring times of increased call volume, where customer concerns can be largely similar MirrorCorruption is more likely.\nPlease be patient, our Real Person(TM) Guarantee Percentage will go up as call volume decreases.\nIn the meantime, please remember that InQQuisitive Beings are living creatures with biological, psychological and social needs, even if they are unrecognizable to evolved species. Be patient. ";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Oh.", TSQQIS));
+    return ramble;
+}
+
+const Watch = ()=>{
+    const defaultRamble = "We're so glad you've noticed our Commitment to Quality (tm)!\nEach loyal Eyedol Games customer is automatically assigned a QQIS rep responsible for anticipating all their needs!\nAt no additional charge,your QQIS rep will keep you safe from mysterious strangers wearing your face!\nTHAT's the Eyedol Guarantee!";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Oh.", TSQQIS));
+    return ramble;
+}
+
+const Corrupt = ()=>{
+    const defaultRamble = "This is fine.";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Oh.", TSQQIS));
+    return ramble;
+}
+
+const TSQQIS = ()=>{
+    const defaultRamble = "Oh no!\nI'm sorry to hear you are having trouble with QQIS!\nWhich topic would you like to troubleshoot?";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("QQIS is not listening to me.", Listen));
+    ramble.potential_reponses.push(new PlayerResponse("QQIS is glitched and corrupted.", Corrupt));
+    ramble.potential_reponses.push(new PlayerResponse("QQIS is watching me sleep.", Watch));
+    ramble.potential_reponses.push(new PlayerResponse("Return to Queue.", ReturnToQueue));
+    return ramble;
+}
+
+const CVQQIS = ()=>{
+    const defaultRamble = "We here at Eyedol Games pride ourselves in our first in the industry customer service: where YOU are always seen!  \nUnfortunately, unprecedented call volume has regrettably reduced our Real Person(TM) Guarantee Percentage.\nYou have our deepest apologies.\nPlease enjoy this complementary hold music and interaction with the QuotidianQuorom InfoBroker System as we work tirelessly to get a Real Person(TM) on the line!";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Oh.", QQ));
+    return ramble;
+}
+
+
+
+export const QQ = ()=>{
+    const defaultRamble = `What topic would you like help with?`;
+
+    const ramble = new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Getting to know QQIS.", GTKQQIS));
+    ramble.potential_reponses.push(new PlayerResponse("Getting started with QQIS.", GSWQQIS));
+    ramble.potential_reponses.push(new PlayerResponse("Troubleshooting QQIS", TSQQIS));
+    ramble.potential_reponses.push(new PlayerResponse("Call Volume.", CVQQIS));
+    ramble.potential_reponses.push(new PlayerResponse("Return to Queue.", ReturnToQueue));
+
+
+    return ramble;
+}
+
+const ReturnToQueue = ()=>{
+    const defaultRamble = `I can definitely help you do that! Please hold!\n\nThank you for waiting! \nI will need to transfer you to a ${NEXT_TITLE}, at extension ${NEXT_EXTENSION}. It may take a while to transfer.. If we get disconnected, you can dial their extension directly.`;
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    const Branch2 = ()=>{
+        const defaultRamble = "I'm afraid I can't do that, Dave.";
+        const ramble =  new CustomerServiceRamble(defaultRamble, []);
+        return ramble;
+    }
+    ramble.potential_reponses.push(new PlayerResponse("No actually talk to me.", Branch2));
+    return ramble;
+}
+
 
 export const HelloWorld = ()=>{
-    const defaultRamble = `Hi there! My name is ${CURRENT_NAME}. You can begin by asking your question below! Someone will be with you shortly. Due to call volume, restricted text only mode has been initiated. Thank you for your patience!`;
+    const defaultRamble = `Hi there! My name is ${CURRENT_NAME}. You can begin by asking your question below! Someone will be with you shortly. Due to call volume, Restricted Text Only Mode has been initiated. Thank you for your patience!`;
 
     const ramble = new CustomerServiceRamble(defaultRamble, []);
 
@@ -148,17 +228,12 @@ export const HelloWorld = ()=>{
         return ramble;
     }
 
-    const Branch = ()=>{
-        const defaultRamble = `I can definitely help you do that! Please hold!\n\nThank you for waiting! \nI will need to transfer you to a ${NEXT_TITLE}, at extension ${NEXT_EXTENSION}. It may take a while to transfer.. If we get disconnected, you can dial their extension directly.`;
-        const ramble =  new CustomerServiceRamble(defaultRamble, []);
-        ramble.potential_reponses.push(new PlayerResponse("No actually talk to me.", Branch2));
-        return ramble;
-    }
 
-    ramble.potential_reponses.push(new PlayerResponse("I would like to report a bug with Zampanio.", Branch));
-    ramble.potential_reponses.push(new PlayerResponse("I would like to request a Limited Edition Zampanio Community Edition Guide.", Branch));
-    ramble.potential_reponses.push(new PlayerResponse("I would like to claim my free gift.", Branch));
-    ramble.potential_reponses.push(new PlayerResponse("I would like to speak with an Operator.", Branch));
+
+    ramble.potential_reponses.push(new PlayerResponse("I would like to report a bug with Zampanio.", ReturnToQueue));
+    ramble.potential_reponses.push(new PlayerResponse("I would like to request a Limited Edition Zampanio Community Edition Guide.", ReturnToQueue));
+    ramble.potential_reponses.push(new PlayerResponse("I would like to claim my free gift.", ReturnToQueue));
+    ramble.potential_reponses.push(new PlayerResponse("I would like to speak with an Operator.", QQ));
     
 
     return ramble;
@@ -170,4 +245,4 @@ export const randomSpecialist = (frustration_level:number)=>{
     const name =`${ pickFrom(first_names) } ${pickFrom(last_names) } `;
     return new CustomerSupportSpecialist(name, `${getRandomNumberBetween(2,999)}`, GenericSupport(frustration_level));
 }
-export const initial_directory ={"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Support Bot","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost()),4631: new CustomerSupportSpecialist("Closer Log","0",CloseButStillTooFar())};
+export const initial_directory ={"operator": new CustomerSupportSpecialist("Quotidian Quorum InfoBroker System","quick start",QQ()),"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Quotidian Quorom InfoBroker System","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost()),4631: new CustomerSupportSpecialist("Closer Log","0",CloseButStillTooFar())};

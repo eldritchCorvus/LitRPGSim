@@ -18,7 +18,7 @@ export class CustomerSupportSpecialist {
 
         let tmp = [...name.matchAll(rgx)] || [];
 
-        this.initials = ((tmp.shift()?.[1] || '') + (tmp.pop()?.[1] || '')).toUpperCase();
+        this.initials = ((tmp.shift()?.[1] || '') + (tmp.shift()?.[1] || '')).toUpperCase();
         this.ramble = ramble;
     }
 
