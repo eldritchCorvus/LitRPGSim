@@ -26,7 +26,6 @@ export const pointWithinBoundingBox = (myX: number, myY:number, objectX: number,
     const withinX = (myX:number, objectX: number, objectWidth: number)=>{
         return myX> objectX && myX < objectX + objectWidth;
     }
-    console.log("JR NOTE: pointWithinBoundingBox params are",{myX,myY,objectX,objectY,objectWidth,objectHeight}, "and i think withinX is:",withinX(myX,objectX,objectWidth), "and withinY is",withinY(myY, objectY, objectHeight))
     return withinX(myX,objectX,objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
@@ -148,6 +147,7 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
     */
         const scale = 1.5;
         const y_wiggle = 50;
+        const debug= false;
         const clutter_rate = seededRandom.nextDouble(); //smaller is more cluttered
         while(current_y+padding<canvas.height){
             current_x = padding;
@@ -169,6 +169,9 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
                     ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
                 } else {
                     current_x += 50;
+                }
+                if(debug && ret.length > 0){
+                    return ret;
                 }
             }
             current_y+=y_wiggle;//is there any way i can make this saner?

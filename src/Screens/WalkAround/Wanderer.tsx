@@ -1,13 +1,12 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
-import {distanceWithinRadius, drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
-import real_eye from './../../images/real_eye.png';
-import { doorEffect, loadSecretImage} from '../..';
+import {pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
+import real_eye from './../../images/wanda.png';
+import { doorEffect} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
 import FlavorPopup from "./FlavorPopup";
-import { spawn } from "child_process";
 
 
 interface WandererProps {
@@ -23,6 +22,9 @@ interface WandererProps {
     position: absolue;
   `
 export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRandom,makeChild,numberDoors}) => {
+
+    const playerWidth = 55;
+    const playerHeight = 37;
 
     interface PlayerProps {
         leftSpawn: number;
@@ -111,7 +113,6 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         const wanderer_radius = 25;
 
         for(let item of itemsRef.current){
-            console.log("JR NOTE: checking item",item.flavorText)
             if(pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 addMemoryToWanderer(item.flavorText);
@@ -184,8 +185,11 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
                 prevLeft += 10;
             }
             setPlayerLocation({top: prevTop, left: prevLeft});
-            checkForDoor(prevTop, prevLeft);
-            checkForItems(prevTop, prevLeft);
+            const centerX = prevLeft +playerWidth/2;
+            const centerY = prevTop +playerHeight/2;
+
+            checkForDoor(centerY, centerX);
+            checkForItems(centerY, centerX);
         }
     }
 
@@ -199,9 +203,8 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
             const rect = canvasRef.current.getBoundingClientRect();
             const  x = event.clientX-rect.left;
             const y = event.clientY-rect.top;
-            console.log("JR NOTE: Click at: event, memory says i need to compare this to the canvas bounding box", x,y);
-            checkForDoor(x,y);
-            checkForItems(x,y);
+            checkForDoor(y,x);
+            checkForItems(y,x);
         }
     }
 

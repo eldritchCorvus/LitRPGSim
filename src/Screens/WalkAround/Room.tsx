@@ -64,6 +64,7 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef, numberDo
         const items3: RenderedItems[] = await drawFloorObjects(FLOORBACKGROUND, "UnderFloorObjects", canvas, seededRandom, themes);
         const items4: RenderedItems[] = await drawFloorObjects(FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
         const items = items2.concat(items4);
+        console.log("JR NOTE: setting itemsRef.current to ", items);
         itemsRef.current = items;
     }
 

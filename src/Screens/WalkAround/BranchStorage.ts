@@ -187,6 +187,22 @@ const CVQQIS = ()=>{
     return ramble;
 }
 
+const PlayGame = ()=>{
+    const defaultRamble = "Our latest entry in the Zampanio (TM) Franchise can be played with either keyboard or mouse for your convinience!";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("Oh.", AnythingElse));
+    return ramble;
+}
+
+const AnythingElse = ()=>{
+    const defaultRamble = "Is there anything else I can help you with?";
+    const ramble =  new CustomerServiceRamble(defaultRamble, []);
+    ramble.potential_reponses.push(new PlayerResponse("I would like to report a bug with Zampanio.", ReturnToQueue));
+    ramble.potential_reponses.push(new PlayerResponse("I would like to request a Limited Edition Zampanio Community Edition Guide.", ReturnToQueue));
+    ramble.potential_reponses.push(new PlayerResponse("How do you play this game?", PlayGame));
+    ramble.potential_reponses.push(new PlayerResponse("I would like to speak with an Operator.", QQ));    return ramble;
+}
+
 
 
 export const QQ = ()=>{
@@ -232,7 +248,7 @@ export const HelloWorld = ()=>{
 
     ramble.potential_reponses.push(new PlayerResponse("I would like to report a bug with Zampanio.", ReturnToQueue));
     ramble.potential_reponses.push(new PlayerResponse("I would like to request a Limited Edition Zampanio Community Edition Guide.", ReturnToQueue));
-    ramble.potential_reponses.push(new PlayerResponse("I would like to claim my free gift.", ReturnToQueue));
+    ramble.potential_reponses.push(new PlayerResponse("How do you play this game?", PlayGame));
     ramble.potential_reponses.push(new PlayerResponse("I would like to speak with an Operator.", QQ));
     
 

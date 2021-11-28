@@ -80,7 +80,7 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
     return(
         <Fragment key={text}>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog onClick={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"27%", width: "600px"} }>
+      <Dialog onMouseDown={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"27%", width: "600px"} }>
         <Popup>
             <PopupContent>{text}</PopupContent>
         </Popup>
