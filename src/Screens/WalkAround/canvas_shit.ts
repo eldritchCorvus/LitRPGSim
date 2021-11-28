@@ -18,6 +18,18 @@ export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number
     return (first + second)**0.5 < radius;
 }
 
+export const pointWithinBoundingBox = (myX: number, myY:number, objectX: number, objectY: number,objectWidth:number, objectHeight:number)=>{
+    const withinY = (myY:number, objectY: number, objectHeight: number)=>{
+        return myY> objectY && myY < objectY + objectHeight;
+    }
+
+    const withinX = (myX:number, objectX: number, objectWidth: number)=>{
+        return myX> objectX && myX < objectX + objectWidth;
+    }
+    console.log("JR NOTE: pointWithinBoundingBox params are",{myX,myY,objectX,objectY,objectWidth,objectHeight}, "and i think withinX is:",withinX(myX,objectX,objectWidth), "and withinY is",withinY(myY, objectY, objectHeight))
+    return withinX(myX,objectX,objectWidth) && withinY(myY, objectY, objectHeight);
+}
+
 export const initBlack = (canvas: HTMLCanvasElement) => {
     const context = canvas.getContext("2d");
     if (!context) {

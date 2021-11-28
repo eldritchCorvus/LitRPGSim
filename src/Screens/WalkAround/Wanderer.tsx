@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
-import {distanceWithinRadius, drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, RenderedItems } from "./canvas_shit";
+import {distanceWithinRadius, drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
 import real_eye from './../../images/real_eye.png';
 import { doorEffect, loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
@@ -34,6 +34,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         position: absolute;
         left:0px;
         top: 0px;
+        pointer-events:none;
     `
 
     const Container = styled.div`
@@ -110,8 +111,9 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         const wanderer_radius = 25;
 
         for(let item of itemsRef.current){
-            if(distanceWithinRadius(wanderer_radius,item.x+item.width/2,item.y+item.height/2 ,left,top)){
-                console.log("JR NOTE: i am near an item ", item.flavorText);
+            console.log("JR NOTE: checking item",item.flavorText)
+            if(pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
+                //console.log("JR NOTE: i am near an item ", item.flavorText);
                 addMemoryToWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
                 setFlavorText(item.flavorText);
@@ -124,25 +126,25 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
     //where is the player? are they near a door?
     const checkForDoor =(top: number, left: number)=>{
         //TODO check how many doors actually exist
-        const SOUTH = [250,475];
-        const NORTH = [250,105];
-        const EAST = [475,250];
+        const SOUTH = [250,475,48,48];
+        const NORTH = [250,105,48,91]; //x,y,width,height
+        const EAST = [475,250,48,48];
 
         const wanderer_radius = 25;
         let nearDoor = false;
 
         //there will ALWAYS be a door to the south at the very minimum
-        if(distanceWithinRadius(wanderer_radius,SOUTH[0],SOUTH[1] ,left,top)){
+        if( pointWithinBoundingBox(left,top,SOUTH[0],SOUTH[1],SOUTH[2],SOUTH[3])){
             goSouth();
             nearDoor = true;
         }
 
-        if(numberDoors > 1 && distanceWithinRadius(wanderer_radius,NORTH[0],NORTH[1] ,left,top)){
+        if(numberDoors > 1 && pointWithinBoundingBox(left,top,NORTH[0],NORTH[1],NORTH[2],NORTH[3])){
             nearDoor = true;
             goNorth();
         }
 
-        if(numberDoors > 2 && distanceWithinRadius(wanderer_radius,EAST[0],EAST[1] ,left,top)){
+        if(numberDoors > 2 && pointWithinBoundingBox(left,top,EAST[0],EAST[1],EAST[2],EAST[3])){
             goEast();
             nearDoor = true;
         }
@@ -193,7 +195,14 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
 
     const handleClick = (event: MouseEvent)=>{
         //todo
-        console.log("JR NOTE: Click at: event, memory says i need to compare this to the canvas bounding box", event);
+        if(canvasRef.current){
+            const rect = canvasRef.current.getBoundingClientRect();
+            const  x = event.clientX-rect.left;
+            const y = event.clientY-rect.top;
+            console.log("JR NOTE: Click at: event, memory says i need to compare this to the canvas bounding box", x,y);
+            checkForDoor(x,y);
+            checkForItems(x,y);
+        }
     }
 
 
