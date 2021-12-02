@@ -15,6 +15,7 @@ import { RenderedItems } from './canvas_shit';
 import { removeItemOnce } from '../../Utils/ArrayUtils';
 import { addStringToArrayWithKey, isStringInArrayWithKey, removeStringFromArrayWithKey } from '../../Utils/LocalStorageUtils';
 import { Wanderer } from './Wanderer';
+import { GuestBook } from "./GuestBook";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -26,6 +27,21 @@ export const WalkAround = () => {
     const HelpIcon = styled.button`
     position: fixed;
     top: 15px;
+    right: 15px;
+    color: white;
+    text-decoration: none;
+    background-color: #1f3f87;
+    border-radius: 25px;
+    font-size: 28px;
+    line-height: 33px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+`
+
+const GuestBookButton = styled.button`
+    position: fixed;
+    bottom: 15px;
     right: 15px;
     color: white;
     text-decoration: none;
@@ -65,6 +81,7 @@ export const WalkAround = () => {
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
     const [chatHelp, setChatHelp] = useState(false);
+    const [guestBookTime, setGuestBookTime] = useState(true);
 
 
     //room needs to tell me what items it found.
@@ -161,8 +178,10 @@ export const WalkAround = () => {
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>guest book is repurposed viking book</li>
+                <li>finish guest book (triggers when theme is wrong, can add post, assigned random title)</li>
                 <li>add objects</li>
+                <li>429044 is important number</li>
+                <li>detect specific errors (wrong themes), trigger backrooms</li>
                 <li>20h:14m:36s on the stopwatch</li>
                 <li>gigglesnort more crow ciphers</li>
                 <li>jr in attic, but its a lobster. this is never explained.</li>
@@ -203,7 +222,11 @@ export const WalkAround = () => {
                 <li>put this on LItRpgsim never tell anyone (also itch.io and steam) (diff base themes corruption steam)</li>
             </div>
             <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
+            <GuestBookButton onClick={() => setGuestBookTime(!guestBookTime)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Sign My Guestbook!</div>{guestBookTime ? <IconImage src={x_icon}></IconImage> : null}</GuestBookButton>
+
             {chatHelp ? <HelpChatBox /> : null}
+            {guestBookTime ? <GuestBook /> : null}
+
         </Fragment>
 
     )
