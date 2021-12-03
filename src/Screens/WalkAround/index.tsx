@@ -81,7 +81,15 @@ const GuestBookButton = styled.button`
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
     const [chatHelp, setChatHelp] = useState(false);
-    const [guestBookTime, setGuestBookTime] = useState(true);
+
+     const validKeys = ()=>{
+        for(let themeKey of themeKeys){
+            if(!Object.keys(all_themes).includes(themeKey)){
+                return false;
+            }
+        }
+        return true;
+    }
 
 
     //room needs to tell me what items it found.
@@ -167,6 +175,13 @@ const GuestBookButton = styled.button`
     }
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    
+    //what's this? have I found a Waste?
+    if(!validKeys()){
+        return(
+            <GuestBook />
+        )
+    }
 
     return (
         <Fragment>
@@ -178,7 +193,6 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 FIVE MINUTE TODO.
-                <li>finish guest book (triggers when theme is wrong, can add post, assigned random title)</li>
                 <li>add objects</li>
                 <li>429044 is important number</li>
                 <li>detect specific errors (wrong themes), trigger backrooms</li>
@@ -222,11 +236,7 @@ const GuestBookButton = styled.button`
                 <li>put this on LItRpgsim never tell anyone (also itch.io and steam) (diff base themes corruption steam)</li>
             </div>
             <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
-            <GuestBookButton onClick={() => setGuestBookTime(!guestBookTime)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Sign My Guestbook!</div>{guestBookTime ? <IconImage src={x_icon}></IconImage> : null}</GuestBookButton>
-
             {chatHelp ? <HelpChatBox /> : null}
-            {guestBookTime ? <GuestBook /> : null}
-
         </Fragment>
 
     )

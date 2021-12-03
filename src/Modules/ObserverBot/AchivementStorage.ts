@@ -73,7 +73,7 @@ export class AchivementStorage{
         //["hackSkillPointsGainedFromBattle", "hackCityMorale", "hackTimeCombatInSeconds",
         // "hackTimeCutscenesInSeconds", "hackTimeCitybuildingInSeconds"];
 
-        this.initClicks(rand, compliments, insults);
+        //this.initClicks(rand, compliments, insults); way too annoying for the walkabout
         this.initMenuVisits(rand, title,compliments, insults);
         this.initErrors(rand, compliments, insults);
         this.initTimePlayed(rand,title, compliments, insults);
