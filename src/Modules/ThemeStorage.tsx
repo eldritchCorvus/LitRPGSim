@@ -1155,18 +1155,19 @@ const initThemeOpinions = () => {
     theme_opinions[TECHNOLOGY] = createOpinion(0, {CRAFTING: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113 });
     theme_opinions[SCIENCE] = createOpinion(0, {QUESTING: 55,BUGS: 113,OBFUSCATION: -113,KNOWING: 113,PLANTS: 113,MAGIC: -113,MATH: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113 });
     //nothing really matters much to the vastness of space
-    theme_opinions[SPACE] = createOpinion(0, {DARKNESS: 1,SPACE: 1,LONELY:1 });
+    theme_opinions[SPACE] = createOpinion(0, {BURIED: -1,DARKNESS: 1,SPACE: 1,LONELY:1 });
     theme_opinions[TIME] = createOpinion(0, {TIME: 50,ENDINGS: 10, DECAY: 10,FREEDOM: -50,MATH: 10,APOCALYPSE:10,FAMILY: 10 });
     theme_opinions[STEALING] = createOpinion(-10, {ART: 50,SPYING: -113,ROYALTY: 50,STEALING: 113,FREEDOM:10,HUNTING:-30 });
-    theme_opinions[FREEDOM] = createOpinion(0, {QUESTING: -30, ADDICTION: -113, GUIDING: -50, ROYALTY: -85, WEB: -113, LOVE: -50,CHOICES: 113, HUNTING: -50, FAMILY: -113, SERVICE: -113, ANGELS: 33, TWISTING:10, ART: 50, FREEDOM: 113,SPACE: 100 });
+    theme_opinions[FREEDOM] = createOpinion(0, {BURIED: -113, QUESTING: -30, ADDICTION: -113, GUIDING: -50, ROYALTY: -85, WEB: -113, LOVE: -50,CHOICES: 113, HUNTING: -50, FAMILY: -113, SERVICE: -113, ANGELS: 33, TWISTING:10, ART: 50, FREEDOM: 113,SPACE: 100 });
     theme_opinions[FIRE] = createOpinion(-113, {KILLING: 20, APOCALYPSE: 10,DEATH: 10,DECAY: 10, ENDINGS: 20, FIRE: 20, });
     theme_opinions[OCEAN] = createOpinion(10, {TECHNOLOGY: -113,LONELY: 113, DARKNESS: 113,TIME: 30, SPACE: 30, SOUL: 30,OCEAN: 113, MAGIC: 30, PLANTS: 30 });
-    theme_opinions[FLESH] = createOpinion(0, {KILLING: 13, SOUL: -113, ZAP: -13, DECAY: -13, DEATH: -50, TECHNOLOGY: -113, SCIENCE: -113, FIRE: -113, TWISTING: 13 });
+    theme_opinions[FLESH] = createOpinion(0, {FLESH: 113,KILLING: 13, SOUL: -113, ZAP: -13, DECAY: -13, DEATH: -50, TECHNOLOGY: -113, SCIENCE: -113, FIRE: -113, TWISTING: 13 });
+    theme_opinions[BURIED] = createOpinion(0, {BURIED: 113, DARKNESS: 50, ADDICTION: 50, ENDINGS: 10, WEB: 50, PLANTS: 10,DEATH: 50, SPYING: -50, SPACE: -50, FREEDOM: -50 });
+    //now we know why faq writer is such a positive person
+    theme_opinions[MATH] = createOpinion(85, {OBFUSCATION: 13,KNOWING: 113, WEB: 100, SOUL: -13, MAGIC: -13, TWISTING: 113, TIME: 113, SPACE: 113, SCIENCE: 113, TECHNOLOGY: 113, MATH: 113 });
 
 
     /*
-    theme_opinions[FLESH] =  ["beautiful"];
-    theme_opinions[BURIED] =  ["steady"];
     theme_opinions[MATH] =  ["logical"];
     theme_opinions[TWISTING] =  ["creative"];
     theme_opinions[DEATH] =  ["inevitable"];
