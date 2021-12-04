@@ -1145,13 +1145,18 @@ const createOpinion = (baseline = 0, specificOpinions: ThemePossibilitiesNumberM
 const initThemeOpinions = () => {
     //free press plz (spying is the most pure incarnation of quotidians so i went with their morals)
     theme_opinions[SPYING] = createOpinion(113, { WEB: -113, APOCALYPSE:-113 });
-    console.log("JR NOTE: spying init looks like ",theme_opinions[SPYING])
-    //theme_opinions[LONELY] =  ["talented"];
+    //things are alright, i guess
+    theme_opinions[LONELY] = createOpinion(0, {LONELY: 113,LOVE: -85, SERVICE: -85, FAMILY: -85, FREEDOM:20, SPACE: 20, OCEAN:20 });
+    //all is art
+    theme_opinions[ART] = createOpinion(55, { });
+    //technology and science have some pretty strong opinions on a narrow range of topics
+    theme_opinions[TECHNOLOGY] = createOpinion(0, {CRAFTING: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113 });
+    theme_opinions[SCIENCE] = createOpinion(0, {QUESTING: 55,BUGS: 113,OBFUSCATION: -113,KNOWING: 113,PLANTS: 113,MAGIC: -113,MATH: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113 });
+    //nothing really matters much to the vastness of space
+    theme_opinions[SPACE] = createOpinion(0, {DARKNESS: 1,SPACE: 1,LONELY:1 });
 
 
-    /*theme_opinions[ART] =  ["artistic"];
-    theme_opinions[TECHNOLOGY] =  ["technological"];
-    theme_opinions[SPACE] =  ["spacious"];
+    /*
     theme_opinions[TIME] =  ["punctual"];
     theme_opinions[STEALING] =  ["resourceful"];
     theme_opinions[FREEDOM] =  ["independant"];
@@ -1159,7 +1164,6 @@ const initThemeOpinions = () => {
     theme_opinions[OCEAN] =  ["soothing"];
     theme_opinions[FLESH] =  ["beautiful"];
     theme_opinions[BURIED] =  ["steady"];
-    theme_opinions[SCIENCE] =  ["scientific"];
     theme_opinions[MATH] =  ["logical"];
     theme_opinions[TWISTING] =  ["creative"];
     theme_opinions[DEATH] =  ["inevitable"];
