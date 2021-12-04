@@ -193,6 +193,10 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO: 
+                    * spawn (random location) and render (shitty gif of a crow) a spying and lonely Quotidian
+                    * they should pick an object within their range and move towards it (default speed and range)
+                    * when they get to item they should comment on it and pick a new object
+
                    AI: 
 
                    * make theme storage for opinion on other themes (useful in broad contexts)

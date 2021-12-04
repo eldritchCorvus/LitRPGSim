@@ -1142,11 +1142,13 @@ const createOpinion = (baseline = 0, specificOpinions: ThemePossibilitiesNumberM
 
 
 
+//can be used for walk about but also really for anything i want going forwards. 
+//procedural opinions are v useful
 const initThemeOpinions = () => {
     //free press plz (spying is the most pure incarnation of quotidians so i went with their morals)
     theme_opinions[SPYING] = createOpinion(113, { WEB: -113, APOCALYPSE:-113 });
     //things are alright, i guess
-    theme_opinions[LONELY] = createOpinion(0, {LONELY: 113,LOVE: -85, SERVICE: -85, FAMILY: -85, FREEDOM:20, SPACE: 20, OCEAN:20 });
+    theme_opinions[LONELY] = createOpinion(0, {LONELY: 20,LOVE: -113, SERVICE: -113, FAMILY: -113, FREEDOM:20, SPACE: 20, OCEAN:20 });
     //all is art
     theme_opinions[ART] = createOpinion(55, { });
     //technology and science have some pretty strong opinions on a narrow range of topics
@@ -1154,14 +1156,15 @@ const initThemeOpinions = () => {
     theme_opinions[SCIENCE] = createOpinion(0, {QUESTING: 55,BUGS: 113,OBFUSCATION: -113,KNOWING: 113,PLANTS: 113,MAGIC: -113,MATH: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113 });
     //nothing really matters much to the vastness of space
     theme_opinions[SPACE] = createOpinion(0, {DARKNESS: 1,SPACE: 1,LONELY:1 });
+    theme_opinions[TIME] = createOpinion(0, {TIME: 50,ENDINGS: 10, DECAY: 10,FREEDOM: -50,MATH: 10,APOCALYPSE:10,FAMILY: 10 });
+    theme_opinions[STEALING] = createOpinion(-10, {ART: 50,SPYING: -113,ROYALTY: 50,STEALING: 113,FREEDOM:10,HUNTING:-30 });
+    theme_opinions[FREEDOM] = createOpinion(0, {QUESTING: -30, ADDICTION: -113, GUIDING: -50, ROYALTY: -85, WEB: -113, LOVE: -50,CHOICES: 113, HUNTING: -50, FAMILY: -113, SERVICE: -113, ANGELS: 33, TWISTING:10, ART: 50, FREEDOM: 113,SPACE: 100 });
+    theme_opinions[FIRE] = createOpinion(-113, {KILLING: 20, APOCALYPSE: 10,DEATH: 10,DECAY: 10, ENDINGS: 20, FIRE: 20, });
+    theme_opinions[OCEAN] = createOpinion(10, {TECHNOLOGY: -113,LONELY: 113, DARKNESS: 113,TIME: 30, SPACE: 30, SOUL: 30,OCEAN: 113, MAGIC: 30, PLANTS: 30 });
+    theme_opinions[FLESH] = createOpinion(0, {KILLING: 13, SOUL: -113, ZAP: -13, DECAY: -13, DEATH: -50, TECHNOLOGY: -113, SCIENCE: -113, FIRE: -113, TWISTING: 13 });
 
 
     /*
-    theme_opinions[TIME] =  ["punctual"];
-    theme_opinions[STEALING] =  ["resourceful"];
-    theme_opinions[FREEDOM] =  ["independant"];
-    theme_opinions[FIRE] =  ["warm"];
-    theme_opinions[OCEAN] =  ["soothing"];
     theme_opinions[FLESH] =  ["beautiful"];
     theme_opinions[BURIED] =  ["steady"];
     theme_opinions[MATH] =  ["logical"];
