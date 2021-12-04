@@ -35,7 +35,7 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef, numberDo
     }
 
     const drawRoom = async (canvas: HTMLCanvasElement, themes: Theme[]) => {
-        console.log("JR NOTE: drawing room with themes", themes);
+       // console.log("JR NOTE: drawing room with themes", themes);
         initBlack(canvas);
         //TODO pull this in from theme
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
@@ -64,13 +64,13 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef, numberDo
         const items3: RenderedItems[] = await drawFloorObjects(FLOORBACKGROUND, "UnderFloorObjects", canvas, seededRandom, themes);
         const items4: RenderedItems[] = await drawFloorObjects(FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
         const items = items2.concat(items4);
-        console.log("JR NOTE: setting itemsRef.current to ", items);
+        //console.log("JR NOTE: setting itemsRef.current to ", items);
         itemsRef.current = items;
     }
 
     useEffect(() => {
         if (canvasRef.current) {
-            console.log("JR NOTE: themes are", themeKeys)
+            //console.log("JR NOTE: themes are", themeKeys)
             updateURLParams(seed, themeKeys);
             drawRoom(canvasRef.current, themeKeys.map((theme) => all_themes[theme]));
         }

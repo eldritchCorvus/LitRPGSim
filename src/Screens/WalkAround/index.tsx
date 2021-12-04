@@ -175,7 +175,7 @@ const GuestBookButton = styled.button`
     }
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    
+
     //what's this? have I found a Waste?
     if(!validKeys()){
         return(
@@ -192,10 +192,27 @@ const GuestBookButton = styled.button`
             </RoomContainer>
             <div>TODO:
 
-                FIVE MINUTE TODO.
+                Five Minute TODO: 
+                   AI: 
+
+                   * make theme storage for opinion on other themes (useful in broad contexts)
+                   * write AI
+                        * has set name built with themes, feels like chat handles, (Noun/Adj) Person, both cap
+                        *  render placeholder quotidian,use placeholder speed and vision
+                        * quotidian moves towards object it can see and it likes (including Wanderer)
+                            * if no current goal set goal, if there is a goal, move towards it
+                        * when quotidian is near object, say quip (based on compliment/insult already in theme).
+                        * if object is not in quotidian memory, eat (delete object);
+                   * make theme storage for speed, vision and fear stats
+                        * if quotidian sees door, random number for setting door as goal
+                        * if quotidian is near door, goes through it and despawns
+
+
+                Other MINUTE TODO.
                 <li>add objects</li>
+                <li>write ai for Eye and Lonely theme</li>
+                <li>wire AI into system, spawn test ais and watch them move</li>
                 <li>429044 is important number</li>
-                <li>detect specific errors (wrong themes), trigger backrooms</li>
                 <li>20h:14m:36s on the stopwatch</li>
                 <li>gigglesnort more crow ciphers</li>
                 <li>jr in attic, but its a lobster. this is never explained.</li>

@@ -60,7 +60,7 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
     },[initialShowing])
 
     useEffect(()=>{
-        console.log("JR NOTE: new text",text)
+        //console.log("JR NOTE: new text",text)
         if(text){
             const timer = setTimeout(()=>{
                 dialog.setVisible(false);

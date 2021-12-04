@@ -83,7 +83,7 @@ export const CloseButStillTooFar = ()=>{
 }
 
 export const GenericSupport = (frustration_level: number)=>{
-    console.log("JR NOTE: frustration level is", frustration_level)
+    //console.log("JR NOTE: frustration level is", frustration_level)
     const greeting_part = ["help you","impress you","wow you","turn your frown upside down","assist you","show you the meaning of zampanio","guide you","resolve your issue","teach you","have worth in your eyes","show you the light of the world","enrich you","empower you"];
     const spiels = ["At Eyedol Games we make games a reality!","Eyedol Games, makers of the hit game ZampanioQuest!","Eyedol is thrilled to have you as a customer!","Thank you for contacting Eyedol Games, where all your wishes come true!","At Eyedol Games, seeing is believing!","At Eyedol games, there's always more to see!"];
     const shit_eating_greetings = [`How can I ${pickFrom(greeting_part)} today?`,`How may I ${pickFrom(greeting_part)} today?`,`How shall I ${pickFrom(greeting_part)} today?`];

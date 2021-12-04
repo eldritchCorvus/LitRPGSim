@@ -176,7 +176,7 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
             }
             current_y+=y_wiggle;//is there any way i can make this saner?
         }
-        console.log("JR NOTE: when i finished rendering floor objects, current_x was",current_x,"and current_y was",current_y)
+        //console.log("JR NOTE: when i finished rendering floor objects, current_x was",current_x,"and current_y was",current_y)
     return ret;
 }
 

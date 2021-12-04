@@ -230,7 +230,6 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
 
       },[canvasRef]);
 
-      console.log("JR NOTE: player loc",playerLocation, "spawn point is", spawnPoint)
     return(
         <Container leftSpawn={playerLocation.left} topSpawn={playerLocation.top}>
             {flavorText ?<FlavorPopup text={flavorText} left={playerLocation.left} top={playerLocation.top}/>:null}

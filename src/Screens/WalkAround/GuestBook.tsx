@@ -65,11 +65,11 @@ export const GuestBook = () => {
         //JR NOTE: TODO collate all titles from classes, use these to replace their names.
         let ret = ["Tester"];
         const all_classes_values = Object.values(all_classes)
-        console.log("JR NOTE: all classes values is", all_classes_values)
+        //console.log("JR NOTE: all classes values is", all_classes_values)
         for(let c of all_classes_values){
             ret = ret.concat(c.name_possibilities);
         }
-        console.log("JR NOTE: ret is",ret)
+        //console.log("JR NOTE: ret is",ret)
         return ret;
     }
 
