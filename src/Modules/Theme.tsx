@@ -29,17 +29,23 @@ export   class Theme{
     */
     string_possibilities: PossibilitiesListMap;
     memories: Memory[];
+    opinions: ThemeStorage.ThemePossibilitiesNumberMap;
 
     tier: number;
 
 
-    constructor(key: string, tier: number,stats: Stat.StatMap,  string_possibilities: PossibilitiesListMap, memories: Memory[]){
+    constructor(key: string, tier: number,stats: Stat.StatMap,  string_possibilities: PossibilitiesListMap, opinions:ThemeStorage.ThemePossibilitiesNumberMap, memories: Memory[]){
         this.key = key;
         this.tier = tier;
         this.initStats(stats);
         this.string_possibilities = string_possibilities;
         this.memories = memories;
+        this.opinions = opinions;
         all_themes[key] = this;
+    }
+
+    getOpinionOfTheme =(key: string)=>{
+        return this.opinions[key];
     }
 
     pickPossibilityFor=(rand: SeededRandom, key: string)=>{
@@ -79,6 +85,14 @@ export   class Theme{
 
 }
 
+export const themesTotalOpinionOnTargetThemeKey= (themes: Theme[],key: string)=>{
+    let ret = 0;
+    for(let theme of themes){
+        ret += theme.getOpinionOfTheme(key);
+    }
+    return ret;
+}
+
 //tiers of 0 will be initialized when in use 
 //(YES this means that if the first player to use "Healing" theme has it high tier it will be high for EVERYONE. deal with tihs. )
 export function initThemes(){
@@ -114,9 +128,10 @@ export function initThemes(){
         string_possibilities[ThemeStorage.WALLBACKGROUND] = ThemeStorage.wall_backgrounds[key];
         string_possibilities[ThemeStorage.FLOORBACKGROUND] = ThemeStorage.floor_backgrounds[key];
         string_possibilities[ThemeStorage.FLOORFOREGROUND] = ThemeStorage.floor_foregrounds[key];
+        const opinions = ThemeStorage.theme_opinions[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
-        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);
+        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,opinions,memories);
     }
 
 
