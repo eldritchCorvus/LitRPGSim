@@ -1165,10 +1165,10 @@ const initThemeOpinions = () => {
     theme_opinions[BURIED] = createOpinion(0, {BURIED: 113, DARKNESS: 50, ADDICTION: 50, ENDINGS: 10, WEB: 50, PLANTS: 10,DEATH: 50, SPYING: -50, SPACE: -50, FREEDOM: -50 });
     //now we know why faq writer is such a positive person
     theme_opinions[MATH] = createOpinion(85, {OBFUSCATION: 13,KNOWING: 113, WEB: 100, SOUL: -13, MAGIC: -13, TWISTING: 113, TIME: 113, SPACE: 113, SCIENCE: 113, TECHNOLOGY: 113, MATH: 113 });
-
+    //:) :) :) Everything would be in its blind volumes. ... Everything: but for every sensible line or accurate fact there would be millions of meaningless cacophonies, verbal farragoes, and babblings.
+    theme_opinions[TWISTING] = createOpinion(113, { });
 
     /*
-    theme_opinions[MATH] =  ["logical"];
     theme_opinions[TWISTING] =  ["creative"];
     theme_opinions[DEATH] =  ["inevitable"];
     theme_opinions[APOCALYPSE] =  ["peaceful"];
