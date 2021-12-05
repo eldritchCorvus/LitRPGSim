@@ -99,7 +99,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,canvasRef,seededRan
         for(let item of itemsRef.current){
             if(pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
-                addMemoryToWanderer(item.flavorText);
+                takeMemoryFromWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
                 setFlavorText(item.flavorText);
                 //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
