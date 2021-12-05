@@ -198,11 +198,10 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO: 
-                    *Quotidian should have themes (pick them themselves)
+                    *should spawn between 0 and 4 quotidians in a room, each with their own themes
+                    * objects should remember what theme they came from.
                     * they should pick an object within their range and move towards it (default speed and range)
-                    * when they get to item they should comment on it and pick a new object
-                    * FIX FLAVOR TEXT TO BE CENTERED OVER OWNER OF IT PLEASE FOR THE LOVE OF [REDACTED]
-
+                    * when they get to item they should eat it and pick a new object
                    AI: 
 
                    * make theme storage for opinion on other themes (useful in broad contexts)
