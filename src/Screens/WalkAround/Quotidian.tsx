@@ -72,6 +72,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         position: absolute;
         left:-0px;
         top: -25px;
+        font-weight: boldest;
         pointer-events:none;
     `
 
@@ -81,7 +82,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         top: ${(props: PlayerProps) => props.topSpawn}px;
     `
 
-    const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
+    const [spawnPoint, setSpawnPoint] = useState({left:seededRandom.getRandomNumberBetween(0,300),top:seededRandom.getRandomNumberBetween(200,400)});
     const [flavorText, setFlavorText] = useState<string|undefined>();
     const [birbLocation, setBirbLocation] = useState(spawnPoint);
     const stateRef = useRef<STATES>(STATES.WANDERING);

@@ -1146,7 +1146,7 @@ const createOpinion = (baseline = 0, specificOpinions: ThemePossibilitiesNumberM
 //procedural opinions are v useful
 const initThemeOpinions = () => {
     //free press plz (spying is the most pure incarnation of quotidians so i went with their morals)
-    theme_opinions[SPYING] = createOpinion(113, { WEB: -113, APOCALYPSE:-113 });
+    theme_opinions[SPYING] = createOpinion(113, { WEB: -113, APOCALYPSE:-113, TWISTING: -113});
     //things are alright, i guess
     theme_opinions[LONELY] = createOpinion(0, {LONELY: 20,LOVE: -113, SERVICE: -113, FAMILY: -113, FREEDOM:20, SPACE: 20, OCEAN:20 });
     //all is art
@@ -1167,6 +1167,7 @@ const initThemeOpinions = () => {
     theme_opinions[MATH] = createOpinion(85, {OBFUSCATION: 13,KNOWING: 113, WEB: 100, SOUL: -13, MAGIC: -13, TWISTING: 113, TIME: 113, SPACE: 113, SCIENCE: 113, TECHNOLOGY: 113, MATH: 113 });
     //:) :) :) Everything would be in its blind volumes. ... Everything: but for every sensible line or accurate fact there would be millions of meaningless cacophonies, verbal farragoes, and babblings.
     theme_opinions[TWISTING] = createOpinion(113, { });
+    theme_opinions[KNOWING] = createOpinion(113, {TWISTING: -113, OBFUSCATION: -113, DARKNESS: -113 });
 
     /*
     theme_opinions[TWISTING] =  ["creative"];

@@ -17,6 +17,7 @@ import { addStringToArrayWithKey, isStringInArrayWithKey, removeStringFromArrayW
 import { Wanderer } from './Wanderer';
 import { GuestBook } from "./GuestBook";
 import { Quotidian } from "./Quotidian";
+import { shuffle } from "../../Utils/NonSeededRandUtils";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -95,6 +96,8 @@ const GuestBookButton = styled.button`
 
     //room needs to tell me what items it found.
     const itemsRef = useRef<RenderedItems[]>([]);
+    //an array of theme keys used to populate quotidians
+    const quotidiansRef = useRef<string[][]>([]);
 
     /*
         NOTE:
@@ -175,6 +178,20 @@ const GuestBookButton = styled.button`
         setThemeKeys(childRoomThemes(tmpRand));
     }
 
+    //spawn quotidians
+    useEffect(()=>{
+        //extra chance of it being 0
+        const quotidians:string[][] = [];
+        if(seededRandom.nextDouble()>0.75){
+            const number  = seededRandom.getRandomNumberBetween(0,4);
+            for(let i =0; i< number; i++){
+                const tmp = shuffle(themeKeys);
+                quotidians.push(tmp.slice(0,2) as string[]);
+            }
+        }
+        quotidiansRef.current = quotidians;
+    },[themeKeys]);
+
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     //what's this? have I found a Waste?
@@ -189,10 +206,7 @@ const GuestBookButton = styled.button`
             <RoomContainer>
                 <Room canvasRef={canvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
-                <Quotidian themeKeys={[FLESH]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
-                <Quotidian themeKeys={[SPYING]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
-              <Quotidian themeKeys={[SPYING]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
-
+                {quotidiansRef.current?.map((qq)=> <Quotidian themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:

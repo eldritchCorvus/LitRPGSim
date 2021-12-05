@@ -177,7 +177,18 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         }
 
     }
- 
+    useEffect(()=>{
+        if(flavorText){
+            const timer = setTimeout(()=>{
+               setFlavorText(undefined);
+            }, 3000)
+        
+            return () => {
+              clearTimeout(timer);
+            };
+        }
+
+    },[flavorText])
 
     const processWalk =(key:string)=>{
         const minTop = 500-350-30;

@@ -45,6 +45,9 @@ export   class Theme{
     }
 
     getOpinionOfTheme =(key: string)=>{
+        if(!this.opinions){
+            return 0;
+        }
         if(key in this.opinions){
             return this.opinions[key];
         }
