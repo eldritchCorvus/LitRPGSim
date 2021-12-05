@@ -18,6 +18,23 @@ interface WandererProps {
     numberDoors:number;
   }
 
+  export const Popup = styled.div`
+    border: 2px solid black;
+    border-radius: 13px;
+    padding: 5px;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    color: black;
+    padding-left: 13px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    padding-right: 13px;
+    margin: 10px;
+    background: #d1b056;
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+`
+
   const RoomCanvas = styled.canvas`
     position: absolue;
   `
@@ -232,7 +249,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
 
     return(
         <Container leftSpawn={playerLocation.left} topSpawn={playerLocation.top}>
-            {flavorText ?<FlavorPopup text={flavorText} left={playerLocation.left} top={playerLocation.top}/>:null}
+            {flavorText ?<Popup>{flavorText}</Popup>:null}
             <Player src={real_eye} id="player"/>    
         </Container>
  )

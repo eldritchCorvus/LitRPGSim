@@ -8,17 +8,36 @@ import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
 import FlavorPopup from "./FlavorPopup";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
+import { stringtoseed } from "../../Utils/StringUtils";
 
 
 interface QuotidianProps {
     itemsRef: MutableRefObject<RenderedItems[]>;
     canvasRef: RefObject<HTMLCanvasElement>;
+    themeKeys: string[];
     seededRandom: SeededRandom;
     numberDoors:number;
   }
 
+  export const Popup = styled.div`
+    border: 2px solid black;
+    border-radius: 13px;
+    padding: 5px;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    color: black;
+    padding-left: 13px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    padding-right: 13px;
+    margin: 10px;
+    background: #d1b056;
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+`
 
-export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,canvasRef,seededRandom,numberDoors}) => {
+
+export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef,seededRandom,numberDoors}) => {
 
     const playerWidth = 50;
     const playerHeight = 50;
@@ -48,6 +67,13 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,canvasRef,seededRan
         pointer-events:none;
     `
 
+    const NameTag = styled.div`
+        position: absolute;
+        left:-0px;
+        top: -25px;
+        pointer-events:none;
+    `
+
     const Container = styled.div`
         position: absolute;
         left: ${(props: PlayerProps) => props.leftSpawn}px;
@@ -59,7 +85,18 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,canvasRef,seededRan
     const [birbLocation, setBirbLocation] = useState(spawnPoint);
     const stateRef = useRef<STATES>(STATES.WANDERING);
     const currentHeading = useRef<DIRECTIONS>(DIRECTIONS.w);
+    const name = useRef<string>();
 
+    
+
+    useEffect(()=>{
+        const first_names = ["Craig","John","Jude","Jade","Joey","Rose","Roxy","Jeff","Dave","Dirk","Jove","Jake","Sophie","Jaxon","Basira","Daisy","Martin","Georgie","Sasha","James","Taylor","Victoria","Jean-Paul","Bob","Alice","Carol","Eve","Adam","Rachel","Brian","Aisha","Alexandra","Alex","Tobias","Marco","Cassie","Tom","Lisa","Sarah"," Sylvester","Gordon","Helen","Jamie","Lillian","Mary","Ashton","Peter","Zawhei","Eirikr","Volour","Okarin","Peewee","Hagala","Despap","Othala","Gertrude","Mike","Michael","Peter","Simon","Manuela","Annabel"];
+        const last_names = ["Researcher","Gently","Egbert","Claire","Lalonde","Strider","Hussain","King","Stoker","Sims","Blackwood","Barker","James","Blake","Dalon","Vasil","Hebert","Jensen","Lindt","Newell","Laborn","Fell","Wilbourn","Livsey","Lamb","Bacama","Kharun","Reynolds","Braggi","Seelee","Cassan","Folnir","Citato","Grigor","Crew","Robertson","Fairchild","Lukas","Richardson","Dominguez","Cane","Salesa","Shelly"];
+        //if you have the same themes you have the same name deal with it, its intentional, recurring cast
+        const rand = new SeededRandom(stringtoseed(themeKeys.join(",")));
+        const tmp =`${ rand.pickFrom(first_names) } ${rand.pickFrom(last_names) } `;
+        name.current = tmp;
+    }, [name])
 
     useEffect(()=>{
         setBirbLocation({top:spawnPoint.top, left:spawnPoint.left})
@@ -101,7 +138,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,canvasRef,seededRan
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 takeMemoryFromWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
-                setFlavorText(item.flavorText);
+                setFlavorText("TODO!");
                 //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
                 return;
             }
@@ -232,7 +269,8 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,canvasRef,seededRan
 
     return(
         <Container leftSpawn={birbLocation.left} topSpawn={birbLocation.top}>
-            {flavorText ?<FlavorPopup text={flavorText} left={birbLocation.left} top={birbLocation.top}/>:null}
+            {flavorText ?<Popup>{flavorText}</Popup>:null}
+            <NameTag>{name.current}</NameTag>
             <Quotidian src={birb}/>    
         </Container>
  )
