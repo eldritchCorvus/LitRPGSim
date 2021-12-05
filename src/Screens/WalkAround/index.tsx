@@ -217,6 +217,7 @@ const GuestBookButton = styled.button`
                     * add wanderer and birbs to list of items (keep them from interacting with themselves)
                     * they should pick an object within their range and move towards it (default speed and range)
                     * when they get to item they should eat it and pick a new object
+                    * more opinions
                    AI: 
 
                    * make theme storage for opinion on other themes (useful in broad contexts)

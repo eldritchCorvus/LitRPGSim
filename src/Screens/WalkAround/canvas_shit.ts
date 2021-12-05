@@ -11,6 +11,7 @@ export interface RenderedItems {
     height: number;
     flavorText: string;
     themeKeys: string[];
+    name?: string; //only living creatures have names, not items, its used to update them
 }
 
 export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{

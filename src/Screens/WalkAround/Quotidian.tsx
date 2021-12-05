@@ -10,6 +10,7 @@ import FlavorPopup from "./FlavorPopup";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { stringtoseed } from "../../Utils/StringUtils";
 import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";
+import { removeItemOnce } from "../../Utils/ArrayUtils";
 
 
 interface QuotidianProps {
@@ -103,6 +104,44 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     useEffect(()=>{
         setBirbLocation({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
+
+    useEffect(()=>{
+        if(flavorText){
+            const timer = setTimeout(()=>{
+               setFlavorText(undefined);
+            }, 3000)
+        
+            return () => {
+              clearTimeout(timer);
+            };
+        }
+
+    },[flavorText])
+
+    const findMeInItemRef = ()=>{
+        if(name.current && itemsRef.current){
+            return itemsRef.current.find((item)=> item.name === name.current);
+        }
+        return undefined;
+
+    }
+
+    useEffect(()=>{
+        //two cases: one, i am not currently in the itemsref and i should be
+        //or two, i am in the items ref and i need to tell it my current location.
+        const me = findMeInItemRef();
+        if(me){
+            //JR NOTE: TOdo
+            let tmp = itemsRef.current;
+            tmp  = removeItemOnce(tmp,me);
+            tmp.push({x: birbLocation.left, y: birbLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name:name.current })
+            itemsRef.current = tmp;
+        }else if(name.current){
+            const tmp = [...itemsRef.current, {x: birbLocation.left, y: birbLocation.top,width: playerWidth, height: playerHeight,flavorText: "Just a fucked up lil scrimbo.",themeKeys: themeKeys,name:name.current }]
+            itemsRef.current = tmp;
+        }
+
+    },[birbLocation,name])
     
     const isMemoryKnowByWanderer = (memory: string)=>{
         return isStringInArrayWithKey(MEMORY_KEY,memory);
@@ -141,7 +180,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         const wanderer_radius = 25;
 
         for(let item of itemsRef.current){
-            if(pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
+            if(item.name !== name.current && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 takeMemoryFromWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 

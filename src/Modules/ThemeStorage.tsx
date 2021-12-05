@@ -1152,7 +1152,7 @@ const initThemeOpinions = () => {
     //all is art
     theme_opinions[ART] = createOpinion(55, { });
     //technology and science have some pretty strong opinions on a narrow range of topics
-    theme_opinions[TECHNOLOGY] = createOpinion(0, {CRAFTING: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113 });
+    theme_opinions[TECHNOLOGY] = createOpinion(0, {CRAFTING: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113,FLESH:-113});
     theme_opinions[SCIENCE] = createOpinion(0, {QUESTING: 55,BUGS: 113,OBFUSCATION: -113,KNOWING: 113,PLANTS: 113,MAGIC: -113,MATH: 113,TECHNOLOGY: 113,SPACE: 113,TIME:113,SCIENCE:113,ZAP:113 });
     //nothing really matters much to the vastness of space
     theme_opinions[SPACE] = createOpinion(0, {BURIED: -1,DARKNESS: 1,SPACE: 1,LONELY:1 });
@@ -1168,15 +1168,16 @@ const initThemeOpinions = () => {
     //:) :) :) Everything would be in its blind volumes. ... Everything: but for every sensible line or accurate fact there would be millions of meaningless cacophonies, verbal farragoes, and babblings.
     theme_opinions[TWISTING] = createOpinion(113, { });
     theme_opinions[KNOWING] = createOpinion(113, {TWISTING: -113, OBFUSCATION: -113, DARKNESS: -113 });
+    //nothing matters in the face of inevitability
+    theme_opinions[DEATH] = createOpinion(0, { });
+    //definitely a fan of things humans can use to just fuck their shit right up
+    theme_opinions[APOCALYPSE] = createOpinion(0, {APOCALYPSE:113,TECHNOLOGY:113,SCIENCE:113,ENDINGS:55 });
+    theme_opinions[ANGELS] = createOpinion(-10, {LOVE: 20, STEALING: -50, QUESTING: 113,MUSIC: 55,SOUL: 113,FAMILY: 55,ANGELS: 113,SERVICE: 113,LIGHT: 55,APOCALYPSE:-113,LONELY: -55,FREEDOM:-55,FLESH:-55 });
+    theme_opinions[LIGHT] = createOpinion(10, {QUESTING: 20,DARKNESS: -113,OBFUSCATION: -55,SOUL: 45,ZAP: 75,HEALING: 20,MAGIC: 55,BURIED: -50, SCIENCE: 55,TECHNOLOGY: 55, ART: 30,FIRE: 20 });
+    theme_opinions[SERVICE] = createOpinion(0, {DEFENSE: 113, QUESTING: 113, GUIDING: 113, ROYALTY: 113,WEB: 85,LOVE: 20, CHOICES: -30, PLANTS: 85, HEALING: 113,FAMILY: 113, SERVICE: 113,APOCALYPSE: -30,TWISTING: -85, FREEDOM: -113, STEALING: -20, LONELY: -20,SPYING: 20 });
+    theme_opinions[FAMILY] = createOpinion(10, {DEFENSE: 113,DOLLS: 55,SOUL: 55,LOVE: 113,LONELY:-113,FREEDOM: -113,FLESH: 113,DEATH:-113,SERVICE: 113 });
 
     /*
-    theme_opinions[TWISTING] =  ["creative"];
-    theme_opinions[DEATH] =  ["inevitable"];
-    theme_opinions[APOCALYPSE] =  ["peaceful"];
-    theme_opinions[ANGELS] =  ["righteous"];
-    theme_opinions[LIGHT] =  ["illuminating"];
-    theme_opinions[SERVICE] =  ["helpful"];
-    theme_opinions[FAMILY] =  ["loyal"];
     theme_opinions[MAGIC] =  ["magical"];
     theme_opinions[HEALING] =  ["compassionate"];
     theme_opinions[PLANTS] = ["nature loving"];

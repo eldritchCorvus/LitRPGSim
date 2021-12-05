@@ -8,6 +8,7 @@ import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
 import FlavorPopup from "./FlavorPopup";
 import { SPYING, KNOWING, ADDICTION, TECHNOLOGY, LONELY, MAGIC } from "../../Modules/ThemeStorage";
+import { removeItemOnce } from "../../Utils/ArrayUtils";
 
 
 interface WandererProps {
@@ -134,7 +135,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         const wanderer_radius = 25;
 
         for(let item of itemsRef.current){
-            if(pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
+            if(item.name !== "Wanda" && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 addMemoryToWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
@@ -177,6 +178,34 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         }
 
     }
+
+    
+    const findMeInItemRef = ()=>{
+        if(itemsRef.current){
+            return itemsRef.current.find((item)=> item.name === "Wanda");
+        }
+        return undefined;
+
+    }
+
+    useEffect(()=>{
+        //two cases: one, i am not currently in the itemsref and i should be
+        //or two, i am in the items ref and i need to tell it my current location.
+        const me = findMeInItemRef();
+        if(me){
+            //JR NOTE: TOdo
+            let tmp = itemsRef.current;
+            tmp  = removeItemOnce(tmp,me);
+            tmp.push({x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name: "Wanda" })
+            itemsRef.current = tmp;
+        }else{
+            const tmp = [...itemsRef.current, {x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: "The Wanderer.",themeKeys: themeKeys,name:"Wanda" }]
+            itemsRef.current = tmp;
+        }
+
+    },[playerLocation])
+
+
     useEffect(()=>{
         if(flavorText){
             const timer = setTimeout(()=>{
