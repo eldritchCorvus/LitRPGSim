@@ -262,6 +262,7 @@ export const CreditsScreen = (props: StatusProps) => {
 
                 <CreditLine>
                     <CreditDoubleLine>
+                    <CreditLeft>Amazing Crow Gif: </CreditLeft> <CreditRight><span><a href = 'https://giphy.com/gifs/run-mjkahn-crow-W4PtD360Ev9x4myZH0'>mjkahn</a></span></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>

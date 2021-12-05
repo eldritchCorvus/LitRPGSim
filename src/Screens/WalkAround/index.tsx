@@ -16,6 +16,7 @@ import { removeItemOnce } from '../../Utils/ArrayUtils';
 import { addStringToArrayWithKey, isStringInArrayWithKey, removeStringFromArrayWithKey } from '../../Utils/LocalStorageUtils';
 import { Wanderer } from './Wanderer';
 import { GuestBook } from "./GuestBook";
+import { Quotidian } from "./Quotidian";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -188,14 +189,17 @@ const GuestBookButton = styled.button`
             <RoomContainer>
                 <Room canvasRef={canvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
+                <Quotidian canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+
                 <Wanderer canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:
 
                 Five Minute TODO: 
-                    * spawn (random location) and render (shitty gif of a crow) a spying and lonely Quotidian
+                    *Quotidian should have themes (pick them themselves)
                     * they should pick an object within their range and move towards it (default speed and range)
                     * when they get to item they should comment on it and pick a new object
+                    * FIX FLAVOR TEXT TO BE CENTERED OVER OWNER OF IT PLEASE FOR THE LOVE OF [REDACTED]
 
                    AI: 
 
@@ -218,7 +222,7 @@ const GuestBookButton = styled.button`
                 <li>wire AI into system, spawn test ais and watch them move</li>
                 <li>429044 is important number</li>
                 <li>20h:14m:36s on the stopwatch</li>
-                <li>gigglesnort more crow ciphers</li>
+                <li>#quotidians at a time tie to things you can put into helpdesk, one word per room max</li>
                 <li>jr in attic, but its a lobster. this is never explained.</li>
                 <li>tweak item placement alg (bookshelves are good example to show how current alg has layering)</li>
                 <li>warn player if the ai eats a memory you have in addition to the item, various ai factions that eats novel items and fight each other (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
