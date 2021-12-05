@@ -78,6 +78,7 @@ export const GuestBook = () => {
         { quip: "lucky the leprechaun is op as fuck, plz nerf", title: "Weaver of Eyes" },
         { quip: "swiss cheese code", title: "Taxonomist" },
         { quip: "quip", title: "Catalyst" },
+        { quip: "Please give me a quip to post here.", title: "Pioneer" },
         { quip: "Please give me a quip to post here.", title: "Scribe" },
         { quip: "Please give me a quip to post here.", title: "Chronicler" },
         { quip: "Please give me a quip to post here.", title: "Speaker" },
