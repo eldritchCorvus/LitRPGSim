@@ -10,6 +10,7 @@ export interface RenderedItems {
     width: number;
     height: number;
     flavorText: string;
+    themeKeys: string[];
 }
 
 export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
@@ -111,7 +112,7 @@ export const drawWallObjects = async (key: string, folder: string, canvas: HTMLC
             }
             const y = seededRandom.getRandomNumberBetween(padding, Math.max(padding, image.height));
             context.drawImage(image, current_x, y);
-            ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+            ret.push({themeKeys:[chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
 
         } else {
             current_x += 50;
@@ -166,7 +167,7 @@ export const drawFloorObjects = async (key: string, folder: string, canvas: HTML
                         break;
                     }
                     context.drawImage(image, current_x, y,image.width*scale,image.height*scale);
-                    ret.push({ x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+                    ret.push({themeKeys:[chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
                 } else {
                     current_x += 50;
                 }

@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
-import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE } from '../../Modules/ThemeStorage';
+import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
 import help_icon from './../..//images/Walkabout/icons8-chat-64.png';
 import x_icon from './../..//images/Walkabout/icons8-x-50.png';
@@ -189,9 +189,9 @@ const GuestBookButton = styled.button`
             <RoomContainer>
                 <Room canvasRef={canvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
-                <Quotidian themeKeys={[SPYING, LONELY]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
-                <Quotidian themeKeys={[SPYING,LONELY]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
-              <Quotidian themeKeys={[SPYING,TECHNOLOGY]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian themeKeys={[FLESH]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian themeKeys={[SPYING]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+              <Quotidian themeKeys={[SPYING]} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
 
                 <Wanderer canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
@@ -200,6 +200,7 @@ const GuestBookButton = styled.button`
                 Five Minute TODO: 
                     *should spawn between 0 and 4 quotidians in a room, each with their own themes
                     * objects should remember what theme they came from.
+                    * add wanderer and birbs to list of items (keep them from interacting with themselves)
                     * they should pick an object within their range and move towards it (default speed and range)
                     * when they get to item they should eat it and pick a new object
                    AI: 

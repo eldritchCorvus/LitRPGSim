@@ -7,6 +7,7 @@ import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
 import FlavorPopup from "./FlavorPopup";
+import { SPYING, KNOWING, ADDICTION, TECHNOLOGY, LONELY, MAGIC } from "../../Modules/ThemeStorage";
 
 
 interface WandererProps {
@@ -65,6 +66,9 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
     const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
     const [flavorText, setFlavorText] = useState<string|undefined>();
     const [playerLocation, setPlayerLocation] = useState(spawnPoint);
+
+    //what classpect are they, i wonder???, what are their interests?
+    const themeKeys = [MAGIC,KNOWING,KNOWING,SPYING, TECHNOLOGY, LONELY];
 
 
     useEffect(()=>{

@@ -45,7 +45,10 @@ export   class Theme{
     }
 
     getOpinionOfTheme =(key: string)=>{
-        return this.opinions[key];
+        if(key in this.opinions){
+            return this.opinions[key];
+        }
+        return 0;
     }
 
     pickPossibilityFor=(rand: SeededRandom, key: string)=>{
@@ -83,12 +86,20 @@ export   class Theme{
         console.log("debug theme");
     }
 
+    myOpinionOnThemes= (themes: Theme[])=>{
+        let ret = 0;
+        for(let theme of themes){
+            ret += this.getOpinionOfTheme(theme.key.toUpperCase());
+        }
+        return ret;
+    }
+
 }
 
-export const themesTotalOpinionOnTargetThemeKey= (themes: Theme[],key: string)=>{
+export const aggregateOpinionsOnThemes= (judgingThemes: Theme[], judgedThemes: Theme[])=>{
     let ret = 0;
-    for(let theme of themes){
-        ret += theme.getOpinionOfTheme(key);
+    for(let theme of judgingThemes){
+        ret += theme.myOpinionOnThemes(judgedThemes);
     }
     return ret;
 }

@@ -9,6 +9,7 @@ import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayW
 import FlavorPopup from "./FlavorPopup";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { stringtoseed } from "../../Utils/StringUtils";
+import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";
 
 
 interface QuotidianProps {
@@ -96,7 +97,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         const rand = new SeededRandom(stringtoseed(themeKeys.join(",")));
         const tmp =`${ rand.pickFrom(first_names) } ${rand.pickFrom(last_names) } `;
         name.current = tmp;
-    }, [name])
+    }, [name,themeKeys])
 
     useEffect(()=>{
         setBirbLocation({top:spawnPoint.top, left:spawnPoint.left})
@@ -125,6 +126,11 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         }
     }
 
+    const getOpinionOnItemWithThemes= (judgedKeys:string[])=>{
+        const themes = themeKeys.map((theme) => all_themes[theme])
+        const judgedThemes = judgedKeys.map((theme) => all_themes[theme]);
+        return aggregateOpinionsOnThemes(themes, judgedThemes);
+    }
     
     //unlike doors, items are not in set locations, check the items ref
     const checkForItems =(top: number, left: number)=>{
@@ -138,7 +144,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 takeMemoryFromWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
-                setFlavorText("TODO!");
+                setFlavorText("TODO! My opinion is: " +getOpinionOnItemWithThemes(item.themeKeys));
                 //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
                 return;
             }
@@ -176,7 +182,6 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     }
 
     const tick = ()=>{
-        console.log("JR NOTE: ticking, current state is", stateRef.current, "heading is: ",currentHeading.current)
         if(stateRef.current === STATES.WANDERING){
             if(Math.random()>0.75){
                 const newdir = pickFrom(["w","a","s","d"]);
@@ -189,7 +194,6 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     }
 
     useEffect(()=>{
-        console.log("JR NOTE: starting tick effect, current state is", stateRef.current, "heading is: ",currentHeading.current)
             const timer = setTimeout(()=>{
                 tick();
             }, 500)
@@ -204,7 +208,6 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
  
 
     const processWalk =(key:string)=>{
-        console.log("JR NOTE: Processing walk", key)
         const minTop = 500-350-30;
         const maxTop = 500-30;
         const maxLeft = 455;
