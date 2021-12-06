@@ -182,7 +182,7 @@ const GuestBookButton = styled.button`
     useEffect(()=>{
         //extra chance of it being 0
         const quotidians:string[][] = [];
-        if(seededRandom.nextDouble()>0.75){
+        if(seededRandom.nextDouble()>0.25){
             const number  = seededRandom.getRandomNumberBetween(0,4);
             for(let i =0; i< number; i++){
                 const tmp = shuffle(themeKeys);

@@ -191,7 +191,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
             opionion_intensifier = seededRandom.pickFrom(["great", "interesting","wonderful","marvelous","good",dynamic_intensifier])
         }if (Math.abs(opinion)  >50 ){
             punctuation = "?"
-            opionion_intensifier = seededRandom.pickFrom(["a"])
+            opionion_intensifier = seededRandom.pickFrom(["the"])
         }
 
         const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`,`Get ${opionion_intensifier} ${adj} thing for ${person}${punctuation}`,`Bring ${opionion_intensifier} ${adj} thing to ${location}${punctuation}`];
