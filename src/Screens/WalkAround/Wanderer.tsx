@@ -135,7 +135,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         const wanderer_radius = 25;
 
         for(let item of itemsRef.current){
-            if(item.name !== "Wanda" && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
+            if(item.name !== "Wanderer" && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 addMemoryToWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
@@ -182,7 +182,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
     
     const findMeInItemRef = ()=>{
         if(itemsRef.current){
-            return itemsRef.current.find((item)=> item.name === "Wanda");
+            return itemsRef.current.find((item)=> item.name === "Wanderer");
         }
         return undefined;
 
@@ -196,10 +196,10 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
             //JR NOTE: TOdo
             let tmp = itemsRef.current;
             tmp  = removeItemOnce(tmp,me);
-            tmp.push({x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name: "Wanda" })
+            tmp.push({x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name: "Wanderer" })
             itemsRef.current = tmp;
         }else{
-            const tmp = [...itemsRef.current, {x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: "The Wanderer.",themeKeys: themeKeys,name:"Wanda" }]
+            const tmp = [...itemsRef.current, {x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: "The Wanderer.",themeKeys: themeKeys,name:"Wanderer" }]
             itemsRef.current = tmp;
         }
 

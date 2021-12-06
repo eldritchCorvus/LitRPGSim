@@ -212,6 +212,7 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO: 
+                * debug: is item list out of sync? birbs keep talking about things that arne't there
                 * birb eats item when it discusses its flavor (refactor function so it takes in RenderedItems and draws canvas (i.e. spawning those items happens BEFORE rendering, and room keeps track of what is what)))
                 * birbs can only see so far, (is this worth the slow down?)
 
