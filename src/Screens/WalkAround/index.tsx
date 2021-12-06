@@ -206,15 +206,14 @@ const GuestBookButton = styled.button`
             <RoomContainer>
                 <Room canvasRef={canvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
-                {quotidiansRef.current?.map((qq)=> <Quotidian themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
+                {quotidiansRef.current?.map((qq,index)=> <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:
 
                 Five Minute TODO: 
-                * have birbs pick objects to move towards
-                * use same seed for name to decide how far a quotidian can see and how fast they move
-                * birb eats item when it discusses its flavor
+                * birb eats item when it discusses its flavor (refactor function so it takes in RenderedItems and draws canvas (i.e. spawning those items happens BEFORE rendering, and room keeps track of what is what)))
+                * birbs can only see so far, (is this worth the slow down?)
 
                    AI: 
 

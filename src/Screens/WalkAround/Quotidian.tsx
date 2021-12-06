@@ -45,11 +45,6 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const playerWidth = 50;
     const playerHeight = 50;
 
-    enum STATES {
-        WANDERING = 1,
-        GOAL,
-    }
-
     enum DIRECTIONS {
         w = "w",
         a ="a",
@@ -87,10 +82,11 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const [spawnPoint, setSpawnPoint] = useState({left:seededRandom.getRandomNumberBetween(0,300),top:seededRandom.getRandomNumberBetween(200,400)});
     const [flavorText, setFlavorText] = useState<string|undefined>();
     const [birbLocation, setBirbLocation] = useState(spawnPoint);
-    const stateRef = useRef<STATES>(STATES.WANDERING);
     const currentHeading = useRef<DIRECTIONS>(DIRECTIONS.w);
     const name = useRef<string>();
-
+    const goalObjectIndex = useRef<number>();
+    const speedRef = useRef<number>(new SeededRandom(stringtoseed(themeKeys.join(","))).getRandomNumberBetween(1,30));
+    const despawnedRef = useRef(false);
     
 
     useEffect(()=>{
@@ -174,7 +170,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         return aggregateOpinionsOnThemes(themes, judgedThemes);
     }
 
-    const getPositiveFlavorText=(themeKeys: string[], opinion: number)=>{
+    const getPositiveFlavorText=(themeKeys: string[], opinion: number, objectName: string|undefined)=>{
         const theme = all_themes[seededRandom.pickFrom(themeKeys)];
         const adj = `${theme.pickPossibilityFor(seededRandom,ADJ)}`;
         const location = `${theme.pickPossibilityFor(seededRandom,LOCATION)}`;
@@ -183,6 +179,10 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
 
         let opionion_intensifier = "";
         let punctuation = "?";
+        let thing = "thing";
+        if(objectName){
+            thing = objectName;
+        }
 
         if(Math.abs(opinion)  > 200){
             punctuation = "!!!";
@@ -195,16 +195,20 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
             opionion_intensifier = seededRandom.pickFrom(["the"])
         }
 
-        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`,`Get ${opionion_intensifier} ${adj} thing for ${person}${punctuation}`,`Bring ${opionion_intensifier} ${adj} thing to ${location}${punctuation}`];
+        const options = [`${opionion_intensifier} ${adj} ${thing} ${punctuation}`, `Bring ${opionion_intensifier} ${adj} ${thing} to ${person}${punctuation}`,`Get ${opionion_intensifier} ${adj} ${thing} for ${person}${punctuation}`,`Bring ${opionion_intensifier} ${adj} ${thing} to ${location}${punctuation}`];
         return seededRandom.pickFrom(options);
     }
 
-    const getNegativeFlavorText=(themeKeys: string[], opinion: number)=>{
+    const getNegativeFlavorText=(themeKeys: string[], opinion: number, objectName: string|undefined)=>{
         const theme = all_themes[seededRandom.pickFrom(themeKeys)];
         const adj = `${theme.pickPossibilityFor(seededRandom,ADJ)}`;
         const location = `${theme.pickPossibilityFor(seededRandom,LOCATION)}`;
         const person = `${theme.pickPossibilityFor(seededRandom,PERSON)}`;
         const dynamic_intensifier = theme.pickPossibilityFor(seededRandom, INSULT);
+        let thing = "thing";
+        if(objectName){
+            thing = objectName;
+        }
 
 
         let opionion_intensifier = "";
@@ -221,15 +225,15 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
             opionion_intensifier = seededRandom.pickFrom(["weird","boring","lame"])
         }
 
-        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`,`Get ${opionion_intensifier} ${adj} thing for ${person}${punctuation}`,`Bring ${opionion_intensifier} ${adj} thing to ${location}${punctuation}`];
+        const options = [`${opionion_intensifier} ${adj} ${thing}${punctuation}`, `Bring ${opionion_intensifier} ${adj} ${thing} to ${person}${punctuation}`,`Get ${opionion_intensifier} ${adj} ${thing} for ${person}${punctuation}`,`Bring ${opionion_intensifier} ${adj} ${thing} to ${location}${punctuation}`];
         return seededRandom.pickFrom(options);
     }
 
-    const getFlavorText =(themeKeys: string[], opinion: number)=>{
+    const getFlavorText =(themeKeys: string[], opinion: number, objectName: string|undefined)=>{
         if( opinion>0){
-            return getPositiveFlavorText(themeKeys, opinion) + opinion;
+            return getPositiveFlavorText(themeKeys, opinion,objectName) + opinion;
         }else{
-            return getNegativeFlavorText(themeKeys, opinion) + opinion;
+            return getNegativeFlavorText(themeKeys, opinion,objectName) + opinion;
         }
     }
 
@@ -256,7 +260,8 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 takeMemoryFromWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
-                setFlavorText(crowify(getFlavorText(item.themeKeys,getOpinionOnItemWithThemes(item.themeKeys))));
+                setFlavorText(crowify(getFlavorText(item.themeKeys,getOpinionOnItemWithThemes(item.themeKeys),item.name)));
+                goalObjectIndex.current = undefined;
                 //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
                 return;
             }
@@ -289,26 +294,64 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
 
         if(nearDoor){
             doorEffect();
+            despawnedRef.current = true;
         }
 
     }
 
+    const walkTowardsObject= ()=>{
+        if(!itemsRef.current || !goalObjectIndex.current){
+            return;
+        }
+        const object = itemsRef.current[goalObjectIndex.current];
+        if(!object){
+            goalObjectIndex.current = undefined;
+            return;
+        }
+        if(seededRandom.nextDouble()>0.5){
+            //if object x is bigger than mine, need to go right, so d
+            if(object.x>birbLocation.left){
+                currentHeading.current = DIRECTIONS.d;
+                processWalk(currentHeading.current);  
+            }else{
+                currentHeading.current = DIRECTIONS.a;
+                processWalk(currentHeading.current);  
+            }
+        }else{
+            //if object y is bigger than mine, need to go down, so s
+            if(object.y>birbLocation.top){
+                currentHeading.current = DIRECTIONS.s;
+                processWalk(currentHeading.current);  
+            }else{
+                currentHeading.current = DIRECTIONS.w;
+                processWalk(currentHeading.current);  
+            }
+        }
+    }
+
     const tick = ()=>{
-        if(stateRef.current === STATES.WANDERING){
+        if(despawnedRef.current === true){
+            return;
+        }
+        if(!goalObjectIndex.current){
             if(Math.random()>0.75){
                 const newdir = pickFrom(["w","a","s","d"]);
                 currentHeading.current = newdir;
                 processWalk(newdir);
+                //TODO have a radius i can look in, maybe?
+                goalObjectIndex.current = itemsRef.current.indexOf(pickFrom(itemsRef.current));
             }else{
                 processWalk(currentHeading.current);  
             }
+        }else{
+            walkTowardsObject();
         }
     }
 
     useEffect(()=>{
             const timer = setTimeout(()=>{
                 tick();
-            }, 500)
+            }, 300)
         
             return () => {
               clearTimeout(timer);
@@ -331,19 +374,22 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
             let prevLeft = birbLocation.left;
 
             if((key === "s" || key === "ArrowDown")&& prevTop < maxTop){
-                prevTop += 10;
+                prevTop += speedRef.current;
             }
             if((key === "w" || key === "ArrowUp")&& prevTop > minTop){
 
-                prevTop += -10
+                prevTop += -speedRef.current
             }
             if((key === "a" || key === "ArrowLeft") && prevLeft > minLeft){
 
-                prevLeft += -10;
+                prevLeft += -speedRef.current;
             }
             if((key === "d" || key === "ArrowRight")&& prevLeft < maxLeft ){
 
-                prevLeft += 10;
+                prevLeft += speedRef.current;
+            }
+            if(prevTop === birbLocation.top && prevLeft === birbLocation.left){
+                goalObjectIndex.current = undefined;
             }
             setBirbLocation({top: prevTop, left: prevLeft});
             const centerX = prevLeft +playerWidth/2;
@@ -382,6 +428,9 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
 
       },[canvasRef]);
 
+      if(despawnedRef.current === true){
+          return null;
+      }
     return(
         <Container leftSpawn={birbLocation.left} topSpawn={birbLocation.top}>
             {flavorText ?<Popup>{flavorText}</Popup>:null}

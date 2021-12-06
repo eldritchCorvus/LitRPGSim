@@ -14,10 +14,14 @@ export interface RenderedItems {
     name?: string; //only living creatures have names, not items, its used to update them
 }
 
-export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
+export const distance = (x1:number,y1:number,x2:number,y2:number)=>{
     const first = (x1-x2)**2;
     const second = (y1-y2)**2;
-    return (first + second)**0.5 < radius;
+    return (first + second)**0.5
+}
+
+export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
+    return distance(x1, y2, x2, y2) < radius;
 }
 
 export const pointWithinBoundingBox = (myX: number, myY:number, objectX: number, objectY: number,objectWidth:number, objectHeight:number)=>{
