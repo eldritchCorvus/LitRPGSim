@@ -11,7 +11,7 @@ import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { stringtoseed } from "../../Utils/StringUtils";
 import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";
 import { removeItemOnce } from "../../Utils/ArrayUtils";
-import { ADJ, LOCATION, OBJECT, PERSON } from "../../Modules/ThemeStorage";
+import { ADJ, COMPLIMENT, INSULT, LOCATION, OBJECT, PERSON } from "../../Modules/ThemeStorage";
 
 
 interface QuotidianProps {
@@ -176,57 +176,56 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const getPositiveFlavorText=(themeKeys: string[], opinion: number)=>{
         const theme = all_themes[seededRandom.pickFrom(themeKeys)];
         const adj = `${theme.pickPossibilityFor(seededRandom,ADJ)}`;
-        const object = `${theme.pickPossibilityFor(seededRandom,OBJECT)}`;
         const location = `${theme.pickPossibilityFor(seededRandom,LOCATION)}`;
         const person = `${theme.pickPossibilityFor(seededRandom,PERSON)}`;
+        const dynamic_intensifier = theme.pickPossibilityFor(seededRandom, COMPLIMENT);
 
         let opionion_intensifier = "";
         let punctuation = ".";
 
-        if(opinion > 200){
+        if(Math.abs(opinion)  > 200){
             punctuation = "!!!";
             opionion_intensifier = seededRandom.pickFrom(["BEST", "MY","LOVE"])
-        }else if (opinion >100 ){
+        }else if (Math.abs(opinion)  >100 ){
             punctuation = "!"
-            opionion_intensifier = seededRandom.pickFrom(["great", "interesting","wonderful","marvelous","good"])
-        }if (opinion >50 ){
+            opionion_intensifier = seededRandom.pickFrom(["great", "interesting","wonderful","marvelous","good",dynamic_intensifier])
+        }if (Math.abs(opinion)  >50 ){
             punctuation = "?"
             opionion_intensifier = seededRandom.pickFrom(["a"])
         }
 
-        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`];
+        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`,`Get ${opionion_intensifier} ${adj} thing for ${person}${punctuation}`,`Bring ${opionion_intensifier} ${adj} thing to ${location}${punctuation}`];
         return seededRandom.pickFrom(options);
-
     }
 
     const getNegativeFlavorText=(themeKeys: string[], opinion: number)=>{
         const theme = all_themes[seededRandom.pickFrom(themeKeys)];
         const adj = `${theme.pickPossibilityFor(seededRandom,ADJ)}`;
-        const object = `${theme.pickPossibilityFor(seededRandom,OBJECT)}`;
         const location = `${theme.pickPossibilityFor(seededRandom,LOCATION)}`;
         const person = `${theme.pickPossibilityFor(seededRandom,PERSON)}`;
+        const dynamic_intensifier = theme.pickPossibilityFor(seededRandom, INSULT);
+
 
         let opionion_intensifier = "";
         let punctuation = ".";
 
-        if(opinion > 200){
+        if(Math.abs(opinion) > 200){
             punctuation = "!!!";
             opionion_intensifier = seededRandom.pickFrom(["WORST", "GROSS","HATED"])
-        }else if (opinion >100 ){
+        }else if (Math.abs(opinion)  >100 ){
             punctuation = "!"
-            opionion_intensifier = seededRandom.pickFrom(["boring", "lame","weird","icky","gross"])
-        }if (opinion >50 ){
+            opionion_intensifier = seededRandom.pickFrom(["bad","icky","gross",dynamic_intensifier])
+        }if (Math.abs(opinion)  >50 ){
             punctuation = "?"
-            opionion_intensifier = seededRandom.pickFrom(["a"])
+            opionion_intensifier = seededRandom.pickFrom(["weird","boring","lame"])
         }
 
-        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`];
+        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`,`Get ${opionion_intensifier} ${adj} thing for ${person}${punctuation}`,`Bring ${opionion_intensifier} ${adj} thing to ${location}${punctuation}`];
         return seededRandom.pickFrom(options);
     }
 
     const getFlavorText =(themeKeys: string[], opinion: number)=>{
-        const positive = opinion>0;
-        if(positive){
+        if( opinion>0){
             return getPositiveFlavorText(themeKeys, opinion) + opinion;
         }else{
             return getNegativeFlavorText(themeKeys, opinion) + opinion;
