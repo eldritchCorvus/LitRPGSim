@@ -231,6 +231,8 @@ const GuestBookButton = styled.button`
                    * make theme storage for speed, vision and fear stats
                         * if quotidian sees door, random number for setting door as goal
                         * if quotidian is near door, goes through it and despawns
+                   *collect birbs, tehy follow you?
+
 
 
                 Other MINUTE TODO.

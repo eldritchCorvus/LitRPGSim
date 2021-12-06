@@ -11,6 +11,7 @@ import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { stringtoseed } from "../../Utils/StringUtils";
 import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";
 import { removeItemOnce } from "../../Utils/ArrayUtils";
+import { ADJ, LOCATION, OBJECT, PERSON } from "../../Modules/ThemeStorage";
 
 
 interface QuotidianProps {
@@ -171,6 +172,77 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         const judgedThemes = judgedKeys.map((theme) => all_themes[theme]);
         return aggregateOpinionsOnThemes(themes, judgedThemes);
     }
+
+    const getPositiveFlavorText=(themeKeys: string[], opinion: number)=>{
+        const theme = all_themes[seededRandom.pickFrom(themeKeys)];
+        const adj = `${theme.pickPossibilityFor(seededRandom,ADJ)}`;
+        const object = `${theme.pickPossibilityFor(seededRandom,OBJECT)}`;
+        const location = `${theme.pickPossibilityFor(seededRandom,LOCATION)}`;
+        const person = `${theme.pickPossibilityFor(seededRandom,PERSON)}`;
+
+        let opionion_intensifier = "";
+        let punctuation = ".";
+
+        if(opinion > 200){
+            punctuation = "!!!";
+            opionion_intensifier = seededRandom.pickFrom(["BEST", "MY","LOVE"])
+        }else if (opinion >100 ){
+            punctuation = "!"
+            opionion_intensifier = seededRandom.pickFrom(["great", "interesting","wonderful","marvelous","good"])
+        }if (opinion >50 ){
+            punctuation = "?"
+            opionion_intensifier = seededRandom.pickFrom(["a"])
+        }
+
+        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`];
+        return seededRandom.pickFrom(options);
+
+    }
+
+    const getNegativeFlavorText=(themeKeys: string[], opinion: number)=>{
+        const theme = all_themes[seededRandom.pickFrom(themeKeys)];
+        const adj = `${theme.pickPossibilityFor(seededRandom,ADJ)}`;
+        const object = `${theme.pickPossibilityFor(seededRandom,OBJECT)}`;
+        const location = `${theme.pickPossibilityFor(seededRandom,LOCATION)}`;
+        const person = `${theme.pickPossibilityFor(seededRandom,PERSON)}`;
+
+        let opionion_intensifier = "";
+        let punctuation = ".";
+
+        if(opinion > 200){
+            punctuation = "!!!";
+            opionion_intensifier = seededRandom.pickFrom(["WORST", "GROSS","HATED"])
+        }else if (opinion >100 ){
+            punctuation = "!"
+            opionion_intensifier = seededRandom.pickFrom(["boring", "lame","weird","icky","gross"])
+        }if (opinion >50 ){
+            punctuation = "?"
+            opionion_intensifier = seededRandom.pickFrom(["a"])
+        }
+
+        const options = [`${opionion_intensifier} ${adj} thing${punctuation}`, `Bring ${opionion_intensifier} ${adj} thing to ${person}${punctuation}`];
+        return seededRandom.pickFrom(options);
+    }
+
+    const getFlavorText =(themeKeys: string[], opinion: number)=>{
+        const positive = opinion>0;
+        if(positive){
+            return getPositiveFlavorText(themeKeys, opinion) + opinion;
+        }else{
+            return getNegativeFlavorText(themeKeys, opinion) + opinion;
+        }
+    }
+
+    const crowify = (text:string)=>{
+        const num = seededRandom.nextDouble();
+        if(num > 0.6){
+            return text;
+        }else if (num > 0.3){
+            return `caw! ${text}`;
+        }else{
+            return `${text} caw!`;
+        }
+    }
     
     //unlike doors, items are not in set locations, check the items ref
     const checkForItems =(top: number, left: number)=>{
@@ -184,7 +256,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 takeMemoryFromWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
-                setFlavorText("TODO! My opinion is: " +getOpinionOnItemWithThemes(item.themeKeys));
+                setFlavorText(crowify(getFlavorText(item.themeKeys,getOpinionOnItemWithThemes(item.themeKeys))));
                 //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
                 return;
             }
