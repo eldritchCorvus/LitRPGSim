@@ -142,7 +142,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
             tmp.push({x: birbLocation.left, y: birbLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name:name.current })
             itemsRef.current = tmp;
         }else if(name.current){
-            const possibleFlavorText = [`${name.current} is just a fucked up lil scrimblo.`,`You pat ${name.current}'s' head and they preen a bit.`,`${name.current} is staring at you intensely.`,`${name.current} caws softly to themself as they stare at everything.`];
+            const possibleFlavorText = [`${name.current} is just a fucked up lil scrimblo.`,`You pat ${name.current}'s head and they preen a bit.`,`${name.current} is staring at you intensely.`,`${name.current} caws softly to themself as they stare at everything.`];
             const tmp = [...itemsRef.current, {x: birbLocation.left, y: birbLocation.top,width: playerWidth, height: playerHeight,flavorText: seededRandom.pickFrom(possibleFlavorText),themeKeys: themeKeys,name:name.current }]
             itemsRef.current = tmp;
         }

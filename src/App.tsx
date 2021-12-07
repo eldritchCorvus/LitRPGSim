@@ -249,6 +249,10 @@ function App(props: AppProps) {
       if(!getParameterByName("themes", null)){
         updateURLParams(player);
       }
+
+      if(!getParameterByName("credits", null)){
+        setCreditsMode(true);
+      }
       fuckUpBGButSoftly(player.order, player.chaos);
   }
   },[player,seed,detectDivStatus])
