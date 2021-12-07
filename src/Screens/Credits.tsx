@@ -169,6 +169,14 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditLeft>Gorgon Gif: </CreditLeft> <CreditRight><span>dilletantMathematician</span></CreditRight>
                 </CreditLine>
 
+                <CreditLine>
+                    <CreditLeft>Sprites: </CreditLeft> <CreditRight><span>GhoulPen</span></CreditRight>
+                </CreditLine>
+
+                <CreditLine>
+                    <CreditLeft>Sprites: </CreditLeft> <CreditRight><span>SmeargleUsedHex</span></CreditRight>
+                </CreditLine>
+
                 <CreditHeader>Outside Assets (Both Generic and Custom):</CreditHeader>
 
                 <CreditLine>

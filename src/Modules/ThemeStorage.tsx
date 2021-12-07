@@ -1172,16 +1172,16 @@ const initThemeOpinions = () => {
     theme_opinions[DEATH] = createOpinion(0, { });
     //definitely a fan of things humans can use to just fuck their shit right up
     theme_opinions[APOCALYPSE] = createOpinion(0, {APOCALYPSE:113,TECHNOLOGY:113,SCIENCE:113,ENDINGS:55 });
-    theme_opinions[ANGELS] = createOpinion(-10, {LOVE: 20, STEALING: -50, QUESTING: 113,MUSIC: 55,SOUL: 113,FAMILY: 55,ANGELS: 113,SERVICE: 113,LIGHT: 55,APOCALYPSE:-113,LONELY: -55,FREEDOM:-55,FLESH:-55 });
+    theme_opinions[ANGELS] = createOpinion(-10, {HEALING: 113,LOVE: 20, STEALING: -50, QUESTING: 113,MUSIC: 55,SOUL: 113,FAMILY: 55,ANGELS: 113,SERVICE: 113,LIGHT: 55,APOCALYPSE:-113,LONELY: -55,FREEDOM:-55,FLESH:-55 });
     theme_opinions[LIGHT] = createOpinion(10, {QUESTING: 20,DARKNESS: -113,OBFUSCATION: -55,SOUL: 45,ZAP: 75,HEALING: 20,MAGIC: 55,BURIED: -50, SCIENCE: 55,TECHNOLOGY: 55, ART: 30,FIRE: 20 });
     theme_opinions[SERVICE] = createOpinion(0, {DEFENSE: 113, QUESTING: 113, GUIDING: 113, ROYALTY: 113,WEB: 85,LOVE: 20, CHOICES: -30, PLANTS: 85, HEALING: 113,FAMILY: 113, SERVICE: 113,APOCALYPSE: -30,TWISTING: -85, FREEDOM: -113, STEALING: -20, LONELY: -20,SPYING: 20 });
     theme_opinions[FAMILY] = createOpinion(10, {DEFENSE: 113,DOLLS: 55,SOUL: 55,LOVE: 113,LONELY:-113,FREEDOM: -113,FLESH: 113,DEATH:-113,SERVICE: 113 });
+    theme_opinions[MAGIC] = createOpinion(0, {QUESTING: 55,DARKNESS: 113,LANGUAGE: 55,SOUL: 55,ZAP: 113,PLANTS: 113,HEALING: 113,LIGHT: 113,KNOWING: 55,TWISTING: 55,BURIED: 113,OCEAN: 113, FIRE: 113,SPYING: 55,MAGIC: 113 });
+    theme_opinions[HEALING] = createOpinion(0, {QUESTING: -55,DEFENSE: 55,KILLING: -113,ENDINGS: -113,DECAY: -113,HUNTING: -55,MAGIC: 113,SERVICE:55,ANGELS: 113,HEALING: 113,LONELY:-55,TECHNOLOGY:113,SCIENCE: 113,FLESH:113,KNOWING:55,DEATH:-113, APOCALYPSE:-113 });
+    theme_opinions[PLANTS] = createOpinion(0, {BUGS: -113,APOCALYSE: -113,TWISTING: -113,PLANTS:113,LONELY:55, TECHNOLOGY:-113,SCIENCE:-55,FREEDOM: 113,FIRE:-113 });
+    theme_opinions[HUNTING] = createOpinion(0, {QUESTING: 55,DARKNESS: 55, KILLING: 113,HUNTING: 113,SPYING:113,LONELY:55,FLESH: 113, DEATH: 113});
 
     /*
-    theme_opinions[MAGIC] =  ["magical"];
-    theme_opinions[HEALING] =  ["compassionate"];
-    theme_opinions[PLANTS] = ["nature loving"];
-    theme_opinions[HUNTING] = ["skilled"];
     theme_opinions[DECAY] = ["practical"] ;
     theme_opinions[CHOICES] =  ["considerate"] ;
     theme_opinions[ZAP] = ["electifying"] ;
@@ -1191,7 +1191,6 @@ const initThemeOpinions = () => {
     theme_opinions[WEB] =  ["strategic"] ;
     theme_opinions[ROYALTY] =  ["prestigious"] ;
     theme_opinions[ENDINGS] =  ["calm"] ;
-    theme_opinions[KNOWING] = ["intelligent"] ;
     theme_opinions[GUIDING] = ["caring"] ;
     theme_opinions[CRAFTING] =  ["creative"];
     theme_opinions[LANGUAGE] = ["communicative"] ;
