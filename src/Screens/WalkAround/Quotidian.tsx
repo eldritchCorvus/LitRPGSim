@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import {pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
 import birb from './../../images/Walkabout/Sprites/humanoid_crow.gif';
+//these tests will eventually be stored in themes
 import test from './../../images/Walkabout/Sprites/flowerkid_walk_down.gif';
+import test2 from './../../images/Walkabout/Sprites/hunter_walk_left.gif';
 
 import { doorEffect} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
@@ -90,8 +92,9 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const speedRef = useRef<number>(new SeededRandom(stringtoseed(themeKeys.join(","))).getRandomNumberBetween(1,30));
     const despawnedRef = useRef(false);
 
-    const images = [birb,birb,birb,test,birb];
-    const image_src = useRef(new SeededRandom(stringtoseed(themeKeys.join(","))).pickFrom(images));
+    const images = [birb,test2,birb,test2,birb,test,birb];
+    //why yes this WOULD cause them to randomly shift.
+    const image_src = pickFrom(images);
     
 
     useEffect(()=>{
@@ -440,7 +443,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         <Container leftSpawn={birbLocation.left} topSpawn={birbLocation.top}>
             {flavorText ?<Popup>{flavorText}</Popup>:null}
             <NameTag>{name.current}</NameTag>
-            <Quotidian src={image_src.current}/>    
+            <Quotidian src={image_src}/>    
         </Container>
  )
 
