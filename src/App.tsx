@@ -218,6 +218,9 @@ function App(props: AppProps) {
   }
 
   useEffect(()=>{
+    if(getParameterByName("credits", null)){
+      setCreditsMode(true);
+    }
     if(!player){
       window.addEventListener('click', click);
       window.addEventListener('click', clickEffect);
@@ -250,9 +253,7 @@ function App(props: AppProps) {
         updateURLParams(player);
       }
 
-      if(!getParameterByName("credits", null)){
-        setCreditsMode(true);
-      }
+
       fuckUpBGButSoftly(player.order, player.chaos);
   }
   },[player,seed,detectDivStatus])

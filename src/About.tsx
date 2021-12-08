@@ -105,7 +105,7 @@ function About(props: AppProps) {
       <AboutDom>
         <h1>About ZampanioSim</h1>
         <Content>
-          <p><a href={`?seed=0?credits=true`}>Credits</a></p>
+          <p><a href={`?seed=216&credits=true&themes=lonely,knowing,spying,magic,technology,knowing&warning=its%20too%20late`}>Credits</a></p>
           <p>ZampanioSimulator is a fanmade browser simulation of a game called "Zampanio", from this weird <a href="https://gamefaqs.gamespot.com/pc/3/zampanio">creepypasta FAQ </a>I found.</p>
           <p>Given I'm trying to be true to what appears to be for all intents and purposes a creepy pasta, there's going to be themes that might not be for everybody in here!  Without giving away the premise, here's a broad list of content warnings, though a good rule of thumb is that if you're a fan of Zampanio you're probably gonna be okay with this weird fan work I made of it. </p>
           <p>ALSO! The whole point of Zampanio, simulated or otherwise is the customized experience so don't blame me if you don't get any of these, or get an especially potent dose or something.</p>
