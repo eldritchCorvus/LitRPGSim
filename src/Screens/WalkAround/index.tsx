@@ -229,12 +229,12 @@ const GuestBookButton = styled.button`
                    * make theme storage for speed, vision and fear stats
                         * if quotidian sees door, random number for setting door as goal
                         * if quotidian is near door, goes through it and despawns
-                   *collect birbs, tehy follow you?
 
 
 
                 Other MINUTE TODO.
                 <li>add objects</li>
+                <li>shitty geocities parody website about unraveling the identity of the Eye Killer</li>
                 *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
                 * canon way to get to apocalypse plz
                 <li>write ai for Eye and Lonely theme</li>
@@ -252,7 +252,7 @@ const GuestBookButton = styled.button`
                 <li>when you enter a room, pick a few themes and tell a small creepy story about them, gopher style</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>secret hax coffin to the left,endless dream, credits, apocalyse</li>
-                <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories</li>
+                <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories, plus friendship with [redacted]</li>
 
 
                 <li>ai characters spawn? simulation? (of what?)(quotidians?)(i want them to be heavily rule based)(and ominous)</li>

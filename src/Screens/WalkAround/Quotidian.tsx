@@ -2,9 +2,12 @@ import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import {pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
 import birb from './../../images/Walkabout/Sprites/humanoid_crow.gif';
+
 //these tests will eventually be stored in themes
 import test from './../../images/Walkabout/Sprites/flowerkid_walk_down.gif';
 import test2 from './../../images/Walkabout/Sprites/hunter_walk_left.gif';
+import test3 from './../../images/Walkabout/Sprites/Twisting_Crow.gif';
+import test4 from './../../images/Walkabout/Sprites/Apocalypse_Crow2.gif';
 
 import { doorEffect} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
@@ -92,7 +95,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const speedRef = useRef<number>(new SeededRandom(stringtoseed(themeKeys.join(","))).getRandomNumberBetween(1,30));
     const despawnedRef = useRef(false);
 
-    const images = [birb,test2,birb,test2,birb,test,birb];
+    const images = [birb,test2,birb,test2,birb,test,birb,test3,test4];
     //why yes this WOULD cause them to randomly shift.
     const image_src = pickFrom(images);
     
