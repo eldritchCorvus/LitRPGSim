@@ -1,15 +1,8 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import {pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
-import birb from './../../images/Walkabout/Sprites/humanoid_crow.gif';
 
-//these tests will eventually be stored in themes
-import test from './../../images/Walkabout/Sprites/flowerkid_walk_down.gif';
-import test2 from './../../images/Walkabout/Sprites/hunter_walk_left.gif';
-import test3 from './../../images/Walkabout/Sprites/Twisting_Crow.gif';
-import test4 from './../../images/Walkabout/Sprites/Apocalypse_Crow2.gif';
-
-import { doorEffect} from '../..';
+import { doorEffect, loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
@@ -18,7 +11,7 @@ import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { stringtoseed } from "../../Utils/StringUtils";
 import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";
 import { removeItemOnce } from "../../Utils/ArrayUtils";
-import { ADJ, COMPLIMENT, INSULT, LOCATION, OBJECT, PERSON } from "../../Modules/ThemeStorage";
+import { ADJ, COMPLIMENT, INSULT, LOCATION, OBJECT, PERSON, SPRITES, SpriteWithDirections } from "../../Modules/ThemeStorage";
 
 
 interface QuotidianProps {
@@ -46,9 +39,10 @@ interface QuotidianProps {
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 `
 
-
+const sprite_url_start = `Walkabout/Sprites/`;
+const default_sprite = `humanoid_crow.gif`;
 export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef,seededRandom,numberDoors}) => {
-
+    
     const playerWidth = 50;
     const playerHeight = 50;
 
@@ -89,15 +83,16 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const [spawnPoint, setSpawnPoint] = useState({left:seededRandom.getRandomNumberBetween(0,300),top:seededRandom.getRandomNumberBetween(200,400)});
     const [flavorText, setFlavorText] = useState<string|undefined>();
     const [birbLocation, setBirbLocation] = useState(spawnPoint);
+    const [image_src, set_image_src] = useState(sprite_url_start+default_sprite);//they aren't expecting you so they are still birbs when you come in
+
     const currentHeading = useRef<DIRECTIONS>(DIRECTIONS.w);
     const name = useRef<string>();
+    const spriteSet = useRef<SpriteWithDirections>();
+
     const goalObjectIndex = useRef<number>();
     const speedRef = useRef<number>(new SeededRandom(stringtoseed(themeKeys.join(","))).getRandomNumberBetween(1,30));
     const despawnedRef = useRef(false);
 
-    const images = [birb,test2,birb,test2,birb,test,birb,test3,test4];
-    //why yes this WOULD cause them to randomly shift.
-    const image_src = pickFrom(images);
     
 
     useEffect(()=>{
@@ -112,6 +107,22 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     useEffect(()=>{
         setBirbLocation({top:spawnPoint.top, left:spawnPoint.left})
     }, [spawnPoint])
+
+    const defaultBirb = ()=>{
+        spriteSet.current = {left_src: loadSecretImage(sprite_url_start+ default_sprite), right_src: loadSecretImage(sprite_url_start+ default_sprite), up_src: loadSecretImage(sprite_url_start+ default_sprite), down_src: loadSecretImage(sprite_url_start+ default_sprite)};
+        set_image_src(spriteSet.current.left_src);
+    }
+
+    useEffect(()=>{
+        const rand = new SeededRandom(stringtoseed(themeKeys.join(",")));
+        const theme = all_themes[rand.pickFrom(themeKeys)];
+        const tmp:SpriteWithDirections = theme.pickPossibilityFor(rand,SPRITES);
+        if(tmp && !(tmp as any).includes){//if its a string its an error
+            spriteSet.current = {left_src: loadSecretImage(sprite_url_start+ tmp.left_src),right_src: loadSecretImage(sprite_url_start+ tmp.right_src),up_src: loadSecretImage(sprite_url_start+ tmp.up_src),down_src: loadSecretImage(sprite_url_start+ tmp.down_src)};
+        }else{
+            defaultBirb();
+        }
+    }, [themeKeys])
 
     useEffect(()=>{
         if(flavorText){
@@ -158,14 +169,6 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
 
     const isMemorySacrificedByWanderer = (memory: string)=>{
         return isStringInArrayWithKey(QUOTIDIAN_KEY,memory);
-    }
-
-    const addMemoryToWanderer = (memory:string)=>{
-        console.log("JR NOTE: I want to add a memory to the wanderer, do i already have it?",isMemoryKnowByWanderer(memory),"do the birds?",!isMemorySacrificedByWanderer(memory))
-        if(!isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
-            addStringToArrayWithKey(MEMORY_KEY,memory);
-        }
-
     }
 
     const takeMemoryFromWanderer = (memory:string)=>{
@@ -303,7 +306,9 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         }
 
 
+        //if they weren't already a birb they sure as hell are now
         if(nearDoor){
+            defaultBirb();
             doorEffect();
             despawnedRef.current = true;
         }
@@ -371,14 +376,29 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     },[birbLocation])
 
     
+    const setImageWithDirection = (direction: string)=>{
+        console.log("JR NOTE: direciton is",direction, "spriteSet.current is ",spriteSet.current)
+        if(spriteSet.current){
+            if(direction === "w"){
+                set_image_src(spriteSet.current.up_src);
+            }else if (direction === "a"){
+                set_image_src(spriteSet.current.left_src);
+            }else if (direction === "s"){
+                set_image_src(spriteSet.current.down_src);
+            }else if (direction === "d"){
+                set_image_src(spriteSet.current.right_src);
+            }
+        }
+        
+    }
  
 
     const processWalk =(key:string)=>{
+        setImageWithDirection(key);
         const minTop = 500-350-30;
         const maxTop = 500-30;
         const maxLeft = 455;
         const minLeft =15;
-
         if(birbLocation){
             let prevTop = birbLocation.top;
 

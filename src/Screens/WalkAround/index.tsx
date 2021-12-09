@@ -218,23 +218,11 @@ const GuestBookButton = styled.button`
                 * birb eats item when it discusses its flavor (refactor function so it takes in RenderedItems and draws canvas (i.e. spawning those items happens BEFORE rendering, and room keeps track of what is what)))
                    AI: 
 
-                   * make theme storage for opinion on other themes (useful in broad contexts)
-                   * write AI
-                        * has set name built with themes, feels like chat handles, (Noun/Adj) Person, both cap
-                        *  render placeholder quotidian,use placeholder speed and vision
-                        * quotidian moves towards object it can see and it likes (including Wanderer)
-                            * if no current goal set goal, if there is a goal, move towards it
-                        * when quotidian is near object, say quip (based on compliment/insult already in theme).
-                        * if object is not in quotidian memory, eat (delete object);
-                   * make theme storage for speed, vision and fear stats
-                        * if quotidian sees door, random number for setting door as goal
-                        * if quotidian is near door, goes through it and despawns
-
-
-
                 Other MINUTE TODO.
                 <li>add objects</li>
                 <li>shitty geocities parody website about unraveling the identity of the Eye Killer</li>
+                <li>post coffin trial of killer</li>
+                <li>killer in vents</li>
                 *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
                 * canon way to get to apocalypse plz
                 <li>write ai for Eye and Lonely theme</li>

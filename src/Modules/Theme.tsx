@@ -142,6 +142,8 @@ export function initThemes(){
         string_possibilities[ThemeStorage.WALLBACKGROUND] = ThemeStorage.wall_backgrounds[key];
         string_possibilities[ThemeStorage.FLOORBACKGROUND] = ThemeStorage.floor_backgrounds[key];
         string_possibilities[ThemeStorage.FLOORFOREGROUND] = ThemeStorage.floor_foregrounds[key];
+        string_possibilities[ThemeStorage.SPRITES] = ThemeStorage.sprite_possibilities[key];
+
         const opinions = ThemeStorage.theme_opinions[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];

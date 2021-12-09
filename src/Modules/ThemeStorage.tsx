@@ -34,6 +34,7 @@ export const WALLBACKGROUND = "WALLBACKGROUND";
 export const WALLFOREGROUND = "WALLFOREGROUND";
 export const FLOORBACKGROUND = "FLOORBACKGROUND";
 export const FLOORFOREGROUND = "FLOORFOREGROUND";
+export const SPRITES = "SPRITES";//birbs
 
 
 
@@ -117,6 +118,17 @@ export interface ImageWithDescMap {
     [details: string]: ImageWithDesc[];
 }
 
+export interface SpriteWithDirections {
+    left_src: string;
+    right_src: string;
+    up_src: string;
+    down_src: string;
+}
+
+export interface SpriteWithDirectionsMap {
+    [details: string]: SpriteWithDirections[];
+}
+
 export interface MemoryMap {
     [details: string]: Memory[];
 }
@@ -126,6 +138,7 @@ export let wall_foregrounds: ImageWithDescMap = {}
 export let wall_backgrounds: ImageWithDescMap = {}
 export let floor_backgrounds: ImageWithDescMap = {}
 export let floor_foregrounds: ImageWithDescMap = {}
+export let sprite_possibilities: SpriteWithDirectionsMap = {}
 
 export let stats_map: ThemeStatMap = {};
 export let person_posibilities: ThemePossibilitiesMap = {};
@@ -520,6 +533,21 @@ const initWallForegrounds = () => {
     wall_foregrounds[MUSIC] =  ["Symphonic Synthesia"] ;
     wall_foregrounds[DEFENSE] =  ["Excalibur"] ;
     wall_foregrounds[QUESTING] = ["Satisfaction"] ;*/
+}
+
+//no one said quotidians are locked into only mimicking HUMANS, just sapient things. 
+const initSpritePossibilities=()=>{
+    //sprite_possibilities[TWISTING] =  [{left_src:"",right_src:"",up_src:"",down_src:""}];
+    sprite_possibilities[APOCALYPSE] =  [{left_src:"Apocalypse_Crow2.gif",right_src:"Apocalypse_Crow.gif",up_src:"Apocalypse_Crow2.gif",down_src:"Apocalypse_Crow.gif"}];
+    sprite_possibilities[DOLLS] =  [{left_src:"Art_Object_ghoul.gif",right_src:"Art_Object_ghoul.gif",up_src:"Art_Object_ghoul.gif",down_src:"Art_Object_ghoul.gif"}];
+    sprite_possibilities[ART] =  [{left_src:"Art_Object_ghoul.gif",right_src:"Art_Object_ghoul.gif",up_src:"Art_Object_ghoul.gif",down_src:"Art_Object_ghoul.gif"}];
+    sprite_possibilities[TIME] =  [{left_src:"clockface_walk_left.gif",right_src:"clockface_walk_right.gif",up_src:"clockface_walk_up.gif",down_src:"clockface_walk_down.gif"}];
+    sprite_possibilities[PLANTS] =  [{left_src:"flowerkid_walk_left.gif",right_src:"flowerkid_walk_right.gif",up_src:"flowerkid_walk_up.gif",down_src:"flowerkid_walk_down.gif"}];
+    //probably too big but *shrug* hunteres are swol, this is now canon (thems the break eye killer)(tho i suppose this is just a single instance of a hunter, so maybe its not universal)
+    sprite_possibilities[HUNTING] =  [{left_src:"hunter_walk_left.gif",right_src:"hunter_walk_right.gif",up_src:"hunter_walk_up.gif",down_src:"hunter_walk_down.gif"}];
+    sprite_possibilities[SPACE] =  [{left_src:"Space_object_ghoul.gif",right_src:"Space_object_ghoul.gif",up_src:"Space_object_ghoul.gif",down_src:"Space_object_ghoul.gif"}];
+    sprite_possibilities[TECHNOLOGY] =  [{left_src:"technology_object_ghoul.gif",right_src:"technology_object_ghoul.gif",up_src:"technology_object_ghoul.gif",down_src:"technology_object_ghoul.gif"}];
+    sprite_possibilities[TWISTING] =  [{left_src:"Twisting_Crow.gif",right_src:"Twisting_Crow.gif",up_src:"Twisting_Crow.gif",down_src:"Twisting_Crow.gif"}];
 }
 
 //don't bothere filling out descs for these yet
@@ -1914,5 +1942,6 @@ export const initThemes = () => {
     initSounds();
     initEffectPossibilities();
     initThemeOpinions();
+    initSpritePossibilities();
 
 }
