@@ -216,7 +216,6 @@ const GuestBookButton = styled.button`
                 * debug: is item list out of sync? birbs keep talking about things that arne't there
                 * birbs can turn into themed lil guys (or objects) (like ghouls hunter or planet, if use, add credits, same for hex), birbs pick diff gif based on wasd
                 * birb eats item when it discusses its flavor (refactor function so it takes in RenderedItems and draws canvas (i.e. spawning those items happens BEFORE rendering, and room keeps track of what is what)))
-
                    AI: 
 
                    * make theme storage for opinion on other themes (useful in broad contexts)
@@ -236,6 +235,8 @@ const GuestBookButton = styled.button`
 
                 Other MINUTE TODO.
                 <li>add objects</li>
+                *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
+                * canon way to get to apocalypse plz
                 <li>write ai for Eye and Lonely theme</li>
                 <li>wire AI into system, spawn test ais and watch them move</li>
                 <li>429044 is important number</li>
