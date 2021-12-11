@@ -221,7 +221,7 @@ const GuestBookButton = styled.button`
                 Other MINUTE TODO.
                 <li>add objects</li>
                 <li>shitty geocities parody website about unraveling the identity of the Eye Killer</li>
-                <li>post coffin trial of killer</li>
+                <li>post coffin trial of killer plus live blogging of a tgifradys</li>
                 <li>killer in vents</li>
                 *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
                 * canon way to get to apocalypse plz

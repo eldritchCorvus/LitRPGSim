@@ -548,6 +548,8 @@ const initSpritePossibilities=()=>{
     sprite_possibilities[SPACE] =  [{left_src:"Space_object_ghoul.gif",right_src:"Space_object_ghoul.gif",up_src:"Space_object_ghoul.gif",down_src:"Space_object_ghoul.gif"}];
     sprite_possibilities[TECHNOLOGY] =  [{left_src:"technology_object_ghoul.gif",right_src:"technology_object_ghoul.gif",up_src:"technology_object_ghoul.gif",down_src:"technology_object_ghoul.gif"}];
     sprite_possibilities[TWISTING] =  [{left_src:"unknown.png",right_src:"unknown.png",up_src:"unknown.png",down_src:"unknown.png"},{left_src:"zampanio_flowerkid_by_hex2.png",right_src:"zampanio_flowerkid_by_hex2.png",up_src:"zampanio_flowerkid_by_hex2.png",down_src:"zampanio_flowerkid_by_hex2.png"},{left_src:"unknown.png",right_src:"zampanio_flowerkid_by_hex2.png",up_src:"Twisting_Crow.gif",down_src:"humanoid_crow.gif"},{left_src:"Twisting_Crow.gif",right_src:"Twisting_Crow.gif",up_src:"Twisting_Crow.gif",down_src:"Twisting_Crow.gif"}];
+    sprite_possibilities[OCEAN] =  [{left_src:"plushie_shark_swimmin.gif",right_src:"plushie_shark_swimmin.gif",up_src:"plushie_shark_swimmin.gif",down_src:"plushie_shark_swimmin.gif"}];
+
 }
 
 //don't bothere filling out descs for these yet
