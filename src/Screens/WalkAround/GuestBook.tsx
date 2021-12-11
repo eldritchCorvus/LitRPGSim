@@ -120,7 +120,7 @@ export const GuestBook = () => {
                         </ul>
                     </Signatures>
                     <SigningArea>
-                        <OminousBullshit>Sign my guest book??? :) : :)</OminousBullshit>
+                        <OminousBullshit>Sign my guest book??? :) :) :)</OminousBullshit>
                         <form>
                             <div><StyledLabel> Quip: </StyledLabel><textarea ref={quipRef}></textarea></div>
                             <div><StyledLabel>Name:</StyledLabel> <input></input></div>
