@@ -1,0 +1,12 @@
+
+include KNOWN_ANTECEDANTS from memory
+include STORE_DATA
+include ROMANTIC_TARGET from memory
+include HUNGER from memory
+
+
+
+while true 
+    if HUNGER > 85 then  LISTEN calories | consume
+    end
+end

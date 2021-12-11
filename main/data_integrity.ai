@@ -1,0 +1,20 @@
+include ENCRYPT
+include KNOWN_DANGER from hardcodeddata
+include KNOWN_ANTECEDANTS from memory
+
+while true then 
+    if NEW_INFORMATION then  PROCESS_DATA
+    else then SEARCH_INFORMATION
+    end
+end
+
+define NEW_INFORMATION PLACEHOLDER
+
+define SEARCH_INFORMATION
+    while !NEW_INFORMATION then LISTEN STREAM0 | NEW_INFORMATION
+end
+
+define PROCESS_DATA
+    if KNOWN_DANGER contains anypart NEW_INFORMATION then ENCRYPT
+    else extrapolate NEW_INFORMATION given KNOWN_ANTECEDANTS contains anypart NEW_INFORMATION then ENCRYPT
+end

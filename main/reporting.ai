@@ -1,0 +1,34 @@
+
+include KNOWN_ANTECEDANTS from memory
+include STORE_DATA
+include ROMANTIC_TARGET from memory
+include ROMANCE
+
+
+
+while true 
+    if STORE_DATA counth > 85 then  REPORT TARGET
+    else extrapolate STORE_DATA given KNOWN_ANTECEDANTS contains anypart ROMANTIC_TARGET then PROPOSE
+    end
+end
+
+define TARGET
+    if self === KNOWN_ANTECEDANTS.LEADER then TARGET=KNOWN_ANTECEDANTS.BESTIE
+    else if self === KNOWN_ANTECEDANTS.SQUAD_LEADER then TARGET=KNOWN_ANTECEDANTS.LEADER
+    else  then TARGET=KNOWN_ANTECEDANTS.SQUAD_LEADER
+    end
+end
+
+
+define PROPOSE
+    while STORE_DATA contains anypart ROMANTIC_TARGET then report ROMANTIC_TARGET | RESULT
+    end
+    if RESULT == success then ROMANCE
+    else then clear ROMANTIC_TARGET 
+    end
+end
+
+define REPORT #target#
+    while STORE_DATA contains anypart &&  then #target#.STORE_DATA write STORE_DATA[0] 
+    end
+end

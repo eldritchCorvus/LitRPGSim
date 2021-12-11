@@ -1,0 +1,14 @@
+include EXPOSURE from memory
+
+
+
+while true 
+    if EXPOSURE > 0 then  LISTEN common_species | mask
+    end
+
+    if EXPOSURE > 50 then  LISTEN shadows | current_location
+    end
+
+    if EXPOSURE > 100 then  LISTEN illusion | magic
+    end
+end

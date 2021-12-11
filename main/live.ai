@@ -1,0 +1,10 @@
+
+include KNOWN_ANTECEDANTS from memory
+include STORE_DATA
+include data_integrity
+include reporting
+include hide
+include eat
+
+while true then data_integrity then reporting then hide then eat
+end
