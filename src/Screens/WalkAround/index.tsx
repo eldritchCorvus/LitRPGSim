@@ -216,13 +216,12 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
-                * refactor objects so that RENDERING and SPAWNING objects is two diff steps 
-                * investigate if keeping objects that can change on a diff layer is worth it
                 * finish opinions
-                * debug: is item list out of sync? birbs keep talking about things that arne't there
-                * birbs can turn into themed lil guys (or objects) (like ghouls hunter or planet, if use, add credits, same for hex), birbs pick diff gif based on wasd
-                * birb eats item when it discusses its flavor (refactor function so it takes in RenderedItems and draws canvas (i.e. spawning those items happens BEFORE rendering, and room keeps track of what is what)))
-                   AI: 
+                * before and after maze
+                * killer in vents, tape recorders
+                * styled spiral;
+                * room effects  
+                
 
                 Other MINUTE TODO.
                 <li>add objects</li>
@@ -231,8 +230,6 @@ const GuestBookButton = styled.button`
                 <li>killer in vents</li>
                 *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
                 * canon way to get to apocalypse plz
-                <li>write ai for Eye and Lonely theme</li>
-                <li>wire AI into system, spawn test ais and watch them move</li>
                 <li>429044 is important number</li>
                 <li>20h:14m:36s on the stopwatch</li>
                 <li>#quotidians at a time tie to things you can put into helpdesk, one word per room max</li>
@@ -243,35 +240,21 @@ const GuestBookButton = styled.button`
                 <li>spawn hydration stations</li>
                 <li>spawn tape players (secret music)</li>
                 <li>add audio logs to secret music</li>
-                <li>when you enter a room, pick a few themes and tell a small creepy story about them, gopher style</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>secret hax coffin to the left,endless dream, credits, apocalyse</li>
                 <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories, plus friendship with [redacted]</li>
 
 
-                <li>ai characters spawn? simulation? (of what?)(quotidians?)(i want them to be heavily rule based)(and ominous)</li>
-                <li>lightly animated bees and others (two frames max)</li>
                 <li>their ai responds to words in the flavor text (its not just for you) (drawn to some (you dont have yet), repulsed by others (you do have yet)? can destroy objects?) (the forever present is corrupted)</li>
                 <li>the ai eats items if they encounter it and you haven't yet</li>
                 <li>endless dream inside the coffin</li>
-                <li>EXTREMELY IMPORTANT: should use seeded random for generating new rooms so it can be mapped.</li>
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
-                <li>how should i detect i'm near a door so i can go into a new room?</li>
-                <li>the room you are currently in generates child rooms that share at least one theme</li>
-                <li>press enter to interact</li>
                 <li>spawnable tape players (add more secret music, including things that are just audio logs from the closer)</li>
 
-                <li>new theme hash in ThemeStorage (can't just make new one cuz want senses and objects etc) has WalkObject. WalkObject has wall graphic, floor graphic, wall scattered graphics and floor scattered graphics objects with source and text. if any source is null, glitchy placeholder</li>
-                <li>render floor, walls, and a few objects from themes</li>
-                <li>when you interact with an object you get its flavor text (even if its glitchy) </li>
                 <li>add glitch effect to WalkObject themes.</li>
-                <li>Friends can show up. You can talk to them. You can use them to open doors. </li>
-                <li>when all friends are dead NAM and ShamblingHorror show up</li>
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
-                <li>have way to get to credits in mod</li>
                 <li>find your coffin and go down and down and down</li>
-                <li>put this on LItRpgsim never tell anyone (also itch.io and steam) (diff base themes corruption steam)</li>
             </div>
             <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
             {chatHelp ? <HelpChatBox /> : null}
