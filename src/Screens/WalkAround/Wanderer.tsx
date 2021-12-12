@@ -196,10 +196,10 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
             //JR NOTE: TOdo
             let tmp = itemsRef.current;
             tmp  = removeItemOnce(tmp,me);
-            tmp.push({x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name: "Wanderer" })
+            tmp.push({src:"gif_do_not_render",layer: -1,x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name: "Wanderer" })
             itemsRef.current = tmp;
         }else{
-            const tmp = [...itemsRef.current, {x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: "The Wanderer.",themeKeys: themeKeys,name:"Wanderer" }]
+            const tmp = [...itemsRef.current, {src:"gif_do_not_render",layer: -1,x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: "The Wanderer.",themeKeys: themeKeys,name:"Wanderer" }]
             itemsRef.current = tmp;
         }
 
