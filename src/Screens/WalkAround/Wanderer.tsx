@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
-import {pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
+import {pointWithinBoundingBox, RenderedItem } from "./canvas_shit";
 import real_eye from './../../images/wanda.png';
 import { doorEffect} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
@@ -12,7 +12,7 @@ import { removeItemOnce } from "../../Utils/ArrayUtils";
 
 
 interface WandererProps {
-    itemsRef: MutableRefObject<RenderedItems[]>;
+    itemsRef: MutableRefObject<RenderedItem[]>;
     canvasRef: RefObject<HTMLCanvasElement>;
 
     seededRandom: SeededRandom;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
-import {pointWithinBoundingBox, RenderedItems } from "./canvas_shit";
+import {pointWithinBoundingBox, RenderedItem } from "./canvas_shit";
 
 import { doorEffect, loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
@@ -15,7 +15,7 @@ import { ADJ, COMPLIMENT, INSULT, LOCATION, OBJECT, PERSON, SPRITES, SpriteWithD
 
 
 interface QuotidianProps {
-    itemsRef: MutableRefObject<RenderedItems[]>;
+    itemsRef: MutableRefObject<RenderedItem[]>;
     canvasRef: RefObject<HTMLCanvasElement>;
     themeKeys: string[];
     seededRandom: SeededRandom;

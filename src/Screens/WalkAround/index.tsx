@@ -11,7 +11,7 @@ import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../.
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
 import { getParameterByName } from '../../Utils/URLUtils';
-import { RenderedItems } from './canvas_shit';
+import { RenderedItem } from './canvas_shit';
 import { removeItemOnce } from '../../Utils/ArrayUtils';
 import { addStringToArrayWithKey, isStringInArrayWithKey, removeStringFromArrayWithKey } from '../../Utils/LocalStorageUtils';
 import { Wanderer } from './Wanderer';
@@ -95,7 +95,7 @@ const GuestBookButton = styled.button`
 
 
     //room needs to tell me what items it found.
-    const itemsRef = useRef<RenderedItems[]>([]);
+    const itemsRef = useRef<RenderedItem[]>([]);
     //an array of theme keys used to populate quotidians
     const quotidiansRef = useRef<string[][]>([]);
 
@@ -193,6 +193,7 @@ const GuestBookButton = styled.button`
     },[themeKeys]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const bgCanvasRef = useRef<HTMLCanvasElement>(null);
 
     //what's this? have I found a Waste?
     if(!validKeys()){
@@ -204,14 +205,16 @@ const GuestBookButton = styled.button`
     return (
         <Fragment>
             <RoomContainer>
-                <Room canvasRef={canvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
+                <Room canvasRef={canvasRef}  bgCanvasRef={bgCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
                 {quotidiansRef.current?.map((qq,index)=> <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:
 
-                Five Minute TODO: 
+                Five Minute TODO:
+                * refactor objects so that RENDERING and SPAWNING objects is two diff steps 
+                * investigate if keeping objects that can change on a diff layer is worth it
                 * finish opinions
                 * debug: is item list out of sync? birbs keep talking about things that arne't there
                 * birbs can turn into themed lil guys (or objects) (like ghouls hunter or planet, if use, add credits, same for hex), birbs pick diff gif based on wasd

@@ -4,35 +4,37 @@ import { WALLBACKGROUND } from "../../Modules/ThemeStorage";
 import SeededRandom from "../../Utils/SeededRandom";
 import { addImageProcess } from "../../Utils/URLUtils";
 
-export interface RenderedItems {
+export interface RenderedItem {
     x: number;
     y: number;
     width: number;
     height: number;
     flavorText: string;
     themeKeys: string[];
+    layer: number;
+    src: string; //needed so i can rerender them as required
     name?: string; //only living creatures have names, not items, its used to update them
 }
 
-export const distance = (x1:number,y1:number,x2:number,y2:number)=>{
-    const first = (x1-x2)**2;
-    const second = (y1-y2)**2;
-    return (first + second)**0.5
+export const distance = (x1: number, y1: number, x2: number, y2: number) => {
+    const first = (x1 - x2) ** 2;
+    const second = (y1 - y2) ** 2;
+    return (first + second) ** 0.5
 }
 
-export const distanceWithinRadius = (radius:number,x1:number,y1:number,x2:number,y2:number)=>{
+export const distanceWithinRadius = (radius: number, x1: number, y1: number, x2: number, y2: number) => {
     return distance(x1, y2, x2, y2) < radius;
 }
 
-export const pointWithinBoundingBox = (myX: number, myY:number, objectX: number, objectY: number,objectWidth:number, objectHeight:number)=>{
-    const withinY = (myY:number, objectY: number, objectHeight: number)=>{
-        return myY> objectY && myY < objectY + objectHeight;
+export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number, objectY: number, objectWidth: number, objectHeight: number) => {
+    const withinY = (myY: number, objectY: number, objectHeight: number) => {
+        return myY > objectY && myY < objectY + objectHeight;
     }
 
-    const withinX = (myX:number, objectX: number, objectWidth: number)=>{
-        return myX> objectX && myX < objectX + objectWidth;
+    const withinX = (myX: number, objectX: number, objectWidth: number) => {
+        return myX > objectX && myX < objectX + objectWidth;
     }
-    return withinX(myX,objectX,objectWidth) && withinY(myY, objectY, objectHeight);
+    return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
 export const initBlack = (canvas: HTMLCanvasElement) => {
@@ -94,17 +96,93 @@ export const drawWall = (canvas: HTMLCanvasElement, wallImage: HTMLImageElement)
     context.fillRect(padding, padding, canvas.width - padding * 2, 120);
 }
 
-export const drawWallObjects = async (key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
-    let current_x = 0;
+//JR NOTE: if for some reason images load once then don't render again, look into image.complete as WELL as image.onload
+const drawItem = async (canvas: HTMLCanvasElement, item: RenderedItem) => {
+    const context = canvas.getContext("2d");
+    if (!context) {
+        return;
+    }
+    context.imageSmoothingEnabled = false;
+    const scale = 1.5;
+    const image: any = await addImageProcess(loadSecretImage(item.src)) as HTMLImageElement;
+    context.drawImage(image, item.x, item.y, image.width * scale, image.height * scale);
+}
 
+const drawItems = async (canvas: HTMLCanvasElement, items: RenderedItem[], target_layer: number) => {
+    for (let item of items) {
+        if (item.layer === target_layer) {
+            await drawItem(canvas, item);
+        }
+    }
+}
+
+//background is 0 and it doesn't matter order between them
+export const drawBackground = async(canvas: HTMLCanvasElement, items: RenderedItem[])=>{
+    for (let item of items) {
+        if (item.layer === 0) {
+            await drawItem(canvas, item);
+        }
+    }
+}
+
+//foreground is 1 and it doesn't matter order between them
+export const drawForeground = async(canvas: HTMLCanvasElement, items: RenderedItem[])=>{
+    for (let item of items) {
+        if (item.layer === 1) {
+            await drawItem(canvas, item);
+        }
+    }
+}
+
+//has to be async because it checks the image size for positioning
+export const spawnFloorObjects = async (layer:number,key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
+    let current_x = 0;
+    const floor_bottom = 140;
+    let current_y = floor_bottom;
+    const padding = 10;
+    const ret: RenderedItem[] = [];
+    const scale = 1.5;
+    const y_wiggle = 50;
+    const debug = false;
+    const clutter_rate = seededRandom.nextDouble(); //smaller is more cluttered
+    while (current_y + padding < canvas.height) {
+        current_x = padding;
+        while (current_x < canvas.width) {
+            const chosen_theme: Theme = seededRandom.pickFrom(themes);
+            const item = chosen_theme.pickPossibilityFor(seededRandom, key);
+            if (item && item.src && seededRandom.nextDouble() > clutter_rate) {
+                const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
+                current_x += image.width * scale;
+                //don't clip the wall border, don't go past the floor
+                if (current_x + padding + image.width * scale > canvas.width) {
+                    break;
+                }
+                const y = seededRandom.getRandomNumberBetween(current_y - y_wiggle, current_y + y_wiggle);
+                if (y + padding + image.height * scale > canvas.height) {
+                    break;
+                }
+                ret.push({layer:layer,src:`Walkabout/Objects/${folder}/${item.src}`, themeKeys: [chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+            } else {
+                current_x += 50;
+            }
+            if (debug && ret.length > 0) {
+                return ret;
+            }
+        }
+        current_y += y_wiggle;
+    }
+    return ret;
+}
+
+//has to be async because it checks the image size for positioning
+export const spawnWallObjects = async (layer:number,key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
+    let current_x = 0;
     const padding = 10;
     const context = canvas.getContext("2d");
-    const ret: RenderedItems[] = [];
-
+    const ret: RenderedItem[] = [];
     if (!context) {
         return ret;
     }
-    //todo also need to loop on y.
     while (current_x < canvas.width) {
         const chosen_theme: Theme = seededRandom.pickFrom(themes);
         const item = chosen_theme.pickPossibilityFor(seededRandom, key);
@@ -117,72 +195,11 @@ export const drawWallObjects = async (key: string, folder: string, canvas: HTMLC
             }
             const y = seededRandom.getRandomNumberBetween(padding, Math.max(padding, image.height));
             context.drawImage(image, current_x, y);
-            ret.push({themeKeys:[chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
-
+            ret.push({layer:layer,src:`Walkabout/Objects/${folder}/${item.src}`, themeKeys: [chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
         } else {
             current_x += 50;
         }
     }
-    return ret;
-}
-
-
-
-//yes i COULD take in an image but....i want this to have the logic of placing them
-export const drawFloorObjects = async (key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
-    let current_x = 0;
-    const floor_bottom = 140;
-    let current_y = floor_bottom;
-
-    const padding = 10;
-    const context = canvas.getContext("2d");
-    const ret: RenderedItems[] = [];
-
-    if (!context) {
-        return ret;
-    }
-    context.imageSmoothingEnabled = false;
-
-    /*
-        think through: what is it i want to do?
-
-        think of it as a grid, move from left to right, then down a layer and keep going
-
-        you stop when you hit the bottom
-        nested whiles
-    */
-        const scale = 1.5;
-        const y_wiggle = 50;
-        const debug= false;
-        const clutter_rate = seededRandom.nextDouble(); //smaller is more cluttered
-        while(current_y+padding<canvas.height){
-            current_x = padding;
-            while(current_x <canvas.width){
-                const chosen_theme: Theme = seededRandom.pickFrom(themes);
-                const item = chosen_theme.pickPossibilityFor(seededRandom, key);
-                if (item && item.src && seededRandom.nextDouble() > clutter_rate) {
-                    const image: any = await addImageProcess(loadSecretImage(`Walkabout/Objects/${folder}/${item.src}`)) as HTMLImageElement;
-                    current_x += image.width*scale;
-                    //don't clip the wall border, don't go past the floor
-                    if (current_x + padding + image.width*scale > canvas.width) {
-                        break;
-                    }
-                    const y = seededRandom.getRandomNumberBetween(current_y-y_wiggle, current_y+y_wiggle);
-                    if (y + padding + image.height*scale > canvas.height) {
-                        break;
-                    }
-                    context.drawImage(image, current_x, y,image.width*scale,image.height*scale);
-                    ret.push({themeKeys:[chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
-                } else {
-                    current_x += 50;
-                }
-                if(debug && ret.length > 0){
-                    return ret;
-                }
-            }
-            current_y+=y_wiggle;//is there any way i can make this saner?
-        }
-        //console.log("JR NOTE: when i finished rendering floor objects, current_x was",current_x,"and current_y was",current_y)
     return ret;
 }
 

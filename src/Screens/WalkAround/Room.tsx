@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
+import { Fragment, MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
-import { drawDoors, drawFloor, drawFloorObjects, drawWall, drawWallObjects, initBlack, RenderedItems } from "./canvas_shit";
+import { drawDoors, drawFloor, drawBackground,drawForeground,spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem } from "./canvas_shit";
 
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage } from '../..';
@@ -17,13 +17,18 @@ interface RoomProps {
     seed: number;
     numberDoors: number;
     canvasRef: RefObject<HTMLCanvasElement>;
-    itemsRef: MutableRefObject<RenderedItems[]>;
+    bgCanvasRef: RefObject<HTMLCanvasElement>;
+    itemsRef: MutableRefObject<RenderedItem[]>;
 }
 
-const RoomCanvas = styled.canvas`
+const FGRoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef, numberDoors, itemsRef }) => {
+
+  const BGRoomCanvas = styled.canvas`
+    position: absolue;
+  `
+export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasRef, numberDoors, itemsRef }) => {
     const seededRandom = new SeededRandom(seed);
 
     //this shoould change any time the themes do.
@@ -34,10 +39,10 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef, numberDo
         window.history.pushState('', '', pageUrl);
     }
 
-    const drawRoom = async (canvas: HTMLCanvasElement, themes: Theme[]) => {
-       // console.log("JR NOTE: drawing room with themes", themes);
+
+
+    const drawRoom = async (canvas: HTMLCanvasElement,bgCanvas: HTMLCanvasElement, themes: Theme[]) => {
         initBlack(canvas);
-        //TODO pull this in from theme
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
         let floor_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FLOOR)
         if (!floor_choice || floor_choice.includes("ERROR")) {
@@ -56,29 +61,34 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef, numberDo
         drawWall(canvas, wall);
         //TODO actually use these returned items as part of the flavortext calculation
         //store them in a ref
-        const items1: RenderedItems[] = await drawWallObjects(WALLBACKGROUND, "BackWallObjects", canvas, seededRandom, themes);
+        const items1: RenderedItem[] = await spawnWallObjects(0,WALLBACKGROUND, "BackWallObjects", canvas, seededRandom, themes);
         const door: any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;
         const rug: any = await addImageProcess(loadSecretImage('Walkabout/rug.png')) as HTMLImageElement;
         drawDoors(canvas, numberDoors, door, rug);
-        const items2: RenderedItems[] = await drawWallObjects(WALLFOREGROUND, "FrontWallObjects", canvas, seededRandom, themes);
-        const items3: RenderedItems[] = await drawFloorObjects(FLOORBACKGROUND, "UnderFloorObjects", canvas, seededRandom, themes);
-        const items4: RenderedItems[] = await drawFloorObjects(FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
-        const items = items2.concat(items4);
-        //console.log("JR NOTE: setting itemsRef.current to ", items);
+        const items3: RenderedItem[] = await spawnFloorObjects(0,FLOORBACKGROUND, "UnderFloorObjects", canvas, seededRandom, themes);
+        const items2: RenderedItem[] = await spawnWallObjects(1,WALLFOREGROUND, "FrontWallObjects", canvas, seededRandom, themes);
+        const items4: RenderedItem[] = await spawnFloorObjects(1,FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
+        const items = items3.concat(items2.concat(items4));
+        await drawBackground(bgCanvas,items);
+        await drawForeground(canvas,items);
+        console.log("JR NOTE: setting itemsRef.current to ", items);
         itemsRef.current = items;
     }
 
     useEffect(() => {
-        if (canvasRef.current) {
+        if (canvasRef.current && bgCanvasRef.current) {
             //console.log("JR NOTE: themes are", themeKeys)
             updateURLParams(seed, themeKeys);
-            drawRoom(canvasRef.current, themeKeys.map((theme) => all_themes[theme]));
+            drawRoom(canvasRef.current,bgCanvasRef.current, themeKeys.map((theme) => all_themes[theme]));
         }
     }, [canvasRef, themeKeys])
 
 
     return (
-        <RoomCanvas ref={canvasRef} id="canvasRoom" height="500" width="500" />
+        <Fragment>
+            <BGRoomCanvas ref={bgCanvasRef} id="canvasRoom" height="500" width="500" />
+            <FGRoomCanvas ref={canvasRef} id="canvasRoom" height="500" width="500" />
+        </Fragment>
     )
 
 }
