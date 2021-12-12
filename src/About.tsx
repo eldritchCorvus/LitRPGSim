@@ -90,7 +90,8 @@ function NewspostDom(props: PostProps) {
 }
 function About(props: AppProps) {
   const newsposts = [
-    new Newspost("12/5/2021","You no longer wander alone.","But then, did you ever?")
+    new Newspost("12/12/2021","They eat what you want to have.","But did you ever deserve it?")
+    ,new Newspost("12/5/2021","You no longer wander alone.","But then, did you ever?")
     ,new Newspost("11/7/2021","i mean theres no way i WOULDN't add a customer support line, after hearing all those testimonies on how terrible and labrynthian zampanios customer service is.  like. how does it even make sense that a game that old even still HAS a customer support line? sus.","Were you expecting something else?")
     ,new Newspost("11/6/2021","invitingCharon made some fantastic music which gave me the energy needed to get the skeleton of the help desk ready.","Were you expecting something else?")
     ,new Newspost("11/4/2021","you can walk around a bit and I have the bones of the procedural generation ready.  im v excited at the idea of getting to visualize that maze zampanio mentions","Were you expecting something else?")
