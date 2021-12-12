@@ -69,8 +69,9 @@ export const StyledInput = styled(Input)`
     }
 
 export const CCTVScreen = (props: StatusProps) => {
-    const {ghosts } = props
+    const {ghosts } = props;
 
+    (window as any).dontrotatemusic = true;
 
     //the inherent irony of using react to nuke the dom
     // from orbit and then switch to vanilla javascript is not lost on me.

@@ -15,6 +15,7 @@ export const ApocalypseScreen = () => {
 
 
     const [loading, setLoading] = useState(true);
+    (window as any).dontrotatemusic = true;
 
     const killGameStuff = ()=>{
         const body = document.querySelector("body");

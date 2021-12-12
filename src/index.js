@@ -110,7 +110,7 @@ export function justTruthSong(){
  function playLightlyFuckedUpBGMusic(){
   audio.play();
   audio.onended = function() {
-    if(!window.rageMode && !window.justTruthMode && !window.ghost && !window.pwMode){
+    if(!window.dontrotatemusic && !window.rageMode && !window.justTruthMode && !window.ghost && !window.pwMode){
       if (Math.random() > 0.5) {
         audio.src = helen_kin_song;
       } else {
@@ -118,8 +118,10 @@ export function justTruthSong(){
       }
     }else if (window.justTruthMode || window.ghost || window.pwMode){
       audio.src = heartbeat;
-    }else{
+    }else if(!window.dontrotatemusic){
       audio.src = heart;
+    }else{
+      audio.loop = true;
     }
     audio.play();
 };
