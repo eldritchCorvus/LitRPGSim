@@ -18,17 +18,24 @@ interface RoomProps {
     numberDoors: number;
     canvasRef: RefObject<HTMLCanvasElement>;
     bgCanvasRef: RefObject<HTMLCanvasElement>;
+    baseCanvasRef: RefObject<HTMLCanvasElement>;
     itemsRef: MutableRefObject<RenderedItem[]>;
 }
-
+const BaseRoomCanvas = styled.canvas`
+    position: absolute;
+    z-index: 0;
+  `
 const FGRoomCanvas = styled.canvas`
-    position: absolue;
+    position: absolute;
+    z-index: 2;
+
   `
 
   const BGRoomCanvas = styled.canvas`
-    position: absolue;
+    position: absolute;
+    z-index: 1;
   `
-export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasRef, numberDoors, itemsRef }) => {
+export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasRef,baseCanvasRef, numberDoors, itemsRef }) => {
     const seededRandom = new SeededRandom(seed);
 
     //this shoould change any time the themes do.
@@ -41,15 +48,15 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
 
 
 
-    const drawRoom = async (canvas: HTMLCanvasElement,bgCanvas: HTMLCanvasElement, themes: Theme[]) => {
-        initBlack(canvas);
+    const drawRoom = async (canvas: HTMLCanvasElement,bgCanvas: HTMLCanvasElement, baseCanvas: HTMLCanvasElement,themes: Theme[]) => {
+        initBlack(baseCanvas);
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
         let floor_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FLOOR)
         if (!floor_choice || floor_choice.includes("ERROR")) {
             floor_choice = seededRandom.pickFrom(floor_default_choices);
         }
         const floor: any = await addImageProcess(loadSecretImage(`Walkabout/floor/${floor_choice}`)) as HTMLImageElement;
-        drawFloor(canvas, floor);
+        drawFloor(baseCanvas, floor);
         //TODO pull this in from theme
 
         const wall_default_choices = ["thatchwalls.png", "brickwalls.png", "woodwall.png", "stonewalls2.png"];
@@ -58,13 +65,13 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
             wall_choice = seededRandom.pickFrom(wall_default_choices);
         }
         const wall: any = await addImageProcess(loadSecretImage(`Walkabout/wall/${wall_choice}`)) as HTMLImageElement;
-        drawWall(canvas, wall);
+        drawWall(baseCanvas, wall);
         //TODO actually use these returned items as part of the flavortext calculation
         //store them in a ref
         const items1: RenderedItem[] = await spawnWallObjects(0,WALLBACKGROUND, "BackWallObjects", canvas, seededRandom, themes);
         const door: any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;
         const rug: any = await addImageProcess(loadSecretImage('Walkabout/rug.png')) as HTMLImageElement;
-        drawDoors(canvas, numberDoors, door, rug);
+        drawDoors(bgCanvas, numberDoors, door, rug);
         const items3: RenderedItem[] = await spawnFloorObjects(0,FLOORBACKGROUND, "UnderFloorObjects", canvas, seededRandom, themes);
         const items2: RenderedItem[] = await spawnWallObjects(1,WALLFOREGROUND, "FrontWallObjects", canvas, seededRandom, themes);
         const items4: RenderedItem[] = await spawnFloorObjects(1,FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
@@ -76,18 +83,19 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
     }
 
     useEffect(() => {
-        if (canvasRef.current && bgCanvasRef.current) {
+        if (canvasRef.current && bgCanvasRef.current && baseCanvasRef.current) {
             //console.log("JR NOTE: themes are", themeKeys)
             updateURLParams(seed, themeKeys);
-            drawRoom(canvasRef.current,bgCanvasRef.current, themeKeys.map((theme) => all_themes[theme]));
+            drawRoom(canvasRef.current,bgCanvasRef.current,baseCanvasRef.current, themeKeys.map((theme) => all_themes[theme]));
         }
     }, [canvasRef, themeKeys])
 
 
     return (
         <Fragment>
+            <BaseRoomCanvas ref={baseCanvasRef} id="canvasBaseRoom" height="500" width="500" />
             <BGRoomCanvas ref={bgCanvasRef} id="canvasRoom" height="500" width="500" />
-            <FGRoomCanvas ref={canvasRef} id="canvasRoom" height="500" width="500" />
+            <FGRoomCanvas ref={canvasRef} id="canvasBGRoom" height="500" width="500" />
         </Fragment>
     )
 

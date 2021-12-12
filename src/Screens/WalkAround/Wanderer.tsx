@@ -56,6 +56,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         left:0px;
         top: 0px;
         pointer-events:none;
+        z-index: 10;
     `
 
     const Container = styled.div`
@@ -193,7 +194,6 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         //or two, i am in the items ref and i need to tell it my current location.
         const me = findMeInItemRef();
         if(me){
-            //JR NOTE: TOdo
             let tmp = itemsRef.current;
             tmp  = removeItemOnce(tmp,me);
             tmp.push({src:"gif_do_not_render",layer: -1,x: playerLocation.left, y: playerLocation.top,width: playerWidth, height: playerHeight,flavorText: me.flavorText,themeKeys: themeKeys,name: "Wanderer" })

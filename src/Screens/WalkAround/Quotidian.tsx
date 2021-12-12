@@ -64,6 +64,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         left:0px;
         top: 0px;
         pointer-events:none;
+        z-index: 10;
     `
 
     const NameTag = styled.div`

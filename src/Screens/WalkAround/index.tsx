@@ -68,6 +68,8 @@ const GuestBookButton = styled.button`
         overflow: auto;
         top: 5%;
         left: 25%;
+        width: 500px;
+        height: 500px;
     `;
 
     const IconImage = styled.img`
@@ -194,6 +196,7 @@ const GuestBookButton = styled.button`
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const bgCanvasRef = useRef<HTMLCanvasElement>(null);
+    const baseCanvasRef = useRef<HTMLCanvasElement>(null);
 
     //what's this? have I found a Waste?
     if(!validKeys()){
@@ -205,7 +208,7 @@ const GuestBookButton = styled.button`
     return (
         <Fragment>
             <RoomContainer>
-                <Room canvasRef={canvasRef}  bgCanvasRef={bgCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
+                <Room canvasRef={canvasRef}  bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
                 {quotidiansRef.current?.map((qq,index)=> <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
