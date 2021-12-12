@@ -25,6 +25,7 @@ export enum PathType {
 }
 
 export const AtticSim = (props: AtticProps) => {
+    (window as any).dontrotatemusic = true;
 
     const getInitialRamble = useCallback(() => {
         switch (props.pathType) {

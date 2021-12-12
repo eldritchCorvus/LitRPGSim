@@ -68,7 +68,8 @@ export const THEME = "THEME";
 export const END = "END";
 export const INFINITE = "INFINITE";
 export const JustTruth = (props: StatusProps) => {
-    const { player } = props
+    const { player } = props;
+    (window as any).dontrotatemusic = true;
 
     const [index, setIndex] = useState(0);
     const indexRef = useRef(index);
