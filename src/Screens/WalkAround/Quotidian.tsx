@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
-import {pointWithinBoundingBox, RenderedItem } from "./canvas_shit";
+import {pointWithinBoundingBox, redrawForeground, RenderedItem } from "./canvas_shit";
 
 import { doorEffect, loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
@@ -12,6 +12,7 @@ import { stringtoseed } from "../../Utils/StringUtils";
 import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";
 import { removeItemOnce } from "../../Utils/ArrayUtils";
 import { ADJ, COMPLIMENT, INSULT, LOCATION, OBJECT, PERSON, SPRITES, SpriteWithDirections } from "../../Modules/ThemeStorage";
+import { createEmitAndSemanticDiagnosticsBuilderProgram } from "typescript";
 
 
 interface QuotidianProps {
@@ -262,22 +263,25 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
             return `${text} caw!`;
         }
     }
+
+    const eatItem = (item: RenderedItem)=>{
+        let tmp = itemsRef.current;
+        tmp  = removeItemOnce(tmp,item);
+        itemsRef.current = tmp;
+        if(canvasRef.current && itemsRef.current){
+            redrawForeground(canvasRef.current,tmp);
+        }
+    }
     
     //unlike doors, items are not in set locations, check the items ref
     const checkForItems =(top: number, left: number)=>{
-        //TODO: JR NOTE: im worried setting the flavor text will rerender this which will fuck up my room
-        //might need to pull flavor text down. somehow...
-        //or is that a fever dream from back when i got stuck in a loop trying to move rooms without the game rerendering the room
         const wanderer_radius = 25;
-
         for(let item of itemsRef.current){
-            if(item.name !== name.current && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
-                //console.log("JR NOTE: i am near an item ", item.flavorText);
+            if(item.layer ===1 &&item.name !== name.current && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
+                eatItem(item);
                 takeMemoryFromWanderer(item.flavorText);
-                //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
                 setFlavorText(crowify(getFlavorText(item.themeKeys,getOpinionOnItemWithThemes(item.themeKeys),item.name)));
                 goalObjectIndex.current = undefined;
-                //JR NOTE: TODO might want to NOT return if its an item in neither memory array.
                 return;
             }
         }
@@ -378,7 +382,6 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
 
     
     const setImageWithDirection = (direction: string)=>{
-        console.log("JR NOTE: direciton is",direction, "spriteSet.current is ",spriteSet.current)
         if(spriteSet.current){
             if(direction === "w"){
                 set_image_src(spriteSet.current.up_src);
@@ -431,34 +434,6 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
             checkForItems(centerY, centerX);
         }
     }
-
-
-
-    const handleClick = (event: MouseEvent)=>{
-        //todo
-        if(canvasRef.current){
-            const rect = canvasRef.current.getBoundingClientRect();
-            const  x = event.clientX-rect.left;
-            const y = event.clientY-rect.top;
-            checkForDoor(y,x);
-            checkForItems(y,x);
-        }
-    }
-
-
-
-
-     //because its on the canvas it should be relative to it.
-      useEffect(() => {
-          if(canvasRef.current){
-            canvasRef.current.addEventListener('mousedown', handleClick);
-
-            return () => {
-                canvasRef.current?.removeEventListener('mousedown', handleClick);
-            };
-          }
-
-      },[canvasRef]);
 
       if(despawnedRef.current === true){
           return null;

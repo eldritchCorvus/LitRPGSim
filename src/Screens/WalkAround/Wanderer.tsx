@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
-import {pointWithinBoundingBox, RenderedItem } from "./canvas_shit";
+import {pointWithinBoundingBox, redrawForeground, RenderedItem } from "./canvas_shit";
 import real_eye from './../../images/wanda.png';
 import { doorEffect} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
-import FlavorPopup from "./FlavorPopup";
 import { SPYING, KNOWING, ADDICTION, TECHNOLOGY, LONELY, MAGIC } from "../../Modules/ThemeStorage";
 import { removeItemOnce } from "../../Utils/ArrayUtils";
 
@@ -67,6 +66,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
 
     const [spawnPoint, setSpawnPoint] = useState({left:250,top:450});
     const [flavorText, setFlavorText] = useState<string|undefined>();
+
     const [playerLocation, setPlayerLocation] = useState(spawnPoint);
 
     //what classpect are they, i wonder???, what are their interests?
@@ -136,7 +136,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
         const wanderer_radius = 25;
 
         for(let item of itemsRef.current){
-            if(item.name !== "Wanderer" && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
+            if(item.layer === 1 && item.name !== "Wanderer" && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 addMemoryToWanderer(item.flavorText);
                 //JR NOTE: setting current ref doesn't necessarily make flavor text dialogue notice. 
@@ -257,6 +257,7 @@ export const Wanderer:React.FC<WandererProps> = ({itemsRef,canvasRef,seededRando
     const handleUserKeyPress = (event: KeyboardEvent)=>{
         processWalk(event.key);
     }
+    
 
     const handleClick = (event: MouseEvent)=>{
         //todo

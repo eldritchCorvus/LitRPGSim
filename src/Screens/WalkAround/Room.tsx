@@ -28,8 +28,25 @@ const BaseRoomCanvas = styled.canvas`
 const FGRoomCanvas = styled.canvas`
     position: absolute;
     z-index: 2;
-
   `
+
+  export const Popup = styled.div`
+    border: 2px solid black;
+    border-radius: 13px;
+    padding: 5px;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    color: black;
+    padding-left: 13px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    padding-right: 13px;
+    margin: 10px;
+    background: #d1b056;
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+    z-index: 3;
+`
 
   const BGRoomCanvas = styled.canvas`
     position: absolute;
@@ -37,6 +54,7 @@ const FGRoomCanvas = styled.canvas`
   `
 export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasRef,baseCanvasRef, numberDoors, itemsRef }) => {
     const seededRandom = new SeededRandom(seed);
+    const [debugItems, setDebugItems] = useState<boolean>(false);
 
     //this shoould change any time the themes do.
 
@@ -47,8 +65,8 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
     }
 
 
-
     const drawRoom = async (canvas: HTMLCanvasElement,bgCanvas: HTMLCanvasElement, baseCanvas: HTMLCanvasElement,themes: Theme[]) => {
+        console.log("JR NOTE: drawing a room for the first time")
         initBlack(baseCanvas);
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
         let floor_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FLOOR)
@@ -82,6 +100,8 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
         itemsRef.current = items;
     }
 
+    
+
     useEffect(() => {
         if (canvasRef.current && bgCanvasRef.current && baseCanvasRef.current) {
             //console.log("JR NOTE: themes are", themeKeys)
@@ -90,12 +110,25 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
         }
     }, [canvasRef, themeKeys])
 
+    const debugComponent = ()=>{
+        return(
+            <Fragment>
+                {itemsRef.current.map((item)=>{
+                    return(
+                        <Popup style={{left:item.x, top:item.y}}>{item.flavorText}</Popup>
+                    );
+                })}
+            </Fragment>
+        )
+    }
+
 
     return (
         <Fragment>
             <BaseRoomCanvas ref={baseCanvasRef} id="canvasBaseRoom" height="500" width="500" />
             <BGRoomCanvas ref={bgCanvasRef} id="canvasRoom" height="500" width="500" />
             <FGRoomCanvas ref={canvasRef} id="canvasBGRoom" height="500" width="500" />
+            {debugItems?debugComponent():null}
         </Fragment>
     )
 

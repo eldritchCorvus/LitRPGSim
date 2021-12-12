@@ -15,6 +15,11 @@ export interface RenderedItem {
     src: string; //needed so i can rerender them as required
     name?: string; //only living creatures have names, not items, its used to update them
 }
+    export const redrawForeground = async(canvas: HTMLCanvasElement,items: RenderedItem[])=>{
+        console.log("JR NOTE: redrawing just the foreground.")
+        initClear(canvas);
+        await drawForeground(canvas,items);
+    }
 
 export const distance = (x1: number, y1: number, x2: number, y2: number) => {
     const first = (x1 - x2) ** 2;
@@ -43,6 +48,14 @@ export const initBlack = (canvas: HTMLCanvasElement) => {
         return;
     }
     context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+export const initClear = (canvas: HTMLCanvasElement) => {
+    const context = canvas.getContext("2d");
+    if (!context) {
+        return;
+    }
+    context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 export const drawDoors = (canvas: HTMLCanvasElement, numberExits: number, doorImage: HTMLImageElement, rugImage: HTMLImageElement) => {
