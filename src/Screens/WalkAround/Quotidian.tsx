@@ -21,6 +21,7 @@ interface QuotidianProps {
     themeKeys: string[];
     seededRandom: SeededRandom;
     numberDoors:number;
+    wandaTakeMemoryRef: MutableRefObject<Function|undefined>;
   }
 
   export const Popup = styled.div`
@@ -42,7 +43,7 @@ interface QuotidianProps {
 
 const sprite_url_start = `Walkabout/Sprites/`;
 const default_sprite = `humanoid_crow.gif`;
-export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef,seededRandom,numberDoors}) => {
+export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,themeKeys,canvasRef,seededRandom,numberDoors}) => {
     
     const playerWidth = 50;
     const playerHeight = 50;
@@ -179,9 +180,8 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     }
 
     const takeMemoryFromWanderer = (memory:string)=>{
-        if(isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)){
-            addStringToArrayWithKey(QUOTIDIAN_KEY,memory);
-            removeStringFromArrayWithKey(MEMORY_KEY,memory);
+        if(wandaTakeMemoryRef.current){
+            wandaTakeMemoryRef.current(memory);
         }
     }
 
@@ -285,7 +285,9 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         for(let item of itemsRef.current){
             if((item.layer ===1 || item.layer === -1) &&item.name !== name.current && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 eatItem(item);
-                takeMemoryFromWanderer(item.flavorText);
+                if(item.layer === 1){//don't make hte wanderer forget themselves plz, or you for that matter
+                    takeMemoryFromWanderer(item.flavorText);
+                }
                 setFlavorText(crowify(getFlavorText(item.themeKeys,getOpinionOnItemWithThemes(item.themeKeys),item.name)));
                 goalObjectIndex.current = undefined;
                 return;

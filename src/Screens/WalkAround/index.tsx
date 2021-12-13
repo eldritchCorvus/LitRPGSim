@@ -100,6 +100,7 @@ const GuestBookButton = styled.button`
     const itemsRef = useRef<RenderedItem[]>([]);
     //an array of theme keys used to populate quotidians
     const quotidiansRef = useRef<string[][]>([]);
+    const wandaTakeMemoryRef = useRef<Function>();
 
     /*
         NOTE:
@@ -210,15 +211,14 @@ const GuestBookButton = styled.button`
             <RoomContainer>
                 <Room canvasRef={canvasRef}  bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
-                {quotidiansRef.current?.map((qq,index)=> <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
-                <Wanderer canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
+                {quotidiansRef.current?.map((qq,index)=> <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
+                <Wanderer wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:
 
                 Five Minute TODO:
 \               * finish opinions
-                * display how many memories you have.
-                *quotidians visually display if they are undead
+                * if flavor text is in birb memory, wanda displays it differently
                 * before and after coffin content
                 * killer in vents, tape recorders
                 * styled spiral;
@@ -253,7 +253,7 @@ const GuestBookButton = styled.button`
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
                 <li>spawnable tape players (add more secret music, including things that are just audio logs from the closer)</li>
-
+                infinite train zampaniosim branch (rooms in a linear pile, can go endlessly right, but can go back too, that zooming darkness effect)
                 <li>add glitch effect to WalkObject themes.</li>
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
                 <li>find your coffin and go down and down and down</li>
