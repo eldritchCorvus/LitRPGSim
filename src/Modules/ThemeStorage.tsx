@@ -641,6 +641,8 @@ const initFloorForegrounds = () => {
     floor_foregrounds[FAMILY] = [{ src: "Family_Object.png", desc: "Family Tree Pruned."}];
     floor_foregrounds[MAGIC] = [{ src: "Magic_Object.png", desc: "Look Inward."}];
     floor_foregrounds[LIGHT] = [{ src: "Light_Object.png", desc: "How enlightening..."}];
+    floor_foregrounds[CHOICES] = [{ src: "Choice_Object.png", desc: "Signs like this tend to be more useful when labeled..."}];
+    floor_foregrounds[ZAP] = [{ src: "zap_object.png", desc: "zap pow kaboom"}];
 
     //note to future jr doing two at once is p sustainable
     /*
@@ -648,13 +650,11 @@ const initFloorForegrounds = () => {
     floor_foregrounds[MATH] =  ["blackboard.png"];
     floor_foregrounds[SPACE] = ["stars.png","clouds.png"];
     floor_foregrounds[HEALING] =  ["tilewall.png"];
-    floor_foregrounds[ZAP] = ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
     floor_foregrounds[TECHNOLOGY] =  ["metalwall1.png","metalwall2.png","metalwall3.png"] ;
     floor_foregrounds[HUNTING] = ["leafwalls.png","hedgewall.png","pinetrees.png"];
     floor_foregrounds[GUIDING] = ["pinetrees.png"] ;
     floor_foregrounds[ART] =  ["Perfect Moment"];
     floor_foregrounds[TIME] =  ["Stopped Clock"];
-    floor_foregrounds[CHOICES] =  ["Timeline of Theseus"] ;
     floor_foregrounds[SOUL] = ["Know thyself."] ;
     floor_foregrounds[ANGER] = ["Dethrone Creation"] ;
     floor_foregrounds[GUIDING] = ["Path To Victory"] ;
