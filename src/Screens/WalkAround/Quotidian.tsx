@@ -26,6 +26,7 @@ interface QuotidianProps {
 
   export const Popup = styled.div`
     border: 2px solid black;
+    z-index: 5;
     border-radius: 13px;
     padding: 5px;
     position: absolute;

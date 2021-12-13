@@ -219,8 +219,8 @@ const GuestBookButton = styled.button`
                 Five Minute TODO:
 \               * finish opinions
                 * if flavor text is in birb memory, wanda displays it differently
-                * before and after coffin content
-                * killer in vents, tape recorders
+                * before and after coffin content (coffin at zero)
+                * tape recorders in vents (deploying text content and audio content)
                 * styled spiral;
                 * room effects  
                 
