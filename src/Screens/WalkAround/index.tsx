@@ -253,7 +253,7 @@ const GuestBookButton = styled.button`
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
                 <li>spawnable tape players (add more secret music, including things that are just audio logs from the closer)</li>
-                infinite train zampaniosim branch (rooms in a linear pile, can go endlessly right, but can go back too, that zooming darkness effect)
+                infinite train zampaniosim branch (rooms in a linear pile, can go endlessly right, but can go back too, that zooming darkness effect) (it mirrors Truth the way this mirros ThisIsAgame)
                 <li>add glitch effect to WalkObject themes.</li>
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
                 <li>find your coffin and go down and down and down</li>
