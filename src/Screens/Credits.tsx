@@ -280,6 +280,7 @@ export const CreditsScreen = (props: StatusProps) => {
 
                 <CreditLine>
                     <CreditDoubleLine>
+                    <CreditLeft>Chomp Sound FX: </CreditLeft> <CreditRight><span>https://freesound.org/people/NillyPlays/sounds/543386/</span></CreditRight>
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>

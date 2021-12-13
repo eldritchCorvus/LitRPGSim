@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import {pointWithinBoundingBox, redrawForeground, RenderedItem } from "./canvas_shit";
 
-import { doorEffect, loadSecretImage} from '../..';
+import { chomp, doorEffect, loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
@@ -269,6 +269,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         tmp  = removeItemOnce(tmp,item);
         itemsRef.current = tmp;
         if(canvasRef.current && itemsRef.current){
+            chomp();
             redrawForeground(canvasRef.current,tmp);
         }
     }

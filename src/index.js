@@ -11,6 +11,7 @@ import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import voice from './Voice/truthtake3.mp3';
 import true_jr from './Voice/true_final_jr.mp3';
+import chompSrc from './Voice/543386__nillyplays__nom-noise.mp3'
 import game_jr from './Voice/game_final_jr.mp3';
 import main_jr from './Voice/main_final_jr.mp3';
 
@@ -93,6 +94,11 @@ export function speakTheDefault(){
 
 export function speak(){
   voiceAudio.src = voice;
+  voiceAudio.play();
+}
+
+export function chomp(){
+  voiceAudio.src = chompSrc;
   voiceAudio.play();
 }
 
