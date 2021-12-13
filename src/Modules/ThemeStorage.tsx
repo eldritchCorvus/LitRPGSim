@@ -1190,14 +1190,15 @@ const initThemeOpinions = () => {
     theme_opinions[TIME] = createOpinion(0, {TIME: 50,ENDINGS: 10, DECAY: 10,FREEDOM: -50,MATH: 10,APOCALYPSE:10,FAMILY: 10 });
     theme_opinions[STEALING] = createOpinion(-10, {ART: 50,SPYING: -113,ROYALTY: 50,STEALING: 113,FREEDOM:10,HUNTING:-30 });
     theme_opinions[FREEDOM] = createOpinion(0, {BURIED: -113, QUESTING: -30, ADDICTION: -113, GUIDING: -50, ROYALTY: -85, WEB: -113, LOVE: -50,CHOICES: 113, HUNTING: -50, FAMILY: -113, SERVICE: -113, ANGELS: 33, TWISTING:10, ART: 50, FREEDOM: 113,SPACE: 100 });
-    theme_opinions[FIRE] = createOpinion(-113, {KILLING: 20, APOCALYPSE: 10,DEATH: 10,DECAY: 10, ENDINGS: 20, FIRE: 20, });
+    //everything should be fire when you get right down to it
+    theme_opinions[FIRE] = createOpinion(-1000, {KILLING: 20, APOCALYPSE: 10,DEATH: 10,DECAY: 10, ENDINGS: 20, FIRE: 1000, });
     theme_opinions[OCEAN] = createOpinion(10, {TECHNOLOGY: -113,LONELY: 113, DARKNESS: 113,TIME: 30, SPACE: 30, SOUL: 30,OCEAN: 113, MAGIC: 30, PLANTS: 30 });
     theme_opinions[FLESH] = createOpinion(0, {FLESH: 113,KILLING: 13, SOUL: -113, ZAP: -13, DECAY: -13, DEATH: -50, TECHNOLOGY: -113, SCIENCE: -113, FIRE: -113, TWISTING: 13 });
     theme_opinions[BURIED] = createOpinion(0, {BURIED: 113, DARKNESS: 50, ADDICTION: 50, ENDINGS: 10, WEB: 50, PLANTS: 10,DEATH: 50, SPYING: -50, SPACE: -50, FREEDOM: -50 });
     //now we know why faq writer is such a positive person
     theme_opinions[MATH] = createOpinion(85, {OBFUSCATION: 13,KNOWING: 113, WEB: 100, SOUL: -13, MAGIC: -13, TWISTING: 113, TIME: 113, SPACE: 113, SCIENCE: 113, TECHNOLOGY: 113, MATH: 113 });
     //:) :) :) Everything would be in its blind volumes. ... Everything: but for every sensible line or accurate fact there would be millions of meaningless cacophonies, verbal farragoes, and babblings.
-    theme_opinions[TWISTING] = createOpinion(113, { });
+    theme_opinions[TWISTING] = createOpinion(1000, { });
     theme_opinions[KNOWING] = createOpinion(113, {TWISTING: -113, OBFUSCATION: -113, DARKNESS: -113 });
     //nothing matters in the face of inevitability
     theme_opinions[DEATH] = createOpinion(0, { });
@@ -1211,12 +1212,18 @@ const initThemeOpinions = () => {
     theme_opinions[HEALING] = createOpinion(0, {QUESTING: -55,DEFENSE: 55,KILLING: -113,ENDINGS: -113,DECAY: -113,HUNTING: -55,MAGIC: 113,SERVICE:55,ANGELS: 113,HEALING: 113,LONELY:-55,TECHNOLOGY:113,SCIENCE: 113,FLESH:113,KNOWING:55,DEATH:-113, APOCALYPSE:-113 });
     theme_opinions[PLANTS] = createOpinion(0, {BUGS: -113,APOCALYSE: -113,TWISTING: -113,PLANTS:113,LONELY:55, TECHNOLOGY:-113,SCIENCE:-55,FREEDOM: 113,FIRE:-113 });
     theme_opinions[HUNTING] = createOpinion(0, {QUESTING: 55,DARKNESS: 55, KILLING: 113,HUNTING: 113,SPYING:113,LONELY:55,FLESH: 113, DEATH: 113});
+    //all should rot away and we should be one together. doesnt enjoy being killed with fire
+    theme_opinions[DECAY] = createOpinion(-55, {DECAY: 113,ADDICTION:55,BUGS: 55,LONELY: -113,FIRE: -113,DEATH: 55, ANGELS: -113,HEALING:-113});
+    //exactly neutral on the web. on the one hand, web can choose for you. on the other, web can let you choose for others. same for freedom
+    theme_opinions[CHOICES] = createOpinion(55, {OBFUSCATION: -55,ADDICTION: -113,WEB:0,CHOICES: 113,FREEDOM: 0,BURIED: -113,TWISTING:-113,KNOWING:113});
+    //zap!
+    theme_opinions[ZAP] = createOpinion(0, {ZAP: 1000});
+    theme_opinions[LOVE] = createOpinion(85, {ENDINGS: -55,DECAY: -113,LONELY:-113, DEATH: -113,APOCALYPSE:-113,ANGELS: 113,SERVICE:113,FAMILY:113,HEALING:113 });
+    //what is anything but a calm lake reflecting the self?
+    theme_opinions[SOUL] = createOpinion(0, {SOUL: 113});
+
 
     /*
-    theme_opinions[DECAY] = ["practical"] ;
-    theme_opinions[CHOICES] =  ["considerate"] ;
-    theme_opinions[ZAP] = ["electifying"] ;
-    theme_opinions[LOVE] = ["loving"];
     theme_opinions[SOUL] = ["introspective"] ;
     theme_opinions[ANGER] = ["passionate"] ;
     theme_opinions[WEB] =  ["strategic"] ;

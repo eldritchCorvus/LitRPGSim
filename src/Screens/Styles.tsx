@@ -223,7 +223,7 @@ export const LinkButton = styled.button`
 
 export const AchivementBox = styled.div`
     border: 2px solid ${(props: StyleRadius) => props.fontColor};
-    border-radius: ${(props: StyleRadius) => props.mildRadius}ppx;
+    border-radius: ${(props: StyleRadius) => props.mildRadius}px;
     padding: 5px;
     display: flex;
     width: 600px;

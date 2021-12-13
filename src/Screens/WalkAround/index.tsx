@@ -216,9 +216,10 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
-                * find eating sound for lil scrimblos to make
-                * finish opinions
-                * before and after maze
+\               * finish opinions
+                * display how many memories you have.
+                *quotidians visually display if they are undead
+                * before and after coffin content
                 * killer in vents, tape recorders
                 * styled spiral;
                 * room effects  

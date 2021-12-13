@@ -58,7 +58,9 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         leftSpawn: number;
         topSpawn: number;
     }
-    
+    interface QuotidianProps {
+        undead: boolean;
+    }
 
     const Quotidian = styled.img`
         position: absolute;
@@ -66,6 +68,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         top: 0px;
         pointer-events:none;
         z-index: 10;
+        opacity: ${(props: QuotidianProps) => props.undead?"10%":"100%" };
     `
 
     const NameTag = styled.div`
@@ -85,6 +88,8 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const [spawnPoint, setSpawnPoint] = useState({left:seededRandom.getRandomNumberBetween(0,300),top:seededRandom.getRandomNumberBetween(200,400)});
     const [flavorText, setFlavorText] = useState<string|undefined>();
     const [birbLocation, setBirbLocation] = useState(spawnPoint);
+    const [undead, setUndead] = useState(false);
+
     const [image_src, set_image_src] = useState(sprite_url_start+default_sprite);//they aren't expecting you so they are still birbs when you come in
 
     const currentHeading = useRef<DIRECTIONS>(DIRECTIONS.w);
@@ -278,7 +283,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
     const checkForItems =(top: number, left: number)=>{
         const wanderer_radius = 25;
         for(let item of itemsRef.current){
-            if(item.layer ===1 &&item.name !== name.current && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
+            if((item.layer ===1 || item.layer === -1) &&item.name !== name.current && pointWithinBoundingBox(left,top,item.x,item.y,item.width,item.height)){
                 eatItem(item);
                 takeMemoryFromWanderer(item.flavorText);
                 setFlavorText(crowify(getFlavorText(item.themeKeys,getOpinionOnItemWithThemes(item.themeKeys),item.name)));
@@ -366,6 +371,10 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
                 processWalk(currentHeading.current);  
             }
         }else{
+            if(!findMeInItemRef()){//you agree to pretend to be dead.
+                setUndead(true);
+                return;
+            }
             walkTowardsObject();
         }
     }
@@ -443,7 +452,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({itemsRef,themeKeys,canvasRef
         <Container leftSpawn={birbLocation.left} topSpawn={birbLocation.top}>
             {flavorText ?<Popup>{flavorText}</Popup>:null}
             <NameTag>{name.current}</NameTag>
-            <Quotidian src={image_src}/>    
+            <Quotidian src={image_src} undead={undead}/>    
         </Container>
  )
 
