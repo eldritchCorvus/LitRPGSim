@@ -1221,13 +1221,13 @@ const initThemeOpinions = () => {
     theme_opinions[LOVE] = createOpinion(85, {ENDINGS: -55,DECAY: -113,LONELY:-113, DEATH: -113,APOCALYPSE:-113,ANGELS: 113,SERVICE:113,FAMILY:113,HEALING:113 });
     //what is anything but a calm lake reflecting the self?
     theme_opinions[SOUL] = createOpinion(0, {SOUL: 113});
+    theme_opinions[ANGER] = createOpinion(-113, {KILLING: 0, ANGER: 13});
+    theme_opinions[WEB] = createOpinion(13, {QUESTING: 55,ADDICTION:113,GUIDING: 113,WEB: 113,SPYING: 55, TECHNOLOGY:55,FREEDOM:-55, FAMILY:55});
+    //there really is a window into my soul for you all to peer into just based on what opinions i think themes have
+    theme_opinions[ROYALTY] = createOpinion(-13, {FAMILY: 55,SERVICE:113,APOCALYPSE: -55,FREEDOM: -55,STEALING:-113});
 
 
     /*
-    theme_opinions[SOUL] = ["introspective"] ;
-    theme_opinions[ANGER] = ["passionate"] ;
-    theme_opinions[WEB] =  ["strategic"] ;
-    theme_opinions[ROYALTY] =  ["prestigious"] ;
     theme_opinions[ENDINGS] =  ["calm"] ;
     theme_opinions[GUIDING] = ["caring"] ;
     theme_opinions[CRAFTING] =  ["creative"];

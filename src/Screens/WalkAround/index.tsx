@@ -222,12 +222,13 @@ const GuestBookButton = styled.button`
                 * before and after coffin content (coffin at zero)
                 * tape recorders in vents (deploying text content and audio content)
                 * styled spiral;
-                * room effects  
+                * room effects
+                *donut in a corn outfit  
                 
 
                 Other MINUTE TODO.
                 <li>add objects</li>
-                <li>shitty geocities parody website about unraveling the identity of the Eye Killer</li>
+                <li>shitty geocities parody website about unraveling the identity of the Eye Killer, Eyedol, people vanishing.</li>
                 <li>post coffin trial of killer plus live blogging of a tgifradys</li>
                 <li>killer in vents</li>
                 *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
