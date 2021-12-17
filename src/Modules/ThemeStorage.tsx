@@ -632,6 +632,8 @@ const initFloorForegrounds = () => {
     floor_foregrounds[CLOWNS] = [{ src: "jwelerybox.png", desc: "Clown jewels."},{ src: "Clown_Object.png", desc: "Honk honk! +u+"},{ src: "toybox.png", desc: "Laughter rings out anytime you touch this box." }, { src: "jackinaboxopen.png", desc: "Sourceless laughter peels out across the room as you jump in surprise when the jack springs out." }, { src: "jackinaboxclosed.png", desc: "It's hilarious how much anxiety the anticipation of a closed jack in the box causes." }, { src: "gift.png", desc: "When you go to open it it explodes into confetti." }, { src: "balloon5.png", desc: "A sign of life." }, { src: "balloon4.png", desc: "Surely someone must have filled these within the past day or two if they're still floating, right?" }, { src: "balloon3.png", desc: "You wonder how they float." }, { src: "balloon2.png", desc: "It feels like it might pop at any moment." }, { src: "balloon1.png", desc: "How whimsical." }];
     floor_foregrounds[DOLLS] = [{ src: "jr_doll.png", desc: "There's something cathartic in having power over old JR." }, { src: "toytrain.png", desc: "Choo choo! Jaimie would be proud." }, { src: "toysoldiersmall.png", desc: "It's okay. You'll be his friend." }, { src: "toysoldierlarge.png", desc: "He seems to be made of wax. His eyes are wrong, though." }, { src: "toyshelves.png", desc: "So many toys, it almost makes you wish you could be nostalgic." }, { src: "toyregiment.png", desc: "Each time you look away they are a single step closer." }, { src: "toydummerboy.png", desc: "Any time you look away you hear a single beat of his drum." }, { src: "toybox.png", desc: "All sorts of fun to be had in here." }, { src: "toyarmy.png", desc: "Oh." }, { src: "teapot.png", desc: "If only you had some toys, you could host a little teaparty." }, { src: "teachustheinsides.png", desc: "Screams are coming from inside." }, { src: "snowman.png", desc: "You know its heart yearns to look more human. What would it have to steal to get there." }, { src: "scarecrow2.png", desc: "It waits." }, { src: "scarecrow.png", desc: "You're suddenly certain it is just choosing not to move." }, { src: "princessbed.png", desc: "And adorable bed you just want to cover with stuffed animals and dolls." }, { src: "jackinaboxopen.png", desc: "You feel something touching your leg, but when you look down i's just this Jack In a Box." }, { src: "jackinaboxclosed.png", desc: "You hear something moving inside." }, { src: "hobbyhorse.png", desc: "Its eyes seem alive, and in pain." }, { src: "gumballmachine.png", desc: "Delicious sweets." }, { src: "dress.png", desc: "A dress in need of a doll." }, { src: "dollhouse.png", desc: "The dolls inside are all missing." }, { src: "doll.png", desc: "Someone must miss her terribly." }, { src: "doll.png", desc: "Scrawled on her face is 'will you be my mother?'" }, { src: "doll.png", desc: "She is watching you." }, { src: "chessset.png", desc: "It looks like a fun game." }, { src: "bear.png", desc: "Every time you look away it seems to be in a different pose." }, { src: "balloon1.png", desc: "There's little people inside, waving at you." }, { src: "armor.png", desc: "Did it just move when you weren't looking?" }, { src: "angelstatue.png", desc: "Her eyes seem to watch you." }];
     floor_foregrounds[TWISTING] = [{ src: "zampanio_flowerkid_by_hex2.png", desc: "How do sprite sheets work???"},{ src: "Twisting_Object.png", desc: "Hee Hee Hee Hee Hee"},{ src: "jr_lobstersona.png", desc: "This is not JR."}, { src: "jr_slug.png", desc: "This is not JR." }, { src: "aluminum.png", desc: "This is not JR." }, { src: "JadedResearcher.png", desc: "This is not JR." }, { src: "jr_doll.png", desc: "This is not JR." }];
+    //floor_foregrounds[ADDICTION] = [];
+
     //JR NOTE: from here down are just ghoul objects, need to go back and add things from sprite sheets as well
     floor_foregrounds[FREEDOM] =  [{ src: "Freedom_Object.png", desc: "Have you seen the freedom object? It seems to have gotten out..." }];
     floor_foregrounds[FIRE] =  [{ src: "Fire_Object.png", desc: "Hmm Interesting..."}];
@@ -648,7 +650,6 @@ const initFloorForegrounds = () => {
 
     //note to future jr doing two at once is p sustainable
     /*
-    floor_foregrounds[TWISTING] =  ["spiral.png"];
     floor_foregrounds[MATH] =  ["blackboard.png"];
     floor_foregrounds[SPACE] = ["stars.png","clouds.png"];
     floor_foregrounds[HEALING] =  ["tilewall.png"];
@@ -658,7 +659,6 @@ const initFloorForegrounds = () => {
     floor_foregrounds[ART] =  ["Perfect Moment"];
     floor_foregrounds[TIME] =  ["Stopped Clock"];
     floor_foregrounds[GUIDING] = ["Path To Victory"] ;
-    floor_foregrounds[ADDICTION] = ["Dealer's Delight"];
     floor_foregrounds[SPYING] =["Surveillance State"] ;
     floor_foregrounds[OBFUSCATION] = ["Knowledge Forever Lost"] ;
     floor_foregrounds[DARKNESS] =  ["Night Eternal"] ;
