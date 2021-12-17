@@ -217,14 +217,14 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
-\               * finish opinions
                 * if flavor text is in birb memory, wanda displays it differently
-                * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * tape recorders in vents (deploying text content and audio content)
+                * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * styled spiral;
                 * room effects
                 * the closer after 10 minutes of help desk
                 *donut in a corn outfit  
+                * letter to the flower girl from weaver
                 
 
                 Other MINUTE TODO.
