@@ -78,7 +78,7 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
     const [playerLocation, setPlayerLocation] = useState(spawnPoint);
 
     //what classpect are they, i wonder???, what are their interests?
-    const themeKeys = [MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, LONELY];
+    const themeKeys = [MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, ADDICTION];
 
 
     useEffect(() => {

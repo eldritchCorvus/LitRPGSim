@@ -219,7 +219,7 @@ const GuestBookButton = styled.button`
                 Five Minute TODO:
 \               * finish opinions
                 * if flavor text is in birb memory, wanda displays it differently
-                * before and after coffin content (coffin at zero)
+                * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * tape recorders in vents (deploying text content and audio content)
                 * styled spiral;
                 * room effects
@@ -228,7 +228,7 @@ const GuestBookButton = styled.button`
 
                 Other MINUTE TODO.
                 <li>add objects</li>
-                <li>shitty geocities parody website about unraveling the identity of the Eye Killer, Eyedol, people vanishing.</li>
+                <li>shitty geocities parody website about unraveling the identity of the Eye Killer, Eyedol, people vanishing. make sure to link to google if you mention using it</li>
                 <li>post coffin trial of killer plus live blogging of a tgifradys</li>
                 <li>killer in vents</li>
                 *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
