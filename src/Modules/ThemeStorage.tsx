@@ -1226,7 +1226,7 @@ const initThemeOpinions = () => {
     //there really is a window into my soul for you all to peer into just based on what opinions i think themes have
     theme_opinions[ROYALTY] = createOpinion(-13, {FAMILY: 55,SERVICE:113,APOCALYPSE: -55,FREEDOM: -55,STEALING:-113});
     //all should end, much less patient thatn death
-    theme_opinions[ENDINGS] = createOpinion(-55, {KILLING: 113,EATH: 113,HEALING:-113,APOCALYPSE: 113});
+    theme_opinions[ENDINGS] = createOpinion(-55, {KILLING: 113,DEATH: 113,HEALING:-113,APOCALYPSE: 113});
     theme_opinions[GUIDING] = createOpinion(30, {QUESTING: 55,LANGUAGE: 55,HUNTING: -55,FAMILY: 55,SERVICE: 55,ANGELS: 55,KNOWING: 55,BURIED: 55,OCEAN: 113,FREEDOM: -55,SCIENCE: 55,LONELY: -55,GUIDING: 55});
     theme_opinions[CRAFTING] = createOpinion(0, {QUEST: 33,ZAP: 55,FIRE: 55,STEALING: -55,TECHNOLOGY: 113,ART: 113,CRAFTING: 113});
     //say no to book worms and censorship
