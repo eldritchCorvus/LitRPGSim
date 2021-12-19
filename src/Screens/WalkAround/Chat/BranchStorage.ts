@@ -1,7 +1,11 @@
 import { getRandomNumberBetween, pickFrom } from "../../../Utils/NonSeededRandUtils";
 import { One } from "../../Attic/LieJR";
 import { PlayerResponse } from "../../Attic/PlayerResponse";
+//the quotidians leave records of everything they've spied on, and they're running customer serivce so...
 import { ficlets } from "../CloserStorage";
+import { boi_storage } from "../NAMStorage";
+import { hunt_ficlets } from "../EyeKillerStorage";
+
 import { CustomerServiceRamble } from "../CustomerServiceRamble";
 import { CustomerSupportSpecialist } from "../CustomerSupportSpecialist";
 
@@ -106,7 +110,7 @@ export const TheCloser = ()=>{
 }
 
 export const CloseButStillTooFar = ()=>{
-    const initialRamble = pickFrom(ficlets);
+    const initialRamble = pickFrom(pickFrom([ficlets, boi_storage,hunt_ficlets]));
     const ramble = new CustomerServiceRamble(initialRamble, []);
     return ramble;
 }

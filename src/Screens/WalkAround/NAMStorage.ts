@@ -1,4 +1,4 @@
-export const ficlets = [
+export const boi_storage = [
     `Melon.
 
 That word lingers at the tip of your tongue, in the back of your mind. 
