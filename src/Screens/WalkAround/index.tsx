@@ -208,7 +208,7 @@ const GuestBookButton = styled.button`
                 console.log("JR NOTE: deploying the closer");
                 setCloserHelp(true);
             }
-            const timeoutId = setTimeout(deployTheCloser, 1*1000*1);
+            const timeoutId = setTimeout(deployTheCloser, 10*1000*60);
             return () => {
               clearTimeout(timeoutId);
             };
@@ -235,7 +235,6 @@ const GuestBookButton = styled.button`
 
                 Five Minute TODO:
 
-                * the closer after 10 minutes of help desk
                 * if flavor text is in birb memory, wanda displays it differently
                 *memories out of how many
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
@@ -243,6 +242,7 @@ const GuestBookButton = styled.button`
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
                 *coffin spawns when memories = 0, after ten minutes can opt in to flock of crows stealing all memories.
                 *final tape recorder with mystery next to coffin, others are random
+                * you go in the coffin to remember your past (geocities) and journey to your future
                 * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * styled spiral;
                 * room effects
@@ -285,7 +285,7 @@ const GuestBookButton = styled.button`
             </div>
             <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
             {chatHelp ? <HelpChatBox /> : null}
-            {closerHelp ? <CloserChatBox /> : null}
+            {closerHelp ? <CloserChatBox close={()=>{setCloserHelp(false)}} /> : null}
 
         </Fragment>
 

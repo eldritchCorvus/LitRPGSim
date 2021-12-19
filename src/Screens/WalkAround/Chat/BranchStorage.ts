@@ -77,29 +77,29 @@ export const Lost = ()=>{
 }
 
 export const TheCloser = ()=>{
-    const defaultRamble = `Hello, Wodin.\n
-    I’m sure you are alarmed that I am contacting you like this; very sudden, I know. However, please, do not worry. I assure you that everything is under control.\n
-     How are you, by the way? Not fantastic, I assume. I believe you don’t need to be told that I’ve been monitoring your chat, but I offer it for the sake of transparency.\n
-     I would like to apologize for the experience you’ve had, and any feelings that may have surfaced because of it.\n
-     My job, and the service I provide for you, is simple: I am here to make sure your complaint gets heard, Wodin. You may call me the Closer, if you like. It is certainly easier to say than my full title. \n
-     As for what you’re here for: You'd like to find…\n
-     Excuse me, a killer? Contracted by our company?\n
-     Oh, my. Well, that can’t stand at all. We at Eyedol Games would never stand for these sorts of misdemeanors affecting our treasured relationship with our clients, and I can see how one could confuse a mere uncouth fan with an employee, especially with their…\n
-     ...strange efficiency, on the matter.\n
-     Nevermind that. I’d be more than happy to look into it for you.\n
-     I’ll need some starting information, though. Could you provide me with a name? A first and last name is ideal, we just started transferring our physical databases onto the World Wide Web, or ‘the Cloud’, as they have been calling it. The technicalities of it escape me, I’m afraid.\n
-      Any physical characteristics would do as well, of course-- although, I must say I can only take photographs on this one. I cannot bring myself to fire some unlucky fellow because of someone else’s crime, would you? It does not seem very fair. \n
-      I would then have to look through the old documents, but anything to please a client, of course.\n
-      ...…ah. You do not happen to possess any of those, do you, Wodin?\n
-      A shame. I’m afraid there’s not much I can do for you without them. We cannot take someone to trial without evidence, and, as you’d understand, much less fire them. \n
-      Labor laws mean that we cannot always do what is most efficient, after all. Such are the trappings of modern legislature.\n
-      This leaves us at an impasse. I’m afraid that if you publish these accusations without evidence, our lawyers might be inclined to sue for libel. \n
-      I know it sounds like a threat, but I’d like to assure you that it’s not. I’d argue it’s more of a headache for me than you.\n
-      If such a thing were to happen, I’d be happy and willing to use my position to retract the charges, all for such a valued client. But I do not envy the paperwork.\n
-      So, perhaps we can reach an understanding, Wodin.\n
-      If you happen to come across any identifiable features of this Killer, let me know, and I will cross reference with our available documents. If I find anything that seems like a match, the employee will be terminated immediately, and then we can see the case together in court. That way we can reach an amicable solution that benefits all parties.\n
-      And, of course, shed light on one of the most infamous serial killers of the decade. All with your help.\n
-      Well, if there is anything else I can do to help you, Wodin, feel free to let me know.\n
+    const defaultRamble = `Hello, Wodin.
+    I’m sure you are alarmed that I am contacting you like this; very sudden, I know. However, please, do not worry. I assure you that everything is under control.
+     How are you, by the way? Not fantastic, I assume. I believe you don’t need to be told that I’ve been monitoring your chat, but I offer it for the sake of transparency.
+     I would like to apologize for the experience you’ve had, and any feelings that may have surfaced because of it.
+     My job, and the service I provide for you, is simple: I am here to make sure your complaint gets heard, Wodin. You may call me the Closer, if you like. It is certainly easier to say than my full title. 
+     As for what you’re here for: You'd like to find…
+     Excuse me, a killer? Contracted by our company?
+     Oh, my. Well, that can’t stand at all. We at Eyedol Games would never stand for these sorts of misdemeanors affecting our treasured relationship with our clients, and I can see how one could confuse a mere uncouth fan with an employee, especially with their…
+     ...strange efficiency, on the matter.
+     Nevermind that. I’d be more than happy to look into it for you.
+     I’ll need some starting information, though. Could you provide me with a name? A first and last name is ideal, we just started transferring our physical databases onto the World Wide Web, or ‘the Cloud’, as they have been calling it. The technicalities of it escape me, I’m afraid.
+      Any physical characteristics would do as well, of course-- although, I must say I can only take photographs on this one. I cannot bring myself to fire some unlucky fellow because of someone else’s crime, would you? It does not seem very fair. 
+      I would then have to look through the old documents, but anything to please a client, of course.
+      ...…ah. You do not happen to possess any of those, do you, Wodin?
+      A shame. I’m afraid there’s not much I can do for you without them. We cannot take someone to trial without evidence, and, as you’d understand, much less fire them. 
+      Labor laws mean that we cannot always do what is most efficient, after all. Such are the trappings of modern legislature.
+      This leaves us at an impasse. I’m afraid that if you publish these accusations without evidence, our lawyers might be inclined to sue for libel. 
+      I know it sounds like a threat, but I’d like to assure you that it’s not. I’d argue it’s more of a headache for me than you.
+      If such a thing were to happen, I’d be happy and willing to use my position to retract the charges, all for such a valued client. But I do not envy the paperwork.
+      So, perhaps we can reach an understanding, Wodin.
+      If you happen to come across any identifiable features of this Killer, let me know, and I will cross reference with our available documents. If I find anything that seems like a match, the employee will be terminated immediately, and then we can see the case together in court. That way we can reach an amicable solution that benefits all parties.
+      And, of course, shed light on one of the most infamous serial killers of the decade. All with your help.
+      Well, if there is anything else I can do to help you, Wodin, feel free to let me know.
       Thank you for calling Eyedol Games, and have a nice night.  `;
     const ramble =  new CustomerServiceRamble(defaultRamble, []);
     return ramble;

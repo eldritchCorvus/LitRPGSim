@@ -5,6 +5,7 @@ import { PlayerResponse } from "../../Attic/PlayerResponse"
 import { CURRENT_EXTENSION, CURRENT_NAME, CURRENT_TITLE, HelloWorld, initial_directory, NEXT_EXTENSION, NEXT_TITLE, randomSpecialist } from "./BranchStorage"
 import { CustomerServiceRamble } from "../CustomerServiceRamble"
 import { CustomerSupportSpecialist } from "../CustomerSupportSpecialist"
+import { beepEffect, clickEffect } from "../../.."
 
 export const HelpChatBox = () => {
 
@@ -174,6 +175,7 @@ export const HelpChatBox = () => {
             setTimeout(() => {
                 if(part != ""){
                     processedParts = [...processedParts,[currentSpecialist.initials, part]];
+                    beepEffect();
                     setCurrentLines(processedParts);
                 }
                 nextPart(remaining_parts.slice(1), processedParts);

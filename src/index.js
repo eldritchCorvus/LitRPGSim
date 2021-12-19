@@ -22,6 +22,7 @@ import funky_voice from './Voice/truth_but_funky.mp3';
 import doorSound from "./Music/close_door_1.mp3";
 
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
+import beepSound from "./Music/264828__cmdrobot__text-message-or-videogame-jump.mp3";
 import ghost from "./Voice/507451__horroraudio__ghost-kid-sigh-less-verb.mp3";
 
 import AppWrapper from './AppWrapper';
@@ -31,6 +32,8 @@ import reportWebVitals from './reportWebVitals';
 const audio = new Audio(generic_menu_music);
 export const voiceAudio = new Audio(voice);//exported so the closer can use this
 const clickAudio = new Audio(clickSound);
+const beepAudio = new Audio(beepSound);
+
 const soundEffectAudio = new Audio(doorSound);
 
 export let BG_VOLUME = 1.0;
@@ -143,7 +146,7 @@ export const click = () =>{
   window.removeEventListener('click', click);
 }
 export const beepEffect = () =>{
-  clickAudio.play();
+  beepAudio.play();
 }
 
 export const clickEffect = () =>{

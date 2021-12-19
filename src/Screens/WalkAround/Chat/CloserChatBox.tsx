@@ -9,7 +9,12 @@ Yes, I voice the Closer. This does NOT mean the Closer is JR.
 
 I voice the Closer because of my incredible smug skills.
 */
-export const CloserChatBox = () => {
+
+interface CloserProps {
+    close: Function
+  }
+
+export const CloserChatBox:React.FC<CloserProps> = ({close}) => {
 
     const ChatContainer = styled.div`
         position: fixed;
@@ -67,6 +72,20 @@ export const CloserChatBox = () => {
         vertical-align: top;
     `
 
+    
+    const ChatOption = styled.div`
+        background: #b72a21;
+        font-size; 14px;
+        color: white;
+        display: inline-block;
+        width: 225px;
+        margin-left: 10px;
+        margin-bottom: 8px;
+        border: 1px solid #c4c4c4;
+        padding: 10px;
+        border-radius: 8px;
+    `
+
     const ChatText = styled.div`
         background: white;
         font-size; 14px;
@@ -90,7 +109,7 @@ export const CloserChatBox = () => {
 
     //has initial values in it, but also as the labrynth expands new things get added
     const [currentSpecialist] = useState(new CustomerSupportSpecialist("The Closer", "0", TheCloser()));
-
+    const [allowClose, setAllowClose] = useState(false);
     const [memory] = useState<string[][]>([]);
     const [currentLines, setCurrentLines] = useState<string[][]>([]);
     const chatRef = useRef<HTMLDivElement>(null);
@@ -109,13 +128,16 @@ export const CloserChatBox = () => {
 
 
         const nextPart = (index: number, remaining_parts: string[], processedParts: string[][]) => {
-            if (remaining_parts.length === 0) {
-                return;
-            }
-            console.log("JR NOTE: next part index is", index);
+
             const audio = new Audio();
              audio.loop = false;
-            playSecretCloser(audio,`CustomerService/${index}.mp3`);
+             if(!allowClose){
+                playSecretCloser(audio,`CustomerService/${index}.mp3`);
+             }
+            if (remaining_parts.length === 0) {
+                setAllowClose(true);
+                return;
+            }
             const part = remaining_parts[0];
             audio.onended = () => {
                 if(part != ""){
@@ -156,6 +178,7 @@ export const CloserChatBox = () => {
                                 <ChatText>{m[1]}</ChatText>
                             </ChatLine>)
                     })}
+                    {allowClose?<ChatOption onClick={()=>close()}>Close</ChatOption>:null}
                 </CustomerServiceHell>
             </ChatBody>
 

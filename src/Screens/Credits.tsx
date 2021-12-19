@@ -314,7 +314,7 @@ export const CreditsScreen = (props: StatusProps) => {
                     </CreditDoubleLine>
 
                     <CreditDoubleLine>
-                        <CreditLeft>CCTV Image: </CreditLeft> <CreditRight><span>Photo 173272764 / Abandoned © Wirestock | Dreamstime.com</span></CreditRight>
+                        <CreditLeft>Message Sound: </CreditLeft> <CreditRight><span>https://freesound.org/people/CmdRobot/sounds/264828/</span></CreditRight>
                     </CreditDoubleLine>
                 </CreditLine>
 
