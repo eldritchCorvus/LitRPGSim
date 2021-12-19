@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import help_icon from './../..//images/Walkabout/icons8-chat-64.png';
 import x_icon from './../..//images/Walkabout/icons8-x-50.png';
 
-import { HelpChatBox } from './HelpChatBox';
+import { HelpChatBox } from './Chat/HelpChatBox';
 import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../..';
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
@@ -18,6 +18,7 @@ import { Wanderer } from './Wanderer';
 import { GuestBook } from "./GuestBook";
 import { Quotidian } from "./Quotidian";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
+import { CloserChatBox } from "./Chat/CloserChatBox";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -85,6 +86,7 @@ const GuestBookButton = styled.button`
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
     const [chatHelp, setChatHelp] = useState(false);
+    const [closerHelp, setCloserHelp] = useState(false);
 
      const validKeys = ()=>{
         for(let themeKey of themeKeys){
@@ -217,12 +219,17 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
+
+                * the closer after 10 minutes of help desk
                 * if flavor text is in birb memory, wanda displays it differently
-                * tape recorders in vents (deploying text content and audio content)
+                * tape recorders in vents (deploying text content and audio content,playSecretCloser)
+                * spawn with at least one memory
+                * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
+                *coffin spawns when memories = 0, after ten minutes can opt in to flock of crows stealing all memories.
+                *final tape recorder with mystery next to coffin, others are random
                 * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * styled spiral;
                 * room effects
-                * the closer after 10 minutes of help desk
                 *donut in a corn outfit  
                 * letter to the flower girl from weaver
                 
@@ -260,8 +267,10 @@ const GuestBookButton = styled.button`
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
                 <li>find your coffin and go down and down and down</li>
             </div>
-            <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
+            <HelpIcon onClick={() => setCloserHelp(!closerHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
             {chatHelp ? <HelpChatBox /> : null}
+            {closerHelp ? <CloserChatBox /> : null}
+
         </Fragment>
 
     )

@@ -29,7 +29,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 const audio = new Audio(generic_menu_music);
-const voiceAudio = new Audio(voice);
+export const voiceAudio = new Audio(voice);//exported so the closer can use this
 const clickAudio = new Audio(clickSound);
 const soundEffectAudio = new Audio(doorSound);
 
@@ -44,6 +44,11 @@ export function setVolumeMusic(percent){
 export function playSecret(location){
   audio.src = require(`./SecretMusic/${location}`).default
   audio.play();
+}
+
+export function playSecretCloser(player,location){
+  player.src = require(`./Voice/TheCloser/${location}`).default
+  player.play();
 }
 
 export function loadSecretImage(location){
