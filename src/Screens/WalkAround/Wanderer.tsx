@@ -308,11 +308,18 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
 
     }, [canvasRef]);
 
+    const ponderFlavorText = (text: string)=>{
+        if(isMemorySacrificedByWanderer(text)){
+            return `You...THINK you remember: ${text}.`;
+        }
+        return text;
+    }
+
     return (
         <Fragment>
             <Score># of Memories: {memoryCount}</Score>
             <Container leftSpawn={playerLocation.left} topSpawn={playerLocation.top}>
-                {flavorText ? <Popup>{flavorText}</Popup> : null}
+                {flavorText ? <Popup>{ponderFlavorText(flavorText)}</Popup> : null}
                 <Player src={real_eye} id="player" />
             </Container>
         </Fragment>

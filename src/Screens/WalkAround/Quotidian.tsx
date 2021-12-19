@@ -212,7 +212,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,
         }else if (Math.abs(opinion)  >100 ){
             punctuation = "!"
             opionion_intensifier = seededRandom.pickFrom(["great", "interesting","wonderful","marvelous","good",dynamic_intensifier])
-        }if (Math.abs(opinion)  >50 ){
+        }else if (Math.abs(opinion)  >50 ){
             punctuation = "."
             opionion_intensifier = seededRandom.pickFrom(["the"])
         }
@@ -242,7 +242,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,
         }else if (Math.abs(opinion)  >100 ){
             punctuation = "!"
             opionion_intensifier = seededRandom.pickFrom(["bad","icky","gross",dynamic_intensifier])
-        }if (Math.abs(opinion)  >50 ){
+        }else if (Math.abs(opinion)  >50 ){
             punctuation = "?"
             opionion_intensifier = seededRandom.pickFrom(["weird","boring","lame"])
         }
@@ -451,9 +451,16 @@ export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,
       if(despawnedRef.current === true){
           return null;
       }
+
+      const ponderFlavorText = (text: string)=>{
+        if(isMemoryKnowByWanderer(text)){
+            return `Tasty!!! ${text}.`;
+        }
+        return text;
+    }
     return(
         <Container leftSpawn={birbLocation.left} topSpawn={birbLocation.top}>
-            {flavorText ?<Popup>{flavorText}</Popup>:null}
+            {flavorText ?<Popup>{ponderFlavorText(flavorText)}</Popup>:null}
             <NameTag>{name.current}</NameTag>
             <Quotidian src={image_src} undead={undead}/>    
         </Container>

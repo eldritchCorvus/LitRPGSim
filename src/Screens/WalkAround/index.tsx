@@ -234,10 +234,9 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
-
-                * if flavor text is in birb memory, wanda displays it differently
-                *memories out of how many
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
+                *memories out of how many
+                * are birbs not giving correct opinions for positive things?
                 * spawn with at least one memory
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
                 *coffin spawns when memories = 0, after ten minutes can opt in to flock of crows stealing all memories.
