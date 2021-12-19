@@ -201,6 +201,21 @@ const GuestBookButton = styled.button`
     const bgCanvasRef = useRef<HTMLCanvasElement>(null);
     const baseCanvasRef = useRef<HTMLCanvasElement>(null);
 
+    useEffect(() => {
+        if(chatHelp === true){
+            console.log("JR NOTE: setting timeout");
+            const deployTheCloser = ()=>{
+                console.log("JR NOTE: deploying the closer");
+                setCloserHelp(true);
+            }
+            const timeoutId = setTimeout(deployTheCloser, 1*1000*1);
+            return () => {
+              clearTimeout(timeoutId);
+            };
+        }
+
+      },[chatHelp]);
+
     //what's this? have I found a Waste?
     if(!validKeys()){
         return(
@@ -222,6 +237,7 @@ const GuestBookButton = styled.button`
 
                 * the closer after 10 minutes of help desk
                 * if flavor text is in birb memory, wanda displays it differently
+                *memories out of how many
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
                 * spawn with at least one memory
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
@@ -267,7 +283,7 @@ const GuestBookButton = styled.button`
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
                 <li>find your coffin and go down and down and down</li>
             </div>
-            <HelpIcon onClick={() => setCloserHelp(!closerHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
+            <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
             {chatHelp ? <HelpChatBox /> : null}
             {closerHelp ? <CloserChatBox /> : null}
 

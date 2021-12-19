@@ -133,31 +133,6 @@ export const CloserChatBox = () => {
         }
     }, [currentSpecialist]);
 
-
-   /* useEffect(() => {
-        const parts = currentSpecialist.ramble.text.split("\n");
-
-        const nextPart = (remaining_parts: string[], processedParts: string[][]) => {
-            if (remaining_parts.length === 0) {
-                return;
-            }
-            const part = remaining_parts[0];
-            setTimeout(() => {
-                if(part != ""){
-                    processedParts = [...processedParts,[currentSpecialist.initials, part]];
-                    setCurrentLines(processedParts);
-                }
-                nextPart(remaining_parts.slice(1), processedParts);
-                if(chatRef.current){
-                    chatRef.current.scrollTop = chatRef.current.scrollHeight;
-                }
-            }, getRandomNumberBetween(1, parts.indexOf(part))*1000*getRandomNumberBetween(1,5));
-        }
-        nextPart(parts, []);
-
-    }, [currentSpecialist]);*/
-
-
     return (
         <ChatContainer>
 
