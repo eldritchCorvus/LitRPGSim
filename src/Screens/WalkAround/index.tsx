@@ -237,7 +237,7 @@ const GuestBookButton = styled.button`
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
                 * spawn with at least one memory
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
-                *coffin spawns when memories = 0, after ten minutes can opt in to flock of crows stealing all memories.
+                *coffin spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
                 *final tape recorder with mystery next to coffin, others are random
                 * you go in the coffin to remember your past (geocities) and journey to your future
                 * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
