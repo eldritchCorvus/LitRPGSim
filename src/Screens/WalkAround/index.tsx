@@ -235,8 +235,6 @@ const GuestBookButton = styled.button`
 
                 Five Minute TODO:
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
-                *memories out of how many
-                * are birbs not giving correct opinions for positive things?
                 * spawn with at least one memory
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
                 *coffin spawns when memories = 0, after ten minutes can opt in to flock of crows stealing all memories.

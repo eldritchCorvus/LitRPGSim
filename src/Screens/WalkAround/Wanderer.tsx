@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { pointWithinBoundingBox, redrawForeground, RenderedItem } from "./canvas_shit";
 import real_eye from './../../images/wanda.png';
 import { doorEffect } from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey, valueAsArray } from "../../Utils/LocalStorageUtils";
-import { SPYING, KNOWING, ADDICTION, TECHNOLOGY, LONELY, MAGIC } from "../../Modules/ThemeStorage";
+import { SPYING, KNOWING, ADDICTION, TECHNOLOGY, LONELY, MAGIC, floor_foregrounds, wall_foregrounds } from "../../Modules/ThemeStorage";
 import { removeItemOnce } from "../../Utils/ArrayUtils";
 
 
@@ -62,6 +62,7 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
         position: absolute;
         top: 25px;
         right: 25px;
+        z-index: 100;
         color: white;
         font-weight: boldest;
     `
@@ -80,6 +81,34 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
     //what classpect are they, i wonder???, what are their interests?
     const themeKeys = [MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, ADDICTION];
 
+    const totalPossibleMemories = useMemo(() => {
+        let ret:string[] = [];
+        /*
+            in theme storage, grab floor_foregrounds and wall_foregrounds
+            grab all flavor text for each key, iff unique
+            ( I don't EXPECT to see )
+            return count.
+        */
+        const floor_keys = Object.keys(floor_foregrounds);
+        const wall_keys = Object.keys(wall_foregrounds);
+        for(let key of floor_keys){
+            for(let item of floor_foregrounds[key]){
+                if(!ret.includes(item.desc)){
+                    ret.push(item.desc);
+                }
+            }
+        }
+
+        for(let key of wall_keys){
+            for(let item of wall_foregrounds[key]){
+                if(!ret.includes(item.desc)){
+                    ret.push(item.desc);
+                }
+            }
+        }
+
+        return ret.length;
+    },[]);
 
     useEffect(() => {
         setPlayerLocation({ top: spawnPoint.top, left: spawnPoint.left })
@@ -317,7 +346,7 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
 
     return (
         <Fragment>
-            <Score># of Memories: {memoryCount}</Score>
+            <Score># of Memories: {memoryCount} out of {totalPossibleMemories}</Score>
             <Container leftSpawn={playerLocation.left} topSpawn={playerLocation.top}>
                 {flavorText ? <Popup>{ponderFlavorText(flavorText)}</Popup> : null}
                 <Player src={real_eye} id="player" />
