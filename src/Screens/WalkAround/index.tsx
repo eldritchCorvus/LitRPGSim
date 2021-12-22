@@ -234,10 +234,16 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
+                *the next thing i need to do is if i detect "TheCloser" in a flavor text, to open up a popup with the text from the .txt file and playing the audio from the .mp3
+                * special flavor text is trigger for loading up specific audio file + text file + animation of vent opening
+                * pick a random file UNLESS you are in the coffin room
+                
+
+
+                HIgh Level
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
-                * spawn with at least one memory
-                * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
                 *coffin spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
+
                 *final tape recorder with mystery next to coffin, others are random
                 * you go in the coffin to remember your past (geocities) and journey to your future
                 * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
@@ -245,6 +251,9 @@ const GuestBookButton = styled.button`
                 * room effects
                 *donut in a corn outfit  
                 * letter to the flower girl from weaver
+                * spawn with at least one memory
+                * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
+                *support phone resolutions
                 
 
                 Other MINUTE TODO.

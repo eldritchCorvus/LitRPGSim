@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { pointWithinBoundingBox, redrawForeground, RenderedItem } from "./canvas_shit";
+import { pointWithinBoundingBox, redrawForeground, RenderedItem, withinX } from "./canvas_shit";
 import real_eye from './../../images/wanda.png';
 import { doorEffect } from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
@@ -154,12 +154,10 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
             addStringToArrayWithKey(MEMORY_KEY, memory);
             setMemoryCount(valueAsArray(MEMORY_KEY).length);
         }
-
     }
 
-
     const takeMemoryFromWanderer = useCallback((memory: string) => {
-        if (isMemoryKnowByWanderer(memory) && !isMemorySacrificedByWanderer(memory)) {
+        if (!isMemorySacrificedByWanderer(memory)) {
             addStringToArrayWithKey(QUOTIDIAN_KEY, memory);
             removeStringFromArrayWithKey(MEMORY_KEY, memory);
             setMemoryCount(valueAsArray(MEMORY_KEY).length);
@@ -179,7 +177,9 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
         const wanderer_radius = 25;
 
         for (let item of itemsRef.current) {
-            if ((item.layer === 1 || item.layer === -1) && item.name !== "Wanderer" && pointWithinBoundingBox(left, top, item.x, item.y, item.width, item.height)) {
+            const nearAccessibleItem = pointWithinBoundingBox(left, top, item.x, item.y, item.width, item.height);
+            const nearWallItem = top < 140 && withinX(left, item.x, item.width);
+            if ((item.layer === 1 || item.layer === -1) && item.name !== "Wanderer" && (nearAccessibleItem || nearWallItem)) {
                 //console.log("JR NOTE: i am near an item ", item.flavorText);
                 if (item.layer === 1) { //don't remember the birbs plz
                     addMemoryToWanderer(item.flavorText);

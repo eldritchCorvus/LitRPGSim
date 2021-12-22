@@ -1,6 +1,6 @@
 import { loadSecretImage } from "../..";
 import { Theme } from "../../Modules/Theme";
-import { WALLBACKGROUND } from "../../Modules/ThemeStorage";
+import { HUNTING, KILLING, WALLBACKGROUND } from "../../Modules/ThemeStorage";
 import SeededRandom from "../../Utils/SeededRandom";
 import { addImageProcess } from "../../Utils/URLUtils";
 
@@ -15,11 +15,11 @@ export interface RenderedItem {
     src: string; //needed so i can rerender them as required
     name?: string; //only living creatures have names, not items, its used to update them
 }
-    export const redrawForeground = async(canvas: HTMLCanvasElement,items: RenderedItem[])=>{
-        console.log("JR NOTE: redrawing just the foreground.")
-        initClear(canvas);
-        await drawForeground(canvas,items);
-    }
+export const redrawForeground = async (canvas: HTMLCanvasElement, items: RenderedItem[]) => {
+    console.log("JR NOTE: redrawing just the foreground.")
+    initClear(canvas);
+    await drawForeground(canvas, items);
+}
 
 export const distance = (x1: number, y1: number, x2: number, y2: number) => {
     const first = (x1 - x2) ** 2;
@@ -31,14 +31,16 @@ export const distanceWithinRadius = (radius: number, x1: number, y1: number, x2:
     return distance(x1, y2, x2, y2) < radius;
 }
 
-export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number, objectY: number, objectWidth: number, objectHeight: number) => {
-    const withinY = (myY: number, objectY: number, objectHeight: number) => {
-        return myY > objectY && myY < objectY + objectHeight;
-    }
+export const withinY = (myY: number, objectY: number, objectHeight: number) => {
+    return myY > objectY && myY < objectY + objectHeight;
+}
 
-    const withinX = (myX: number, objectX: number, objectWidth: number) => {
-        return myX > objectX && myX < objectX + objectWidth;
-    }
+export const withinX = (myX: number, objectX: number, objectWidth: number) => {
+    return myX > objectX && myX < objectX + objectWidth;
+}
+
+export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number, objectY: number, objectWidth: number, objectHeight: number) => {
+
     return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
@@ -130,7 +132,7 @@ const drawItems = async (canvas: HTMLCanvasElement, items: RenderedItem[], targe
 }
 
 //background is 0 and it doesn't matter order between them
-export const drawBackground = async(canvas: HTMLCanvasElement, items: RenderedItem[])=>{
+export const drawBackground = async (canvas: HTMLCanvasElement, items: RenderedItem[]) => {
     for (let item of items) {
         if (item.layer === 0) {
             await drawItem(canvas, item);
@@ -139,7 +141,7 @@ export const drawBackground = async(canvas: HTMLCanvasElement, items: RenderedIt
 }
 
 //foreground is 1 and it doesn't matter order between them
-export const drawForeground = async(canvas: HTMLCanvasElement, items: RenderedItem[])=>{
+export const drawForeground = async (canvas: HTMLCanvasElement, items: RenderedItem[]) => {
     for (let item of items) {
         if (item.layer === 1) {
             await drawItem(canvas, item);
@@ -148,7 +150,7 @@ export const drawForeground = async(canvas: HTMLCanvasElement, items: RenderedIt
 }
 
 //has to be async because it checks the image size for positioning
-export const spawnFloorObjects = async (layer:number,key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
+export const spawnFloorObjects = async (layer: number, key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
     let current_x = 0;
     const floor_bottom = 140;
     let current_y = floor_bottom;
@@ -174,7 +176,7 @@ export const spawnFloorObjects = async (layer:number,key: string, folder: string
                 if (y + padding + image.height * scale > canvas.height) {
                     break;
                 }
-                ret.push({layer:layer,src:`Walkabout/Objects/${folder}/${item.src}`, themeKeys: [chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+                ret.push({ layer: layer, src: `Walkabout/Objects/${folder}/${item.src}`, themeKeys: [chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
             } else {
                 current_x += 50;
             }
@@ -188,7 +190,7 @@ export const spawnFloorObjects = async (layer:number,key: string, folder: string
 }
 
 //has to be async because it checks the image size for positioning
-export const spawnWallObjects = async (layer:number,key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
+export const spawnWallObjects = async (layer: number, key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
     let current_x = 0;
     const padding = 10;
     const context = canvas.getContext("2d");
@@ -208,10 +210,13 @@ export const spawnWallObjects = async (layer:number,key: string, folder: string,
             }
             const y = seededRandom.getRandomNumberBetween(padding, Math.max(padding, image.height));
             context.drawImage(image, current_x, y);
-            ret.push({layer:layer,src:`Walkabout/Objects/${folder}/${item.src}`, themeKeys: [chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
+            ret.push({ layer: layer, src: `Walkabout/Objects/${folder}/${item.src}`, themeKeys: [chosen_theme.key], x: current_x, y: y, width: image.width, height: image.height, flavorText: item.desc })
         } else {
             current_x += 50;
         }
+    }
+    if (layer === 1) {
+        ret.push({ layer: layer, src: `Walkabout/Objects/${folder}/closed_vent.png`, themeKeys: [HUNTING], x: 50, y: 90, width: 30, height: 22, flavorText: "TheCloser/closer-watt" })
     }
     return ret;
 }
