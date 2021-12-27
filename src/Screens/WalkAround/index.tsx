@@ -241,6 +241,7 @@ const GuestBookButton = styled.button`
 
 
                 HIgh Level
+                *chat window for the Intern to keep texting (about the wanderer's obsession, about their new job (but only towards the end, when the wanderer isnt responding anymore))
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
                 *coffin spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
                 * oh god i just realized the birbs could in theory eat the coffin. if coffin is true keep spawning it in new rooms till you get in
