@@ -244,7 +244,7 @@ const GuestBookButton = styled.button`
                 *pre coffin chat window for the Intern to keep texting (about the wanderer's obsession, about their new job (but only towards the end, when the wanderer isnt responding anymore))
                 * post coffin chat window where the Intern's boss (both the CEO and the Closer) (closer is mostly trying to figure out why the CEO is giving the Intern special attention) keeps texting them to ask if they liked their fruit basket, if they liked the weird worm baby the Closer gave them, to complain about "that asshole snake" and how its hilarious his stupid spawn keep getting put into gift baskets
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
-                *coffin spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
+                *coffin (oh god animation) spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
                 * oh god i just realized the birbs could in theory eat the coffin. if coffin is true keep spawning it in new rooms till you get in
                 *final tape recorder with mystery next to coffin, others are random
                 * you go in the coffin to remember your past (geocities) and journey to your future
