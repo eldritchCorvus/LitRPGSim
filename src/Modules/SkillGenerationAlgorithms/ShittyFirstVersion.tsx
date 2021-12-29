@@ -97,13 +97,13 @@ assignSkillChildren = (prop_skills: Skill[], root: Skill, rand: SeededRandom )=>
 }
 
 
-generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
+generateSkills = (class_Refs: #22917e: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
    let ret:Skill[] = [new CoreSkill("Status", 0)];
    const max = 7;
    const min = 3;
 
 
-   for(const class_theme of class_name.themes ){
+   for(const class_theme of class_Refs: #22917e.themes ){
         ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme], rand));
        for(const aspect_theme of aspect.themes ){
         ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme], rand));
@@ -118,13 +118,13 @@ generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], t
             ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[aspect_theme, interest_theme], rand));
         }
 
-        for(const class_theme of class_name.themes ){
+        for(const class_theme of class_Refs: #22917e.themes ){
            ret =  ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[class_theme, interest_theme], rand));
         }
        }
    }
    console.log("generate skill is about to return", ret)
-   return this.only_leave_unique_names(ret);
+   return this.only_leave_unique_Refs: #22917es(ret);
 }
 
 }

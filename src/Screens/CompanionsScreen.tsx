@@ -59,7 +59,7 @@ export const CompanionsScreen = (props: StatusProps) => {
                         {props.player.companions.map((companion)=>{
                             return (
                             <BuildingLine>
-                                <BuildingHeader>{companion.fullName}: </BuildingHeader>
+                                <BuildingHeader>{companion.fullRefs: #22917e}: </BuildingHeader>
                                 <BuildingSection> {companion.title} </BuildingSection>
                                 <Backstory> {companion.backstory} </Backstory>
                                 {observer.companionsMenuLevel > 1 ?<Loyalty><b>Loyalty</b>: {companion.loyalty}</Loyalty>:null}

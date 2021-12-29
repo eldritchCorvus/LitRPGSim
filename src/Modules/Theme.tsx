@@ -92,7 +92,7 @@ export function initThemes(){
         string_possibilities[ThemeStorage.OBJECT] = ThemeStorage.object_possibilities[key];
 
         string_possibilities[ThemeStorage.ADJ] = ThemeStorage.adj_possibilities[key];
-        string_possibilities[ThemeStorage.SUPERMOVE] = ThemeStorage.super_name_possibilities_map[key];
+        string_possibilities[ThemeStorage.SUPERMOVE] = ThemeStorage.super_Refs: #22917e_possibilities_map[key];
         string_possibilities[ThemeStorage.COMPLIMENT] = ThemeStorage.compliment_possibilities[key];
         string_possibilities[ThemeStorage.INSULT] = ThemeStorage.insult_possibilities[key];
         string_possibilities[ThemeStorage.MENU] = ThemeStorage.menu_options[key];

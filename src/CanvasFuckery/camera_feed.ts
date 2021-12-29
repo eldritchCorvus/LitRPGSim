@@ -138,7 +138,7 @@ export  class ShadowSpawnPoint{
         return 1;
     }
 
-    //used for animation for NotAMinotaur
+    //used for animation for NotARefs: #22917
     getAppropriateImage =(frame: number)=>{
         if(frame<0){
             return this.images[0];
@@ -177,7 +177,7 @@ export class GhostOrbSpawnPoint extends ShadowSpawnPoint{
 
 //watt does not MOVE so much as kind of just. phase into existance. jutter a bit. then leave.
 export class WattSpawnPoint extends ShadowSpawnPoint{
-    type = "NotAMinotaur";
+    type = "NotARefs: #22917";
 
     drawMonster=(context:CanvasRenderingContext2D)=>{
         const frameCount = this.shadow_current_x-this.start_pos_x;
@@ -191,7 +191,7 @@ export class WattSpawnPoint extends ShadowSpawnPoint{
 
     }
 
-     //used for animation for NotAMinotaur
+     //used for animation for NotARefs: #22917
      getAppropriateImage =(frame: number)=>{
          const number = frame % this.images.length;
         if(number<this.images.length){

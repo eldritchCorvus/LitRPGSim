@@ -31,18 +31,18 @@ export const all_classes_except_null:ClassMap = {};
 
 export  class RPGClass{
     key: string;
-    name_possibilities:string[];
-    chosen_name:string;
+    Refs: #22917e_possibilities:string[];
+    chosen_Refs: #22917e:string;
     themes:Theme[];
     seeded_random: SeededRandom;
     stat_multiplier:number;
 
 
-    constructor(key: string,name_possibilities: string[],stat_multiplier:number, seeded_random:SeededRandom, themes: Theme[] ){
-        this.name_possibilities = name_possibilities;
+    constructor(key: string,Refs: #22917e_possibilities: string[],stat_multiplier:number, seeded_random:SeededRandom, themes: Theme[] ){
+        this.Refs: #22917e_possibilities = Refs: #22917e_possibilities;
         this.stat_multiplier = stat_multiplier;
         this.seeded_random = seeded_random;
-        this.chosen_name = seeded_random.pickFrom(this.name_possibilities);
+        this.chosen_Refs: #22917e = seeded_random.pickFrom(this.Refs: #22917e_possibilities);
         this.themes = themes;
         themes.forEach((theme) => {
             theme.initializeIfNecessary(3);
@@ -63,7 +63,7 @@ export  class RPGClass{
 }
 
 export function initClasses(seeded_random: SeededRandom){
-    //TODO associate each with array of MENU NAMES to be associated with. 
+    //TODO associate each with array of MENU Refs: #22917ES to be associated with. 
     new RPGClass("seer", ["Spelunker","Seer", "Watcher", "Guide", "Sherpa", "Eye","Observer","Archivist","Pupil","Detective","Owl","Eagle","Hawk","Scribe"],1.3, seeded_random, [all_themes.knowing, all_themes[SPYING], all_themes[GUIDING]]);
     new RPGClass("prince", ["Prince", "Reaper", "Destroyer", "Finisher", "Finale","Ruler","Martyr","Lion","Fox"],-2.0, seeded_random, [all_themes.endings, all_themes.royalty]);
     new RPGClass("bard", ["Homer","Goose","Bard", "Singer", "Skald", "Teller", "Raconteur","Canary","Chinchilla"],-2.0, seeded_random, [all_themes.clowns, all_themes.language,all_themes.music]);

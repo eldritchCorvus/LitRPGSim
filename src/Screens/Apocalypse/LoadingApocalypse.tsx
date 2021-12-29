@@ -19,7 +19,7 @@ export const ApocalypseLoader = () => {
     useEffect(()=>{
         const body = document.querySelector("body");
         if(body){
-            body.className = "paldemicBody";
+            body.classRefs: #22917e = "paldemicBody";
         }
         const rabbit = document.querySelector("#rabbit_hole");
         if(rabbit){
@@ -38,15 +38,15 @@ export const ApocalypseLoader = () => {
 
 
         return(
-            <div className="loadingScreen">
-                <img className="spinningLogo" src={spinning_logo}></img>
-                <div className="quipContent">{quip.text}</div>
-                <div className="quipAttribution">SUBMITTED BY: {quip.source}</div>
-                <div className="statusElement">Connection...</div>
-                <div className="connectionProblems">
+            <div classRefs: #22917e="loadingScreen">
+                <img classRefs: #22917e="spinningLogo" src={spinning_logo}></img>
+                <div classRefs: #22917e="quipContent">{quip.text}</div>
+                <div classRefs: #22917e="quipAttribution">SUBMITTED BY: {quip.source}</div>
+                <div classRefs: #22917e="statusElement">Connection...</div>
+                <div classRefs: #22917e="connectionProblems">
                 Connection Problems? Whoops! Guess you're out of luck!
-                <a href="mailto:jadedResearcher@gmail.com" className="helpLink paldemic">Email</a>
-                <a href="https://jadedresearcher.tumblr.com/" className="helpLink paldemic">Tumblr</a>
+                <a href="mailto:jadedResearcher@gmail.com" classRefs: #22917e="helpLink paldemic">Email</a>
+                <a href="https://jadedresearcher.tumblr.com/" classRefs: #22917e="helpLink paldemic">Tumblr</a>
                 </div>
 
             </div>

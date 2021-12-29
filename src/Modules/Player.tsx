@@ -12,17 +12,17 @@ import { Memory } from "./ObserverBot/Memory";
 import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, TWISTING } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
-import { getParameterByName } from "../Utils/URLUtils";
+import { getParameterByRefs: #22917e } from "../Utils/URLUtils";
 import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
 import { BuildingMetaData, spawnTempleForGod } from "./Building";
 import { HORROR_KEY } from "../Utils/constants";
 
 export interface BuildingMetaMap {
-    [name: string]: BuildingMetaData
+    [Refs: #22917e: string]: BuildingMetaData
 }
 
 export class Player {
-    class_name: RPGClass;
+    class_Refs: #22917e: RPGClass;
     aspect: Aspect;
     interests: Interest[];
     theme_keys: string[] = [];
@@ -31,7 +31,7 @@ export class Player {
     skillPoints: number = 1;
     buildingMetaData: BuildingMetaMap = {};
     rootSkill: Skill;
-    fullName = "They"; //can write it in or companions will auto set it
+    fullRefs: #22917e = "They"; //can write it in or companions will auto set it
     lastUnlockedSkill: Skill;
     stats: StatMap = {};
     skillGenAlg: SkillGenAlg | undefined;
@@ -46,11 +46,11 @@ export class Player {
     order = false;
     chaos = false;
 
-    constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer: boolean,order = false, chaos=false, ) {
+    constructor(class_Refs: #22917e: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer: boolean,order = false, chaos=false, ) {
         this.rand = rand;
         this.order = order;
         this.chaos = chaos;
-        this.class_name = class_name;
+        this.class_Refs: #22917e = class_Refs: #22917e;
         this.aspect = aspect;
         this.interests = interests;
         this.rootSkill = new CoreSkill("NPC", 0);
@@ -60,10 +60,10 @@ export class Player {
         this.gods = [];
 
         if (shadowPlayer) {
-            this.shadowInit(class_name, aspect, interests);
+            this.shadowInit(class_Refs: #22917e, aspect, interests);
 
         } else {
-            this.fullInit(class_name, aspect, interests);
+            this.fullInit(class_Refs: #22917e, aspect, interests);
         }
 
     }
@@ -76,18 +76,18 @@ export class Player {
         return themes;
     }
 
-    fullInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[]) => {
+    fullInit = (class_Refs: #22917e: RPGClass, aspect: Aspect, interests: Interest[]) => {
 
         this.skillGenAlg = new BonesFirstAlg();
         let themes: Theme[] = [];
-        themes = themes.concat(class_name.themes)
+        themes = themes.concat(class_Refs: #22917e.themes)
         themes = themes.concat(aspect.themes);
         //a god from your first three themes, a god for your back three, you are supposed to pick ones
         this.gods = [new God(themes.slice(0, 3),this.order), new God(themes.slice(-3), this.order)];
 
         interests.forEach((interest) => { themes = themes.concat(interest.themes) });
         this.theme_keys = themes.map((x) => x.key);
-        this.skills = this.skillGenAlg.generateSkills(class_name, aspect, interests, themes, this.rand);
+        this.skills = this.skillGenAlg.generateSkills(class_Refs: #22917e, aspect, interests, themes, this.rand);
         this.rootSkill = this.skills[0];
         this.rootSkill.unlocked = true;
         this.lastUnlockedSkill = this.rootSkill;
@@ -108,16 +108,16 @@ export class Player {
         }
         //you really can't escape it. if it hasn't caught you yet, it will. even if you've restarted.
         if(window.localStorage[HORROR_KEY]){
-            this.companions.push(this.spawnAMonster());
+            this.companions.push(this.spawRefs: #22917onster());
         }
     }
 
-    shadowInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[]) => {
-        this.class_name = class_name;
+    shadowInit = (class_Refs: #22917e: RPGClass, aspect: Aspect, interests: Interest[]) => {
+        this.class_Refs: #22917e = class_Refs: #22917e;
         this.aspect = aspect;
         this.title = this.generateTitle();
         let themes: Theme[] = [];
-        themes = themes.concat(class_name.themes)
+        themes = themes.concat(class_Refs: #22917e.themes)
         themes = themes.concat(aspect.themes);
         this.theme_keys = themes.map((x) => x.key);
         interests.forEach((interest) => { themes = themes.concat(interest.themes) });
@@ -131,7 +131,7 @@ export class Player {
 
     generateSkills = (themes: Theme[], rand: SeededRandom) => {
         if (this.skillGenAlg) {
-            this.skills = this.skillGenAlg.generateSkills(this.class_name, this.aspect, this.interests, themes, rand);
+            this.skills = this.skillGenAlg.generateSkills(this.class_Refs: #22917e, this.aspect, this.interests, themes, rand);
             this.rootSkill = this.skills[0];
             this.rootSkill.unlocked = true;
             this.lastUnlockedSkill = this.rootSkill;
@@ -188,7 +188,7 @@ export class Player {
         for (let i = 0; i < max; i++) {
             const friend = new Companion(rand);
             if(this.order){
-                friend.fullName = "Friend";
+                friend.fullRefs: #22917e = "Friend";
                 friend.backstory = "They are an NPC in a video game. They have no memory.";
                 friend.title = "NPC";
             }
@@ -201,7 +201,7 @@ export class Player {
             return "Item";
         }
         let themes: Theme[] = [];
-        themes = themes.concat(this.class_name.themes)
+        themes = themes.concat(this.class_Refs: #22917e.themes)
         themes = themes.concat(this.aspect.themes);
         //since this is done on the fly, don't always allow interests in. focus on classpect.
         if (this.rand.nextDouble() > 0.3) {
@@ -227,7 +227,7 @@ export class Player {
         let idea_seed;
         if (this.backstory.trim() === "") {
             idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(CHILDBACKSTORY));
-            this.backstory = `${this.fullName} ${idea_seed}`;
+            this.backstory = `${this.fullRefs: #22917e} ${idea_seed}`;
 
         } else {
             idea_seed = rand.pickFrom(rand.pickFrom(themes).getPossibilitiesFor(GENERALBACKSTORY));
@@ -254,9 +254,9 @@ export class Player {
 
     generateTitle = () => {
         if (this.rand.nextDouble() > 0.5) {
-            return `${this.class_name.chosen_name} of ${this.aspect.chosen_name}`
+            return `${this.class_Refs: #22917e.chosen_Refs: #22917e} of ${this.aspect.chosen_Refs: #22917e}`
         } else {
-            return `${this.aspect.chosen_name} ${this.class_name.chosen_name}`
+            return `${this.aspect.chosen_Refs: #22917e} ${this.class_Refs: #22917e.chosen_Refs: #22917e}`
         }
     }
 
@@ -267,8 +267,8 @@ export class Player {
 
             const skill = all_stats[key].copy(rand.pickFrom(values));
             if(this.order){
-                skill.positiveName = "Positive Stat";
-                skill.negativeName = "Negative Stat";
+                skill.positiveRefs: #22917e = "Positive Stat";
+                skill.negativeRefs: #22917e = "Negative Stat";
             }
             this.stats[skill.key] = skill;
         }
@@ -287,7 +287,7 @@ export class Player {
     }
 
     addStat = (stat: Stat) => {
-        this.stats[stat.key].add(stat.value * this.class_name.stat_multiplier);
+        this.stats[stat.key].add(stat.value * this.class_Refs: #22917e.stat_multiplier);
     }
 
     unlocked_skills_no_stats = () => { return this.skills.filter((skill) => { return skill.unlocked && (skill.type !== "StatSkill") }) };
@@ -325,12 +325,12 @@ export class Player {
 
             if ((window as any).haxMode) {
                 //:) :) :)
-                (window as any)[(found as WasteSkill).hackFunctionName](19191919);
+                (window as any)[(found as WasteSkill).hackFunctionRefs: #22917e](19191919);
             } else {
                 (window as any).recordAction(HAX_FAIL, 1);
             }
         } else if (found.type === "CoreSkill") {
-            this.observer.upgradeMenu(found.name);
+            this.observer.upgradeMenu(found.Refs: #22917e);
         }
         this.checkIfCompletedSkillTree();
     }
@@ -357,18 +357,18 @@ export class Player {
         return temple;
     }
 
-    spawnNotAMinotaur = () => {
-        const NotAMinotaur = new Companion(this.rand)
-        NotAMinotaur.fullName = "ThisIsNotAMinotaur";
-        NotAMinotaur.backstory = this.rand.pickFrom(this.collateThemes()).pickPossibilityFor(this.rand, PHILOSOPHY);
-        NotAMinotaur.title = "False Minotaur";
-        this.companions.push(NotAMinotaur);
+    spawnNotARefs: #22917 = () => {
+        const NotARefs: #22917 = new Companion(this.rand)
+        NotARefs: #22917.fullRefs: #22917e = "ThisIsNotARefs: #22917";
+        NotARefs: #22917.backstory = this.rand.pickFrom(this.collateThemes()).pickPossibilityFor(this.rand, PHILOSOPHY);
+        NotARefs: #22917.title = "False Refs: #22917";
+        this.companions.push(NotARefs: #22917);
     }
 
-    spawnAMonster = () => {
+    spawRefs: #22917onster = () => {
         window.localStorage[HORROR_KEY]=true;
         const monster = new Companion(this.rand)
-        monster.fullName = "Shambling Horror With Your Face";
+        monster.fullRefs: #22917e = "Shambling Horror With Your Face";
         const themes = this.collateThemes();
 
         monster.backstory = "It is a monster. It is you. You're a monster.";
@@ -391,10 +391,10 @@ export class Player {
 function orderPlayer(rand: SeededRandom){
     console.log("JR NOTE: its an order player")
     const ret = new Player(all_classes["seer"], all_aspects["eye"], [all_interests["null"]],rand, false,true,false);
-    ret.fullName = "Jeffery";
+    ret.fullRefs: #22917e = "Jeffery";
     ret.title = "Bringer of Order";
     for(let i = 0; i< ret.skills.length; i ++){
-        ret.skills[i].name = "Skill " + (i+1);
+        ret.skills[i].Refs: #22917e = "Skill " + (i+1);
     }
     ret.backstory = "They are a character in a video game. They were only just born. They have no memories.";
     //TODO make as much as possible manual
@@ -413,7 +413,7 @@ function chaosPlayer(rand: SeededRandom){
 }
 
 export function randomPlayer(rand: SeededRandom, shadowPlayer = false) {
-    let apocalypse: string | null = getParameterByName("apocalypse", null);
+    let apocalypse: string | null = getParameterByRefs: #22917e("apocalypse", null);
 
     if(apocalypse && apocalypse === "chaos" && !shadowPlayer){
         return chaosPlayer(rand);
@@ -422,10 +422,10 @@ export function randomPlayer(rand: SeededRandom, shadowPlayer = false) {
     }
 
     let cl;
-    let url_class: string | null = shadowPlayer ? null : getParameterByName("class", null);
-    let url_aspect: string | null = shadowPlayer ? null : getParameterByName("aspect", null);
-    let url_i1: string | null = shadowPlayer ? null : getParameterByName("interest1", null);
-    let url_i2: string | null = shadowPlayer ? null : getParameterByName("interest2", null);
+    let url_class: string | null = shadowPlayer ? null : getParameterByRefs: #22917e("class", null);
+    let url_aspect: string | null = shadowPlayer ? null : getParameterByRefs: #22917e("aspect", null);
+    let url_i1: string | null = shadowPlayer ? null : getParameterByRefs: #22917e("interest1", null);
+    let url_i2: string | null = shadowPlayer ? null : getParameterByRefs: #22917e("interest2", null);
 
     if (rand.initial_seed === 13) {
         cl = all_classes["waste"];
@@ -458,22 +458,22 @@ export   class Companion{
     loyalty = 0;
     theme_keys:string[];
     inventory:string[];
-    fullName = "They"; //can write it in or companions will auto set it
+    fullRefs: #22917e = "They"; //can write it in or companions will auto set it
 
     constructor(rand: SeededRandom){
         const shadowPlayer = randomPlayer(rand, true);
         this.title = shadowPlayer.title;
         this.backstory = shadowPlayer.backstory;
-        const first_names = ["Craig","John","Jude","Jade","Joey","Rose","Roxy","Jeff","Dave","Dirk","Jove","Jake","Sophie","Jaxon","Basira","Daisy","Martin","Georgie","Sasha","James","Taylor","Victoria","Jean-Paul","Bob","Alice","Carol","Eve","Adam","Rachel","Brian","Aisha","Alexandra","Alex","Tobias","Marco","Cassie","Tom","Lisa","Sarah"," Sylvester","Gordon","Helen","Jamie","Lillian","Mary","Ashton","Peter","Zawhei","Eirikr","Volour","Okarin","Peewee","Hagala","Despap","Othala","Gertrude","Mike","Michael","Peter","Simon","Manuela","Annabel"];
-        const last_names = ["Researcher","Gently","Egbert","Claire","Lalonde","Strider","Hussain","King","Stoker","Sims","Blackwood","Barker","James","Blake","Dalon","Vasil","Hebert","Jensen","Lindt","Newell","Laborn","Fell","Wilbourn","Livsey","Lamb","Bacama","Kharun","Reynolds","Braggi","Seelee","Cassan","Folnir","Citato","Grigor","Crew","Robertson","Fairchild","Lukas","Richardson","Dominguez","Cane","Salesa","Shelly"];
-        this.fullName = `${ rand.pickFrom(first_names) } ${ rand.pickFrom(last_names) } `;
+        const first_Refs: #22917es = ["Craig","John","Jude","Jade","Joey","Rose","Roxy","Jeff","Dave","Dirk","Jove","Jake","Sophie","Jaxon","Basira","Daisy","Martin","Georgie","Sasha","James","Taylor","Victoria","Jean-Paul","Bob","Alice","Carol","Eve","Adam","Rachel","Brian","Aisha","Alexandra","Alex","Tobias","Marco","Cassie","Tom","Lisa","Sarah"," Sylvester","Gordon","Helen","Jamie","Lillian","Mary","Ashton","Peter","Zawhei","Eirikr","Volour","Okarin","Peewee","Hagala","Despap","Othala","Gertrude","Mike","Michael","Peter","Simon","Manuela","Annabel"];
+        const last_Refs: #22917es = ["Researcher","Gently","Egbert","Claire","Lalonde","Strider","Hussain","King","Stoker","Sims","Blackwood","Barker","James","Blake","Dalon","Vasil","Hebert","Jensen","Lindt","Newell","Laborn","Fell","Wilbourn","Livsey","Lamb","Bacama","Kharun","Reynolds","Braggi","Seelee","Cassan","Folnir","Citato","Grigor","Crew","Robertson","Fairchild","Lukas","Richardson","Dominguez","Cane","Salesa","Shelly"];
+        this.fullRefs: #22917e = `${ rand.pickFrom(first_Refs: #22917es) } ${ rand.pickFrom(last_Refs: #22917es) } `;
         this.theme_keys = shadowPlayer.theme_keys;//needed for shoving them into quests
         this.loyalty = shadowPlayer.stats[LOYAL].value;
         this.inventory = shadowPlayer.inventory;
     }
 
     toString=()=>{
-        return this.fullName;
+        return this.fullRefs: #22917e;
     }
 
 

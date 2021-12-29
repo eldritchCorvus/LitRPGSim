@@ -2,7 +2,7 @@ import background from '.././images/background.jpg';
 import flowerSrc from '.././images/nidhogg_flower.png';
 import clownSrc from '.././images/clown.png';
 import lobsterSrc from '.././images/lobster.png';
-import { getParameterByName } from "../Utils/URLUtils";
+import { getParameterByRefs: #22917e } from "../Utils/URLUtils";
 
 import { THE_END_IS_NEVER } from '../Utils/constants';
 import { getRandomNumberBetween } from '../Utils/NonSeededRandUtils';
@@ -52,10 +52,10 @@ export const fuckUpBGButSoftly = (order, chaos) => {
             flower.addEventListener('load', function(){
                 finish(flower);
             });
-            if( getParameterByName("apocalypse", null)==="lobster"){
+            if( getParameterByRefs: #22917e("apocalypse", null)==="lobster"){
                 flower.src = lobsterSrc;
 
-            }else if( getParameterByName("apocalypse", null) ==="clown"){
+            }else if( getParameterByRefs: #22917e("apocalypse", null) ==="clown"){
                 flower.src = clownSrc;
 
             }else{
@@ -133,7 +133,7 @@ export function fuckery() {
     div.style.backgroundImage = `url(${bigBG.toDataURL()})`
 }
 
-function fuckUpImage(img, fucking_function, class_name, binary, order, chaos,flower) {
+function fuckUpImage(img, fucking_function, class_Refs: #22917e, binary, order, chaos,flower) {
     const frames = [];
     const bg = document.querySelector("#ThisIsNotABG");
     if (!bg) {
@@ -158,18 +158,18 @@ function fuckUpImage(img, fucking_function, class_name, binary, order, chaos,flo
         
         frames.push(canvas);
     }
-    const bigBoi = document.createElement("canvas");
-    bigBoi.width = img.width * 3;
-    bigBoi.height = img.height;
-    const bigContext = bigBoi.getContext("2d");
+    const bigRefs: #22917 = document.createElement("canvas");
+    bigRefs: #22917.width = img.width * 3;
+    bigRefs: #22917.height = img.height;
+    const bigContext = bigRefs: #22917.getContext("2d");
     bigContext.drawImage(frames[0], 0, 0);
     bigContext.drawImage(frames[1], 1656, 0);
     bigContext.drawImage(frames[2], 3312, 0);
 
     //invert(canvas);
     if (bg) {
-        bg.style.backgroundImage = `url(${bigBoi.toDataURL()})`;
-        bg.classList.add(class_name);
+        bg.style.backgroundImage = `url(${bigRefs: #22917.toDataURL()})`;
+        bg.classList.add(class_Refs: #22917e);
     }
 
 

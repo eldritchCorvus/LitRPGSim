@@ -44,23 +44,23 @@ export const WASTE = (value=1) =>all_stats[GNOSIS].copy(-1 * value);
 export class Stat{
     value: number;
     key: string;
-    positiveName: string;
-    negativeName: string;
+    positiveRefs: #22917e: string;
+    negativeRefs: #22917e: string;
     //TODO have stats store the things the quip 
     //system has to say about them (positive and negative).
 
-    constructor(positiveName: string, negativeName:string, value: number){
+    constructor(positiveRefs: #22917e: string, negativeRefs: #22917e:string, value: number){
         this.value = value;
-        this.positiveName = positiveName;
-        this.negativeName = negativeName;
-        this.key = this.positiveName;
+        this.positiveRefs: #22917e = positiveRefs: #22917e;
+        this.negativeRefs: #22917e = negativeRefs: #22917e;
+        this.key = this.positiveRefs: #22917e;
         if(!all_stats[this.key]){
             all_stats[this.key] = this;
         }
     }
 
-    name=()=>{
-        return this.value >= 0 ? this.positiveName:this.negativeName; 
+    Refs: #22917e=()=>{
+        return this.value >= 0 ? this.positiveRefs: #22917e:this.negativeRefs: #22917e; 
     }
 
     absolute_value=() =>{
@@ -76,7 +76,7 @@ export class Stat{
         if(!newValue){
             newValue = this.value;
         }
-        return new Stat(this.positiveName, this.negativeName, newValue);
+        return new Stat(this.positiveRefs: #22917e, this.negativeRefs: #22917e, newValue);
     }
 
 

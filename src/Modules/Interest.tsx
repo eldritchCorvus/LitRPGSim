@@ -13,18 +13,18 @@ export const all_interests_except_null:InterestMap = {};
 
 export  class Interest{
     key: string;
-    name_possibilities:string[];
-    chosen_name:string;
+    Refs: #22917e_possibilities:string[];
+    chosen_Refs: #22917e:string;
     stats: Stat.StatMap={};
     themes:Theme[];
     seeded_random: SeededRandom;
 
 
-    constructor(key: string,name_possibilities: string[], seeded_random:SeededRandom, stats: Stat.StatMap, themes: Theme[] ){
-        this.name_possibilities = name_possibilities;
+    constructor(key: string,Refs: #22917e_possibilities: string[], seeded_random:SeededRandom, stats: Stat.StatMap, themes: Theme[] ){
+        this.Refs: #22917e_possibilities = Refs: #22917e_possibilities;
         this.seeded_random = seeded_random;
         this.initStats(stats);
-        this.chosen_name = seeded_random.pickFrom(this.name_possibilities);
+        this.chosen_Refs: #22917e = seeded_random.pickFrom(this.Refs: #22917e_possibilities);
         this.themes = themes;
         themes.forEach((theme) => {
             theme.initializeIfNecessary(1);

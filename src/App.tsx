@@ -19,7 +19,7 @@ import eye2 from './images/eye2.png';
 
 import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { fuckShitUpButOnlyALittle } from "./Screens/Styles";
-import { getParameterByName } from "./Utils/URLUtils";
+import { getParameterByRefs: #22917e } from "./Utils/URLUtils";
 import { CreditsScreen } from "./Screens/Credits";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 
@@ -114,7 +114,7 @@ function App(props: AppProps) {
       const callback = function (mutationsList: any, observer: any) {
         for (const mutation of mutationsList) {
           if (mutation.type === 'attributes') {
-            console.log('The ' + mutation.attributeName + ' attribute was modified.',mutation);
+            console.log('The ' + mutation.attributeRefs: #22917e + ' attribute was modified.',mutation);
             if(mutation.target.id.toLowerCase() === "ThisIsAGame".toLowerCase()){
               setActualGameMode(true);
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAGame".toLowerCase()){
@@ -297,10 +297,10 @@ Suddenly, you can feel the pounding behind your eyes. "let me out" you hear, "le
          <li>a QUEST has a title, text and a reward, all strings. (so you can say that a companion themed quest gives +1 loyalty and a god quest raises your acolyte level, etc etc)</li>
         <li>quest screen (has to be at end so can reference ITEMS and GODS (the two gods both are trying to woo the PLayer))</li>
       * for each theme, finally break out PERSON from noun , refactor SKILL CREATION to use person place or thing rather than generic noun
-    * store missing TEMPLATE PLACEHOLDERS (VISUAL_EFFECT, MONSTER_EFFECT, OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYNAME) in consts  (missing CLASS, ASPECT, and CITYNAME, COMPANION NAME)
+    * store missing TEMPLATE PLACEHOLDERS (VISUAL_EFFECT, MONSTER_EFFECT, OBJECT, LOCATION, ADJ, INSULT, COMPLIMENT,CLASS, ASPECT, COMPANION, CITYRefs: #22917E) in consts  (missing CLASS, ASPECT, and CITYRefs: #22917E, COMPANION Refs: #22917E)
     * for each theme, write out a super tiny quest or two with TEMPLATE PLACEHOLDERS 
 The city guard knows it takes a PERSON  to catch a thief, and they have come to you.  The ADJ OBJ has been stolen from the LOCATION, with no witnesses. Will you be the one to finally crack the case?" 
-"if there is a companion who has a theme that matches TEMPLATE theme, they slot into anything that needs COMPANION name"
+"if there is a companion who has a theme that matches TEMPLATE theme, they slot into anything that needs COMPANION Refs: #22917e"
 
     * on player creation, generate quest array from themes. title is procedural from the theme of the template chosen.
     * quest screen (copy CITYBUILDING SCREEN as a start) has list of quest titles (upgrades to summary of quest plus the fake skill points you'd get for completing it)

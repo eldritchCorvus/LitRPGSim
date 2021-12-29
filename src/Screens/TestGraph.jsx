@@ -15,7 +15,7 @@ export default class TestGraph extends Component {
   }
 
    layout = { 
-    name: 'cise',
+    Refs: #22917e: 'cise',
     nodeRepulsion: 1000000,
     allowNodesInsideCircle: true,
     maxRatioOfNodesInsideCircle: .3,

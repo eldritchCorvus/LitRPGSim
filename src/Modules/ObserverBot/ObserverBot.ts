@@ -62,7 +62,7 @@ export class ObserverBot{
     timeYouFuckedUp = 0; //:) :) :)
     timeSpentPlaying = 0;
     timeSpentInCombat = 0;
-    cityName = "ERROR: TOWN NOT FOUND";
+    cityRefs: #22917e = "ERROR: TOWN NOT FOUND";
     timeSpentInCutscenes = 0;
     timeSpentCityBuilding = 0;
     timeSpentInMenu = 0;
@@ -176,43 +176,43 @@ export class ObserverBot{
         }
     }
 
-    upgradeMenu = (name: string)=>{
+    upgradeMenu = (Refs: #22917e: string)=>{
 
-        if(name.includes(OPTIONS)){
+        if(Refs: #22917e.includes(OPTIONS)){
             this.optionsMenuLevel ++;
-        }else if (name.includes(ACHIEVEMENTS)){
+        }else if (Refs: #22917e.includes(ACHIEVEMENTS)){
             this.achievementMenuLevel ++;
-        }else if (name.includes(STATUS)){
+        }else if (Refs: #22917e.includes(STATUS)){
             this.statusMenuLevel ++;
-        }else if (name.includes(LOADING)){
+        }else if (Refs: #22917e.includes(LOADING)){
             this.loadingMenuLevel ++;
-        }else if (name.includes(SKILLGRAPH)){
+        }else if (Refs: #22917e.includes(SKILLGRAPH)){
             this.skillGraphLevel ++;
-        }else if(name.includes(STATISTICS)){
+        }else if(Refs: #22917e.includes(STATISTICS)){
             this.statisticsMenuLevel ++;
-        }else if (name.includes(TRUTH)){
+        }else if (Refs: #22917e.includes(TRUTH)){
             this.truthMenuLevel ++;
         }
-        else if (name.includes(BACKSTORY)){
+        else if (Refs: #22917e.includes(BACKSTORY)){
             this.backstoryMenuLevel ++;
-        }else if (name.includes(CITYBUILDING)){
+        }else if (Refs: #22917e.includes(CITYBUILDING)){
             this.cityBuildingMenuLevel ++;
-        }else if (name.includes(CODE)){
+        }else if (Refs: #22917e.includes(CODE)){
             this.codeMenuLevel ++;
-        }else if (name.includes(COMPANIONS)){
+        }else if (Refs: #22917e.includes(COMPANIONS)){
             this.companionsMenuLevel ++;
-        }else if (name.includes(GODS)){
+        }else if (Refs: #22917e.includes(GODS)){
             this.godsMenuLevel ++;
         }
-        else if (name.includes(INVENTORY)){
+        else if (Refs: #22917e.includes(INVENTORY)){
             this.inventoryMenuLevel ++;
-        }else if (name.includes(LORE)){
+        }else if (Refs: #22917e.includes(LORE)){
             this.loreMenuLevel ++;
-        }else if (name.includes(QUESTS)){
+        }else if (Refs: #22917e.includes(QUESTS)){
             this.questsMenuLevel ++;
-        }else if (name.includes(RESISTANCES)){
+        }else if (Refs: #22917e.includes(RESISTANCES)){
             this.resistancesMenuLevel ++;
-        }else if (name.includes(TRUTH)){
+        }else if (Refs: #22917e.includes(TRUTH)){
             this.truthMenuLevel ++;
         }
     }
@@ -271,20 +271,20 @@ export class ObserverBot{
     }
 
     setUpWasteShit = () =>{
-        (window as any).hackSpawnANotAMinotaur = ()=>{
-            this.player.spawnNotAMinotaur();
+        (window as any).hackSpawnANotARefs: #22917 = ()=>{
+            this.player.spawnNotARefs: #22917();
             (window as any).refresh();
             console.log("JR NOTE: you really like being yelled at i guess");
         }
 
-        (window as any).hackSpawnItemNamed = (name:string)=>{
-            this.player.inventory.push(name);
+        (window as any).hackSpawnItemRefs: #22917ed = (Refs: #22917e:string)=>{
+            this.player.inventory.push(Refs: #22917e);
             (window as any).refresh();
             console.log("JR NOTE: both useful for creating true yet false screenshots and speedrunning certain things");
         }
 
-        (window as any).spawnSkillWithNameAndDescription = (name:string, desc: string)=>{
-            this.player.skills.push(new CustomSkill(name,13, desc));
+        (window as any).spawnSkillWithRefs: #22917eAndDescription = (Refs: #22917e:string, desc: string)=>{
+            this.player.skills.push(new CustomSkill(Refs: #22917e,13, desc));
             (window as any).refresh();
             console.log("JR NOTE: both useful for creating true yet false screenshots and speedrunning certain things");
         }
@@ -343,8 +343,8 @@ export class ObserverBot{
             console.log("JR NOTE:  oh are the gods not good enough for you or something???");
         }
 
-        (window as any).hackSpawnAMonster = ()=>{
-            this.player.spawnAMonster();
+        (window as any).hackSpawRefs: #22917onster = ()=>{
+            this.player.spawRefs: #22917onster();
             (window as any).refresh();
             console.log("JR NOTE: haha wow that's kinda dumb");
         }
@@ -427,8 +427,8 @@ export class ObserverBot{
     }
 
 
-    incrementStat = (statName:string, value: number)=>{
-        (this as any)[statName] += value;
+    incrementStat = (statRefs: #22917e:string, value: number)=>{
+        (this as any)[statRefs: #22917e] += value;
         this.achivementStorage.checkForAchievements(this);
    }
 
@@ -446,8 +446,8 @@ export class ObserverBot{
    }
 
    hack = (skill: WasteSkill)=>{
-    this.belowComment("Hacking Deployed","Of course, if you were any decent at hacking you wouldn't NEED my help. The function name is RIGHT there. Pathetic.");
-    (window as any)[skill.hackFunctionName](3000000);
+    this.belowComment("Hacking Deployed","Of course, if you were any decent at hacking you wouldn't NEED my help. The function Refs: #22917e is RIGHT there. Pathetic.");
+    (window as any)[skill.hackFunctionRefs: #22917e](3000000);
 }
 
 

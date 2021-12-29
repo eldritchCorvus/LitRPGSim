@@ -36,7 +36,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         //TODO this might be irrelevant how this works.
     }
 
-    betweenSkill = (class_name: RPGClass,skills: Skill[],parent: Skill, child: Skill,rand: SeededRandom) =>{
+    betweenSkill = (class_Refs: #22917e: RPGClass,skills: Skill[],parent: Skill, child: Skill,rand: SeededRandom) =>{
         let inBetween;
         const pickStat = (parent: Skill) =>{
             const theme = all_themes[rand.pickFrom(parent.theme_keys)];
@@ -61,7 +61,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         }
 
         //try to do the "safe" hacking functions first, if at all possible
-        if(class_name === all_classes["waste"]){
+        if(class_Refs: #22917e === all_classes["waste"]){
             if(rand.nextDouble()>0.5){
                 if(skills.length <30 ||rand.nextDouble()>0.2){
                     inBetween = new WasteSkill(rand.pickFrom(wasteHackingFunctions));
@@ -103,16 +103,16 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         }
     }
 
-    assignChild =(class_name: RPGClass,skills: Skill[],parent: Skill, child: Skill, rand: SeededRandom)=>{
+    assignChild =(class_Refs: #22917e: RPGClass,skills: Skill[],parent: Skill, child: Skill, rand: SeededRandom)=>{
         if(skills.length > 0){
-            this.betweenSkill(class_name, skills, parent, child, rand);
+            this.betweenSkill(class_Refs: #22917e, skills, parent, child, rand);
         }else{
             parent.children.push(child); 
             child.parents.push(parent); 
         }
     }
 
-    generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
+    generateSkills = (class_Refs: #22917e: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
 
         /*
         "there are 8 nodes from "status".  for each node pick a single theme from the player and generate a skill.
@@ -122,37 +122,37 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         there is two nodes from "forest path". for each node, generate a new skill that has themes "plant" and "guide"
         */
         let ret:Skill[] = [];
-        ret = this.generateRootAndBase(class_name, aspect, interests, rand);
+        ret = this.generateRootAndBase(class_Refs: #22917e, aspect, interests, rand);
         //okay so at this point we have the root and all the direct nodes leading from it.
         //now all thats left is to loop through all skills and generate children.
 
         //this should happen TWICE. ~MAYBE~ three times.
         //skip root for this. (slice)
-        const tierTwo = this.generateTierTwo(class_name,ret.slice(1), themes, rand);
+        const tierTwo = this.generateTierTwo(class_Refs: #22917e,ret.slice(1), themes, rand);
         ret = ret.concat(tierTwo);
         
 
         //only pass in real skills, not stat skills or status skills
-        const tierThree = this.generateTierTwo(class_name,tierTwo.filter((x)=>{return !(x instanceof SpecialSkill)}), themes, rand);
+        const tierThree = this.generateTierTwo(class_Refs: #22917e,tierTwo.filter((x)=>{return !(x instanceof SpecialSkill)}), themes, rand);
         ret = ret.concat(tierThree);
 
-        const finalTier = this.generateFinalTier(class_name,tierThree.filter((x)=>{return !(x instanceof SpecialSkill)}), rand);
+        const finalTier = this.generateFinalTier(class_Refs: #22917e,tierThree.filter((x)=>{return !(x instanceof SpecialSkill)}), rand);
         ret = ret.concat(finalTier);
         
-        return this.only_leave_unique_names(ret);
+        return this.only_leave_unique_Refs: #22917es(ret);
     }
 
     
 
-    generateFinalTier=(class_name: RPGClass,skills: Skill[],rand: SeededRandom)=>{
+    generateFinalTier=(class_Refs: #22917e: RPGClass,skills: Skill[],rand: SeededRandom)=>{
         let ret:Skill[] = [];
         //pick three skills. generate max versions. don't care about repeats yet
         const possible = [rand.pickFrom(skills),rand.pickFrom(skills),rand.pickFrom(skills)];
         for(const skill of possible){
             const theme = all_themes[rand.pickFrom(skill.theme_keys)];
             const created_skill = new Skill([theme], rand)
-            created_skill.name = theme.pickPossibilityFor(rand,SUPERMOVE);
-            this.assignChild(class_name,ret, skill,created_skill,rand);
+            created_skill.Refs: #22917e = theme.pickPossibilityFor(rand,SUPERMOVE);
+            this.assignChild(class_Refs: #22917e,ret, skill,created_skill,rand);
             ret.push(created_skill);
         }
 
@@ -161,7 +161,7 @@ export   class  BonesFirstAlg extends SkillGenAlg{
 
     // there are three nodes from "Summon Plant".  for each node generate a new skill that has plant as a theme and 0-1 others from the players theme list
 
-    generateTierTwo = (class_name: RPGClass,skills: Skill[], themes: Theme[], rand: SeededRandom) =>{
+    generateTierTwo = (class_Refs: #22917e: RPGClass,skills: Skill[], themes: Theme[], rand: SeededRandom) =>{
         let ret:Skill[] = [];
         for(let i = 0; i<skills.length; i++){
             //combine a skill with its neighbor, loop if necessary
@@ -173,13 +173,13 @@ export   class  BonesFirstAlg extends SkillGenAlg{
 
             if(theme1.key !== theme2.key){
                 let tmp = (this.generate_skill_x_times(1,[theme1, theme2], rand));
-                tmp = this.only_leave_unique_names(tmp);
+                tmp = this.only_leave_unique_Refs: #22917es(tmp);
                 for(const new_skill of tmp){
                     //no doubles
-                    if(ret.filter((s) =>s.name === new_skill.name).length ===0){
+                    if(ret.filter((s) =>s.Refs: #22917e === new_skill.Refs: #22917e).length ===0){
                         ret.push(new_skill);
-                        this.assignChild(class_name,ret, skill, new_skill,rand);
-                        this.assignChild(class_name,ret, second_skill, new_skill,rand);
+                        this.assignChild(class_Refs: #22917e,ret, skill, new_skill,rand);
+                        this.assignChild(class_Refs: #22917e,ret, second_skill, new_skill,rand);
 
                     }
                 }
@@ -189,14 +189,14 @@ export   class  BonesFirstAlg extends SkillGenAlg{
         return ret;
     }
 
-    generateRootAndBase =(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom) =>{
+    generateRootAndBase =(class_Refs: #22917e: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom) =>{
         const root = new CoreSkill("Status", 0);
         root.unlocked = true;
         const max = 1;
         const min = 1;
         let ret:Skill[] = [];
 
-        for(const theme of class_name.themes ){
+        for(const theme of class_Refs: #22917e.themes ){
             ret = ret.concat(this.generate_skill_x_times(rand.getRandomNumberBetween(min,max),[theme], rand));
          }
 
@@ -210,9 +210,9 @@ export   class  BonesFirstAlg extends SkillGenAlg{
             }
         }
         //important to do before assigning children
-        ret = this.only_leave_unique_names(ret);
+        ret = this.only_leave_unique_Refs: #22917es(ret);
         for(const skill of ret){
-            this.assignChild(class_name,[], root, skill,rand);
+            this.assignChild(class_Refs: #22917e,[], root, skill,rand);
         }
         ret.unshift(root);
         

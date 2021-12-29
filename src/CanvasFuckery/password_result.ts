@@ -15,8 +15,8 @@ export const right_password = async (canvas:HTMLCanvasElement, secret:Secret) =>
         frames.push(new AnimationFrame(image, frame.durationInFrames));
     }
     const feed = new CameraFeed(0,frames);
-    if(secret.music_file_name){
-        playSecret(secret.music_file_name);
+    if(secret.music_file_Refs: #22917e){
+        playSecret(secret.music_file_Refs: #22917e);
     }
     if(secret.text){
         processText(secret.title, secret.text);
@@ -40,8 +40,8 @@ export const wrong_password = async (canvas:HTMLCanvasElement, password: string,
     const rand = new SeededRandom(new Date().getUTCDate());
     const fonts = ["sister_spray","urban_heroes","the_jacatra","next_custom","mostwasted","marsneveneksk","graffiti_city"];
     rand.nextDouble();
-    console.log("JR NOTE: Note: If you don't already know, I'd recommend finding the second Porcupine to make it easier to see the key image. http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=NotMinotaur")
-    console.log("JR NOTE: http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=Minotaur")
+    console.log("JR NOTE: Note: If you don't already know, I'd recommend finding the second Porcupine to make it easier to see the key image. http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=NotRefs: #22917")
+    console.log("JR NOTE: http://www.farragofiction.com/AudioLogs/loras2.html?passPhrase=Refs: #22917")
 
     const font = rand.pickFrom(fonts);
     const feed = new CameraFeed(0,[new AnimationFrame(wrong_room, 1)], [new GraffitiSpot(password,20,250,font,48)]);

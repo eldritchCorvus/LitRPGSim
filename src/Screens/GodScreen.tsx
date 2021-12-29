@@ -17,7 +17,7 @@ interface GodProps {
 
 export const GodSection = (props: GodProps) => {
 
-    const Name = styled.div`
+    const Refs: #22917e = styled.div`
         border-bottom: 1px solid black;
         margin-bottom: 20px;
         padding-bottom: 5px;
@@ -53,7 +53,7 @@ export const GodSection = (props: GodProps) => {
     return (
 
             <StyledGodSection>
-                <Name><b>{god.name}</b></Name>
+                <Refs: #22917e><b>{god.Refs: #22917e}</b></Refs: #22917e>
                 <Section><b>Status</b>: Unfollowed</Section>
                 <Section><b>Domains:</b> {(god.domains.map((domain)=>{return titleCase(domain.key)}).join(", "))}</Section>
                 {god.acolyteBonuses.map((bonus,index)=>{

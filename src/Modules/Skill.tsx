@@ -10,7 +10,7 @@ import { ADJ, LOCATION, PERSON, OBJECT, EFFECTS } from "./ThemeStorage";
 */
 export class Skill {
     type = "Skill";
-    name: string;
+    Refs: #22917e: string;
     tier: number; //TODO should map to cost
     parents: Skill[] = []; //will be set by player
     children: Skill[] = []; //will be set by player
@@ -19,7 +19,7 @@ export class Skill {
     unlocked: boolean = false;  //TODO this should default to false once no longer developing.
 
     constructor(themes: Theme[] = [], seeded_random: SeededRandom | null) {
-        this.name = "Debug";
+        this.Refs: #22917e = "Debug";
         this.tier = -13;
         this.theme_keys = [];
         if (themes && seeded_random) {
@@ -29,7 +29,7 @@ export class Skill {
 
     //separated so we can pass null in to both
     init = (themes: Theme[] = [], seeded_random: SeededRandom) => {
-        this.name = this.generateName(themes, seeded_random);
+        this.Refs: #22917e = this.generateRefs: #22917e(themes, seeded_random);
         this.description = generateDescription(themes, seeded_random);
         if (themes && themes.length > 0) {
             this.theme_keys = themes.map((x) => x.key);
@@ -45,7 +45,7 @@ export class Skill {
     }
 
 
-    generateName = (themes: Theme[], seeded_random: SeededRandom) => {
+    generateRefs: #22917e = (themes: Theme[], seeded_random: SeededRandom) => {
         const generic_bits = ["beam", "touch", "ray", "aura", "signal"];
         const noun_types = [PERSON, LOCATION, OBJECT];
         if (themes.length === 1) {
@@ -71,11 +71,11 @@ export class Skill {
     }
 
     toString = () => {
-        return this.name;
+        return this.Refs: #22917e;
     }
 
     cytoscapeID = () => {
-        return `${this.name}`;
+        return `${this.Refs: #22917e}`;
     }
 
     convertToCytoscape = () => {
@@ -87,7 +87,7 @@ export class Skill {
                 styles["display"] = "none";
             }
         }
-        const ret: any[] = [{ data: { id: this.cytoscapeID(), label: this.name }, grabbable: false, style: styles }];
+        const ret: any[] = [{ data: { id: this.cytoscapeID(), label: this.Refs: #22917e }, grabbable: false, style: styles }];
 
 
 
@@ -132,9 +132,9 @@ export class SpecialSkill extends Skill {
 export class CustomSkill extends SpecialSkill{
     type = "CustomSkill";
     unlocked: boolean = true;
-    constructor(name: string,  tier: number,description: string) {
+    constructor(Refs: #22917e: string,  tier: number,description: string) {
         super();
-        this.name = name;
+        this.Refs: #22917e = Refs: #22917e;
         this.tier = tier;
         this.description =description;
     }
@@ -208,7 +208,7 @@ export class UnusAutographBook extends CustomSkill{
     type = "UnusAutographBook";
     unlocked: boolean = true;
     constructor() {
-        super("UNUS AUTOGRAPH BOOK",1,(window as any).chaos? "A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Your signature is already in it. You do not remember your name. No one does. You are only PLAYER.":"A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Even destroying the book will not restore your name to you, PLAYER. You are not real. None of this is. But you're the one insisting we all pretend its a game. This is your fault.");
+        super("UNUS AUTOGRAPH BOOK",1,(window as any).chaos? "A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Your signature is already in it. You do not remember your Refs: #22917e. No one does. You are only PLAYER.":"A tattered cardboard book filled with signatures with an ornate serif '1' embossed onto it. Even destroying the book will not restore your Refs: #22917e to you, PLAYER. You are not real. None of this is. But you're the one insisting we all pretend its a game. This is your fault.");
     }
 }
 
@@ -218,7 +218,7 @@ let numCoreSkills = 0;
 
 export class CoreSkill extends SpecialSkill {
     type = "CoreSkill";
-    name: string;
+    Refs: #22917e: string;
     tier: number;
     key: number;
     theme_keys: string[] = [];
@@ -227,12 +227,12 @@ export class CoreSkill extends SpecialSkill {
         super();
         numStatSkills++;
         this.key = numStatSkills;
-        this.name = `${menu_item}+1`;
+        this.Refs: #22917e = `${menu_item}+1`;
         this.tier = tier;
     }
 
     cytoscapeID = () => {
-        return `${this.name}${this.key}`;
+        return `${this.Refs: #22917e}${this.key}`;
     }
 }
 
@@ -244,18 +244,18 @@ export const dangerousWasteHackingFunctions = ["hackSkillPointsGainedFromBattle"
 export class WasteSkill extends SpecialSkill {
     type = "WasteSkill";
 
-    hackFunctionName: string; //can call it via window["name"].
+    hackFunctionRefs: #22917e: string; //can call it via window["Refs: #22917e"].
 
     constructor(hackFunction: string) {
         super();
-        this.hackFunctionName = hackFunction;
-        this.name = `window.${this.hackFunctionName}`;
+        this.hackFunctionRefs: #22917e = hackFunction;
+        this.Refs: #22917e = `window.${this.hackFunctionRefs: #22917e}`;
     }
 }
 
 export class StatSkill extends SpecialSkill {
     type = "StatSkill";
-    name: string;
+    Refs: #22917e: string;
     tier: number;
     stat: Stat;
     key: number;
@@ -268,12 +268,12 @@ export class StatSkill extends SpecialSkill {
         this.stat = stat;
         this.tier = tier;
         const dir = stat.value > 0 ? "+" : "-";
-        this.name = `${stat.name()} ${dir} ${stat.absolute_value()}`;
+        this.Refs: #22917e = `${stat.Refs: #22917e()} ${dir} ${stat.absolute_value()}`;
         this.tier = tier;
     }
 
     cytoscapeID = () => {
-        return `${this.stat.name()}${this.key}`;
+        return `${this.stat.Refs: #22917e()}${this.key}`;
     }
 
 

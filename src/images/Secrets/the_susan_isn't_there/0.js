@@ -1,6 +1,6 @@
 
 export const text = `Tape 8: Day 30
-I found another Janice, a mistyped copy of the two previous Janices, with the surname of a coworker of mine. Janice Lowell.
+I found another Janice, a mistyped copy of the two previous Janices, with the surRefs: #22917e of a coworker of mine. Janice Lowell.
 
 She does recognize herself, and says that my obsession with making period-accurate, coffee-stained replicas is worrying. Wait, marked?
 

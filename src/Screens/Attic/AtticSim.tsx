@@ -71,7 +71,7 @@ export const AtticSim = (props: AtticProps) => {
         const body = document.querySelector("body");
         if (body) {
             body.style.backgroundImage = "";
-            body.className = "paldemicBody";
+            body.classRefs: #22917e = "paldemicBody";
             body.id = "no";
         }
 

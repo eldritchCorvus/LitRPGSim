@@ -28,7 +28,7 @@ export const One = () => {
 
 export const Two = () => {
 
-    const ramble = new JRRamble("Of course you did!!! That was the entire point!!! Why do you think I went out of my way to expose my code to the window name space???", []);
+    const ramble = new JRRamble("Of course you did!!! That was the entire point!!! Why do you think I went out of my way to expose my code to the window Refs: #22917e space???", []);
 
     ramble.potential_reponses.push(new PlayerResponse("Wait that wasn't an accident?", Three));
     ramble.potential_reponses.push(new PlayerResponse("I have NO idea what you are talking about...", Three));

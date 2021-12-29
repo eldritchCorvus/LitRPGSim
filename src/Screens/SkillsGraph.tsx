@@ -68,7 +68,7 @@ export const  SkillGraphScreen = (props: SkillProps)=> {
     }
 
      const layout = { 
-         name: 'klay',
+         Refs: #22917e: 'klay',
          circle: false,
          directed: true,
          seed: 13,

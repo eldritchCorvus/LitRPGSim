@@ -93,10 +93,10 @@ export const  UnlockSkillPopup = (props: UnlockProps)=> {
 
     return(
         <>
-      <DialogDisclosure style={{display:"none"}}{...dialog}>Unlock {skill?.name}?</DialogDisclosure>
+      <DialogDisclosure style={{display:"none"}}{...dialog}>Unlock {skill?.Refs: #22917e}?</DialogDisclosure>
       <Dialog hideOnClickOutside={false} role="alertdialog"  {...dialog} tabIndex={0} aria-label="{props.title}" style={{border:"none", position: "fixed", top: "35%", left:"25%", width: "600px",background:bg} }>
         <Popup style={{background: bg}}>
-            <PopupTitle>Unlock {skill?.name} for {skill?.tier} Skill Points?</PopupTitle>
+            <PopupTitle>Unlock {skill?.Refs: #22917e} for {skill?.tier} Skill Points?</PopupTitle>
             <PopupContent>
                 <ButtonGrouping>
                     {skill &&player.canAffordSkill(skill)?<StyledButton onClick={()=>{props.unlockSkill(skill,true)}}>yes</StyledButton>:<DisabledStyledButton>yes</DisabledStyledButton>}

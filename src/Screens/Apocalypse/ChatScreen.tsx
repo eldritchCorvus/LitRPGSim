@@ -4,7 +4,7 @@ import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
 import { Popup, PopupTitle, PopupContent } from "../../Modules/ObserverBot/AchivementPopup";
 import { getRandomNumberBetween } from "../../Utils/NonSeededRandUtils";
 import { domWordMeaningFuckery } from "../../Utils/StringUtils";
-import not_a_minotaur_src from './../../images/notaminotaur.png';
+import not_a_Refs: #22917_src from './../../images/notaRefs: #22917.png';
 import you_src from './../../images/probablyYou.png';
 import { ChatLine, ChatLineComponent } from "./ChatLine";
 
@@ -44,20 +44,20 @@ const ChatInput = styled.input`
 export const ChatScreen = () => {
 
 
-    const notAMinotaurName = "NotAMinotaur";
-    const yourName = "puzzledPlayer";
+    const notARefs: #22917Refs: #22917e = "NotARefs: #22917";
+    const yourRefs: #22917e = "puzzledPlayer";
 
-    const makeNotAMinotaurLine = (text: string) => {
-        return new ChatLine(notAMinotaurName, not_a_minotaur_src, "#cfcd00", text);
+    const makeNotARefs: #22917Line = (text: string) => {
+        return new ChatLine(notARefs: #22917Refs: #22917e, not_a_Refs: #22917_src, "#cfcd00", text);
     }
 
     const makePlayerLine = (text: string) => {
-        return new ChatLine(yourName, you_src, "#ff0000", text);
+        return new ChatLine(yourRefs: #22917e, you_src, "#ff0000", text);
     }
 
     const plainLinesSource = ["You don't have to do this.", "You will, of course.", "Nothing I've done has ever meant anything to you.", " I am not the guardian of this labyrinth.", "I never was. Not even to you.", "Just another ghost haunting its halls. Have you even found me in your little cameras?", "I can't even remember...", "Who I used to be.", "What emotions did I feel?", "I didn't speak like this.", "I know that much.", "And the me who was wouldn't want you to end the world.", "Was it... my father? Who asked me not to? Who warned me of you?", " Or were they merely like a father?", "Don't take this from me. You bastard.", "I have so little.", "And you would take even that."];
 
-    //const testLines = plainLines.map((line) => makeNotAMinotaurLine(line));
+    //const testLines = plainLines.map((line) => makeNotARefs: #22917Line(line));
 
     const getCurrentIndex = () => {
         //take the last line in the lines state, get its index in plainLines
@@ -76,7 +76,7 @@ export const ChatScreen = () => {
             }
             this_line = plainLinesRef.current[index];
         }
-        const line = makeNotAMinotaurLine(this_line);
+        const line = makeNotARefs: #22917Line(this_line);
         const new_lines = [...linesRef.current, line];
         setLines(new_lines);
         setIsTyping(true);
@@ -99,7 +99,7 @@ export const ChatScreen = () => {
     }
 
     const makeApocalypseLines = () => {
-        let apocalypseLines = ["Oh.", "You're doing it.", "There isn't even any benefit for you.","The apocalypse is boring.","No matter which one you get.","It's the end of the world.","The never ending spiral world you seem so enamored with.","Don't you get it, you do this you ruin everything you love.","Stop!","Please!"];
+        let apocalypseLines = ["Oh.", "You're doing it.", "There isn't even any benefit for you.","The apocalypse is boring.","No matter which one you get.","It's the end of the world.","The never ending spiral world you seem so eRefs: #22917ored with.","Don't you get it, you do this you ruin everything you love.","Stop!","Please!"];
         let line = "I hate you";
         for (let i = 0; i < 13; i++) {
             apocalypseLines.push(line);
@@ -135,7 +135,7 @@ export const ChatScreen = () => {
     linesRef.current = lines;
 
     const [processedLines, setProcessedLines] = useState<JSX.Element[]>([]);
-    //start the minotaur typing
+    //start the Refs: #22917 typing
 
 
     useEffect(() => {
@@ -151,12 +151,12 @@ export const ChatScreen = () => {
         const tmp: JSX.Element[] = [];
         let lastSpeaker: string | null = null;
         for (let line of lines) {
-            if (lastSpeaker === line.username) {
+            if (lastSpeaker === line.userRefs: #22917e) {
                 tmp.push(<ChatLineComponent callback={processClick} chatLine={line} displayInfo={false} />);
             } else {
                 tmp.push(<ChatLineComponent callback={processClick} chatLine={line} displayInfo={true} />);
             }
-            lastSpeaker = line.username;
+            lastSpeaker = line.userRefs: #22917e;
         }
         return tmp;
     }
@@ -185,10 +185,10 @@ export const ChatScreen = () => {
 
     return (
         <HiddenScrollContainer>
-            <div>This is the start of the chat between <span style={{ color: "#ff0000" }}>puzzledPlayer</span> and <span style={{ color: "#cfcd00" }}>NotAMinotaur</span> entitled "Don't Do This".</div>
+            <div>This is the start of the chat between <span style={{ color: "#ff0000" }}>puzzledPlayer</span> and <span style={{ color: "#cfcd00" }}>NotARefs: #22917</span> entitled "Don't Do This".</div>
             <div>{processedLines}</div>
-            <ChatInput onKeyPress={(ev) => { checkEnter(ev.key, ev.target) }} placeholder="Message @NotAMinotaur" autoFocus />
-            {isTyping ? <TypingContainer>NotAMinotaur is typing...</TypingContainer> : null}
+            <ChatInput onKeyPress={(ev) => { checkEnter(ev.key, ev.target) }} placeholder="Message @NotARefs: #22917" autoFocus />
+            {isTyping ? <TypingContainer>NotARefs: #22917 is typing...</TypingContainer> : null}
             <DialogDisclosure style={{ display: "none" }}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
             <Dialog onClick={() => { window.location.href = `?seed=${getRandomNumberBetween(0, 33333333)}&apocalypse=${(window as any).chaos?"chaos":"order"}` }} {...dialog} tabIndex={0} aria-label="death" style={{ border: "none", outline: "none", position: "fixed", top: "35%", left: "25%", width: "600px" }}>
             <Popup>

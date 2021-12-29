@@ -6,7 +6,7 @@ I clock in at nine in the morning. The air is cool. I just need to finish this a
 
 I flip it, and find a coffee stain, with a dotted zero written with a pencil in the center. Sigh. Vandalism.
 
-I copy all there is on the obverse, starting with the name and ending with the occupation. I haven’t met other Jeffery Lowes before. Nice to know you by proxy, namesake. 
+I copy all there is on the obverse, starting with the Refs: #22917e and ending with the occupation. I haven’t met other Jeffery Lowes before. Nice to know you by proxy, Refs: #22917esake. 
 
 I flip it to reverse, where the coffee stain is. Ten questions, ten answers. I fill them in.
 

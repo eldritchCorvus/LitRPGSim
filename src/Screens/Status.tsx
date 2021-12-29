@@ -40,7 +40,7 @@ export const  StatusScreen = (props: StatusProps)=> {
 
     const StatSection = (props: StatProps)=> {
         return(
-            <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value().toFixed(1)} </div>
+            <div key={props.stat.Refs: #22917e()}>{props.stat.Refs: #22917e()}: {props.stat.absolute_value().toFixed(1)} </div>
         )
     }
 
@@ -68,7 +68,7 @@ export const  StatusScreen = (props: StatusProps)=> {
     <StatusBlock>
         <span>
             <StatusRow>
-                <StatusHeader>Name:</StatusHeader>
+                <StatusHeader>Refs: #22917e:</StatusHeader>
                 <StatusContent>Player</StatusContent>
             </StatusRow>
 
@@ -86,12 +86,12 @@ export const  StatusScreen = (props: StatusProps)=> {
                 <StatusHeader>Sub Titles:(TODO have these unlock later)</StatusHeader>
                 <StatusContent> {player.interests.map((interest)=>{
                     let seed = 0; //todo sum all chars
-                    for(let i = 0; i<interest.chosen_name.length; i++){
-                        seed += interest.chosen_name.charCodeAt(i);
+                    for(let i = 0; i<interest.chosen_Refs: #22917e.length; i++){
+                        seed += interest.chosen_Refs: #22917e.charCodeAt(i);
                     }
                     const rand = new SeededRandom(seed); //want it to be stable per interest but changing
                     const theme = all_themes[rand.pickFrom(player.theme_keys)];
-                return `${titleCase(theme.pickPossibilityFor(rand,ADJ))} ${interest.chosen_name}`;
+                return `${titleCase(theme.pickPossibilityFor(rand,ADJ))} ${interest.chosen_Refs: #22917e}`;
                 }).join(", ")}</StatusContent>
             </StatusRow>
 
@@ -133,7 +133,7 @@ export const  StatusScreen = (props: StatusProps)=> {
             <StatusRow>
                 <StatusHeader>Unlocked Skills:</StatusHeader>
                 <StatusContent>  
-                    <SkillBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND} key={skill.name + i}>{i}: {skill.name} </Skill>  )})}</SkillBox>
+                    <SkillBox fontColor={FONTCOLOR} mildRadius={BORDERRADIUS}>{player.unlocked_skills_no_stats().map((skill,i) => {return ( <Skill fontColor={FONTCOLOR} mediumRadius={BORDERRADIUSROUND} key={skill.Refs: #22917e + i}>{i}: {skill.Refs: #22917e} </Skill>  )})}</SkillBox>
                 </StatusContent>
             </StatusRow>
     </span>

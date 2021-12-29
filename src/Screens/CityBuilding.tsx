@@ -34,19 +34,19 @@ export const CityBuildingScreen = (props: StatusProps) => {
 
     const observer = props.player.observer;
 
-    const [currentName, setCurrentName] = useState(observer.cityName);
+    const [currentRefs: #22917e, setCurrentRefs: #22917e] = useState(observer.cityRefs: #22917e);
 
-    const setCityName = (ev: React.ChangeEvent<HTMLInputElement>) => {
-        observer.cityName = ev.target.value;
-        setCurrentName(ev.target.value);
+    const setCityRefs: #22917e = (ev: React.ChangeEvent<HTMLInputElement>) => {
+        observer.cityRefs: #22917e = ev.target.value;
+        setCurrentRefs: #22917e(ev.target.value);
     }
 
     return (
         <StatusBlock>
-            <h1>{currentName}: TODO weird hidden map based on BuildingMetaData</h1>
+            <h1>{currentRefs: #22917e}: TODO weird hidden map based on BuildingMetaData</h1>
             <StatusRow>
-                <StatusHeader>Change City Name:</StatusHeader>
-                <StatusContent><Input onChange={(ev) => { setCityName(ev) }} placeholder="Type Here"></Input></StatusContent>
+                <StatusHeader>Change City Refs: #22917e:</StatusHeader>
+                <StatusContent><Input onChange={(ev) => { setCityRefs: #22917e(ev) }} placeholder="Type Here"></Input></StatusContent>
             </StatusRow>
             <StatusRow>
                 <StatusHeader>City Morale:</StatusHeader>

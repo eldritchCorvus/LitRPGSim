@@ -4,7 +4,7 @@ import { all_themes, Theme } from "./Theme";
 import { KNOWING, MIRACLE } from "./ThemeStorage";
 
 export class God{
-    name: string;
+    Refs: #22917e: string;
     domains: Theme[];
     acolyteBonuses: string[];
     //TODO needs Acolyte Bonuses
@@ -13,10 +13,10 @@ export class God{
         this.domains = domains;
         if(order){
             this.domains = [all_themes[KNOWING]];
-            this.name = "God of Order";
+            this.Refs: #22917e = "God of Order";
             this.acolyteBonuses = ["You may pray to them."];
         }else{
-            this.name = this.generateName();
+            this.Refs: #22917e = this.generateRefs: #22917e();
             this.acolyteBonuses = this.generateBonuses();
         }
 
@@ -25,7 +25,7 @@ export class God{
     generateBonuses = ()=>{
         let ret:string[]  = [];
         const rand = new SeededRandom(stringtoseed(this.domains[0].key));
-        const modifiers = ["On holy days","After communing","Once a day","At random","Hourly","Periodicaly","After resting","In times of great need",`When ${this.name} feels like it`];
+        const modifiers = ["On holy days","After communing","Once a day","At random","Hourly","Periodicaly","After resting","In times of great need",`When ${this.Refs: #22917e} feels like it`];
         for(let theme of this.domains){
             ret.push(`${rand.pickFrom(modifiers)}, adherants can ${theme.pickPossibilityFor(rand, MIRACLE)}.`);
         }
@@ -34,7 +34,7 @@ export class God{
         return ret;
     }
 
-    generateName =()=>{
+    generateRefs: #22917e =()=>{
         const vowels = ["a","e","i","o","u"];
         let ret = "";
         const rand = new SeededRandom(this.domains[0].key.length);

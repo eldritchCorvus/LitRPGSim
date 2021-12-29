@@ -1,6 +1,6 @@
 
 export const text = `Tape 7: Day 25
-Found a Jeffery Lowe. I initially thought it’s a namesake, but all obverse responses are accurate to who I am.
+Found a Jeffery Lowe. I initially thought it’s a Refs: #22917esake, but all obverse responses are accurate to who I am.
 
 It’s me. What the fuck?
 

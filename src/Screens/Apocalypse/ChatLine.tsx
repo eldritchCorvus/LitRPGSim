@@ -17,13 +17,13 @@ export const ChatLineComponent = (props: ChatProps) => {
 
 
     return (
-        <div className="chatLine">
+        <div classRefs: #22917e="chatLine">
             {props.displayInfo ? (<hr />) : null}
-            {props.displayInfo ? (<img src={props.chatLine.icon_src} width="33" height="33" className="clip-circle" />) : null}
-            <div className="chatLineHolder">
+            {props.displayInfo ? (<img src={props.chatLine.icon_src} width="33" height="33" classRefs: #22917e="clip-circle" />) : null}
+            <div classRefs: #22917e="chatLineHolder">
                 <div>
-                    {props.displayInfo ? (<div className="chatLineText" style={{ color: props.chatLine.color }}>{props.chatLine.username}</div>) : null}
-                    <LinkifyWordsComponent text={props.chatLine.text} target_word="you" callback={props.callback} className="chatLineText" style={{ paddingLeft: padding }}></LinkifyWordsComponent>
+                    {props.displayInfo ? (<div classRefs: #22917e="chatLineText" style={{ color: props.chatLine.color }}>{props.chatLine.userRefs: #22917e}</div>) : null}
+                    <LinkifyWordsComponent text={props.chatLine.text} target_word="you" callback={props.callback} classRefs: #22917e="chatLineText" style={{ paddingLeft: padding }}></LinkifyWordsComponent>
                 </div>
             </div>
         </div>
@@ -31,12 +31,12 @@ export const ChatLineComponent = (props: ChatProps) => {
 }
 
 export class ChatLine {
-    username: string;
+    userRefs: #22917e: string;
     icon_src: string;
     text: string;
     color: string;
-    constructor(username: string, icon_src: string, color: string, text: string) {
-        this.username = username;
+    constructor(userRefs: #22917e: string, icon_src: string, color: string, text: string) {
+        this.userRefs: #22917e = userRefs: #22917e;
         this.icon_src = icon_src;
         this.text = text;
         this.color = color;

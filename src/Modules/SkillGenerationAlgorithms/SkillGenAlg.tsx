@@ -16,14 +16,14 @@ export   class SkillGenAlg{
         return ret;
     }
 
-    only_leave_unique_names = (skills: Skill[]) => {
+    only_leave_unique_Refs: #22917es = (skills: Skill[]) => {
         let ret:Skill[] = [];
-        let ret_names:string[] = [];
+        let ret_Refs: #22917es:string[] = [];
         for(const skill of skills){
-            //stat skills won't have unique names, its okay, don't worry
-            if(ret_names.indexOf(skill.cytoscapeID()) === -1){
+            //stat skills won't have unique Refs: #22917es, its okay, don't worry
+            if(ret_Refs: #22917es.indexOf(skill.cytoscapeID()) === -1){
                 ret.push(skill);
-                ret_names.push(skill.cytoscapeID());
+                ret_Refs: #22917es.push(skill.cytoscapeID());
             }
  
         }
@@ -35,7 +35,7 @@ export   class SkillGenAlg{
         console.error("JR NOTE: don't call this directly dunkass, call things that extend it.")
     }
 
-    generateSkills = (class_name: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
+    generateSkills = (class_Refs: #22917e: RPGClass, aspect: Aspect, interests: Interest[], themes:Theme[], rand: SeededRandom)=>{
         console.error("JR NOTE: don't call this directly dunkass, call things that extend it.")
         return  [new CoreSkill("Status", 0)] as Skill[];
     }

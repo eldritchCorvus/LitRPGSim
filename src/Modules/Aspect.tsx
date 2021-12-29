@@ -8,7 +8,7 @@ import { ANGELS, APOCALYPSE, BURIED, DARKNESS, DEATH, ENDINGS, FAMILY, FIRE, FLE
 //maybe have each aspect unlock a specific stat screen?  (but not be the ONLY way to get it, classes/interests can throw shit in as appropriate)
 /*
     Time: Stats during time played (skills unlocked, button presses, etc)
-    Breath: Quests (name and desc)
+    Breath: Quests (Refs: #22917e and desc)
     Doom: Upgrades to Skill Tree (see progressively more than just skills that touch skills you've unlocked.)
     Blood: See Ally page (and allies of allies?)
     Heart: See your own core stats and facts (classpect, interests, species, etc)
@@ -33,17 +33,17 @@ export const all_aspects_except_null:AspectMap = {};
 export  class Aspect{
     key: string;
     stats: Stat.StatMap={};
-    name_possibilities:string[];
-    chosen_name:string;
+    Refs: #22917e_possibilities:string[];
+    chosen_Refs: #22917e:string;
     themes:Theme[];
     seeded_random: SeededRandom;
 
 
-    constructor(key: string,name_possibilities: string[], seeded_random:SeededRandom, stats: Stat.StatMap,themes: Theme[] ){
-        this.name_possibilities = name_possibilities;
+    constructor(key: string,Refs: #22917e_possibilities: string[], seeded_random:SeededRandom, stats: Stat.StatMap,themes: Theme[] ){
+        this.Refs: #22917e_possibilities = Refs: #22917e_possibilities;
         this.seeded_random = seeded_random;
         this.initStats(stats);
-        this.chosen_name = seeded_random.pickFrom(this.name_possibilities);
+        this.chosen_Refs: #22917e = seeded_random.pickFrom(this.Refs: #22917e_possibilities);
         this.themes = themes;
         themes.forEach((theme) => {
             theme.initializeIfNecessary(2);

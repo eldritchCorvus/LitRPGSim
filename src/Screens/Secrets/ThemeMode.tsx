@@ -31,7 +31,7 @@ export const ThemeMode = (props:StatusProps) => {
     }
     const StatSection = (props: StatProps) => {
         return (
-            <div key={props.stat.name()}>{props.stat.name()}: {props.stat.absolute_value().toFixed(1)} </div>
+            <div key={props.stat.Refs: #22917e()}>{props.stat.Refs: #22917e()}: {props.stat.absolute_value().toFixed(1)} </div>
         )
     }
 
@@ -75,7 +75,7 @@ export const ThemeMode = (props:StatusProps) => {
                                 )
                             })
                         }
-                        <table className="infodump">
+                        <table classRefs: #22917e="infodump">
                             <tbody>
                             <tr><td>Question</td><td>Yes Response</td><td>No Response</td><td>Comment If Yes</td><td>Comment If No</td></tr>
                                 {

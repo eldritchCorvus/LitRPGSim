@@ -5,7 +5,7 @@ interface LinkifyProps {
     text: string;
     target_word: string;
     callback: Function;
-    className: string;
+    classRefs: #22917e: string;
     style: any;
 
 }
@@ -19,7 +19,7 @@ const LinkContainer = styled.span`
 export const LinkifyWordsComponent = (props: LinkifyProps) => {
 
     return (
-        <div className={props.className} style={props.style}>
+        <div classRefs: #22917e={props.classRefs: #22917e} style={props.style}>
             {props.text.split(" ").map((word,index) => {
                 return (word.toUpperCase().includes(props.target_word.toUpperCase()) ?
                     (<LinkContainer key={`${word}${index}`} onClick={()=>props.callback()}>{word} </LinkContainer>)

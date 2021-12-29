@@ -54,7 +54,7 @@ export const Three = ()=>{
 
 export const Four = ()=>{
 
-    const ramble = new JRRamble("The Truth is that I'm here alone. There is no cackling AI behind the menu. No long suffering NotAMinotaur. No Shambling Horror version of myself.", []);
+    const ramble = new JRRamble("The Truth is that I'm here alone. There is no cackling AI behind the menu. No long suffering NotARefs: #22917. No Shambling Horror version of myself.", []);
 
     ramble.potential_reponses.push(new PlayerResponse("There's not even any Player, since I'm writing this before making this game public.", Five));
 

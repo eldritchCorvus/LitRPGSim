@@ -47,12 +47,12 @@ export const albhed_map = {
 
 export class Secret{
     frames: SourceDurationPair[];
-    music_file_name: string|undefined;
+    music_file_Refs: #22917e: string|undefined;
     text: string;
     title: string;
-    constructor(title: string, frames: SourceDurationPair[], music_file_name: string|undefined, text: string){
+    constructor(title: string, frames: SourceDurationPair[], music_file_Refs: #22917e: string|undefined, text: string){
         this.frames = frames;
-        this.music_file_name = music_file_name;
+        this.music_file_Refs: #22917e = music_file_Refs: #22917e;
         this.text = text;
         this.title = title;
 

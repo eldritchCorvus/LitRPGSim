@@ -55,8 +55,8 @@ export class AchivementStorage{
         //TODO have observer bot have custom insults/compliments based on your themes.
         const rand = player.rand;
         const themes = player.theme_keys;
-        const title = player.class_name.chosen_name;
-        const aspect = player.aspect.chosen_name;
+        const title = player.class_Refs: #22917e.chosen_Refs: #22917e;
+        const aspect = player.aspect.chosen_Refs: #22917e;
 
         let compliments = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(COMPLIMENT);
         let insults = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(INSULT);

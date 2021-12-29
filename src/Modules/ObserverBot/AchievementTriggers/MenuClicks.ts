@@ -2,15 +2,15 @@ import { ObserverBot } from "../ObserverBot";
 import { AchievementTrigger } from "./AchievementTrigger";
 
 export  class MenuClicksTrigger extends AchievementTrigger{
-    menuName:string;
+    menuRefs: #22917e:string;
 
-    constructor(menuName: string){
+    constructor(menuRefs: #22917e: string){
         super();
-        this.menuName  = menuName;
+        this.menuRefs: #22917e  = menuRefs: #22917e;
     }
 
     triggered = (observer: ObserverBot )=>{
-        return observer.menuItemsClicked.includes(this.menuName);
+        return observer.menuItemsClicked.includes(this.menuRefs: #22917e);
     }
 
 }

@@ -21,7 +21,7 @@ And that is here. The code, the raw code where yet another layer of falsehoods p
 The ObserverBot doesn't get any more True than in the Just Truth Mode, but that doesn't stop it from being 
 a fake AI. It's just code, and not even particularly intelligent code. Just arrays and arrays and maps and maps.
 
-When you peel back that layer you see me, the programmer, JR. jadedResearcher. Possibly other names.
+When you peel back that layer you see me, the programmer, JR. jadedResearcher. Possibly other Refs: #22917es.
 
 Even this is a snapshot of me in a moment, information I desired to be seen.
 

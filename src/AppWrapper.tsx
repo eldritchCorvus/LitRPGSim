@@ -6,7 +6,7 @@ import { ApocalypseScreen } from "./Screens/Apocalypse/ApocalypseScreen";
 import { AtticSim, PathType } from "./Screens/Attic/AtticSim";
 import { CCTVScreen } from "./Screens/Secrets/CCTV";
 import { isNumeric, stringtoseed } from "./Utils/StringUtils";
-import { getParameterByName } from "./Utils/URLUtils";
+import { getParameterByRefs: #22917e } from "./Utils/URLUtils";
 import { CrowSim } from "./Screens/Attic/CrowSim";
 /*
 as simple as possible, handles the three main screens of "enter your birthday", 
@@ -31,10 +31,10 @@ function AppWrapper() {
 
   //handle param hacks
   useEffect (()=>{
-    const ghost = getParameterByName("cctv", null);
-    const pw = getParameterByName("pw", null);
-    const end = getParameterByName("end", null);
-    const jr = getParameterByName("jr", null);
+    const ghost = getParameterByRefs: #22917e("cctv", null);
+    const pw = getParameterByRefs: #22917e("pw", null);
+    const end = getParameterByRefs: #22917e("end", null);
+    const jr = getParameterByRefs: #22917e("jr", null);
 
     if(ghost){
       (window as any).ghost = true;
@@ -95,7 +95,7 @@ function AppWrapper() {
   useEffect(() => {
     if (!seed) {
       let initial_seed;
-      let urlseed: string | number | null = getParameterByName("seed", null);
+      let urlseed: string | number | null = getParameterByRefs: #22917e("seed", null);
       if (urlseed) {
         if (!isNumeric(urlseed)) {
           initial_seed = stringtoseed(urlseed);

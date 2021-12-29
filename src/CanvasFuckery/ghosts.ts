@@ -4,10 +4,10 @@ import tunnel4 from '.././images/tunnel4.jpeg';
 import tunnel5 from '.././images/tunnel5.jpeg';
 import tunnel6 from '.././images/tunnel6.jpg';
 
-import notAMinotaur1 from '.././images/monsters/NotAMinotaur/0.png';
-import notAMinotaur2 from '.././images/monsters/NotAMinotaur/1.png';
-import notAMinotaur3 from '.././images/monsters/NotAMinotaur/2.png';
-import notAMinotaur4 from '.././images/monsters/NotAMinotaur/3.png';
+import notARefs: #229171 from '.././images/monsters/NotARefs: #22917/0.png';
+import notARefs: #229172 from '.././images/monsters/NotARefs: #22917/1.png';
+import notARefs: #229173 from '.././images/monsters/NotARefs: #22917/2.png';
+import notARefs: #229174 from '.././images/monsters/NotARefs: #22917/3.png';
 import ghost_orb_src from '.././images/monsters/orb.png';
 import eye_src from '.././images/dreamstime_s_119442663.jpg';
 
@@ -86,12 +86,12 @@ const load_other_images = async () => {
     //first one is special because of the server animation
     //rest are simple.
     //two images for server blinking
-    //JR NTOTE TODO some might be regular monster, some might be NotAMinotaur
+    //JR NTOTE TODO some might be regular monster, some might be NotARefs: #22917
     const spawnPoints = [];
     const ghost_orb = await addImageProcess(ghost_orb_src) as HTMLImageElement;
     const eye = await addImageProcess(eye_src) as HTMLImageElement;
 
-    const monster_images = [notAMinotaur1, notAMinotaur2, notAMinotaur3, notAMinotaur4];
+    const monster_images = [notARefs: #229171, notARefs: #229172, notARefs: #229173, notARefs: #229174];
     const monster_loaded_images: HTMLImageElement[] = [];
     for (let image of monster_images) {
         const img = await addImageProcess(image) as HTMLImageElement;

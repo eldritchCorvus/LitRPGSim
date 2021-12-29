@@ -32,7 +32,7 @@ For good, or for bad.
 
 And that bad is where the weirdness at how much of myself I've put into this work comes in?
 
-I've kind of...more or less stepped back from 'public life', as it were? I'm not going back. Not going to try managing some community. Not going to try to be a big boi game dev.
+I've kind of...more or less stepped back from 'public life', as it were? I'm not going back. Not going to try managing some community. Not going to try to be a big Refs: #22917 game dev.
 
 And for like, the first year of covid I just Did Not Create in any meaningful way.  Well. 
 

@@ -102,7 +102,7 @@ export class BuildingMetaData {
         }
         //you really can't escape it. if it hasn't caught you yet, it will. even if you've restarted.
         if(window.localStorage[HORROR_KEY]){
-            this.people.push(player.spawnAMonster());
+            this.people.push(player.spawRefs: #22917onster());
         }
 
         if(player.rand.nextDouble()>0.4){
@@ -110,9 +110,9 @@ export class BuildingMetaData {
         }
 
         if(player.companions.length === 0){
-            player.spawnNotAMinotaur();
-        }else if(player.companions.length === 1 && player.companions[0].fullName.includes("Minotaur")){
-            player.spawnAMonster();
+            player.spawnNotARefs: #22917();
+        }else if(player.companions.length === 1 && player.companions[0].fullRefs: #22917e.includes("Refs: #22917")){
+            player.spawRefs: #22917onster();
         }
 
     }
@@ -134,18 +134,18 @@ export class BuildingMetaData {
 }
 
 /*a god has
- name: string;
+ Refs: #22917e: string;
     domains: Theme[];
 */
 //note: what artifact it has is a TRUE RANDOM because gods don't have to follow normal rules
 export const spawnTempleForGod = (player: Player, god: God, rand: SeededRandom)=>{
     //a temple is a regular building with the gods themes and then ALSO skill effects for those themes layered into the description.
     const artifact = pickFrom(artifacts);
-    const temple = new TempleMetaData(`Temple of ${god.name}`,artifact, god.domains, rand, []);
+    const temple = new TempleMetaData(`Temple of ${god.Refs: #22917e}`,artifact, god.domains, rand, []);
     const ambiance1 = pickFrom(god.domains);
     const ambiance2 = pickFrom(god.domains);
     if(!player.skills.includes(artifact)){
-        temple.description += `${generateDescription([ambiance1, ambiance2], rand)}. You are suddenly aware of the location of the ${artifact.name}. It was inside you all along.`;
+        temple.description += `${generateDescription([ambiance1, ambiance2], rand)}. You are suddenly aware of the location of the ${artifact.Refs: #22917e}. It was inside you all along.`;
     }
     return temple;
 

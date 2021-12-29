@@ -59,7 +59,7 @@ export const OptionsScreen = (props: StatusProps) => {
     return (
 
         <StatusBlock>
-            {props.player.class_name.chosen_name === "Waste" ?
+            {props.player.class_Refs: #22917e.chosen_Refs: #22917e === "Waste" ?
                 <BadlyHiddenStatusRow>
                     <StatusHeader>Hax Mode:</StatusHeader>
                     <StatusContent>
