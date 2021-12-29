@@ -1,3 +1,6 @@
+git filter-branch --msg-filter 'sed "s/.*/JR NOTE: I am testing that information dissemenates correctly./g"' -f
+git push --force-with-lease origin TresBottle
+
 Tres Bottle: 
 Flavor Text:  A simple glass milk bottle with a 3 emblazoned on it.
 
