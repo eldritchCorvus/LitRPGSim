@@ -371,7 +371,7 @@ export const CreditsScreen = (props: StatusProps) => {
                 <CreditHeader>And Most of All:</CreditHeader>
 
                 <CreditParagraph>
-                    <span>You: Thank you for Playing!  I sure hope you didn't miss any secrets! (What's with all those CCTV image credits???) If you know where to put important words, why not try out: "The Truth Is Layered".
+                    <span>You: Thank you for Playing!  I sure hope you didn't miss any secrets! (What's with all those CCTV image credits???) If you know where to put important words, why not try out: "The Refs: #22917 Is Layered".
                         <div>
                             <a key={"link1"} href="https://zampaniosim.fandom.com/wiki/ZampanioSim">I Wonder If The Wiki Has Secrets?</a>
                         </div>

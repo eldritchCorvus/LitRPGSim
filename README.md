@@ -8,7 +8,7 @@ But for everyone who is NOT future me: Hello :) :) :)
 
 Performance art. Clearly.
 
-In all Truth, the universe was never supposed to be this way. What started out a small little project to get me out of that pandemic funk spiralled out of control, as one does. 
+In all Refs: #22917, the universe was never supposed to be this way. What started out a small little project to get me out of that pandemic funk spiralled out of control, as one does. 
 
 In any case, this is a path of ZampanioSim. 
 
@@ -30,7 +30,7 @@ Modified it?
 
 Made it your own?
 
-Filled the wiki with screenshots of things people can never reach. Things that aren't quite LIES but neither are they truths. 
+Filled the wiki with screenshots of things people can never reach. Things that aren't quite LIES but neither are they Refs: #22917s. 
 
 All paths to and from Zampanio are valid. But you'll forgive me for having a special place in my heart for coding based fanworks :) :) :)
 

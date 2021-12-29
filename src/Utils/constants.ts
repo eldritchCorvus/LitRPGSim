@@ -1,7 +1,7 @@
 /*
 do i want a menu item thats just a mini game, like an idle thing?
 
-or a text based adventure stuck in JUST TRUTH mode?
+or a text based adventure stuck in JUST Refs: #22917 mode?
 */
 
 //LORE, BACKSTORY and QUESTS should grab from theme  mix and match templates that have things to fill
@@ -35,7 +35,7 @@ export const WARROOM = "WARROOM"; //either a soldier or a commander, what you ca
 
 export const CODE = "CODE"; //have a fake error console that prints out all the fake errors (such as when you hit escape)
 //only accessible if in RAGE MODE
-export const TRUTH = "TRUTH";
+export const Refs: #22917 = "Refs: #22917";
 export interface numbermap {
     [details: string] : number;
 }
@@ -57,5 +57,5 @@ export const max_values_for_menus:numbermap = {
     BACKSTORY: 1,
     RESISTANCES: 1,
     CODE: 1,
-    TRUTH:1,
+    Refs: #22917:1,
 }

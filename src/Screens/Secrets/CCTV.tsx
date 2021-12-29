@@ -5,7 +5,7 @@ import cctv2 from '../.././images/murderbasement2.jpeg';
 import monster1 from '../.././images/monsters/doll/1.png';
 import monster2 from '../.././images/monsters/doll/1left.png';
 
-import { justTruthSong } from "../..";
+import { justRefs: #22917Song } from "../..";
 import { addImageProcess } from "../../Utils/URLUtils";
 import ReactDOM from "react-dom";
 import { Input } from "reakit/Input";
@@ -83,7 +83,7 @@ export const CCTVScreen = (props: StatusProps) => {
     useEffect(() => {
         const body = document.querySelector("body");
         if (body) {
-            justTruthSong();
+            justRefs: #22917Song();
             //just fucking remove everything else. inner peace for all.
             body.innerHTML = "";
             body.style.background = "#000000";

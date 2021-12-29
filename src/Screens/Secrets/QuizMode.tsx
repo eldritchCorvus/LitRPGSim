@@ -5,7 +5,7 @@ import { Player } from "../../Modules/Player";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { OneCharAtATimeDiv } from "../OneCharAtATimeDiv";
 import { RageStyledButton } from "../Styles";
-import { END, INFINITE } from "./JustTruth";
+import { END, INFINITE } from "./JustRefs: #22917";
 
 interface StatusProps {
     player: Player;
@@ -62,7 +62,7 @@ export const QuizMode = (props: StatusProps) => {
 
         if (questionRef.current && !questionRef.current.asked) {
             questionRef.current.asked = true;
-            questionRef.current.truth = true;
+            questionRef.current.Refs: #22917 = true;
             //force a rerender (since mutation of state objects isn't registered)
             setBadIdeaBump(badIdeaBump + 1);
         }else{
@@ -74,7 +74,7 @@ export const QuizMode = (props: StatusProps) => {
     const answerNo = () => {
         if (question) {
             question.asked = true;
-            question.truth = false;
+            question.Refs: #22917 = false;
             //force a rerender (since mutation of state objects isn't registered)
             setBadIdeaBump(badIdeaBump + 1);
         }

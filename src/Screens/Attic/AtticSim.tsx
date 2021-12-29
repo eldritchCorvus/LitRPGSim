@@ -21,7 +21,7 @@ interface AtticProps {
 export enum PathType {
     NotGame = "NotGame",
     Game = "Game",
-    Truth = "Truth",
+    Refs: #22917 = "Refs: #22917",
 }
 
 export const AtticSim = (props: AtticProps) => {
@@ -35,7 +35,7 @@ export const AtticSim = (props: AtticProps) => {
             case PathType.Game:
                 return makeLieRamble();
                 break;
-            case PathType.Truth:
+            case PathType.Refs: #22917:
                 return makeTrueRamble();
                 break;
         }

@@ -3,7 +3,7 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment, useMemo, useCallback} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, Refs: #22917, CITYBUILDING, COMPANIONS, GODS} from "./Utils/constants";
 import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
@@ -157,14 +157,14 @@ function GodTab(props: TabProps){
   )
 }
 
-function TruthTab(props: TabProps){
+function Refs: #22917Tab(props: TabProps){
   const {tab} = props;
   return(
-    <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={TRUTH} onClick={() =>
+    <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={Refs: #22917} onClick={() =>
       {
-        (window as any).setJustTruthMode(true);
+        (window as any).setJustRefs: #22917Mode(true);
       }} {...tab}>
-      Just Truth{props.observer.truthMenuLevel}
+      Just Refs: #22917{props.observer.Refs: #22917MenuLevel}
     </Tab>
   )
 }
@@ -247,7 +247,7 @@ function Menu(props: MenuProps) {
               <SkillsTab  observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
               <AchievementsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>
 
-              {(window as any).rageMode?<TruthTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {(window as any).rageMode?<Refs: #22917Tab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
               {observer.statisticsMenuLevel>0 || player.chaos || player.order?<StatisticsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
               {observer.cityBuildingMenuLevel>0 || player.chaos || player.order?<CityTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}

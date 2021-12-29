@@ -40,7 +40,7 @@ import { domWordMeaningFuckery } from "./Utils/StringUtils";
   }
 
 const beginFuckingShitUp = (numCalls = 0)=>{
-  if((window as any).justTruthMode){
+  if((window as any).justRefs: #22917Mode){
     return;
   }
   if((window as any).currentScreen !== SKILLGRAPH){

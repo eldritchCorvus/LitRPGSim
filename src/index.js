@@ -6,14 +6,14 @@ import helen_kin_song from './Music/helen_kin_song.mp3';
 import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
-import voice from './Voice/truthtake3.mp3';
+import voice from './Voice/Refs: #22917take3.mp3';
 import true_jr from './Voice/true_final_jr.mp3';
 import game_jr from './Voice/game_final_jr.mp3';
 import main_jr from './Voice/main_final_jr.mp3';
 
 import blame from './SecretMusic/youbrokeit.mp3';
 
-import funky_voice from './Voice/truth_but_funky.mp3';
+import funky_voice from './Voice/Refs: #22917_but_funky.mp3';
 
 import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch.mp3";
 import ghost from "./Voice/507451__horroraudio__ghost-kid-sigh-less-verb.mp3";
@@ -58,7 +58,7 @@ export function blameSong(){
   audio.play();
 }
 
-export function speakTheTruth(){
+export function speakTheRefs: #22917(){
   voiceAudio.src = true_jr;
   const play = ()=>{
     voiceAudio.play();
@@ -101,7 +101,7 @@ export function speakButFunky(){
   voiceAudio.play();
 }
 
-export function justTruthSong(){
+export function justRefs: #22917Song(){
   audio.src = heartbeat;
   setVolumeMusic(0.8);
   audio.play();
@@ -110,13 +110,13 @@ export function justTruthSong(){
  function playLightlyFuckedUpBGMusic(){
   audio.play();
   audio.onended = function() {
-    if(!window.dontrotatemusic && !window.rageMode && !window.justTruthMode && !window.ghost && !window.pwMode){
+    if(!window.dontrotatemusic && !window.rageMode && !window.justRefs: #22917Mode && !window.ghost && !window.pwMode){
       if (Math.random() > 0.5) {
         audio.src = helen_kin_song;
       } else {
         audio.src = subtle_heart;
       }
-    }else if (window.justTruthMode || window.ghost || window.pwMode){
+    }else if (window.justRefs: #22917Mode || window.ghost || window.pwMode){
       audio.src = heartbeat;
     }else if(!window.dontrotatemusic){
       audio.src = heart;

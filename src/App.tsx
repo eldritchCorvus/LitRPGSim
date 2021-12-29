@@ -7,7 +7,7 @@ import {initInterests } from "./Modules/Interest";
 import {useEffect, useState,Fragment, useCallback, useRef} from 'react';
 import { initStats } from "./Modules/Stat";
 import Menu from "./Menu";
-import {JustTruth} from "./Screens/Secrets/JustTruth";
+import {JustRefs: #22917} from "./Screens/Secrets/JustRefs: #22917";
 import RageMode from "./RageMode";
 import { fuckUpBGButSoftly } from "./CanvasFuckery/fuckery";
 import { click, clickEffect, speakButFunky } from ".";
@@ -38,7 +38,7 @@ function App(props: AppProps) {
 
   const [actualGameMode, setActualGameMode] = useState(false);
 
-  const [justTruthMode, setJustTruthMode] = useState(false);
+  const [justRefs: #22917Mode, setJustRefs: #22917Mode] = useState(false);
 
   const [creditsMode, setCreditsMode] = useState(false);
 
@@ -73,11 +73,11 @@ function App(props: AppProps) {
       }
     }
 
-    if(!(window as any).setJustTruthMode){
+    if(!(window as any).setJustRefs: #22917Mode){
       // :) :) :)
-      (window as any).setJustTruthMode = (value:boolean)=>{
-        setJustTruthMode(value);
-        (window as any).justTruthMode = value;
+      (window as any).setJustRefs: #22917Mode = (value:boolean)=>{
+        setJustRefs: #22917Mode(value);
+        (window as any).justRefs: #22917Mode = value;
       };
     }
 
@@ -138,7 +138,7 @@ function App(props: AppProps) {
             }else if(mutation.target.id.toLowerCase() === "ThisIsAnEye1".toLowerCase()){
               mutation.target.src = real_eye;
               howCanEyesBeRealIfMirrorsArentReal();
-              eyesAreTooRealButDoNotSpeakTheTruth();
+              eyesAreTooRealButDoNotSpeakTheRefs: #22917();
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAnEye2".toLowerCase()){
               mutation.target.src = eye2;
               (window as any).real_eyes = false;
@@ -147,7 +147,7 @@ function App(props: AppProps) {
               (window as any).real_eyes = true;
 
               howCanEyesBeRealIfMirrorsArentReal();
-              eyesAreTooRealButDoNotSpeakTheTruth();
+              eyesAreTooRealButDoNotSpeakTheRefs: #22917();
             }else if(mutation.target.id.toLowerCase() === "ThisIsNotAMenu".toLowerCase()){
               (window as any).setRageMode(true); //whoops, looks like the jig is up :) :) :)
             }else{
@@ -161,7 +161,7 @@ function App(props: AppProps) {
     }
   }, [fuckupstuffforspiral]);
 
-  const eyesAreTooRealButDoNotSpeakTheTruth=()=>{
+  const eyesAreTooRealButDoNotSpeakTheRefs: #22917=()=>{
     (window as any).real_eyes = true;
     let eye2 = document.getElementById('ThisIsAnEye2');
     let eye1 = document.getElementById('ThisIsAnEye1');
@@ -248,14 +248,14 @@ function App(props: AppProps) {
     return <div>LOADING FOR REALSIES</div>
   }else{
     //there is nothing wrong here. is fine
-    const displayMenu = !justTruthMode && !actualGameMode  && !creditsMode;
+    const displayMenu = !justRefs: #22917Mode && !actualGameMode  && !creditsMode;
     return (
       <Fragment>
         {rageMode && displayMenu ? <RageMode/>:null}
         {rageMode && displayMenu?  <Menu player={player} angle={30}/>:null}
         {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
         {displayMenu?  <Menu player={player} angle={angle}/>:null}      
-        {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
+        {justRefs: #22917Mode && !actualGameMode?  <JustRefs: #22917 player={player}/>:null}      
         {actualGameMode?  <ActualGame player={player}/>:null}      
         {creditsMode ?  <CreditsScreen player={player}/>:null}      
 
@@ -275,18 +275,18 @@ note: when its time to go live, have LITRPGSIM e point to something ominous
 jadedResearcher — Today at 7:12 PM
 jadedResearcher — Today at 7:20 PM
         *persephone, hades, demeter quest.  QUESTS are more "combination of side quests and overarching story plot". (think land quests)
-        * session 0 is "the game is real i swear" notJR, the core of Truth is "zampanio was never real but the creepypasta faq was" notJR, and the core of game mode is "the game wasn't real and you couldn't accept that" notJR.
+        * session 0 is "the game is real i swear" notJR, the core of Refs: #22917 is "zampanio was never real but the creepypasta faq was" notJR, and the core of game mode is "the game wasn't real and you couldn't accept that" notJR.
         * port in fractal shit post (cant compile dart version anymore), associate different states of the fractal with diff words from gaslight array
         * gaslight cursor revals a radius of true color (hidden yellow things in the pictures?)
-* post screenshots of this ramble hidden in Truth (is it readable in cctv mode???)
+* post screenshots of this ramble hidden in Refs: #22917 (is it readable in cctv mode???)
 * one password is aviary full o fanimated gull skeletons
 * another is just skelejr sitting in her wheelchair
 * sprinkle right pws at the 'end' of each path and more
 *zampanio (not the sim) is designed to spark Obsession in a target and convince them to attempt to enact or oppose the end of the world (the End can either cause the Unbinding of Chaos or the Binding of Madness).  if you unbind chaos then the page reloads and you are a player with every theme at once and then some.  if you bind maddness the page reloads and you are a custom spawned player with a coherent and human created backstory, skills, buildings, etc. regardless of which mode you can do a new ritual to Balance the Scales and return to regular mode. Which ritual you can attempt to do is decided by seed, and in order to Unbind Chaos you need to have 9 specific items spawn (from duskhollow) and attempt to use them in GAme Mode (they all have custome effects) 
-<li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of truth in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
-        <li>JustTruth ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
-             <li>when Truth and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
-              <li>truth and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
+<li>if you "go up" in game mode, leads to jr in a chair attic mode (instead of a genuine moment of forth wall breaking connection chair JR just wants any info on the "real" zampanio, especially any cached copies of that dead faq link. twisting the one moment of Refs: #22917 in indie games like this into more lies (while also being true because yes plz if you make zampanio fan works plz send)</li>
+        <li>JustRefs: #22917 ends with you being assigned your TrueClasspect now that you've answered all possible questions</li>
+             <li>when Refs: #22917 and Game intersect you meet god (at end of adventure). JustJR mode where i explain why i made this game, sitting in a chair</li>
+              <li>Refs: #22917 and game true = meta map of zampanio if you are in true mode AND game mode at the same time</li>
               <li>gigglesnort fnaf mod is creepy pasta</li>
 
         <li>secrets under construction component, shitty geocities gif of construction.</li>

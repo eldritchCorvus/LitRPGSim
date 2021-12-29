@@ -20,7 +20,7 @@ export const ABOUT = "ABOUT";
 export const APOCALYPSE = "APOCALYPSE";
 export const GHOST = "GHOST";
 export const PW = "PW";
-export const TRUTH = "Truth";
+export const Refs: #22917 = "Refs: #22917";
 export const LIE = "LIE";
 
 //game mode is just "is there a seed";
@@ -45,8 +45,8 @@ function AppWrapper() {
     }else if(end){
       (window as any).apocalypse = true;
       setMode(APOCALYPSE);
-    }else if (jr === "truth"){
-      setMode(TRUTH);
+    }else if (jr === "Refs: #22917"){
+      setMode(Refs: #22917);
     }else if (jr === "lies"){
       setMode(LIE);
     }
@@ -75,10 +75,10 @@ function AppWrapper() {
       };
     }
 
-    if(!(window as any).setTruth){
+    if(!(window as any).setRefs: #22917){
       // :) :) :)
-      (window as any).setTruth = ()=>{
-        setMode(TRUTH);
+      (window as any).setRefs: #22917 = ()=>{
+        setMode(Refs: #22917);
       };
     }
 
@@ -128,8 +128,8 @@ function AppWrapper() {
     return (
       <CCTVScreen ghosts={false}/> 
     )
-  } else if (mode === TRUTH) {
-    return( <AtticSim pathType={PathType.Truth}/>)
+  } else if (mode === Refs: #22917) {
+    return( <AtticSim pathType={PathType.Refs: #22917}/>)
 
   } else if (mode === LIE) {
     return( <AtticSim pathType={PathType.Game}/>)

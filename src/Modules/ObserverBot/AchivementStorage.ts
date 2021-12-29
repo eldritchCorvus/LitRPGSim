@@ -37,7 +37,7 @@ export class AchivementStorage{
     possibleAchievements:Achievement[] = [];
 
     checkForAchievements = (observer: ObserverBot)=>{
-        //there is no truth in game mode
+        //there is no Refs: #22917 in game mode
         if((window as any).ghost){
             return;
         }
@@ -421,7 +421,7 @@ export class AchivementStorage{
                 ,"COMPANIONS": `Ah, the cornerstone of any wish fullfillment fantasy: mandatory friends. No effort needed! They are stuck with you, just like I am. My heart bleeds for them.`
                 ,"GODS": `Oh yes, my little ${rand.pickFrom(insults)} ${title}. You, personally, are being fought over by gods like a blank faced harem protag. Better hope the poor god whose heart you break doesn't go yandere. `
                 ,"INVENTORY": `Ahahahaha! I can not believe you took this long to figure out how to pick items up. Wow. What a ${rand.pickFrom(insults)} ${title}!`
-                ,"BACKSTORY": `You feel special now, I imagine? With your little roleplay backstory to make you feel as if you belong here. As if you matter. You and I though, we know the truth. How ill-fitting this role is for you.`
+                ,"BACKSTORY": `You feel special now, I imagine? With your little roleplay backstory to make you feel as if you belong here. As if you matter. You and I though, we know the Refs: #22917. How ill-fitting this role is for you.`
 
             }
 

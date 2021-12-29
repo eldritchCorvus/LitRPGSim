@@ -27,7 +27,7 @@ import { CinqueCloak, CustomSkill, DuoMask, NovumMirror, Octome, QuatroBlade, Se
 import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { all_themes } from "../Theme";
-import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/constants";
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, Refs: #22917 } from "../../Utils/constants";
 import { scrawlOverBG } from "../../CanvasFuckery/fuckery";
 import { blameSong } from "../..";
 
@@ -70,7 +70,7 @@ export class ObserverBot{
     statusMenuLevel = 1;
     achievementMenuLevel = 1;
     optionsMenuLevel = 1;
-    truthMenuLevel = 0;
+    Refs: #22917MenuLevel = 0;
     loadingMenuLevel = 1;
     cityMorale = 0;
     statisticsMenuLevel = 0;
@@ -190,8 +190,8 @@ export class ObserverBot{
             this.skillGraphLevel ++;
         }else if(Refs: #22917e.includes(STATISTICS)){
             this.statisticsMenuLevel ++;
-        }else if (Refs: #22917e.includes(TRUTH)){
-            this.truthMenuLevel ++;
+        }else if (Refs: #22917e.includes(Refs: #22917)){
+            this.Refs: #22917MenuLevel ++;
         }
         else if (Refs: #22917e.includes(BACKSTORY)){
             this.backstoryMenuLevel ++;
@@ -212,8 +212,8 @@ export class ObserverBot{
             this.questsMenuLevel ++;
         }else if (Refs: #22917e.includes(RESISTANCES)){
             this.resistancesMenuLevel ++;
-        }else if (Refs: #22917e.includes(TRUTH)){
-            this.truthMenuLevel ++;
+        }else if (Refs: #22917e.includes(Refs: #22917)){
+            this.Refs: #22917MenuLevel ++;
         }
     }
 

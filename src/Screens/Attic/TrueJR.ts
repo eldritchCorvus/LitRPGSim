@@ -1,25 +1,25 @@
 /*
-    In this path, you find justifiedRecursion in the center of Truths endless spiralling questions. 
+    In this path, you find justifiedRecursion in the center of Refs: #22917s endless spiralling questions. 
 
     They are resigned, and tired. 
 
     * of COURSE zampanio is not real, it never was, even in the creepypasta faq "i found"
 * but would you have been as intrigued without the fiction? without that core of mystery?
-* all i want is to burrow into your brain, to be remembered.  Truth is simply puppeting my words, and always has been. 
+* all i want is to burrow into your brain, to be remembered.  Refs: #22917 is simply puppeting my words, and always has been. 
 
-They wonder if you've seen the discord. The core of Truth that is inside of it.
+They wonder if you've seen the discord. The core of Refs: #22917 that is inside of it.
 
-ONE (and only one) PATH MUST BE THE ABSOLUTE TRUTH. Not even the creepypasta FAQ is real, I made even that up.
+ONE (and only one) PATH MUST BE THE ABSOLUTE Refs: #22917. Not even the creepypasta FAQ is real, I made even that up.
 (but is it satisfying to read that? don't you want more fiction?)
 */
 
-import { speakTheTruth } from "../..";
+import { speakTheRefs: #22917 } from "../..";
 import { JRRamble } from "./JRRamble";
 import { PlayerResponse } from "./PlayerResponse";
 
 export const makeTrueRamble = ()=>{
     
-    speakTheTruth();
+    speakTheRefs: #22917();
     return One();
 }
 
@@ -36,7 +36,7 @@ export const One = ()=>{
 
 export const Two = ()=>{
 
-    const ramble = new JRRamble("Ah. Well...This is Truth's path, right? No facades here. No tricks. Just a straightforward path.", []);
+    const ramble = new JRRamble("Ah. Well...This is Refs: #22917's path, right? No facades here. No tricks. Just a straightforward path.", []);
 
     ramble.potential_reponses.push(new PlayerResponse("Wait, does that mean I'll finally get a straight answer out of you?", Three));
 
@@ -54,7 +54,7 @@ export const Three = ()=>{
 
 export const Four = ()=>{
 
-    const ramble = new JRRamble("The Truth is that I'm here alone. There is no cackling AI behind the menu. No long suffering NotARefs: #22917. No Shambling Horror version of myself.", []);
+    const ramble = new JRRamble("The Refs: #22917 is that I'm here alone. There is no cackling AI behind the menu. No long suffering NotARefs: #22917. No Shambling Horror version of myself.", []);
 
     ramble.potential_reponses.push(new PlayerResponse("There's not even any Player, since I'm writing this before making this game public.", Five));
 
@@ -63,9 +63,9 @@ export const Four = ()=>{
 
 export const Five = ()=>{
 
-    const ramble = new JRRamble("But it's also the Truth that I'm not alone. I had a lot of fun making that fake discord server with everyone. And parts of this gained inspiration from an online roleplay I'm dming (It's my first time dming and I'm learning a lot!) and friends who tolerate listening to me ramble endlessly about my weird spiralling game idea. I even have some music and artwork from a friend in here. And stories from other friends!", []);
+    const ramble = new JRRamble("But it's also the Refs: #22917 that I'm not alone. I had a lot of fun making that fake discord server with everyone. And parts of this gained inspiration from an online roleplay I'm dming (It's my first time dming and I'm learning a lot!) and friends who tolerate listening to me ramble endlessly about my weird spiralling game idea. I even have some music and artwork from a friend in here. And stories from other friends!", []);
 
-    ramble.potential_reponses.push(new PlayerResponse("And yet its still the Truth that I feel alone? That's why things like the fake discord, or encouraging people to make things along side this appeals to me so much?", Six));
+    ramble.potential_reponses.push(new PlayerResponse("And yet its still the Refs: #22917 that I feel alone? That's why things like the fake discord, or encouraging people to make things along side this appeals to me so much?", Six));
 
     return ramble;
 }
@@ -99,7 +99,7 @@ export const Eight = ()=>{
 
 export const Nine = ()=>{
 
-    const ramble = new JRRamble("So, I guess my point is: this is the core of my Truth.", []);
+    const ramble = new JRRamble("So, I guess my point is: this is the core of my Refs: #22917.", []);
 
     ramble.potential_reponses.push(new PlayerResponse("*Thank you* for playing my game. For collaborating with me even if I don't even know you exist because I'm in the past. If you make anything related to Zampanio, if you spread its rumors, find some way to let me know? I can't wait to find out what the consequences are of this weird thing I've made. ", One));
 

@@ -11,7 +11,7 @@
 //so this will drive home a nagging sense of familiarity, that it MUST be important
 //at the same time when you look at it in writing it's gibberish
 //but when you hear it spoken it flirts with being just phonetic english with an accent
-//it vibes perfectly with the sense of misleading truths and lies with a core of truth
+//it vibes perfectly with the sense of misleading Refs: #22917s and lies with a core of Refs: #22917
 //ABCDEFGHIJKLMNOPQRSTUVWXYZ
 //YPLTAVKREZGMSHUBXNCDIJFQOW
 //https://lingojam.com/AlBhedTranslator you're welcome
@@ -80,7 +80,7 @@ each password has a cctv feed (or at least a list of animation frames loaders (s
 export const passwords:PasswordMap = {
     "THE END IS NEVER": new Secret("Ronin Rambles",[new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"4-_Wattathon.mp3","Secrets/the_end_is_never/0.js")
     ,"THE END IS NEVER THE END": new Secret("Ronin Rambles",[new SourceDurationPair("Secrets/the_end_is_never/0comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/1comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/2comp.jpg",3),new SourceDurationPair("Secrets/the_end_is_never/3comp.jpg",3)],"turntablist.mp3","Secrets/the_end_is_never/1.js")
-    ,"THE TRUTH IS LAYERED": new Secret("JR Rambles",[new SourceDurationPair("Secrets/the_truth_is_layered/1comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/2comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/3comp.jpg",2),new SourceDurationPair("Secrets/the_truth_is_layered/4comp.jpg",2)],undefined, "Secrets/the_truth_is_layered/0.js")
+    ,"THE Refs: #22917 IS LAYERED": new Secret("JR Rambles",[new SourceDurationPair("Secrets/the_Refs: #22917_is_layered/1comp.jpg",2),new SourceDurationPair("Secrets/the_Refs: #22917_is_layered/2comp.jpg",2),new SourceDurationPair("Secrets/the_Refs: #22917_is_layered/3comp.jpg",2),new SourceDurationPair("Secrets/the_Refs: #22917_is_layered/4comp.jpg",2)],undefined, "Secrets/the_Refs: #22917_is_layered/0.js")
     ,"BEWARE OBLIVION IS AT HAND": new Secret("JR Rambles",[new SourceDurationPair("Secrets/beware_oblivion_is_at_hand/0.jpg",1)],"dead.mp3","Secrets/beware_oblivion_is_at_hand/0.js")
     ,"THERE IS SERENITY IN CLOCKWORK": new Secret("Jeffery's Tapes",[new SourceDurationPair("Secrets/there_is_serenity_in_clockwork/0.jpg",1)],"458627__tetrisrocker__clock.mp3","Secrets/there_is_serenity_in_clockwork/0.js")
     ,"DODGE THIS MOIST PIMP": new Secret("Other Branches",[new SourceDurationPair("Secrets/dodge_this_moist_pimp/0.jpg",1)],undefined,"Secrets/dodge_this_moist_pimp/0.js")

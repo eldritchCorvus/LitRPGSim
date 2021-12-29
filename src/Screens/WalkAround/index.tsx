@@ -262,7 +262,7 @@ const GuestBookButton = styled.button`
                 <li>shitty geocities parody website about unraveling the identity of the Eye Killer, Eyedol, people vanishing. make sure to link to google if you mention using it</li>
                 <li>post coffin trial of killer plus live blogging of a tgifradys</li>
                 <li>killer in vents</li>
-                *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
+                *turns out if you switch black vs white for Refs: #22917 rapidly it seems to be spiralling. (herald discovered)
                 * canon way to get to apocalypse plz
                 <li>429044 is important number</li>
                 <li>20h:14m:36s on the stopwatch</li>
@@ -285,7 +285,7 @@ const GuestBookButton = styled.button`
                 <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
                 <li>spawnable tape players (add more secret music, including things that are just audio logs from the closer)</li>
-                infinite train zampaniosim branch (rooms in a linear pile, can go endlessly right, but can go back too, that zooming darkness effect) (it mirrors Truth the way this mirros ThisIsAgame)
+                infinite train zampaniosim branch (rooms in a linear pile, can go endlessly right, but can go back too, that zooming darkness effect) (it mirrors Refs: #22917 the way this mirros ThisIsAgame)
                 <li>add glitch effect to WalkObject themes.</li>
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
                 <li>find your coffin and go down and down and down</li>

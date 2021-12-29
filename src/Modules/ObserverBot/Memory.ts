@@ -1,6 +1,6 @@
 export  class Memory{
     question: string;
-    truth: boolean = false;
+    Refs: #22917: boolean = false;
     asked: boolean = false;
     yes_response: string;
     no_response: string;
@@ -17,10 +17,10 @@ export  class Memory{
 
     respond = ()=>{
         this.asked = true;
-        return this.truth?this.yes_response:this.no_response;
+        return this.Refs: #22917?this.yes_response:this.no_response;
     }
 
     comment = ()=>{
-        return this.truth?this.yes_comment:this.no_comment;
+        return this.Refs: #22917?this.yes_comment:this.no_comment;
     }
 }

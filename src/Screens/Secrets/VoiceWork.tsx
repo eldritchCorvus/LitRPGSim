@@ -50,7 +50,7 @@ export const VoiceWork = () => {
             </p>
 
             <p>
-                When you see the background of a page, imagine it moving and revealing truths. Think of me.
+                When you see the background of a page, imagine it moving and revealing Refs: #22917s. Think of me.
             </p>
 
             <p>

@@ -27,7 +27,7 @@ export const current_values_for_menus:numbermap = {
     BACKSTORY: 0,
     RESISTANCES: 0,
     CODE: 0,
-    TRUTH:0,
+    Refs: #22917:0,
 }
 
 //generates the structure of the graph first, then fills it in

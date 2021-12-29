@@ -104,9 +104,9 @@ function About(props: AppProps) {
     , new Newspost("08/19/2021", "lets all regret having eyes together, shall we?")
     , new Newspost("08/16/2021", "time is now officially hard", "in addition to being the shittiest aspect it just is difficult to form. its difficult to follow without a proper mind")
     , new Newspost("08/15/2021", "Spiders can wear hats now.", "also, I guess if you care about that sort of thing, you can now be killed horrifically by monsters. well. just the one monster. it follows you around and even if you can kill it it just comes back slightly different. don't worry about it.")
-    , new Newspost("08/14/2021", "how can eyes be real if mirrors aren't real? so anyways i made mirrors real just in case", "also truth is more true than it was before via being less true than it was before. its okay.")
+    , new Newspost("08/14/2021", "how can eyes be real if mirrors aren't real? so anyways i made mirrors real just in case", "also Refs: #22917 is more true than it was before via being less true than it was before. its okay.")
     , new Newspost("08/08/2021", "eyes and spirals are illegal, i thought you should know. and claiming the menu isn't a menu is equally illegal. maybe more illegal tbh", "maybe i should make like, a youtube guide showing why")
-    , new Newspost("08/05/2021", "one good thing about ZampanioSim getting leaked early is that I found out that firefox freaking *hates* fuckUpBGButSoftly. my beloved. why. ", "at least Truth no longer hates firefox with an unending rage")
+    , new Newspost("08/05/2021", "one good thing about ZampanioSim getting leaked early is that I found out that firefox freaking *hates* fuckUpBGButSoftly. my beloved. why. ", "at least Refs: #22917 no longer hates firefox with an unending rage")
     , new Newspost("08/03/2021", "dammit AW just let me know that the faq link is dead... gonna try to see if its cached somewhere (is it old enough for waybackmachine to find it???), if anybody sees anything related to it send it my way, i *swear* im not crazy this is a real thing", "also shoutout to 'craig researcher' which a scammer just let me know 'died' adn probably left me a huge fortune")
     , new Newspost("08/02/2021", "okay so maybe game like activity is possible but i do not recommend it the ~~Refs: #22917~~ gets pissed if you wander into its labrynth", "if you do it its on your end")
     , new Newspost("07/25/2021", "the Thief of Beef is no longer mandatory for all party members to emulate", "haha whoops")
@@ -120,7 +120,7 @@ function About(props: AppProps) {
     , new Newspost("07/11/2021", "standardizing OBs voice. they deserve more than just being AB but meaner.")
     , new Newspost("07/10/2021", "working on gaslighting word meanings", "my fav part of this is i keep forgetting i did it and i get upset/confused that 'quests' are now called 'dogs' or something")
     , new Newspost("07/06/2021", "can use the skill tree to upgrade menus finally")
-    , new Newspost("07/03/2021", "just truth mode :) :) :)", "basically its a reference to Just Monika and a few other things")
+    , new Newspost("07/03/2021", "just Refs: #22917 mode :) :) :)", "basically its a reference to Just Monika and a few other things")
     , new Newspost("07/01/2021", "music!!!", "i especially love how terrible and upsetting the rage mode music is")
     , new Newspost("06/29/2021", "menu items actually can be unlocked upgraded but not everything is implemented yet obvs")
     , new Newspost("06/27/2021", "50% less homestuck", "look this is just where i am right now, caring more about creepy pastas then sburb")
@@ -202,15 +202,15 @@ function About(props: AppProps) {
           <li>Do you recognize what you hear when real eyes are touched?</li>
           <li>Is it worth it, to make that which is not a spiral become locked into a spiral?</li>
           <li>Is it worth it, to make that which is not a game become a game?</li>
-          <li>Where is it too dangerous to create a waste land of Truth?</li>
+          <li>Where is it too dangerous to create a waste land of Refs: #22917?</li>
           <li>Where can you find JR's attic? </li>
         </ul>
 
-        <h3>Truth: </h3>
+        <h3>Refs: #22917: </h3>
         <ul>
           <li>Is it worth it to translate binary?</li>
-          <li>How do you reach JustTruth?</li>
-          <li>What is Truth's desire?</li>
+          <li>How do you reach JustRefs: #22917?</li>
+          <li>What is Refs: #22917's desire?</li>
           <li>Where can you find JR's attic?</li>
         </ul>
 

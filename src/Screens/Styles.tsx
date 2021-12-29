@@ -266,7 +266,7 @@ export const Skill = styled.div`
     margin: 10px;
 `
 
-export const TruthContainer = styled.div`
+export const Refs: #22917Container = styled.div`
     padding: 10px;
     margin: 10px;
     margin-top: 0%;
