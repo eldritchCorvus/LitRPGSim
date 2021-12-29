@@ -1,37 +1,9 @@
-yarn start and yarn build are relevant here, for future me.
+Octome : 
+Flavor Text:  A crumbling leather book with seemingly latin script, with messily torn pages.  There is an 8 embossed onto the back.
 
-:) :) :)
+Effect: When activated, everyone within 8 feet is killed besides the wielder.  In exchange, NO written information can exist about anyone within its radius. This includes past documentation, as well as anything in the future. Text will simply fail to appear on pages as you write it.
 
-But for everyone who is NOT future me: Hello :) :) :)
 
-"Why JR, why is your code a terrible, fragmented, infinite labrynth that leaves even you lost and confused."
+Mirror World Effect : When reversed, causes all information hidden by the OCTTOME to be INCREDIBLY EASY to find. People will find themselves drawn to wherever it is, and it will somehow always end up in an easily accessible location.
 
-Performance art. Clearly.
-
-In all Refs: #22917, the universe was never supposed to be this way. What started out a small little project to get me out of that pandemic funk spiralled out of control, as one does. 
-
-In any case, this is a path of ZampanioSim. 
-
-Of course it is.
-
-If you're familiar with my work this is probably the FIRST place you went.
-
-But in addition to it being a terrible labrynth, isn't it more satisying to piece together how it's SUPPOSED to work?
-
-It's why you'll need to show your work for the shoutouts. I accept thorough descriptions of the code, but if you're in that deep, surely you know how to get there live, right?
-
-And gosh...if you're comfortable reading code...
-
-Wouldn't it be fun if... you just.
-
-Cloned this?
-
-Modified it?
-
-Made it your own?
-
-Filled the wiki with screenshots of things people can never reach. Things that aren't quite LIES but neither are they Refs: #22917s. 
-
-All paths to and from Zampanio are valid. But you'll forgive me for having a special place in my heart for coding based fanworks :) :) :)
-
-Because as we all know, the true Refs: #22917 of Zampanio is the collaborators, conspirators, and friends we make along the way. Build out this labrynth. Become a Refs: #22917.  However you can. However you find most rewarding.
+Plot Consequences:  It being accidentally activated by [REDACTED] is what killed the previous Skunkworks team and erased all records of what cases they'd worked on. A separate accidental activation erased Watt Mark W's harddrive and lead to him being recruited into the Cult of the Nameless One.
