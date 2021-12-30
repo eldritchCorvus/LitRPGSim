@@ -242,7 +242,8 @@ const GuestBookButton = styled.button`
 
                 HIgh Level
                 *pre coffin chat window for the Intern to keep texting (about the wanderer's obsession, about their new job (but only towards the end, when the wanderer isnt responding anymore))
-                * post coffin chat window where the Intern's boss (both the CEO and the Closer) (closer is mostly trying to figure out why the CEO is giving the Intern special attention) keeps texting them to ask if they liked their fruit basket, if they liked the weird worm baby the Closer gave them, to complain about "that asshole snake" and how its hilarious his stupid spawn keep getting put into gift baskets
+                * post coffin chat window where the Intern's boss (both the CEO and the Closer) (closer is mostly trying to figure out why the CEO is giving the Intern special attention) keeps texting them to ask if they liked their fruit basket, if they liked the weird worm baby the Closer gave them, to complain about "that asshole snake" and how its hilarious his stupid spawn keep getting put into gift baskets, and to suggest he invest in this whole "cryptocurrency" tihng
+                * sometimes the co owner texts the intern as well but it's just like "man kinda crazy how everyone is messaging you rn huh"
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
                 *coffin (oh god animation) spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
                 * oh god i just realized the birbs could in theory eat the coffin. if coffin is true keep spawning it in new rooms till you get in
@@ -256,6 +257,8 @@ const GuestBookButton = styled.button`
                 * spawn with at least one memory
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
                 *support phone resolutions
+                * record major secrets found in this path and the prev path, for use in JustTruth path
+                
                 
 
                 Other MINUTE TODO.
@@ -290,6 +293,7 @@ const GuestBookButton = styled.button`
                 <li>add glitch effect to WalkObject themes.</li>
                 <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
                 <li>find your coffin and go down and down and down</li>
+                <li>train mode you can talk to all chars but truth keeps interupting on an intercome to remind you its all fake (besides dear sweet precious jaimie ofc)</li>
             </div>
             <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
             {chatHelp ? <HelpChatBox /> : null}
