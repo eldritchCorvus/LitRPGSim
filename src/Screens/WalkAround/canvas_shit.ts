@@ -1,6 +1,7 @@
 import { loadSecretImage } from "../..";
 import { Theme } from "../../Modules/Theme";
 import { HUNTING, KILLING, WALLBACKGROUND } from "../../Modules/ThemeStorage";
+import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import SeededRandom from "../../Utils/SeededRandom";
 import { addImageProcess } from "../../Utils/URLUtils";
 
@@ -215,8 +216,10 @@ export const spawnWallObjects = async (layer: number, key: string, folder: strin
             current_x += 50;
         }
     }
-    if (layer === 1) {
-        ret.push({ layer: layer, src: `Walkabout/Objects/${folder}/closed_vent.png`, themeKeys: [HUNTING], x: 50, y: 90, width: 30, height: 22, flavorText: "TheCloser/closer-watt" })
+    //vents are rare and what is inside them is true random, because the Eye Killer is moving around in there
+    if (layer === 1 && seededRandom.nextDouble()>.9) {
+        const files = ["TheCloser/closer-alt","TheCloser/closer-watt","TheCloser/closer-tyrfing","TheCloser/closer-hunt","TheCloser/closer-flowerchick"];
+        ret.push({ layer: layer, src: `Walkabout/Objects/${folder}/closed_vent.png`, themeKeys: [HUNTING], x: 50, y: 90, width: 30, height: 22, flavorText: pickFrom(files) })
     }
     return ret;
 }

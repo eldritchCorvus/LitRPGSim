@@ -234,10 +234,9 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
-                *the next thing i need to do is if i detect "TheCloser" in a flavor text, to open up a popup with the text from the .txt file and playing the audio from the .mp3
-                * special flavor text is trigger for loading up specific audio file + text file + animation of vent opening
-                * vents show up 10% of rooms
-                * pick a random file UNLESS you are in the coffin room
+                *coffin room with special vent and animated coffin
+                OR  
+                *corporate spyware looking at all the interns chat windows.
 
                 
 

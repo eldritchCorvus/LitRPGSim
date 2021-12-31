@@ -36,7 +36,9 @@ export const Popup = styled.div`
     background: #d1b056;
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 `
-
+interface TapeProps {
+    inverted: boolean;
+}
 export const TapePopup = styled.div`
     border: 2px solid black;
     z-index: 5;
@@ -45,14 +47,14 @@ export const TapePopup = styled.div`
     position: absolute;
     top: 0%;
     left: 0%;
-    color: #b72a21;
+    color: ${(props: TapeProps) => props.inverted?"#f8fafa":"#b72a21" };
     padding-left: 13px;
     font-family: 'Courier New', monospace;
     font-weight: bold;
     padding-right: 13px;
     width: 470px;
     margin: 10px;
-    background: #f8fafa;
+    background: ${(props: TapeProps) => props.inverted?"#b72a21":"#f8fafa" };
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 `
 
@@ -192,9 +194,12 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
 
     //do you think she knew she was being recorded???
     const processTape = (location: string) => {
-        const text = loadCloserText(location);
-        setTapeFlavorText(`Click To Close: \n${text}`);
-        ventPlayer.current = playVoice(`${location}.mp3`);
+        //please don't try to play if you're already playing, in an endless echoing chorus of fear
+        if(!ventPlayer.current || ventPlayer.current.paused){
+            const text = loadCloserText(location);
+            setTapeFlavorText(`You find a tape player in the vent!!!<br><br><B>Click To Close</b>: \n${text}`);
+            ventPlayer.current = playVoice(`${location}.mp3`);
+        }
     }
 
 
@@ -253,6 +258,8 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
 
 
         if (nearDoor) {
+            setTapeFlavorText(undefined);
+            ventPlayer.current?.pause();
             doorEffect();
         }
 
@@ -387,7 +394,7 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
     return (
         <Fragment>
             <Score># of Memories: {memoryCount} out of {totalPossibleMemories}</Score>
-            {tapeFlavorText ? <TapePopup onClick={() => { setTapeFlavorText(undefined) }}>{(tapeFlavorText)}</TapePopup> : null}
+            {tapeFlavorText ? <TapePopup inverted={tapeFlavorText.includes("Dear diary")} onClick={() => { setTapeFlavorText(undefined) }} dangerouslySetInnerHTML={{__html:tapeFlavorText}}></TapePopup> : null}
             <Container leftSpawn={playerLocation.left} topSpawn={playerLocation.top}>
                 {flavorText ? <Popup>{ponderFlavorText(flavorText)}</Popup> : null}
                 <Player src={real_eye} id="player" />
