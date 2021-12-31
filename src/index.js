@@ -54,6 +54,14 @@ export function playSecretCloser(player,location){
   player.play();
 }
 
+export function playVoice(location){
+  const v = new Audio(voice);//exported so the closer can use this
+
+  v.src = require(`./Voice/${location}`).default
+  v.play();
+  return v;
+}
+
 export function loadSecretImage(location){
   return require(`./images/${location}`).default
 }
@@ -61,6 +69,11 @@ export function loadSecretImage(location){
 //the text should be a javascript file exporting const text.
 export function loadSecretText(location){
   return require(`./images/${location}`).text
+}
+
+//the text should be a javascript file exporting const text.
+export function loadCloserText(location){
+  return require(`./Voice/${location}`).text
 }
 
  export function rageModeSong(){

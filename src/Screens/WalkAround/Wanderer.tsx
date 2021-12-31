@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { pointWithinBoundingBox, redrawForeground, RenderedItem, withinX } from "./canvas_shit";
 import real_eye from './../../images/wanda.png';
-import { doorEffect } from '../..';
+import { doorEffect, loadCloserText, playVoice } from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey, valueAsArray } from "../../Utils/LocalStorageUtils";
@@ -34,6 +34,25 @@ export const Popup = styled.div`
     padding-right: 13px;
     margin: 10px;
     background: #d1b056;
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+`
+
+export const TapePopup = styled.div`
+    border: 2px solid black;
+    z-index: 5;
+    border-radius: 13px;
+    padding: 5px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: #b72a21;
+    padding-left: 13px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    padding-right: 13px;
+    width: 470px;
+    margin: 10px;
+    background: #f8fafa;
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
 `
 
@@ -74,7 +93,10 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
 
     const [spawnPoint, setSpawnPoint] = useState({ left: 250, top: 450 });
     const [flavorText, setFlavorText] = useState<string | undefined>();
+    const [tapeFlavorText, setTapeFlavorText] = useState<string | undefined>();
+
     const [memoryCount, setMemoryCount] = useState(valueAsArray(MEMORY_KEY).length);
+    const ventPlayer = useRef<HTMLAudioElement>();
 
     const [playerLocation, setPlayerLocation] = useState(spawnPoint);
 
@@ -82,7 +104,7 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
     const themeKeys = [MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, ADDICTION];
 
     const totalPossibleMemories = useMemo(() => {
-        let ret:string[] = [];
+        let ret: string[] = [];
         /*
             in theme storage, grab floor_foregrounds and wall_foregrounds
             grab all flavor text for each key, iff unique
@@ -91,24 +113,24 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
         */
         const floor_keys = Object.keys(floor_foregrounds);
         const wall_keys = Object.keys(wall_foregrounds);
-        for(let key of floor_keys){
-            for(let item of floor_foregrounds[key]){
-                if(!ret.includes(item.desc)){
+        for (let key of floor_keys) {
+            for (let item of floor_foregrounds[key]) {
+                if (!ret.includes(item.desc)) {
                     ret.push(item.desc);
                 }
             }
         }
 
-        for(let key of wall_keys){
-            for(let item of wall_foregrounds[key]){
-                if(!ret.includes(item.desc)){
+        for (let key of wall_keys) {
+            for (let item of wall_foregrounds[key]) {
+                if (!ret.includes(item.desc)) {
                     ret.push(item.desc);
                 }
             }
         }
 
         return ret.length;
-    },[]);
+    }, []);
 
     useEffect(() => {
         setPlayerLocation({ top: spawnPoint.top, left: spawnPoint.left })
@@ -168,6 +190,13 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
         wandaTakeMemoryRef.current = takeMemoryFromWanderer;
     }, [takeMemoryFromWanderer]);
 
+    //do you think she knew she was being recorded???
+    const processTape = (location: string) => {
+        const text = loadCloserText(location);
+        setTapeFlavorText(`Click To Close: \n${text}`);
+        ventPlayer.current = playVoice(`${location}.mp3`);
+    }
+
 
     //unlike doors, items are not in set locations, check the items ref
     const checkForItems = (top: number, left: number) => {
@@ -180,7 +209,11 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
             const nearAccessibleItem = pointWithinBoundingBox(left, top, item.x, item.y, item.width, item.height);
             const nearWallItem = top < 140 && withinX(left, item.x, item.width);
             if ((item.layer === 1 || item.layer === -1) && item.name !== "Wanderer" && (nearAccessibleItem || nearWallItem)) {
-                //console.log("JR NOTE: i am near an item ", item.flavorText);
+                if (item.flavorText?.includes("TheCloser")) {
+                    return processTape(item.flavorText);
+                }
+                console.log("JR NOTE: its not the closer", item.name)
+
                 if (item.layer === 1) { //don't remember the birbs plz
                     addMemoryToWanderer(item.flavorText);
                 }
@@ -264,6 +297,13 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
 
     }, [flavorText])
 
+    useEffect(() => {
+        if (!tapeFlavorText && ventPlayer.current) {
+            ventPlayer.current.pause();
+        }
+
+    }, [tapeFlavorText, ventPlayer])
+
     const processWalk = (key: string) => {
         const minTop = 500 - 350 - 30;
         const maxTop = 500 - 30;
@@ -337,8 +377,8 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
 
     }, [canvasRef]);
 
-    const ponderFlavorText = (text: string)=>{
-        if(isMemorySacrificedByWanderer(text)){
+    const ponderFlavorText = (text: string) => {
+        if (isMemorySacrificedByWanderer(text)) {
             return `You...THINK you remember: ${text}.`;
         }
         return text;
@@ -347,6 +387,7 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
     return (
         <Fragment>
             <Score># of Memories: {memoryCount} out of {totalPossibleMemories}</Score>
+            {tapeFlavorText ? <TapePopup onClick={() => { setTapeFlavorText(undefined) }}>{(tapeFlavorText)}</TapePopup> : null}
             <Container leftSpawn={playerLocation.left} topSpawn={playerLocation.top}>
                 {flavorText ? <Popup>{ponderFlavorText(flavorText)}</Popup> : null}
                 <Player src={real_eye} id="player" />
