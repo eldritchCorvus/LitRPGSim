@@ -1,11 +1,10 @@
 import styled from "@emotion/styled"
 import { FormEvent, useEffect, useRef, useState } from "react"
-import { getRandomNumberBetween } from "../../../Utils/NonSeededRandUtils"
-import { PlayerResponse } from "../../Attic/PlayerResponse"
+import { getRandomNumberBetween } from "../../../../Utils/NonSeededRandUtils"
+import { PlayerResponse } from "../../../Attic/PlayerResponse"
 import { CURRENT_EXTENSION, CURRENT_NAME, CURRENT_TITLE, HelloWorld, initial_directory, NEXT_EXTENSION, NEXT_TITLE, randomSpecialist } from "./BranchStorage"
-import { CustomerServiceRamble } from "../CustomerServiceRamble"
-import { CustomerSupportSpecialist } from "../CustomerSupportSpecialist"
-import { beepEffect, clickEffect } from "../../.."
+import { CustomerSupportSpecialist } from "../../CustomerSupportSpecialist"
+import { beepEffect } from "../../../.."
 
 export const HelpChatBox = () => {
 

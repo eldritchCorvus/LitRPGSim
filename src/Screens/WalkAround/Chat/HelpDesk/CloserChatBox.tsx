@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
 import { useEffect, useRef, useState } from "react"
-import { getRandomNumberBetween } from "../../../Utils/NonSeededRandUtils"
+import { getRandomNumberBetween } from "../../../../Utils/NonSeededRandUtils"
 import { TheCloser } from "./BranchStorage"
-import { CustomerSupportSpecialist } from "../CustomerSupportSpecialist"
-import { playSecretCloser, voiceAudio } from "../../.."
+import { CustomerSupportSpecialist } from "../../CustomerSupportSpecialist"
+import { playSecretCloser, voiceAudio } from "../../../.."
 /*
 Yes, I voice the Closer. This does NOT mean the Closer is JR. 
 

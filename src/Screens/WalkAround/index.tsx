@@ -3,22 +3,17 @@ import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
 import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
-import help_icon from './../..//images/Walkabout/icons8-chat-64.png';
-import x_icon from './../..//images/Walkabout/icons8-x-50.png';
 
-import { HelpChatBox } from './Chat/HelpChatBox';
-import { playHelpDeskMusic, playAmbientMazeMusicMadness, doorEffect } from '../..';
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
 import { getParameterByName } from '../../Utils/URLUtils';
 import { RenderedItem } from './canvas_shit';
-import { removeItemOnce } from '../../Utils/ArrayUtils';
-import { addStringToArrayWithKey, isStringInArrayWithKey, removeStringFromArrayWithKey } from '../../Utils/LocalStorageUtils';
 import { Wanderer } from './Wanderer';
 import { GuestBook } from "./GuestBook";
 import { Quotidian } from "./Quotidian";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
-import { CloserChatBox } from "./Chat/CloserChatBox";
+import { HelpDesk } from "./Chat/HelpDesk";
+import { TBDChat } from "./Chat/TBD";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -27,20 +22,6 @@ export const QUOTIDIAN_KEY = "QUOTIDIAN_HOARD";
 
 export const WalkAround = () => {
 
-    const HelpIcon = styled.button`
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    color: white;
-    text-decoration: none;
-    background-color: #1f3f87;
-    border-radius: 25px;
-    font-size: 28px;
-    line-height: 33px;
-    padding-left: 20px;
-    padding-right: 20px;
-    cursor: pointer;
-`
 
 const GuestBookButton = styled.button`
     position: fixed;
@@ -73,10 +54,7 @@ const GuestBookButton = styled.button`
         height: 500px;
     `;
 
-    const IconImage = styled.img`
-    height: 33px;
-    width: 33px;
-    `
+
 
 
     //number of themes/2 is how many doors to have.
@@ -85,8 +63,7 @@ const GuestBookButton = styled.button`
     const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [chatHelp, setChatHelp] = useState(false);
-    const [closerHelp, setCloserHelp] = useState(false);
+
 
      const validKeys = ()=>{
         for(let themeKey of themeKeys){
@@ -170,13 +147,7 @@ const GuestBookButton = styled.button`
     }, [themeKeys]);
 
 
-    useEffect(() => {
-        if (chatHelp) {
-            playHelpDeskMusic();
-        } else {
-            playAmbientMazeMusicMadness();
-        }
-    }, [chatHelp])
+
 
     const makeChild = (tmpRand: SeededRandom) => {
         setFlavorText(undefined);
@@ -201,20 +172,7 @@ const GuestBookButton = styled.button`
     const bgCanvasRef = useRef<HTMLCanvasElement>(null);
     const baseCanvasRef = useRef<HTMLCanvasElement>(null);
 
-    useEffect(() => {
-        if(chatHelp === true){
-            console.log("JR NOTE: setting timeout");
-            const deployTheCloser = ()=>{
-                console.log("JR NOTE: deploying the closer");
-                setCloserHelp(true);
-            }
-            const timeoutId = setTimeout(deployTheCloser, 10*1000*60);
-            return () => {
-              clearTimeout(timeoutId);
-            };
-        }
 
-      },[chatHelp]);
 
     //what's this? have I found a Waste?
     if(!validKeys()){
@@ -234,9 +192,15 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
+                * on the bottom right of the screen, a non rounded rectangle "minimized chat" window.   (style it to look like AIM or some shit?) 
+                * when you click it, chat window that has same dimensions as the help desk, style it like AIM
+                * chat is between odinsRazor and TBD
+                * chat loaded from text/js files, there should be two sources, one for "pre coffin" and one for "post"
+
+
                 *coffin room with special vent and animated coffin
                 OR  
-                *corporate spyware looking at all the interns chat windows.
+                *omni time corporate spyware looking at all the interns chat windows.
 
                 
 
@@ -259,7 +223,7 @@ const GuestBookButton = styled.button`
                 * spawn with at least one memory
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
                 *support phone resolutions
-                * record major secrets found in this path and the prev path, for use in JustTruth path
+                * record major secrets found in this path and the prev path, for use in JustTruth path. closer window. vent tapes. coffin.
                 
                 
 
@@ -297,9 +261,10 @@ const GuestBookButton = styled.button`
                 <li>find your coffin and go down and down and down</li>
                 <li>train mode you can talk to all chars but truth keeps interupting on an intercome to remind you its all fake (besides dear sweet precious jaimie ofc)</li>
             </div>
-            <HelpIcon onClick={() => setChatHelp(!chatHelp)}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}>Help</div>{chatHelp ? <IconImage src={x_icon}></IconImage> : <IconImage src={help_icon}></IconImage>}</HelpIcon>
-            {chatHelp ? <HelpChatBox /> : null}
-            {closerHelp ? <CloserChatBox close={()=>{setCloserHelp(false)}} /> : null}
+            <HelpDesk/>
+            <TBDChat/>
+
+
 
         </Fragment>
 
