@@ -13,27 +13,29 @@ export const TBDChatBox = () => {
         color: white;
         text-decoration: none;
         border-radius: 2px;
+        border: 5px solid #1f3f87;
         box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .4);
     `
 
     const ChatHeader = styled.div`
-        height: 50px;
+        height: 33px;
         color: white;
         background-color: #1f3f87;
         font-size: 14px;
-        padding: 20px;
-        p{
-            margin-left: 15px;
-        }
+        padding-left: 20px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 26px;
     `
 
     const ChatBody = styled.div`
         color: #1f3f87;
         background-color: #f8fafa;
         width: 100%;
-        height: 100%;
-        p{
+        height: 222px;
+        div{
             margin-left: 15px;
+            padding-top: 15px;
         }
     `
 
@@ -99,11 +101,20 @@ export const TBDChatBox = () => {
         <ChatContainer>
 
             <ChatHeader>
-                <p>The start of the chat between odinsRazor and theBestDude72</p>
-
+                theBestDude72 -- Instant Messaging
             </ChatHeader>
             <ChatBody>
-                <div>TODO</div>
+                <div>TODO:
+                    <li>x button (just minimizes it)</li>
+                    <li>blue border around whole thing</li>
+                    <li>grey background</li>
+                    <li>nowhere to add text</li>
+                    <li>when run out of new chats, coffin</li>
+                    <li>after coffin,it switches to a new source for  texts</li>
+                    <li></li>
+                    <li></li>
+
+                </div>
             </ChatBody>
 
         </ChatContainer>

@@ -192,9 +192,7 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
-                * on the bottom right of the screen, a non rounded rectangle "minimized chat" window.   (style it to look like AIM or some shit?) 
-                * when you click it, chat window that has same dimensions as the help desk, style it like AIM
-                * chat is between odinsRazor and TBD
+                * chat has a date/time stamp at the top, then text that goes over time (like help desk)
                 * chat loaded from text/js files, there should be two sources, one for "pre coffin" and one for "post"
 
 
@@ -206,9 +204,9 @@ const GuestBookButton = styled.button`
 
 
                 HIgh Level
-                *corporate spyware.  You're the CEO looking at chat windows from the Interns perspective, with various partners (minimized unless new content but you can re-open them).  They can be messaged by, or send messages to The CEO, Wodin, The Closer, The CFO, Jepe Rilvia, Tom Peyote, The Manager, etc.
+                *corporate spyware. "Currently Viewing Employee #22917's chat history"  You're the CEO looking at chat windows from the Interns perspective, with various partners (minimized unless new content but you can re-open them).  They can be messaged by, or send messages to The CEO, Wodin, The Closer, The CFO, Jepe Rilvia, Tom Peyote, The Manager, etc.
                 *pre coffin chat window for the Intern to keep texting (about the wanderer's obsession, about their new job (but only towards the end, when the wanderer isnt responding anymore))
-                * post coffin chat window where the Intern's boss (both the CEO and the Closer) (closer is mostly trying to figure out why the CEO is giving the Intern special attention) keeps texting them to ask if they liked their fruit basket, if they liked the weird worm baby the Closer gave them, to complain about "that asshole snake" and how its hilarious his stupid spawn keep getting put into gift baskets, and to suggest he invest in this whole "cryptocurrency" tihng
+                * post coffin chat LOGS (not live) where the Intern's boss (both the CEO and the Closer) (closer is mostly trying to figure out why the CEO is giving the Intern special attention) keeps texting them to ask if they liked their fruit basket, if they liked the weird worm baby the Closer gave them, to complain about "that asshole snake" and how its hilarious his stupid spawn keep getting put into gift baskets, and to suggest he invest in this whole "cryptocurrency" tihng
                 * sometimes the co owner texts the intern as well but it's just like "man kinda crazy how everyone is messaging you rn huh"
                 * tape recorders in vents (deploying text content and audio content,playSecretCloser)
                 *coffin (oh god animation) spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
