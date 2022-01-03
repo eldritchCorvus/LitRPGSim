@@ -57,7 +57,7 @@ useEffect(() => {
     }
 
   },[newChat,grayIcon]);
-
+//flamingchickens
   return(
       <Fragment>
             <TBDChatIcon onClick={() => toggleChat()}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}><IconImage greyed={grayIcon} src={help_icon}/> theBestDude72 chat</div></TBDChatIcon>
