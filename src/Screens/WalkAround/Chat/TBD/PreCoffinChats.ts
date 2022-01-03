@@ -62,8 +62,7 @@ odinsRazor: OOH HEY YEAH IT’S AN ECHIDNA.
 odinsRazor: SORRY I SENT YOU BABY KNUCKLES.
 theBestDude72:  oh shit i knew it was an echidna
 theBestDude72: i win at terrifying baby mammals
-odinsRazor: I FEAR THAT YOU CAN TELL WHAT ANIMALS THEY ARE BASED ON THEIR WEIRD FLESHY FORMS.
-`});
+odinsRazor: I FEAR THAT YOU CAN TELL WHAT ANIMALS THEY ARE BASED ON THEIR WEIRD FLESHY FORMS.`});
 
 precoffinChats.push({timestamp: new Date(1994, 4, 1, 8, 43, 0), lines: `theBestDude72: dude
 theBestDude72: have you heard about the Eye Killer?
@@ -76,8 +75,7 @@ theBestDude72: but the NINTH
 theBestDude72: they're thinking the killer left a riddle behind?
 theBestDude72: some kind of spiral shape 
 theBestDude72: leading to severed eyes
-odinsRazor: OH INTERESTING
-`});
+odinsRazor: OH INTERESTING`});
 
 precoffinChats.push({timestamp: new Date(1994, 4, 9, 2, 15, 0), lines: `theBestDude72: dude where were you
 theBestDude72: i waited at the skating rink for like
@@ -88,8 +86,7 @@ odinsRazor: I LOST TRACK OF TIME
 theBestDude72: LOL
 theBestDude72: were you tracking down more info on our Killer?
 odinsRazor: YEAH
-odinsRazor: MY BAD
-`});
+odinsRazor: MY BAD`});
 
 precoffinChats.push({timestamp: new Date(1994, 4, 15, 10, 22, 0), lines: `theBestDude72: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
 theBestDude72: all hail the orb
@@ -106,8 +103,7 @@ odinsRazor: I DON'T KNOW
 odinsRazor: YET
 odinsRazor: BUT....
 odinsRazor: TIP OF THE TONGUE
-odinsRazor: I FEEL LIKE I should
-`});
+odinsRazor: I FEEL LIKE I should`});
 
 
 precoffinChats.push({timestamp: new Date(1994, 5, 2, 2, 1, 0), lines: `theBestDude72: dude
@@ -126,8 +122,7 @@ theBestDude72: is gonna be caught by some dude in Ohio with an internet connecti
 odinsRazor: WHATEVER
 odinsRazor: YOU'RE JUST JEALOUS BECAUSE I'M GOING TO GO DOWN IN HISTORY
 odinsRazor: JUST LIKE WHEN I SNAGGED A NON NUMBERED SCREENNAME
-theBestDude72: as if
-` })
+theBestDude72: as if` })
 
 precoffinChats.push({timestamp: new Date(1994, 5,6,14,35 ),lines: `theBestDude72: geez i thought id never get out of that test
 theBestDude72: what did you get for number 7?
@@ -154,8 +149,7 @@ theBestDude72: ...
 theBestDude72: what
 theBestDude72: sure. 
 theBestDude72: and the Zodiac Killer likes Mario.
-odinsRazor: I'M serious.
-`})
+odinsRazor: I'M serious.`})
 
 precoffinChats.push({timestamp: new Date(1994, 5,25,5,14 ),lines: `odinsRazor: NEW BODY DROPPED
 odinsRazor: THIS ONE HAS SO MANY IMPLICATIONS
@@ -194,8 +188,7 @@ theBestDude72: to make people go crazy
 theBestDude72: ...
 theBestDude72: sorry
 theBestDude72: wodin?
-theBestDude72: you there?
-`});
+theBestDude72: you there?`});
 
 precoffinChats.push({timestamp: new Date(1994, 6,15,12,14 ),lines: `theBestDude72: okay
 theBestDude72: i get it
@@ -212,6 +205,5 @@ theBestDude72: you've got to talk to me
 theBestDude72: ...
 theBestDude72: or even just...
 theBestDude72: make some noise next time i knock on your door
-theBestDude72: so i know you're okay?
-`})
+theBestDude72: so i know you're okay?`})
 
