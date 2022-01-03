@@ -1,14 +1,13 @@
 
-interface TBDChat{
+export interface TBDChatType{
     timestamp: Date;
     lines: string;
 
 }
 //https://odinsrazor.tumblr.com/  but the password has changed.
-export const chats:TBDChat[] = [];
+export const precoffinChats:TBDChatType[] = [];
 
-chats.push({timestamp: new Date(1994, 2, 22, 11, 13, 0), lines: `
-theBestDude72: baby non precocial birds are just so creepy though. like, feathers growing in is like little spikes in skin. so weird
+precoffinChats.push({timestamp: new Date(1994, 2, 22, 11, 13, 0), lines: `theBestDude72: baby non precocial birds are just so creepy though. like, feathers growing in is like little spikes in skin. so weird
 theBestDude72: i guess baby porcupines are probably creepy too
 odinsRazor: LEEEETS FIND OUT!
 odinsRazor: OH MY GOD WHAT
@@ -57,7 +56,7 @@ theBestDude72:  i refuse to believe that, where's its horror poison spurs
 theBestDude72: its tail thing
 theBestDude72: its EYES dammit
 odinsRazor: I COULD HAVE IT MIXED UP WITH YET ANOTHER HEDGEHOG NIGHTMARE CREATURE BUT IT’S JUST.
-odinsRazor: HAIL FLESH ÖRB.
+odinsRazor: HAIL FLESH 0R8.
 theBestDude72: you know, yes, i can imagine that flesh orb being a tiny god
 odinsRazor: OOH HEY YEAH IT’S AN ECHIDNA.
 odinsRazor: SORRY I SENT YOU BABY KNUCKLES.
@@ -66,8 +65,7 @@ theBestDude72: i win at terrifying baby mammals
 odinsRazor: I FEAR THAT YOU CAN TELL WHAT ANIMALS THEY ARE BASED ON THEIR WEIRD FLESHY FORMS.
 `});
 
-chats.push({timestamp: new Date(1994, 4, 1, 8, 43, 0), lines: `
-theBestDude72: dude
+precoffinChats.push({timestamp: new Date(1994, 4, 1, 8, 43, 0), lines: `theBestDude72: dude
 theBestDude72: have you heard about the Eye Killer?
 theBestDude72: sounds right up your ally
 odinsRazor: NO?
@@ -81,8 +79,7 @@ theBestDude72: leading to severed eyes
 odinsRazor: OH INTERESTING
 `});
 
-chats.push({timestamp: new Date(1994, 4, 9, 2, 15, 0), lines: `
-theBestDude72: dude where were you
+precoffinChats.push({timestamp: new Date(1994, 4, 9, 2, 15, 0), lines: `theBestDude72: dude where were you
 theBestDude72: i waited at the skating rink for like
 theBestDude72: an hour
 odinsRazor: SHIT
@@ -94,8 +91,7 @@ odinsRazor: YEAH
 odinsRazor: MY BAD
 `});
 
-chats.push({timestamp: new Date(1994, 4, 15, 10, 22, 0), lines: `
-theBestDude72: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
+precoffinChats.push({timestamp: new Date(1994, 4, 15, 10, 22, 0), lines: `theBestDude72: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
 theBestDude72: all hail the orb
 theBestDude72: ...
 theBestDude72: you there dude?
@@ -114,8 +110,7 @@ odinsRazor: I FEEL LIKE I should
 `});
 
 
-chats.push({timestamp: new Date(1994, 5, 2, 2, 1, 0), lines: `
-theBestDude72: dude
+precoffinChats.push({timestamp: new Date(1994, 5, 2, 2, 1, 0), lines: `theBestDude72: dude
 theBestDude72: wodin
 theBestDude72: i can see you're still active
 theBestDude72: go to sleep man
@@ -134,8 +129,7 @@ odinsRazor: JUST LIKE WHEN I SNAGGED A NON NUMBERED SCREENNAME
 theBestDude72: as if
 ` })
 
-chats.push({timestamp: new Date(1994, 5,6,14,35 ),lines: `
-theBestDude72: geez i thought id never get out of that test
+precoffinChats.push({timestamp: new Date(1994, 5,6,14,35 ),lines: `theBestDude72: geez i thought id never get out of that test
 theBestDude72: what did you get for number 7?
 theBestDude72: because i'm pretty sure that one had a typo in it
 theBestDude72: ...
@@ -163,8 +157,7 @@ theBestDude72: and the Zodiac Killer likes Mario.
 odinsRazor: I'M serious.
 `})
 
-chats.push({timestamp: new Date(1994, 5,25,5,14 ),lines: `
-odinsRazor: NEW BODY DROPPED
+precoffinChats.push({timestamp: new Date(1994, 5,25,5,14 ),lines: `odinsRazor: NEW BODY DROPPED
 odinsRazor: THIS ONE HAS SO MANY IMPLICATIONS
 odinsRazor: 'IT IS NOT WHAT IT IS'
 odinsRazor: SHOULD I REVERSE THE PREVIOUS CLUES?
@@ -204,8 +197,7 @@ theBestDude72: wodin?
 theBestDude72: you there?
 `});
 
-chats.push({timestamp: new Date(1994, 6,15,12,14 ),lines: `
-theBestDude72: okay
+precoffinChats.push({timestamp: new Date(1994, 6,15,12,14 ),lines: `theBestDude72: okay
 theBestDude72: i get it
 theBestDude72: i was out of line
 theBestDude72: i'm worried about you
