@@ -1,4 +1,4 @@
-git filter-branch --msg-filter 'sed "s/.*/JR NOTE: I am testing that information dissemenates correctly./g"' -f
+git filter-branch -f --msg-filter 'sed "s/.*/JR NOTE: I am testing that information dissemenates correctly./g"'
 git push --force-with-lease origin TresBottle
 
 Tres Bottle: 
