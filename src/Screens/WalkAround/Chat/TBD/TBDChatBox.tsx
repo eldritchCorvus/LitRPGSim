@@ -106,9 +106,8 @@ export const TBDChatBox = () => {
             <ChatBody>
                 <div>TODO:
                     <li>x button (just minimizes it)</li>
-                    <li>blue border around whole thing</li>
-                    <li>grey background</li>
-                    <li>nowhere to add text</li>
+                    <li>grab one chat</li>
+                    <li>grab two chats, confirm right order</li>
                     <li>when run out of new chats, coffin</li>
                     <li>after coffin,it switches to a new source for  texts</li>
                     <li></li>

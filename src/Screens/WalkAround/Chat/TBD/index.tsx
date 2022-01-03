@@ -58,6 +58,14 @@ useEffect(() => {
 
   },[newChat,grayIcon]);
 //flamingchickens
+//if you care about angelfire i mean
+//though if you go there you MAY as well search for donut in a corn outfit on youtube
+//and then you'll have one of two needed tokens, probably? maybe?
+//honestly the second token is easier to find
+//and funnier
+//what are the tokens for? smug points, probably
+//i don't know what yall do with your findings
+//write a story so i find out
   return(
       <Fragment>
             <TBDChatIcon onClick={() => toggleChat()}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}><IconImage greyed={grayIcon} src={help_icon}/> theBestDude72 chat</div></TBDChatIcon>
