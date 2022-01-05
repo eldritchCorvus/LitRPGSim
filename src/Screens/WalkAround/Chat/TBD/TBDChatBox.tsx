@@ -82,6 +82,7 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats, setNew
             <ChatBody ref={chatRef} >
                 <div>TODO:
                     <li>x button closes</li>
+                    <li>button is layered UNDER help desk window</li>
                     <li>when run out of new chats, coffin</li>
                     <li>after coffin,it switches to a new source for  texts</li>
                     <li></li>

@@ -73,6 +73,13 @@ export const JR = ()=>{
     return ramble;
 }
 
+export const JR2 = ()=>{
+    const initialRamble = "Oh right. Puzzles and shit.\nHonestly that's more for when we're still all agreeing to pretend its a game even tho its clearly not.\nTHIS is the branch where we force it to be a game even though we know its not and pretend thats good enough!!!\nThat the passive aggressive 'fuck you' the newly mutated game gives you is sufficient gameplay.\nANYWAYS I do think its important to help you out, though.\nSo.\nIf you find yourself wanting to regain access to an old friends blog.\nThe password might be THEIR old friend's user name.\nBut done in their quirk.";
+    const ramble = new CustomerServiceRamble(initialRamble, []);
+
+    return ramble;
+}
+
 export const Lost = ()=>{
     const initialRamble = "I'm sorry; I am unable to complete your call as dialed. Please check the number and dial again, or call your operator at exension 0 to help you.";
     const ramble = new CustomerServiceRamble(initialRamble, []);
@@ -293,4 +300,10 @@ export const randomSpecialist = (frustration_level:number)=>{
     const name =`${ pickFrom(first_names) } ${pickFrom(last_names) } `;
     return new CustomerSupportSpecialist(name, `${getRandomNumberBetween(2,999)}`, GenericSupport(frustration_level));
 }
-export const initial_directory ={"operator": new CustomerSupportSpecialist("Quotidian Quorum InfoBroker System","quick start",QQ()),"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Quotidian Quorom InfoBroker System","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost()),13: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar()),4631: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar())};
+//oh hey, if you've found these secrets, maybe you can help people less comfortable with code find them?
+//leave them hints in places
+//maybe screenshots in the wiki of words inside the help desk (since most people assume you can only put numbers in)
+//to make them realize how to proceed even if they aren't sufficiently wasted
+//in essence: would you like to make your own branch of zampanio?
+//its hard weaving puzzles into things, (either hints are too easy or too hard) which is why we should all practice while having fun
+export const initial_directory ={"operator": new CustomerSupportSpecialist("Quotidian Quorum InfoBroker System","quick start",QQ()),"the truth is layered": new CustomerSupportSpecialist("Justified Recursion","the truth is layered",JR2()),"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Quotidian Quorom InfoBroker System","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost()),13: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar()),4631: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar())};

@@ -131,8 +131,7 @@ theBestDude72: you think the Eye Killer is playing children's card games with th
 odinsRazor: OR MAYBE ITS MORE CLUES
 odinsRazor: I DON'T THINK THE COPS KNOW WHAT GAME IT WAS THOUGH
 odinsRazor: ITS REALLY BOTHERING ME
-odinsRazor: SOMETHING ABOUT THIS FEELS SO FAMILIAR
-` })
+odinsRazor: SOMETHING ABOUT THIS FEELS SO FAMILIAR` })
 
 precoffinChats.push({timestamp: new Date(1994, 4,6,14,35 ),lines: `theBestDude72: geez i thought id never get out of that test
 theBestDude72: what did you get for number 7?
@@ -167,8 +166,7 @@ odinsRazor: YOU'RE JUST JEALOUS BECAUSE I'M GOING TO GO DOWN IN HISTORY
 odinsRazor: JUST LIKE WHEN I SNAGGED A NON NUMBERED SCREENNAME
 theBestDude72: as if.
 odinsRazor: IM GOING TO MAKE A ZAMPANIO DECK
-odinsRazor: JUST IN CASE
-`})
+odinsRazor: JUST IN CASE`})
 
 precoffinChats.push({timestamp: new Date(1994, 4,25,5,14 ),lines: `odinsRazor: NEW BODY DROPPED
 odinsRazor: THIS ONE HAS SO MANY IMPLICATIONS
