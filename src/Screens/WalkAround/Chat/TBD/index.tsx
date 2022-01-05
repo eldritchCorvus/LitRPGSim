@@ -34,20 +34,21 @@ const IconImage = styled.img`
 
 const [chatOpen, setChatOpen] = useState(false);
 const [allChats, setAllChats] = useState([precoffinChats[0]])
+const [unseenChat, setUnseenChat] = useState(true);
+
 const [newChat, setNewChat] = useState<TBDChatType|undefined>(precoffinChats[1]);
 const [grayIcon, setGrayIcon] = useState(true);
 
 const toggleChat = ()=>{
     if(!chatOpen){
-        setNewChat(undefined);
+        setUnseenChat(false);
         setGrayIcon(false);
     }
-    setChatOpen(!chatOpen);
-    
+    setChatOpen(!chatOpen);   
 }
 
 useEffect(() => {
-    if(newChat){
+    if(unseenChat){
         const flash = ()=>{
             console.log("JR NOTE: flash")
            setGrayIcon(!grayIcon)
@@ -58,7 +59,7 @@ useEffect(() => {
         };
     }
 
-  },[newChat,grayIcon]);
+  },[unseenChat,grayIcon]);
 //flamingchickens
 //if you care about angelfire i mean
 //and then you'll have one of two needed tokens, probably? maybe?

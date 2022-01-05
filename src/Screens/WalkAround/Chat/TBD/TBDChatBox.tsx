@@ -1,48 +1,19 @@
 import styled from "@emotion/styled"
 import { builtinModules } from "module"
-import { Fragment } from "react"
+import { Fragment, useRef } from "react"
 import { beepEffect } from "../../../.."
+import { CurrentChatSection } from "./CurrentChatSection"
 import { TBDChatType } from "./PreCoffinChats"
+import { ProcessedChatLine } from "./TBDChatLine"
 
 interface TBDChatBoxType {
     newChat: TBDChatType | undefined;
     allChats: TBDChatType[];
 }
 
-interface TBDChatLineType {
-    line: string;
-}
 
-const ProcessedChatLine: React.FC<TBDChatLineType> = ({line}) => {
-    const OdinsRazor = styled.span`
-        color: red;
-    `
-
-    const TheBestDude = styled.span`
-        color: blue;
-    `
-
-    const ChatLine = styled.div`
-        font-weight: bolder;
-        width: 90%;
-        line-height: 20px;
-    `   
-
-    const TextContent = styled.span`
-        color: black;
-    `
-    const parts = line.split(":");
-    const username = parts[0];
-    parts.shift();
-    const text = parts.join(":");
-    return (
-        <ChatLine>
-            {username !== "odinsRazor"? <TheBestDude>{username}</TheBestDude>:<OdinsRazor>{username}</OdinsRazor>}
-            <TextContent>:{text}</TextContent>
-        </ChatLine>
-    )
-}
 export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats }) => {
+    const chatRef = useRef<HTMLDivElement>(null);
 
     const ChatContainer = styled.div`
         position: fixed;
@@ -94,23 +65,25 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats }) => {
         color: grey;
         font-weight: lighter;
         font-style: italic;
+        text-align: center;
     `
     //for new Chat, do it line by line until it finishes. 
     //once it finishes, add it to all chats 
+    console.log("JR NOTE: newChat is", newChat)
+    
     return (
         <ChatContainer>
 
             <ChatHeader>
                 theBestDude72 -- Instant Messaging
             </ChatHeader>
-            <ChatBody>
+            <ChatBody ref={chatRef} >
                 <div>TODO:
-                    <li>x button (just minimizes it)</li>
                     <li>new chat should display live on the very bottom</li>
                     <li>when its done displaying, add to all chats</li>
+                    <li>x button closes</li>
                     <li>when run out of new chats, coffin</li>
                     <li>after coffin,it switches to a new source for  texts</li>
-                    <li></li>
                     <li></li>
                     {allChats.map((chat) => {
                         return (
@@ -126,6 +99,7 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats }) => {
                             </Fragment>
                         )
                     })}
+                    {newChat?<CurrentChatSection chatRef={chatRef} newChat={newChat}/>:null}
 
                 </div>
             </ChatBody>

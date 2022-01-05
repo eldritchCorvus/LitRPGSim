@@ -192,6 +192,7 @@ const GuestBookButton = styled.button`
             <div>TODO:
 
                 Five Minute TODO:
+                *
                 * chat has a date/time stamp at the top, then text that goes over time (like help desk)
                 * chat loaded from text/js files, there should be two sources, one for "pre coffin" and one for "post"
 
