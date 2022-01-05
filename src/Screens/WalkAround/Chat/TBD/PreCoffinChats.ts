@@ -7,7 +7,7 @@ export interface TBDChatType{
 //https://odinsrazor.tumblr.com/  but the password has changed.
 export const precoffinChats:TBDChatType[] = [];
 
-precoffinChats.push({timestamp: new Date(1994, 2, 22, 11, 13, 0), lines: `theBestDude72: baby non precocial birds are just so creepy though. like, feathers growing in is like little spikes in skin. so weird
+precoffinChats.push({timestamp: new Date(1994, 1, 22, 11, 13, 0), lines: `theBestDude72: baby non precocial birds are just so creepy though. like, feathers growing in is like little spikes in skin. so weird
 theBestDude72: i guess baby porcupines are probably creepy too.
 odinsRazor: LEEEETS FIND OUT!
 odinsRazor: OH MY GOD WHAT
@@ -80,7 +80,7 @@ theBestDude72: some kind of spiral shape .
 theBestDude72: leading to severed eyes.
 odinsRazor: OH INTERESTING`});
 
-precoffinChats.push({timestamp: new Date(1994, 4, 9, 2, 15, 0), lines: `theBestDude72: dude where were you.
+precoffinChats.push({timestamp: new Date(1994, 3, 9, 2, 15, 0), lines: `theBestDude72: dude where were you.
 theBestDude72: i waited at the skating rink for like.
 theBestDude72: an hour.
 odinsRazor: SHIT
@@ -91,7 +91,7 @@ theBestDude72: were you tracking down more info on our Killer?
 odinsRazor: YEAH
 odinsRazor: MY BAD`});
 
-precoffinChats.push({timestamp: new Date(1994, 4, 15, 10, 22, 0), lines: `theBestDude72: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
+precoffinChats.push({timestamp: new Date(1994, 3, 15, 10, 22, 0), lines: `theBestDude72: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
 theBestDude72: all hail the orb.
 theBestDude72: ...
 theBestDude72: you there dude?
@@ -109,7 +109,7 @@ odinsRazor: TIP OF THE TONGUE
 odinsRazor: I FEEL LIKE I should`});
 
 
-precoffinChats.push({timestamp: new Date(1994, 5, 2, 2, 1, 0), lines: `theBestDude72: dude
+precoffinChats.push({timestamp: new Date(1994, 4, 2, 2, 1, 0), lines: `theBestDude72: dude
 theBestDude72: wodin.
 theBestDude72: i can see you're still active.
 theBestDude72: go to sleep man.
@@ -124,14 +124,17 @@ theBestDude72: because the EYE KILLER.
 theBestDude72: is gonna be caught by some dude in Ohio with an internet connection.
 odinsRazor: YOU THINK THE POLICE HAVE MY L337 SKILLZ?
 odinsRazor: I ALREADY CRACKED THEIR DATABASE
-odinsRazor: DID YOU KNOW THE NEWS HAS BEEN IGNORING THE FACT THAT THE KILLER HAS BEEN LEAVING BEHIND ANIME TRADING CARDS?
+odinsRazor: DID YOU KNOW THE NEWS HAS BEEN IGNORING THE FACT THAT THE KILLER HAS BEEN LEAVING BEHIND TRADING CARDS?
 theBestDude72: wait what? really?.
 theBestDude72: like. 
 theBestDude72: you think the Eye Killer is playing children's card games with their victims?
 odinsRazor: OR MAYBE ITS MORE CLUES
+odinsRazor: I DON'T THINK THE COPS KNOW WHAT GAME IT WAS THOUGH
+odinsRazor: ITS REALLY BOTHERING ME
+odinsRazor: SOMETHING ABOUT THIS FEELS SO FAMILIAR
 ` })
 
-precoffinChats.push({timestamp: new Date(1994, 5,6,14,35 ),lines: `theBestDude72: geez i thought id never get out of that test
+precoffinChats.push({timestamp: new Date(1994, 4,6,14,35 ),lines: `theBestDude72: geez i thought id never get out of that test
 theBestDude72: what did you get for number 7?
 theBestDude72: because i'm pretty sure that one had a typo in it.
 theBestDude72: ...
@@ -151,7 +154,7 @@ theBestDude72: dude.
 theBestDude72: that 'pointless' exam was worth a third of our grade.
 odinsRazor: YEAH YEAH
 odinsRazor: BUT THE EYE KILLER?
-odinsRazor: I THINK THEY'VE PLAYED ZAMPANIO.
+odinsRazor: I THINK THEY'VE PLAYED THAT ZAMPANIO GAME.
 theBestDude72: ...
 theBestDude72: what.
 theBestDude72: sure. 
@@ -163,9 +166,11 @@ odinsRazor: WHATEVER
 odinsRazor: YOU'RE JUST JEALOUS BECAUSE I'M GOING TO GO DOWN IN HISTORY
 odinsRazor: JUST LIKE WHEN I SNAGGED A NON NUMBERED SCREENNAME
 theBestDude72: as if.
+odinsRazor: IM GOING TO MAKE A ZAMPANIO DECK
+odinsRazor: JUST IN CASE
 `})
 
-precoffinChats.push({timestamp: new Date(1994, 5,25,5,14 ),lines: `odinsRazor: NEW BODY DROPPED
+precoffinChats.push({timestamp: new Date(1994, 4,25,5,14 ),lines: `odinsRazor: NEW BODY DROPPED
 odinsRazor: THIS ONE HAS SO MANY IMPLICATIONS
 odinsRazor: 'IT IS NOT WHAT IT IS'
 odinsRazor: SHOULD I REVERSE THE PREVIOUS CLUES?
@@ -204,7 +209,9 @@ theBestDude72: sorry.
 theBestDude72: wodin?
 theBestDude72: you there?`});
 
-precoffinChats.push({timestamp: new Date(1994, 6,15,12,14 ),lines: `theBestDude72: okay
+
+
+precoffinChats.push({timestamp: new Date(1994, 5,15,12,14 ),lines: `theBestDude72: okay
 theBestDude72: i get it.
 theBestDude72: i was out of line.
 theBestDude72: i'm worried about you.

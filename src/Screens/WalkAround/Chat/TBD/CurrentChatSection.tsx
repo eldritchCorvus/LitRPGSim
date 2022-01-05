@@ -7,7 +7,10 @@ import { ProcessedChatLine } from "./TBDChatLine"
 
 interface CurrentChatSectionType {
     newChat: TBDChatType;
+    allChats: TBDChatType[];
     chatRef: MutableRefObject<HTMLDivElement|null>;
+    setNewChat: Function;
+    setAllChats: Function;
 }
 
 const TimeCode = styled.div`
@@ -18,7 +21,7 @@ text-align: center;
 
 `
 //play new lines over time
-export const CurrentChatSection: React.FC<CurrentChatSectionType> = ({ newChat, chatRef }) => {
+export const CurrentChatSection: React.FC<CurrentChatSectionType> = ({ newChat, allChats,chatRef,setNewChat,setAllChats }) => {
 
     const [pastLines, setPastLines] = useState<string[]>([]);
     const [pendingLines, setPendingLines] = useState<string[]>([]);
@@ -33,8 +36,10 @@ export const CurrentChatSection: React.FC<CurrentChatSectionType> = ({ newChat, 
             setPastLines([...pastLines, pendingLines[0]])
             setPendingLines(pendingLines.slice(1))
             
-        }else{
-            //ready to get next one.
+        }else if(pastLines.length>0){
+            setPastLines([]);
+            setAllChats([...allChats,newChat])
+            setNewChat(undefined);
         }
     },[pastLines, pendingLines])
 
@@ -48,7 +53,11 @@ export const CurrentChatSection: React.FC<CurrentChatSectionType> = ({ newChat, 
     },[pendingLines])
 
     useEffect(() => {
-        setPendingLines(newChat.lines.split("\n"));
+        if(newChat){
+            setPastLines([newChat.lines.split("\n")[0]])
+            setPendingLines(newChat.lines.split("\n").slice(1));
+        }
+
     }, [newChat])
 
     return (

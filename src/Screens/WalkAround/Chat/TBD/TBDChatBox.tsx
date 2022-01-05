@@ -9,10 +9,12 @@ import { ProcessedChatLine } from "./TBDChatLine"
 interface TBDChatBoxType {
     newChat: TBDChatType | undefined;
     allChats: TBDChatType[];
+    setNewChat: Function;
+    setAllChats: Function;
 }
 
 
-export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats }) => {
+export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats, setNewChat, setAllChats }) => {
     const chatRef = useRef<HTMLDivElement>(null);
 
     const ChatContainer = styled.div`
@@ -79,8 +81,6 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats }) => {
             </ChatHeader>
             <ChatBody ref={chatRef} >
                 <div>TODO:
-                    <li>new chat should display live on the very bottom</li>
-                    <li>when its done displaying, add to all chats</li>
                     <li>x button closes</li>
                     <li>when run out of new chats, coffin</li>
                     <li>after coffin,it switches to a new source for  texts</li>
@@ -99,7 +99,7 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats }) => {
                             </Fragment>
                         )
                     })}
-                    {newChat?<CurrentChatSection chatRef={chatRef} newChat={newChat}/>:null}
+                    {newChat?<CurrentChatSection chatRef={chatRef} newChat={newChat} allChats={allChats} setNewChat={setNewChat} setAllChats={setAllChats}/>:null}
 
                 </div>
             </ChatBody>
