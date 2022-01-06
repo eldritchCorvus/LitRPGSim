@@ -11,10 +11,11 @@ interface TBDChatBoxType {
     allChats: TBDChatType[];
     setNewChat: Function;
     setAllChats: Function;
+    setChatOpen: Function;
 }
 
 
-export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats, setNewChat, setAllChats }) => {
+export const TBDChatBox: React.FC<TBDChatBoxType> = ({ setChatOpen,newChat, allChats, setNewChat, setAllChats }) => {
     const chatRef = useRef<HTMLDivElement>(null);
 
     const ChatContainer = styled.div`
@@ -41,6 +42,21 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats, setNew
         text-align: center;
         vertical-align: middle;
         line-height: 26px;
+        display: flex;
+    `
+
+    const XButton = styled.button`
+        border: 2px solid white;
+        text-decoration: none;
+        background-color: red;
+        color: white;
+        padding-top: 2px;
+        margin-left: 270px;
+        cursor: pointer;
+        font-size: 10px;
+        height: 25px;
+        vertical-align: bottom;
+        margin-top: 4px;
     `
 
     const ChatBody = styled.div`
@@ -69,20 +85,14 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ newChat, allChats, setNew
         font-style: italic;
         text-align: center;
     `
-    //for new Chat, do it line by line until it finishes. 
-    //once it finishes, add it to all chats 
-    console.log("JR NOTE: newChat is", newChat)
-    
     return (
         <ChatContainer>
 
             <ChatHeader>
-                theBestDude72 -- Instant Messaging
+                <div>theBestDude72 -- Instant Messaging</div><XButton onClick={()=>{setChatOpen(false)}}>X</XButton>
             </ChatHeader>
             <ChatBody ref={chatRef} >
                 <div>TODO:
-                    <li>x button closes</li>
-                    <li>button is layered UNDER help desk window</li>
                     <li>when run out of new chats, coffin</li>
                     <li>after coffin,it switches to a new source for  texts</li>
                     <li></li>

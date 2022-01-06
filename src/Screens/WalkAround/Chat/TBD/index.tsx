@@ -19,6 +19,7 @@ export const TBDChat = () => {
     padding-left: 5px;
     padding-right: 5px;
     cursor: pointer;
+    z-index: -1;
 `
 
     interface IconProps {
@@ -91,7 +92,7 @@ export const TBDChat = () => {
         <Fragment>
             <TBDChatIcon onClick={() => toggleChat()}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}><IconImage greyed={grayIcon} src={help_icon} /> theBestDude72 chat</div></TBDChatIcon>
 
-            {chatOpen ? <TBDChatBox allChats={allChats} newChat={newChat} setAllChats={setAllChats} setNewChat={setNewChat} /> : null}
+            {chatOpen ? <TBDChatBox setChatOpen={setChatOpen} allChats={allChats} newChat={newChat} setAllChats={setAllChats} setNewChat={setNewChat} /> : null}
         </Fragment>
     )
 }
