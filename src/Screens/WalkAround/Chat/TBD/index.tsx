@@ -24,7 +24,7 @@ export const TBDChat : React.FC<TBDChatProps> = ({coffinTime, setCoffinTime}) =>
     padding-left: 5px;
     padding-right: 5px;
     cursor: pointer;
-    z-index: -1;
+    z-index: 0;
 `
 
     interface IconProps {
@@ -75,7 +75,6 @@ export const TBDChat : React.FC<TBDChatProps> = ({coffinTime, setCoffinTime}) =>
     useEffect(() => {
         if (unseenChat) {
             const flash = () => {
-                console.log("JR NOTE: flash")
                 setGrayIcon(!grayIcon)
             }
             let timeoutId = setTimeout(flash, 1000);

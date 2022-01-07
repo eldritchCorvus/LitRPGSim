@@ -6,7 +6,6 @@ import { chomp, doorEffect, loadSecretImage} from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { MEMORY_KEY, QUOTIDIAN_KEY } from ".";
 import { isStringInArrayWithKey, addStringToArrayWithKey, removeStringFromArrayWithKey } from "../../Utils/LocalStorageUtils";
-import FlavorPopup from "./FlavorPopup";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { stringtoseed } from "../../Utils/StringUtils";
 import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";

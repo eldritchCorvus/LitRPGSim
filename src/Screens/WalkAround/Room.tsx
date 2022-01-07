@@ -163,7 +163,7 @@ export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRe
             <BaseRoomCanvas ref={baseCanvasRef} id="canvasBaseRoom" height="500" width="500" />
             <BGRoomCanvas ref={bgCanvasRef} id="canvasRoom" height="500" width="500" />
             <FGRoomCanvas ref={canvasRef} id="canvasBGRoom" height="500" width="500" />
-            {coffinTime?<Coffin onMouseOver={(()=>blink())} src={coffinImageSrc}/>:null}    
+            {coffinTime?<Coffin onClick={(()=>blink())} onMouseOver={(()=>blink())} src={coffinImageSrc}/>:null}    
 
         </Fragment>
     )

@@ -93,7 +93,7 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ setChatOpen,newChat, allC
             </ChatHeader>
             <ChatBody ref={chatRef} >
                 <div>TODO:
-                    <li>when run out of new chats, coffin</li>
+                    <li>coffin says hi</li>
                     <li>after coffin,it switches to a new source for  texts</li>
                     <li></li>
                     {allChats.map((chat) => {

@@ -17,6 +17,7 @@ export const HelpChatBox = () => {
         width: 350px;
         color: white;
         text-decoration: none;
+        z-index: 10;
         border-radius: 2px;
         box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .4);
     `
