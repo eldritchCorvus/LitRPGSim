@@ -190,6 +190,11 @@ export const spawnFloorObjects = async (layer: number, key: string, folder: stri
     return ret;
 }
 
+export const spawnVentObject = ()=>{
+    return { layer: 1, src: `Walkabout/Objects/FrontWallObjects/closed_vent.png`, themeKeys: [HUNTING], x: 50, y: 90, width: 30, height: 22, flavorText: "TheCloser/closer-mystery"};
+
+}
+
 //has to be async because it checks the image size for positioning
 export const spawnWallObjects = async (layer: number, key: string, folder: string, canvas: HTMLCanvasElement, seededRandom: SeededRandom, themes: Theme[]) => {
     let current_x = 0;

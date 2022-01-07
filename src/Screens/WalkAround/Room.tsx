@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
-import { Fragment, MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
+import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
-import { drawDoors, drawFloor, drawBackground,drawForeground,spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem } from "./canvas_shit";
+import { drawDoors, drawFloor, drawBackground,drawForeground,spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem, spawnVentObject } from "./canvas_shit";
 
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage } from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
-import { pickFrom } from "../../Utils/NonSeededRandUtils";
+import { getRandomNumberBetween, pickFrom } from "../../Utils/NonSeededRandUtils";
 import { FLOOR, FLOORBACKGROUND, FLOORFOREGROUND, WALL, WALLBACKGROUND, WALLFOREGROUND } from "../../Modules/ThemeStorage";
 
 import coffin1 from './../../images/Walkabout/oh_god.png';
 import coffin2 from './../../images/Walkabout/oh_god2.png';
-import coffin3 from './../../images/Walkabout/oh_god3.png';
+import coffin3 from './../../images/Walkabout/ohgod_3.png'; //ic is trolling me
 
 
 
@@ -66,7 +66,7 @@ const FGRoomCanvas = styled.canvas`
   `
 export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRef,bgCanvasRef,baseCanvasRef, numberDoors, itemsRef }) => {
     const seededRandom = new SeededRandom(seed);
-    const [debugItems, setDebugItems] = useState<boolean>(false);
+    const [coffinImageSrc, setCoffinImageSrc] = useState<string>(coffin1);
 
     //this shoould change any time the themes do.
 
@@ -110,9 +110,31 @@ export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRe
             await drawBackground(bgCanvas,items);
             await drawForeground(canvas,items);
             itemsRef.current = items;
+        }else{
+            itemsRef.current = [spawnVentObject()];
+            await drawForeground(canvas,itemsRef.current);
         }
     }
 
+    //a blink progresses based on what the current image is
+    const blink = useCallback(()=>{
+        if(coffinImageSrc === coffin1){
+            setTimeout(()=>{setCoffinImageSrc(coffin2);}, 100);
+        }else if(coffinImageSrc === coffin2){
+            setTimeout(()=>{setCoffinImageSrc(coffin3);}, 100);
+        }else if(coffinImageSrc === coffin3){ //blink is over, go back to default state
+            setTimeout(()=>{setCoffinImageSrc(coffin1);}, 100);
+        }
+    },[coffinImageSrc])
+
+    //blink over time
+    useEffect(()=>{
+        if(coffinTime && coffinImageSrc===coffin1){
+            setTimeout(()=>{blink()}, getRandomNumberBetween(1,10)*1000);
+        }else{
+            blink();
+        }
+    },[coffinTime, coffinImageSrc,blink])
     
 
     useEffect(() => {
@@ -141,9 +163,8 @@ export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRe
             <BaseRoomCanvas ref={baseCanvasRef} id="canvasBaseRoom" height="500" width="500" />
             <BGRoomCanvas ref={bgCanvasRef} id="canvasRoom" height="500" width="500" />
             <FGRoomCanvas ref={canvasRef} id="canvasBGRoom" height="500" width="500" />
-            {coffinTime?<Coffin src={coffin1}/>:null}    
+            {coffinTime?<Coffin onMouseOver={(()=>blink())} src={coffinImageSrc}/>:null}    
 
-            {debugItems?debugComponent():null}
         </Fragment>
     )
 
