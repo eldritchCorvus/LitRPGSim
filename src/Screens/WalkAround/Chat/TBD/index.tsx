@@ -5,7 +5,12 @@ import help_icon from './../../../../images/Walkabout/icons8-chat-64_green.png';
 import { precoffinChats, TBDChatType } from "./PreCoffinChats";
 import { beepEffect } from "../../../..";
 
-export const TBDChat = () => {
+interface TBDChatProps{
+    coffinTime: boolean; //should we be fetching pre coffin or post coffin chats?
+    setCoffinTime: Function; //is it coffin time?????????????????
+}
+
+export const TBDChat : React.FC<TBDChatProps> = ({coffinTime, setCoffinTime}) => {
 
     const TBDChatIcon = styled.button`
     position: fixed;
@@ -60,7 +65,7 @@ export const TBDChat = () => {
                 if (precoffinChats.length > index) {
                     setNewChat(precoffinChats[index]);
                 } else {
-                    window.alert("COFFIN TIME BABY")
+                    setCoffinTime(true);
                 }
 
             }, 60 * 1000)

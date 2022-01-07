@@ -63,6 +63,7 @@ const GuestBookButton = styled.button`
     const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
+    const [coffinTime, setCoffinTime] = useState(true);
 
 
      const validKeys = ()=>{
@@ -184,7 +185,7 @@ const GuestBookButton = styled.button`
     return (
         <Fragment>
             <RoomContainer>
-                <Room canvasRef={canvasRef}  bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
+                <Room coffinTime={coffinTime} canvasRef={canvasRef}  bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
                 {quotidiansRef.current?.map((qq,index)=> <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
@@ -261,7 +262,7 @@ const GuestBookButton = styled.button`
                 <li>train mode you can talk to all chars but truth keeps interupting on an intercome to remind you its all fake (besides dear sweet precious jaimie ofc)</li>
             </div>
             <HelpDesk/>
-            <TBDChat/>
+            <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime}/>
 
 
 

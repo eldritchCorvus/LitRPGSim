@@ -9,12 +9,16 @@ import SeededRandom from "../../Utils/SeededRandom";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { FLOOR, FLOORBACKGROUND, FLOORFOREGROUND, WALL, WALLBACKGROUND, WALLFOREGROUND } from "../../Modules/ThemeStorage";
 
+import coffin1 from './../../images/oh_god.png';
+import coffin2 from './../../images/oh_god2.png';
+import coffin3 from './../../images/oh_god3.png';
 
 
 
 interface RoomProps {
     themeKeys: string[];
     seed: number;
+    coffinTime: boolean;
     numberDoors: number;
     canvasRef: RefObject<HTMLCanvasElement>;
     bgCanvasRef: RefObject<HTMLCanvasElement>;
@@ -48,11 +52,18 @@ const FGRoomCanvas = styled.canvas`
     z-index: 3;
 `
 
+    const Coffin = styled.img`
+        position: absolute;
+        left:300px;
+        top: 300px;
+        z-index: 10;
+    `
+
   const BGRoomCanvas = styled.canvas`
     position: absolute;
     z-index: 1;
   `
-export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasRef,baseCanvasRef, numberDoors, itemsRef }) => {
+export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRef,bgCanvasRef,baseCanvasRef, numberDoors, itemsRef }) => {
     const seededRandom = new SeededRandom(seed);
     const [debugItems, setDebugItems] = useState<boolean>(false);
 
@@ -94,9 +105,11 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
         const items2: RenderedItem[] = await spawnWallObjects(1,WALLFOREGROUND, "FrontWallObjects", canvas, seededRandom, themes);
         const items4: RenderedItem[] = await spawnFloorObjects(1,FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
         const items = items3.concat(items2.concat(items4));
-        await drawBackground(bgCanvas,items);
-        await drawForeground(canvas,items);
-        itemsRef.current = items;
+        if(!coffinTime){
+            await drawBackground(bgCanvas,items);
+            await drawForeground(canvas,items);
+            itemsRef.current = items;
+        }
     }
 
     
@@ -127,6 +140,8 @@ export const Room: React.FC<RoomProps> = ({ themeKeys, seed, canvasRef,bgCanvasR
             <BaseRoomCanvas ref={baseCanvasRef} id="canvasBaseRoom" height="500" width="500" />
             <BGRoomCanvas ref={bgCanvasRef} id="canvasRoom" height="500" width="500" />
             <FGRoomCanvas ref={canvasRef} id="canvasBGRoom" height="500" width="500" />
+            {coffinTime?<Coffin src={coffin1}/>:null}    
+
             {debugItems?debugComponent():null}
         </Fragment>
     )
