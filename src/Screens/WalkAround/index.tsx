@@ -23,7 +23,7 @@ export const QUOTIDIAN_KEY = "QUOTIDIAN_HOARD";
 export const WalkAround = () => {
 
 
-const GuestBookButton = styled.button`
+    const GuestBookButton = styled.button`
     position: fixed;
     bottom: 15px;
     right: 15px;
@@ -66,9 +66,9 @@ const GuestBookButton = styled.button`
     const [coffinTime, setCoffinTime] = useState(true);
 
 
-     const validKeys = ()=>{
-        for(let themeKey of themeKeys){
-            if(!Object.keys(all_themes).includes(themeKey)){
+    const validKeys = () => {
+        for (let themeKey of themeKeys) {
+            if (!Object.keys(all_themes).includes(themeKey)) {
                 return false;
             }
         }
@@ -156,18 +156,20 @@ const GuestBookButton = styled.button`
     }
 
     //spawn quotidians
-    useEffect(()=>{
+    useEffect(() => {
         //extra chance of it being 0
-        const quotidians:string[][] = [];
-        if(seededRandom.nextDouble()>0.25){
-            const number  = seededRandom.getRandomNumberBetween(0,4);
-            for(let i =0; i< number; i++){
-                const tmp = shuffle(themeKeys);
-                quotidians.push(tmp.slice(0,2) as string[]);
+        if (!coffinTime) {
+            const quotidians: string[][] = [];
+            if (seededRandom.nextDouble() > 0.25) {
+                const number = seededRandom.getRandomNumberBetween(0, 4);
+                for (let i = 0; i < number; i++) {
+                    const tmp = shuffle(themeKeys);
+                    quotidians.push(tmp.slice(0, 2) as string[]);
+                }
             }
+            quotidiansRef.current = quotidians;
         }
-        quotidiansRef.current = quotidians;
-    },[themeKeys]);
+    }, [themeKeys]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const bgCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -176,8 +178,8 @@ const GuestBookButton = styled.button`
 
 
     //what's this? have I found a Waste?
-    if(!validKeys()){
-        return(
+    if (!validKeys()) {
+        return (
             <GuestBook />
         )
     }
@@ -185,9 +187,9 @@ const GuestBookButton = styled.button`
     return (
         <Fragment>
             <RoomContainer>
-                <Room coffinTime={coffinTime} canvasRef={canvasRef}  bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0,8888888888)} />
+                <Room coffinTime={coffinTime} canvasRef={canvasRef} bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0, 8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
-                {quotidiansRef.current?.map((qq,index)=> <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
+                {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:
@@ -199,10 +201,10 @@ const GuestBookButton = styled.button`
 
 
                 *coffin room with special vent and animated coffin
-                OR  
+                OR
                 *omni time corporate spyware looking at all the interns chat windows.
 
-                
+
 
 
                 HIgh Level
@@ -218,14 +220,14 @@ const GuestBookButton = styled.button`
                 * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * styled spiral;
                 * room effects
-                *donut in a corn outfit  
+                *donut in a corn outfit
                 * letter to the flower girl from weaver
                 * spawn with at least one memory
                 * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
                 *support phone resolutions
                 * record major secrets found in this path and the prev path, for use in JustTruth path. closer window. vent tapes. coffin.
-                
-                
+
+
 
                 Other MINUTE TODO.
                 <li>add objects</li>
@@ -261,8 +263,8 @@ const GuestBookButton = styled.button`
                 <li>find your coffin and go down and down and down</li>
                 <li>train mode you can talk to all chars but truth keeps interupting on an intercome to remind you its all fake (besides dear sweet precious jaimie ofc)</li>
             </div>
-            <HelpDesk/>
-            <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime}/>
+            <HelpDesk />
+            <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime} />
 
 
 

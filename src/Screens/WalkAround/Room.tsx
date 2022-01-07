@@ -9,9 +9,9 @@ import SeededRandom from "../../Utils/SeededRandom";
 import { pickFrom } from "../../Utils/NonSeededRandUtils";
 import { FLOOR, FLOORBACKGROUND, FLOORFOREGROUND, WALL, WALLBACKGROUND, WALLFOREGROUND } from "../../Modules/ThemeStorage";
 
-import coffin1 from './../../images/oh_god.png';
-import coffin2 from './../../images/oh_god2.png';
-import coffin3 from './../../images/oh_god3.png';
+import coffin1 from './../../images/Walkabout/oh_god.png';
+import coffin2 from './../../images/Walkabout/oh_god2.png';
+import coffin3 from './../../images/Walkabout/oh_god3.png';
 
 
 
@@ -54,8 +54,9 @@ const FGRoomCanvas = styled.canvas`
 
     const Coffin = styled.img`
         position: absolute;
-        left:300px;
-        top: 300px;
+        left:260px;
+        width: 50px;
+        top: 230px;
         z-index: 10;
     `
 
