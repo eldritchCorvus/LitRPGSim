@@ -12,6 +12,7 @@ import { aggregateOpinionsOnThemes, all_themes } from "../../Modules/Theme";
 import { removeItemOnce } from "../../Utils/ArrayUtils";
 import { ADJ, COMPLIMENT, INSULT, LOCATION, OBJECT, PERSON, SPRITES, SpriteWithDirections } from "../../Modules/ThemeStorage";
 import { createEmitAndSemanticDiagnosticsBuilderProgram } from "typescript";
+import { debug } from "console";
 
 
 interface QuotidianProps {
@@ -358,6 +359,10 @@ export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,
         }
     }
 
+    const debugTick = ()=>{
+        processWalk("a");
+    }
+
     const tick = ()=>{
         if(despawnedRef.current === true){
             return;
@@ -384,6 +389,7 @@ export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,
     useEffect(()=>{
             const timer = setTimeout(()=>{
                 tick();
+                //debugTick();
             }, 300)
         
             return () => {
@@ -411,8 +417,8 @@ export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,
 
     const processWalk =(key:string)=>{
         setImageWithDirection(key);
-        const minTop = 500-350-30;
-        const maxTop = 500-30;
+        const minTop = 500-350-50;
+        const maxTop = 500-55;
         const maxLeft = 455;
         const minLeft =15;
         if(birbLocation){
