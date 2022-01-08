@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
-import { drawDoors, drawFloor, drawBackground,drawForeground,spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem, spawnVentObject } from "./canvas_shit";
+import { drawDoors, drawFloor, drawBackground, drawForeground, spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem, spawnVentObject } from "./canvas_shit";
 
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage } from '../..';
@@ -34,13 +34,13 @@ const FGRoomCanvas = styled.canvas`
     z-index: 2;
   `
 
-  export const Popup = styled.div`
+export const Popup = styled.div`
     border: 2px solid black;
     border-radius: 13px;
     padding: 5px;
     position: absolute;
     top: -50px;
-    left: -100px;
+    left: -50px;
     color: black;
     padding-left: 13px;
     font-family: 'Courier New', monospace;
@@ -52,32 +52,36 @@ const FGRoomCanvas = styled.canvas`
     z-index: 3;
 `
 
-    const Coffin = styled.img`
+const Coffin = styled.img`
+        z-index: 10;
+        width: 50px;
+`
+const CoffinContainer = styled.div`
         position: absolute;
         left:260px;
-        width: 50px;
         top: 230px;
         z-index: 10;
-    `
+`
 
-  const BGRoomCanvas = styled.canvas`
+const BGRoomCanvas = styled.canvas`
     position: absolute;
     z-index: 1;
   `
-export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRef,bgCanvasRef,baseCanvasRef, numberDoors, itemsRef }) => {
+export const Room: React.FC<RoomProps> = ({ coffinTime, themeKeys, seed, canvasRef, bgCanvasRef, baseCanvasRef, numberDoors, itemsRef }) => {
     const seededRandom = new SeededRandom(seed);
     const [coffinImageSrc, setCoffinImageSrc] = useState<string>(coffin1);
+    const [flavorText, setFlavorText] = useState<string|undefined>("Hi!");// hi! blink
 
     //this shoould change any time the themes do.
 
     const updateURLParams = (seed: number, theme_keys: string[]) => {
-        const ominousBullshit = ["its no good","its too late","you cant go back","you cant find the exit","your coffin awaits"];
+        const ominousBullshit = ["its no good", "its too late", "you cant go back", "you cant find the exit", "your coffin awaits"];
         var pageUrl = '?' + `seed=${seed}&themes=${theme_keys}&warning=${seededRandom.pickFrom(ominousBullshit)}`;
         window.history.pushState('', '', pageUrl);
     }
 
 
-    const drawRoom = async (canvas: HTMLCanvasElement,bgCanvas: HTMLCanvasElement, baseCanvas: HTMLCanvasElement,themes: Theme[]) => {
+    const drawRoom = async (canvas: HTMLCanvasElement, bgCanvas: HTMLCanvasElement, baseCanvas: HTMLCanvasElement, themes: Theme[]) => {
         console.log("JR NOTE: drawing a room for the first time")
         initBlack(baseCanvas);
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
@@ -98,59 +102,60 @@ export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRe
         drawWall(baseCanvas, wall);
         //TODO actually use these returned items as part of the flavortext calculation
         //store them in a ref
-        const items1: RenderedItem[] = await spawnWallObjects(0,WALLBACKGROUND, "BackWallObjects", canvas, seededRandom, themes);
+        const items1: RenderedItem[] = await spawnWallObjects(0, WALLBACKGROUND, "BackWallObjects", canvas, seededRandom, themes);
         const door: any = await addImageProcess(loadSecretImage('Walkabout/door.png')) as HTMLImageElement;
         const rug: any = await addImageProcess(loadSecretImage('Walkabout/rug.png')) as HTMLImageElement;
         drawDoors(bgCanvas, numberDoors, door, rug);
-        const items3: RenderedItem[] = await spawnFloorObjects(0,FLOORBACKGROUND, "UnderFloorObjects", canvas, seededRandom, themes);
-        const items2: RenderedItem[] = await spawnWallObjects(1,WALLFOREGROUND, "FrontWallObjects", canvas, seededRandom, themes);
-        const items4: RenderedItem[] = await spawnFloorObjects(1,FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
+        const items3: RenderedItem[] = await spawnFloorObjects(0, FLOORBACKGROUND, "UnderFloorObjects", canvas, seededRandom, themes);
+        const items2: RenderedItem[] = await spawnWallObjects(1, WALLFOREGROUND, "FrontWallObjects", canvas, seededRandom, themes);
+        const items4: RenderedItem[] = await spawnFloorObjects(1, FLOORFOREGROUND, "TopFloorObjects", canvas, seededRandom, themes);
         const items = items3.concat(items2.concat(items4));
-        if(!coffinTime){
-            await drawBackground(bgCanvas,items);
-            await drawForeground(canvas,items);
+        if (!coffinTime) {
+            await drawBackground(bgCanvas, items);
+            await drawForeground(canvas, items);
             itemsRef.current = items;
-        }else{
+        } else {
             itemsRef.current = [spawnVentObject()];
-            await drawForeground(canvas,itemsRef.current);
+            await drawForeground(canvas, itemsRef.current);
         }
     }
 
     //a blink progresses based on what the current image is
-    const blink = useCallback(()=>{
-        if(coffinImageSrc === coffin1){
-            setTimeout(()=>{setCoffinImageSrc(coffin2);}, 100);
-        }else if(coffinImageSrc === coffin2){
-            setTimeout(()=>{setCoffinImageSrc(coffin3);}, 100);
-        }else if(coffinImageSrc === coffin3){ //blink is over, go back to default state
-            setTimeout(()=>{setCoffinImageSrc(coffin1);}, 100);
+    const blink = useCallback(() => {
+        setFlavorText(undefined);
+        if (coffinImageSrc === coffin1) {
+            setTimeout(() => { setCoffinImageSrc(coffin2); }, 100);
+        } else if (coffinImageSrc === coffin2) {
+            setTimeout(() => { setCoffinImageSrc(coffin3); }, 100);
+        } else if (coffinImageSrc === coffin3) { //blink is over, go back to default state
+            setTimeout(() => { setCoffinImageSrc(coffin1); }, 100);
         }
-    },[coffinImageSrc])
+    }, [coffinImageSrc])
 
     //blink over time
-    useEffect(()=>{
-        if(coffinTime && coffinImageSrc===coffin1){
-            setTimeout(()=>{blink()}, getRandomNumberBetween(1,10)*1000);
-        }else{
+    useEffect(() => {
+        if (coffinTime && coffinImageSrc === coffin1) {
+            setTimeout(() => { blink() }, getRandomNumberBetween(1, 10) * 1000);
+        } else {
             blink();
         }
-    },[coffinTime, coffinImageSrc,blink])
-    
+    }, [coffinTime, coffinImageSrc, blink])
+
 
     useEffect(() => {
         if (canvasRef.current && bgCanvasRef.current && baseCanvasRef.current) {
             //console.log("JR NOTE: themes are", themeKeys)
             updateURLParams(seed, themeKeys);
-            drawRoom(canvasRef.current,bgCanvasRef.current,baseCanvasRef.current, themeKeys.map((theme) => all_themes[theme]));
+            drawRoom(canvasRef.current, bgCanvasRef.current, baseCanvasRef.current, themeKeys.map((theme) => all_themes[theme]));
         }
     }, [canvasRef, themeKeys])
 
-    const debugComponent = ()=>{
-        return(
+    const debugComponent = () => {
+        return (
             <Fragment>
-                {itemsRef.current.map((item)=>{
-                    return(
-                        <Popup style={{left:item.x, top:item.y}}>{item.flavorText}</Popup>
+                {itemsRef.current.map((item) => {
+                    return (
+                        <Popup style={{ left: item.x, top: item.y }}>{item.flavorText}</Popup>
                     );
                 })}
             </Fragment>
@@ -163,7 +168,11 @@ export const Room: React.FC<RoomProps> = ({coffinTime, themeKeys, seed, canvasRe
             <BaseRoomCanvas ref={baseCanvasRef} id="canvasBaseRoom" height="500" width="500" />
             <BGRoomCanvas ref={bgCanvasRef} id="canvasRoom" height="500" width="500" />
             <FGRoomCanvas ref={canvasRef} id="canvasBGRoom" height="500" width="500" />
-            {coffinTime?<Coffin onClick={(()=>blink())} onMouseOver={(()=>blink())} src={coffinImageSrc}/>:null}    
+            {coffinTime ?
+                (<CoffinContainer>
+                    {flavorText ? <Popup>{flavorText}</Popup> : null}
+                    <Coffin onClick={(() => blink())} onMouseOver={(() => blink())} src={coffinImageSrc} />
+                </CoffinContainer>) : null}
 
         </Fragment>
     )

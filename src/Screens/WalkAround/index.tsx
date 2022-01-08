@@ -63,7 +63,7 @@ export const WalkAround = () => {
     const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [coffinTime, setCoffinTime] = useState(false);
+    const [coffinTime, setCoffinTime] = useState(true);
 
 
     const validKeys = () => {
@@ -195,16 +195,18 @@ export const WalkAround = () => {
             <div>TODO:
 
                 Five Minute TODO:
-                *
-                * chat has a date/time stamp at the top, then text that goes over time (like help desk)
-                * chat loaded from text/js files, there should be two sources, one for "pre coffin" and one for "post"
-
+                *limit vent text width   
+                * post coffin chats
+                *post coffin spyware
+                * you can get into the rabbit hole???
 
                 *coffin room with special vent and animated coffin
                 OR
                 *omni time corporate spyware looking at all the interns chat windows.
 
-
+                *tiny version of this where going thru a door loads one of the arcs???
+                (not react, just an image map???)
+                code rot as art. you can always reach the rot
 
 
                 HIgh Level

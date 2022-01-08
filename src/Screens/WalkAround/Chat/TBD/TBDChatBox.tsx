@@ -94,6 +94,7 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ setChatOpen,newChat, allC
             <ChatBody ref={chatRef} >
                 <div>TODO:
                     <li>coffin says hi</li>
+                    <li>go into coffin: everything goes black</li>
                     <li>after coffin,it switches to a new source for  texts</li>
                     <li></li>
                     {allChats.map((chat) => {
