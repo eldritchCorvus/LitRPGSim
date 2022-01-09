@@ -47,9 +47,12 @@ export const CurrentChatSection: React.FC<CurrentChatSectionType> = ({ newChat, 
         if(chatRef.current){
             chatRef.current.scrollTop = chatRef.current.scrollHeight;
         }
-        setTimeout(()=>{
+        const timer = setTimeout(()=>{
             memorizedProcessCurrentLine();
          }, getRandomNumberBetween(1,5)*1000)
+         return() => {
+            clearTimeout(timer);
+          };
     },[pendingLines])
 
     useEffect(() => {

@@ -210,6 +210,7 @@ export const WalkAround = () => {
             <div>TODO:
 
                 Five Minute TODO:
+                * https://farragofiction.com/%E1%9B%96%E1%9B%9F%E1%9B%92%E1%9A%BA%E1%9A%B1%E1%9A%A2 knucklessux
                 * post coffin chats
                 *post coffin spyware
                 * you can get into the rabbit hole???
