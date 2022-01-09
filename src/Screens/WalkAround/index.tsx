@@ -14,6 +14,7 @@ import { Quotidian } from "./Quotidian";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { HelpDesk } from "./Chat/HelpDesk";
 import { TBDChat } from "./Chat/TBD";
+import ChoicePopup from "./ChoicePopup";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -63,7 +64,8 @@ export const WalkAround = () => {
     const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [coffinTime, setCoffinTime] = useState(false);
+    const [coffinTime, setCoffinTime] = useState(true);
+    const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
 
 
     const validKeys = () => {
@@ -184,13 +186,24 @@ export const WalkAround = () => {
         )
     }
 
+    const beginingOfTheEnd = ()=>{
+        console.log("JR NOTE: The Wanderer is no more. The End is Never The End.")
+    }
+
+
     return (
         <Fragment>
             <RoomContainer>
                 <Room coffinTime={coffinTime} canvasRef={canvasRef} bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0, 8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
+                {displayCoffinOption ? <ChoicePopup yesFunction={()=>beginingOfTheEnd()} noOption = "I am NOT getting in a coffin." yesOption ="I am ready. Show me the final story." text={
+                    `You know if you lowered yourself into its smooth wooden confines and gently closed the lid you and it would sink down and down and down for almost forever.
+                    <br><Br>You know that even if the end could never be the end, there IS a bottom, and AT its bottom you could finally know enough at last. The coffin would sing you its story and you would be full.
+                    `
+                } left={0} top={0} /> : null}
+
                 {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
-                <Wanderer wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
+                <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>
             <div>TODO:
 
@@ -267,9 +280,6 @@ export const WalkAround = () => {
             </div>
             <HelpDesk />
             <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime} />
-
-
-
         </Fragment>
 
     )

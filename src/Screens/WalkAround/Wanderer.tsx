@@ -17,6 +17,7 @@ interface WandererProps {
     seededRandom: SeededRandom;
     makeChild: Function;
     numberDoors: number;
+    setDisplayCoffinOption: Function;
 }
 
 export const Popup = styled.div`
@@ -61,7 +62,7 @@ export const TapePopup = styled.div`
 const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef, canvasRef, seededRandom, makeChild, numberDoors }) => {
+export const Wanderer: React.FC<WandererProps> = ({setDisplayCoffinOption, wandaTakeMemoryRef, itemsRef, canvasRef, seededRandom, makeChild, numberDoors }) => {
 
     const playerWidth = 55;
     const playerHeight = 37;
@@ -202,6 +203,10 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
         }
     }
 
+    const processCoffin = ()=>{
+        setDisplayCoffinOption(true);
+    }
+
 
     //unlike doors, items are not in set locations, check the items ref
     const checkForItems = (top: number, left: number) => {
@@ -216,6 +221,8 @@ export const Wanderer: React.FC<WandererProps> = ({ wandaTakeMemoryRef, itemsRef
             if ((item.layer === 1 || item.layer === -1) && item.name !== "Wanderer" && (nearAccessibleItem || nearWallItem)) {
                 if (item.flavorText?.includes("TheCloser")) {
                     return processTape(item.flavorText);
+                }else if(item.flavorText?.includes("TheWanderersFinalRestingPlace")){
+                   return processCoffin();
                 }
                 console.log("JR NOTE: its not the closer", item.name)
 

@@ -13,7 +13,7 @@ export interface RenderedItem {
     flavorText: string;
     themeKeys: string[];
     layer: number;
-    src: string; //needed so i can rerender them as required
+    src?: string; //needed so i can rerender them as required
     name?: string; //only living creatures have names, not items, its used to update them
 }
 export const redrawForeground = async (canvas: HTMLCanvasElement, items: RenderedItem[]) => {
@@ -115,7 +115,7 @@ export const drawWall = (canvas: HTMLCanvasElement, wallImage: HTMLImageElement)
 //JR NOTE: if for some reason images load once then don't render again, look into image.complete as WELL as image.onload
 const drawItem = async (canvas: HTMLCanvasElement, item: RenderedItem) => {
     const context = canvas.getContext("2d");
-    if (!context) {
+    if (!context || !item.src) {
         return;
     }
     context.imageSmoothingEnabled = false;
@@ -192,6 +192,11 @@ export const spawnFloorObjects = async (layer: number, key: string, folder: stri
 
 export const spawnVentObject = ()=>{
     return { layer: 1, src: `Walkabout/Objects/FrontWallObjects/closed_vent.png`, themeKeys: [HUNTING], x: 50, y: 90, width: 30, height: 22, flavorText: "TheCloser/closer-mystery"};
+}
+
+//coffin is rendered and animated thru the dom so no src
+export const spawnCoffinObject = ()=>{
+    return { layer: 1, themeKeys: [HUNTING], x: 260, y: 230, width: 50, height: 91, flavorText: "TheWanderersFinalRestingPlace"};
 
 }
 

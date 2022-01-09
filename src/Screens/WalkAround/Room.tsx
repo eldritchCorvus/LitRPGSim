@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
-import { drawDoors, drawFloor, drawBackground, drawForeground, spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem, spawnVentObject } from "./canvas_shit";
+import { drawDoors, drawFloor, drawBackground, drawForeground, spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem, spawnVentObject, spawnCoffinObject } from "./canvas_shit";
 
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage } from '../..';
@@ -115,13 +115,14 @@ export const Room: React.FC<RoomProps> = ({ coffinTime, themeKeys, seed, canvasR
             await drawForeground(canvas, items);
             itemsRef.current = items;
         } else {
-            itemsRef.current = [spawnVentObject()];
+            itemsRef.current = [spawnVentObject(), spawnCoffinObject()];
             await drawForeground(canvas, itemsRef.current);
         }
     }
 
     //a blink progresses based on what the current image is
     const blink = useCallback(() => {
+        console.log("JR NOTE: blink")
         setFlavorText(undefined);
         if (coffinImageSrc === coffin1) {
             setTimeout(() => { setCoffinImageSrc(coffin2); }, 100);
@@ -135,7 +136,10 @@ export const Room: React.FC<RoomProps> = ({ coffinTime, themeKeys, seed, canvasR
     //blink over time
     useEffect(() => {
         if (coffinTime && coffinImageSrc === coffin1) {
-            setTimeout(() => { blink() }, getRandomNumberBetween(1, 10) * 1000);
+            const timer = setTimeout(() => { blink() }, getRandomNumberBetween(1, 10) * 1000);
+            return () => {
+                clearTimeout(timer);
+              };
         } else {
             blink();
         }

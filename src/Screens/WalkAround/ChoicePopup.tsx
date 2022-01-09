@@ -6,6 +6,9 @@ import { useDialogState, Dialog, DialogDisclosure } from "reakit/Dialog";
  
  interface FlavorPopupProps{
     text: string; 
+    yesOption: string; 
+    noOption: string; 
+    yesFunction: Function;
     left: number;
     top: number;
 }
@@ -37,17 +40,22 @@ export const PopupTitle = styled.div`
     padding-right: 13px;
     margin: 10px;
 `
-
-
+export const StyledButton = styled.button`
+    background: none;
+    text-decoration: underline;
+    margin: 10px;
+    border: none;
+    color: red;
+    font-weight: bolder;
+    cursor: pointer;
+`
 export const PopupContent = styled.div`
     padding: 5px;
     padding-left: 13px;
     padding-right: 13px;
     margin: 10px;
 `
-
-
-const  FlavorPopup = (props: FlavorPopupProps)=> {
+const  ChoicePopup = (props: FlavorPopupProps)=> {
     const dialog = useDialogState();
     const [initialShowing, setInitialShowing] = useState(true);
     let {text, left, top} = props;
@@ -59,19 +67,6 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
         }
     },[initialShowing])
 
-    useEffect(()=>{
-        //console.log("JR NOTE: new text",text)
-        if(text){
-            const timer = setTimeout(()=>{
-                dialog.setVisible(false);
-            }, 3000)
-        
-            return () => {
-              clearTimeout(timer);
-            };
-        }
-
-    },[text,dialog])
 
     //if i depend on dialog here it won't let me dismiss the popup. just deal with it.
     useEffect(()=>{
@@ -80,9 +75,14 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
     return(
         <Fragment key={text}>
       <DialogDisclosure style={{display:"none"}}{...dialog}>Achivement Unlocked!!!</DialogDisclosure>
-      <Dialog onMouseDown={()=>{dialog.setVisible(false)}} {...dialog} tabIndex={0} style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"27%", width: "600px"} }>
+      <Dialog {...dialog} tabIndex={0} style={{border:"none",outline:"none", position: "fixed", top: "35%", left:"27%", width: "600px"} }>
         <Popup>
             <PopupContent dangerouslySetInnerHTML={{ __html: text}}></PopupContent>
+            <div>
+                <StyledButton onClick={()=>props.yesFunction()}>{props.yesOption}</StyledButton>
+                <StyledButton onClick={()=>dialog.setVisible(false)}>{props.noOption}</StyledButton>
+
+            </div>
         </Popup>
       </Dialog>
     </Fragment>
@@ -90,4 +90,4 @@ const  FlavorPopup = (props: FlavorPopupProps)=> {
 
 }
 
-export default FlavorPopup;
+export default ChoicePopup;
