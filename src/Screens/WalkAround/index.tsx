@@ -66,6 +66,7 @@ export const WalkAround = () => {
     const [flavorText, setFlavorText] = useState<string | undefined>()
     const [coffinTime, setCoffinTime] = useState(true);
     const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
+    const [trappedInCoffin, setTrappedInCoffin] = useState(false);
 
 
     const validKeys = () => {
@@ -188,34 +189,32 @@ export const WalkAround = () => {
 
     const beginingOfTheEnd = ()=>{
         console.log("JR NOTE: The Wanderer is no more. The End is Never The End.")
+        setTrappedInCoffin(true)
     }
 
 
     return (
         <Fragment>
-            <RoomContainer>
+            {!trappedInCoffin?(<RoomContainer>
                 <Room coffinTime={coffinTime} canvasRef={canvasRef} bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0, 8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
                 {displayCoffinOption ? <ChoicePopup yesFunction={()=>beginingOfTheEnd()} noOption = "I am NOT getting in a coffin." yesOption ="I am ready. Show me the final story." text={
-                    `You know if you lowered yourself into its smooth wooden confines and gently closed the lid you and it would sink down and down and down for almost forever.
+                    `You know if you lowered yourself into its smooth wooden confines and gently closed the lid, you and it would sink down and down and down for almost forever.
                     <br><Br>You know that even if the end could never be the end, there IS a bottom, and AT its bottom you could finally know enough at last. The coffin would sing you its story and you would be full.
                     `
                 } left={0} top={0} /> : null}
 
                 {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
-            </RoomContainer>
+            </RoomContainer>):null}
             <div>TODO:
 
                 Five Minute TODO:
-                *limit vent text width   
                 * post coffin chats
                 *post coffin spyware
                 * you can get into the rabbit hole???
 
-                *coffin room with special vent and animated coffin
-                OR
-                *omni time corporate spyware looking at all the interns chat windows.
+                <li>post coffin trial of killer plus live blogging of a tgifradys</li>
 
                 *tiny version of this where going thru a door loads one of the arcs???
                 (not react, just an image map???)
@@ -224,59 +223,36 @@ export const WalkAround = () => {
 
                 HIgh Level
                 *corporate spyware. "Currently Viewing Employee #22917's chat history"  You're the CEO looking at chat windows from the Interns perspective, with various partners (minimized unless new content but you can re-open them).  They can be messaged by, or send messages to The CEO, Wodin, The Closer, The CFO, Jepe Rilvia, Tom Peyote, The Manager, etc.
-                *pre coffin chat window for the Intern to keep texting (about the wanderer's obsession, about their new job (but only towards the end, when the wanderer isnt responding anymore))
                 * post coffin chat LOGS (not live) where the Intern's boss (both the CEO and the Closer) (closer is mostly trying to figure out why the CEO is giving the Intern special attention) keeps texting them to ask if they liked their fruit basket, if they liked the weird worm baby the Closer gave them, to complain about "that asshole snake" and how its hilarious his stupid spawn keep getting put into gift baskets, and to suggest he invest in this whole "cryptocurrency" tihng
                 * sometimes the co owner texts the intern as well but it's just like "man kinda crazy how everyone is messaging you rn huh"
-                * tape recorders in vents (deploying text content and audio content,playSecretCloser)
-                *coffin (oh god animation) spawns when memories = 0, or  AFTER closing out the closers menu you get the option to surrender to the crows.
-                * oh god i just realized the birbs could in theory eat the coffin. if coffin is true keep spawning it in new rooms till you get in
                 *final tape recorder with mystery next to coffin, others are random
                 * you go in the coffin to remember your past (geocities) and journey to your future
                 * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * styled spiral;
-                * room effects
-                *donut in a corn outfit
                 * letter to the flower girl from weaver
-                * spawn with at least one memory
-                * are birbs attracted to BACKGROUND OBJECTS they cannot eat (this is a problem)
+               
                 *support phone resolutions
                 * record major secrets found in this path and the prev path, for use in JustTruth path. closer window. vent tapes. coffin.
 
 
 
                 Other MINUTE TODO.
-                <li>add objects</li>
                 <li>shitty geocities parody website about unraveling the identity of the Eye Killer, Eyedol, people vanishing. make sure to link to google if you mention using it</li>
-                <li>post coffin trial of killer plus live blogging of a tgifradys</li>
                 <li>killer in vents</li>
                 *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
                 * canon way to get to apocalypse plz
                 <li>429044 is important number</li>
                 <li>20h:14m:36s on the stopwatch</li>
-                <li>#quotidians at a time tie to things you can put into helpdesk, one word per room max</li>
                 <li>jr in attic, but its a lobster. this is never explained.</li>
                 <li>tweak item placement alg (bookshelves are good example to show how current alg has layering)</li>
-                <li>warn player if the ai eats a memory you have in addition to the item, various ai factions that eats novel items and fight each other (shouts new, moves towards it, else wanders). PERMANENT for each item, store flavor text in local storage</li>
-                <li>spawn wall and floor vents rarely, with text</li>
                 <li>spawn hydration stations</li>
-                <li>spawn tape players (secret music)</li>
-                <li>add audio logs to secret music</li>
                 <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
                 <li>secret hax coffin to the left,endless dream, credits, apocalyse</li>
                 <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories, plus friendship with [redacted]</li>
 
 
-                <li>their ai responds to words in the flavor text (its not just for you) (drawn to some (you dont have yet), repulsed by others (you do have yet)? can destroy objects?) (the forever present is corrupted)</li>
-                <li>the ai eats items if they encounter it and you haven't yet</li>
                 <li>endless dream inside the coffin</li>
-                <li>leads to infinite spiralling help desk that leverages attic code, plot is Wanda trying to accuse Eyedol of having a serial killer in their staff</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
-                <li>spawnable tape players (add more secret music, including things that are just audio logs from the closer)</li>
-                infinite train zampaniosim branch (rooms in a linear pile, can go endlessly right, but can go back too, that zooming darkness effect) (it mirrors Truth the way this mirros ThisIsAgame)
-                <li>add glitch effect to WalkObject themes.</li>
-                <li>rooms can rarely spawn music boxes or SCRIBBLED NOTEBOOKS which engage with random thematic content</li>
-                <li>find your coffin and go down and down and down</li>
-                <li>train mode you can talk to all chars but truth keeps interupting on an intercome to remind you its all fake (besides dear sweet precious jaimie ofc)</li>
             </div>
             <HelpDesk />
             <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime} />
