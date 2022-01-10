@@ -192,6 +192,10 @@ export const WalkAround = () => {
         console.log("JR NOTE: The Wanderer is no more. The End is Never The End.")
         setTrappedInCoffin(true)
         fuckUpBG();
+        const body = document.querySelector("body");
+        if (body) {
+            body.style.background = "#000000";
+        }
     }
 
 

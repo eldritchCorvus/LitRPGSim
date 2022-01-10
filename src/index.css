@@ -145,7 +145,7 @@ td .infodump{
 }
 
 .bgbutithatesyou{
-  animation: frameAnimation2 0.6s steps(1) infinite;
+  animation: frameAnimation2 0.6s steps(1) infinite,fade 600.3s steps(30) forwards;
  }
 
  @keyframes gaslightbganimation {
@@ -160,6 +160,11 @@ td .infodump{
   33% { background-color: green; }
   66% { background-color: blue; }
   0% { background-color: yellow }
+}
+
+@keyframes fade {
+  0% { opacity: 100%; }
+  100% { opacity: 0% }
 }
 
 @keyframes frameAnimation2 {
