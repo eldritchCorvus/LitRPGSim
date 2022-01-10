@@ -108,14 +108,14 @@ theBestDude72: during the fucked up 'interview'.
 theBestDude72: so yeah.
 theBestDude72: MONDO stressful.
 theBestDude72: and thats not even getting into how WEIRD the company is?
-theBestDude72: i straight up, swear to the Creators, think its a CULT.
+theBestDude72: i straight up, swear to the Eight Divine, think its a CULT.
 theBestDude72: there were triplets and my manager claimed they were actually...like...
 theBestDude72: 19 identical dudes?
 theBestDude72: and that the CEO (who apparently is a girl) could see the future or some shit?
 theBestDude72: dude, i don't even know what i should do.
 theBestDude72: do i quit?
 theBestDude72: do i...
-theBestDude72: Creators, how do you even set up an Internship?
+theBestDude72: Eight Divine, how do you even set up an Internship?
 theBestDude72: am i gonna have to drop out?`});
 
 postCoffinChats.push({timestamp: new Date(1994, 9,16,19,5 ),lines: `theBestDude72: dude.

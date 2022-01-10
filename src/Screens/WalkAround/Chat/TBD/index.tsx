@@ -4,13 +4,14 @@ import { TBDChatBox } from './TBDChatBox';
 import help_icon from './../../../../images/Walkabout/icons8-chat-64_green.png';
 import { precoffinChats, TBDChatType } from "./PreCoffinChats";
 import { beepEffect } from "../../../..";
+import { postCoffinChats } from "./PostCoffinChats";
 
 interface TBDChatProps{
-    coffinTime: boolean; //should we be fetching pre coffin or post coffin chats?
+    trappedInCoffin: boolean; //should we be fetching pre coffin or post coffin chats?
     setCoffinTime: Function; //is it coffin time?????????????????
 }
 
-export const TBDChat : React.FC<TBDChatProps> = ({coffinTime, setCoffinTime}) => {
+export const TBDChat : React.FC<TBDChatProps> = ({trappedInCoffin, setCoffinTime}) => {
 
     const TBDChatIcon = styled.button`
     position: fixed;
@@ -54,16 +55,28 @@ export const TBDChat : React.FC<TBDChatProps> = ({coffinTime, setCoffinTime}) =>
         setChatOpen(!chatOpen);
     }
 
+    useEffect(()=>{
+        if(trappedInCoffin){
+            setNewChat(postCoffinChats[0]);
+            setUnseenChat(true);
+        }
+    },[trappedInCoffin])
+
     useEffect(() => {
         if (!newChat) {
             setUnseenChat(false);
             setChatOpen(false);
             setTimeout(() => {
-                setUnseenChat(true);
+                if(!chatOpen){
+                    setUnseenChat(true);
+                }else{
+                    setUnseenChat(false);
+                }
                 beepEffect();
-                const index = precoffinChats.indexOf(allChats[allChats.length - 1]) + 1;
-                if (precoffinChats.length > index) {
-                    setNewChat(precoffinChats[index]);
+                const array = trappedInCoffin? postCoffinChats: precoffinChats;
+                const index = array.indexOf(allChats[allChats.length - 1]) + 1;
+                if (array.length > index) {
+                    setNewChat(array[index]);
                 } else {
                     setCoffinTime(true);
                 }
@@ -73,7 +86,7 @@ export const TBDChat : React.FC<TBDChatProps> = ({coffinTime, setCoffinTime}) =>
     }, [newChat])
 
     useEffect(() => {
-        if (unseenChat) {
+        if (unseenChat && !chatOpen) {
             const flash = () => {
                 setGrayIcon(!grayIcon)
             }

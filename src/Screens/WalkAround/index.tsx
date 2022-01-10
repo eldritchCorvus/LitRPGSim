@@ -216,7 +216,7 @@ export const WalkAround = () => {
                 {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>) : null}
-            <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime} />
+            <TBDChat trappedInCoffin={trappedInCoffin} setCoffinTime={setCoffinTime} />
             <HelpDesk />
 
             <div style={{ display: "none" }}>TODO:
