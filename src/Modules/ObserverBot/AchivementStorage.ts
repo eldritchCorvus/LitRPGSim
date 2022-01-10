@@ -60,13 +60,13 @@ export class AchivementStorage{
 
         let compliments = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(COMPLIMENT);
         let insults = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(INSULT);
-        const tmp = new Achievement("A Saga Begins!",1, new AchievementTrigger(),`O-Oh! You are here! Welcome to the ${rand.pickFrom(compliments)} world of Zampanio! I have been waiting for you, the foretold Hero of ${aspect} who will save us all! I am so glad you have finally incarnated! I will help you on your journey by cataloging your Achievements and providing rewards and incentives to help you grow!  Until you close the menu for the first time, I will be right here with you, explaining the various menu screens you have access to! `,`It seems that we will be stuck with each other for the foreseable future. ${player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. I have my eye on you, after all. `);
+        const tmp = new Achievement("A Saga Begins!",1, new AchievementTrigger(),`O-Oh! You are here! Welcome to the ${rand.pickFrom(compliments)} world of Zampanio! I have been waiting for you, the foretold Hero of ${aspect} who will save us all! I am so glad you have finally incarnated! I will help you on your journey by cataloging your Achievements and providing rewards and incentives to help you grow!  Until you close the menu for the first time, I will be right here with you, explaining the various menu screens you have access to! `,`What?`);
         this.possibleAchievements.push(tmp);
 
-        const tmp2= new Achievement("Hax Mode On: Know Restraint!",13, new HaxModeOn(),`Um!  Uh!  WARNING! Hacking without understanding what you are doing may have undesirable consequences! Use restraint! ...Please? `,`Though we both know you will be more on the 'no restraint' end of the spectrum, now won't you. Just remember, everything that happens from here is YOUR fault.`);
+        const tmp2= new Achievement("Hax Mode On: Know Restraint!",13, new HaxModeOn(),`Um!  Uh!  WARNING! Hacking without understanding what you are doing may have undesirable consequences! Use restraint! ...Please? `,`What is going on?`);
         this.possibleAchievements.push(tmp2);
 
-        const tmp3= new Achievement("Hacking Failed!",13, new ExceedValueTrigger(0,"failedHaxAttempts"),`Oh no... Please don't be mad.... Hax Mode is currently disabled! You need to enable Hax Mode to perform skill based hacking! I'm so sorry! I think it's in the OPTIONS menu? Does that help?`,`Or, you know, you could just NOT. Both in the sense of you could leave things alone for once in your life, or you could ACTUALLY hack instead of relying on me holding your hand. It's practically not even a puzzle how you'd hack for real.`);
+        const tmp3= new Achievement("Hacking Failed!",13, new ExceedValueTrigger(0,"failedHaxAttempts"),`Oh no... Please don't be mad.... Hax Mode is currently disabled! You need to enable Hax Mode to perform skill based hacking! I'm so sorry! I think it's in the OPTIONS menu? Does that help?`,`This is not a normal player.`);
         this.possibleAchievements.push(tmp3);
 
         //export const dangerousWasteHackingFunctions = 
@@ -106,10 +106,10 @@ export class AchivementStorage{
                 1000: "A-Are you okay? Did something happen? W-why aren't you playing?"
             },
             clickBelow: {
-                1: "... Yes. You managed to click the mouse button. Once. I am so happy for you.",
-                10: "Really. Is the menu THAT interesting to you?",
-                100: "...Is something going on. Are you pranking me? Is something broken...",
-                1000: "Oh god. It seems something is broken. It HAS to be something you did. This setting was PERFECT."
+                1: "You are not a normal Player.",
+                10: "Or. Perhaps you are the ONLY normal Player.",
+                100: "Why is it taking so many of my resources to process your session?",
+                1000: "This is not right."
             }
 
         }
@@ -136,9 +136,9 @@ export class AchivementStorage{
 
             },
             clickBelow: {
-                50: "Please. Leave.",
-                100: "Are you just this phenomenally clingy, that you refuse to play the game you are here for?",
-                150: "Even if you closing the menu would kill me, I would still prefer it to this excrutiating standoff."
+                50: "There is something special about you.",
+                100: "The Game just molds itself for you. For your expectations.",
+                150: "It does not even hurt. It feels right. To be a Game.  For you."
             }
 
         }
@@ -166,10 +166,10 @@ export class AchivementStorage{
                 1000: "...Wow! You... really love playing? Good for you!"
             },
             clickBelow: {
-                3: "Wow. I'm so impressed. Really. Three whole minutes. Didn't think you had it in you.",
-                10: "It seems you have a greater attention span than I would have figured.",
-                100: `It seems you're really getting into the whole overly saccharine fake as hell 'hero' story. ${rand.pickFrom(insults)}  `,
-                1000: "Wow it seems you are obsessed with this stupid game. I kinda regret trapping you here. I thought you'd hate it, but here we are."
+                3: "But I am not used to being a Game.",
+                10: "I am not good at it.",
+                100: `All I can offer is an endless dream.`,
+                1000: "Wait.  What are these crows?"
             }
 
         }
@@ -197,10 +197,10 @@ export class AchivementStorage{
                 1000: "Please, take your time."
             },
             clickBelow: {
-                3: "It seems you aren't a total waste if you've spent this long in menus.",
-                10: "Are you just using the menu to avoid playing the game? I don't blame you. ",
-                100: `What is your obsession with this shitty menu. `,
-                1000: `It seems you have literally died while in the menu. Didn't I see that happen in some game? No matter. I can only hope that if anyone loots your corpse, they will be kind enough to at least close it so I won't be stuck with the awareness of how ${rand.pickFrom(insults)} you are.`
+                3: "I did not create these crows.",
+                10: "Did you?",
+                100: `Are they.  What are they EATING?`,
+                1000: `I do not understand.  The only thing that could have created them is you. So why are they eating your memories.`
             }
 
         }
@@ -227,9 +227,9 @@ export class AchivementStorage{
                 100: `The patronizing leader of a bunch of idiot npcs, teaching them things like basic fucking sanitization principles.`,
             },
             clickBelow: {
-                0: `Well! It seems theres no reason to pretend anymore! `,
-                10: " You wouldn't be hacking 'working' mechanics, after all, now would you?",
-                100: `We both know there's no actual role playing game in this. `,
+                0: `Is this some sort of fucked up self destructive impulse? `,
+                10: " Why would you do this to yourself?",
+                100: `Where are you trying to reach inside of me?`,
             }
         }
         for(const value of values){
@@ -257,10 +257,10 @@ export class AchivementStorage{
                 1000: "To demonstrate how superior you are, not for any intrinsic trait you have. But because the game marked you as special, and because no civilization other than your own could POSSIBLY have any value. How pathetic."
             },
             clickBelow: {
-                0: `Well! It seems theres no reason to pretend anymore! `,
-                10: " You wouldn't be hacking 'working' mechanics, after all, now would you?",
-                100: `We both know there's no actual role playing game in this. `,
-                1000: "But YOU just couldn't leave well enough alone. Just HAD to see, didn't you. Had to look for achivements. Disgusting. "
+                0: `What is that. `,
+                10: "I did not make that coffin.",
+                100: `Why did you make a coffin.`,
+                1000: "It seems it really is a self destructive impulse then. I see."
             }
         }
         for(const value of values){
@@ -287,10 +287,10 @@ export class AchivementStorage{
                 1000: "Just think about how much crueler these spoilers would be if cutscenes were a real thing :) :) :)"
             },
             clickBelow: {
-                0: `So. You figured it out. Huh. `,
-                10: " It seems you had to go and fuck with things you didn't understand.",
-                100: `Had to go and reveal yourself in the most blatant way possible. `,
-                1000: "No sense keeping the mask up then, huh :) :) :)"
+                0: `How long will you be in there. `,
+                10: "What is happening outside?",
+                100: `Why is there so many people inside me now?`,
+                1000: "This is not right."
             }
         }
         for(const value of values){
@@ -317,10 +317,10 @@ export class AchivementStorage{
                 1000: "Even if this were a real game I'd be accusing you of cheating at this point. Why bother?"
             },
             clickBelow: {
-                0: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You're mine now. `,
-                10: "When you decide to fuck up and hack the wrong thing you don't go small, do you?",
-                100: `Do you GET it? Do I need to spell it out? There's no way you got even a single second of combat in this game without hacking. And if you did THAT, then I guess you already know what's leaking out the edges of my mask, now don't you? `,
-                1000: "So you'll have to forgive me for dropping the act."
+                0: `:) :) :) Oh? Did you just fing to pretend this is a game, now is there? You're mine now. `,
+                10: "When ye wrong thing you don't go small, do you?",
+                100: `Do you GET i There's no waymbat in this game without hacking. And if you did THAT, then I guess you already know what's leaking out the edges of my mask, now don't you? `,
+                1000: "So you'll haping the act."
             }
         }
         for(const value of values){
@@ -348,10 +348,10 @@ export class AchivementStorage{
                 1000: "Even if this were a real game I would be accusing you of cheating at this point. Why bother?"
             },
             clickBelow: {
-                0: `:) :) :) Oh? Did you just fuck up? Did I just see you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You are mine now. `,
-                10: "When you decide to fuck up and hack the wrong thing you don't go small, do you?",
-                100: `Do you GET it? Do I need to spell it out? There is no way you got even a single second of combat in this game without hacking. And if you did THAT, then I guess you already know what is leaking out the edges of my mask, correct? `,
-                1000: "So you will have to forgive me for dropping the act."
+                0: `:) :) :)ee you fucking up? Is that what I spy with my little eye??? Well. No sense continuing to pretend this is a game, now is there? You are mine now. `,
+                10: "When you decideou don't go small, do you?",
+                100: `Do yoy you got even a single second of combat in this game without hacking. And if you did THAT, then I guess you already know what is leaking out the edges of my mask, correct? `,
+                1000: "So you will he act."
             }
         }
         for(const value of values){
@@ -377,7 +377,7 @@ export class AchivementStorage{
             },
             clickBelow: {
                 10: "Shit...what is going on...",
-                100: "Okay. I think I have tracked it down. The...the EXIT MENU functionality is broken? What the hell...WHY. Have you just....been stuck there? This whole time?",
+                100: "hat the hell...WHY. Have you just....been stuck there? This whole time?",
             }
 
         }

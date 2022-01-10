@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
-import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM } from '../../Modules/ThemeStorage';
+import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
 
 import SeededRandom from '../../Utils/SeededRandom';
@@ -196,6 +196,9 @@ export const WalkAround = () => {
         if (body) {
             body.style.background = "#000000";
         }
+        var pageUrl = '?' + `seed=13&themes=${[MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, ADDICTION].join(',')},&apocalypse=canon`;
+        window.history.pushState('', '', pageUrl);
+    
     }
 
 
