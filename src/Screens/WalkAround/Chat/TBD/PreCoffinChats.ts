@@ -142,7 +142,7 @@ odinsRazor: SORRY
 odinsRazor: I HAD TO RUSH HOME TO CHECK ON MY FORUM
 odinsRazor: LAST MONTHS KILLING?
 odinsRazor: 'THE TRUTH IS LAYERED'?
-theBestDude72: god dont remind me.
+theBestDude72: Creators, dont remind me.
 odinsRazor: IT'S BEEN BUGGING ME
 odinsRazor: I knew I RECOGNIZED IT
 odinsRazor: I KNEW I DID
@@ -175,6 +175,8 @@ odinsRazor: SHOULD I REVERSE THE PREVIOUS CLUES?
 odinsRazor: JUST THIS ONE?
 odinsRazor: WHY CODE IT TO A KEY OF 13?
 odinsRazor: WHAT DO THE FISH MEAN?
+odinsRazor: I THINK EYEDOL GAMES IS COVERING FOR THE KILLER
+odinsRazor: I CONTACTED CUSTOMER SERVICE AND SOMETHING REALLY REALLY SUSPECIOUS HAPPENED
 theBestDude72: oh my god dude.
 theBestDude72: i was asleep.
 theBestDude72: it was five in the morning.
