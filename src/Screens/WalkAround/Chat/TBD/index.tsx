@@ -93,10 +93,10 @@ export const TBDChat : React.FC<TBDChatProps> = ({coffinTime, setCoffinTime}) =>
     //i don't know what yall do with your findings
     //write a story so i find out
     return (
-        <Fragment>
+        <div style={{height: "600px"}}>
             <TBDChatIcon onClick={() => toggleChat()}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}><IconImage greyed={grayIcon} src={help_icon} /> theBestDude72 chat</div></TBDChatIcon>
 
             {chatOpen ? <TBDChatBox setChatOpen={setChatOpen} allChats={allChats} newChat={newChat} setAllChats={setAllChats} setNewChat={setNewChat} /> : null}
-        </Fragment>
+        </div>
     )
 }

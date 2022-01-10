@@ -15,6 +15,7 @@ import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { HelpDesk } from "./Chat/HelpDesk";
 import { TBDChat } from "./Chat/TBD";
 import ChoicePopup from "./ChoicePopup";
+import { fuckUpBG } from "../../CanvasFuckery/fuckery";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -187,18 +188,19 @@ export const WalkAround = () => {
         )
     }
 
-    const beginingOfTheEnd = ()=>{
+    const beginingOfTheEnd = () => {
         console.log("JR NOTE: The Wanderer is no more. The End is Never The End.")
         setTrappedInCoffin(true)
+        fuckUpBG();
     }
 
 
     return (
         <Fragment>
-            {!trappedInCoffin?(<RoomContainer>
+            {!trappedInCoffin ? (<RoomContainer>
                 <Room coffinTime={coffinTime} canvasRef={canvasRef} bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0, 8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
-                {displayCoffinOption ? <ChoicePopup yesFunction={()=>beginingOfTheEnd()} noOption = "I am NOT getting in a coffin." yesOption ="I am ready. Show me the final story." text={
+                {displayCoffinOption ? <ChoicePopup yesFunction={() => beginingOfTheEnd()} noOption="I am NOT getting in a coffin." yesOption="I am ready. Show me the final story." text={
                     `You know if you lowered yourself into its smooth wooden confines and gently closed the lid, you and it would sink down and down and down for almost forever.
                     <br><Br>You know that even if the end could never be the end, there IS a bottom, and AT its bottom you could finally know enough at last. The coffin would sing you its story and you would be full.
                     `
@@ -206,8 +208,11 @@ export const WalkAround = () => {
 
                 {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
-            </RoomContainer>):null}
-            <div>TODO:
+            </RoomContainer>) : null}
+            <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime} />
+            <HelpDesk />
+
+            <div style={{ display: "none" }}>TODO:
 
                 Five Minute TODO:
                 * https://farragofiction.com/%E1%9B%96%E1%9B%9F%E1%9B%92%E1%9A%BA%E1%9A%B1%E1%9A%A2 knucklessux
@@ -231,7 +236,7 @@ export const WalkAround = () => {
                 * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
                 * styled spiral;
                 * letter to the flower girl from weaver
-               
+
                 *support phone resolutions
                 * record major secrets found in this path and the prev path, for use in JustTruth path. closer window. vent tapes. coffin.
 
@@ -255,8 +260,7 @@ export const WalkAround = () => {
                 <li>endless dream inside the coffin</li>
                 <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
             </div>
-            <HelpDesk />
-            <TBDChat coffinTime={coffinTime} setCoffinTime={setCoffinTime} />
+
         </Fragment>
 
     )
