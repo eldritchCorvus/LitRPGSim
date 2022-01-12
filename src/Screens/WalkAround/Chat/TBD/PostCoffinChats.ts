@@ -192,8 +192,7 @@ theBestDude72: quadrupled in price today.
 theBestDude72: wtf.
 odinsRazor: LIKE I'D GIVE YOU WORTHLESS MAZE PRIZES
 theBestDude72: what.
-odinsRazor: SHIT
-`});
+odinsRazor: SHIT`});
 
 
 //don't forget, final fic has odinsRazor accidentally respond, then panic.

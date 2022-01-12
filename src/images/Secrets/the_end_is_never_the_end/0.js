@@ -1,0 +1,6 @@
+
+export const text = `
+
+EYE KILLER COULD STRIKE AGAIN DECLARE AUSTIN OFFICER
+
+`

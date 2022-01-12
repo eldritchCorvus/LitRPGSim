@@ -196,7 +196,7 @@ export const WalkAround = () => {
         if (body) {
             body.style.background = "#000000";
         }
-        var pageUrl = '?' + `seed=13&themes=${[MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, ADDICTION].join(',')},&apocalypse=canon`;
+        var pageUrl = '?' + `seed=13&themes=${[MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, ADDICTION].join(',')}&apocalypse=canon`;
         window.history.pushState('', '', pageUrl);
     
     }
