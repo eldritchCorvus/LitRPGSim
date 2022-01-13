@@ -80,6 +80,20 @@ export const JR2 = ()=>{
     return ramble;
 }
 
+export const JRK = ()=>{
+    const initialRamble = `
+        That which is damaged being celebrated.
+        That which is marred being loved.
+        Is using buggy code an act of reverence?
+        Is hacking together a temporary fix something like family?
+        Is it beautiful?
+        Or is it just broken.
+    `;
+    const ramble = new CustomerServiceRamble(initialRamble, []);
+
+    return ramble;
+}
+
 export const Lost = ()=>{
     const initialRamble = "I'm sorry; I am unable to complete your call as dialed. Please check the number and dial again, or call your operator at exension 0 to help you.";
     const ramble = new CustomerServiceRamble(initialRamble, []);
@@ -306,4 +320,4 @@ export const randomSpecialist = (frustration_level:number)=>{
 //to make them realize how to proceed even if they aren't sufficiently wasted
 //in essence: would you like to make your own branch of zampanio?
 //its hard weaving puzzles into things, (either hints are too easy or too hard) which is why we should all practice while having fun
-export const initial_directory ={"operator": new CustomerSupportSpecialist("Quotidian Quorum InfoBroker System","quick start",QQ()),"the truth is layered": new CustomerSupportSpecialist("Justified Recursion","the truth is layered",JR2()),"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Quotidian Quorom InfoBroker System","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost()),13: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar()),4631: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar())};
+export const initial_directory ={"operator": new CustomerSupportSpecialist("Quotidian Quorum InfoBroker System","quick start",QQ()),1152: new CustomerSupportSpecialist("Justified Recursion","1152",JRK()),"the truth is layered": new CustomerSupportSpecialist("Justified Recursion","the truth is layered",JR2()),"the end is never the end": new CustomerSupportSpecialist("Justified Recursion","the end is never the end",JR()),0: new CustomerSupportSpecialist("Quotidian Quorom InfoBroker System","0",HelloWorld()), "411": new CustomerSupportSpecialist("Debug Bot","411",Debug()),"1": new CustomerSupportSpecialist("Not Found","1",Lost()),13: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar()),4631: new CustomerSupportSpecialist("Spy Log","0",CloseButStillTooFar())};
