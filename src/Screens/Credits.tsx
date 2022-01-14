@@ -177,6 +177,10 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditLeft>Sprites: </CreditLeft> <CreditRight><span>SmeargleUsedHex</span></CreditRight>
                 </CreditLine>
 
+                <CreditLine>
+                    <CreditLeft>Vent Shitposts: </CreditLeft> <CreditRight><span>The Herald of Beef (the one who screams i guess)</span></CreditRight>
+                </CreditLine>
+
                 <CreditHeader>Outside Assets (Both Generic and Custom):</CreditHeader>
 
                 <CreditLine>

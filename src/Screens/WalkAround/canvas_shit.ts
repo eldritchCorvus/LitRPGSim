@@ -228,7 +228,7 @@ export const spawnWallObjects = async (layer: number, key: string, folder: strin
     }
     //vents are rare and what is inside them is true random, because the Eye Killer is moving around in there
     if (layer === 1 && seededRandom.nextDouble()>.9) {
-        const files = ["TheCloser/2_am","TheCloser/closer-alt","TheCloser/closer-watt","TheCloser/closer-tyrfing","TheCloser/closer-hunt","TheCloser/closer-flowerchick"];
+        const files = ["TheCloser/someone_probably_fucking_dies","TheCloser/2_am","TheCloser/closer-alt","TheCloser/closer-watt","TheCloser/closer-tyrfing","TheCloser/closer-hunt","TheCloser/closer-flowerchick"];
         ret.push({ layer: layer, src: `Walkabout/Objects/${folder}/closed_vent.png`, themeKeys: [HUNTING], x: 50, y: 90, width: 30, height: 22, flavorText: pickFrom(files) })
     }
     return ret;
