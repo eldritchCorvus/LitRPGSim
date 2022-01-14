@@ -87,8 +87,7 @@ export const JRK = ()=>{
         Is using buggy code an act of reverence?
         Is hacking together a temporary fix something like family?
         Is it beautiful?
-        Or is it just broken.
-    `;
+        Or is it just broken.`;
     const ramble = new CustomerServiceRamble(initialRamble, []);
 
     return ramble;
