@@ -16,6 +16,8 @@ import { HelpDesk } from "./Chat/HelpDesk";
 import { TBDChat } from "./Chat/TBD";
 import ChoicePopup from "./ChoicePopup";
 import { fuckUpBG } from "../../CanvasFuckery/fuckery";
+import { Spyware } from "./Chat/HelpDesk/SpyWare";
+import { CeoChats } from "./Chat/HelpDesk/CEOChats";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -65,7 +67,7 @@ export const WalkAround = () => {
     const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [coffinTime, setCoffinTime] = useState(false);
+    const [coffinTime, setCoffinTime] = useState(true);
     const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
     const [trappedInCoffin, setTrappedInCoffin] = useState(false);
 
@@ -216,6 +218,9 @@ export const WalkAround = () => {
                 {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>) : null}
+            {trappedInCoffin ?<CeoChats/>:null}
+            {trappedInCoffin ?<Spyware/>:null}
+
             <TBDChat trappedInCoffin={trappedInCoffin} setCoffinTime={setCoffinTime} />
             <HelpDesk />
 
