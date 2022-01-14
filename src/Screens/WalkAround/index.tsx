@@ -16,7 +16,6 @@ import { HelpDesk } from "./Chat/HelpDesk";
 import { TBDChat } from "./Chat/TBD";
 import ChoicePopup from "./ChoicePopup";
 import { fuckUpBG } from "../../CanvasFuckery/fuckery";
-import { Spyware } from "./Chat/HelpDesk/SpyWare";
 import { CeoChats } from "./Chat/HelpDesk/CEOChats";
 
 //a memory can NOT be in both places at once.
@@ -219,8 +218,6 @@ export const WalkAround = () => {
                 <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>) : null}
             {trappedInCoffin ?<CeoChats/>:null}
-            {trappedInCoffin ?<Spyware/>:null}
-
             <TBDChat trappedInCoffin={trappedInCoffin} setCoffinTime={setCoffinTime} />
             <HelpDesk />
 
