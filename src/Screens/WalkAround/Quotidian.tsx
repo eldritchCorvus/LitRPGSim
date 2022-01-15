@@ -21,6 +21,7 @@ interface QuotidianProps {
     themeKeys: string[];
     seededRandom: SeededRandom;
     numberDoors:number;
+    trappedInCoffin?: boolean;
     wandaTakeMemoryRef: MutableRefObject<Function|undefined>;
   }
 
@@ -44,7 +45,7 @@ interface QuotidianProps {
 
 const sprite_url_start = `Walkabout/Sprites/`;
 const default_sprite = `humanoid_crow.gif`;
-export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,themeKeys,canvasRef,seededRandom,numberDoors}) => {
+export const Quotidian:React.FC<QuotidianProps> = ({trappedInCoffin,wandaTakeMemoryRef,itemsRef,themeKeys,canvasRef,seededRandom,numberDoors}) => {
     
     const playerWidth = 50;
     const playerHeight = 50;
@@ -252,6 +253,9 @@ export const Quotidian:React.FC<QuotidianProps> = ({wandaTakeMemoryRef,itemsRef,
     }
 
     const getFlavorText =(themeKeys: string[], opinion: number, objectName: string|undefined)=>{
+        if(trappedInCoffin){
+            return "Processing data for Creator. Please hold!";
+        }
         if( opinion>0){
             return getPositiveFlavorText(themeKeys, opinion,objectName) + opinion;
         }else{

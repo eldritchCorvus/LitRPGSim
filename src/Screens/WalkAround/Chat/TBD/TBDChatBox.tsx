@@ -98,9 +98,9 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ setChatOpen,newChat, allC
                             <Fragment>
                                 <TimeCode>{chat.timestamp.toLocaleDateString()} {chat.timestamp.toLocaleTimeString()}</TimeCode>
                                 {
-                                    chat.lines.split("\n").map((line) => {
+                                    chat.lines.split("\n").map((line,index) => {
                                         return (
-                                            <ProcessedChatLine line={line} />
+                                            <ProcessedChatLine key={line+index} line={line} />
                                         )
                                     })
                                 }

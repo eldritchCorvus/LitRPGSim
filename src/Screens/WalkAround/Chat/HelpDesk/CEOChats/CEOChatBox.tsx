@@ -97,9 +97,9 @@ export const CEOChatBox: React.FC<TBDChatBoxType> = ({ you, me,setChatOpen, allC
                             <Fragment>
                                 <TimeCode>{chat.timestamp.toLocaleDateString()} {chat.timestamp.toLocaleTimeString()}</TimeCode>
                                 {
-                                    chat.lines.split("\n").map((line) => {
+                                    chat.lines.split("\n").map((line,index) => {
                                         return (
-                                            <CEOChatLine me={me} line={line} />
+                                            <CEOChatLine key={line+index} me={me} line={line} />
                                         )
                                     })
                                 }

@@ -199,7 +199,7 @@ export const WalkAround = () => {
         }
         var pageUrl = '?' + `seed=13&themes=${[MAGIC, KNOWING, KNOWING, SPYING, TECHNOLOGY, ADDICTION].join(',')}&apocalypse=canon`;
         window.history.pushState('', '', pageUrl);
-    
+
     }
 
 
@@ -217,7 +217,19 @@ export const WalkAround = () => {
                 {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
             </RoomContainer>) : null}
-            {trappedInCoffin ?<CeoChats/>:null}
+            {trappedInCoffin ? <RoomContainer>
+                <Quotidian trappedInCoffin={trappedInCoffin} themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian trappedInCoffin={trappedInCoffin}  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian trappedInCoffin={trappedInCoffin}  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian trappedInCoffin={trappedInCoffin}  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian trappedInCoffin={trappedInCoffin}  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian trappedInCoffin={trappedInCoffin}  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+                <Quotidian trappedInCoffin={trappedInCoffin}  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+
+                <Quotidian  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
+            </RoomContainer> : null}
+            {trappedInCoffin ? <CeoChats /> : null}
+
             <TBDChat trappedInCoffin={trappedInCoffin} setCoffinTime={setCoffinTime} />
             <HelpDesk />
 
