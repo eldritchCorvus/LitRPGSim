@@ -66,7 +66,7 @@ export const WalkAround = () => {
     const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [coffinTime, setCoffinTime] = useState(true);
+    const [coffinTime, setCoffinTime] = useState(false);
     const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
     const [trappedInCoffin, setTrappedInCoffin] = useState(false);
 
