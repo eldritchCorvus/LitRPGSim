@@ -1,9 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
 import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
-
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
 import { getParameterByName } from '../../Utils/URLUtils';
@@ -17,6 +17,7 @@ import { TBDChat } from "./Chat/TBD";
 import ChoicePopup from "./ChoicePopup";
 import { fuckUpBG } from "../../CanvasFuckery/fuckery";
 import { CeoChats } from "./Chat/HelpDesk/CEOChats";
+import { css,jsx } from "@emotion/react";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -202,10 +203,33 @@ export const WalkAround = () => {
 
     }
 
+    //warning, the post coffin uses the styled component still, so don't be surprised if editing this doenst edit htat
+    const base_room_stylings = `padding: 10px;
+    margin: 10px;
+    font-weight: 500;
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    overflow: auto;
+    top: 5%;
+    left: 25%;
+    width: 500px;
+    height: 500px;`
+    const obfuscation_styles = [`filter: blur(5);`,`filter: blur(10px);`,`filter: blur(15px);`];
+    const eye_styles = [`filter: contrast(200%);`];
+    const lonely_styles = [`filter: saturate(30%);`,`filter: contrast(70%) grayscale(70%);`,`filter: contrast(50%) grayscale(90%);`,`filter: contrast(50%);`,`filter: contrast(50%) brightness(50%);`];
+    const dark_styles = [`filter: brightness(5%);`,`filter: brightness(10%);`,`filter: brightness(20%);`];
+    const light_styles = [`filter: contrast(60%) brightness(300%);`,`filter: brightness(500%);`,`filter: brightness(300%);`,`filter: brightness(200%);`];
+    const twisting_styles = [`filter: hue-rotate(10deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(19deg);`,`filter: hue-rotate(190deg);`,`filter: hue-rotate(90deg);`];
+    const time_styles = [`filter: sepia(50%);`,`filter: sepia(75%);`,`filter: sepia(100%);`];
+    const test_style = `filter: sepia(50%);`
+    const theme_style = `${base_room_stylings}${test_style}`;
 
     return (
         <Fragment>
-            {!trappedInCoffin ? (<RoomContainer>
+            {!trappedInCoffin ? (<div css={css`${theme_style}`}>
                 <Room coffinTime={coffinTime} canvasRef={canvasRef} bgCanvasRef={bgCanvasRef} baseCanvasRef={baseCanvasRef} itemsRef={itemsRef} themeKeys={themeKeys} numberDoors={numberDoors} seed={seededRandom.getRandomNumberBetween(0, 8888888888)} />
                 {flavorText ? <FlavorPopup text={flavorText} left={0} top={0} /> : null}
                 {displayCoffinOption ? <ChoicePopup yesFunction={() => beginingOfTheEnd()} noOption="I am NOT getting in a coffin." yesOption="I am ready. Show me the final story." text={
@@ -216,7 +240,7 @@ export const WalkAround = () => {
 
                 {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                 <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
-            </RoomContainer>) : null}
+            </div>) : null}
             {trappedInCoffin ? <RoomContainer>
                 <Quotidian trappedInCoffin={trappedInCoffin} themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
                 <Quotidian trappedInCoffin={trappedInCoffin}  themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>

@@ -160,7 +160,7 @@ export const spawnFloorObjects = async (layer: number, key: string, folder: stri
     const scale = 1.5;
     const y_wiggle = 50;
     const debug = false;
-    const clutter_rate = seededRandom.nextDouble(); //smaller is more cluttered
+    const clutter_rate = seededRandom.nextDouble(0.5,0.9); //smaller is more cluttered
     while (current_y + padding < canvas.height) {
         current_x = padding;
         while (current_x < canvas.width) {
