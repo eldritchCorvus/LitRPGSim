@@ -11,7 +11,7 @@ import { RenderedItem } from './canvas_shit';
 import { Wanderer } from './Wanderer';
 import { GuestBook } from "./GuestBook";
 import { Quotidian } from "./Quotidian";
-import { shuffle } from "../../Utils/NonSeededRandUtils";
+import { pickFrom, shuffle } from "../../Utils/NonSeededRandUtils";
 import { HelpDesk } from "./Chat/HelpDesk";
 import { TBDChat } from "./Chat/TBD";
 import ChoicePopup from "./ChoicePopup";
@@ -99,10 +99,9 @@ export const WalkAround = () => {
     const [wandererLoc, setWandererLoc] = useState({x:'250px',y:'450px'});
 
     useEffect(() => {
-        //const dark_mask = `mask-image: radial-gradient(circle, black 10%, rgba(0, 0, 0, 0.15) 25%);`;
-        const dark_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  10%, rgba(0, 0, 0, 0.15) 25%);`
-        const light_mask = `mask-image: radial-gradient(circle, white 10%, rgba(0, 0, 0, 0.30) 25%);`;
-        const lonely_mask = `mask-image: radial-gradient(circle, black 1%, rgba(0, 0, 0, 0.0) 50%);`;
+        const dark_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  10%, rgba(0, 0, 0, 0.15) 25%);`;
+        const light_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, white 0%,  50%, rgba(0, 0, 0, 0.15) 75%);`;
+        const lonely_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  25%, rgba(0, 0, 0, 0.15) 50%);`;
 
         //NOTE: in theme storage just store the RIGHT side of these, so they can be added together.
         //blur seems a special case tho
@@ -112,9 +111,11 @@ export const WalkAround = () => {
         const lonely_styles = [`filter: saturate(30%);`, `filter: contrast(70%) grayscale(70%);`, `filter: contrast(50%) grayscale(90%);`, `filter: contrast(50%);`, `filter: contrast(50%) brightness(50%);`];
         const dark_styles = [`filter: brightness(50%);`, `filter: brightness(20%);`];
         const light_styles = [`filter: contrast(60%) brightness(300%);`, `filter: brightness(300%);`, `filter: brightness(200%);`];
-        const twisting_styles = [`filter: hue-rotate(10deg);`, `filter: hue-rotate(5deg);`, `filter: hue-rotate(19deg);`, `filter: hue-rotate(190deg);`, `filter: hue-rotate(90deg);`];
+        const twisting_styles = [`filter: hue-rotate(10deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`, `filter: hue-rotate(5deg);`, `filter: hue-rotate(19deg);`];
+        const clown_themes = [`filter: invert(100%);`,`filter: hue-rotate(10deg);`, `filter: hue-rotate(5deg);`, `filter: hue-rotate(19deg);`, `filter: hue-rotate(190deg);`, `filter: hue-rotate(90deg);`];
+
         const time_styles = [`filter: sepia(50%);`, `filter: sepia(75%);`, `filter: sepia(100%);`];
-        const test_style = `filter: brightness(50%);`
+        const test_style = pickFrom(twisting_styles);
         let mask = '';
         if (themeKeys.includes(DARKNESS)) {
             mask = dark_mask;
