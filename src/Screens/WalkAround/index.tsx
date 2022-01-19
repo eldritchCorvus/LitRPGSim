@@ -96,10 +96,11 @@ export const WalkAround = () => {
     const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
     const [trappedInCoffin, setTrappedInCoffin] = useState(false);
     const [roomStyle, setRoomStyle] = useState(base_room_stylings);
+    const [wandererLoc, setWandererLoc] = useState({x:'250px',y:'450px'});
 
     useEffect(() => {
         //const dark_mask = `mask-image: radial-gradient(circle, black 10%, rgba(0, 0, 0, 0.15) 25%);`;
-        const dark_mask = `mask-image: radial-gradient(ellipse at 250px 450px, black 0%,  10%, rgba(0, 0, 0, 0.15) 25%);`
+        const dark_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  10%, rgba(0, 0, 0, 0.15) 25%);`
         const light_mask = `mask-image: radial-gradient(circle, white 10%, rgba(0, 0, 0, 0.30) 25%);`;
         const lonely_mask = `mask-image: radial-gradient(circle, black 1%, rgba(0, 0, 0, 0.0) 50%);`;
 
@@ -125,7 +126,7 @@ export const WalkAround = () => {
         const theme_style = `${mask}${base_room_stylings}${test_style}`;
         setRoomStyle(theme_style);
 
-    }, [themeKeys])
+    }, [themeKeys, wandererLoc])
 
 
     const validKeys = () => {
@@ -275,7 +276,7 @@ export const WalkAround = () => {
                         } left={0} top={0} /> : null}
 
                         {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
-                        <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
+                        <Wanderer setWandererLoc={setWandererLoc} setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
                     </div>
                     {themeKeys.includes(DARKNESS) ? <DarkBG /> : null}
                     {themeKeys.includes(LIGHT) ? <LightBG /> : null}

@@ -18,6 +18,7 @@ interface WandererProps {
     makeChild: Function;
     numberDoors: number;
     setDisplayCoffinOption: Function;
+    setWandererLoc: Function;
 }
 
 export const Popup = styled.div`
@@ -62,7 +63,7 @@ export const TapePopup = styled.div`
 const RoomCanvas = styled.canvas`
     position: absolue;
   `
-export const Wanderer: React.FC<WandererProps> = ({setDisplayCoffinOption, wandaTakeMemoryRef, itemsRef, canvasRef, seededRandom, makeChild, numberDoors }) => {
+export const Wanderer: React.FC<WandererProps> = ({setWandererLoc,setDisplayCoffinOption, wandaTakeMemoryRef, itemsRef, canvasRef, seededRandom, makeChild, numberDoors }) => {
 
     const playerWidth = 55;
     const playerHeight = 37;
@@ -294,6 +295,7 @@ export const Wanderer: React.FC<WandererProps> = ({setDisplayCoffinOption, wanda
             const tmp = [...itemsRef.current, { src: "gif_do_not_render", layer: -1, x: playerLocation.left, y: playerLocation.top, width: playerWidth, height: playerHeight, flavorText: "The Wanderer.", themeKeys: themeKeys, name: "Wanderer" }]
             itemsRef.current = tmp;
         }
+        setWandererLoc({x:`${playerLocation.left}px`,y:`${playerLocation.top}px`})
 
     }, [playerLocation])
 
