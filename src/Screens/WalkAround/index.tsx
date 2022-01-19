@@ -230,7 +230,9 @@ export const WalkAround = () => {
     width: 500px;
     height: 500px;`
 
-    const mask = `mask-image: radial-gradient(circle, black 10%, rgba(0, 0, 0, 0.15) 25%);`;
+    const dark_mask = `mask-image: radial-gradient(circle, black 10%, rgba(0, 0, 0, 0.15) 25%);`;
+    const light_mask = `mask-image: radial-gradient(circle, white 10%, rgba(0, 0, 0, 0.30) 25%);`;
+    const lonely_mask = `mask-image: radial-gradient(circle, black 1%, rgba(0, 0, 0, 0.0) 50%);`;
 
     //NOTE: in theme storage just store the RIGHT side of these, so they can be added together.
     //blur seems a special case tho
@@ -239,11 +241,11 @@ export const WalkAround = () => {
     const eye_styles = [`filter: contrast(200%);`];
     const lonely_styles = [`filter: saturate(30%);`, `filter: contrast(70%) grayscale(70%);`, `filter: contrast(50%) grayscale(90%);`, `filter: contrast(50%);`, `filter: contrast(50%) brightness(50%);`];
     const dark_styles = [`filter: brightness(50%);`,`filter: brightness(20%);`];
-    const light_styles = [`filter: contrast(60%) brightness(300%);`, `filter: brightness(500%);`, `filter: brightness(300%);`, `filter: brightness(200%);`];
+    const light_styles = [`filter: contrast(60%) brightness(300%);`, `filter: brightness(300%);`, `filter: brightness(200%);`];
     const twisting_styles = [`filter: hue-rotate(10deg);`, `filter: hue-rotate(5deg);`, `filter: hue-rotate(19deg);`, `filter: hue-rotate(190deg);`, `filter: hue-rotate(90deg);`];
     const time_styles = [`filter: sepia(50%);`, `filter: sepia(75%);`, `filter: sepia(100%);`];
     const test_style = `filter: brightness(50%);`
-    const theme_style = `${mask}${base_room_stylings}${test_style}`;
+    const theme_style = `${dark_mask}${base_room_stylings}${test_style}`;
 
     return (
         <Fragment>
@@ -261,7 +263,7 @@ export const WalkAround = () => {
                         {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                         <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
                     </div>
-                    <DarkBG />
+                    <DarkBG/>
                 </Fragment>)
                 : null}
             {trappedInCoffin ? <RoomContainer>
