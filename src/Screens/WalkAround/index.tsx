@@ -2,7 +2,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
-import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC, DARKNESS, LIGHT } from '../../Modules/ThemeStorage';
+import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC, DARKNESS, LIGHT, OBFUSCATION } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
@@ -250,7 +250,7 @@ export const WalkAround = () => {
         mask = dark_mask;
     }else if(themeKeys.includes(LIGHT)){
         mask = light_mask
-    }else if(themeKeys.includes(LONELY)){
+    }else if(themeKeys.includes(LONELY) || themeKeys.includes(OBFUSCATION) ){
         mask = lonely_mask;
     }
 
