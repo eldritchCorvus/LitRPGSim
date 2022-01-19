@@ -2,7 +2,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
 import { all_themes, Theme } from '../../Modules/Theme';
-import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC } from '../../Modules/ThemeStorage';
+import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC, DARKNESS, LIGHT } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
@@ -245,7 +245,16 @@ export const WalkAround = () => {
     const twisting_styles = [`filter: hue-rotate(10deg);`, `filter: hue-rotate(5deg);`, `filter: hue-rotate(19deg);`, `filter: hue-rotate(190deg);`, `filter: hue-rotate(90deg);`];
     const time_styles = [`filter: sepia(50%);`, `filter: sepia(75%);`, `filter: sepia(100%);`];
     const test_style = `filter: brightness(50%);`
-    const theme_style = `${dark_mask}${base_room_stylings}${test_style}`;
+    let mask = '';
+    if(themeKeys.includes(DARKNESS)){
+        mask = dark_mask;
+    }else if(themeKeys.includes(LIGHT)){
+        mask = light_mask
+    }else if(themeKeys.includes(LONELY)){
+        mask = lonely_mask;
+    }
+
+    const theme_style = `${mask}${base_room_stylings}${test_style}`;
 
     return (
         <Fragment>
@@ -263,7 +272,9 @@ export const WalkAround = () => {
                         {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                         <Wanderer setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
                     </div>
-                    <DarkBG/>
+                    {themeKeys.includes(DARKNESS)?<DarkBG/>:null}
+                    {themeKeys.includes(LIGHT)?<LightBG/>:null}
+
                 </Fragment>)
                 : null}
             {trappedInCoffin ? <RoomContainer>
