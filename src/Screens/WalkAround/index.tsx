@@ -132,13 +132,19 @@ export const WalkAround = () => {
         if(filters.current && filters.current.length){
             filter = 'filter: '
             for(let f of filters.current){
-                filter += `${f}`;
+                filter += `${f} `;
             }
             if(themeKeys.includes(TWISTING)){
-                const twisting_styles = [`hue-rotate(10deg)`,`hue-rotate(7deg)`,`hue-rotate(3deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`];
-                filter += pickFrom(twisting_styles);
+                const twisting_styles = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(-5deg)`];
+                filter += ` ${pickFrom(twisting_styles)}`;
             }
             filter += ";"
+        }else if(themeKeys.includes(TWISTING)){
+            filter = 'filter: '
+            const twisting_styles = [`hue-rotate(-2deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(-5deg)`];
+            filter += pickFrom(twisting_styles);
+            filter += ";"
+
         }
         const theme_style = `${mask}${base_room_stylings}${filter !== '' ?filter:''}`;
         setRoomStyle(theme_style);

@@ -427,7 +427,7 @@ const initSongs = () => {
 }
 
 const initFilters = () => {
-    filter_possibilities[TWISTING] = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(19deg)`]; //subtle
+    filter_possibilities[TWISTING] = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(-5deg)`]; //subtle
     filter_possibilities[CLOWNS] = [`invert(100%)`, `hue-rotate(190deg)`, `hue-rotate(90deg)`]; //whimsy
     filter_possibilities[LIGHT] = [`brightness(300%)`,`contrast(60%)`, `filter: brightness(300%)`, `brightness(200%)`]; //the futures so bright you need to wear shades
     filter_possibilities[ANGER] = [`grayscale(100%) sepia(100%) contrast(454%) saturate(651%) brightness(44%) hue-rotate(681deg) blur(1px)`];// tint it red
