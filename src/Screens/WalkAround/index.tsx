@@ -135,7 +135,7 @@ export const WalkAround = () => {
                 filter += `${f}`;
             }
             if(themeKeys.includes(TWISTING)){
-                const twisting_styles = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`filter: hue-rotate(5deg)`,`filter: hue-rotate(5deg)`,`filter: hue-rotate(5deg)`, `filter: hue-rotate(5deg)`, `filter: hue-rotate(19deg)`];
+                const twisting_styles = [`hue-rotate(10deg)`,`hue-rotate(7deg)`,`hue-rotate(3deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`];
                 filter += pickFrom(twisting_styles);
             }
             filter += ";"
