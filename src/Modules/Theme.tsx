@@ -107,6 +107,15 @@ export const aggregateOpinionsOnThemes= (judgingThemes: Theme[], judgedThemes: T
     return ret;
 }
 
+export const keysToThemes = (theme_keys: string[])=>{
+        let themes: Theme[] = [];
+        for (let theme of theme_keys) {
+            themes.push(all_themes[theme]);
+        }
+        return themes;
+    }
+}
+
 //tiers of 0 will be initialized when in use 
 //(YES this means that if the first player to use "Healing" theme has it high tier it will be high for EVERYONE. deal with tihs. )
 export function initThemes(){
@@ -143,6 +152,7 @@ export function initThemes(){
         string_possibilities[ThemeStorage.FLOORBACKGROUND] = ThemeStorage.floor_backgrounds[key];
         string_possibilities[ThemeStorage.FLOORFOREGROUND] = ThemeStorage.floor_foregrounds[key];
         string_possibilities[ThemeStorage.SPRITES] = ThemeStorage.sprite_possibilities[key];
+        string_possibilities[ThemeStorage.FILTERS] = ThemeStorage.filter_possibilities[key];
 
         const opinions = ThemeStorage.theme_opinions[key];
 

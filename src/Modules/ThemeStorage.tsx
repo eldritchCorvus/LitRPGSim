@@ -29,6 +29,7 @@ export const SOUND = "SOUND";
 export const EFFECTS = "EFFECTS";
 export const WALL = "WALL";
 export const FLOOR = "FLOOR";
+export const FILTERS = "FILTERS";
 export const THEME_OPINIONS = "THEME_OPINIONS";
 export const WALLBACKGROUND = "WALLBACKGROUND";
 export const WALLFOREGROUND = "WALLFOREGROUND";
@@ -163,6 +164,7 @@ export let song_possibilities: ThemePossibilitiesMap = {};
 export let wall_possibilities: ThemePossibilitiesMap = {};
 export let floor_possibilities: ThemePossibilitiesMap = {};
 export let theme_opinions: ThemeOpinions = {};
+export let filter_possibilities: ThemePossibilitiesMap = {};
 
 export let compliment_possibilities: ThemePossibilitiesMap = {};
 export let memories: MemoryMap = {};
@@ -422,6 +424,12 @@ const initSongs = () => {
     song_possibilities[DECAY] = ["dear_god.mp3"];
     song_possibilities[TECHNOLOGY] = ["i_think_its_finished_priska_turbo_time.mp3"];
     song_possibilities[MUSIC] = ["riku_completed_i_think_idefk_anymore.mp3"];
+}
+
+const initFilters = () => {
+    filter_possibilities[TWISTING] = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(19deg)`];
+    filter_possibilities[CLOWNS] = [`invert(100%)`, `hue-rotate(190deg)`, `hue-rotate(90deg)`];
+    filter_possibilities[LIGHT] = [`brightness(300%)`,`contrast(60%)`, `filter: brightness(300%)`, `brightness(200%)`];
 }
 
 const initFloorPossibilities = () => {
@@ -1956,5 +1964,6 @@ export const initThemes = () => {
     initEffectPossibilities();
     initThemeOpinions();
     initSpritePossibilities();
+    initFilters();
 
 }

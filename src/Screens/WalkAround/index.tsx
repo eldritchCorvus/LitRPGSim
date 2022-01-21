@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { Fragment, useEffect, useMemo, useRef, useState } from "react"
 import { Room } from './Room';
-import { all_themes, Theme } from '../../Modules/Theme';
-import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC, DARKNESS, LIGHT, OBFUSCATION } from '../../Modules/ThemeStorage';
+import { all_themes, keysToThemes, Theme } from '../../Modules/Theme';
+import { BUGS, DECAY, FEELING, LOVE, SMELL, SOUND, TASTE, SPYING, LONELY, OCEAN, TECHNOLOGY, BURIED, FLESH, SCIENCE, FREEDOM, ADDICTION, KNOWING, MAGIC, DARKNESS, LIGHT, OBFUSCATION, FILTERS, TWISTING, filter_possibilities } from '../../Modules/ThemeStorage';
 import styled from '@emotion/styled';
 import SeededRandom from '../../Utils/SeededRandom';
 import FlavorPopup from './FlavorPopup';
@@ -98,11 +98,28 @@ export const WalkAround = () => {
     const [roomStyle, setRoomStyle] = useState(base_room_stylings);
     const [wandererLoc, setWandererLoc] = useState({x:'250px',y:'450px'});
 
+
+    useEffect(()=>{
+        const picked_filters:string[] = [];
+        const themes:Theme[] = keysToThemes(themeKeys);
+        const amount = seededRandom.getRandomNumberBetween(1,5);
+        for(let i = 0; i< amount; i++){
+            const filter = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom,FILTERS);
+            if(filter){
+                picked_filters.push(filter);
+            }
+        }
+        filters.current = picked_filters;
+    },[themeKeys])
+
+
     useEffect(() => {
         const dark_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  10%, rgba(0, 0, 0, 0.15) 25%);`;
         const light_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, white 0%,  50%, rgba(0, 0, 0, 0.15) 75%);`;
         const lonely_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  25%, rgba(0, 0, 0, 0.15) 50%);`;
 
+        //TODO have a ref.current thats set when themeKeys are set, picks a seeded random filter
+        //and then on TOP of that, add in the true random per ticket twisting filter
         //NOTE: in theme storage just store the RIGHT side of these, so they can be added together.
         //blur seems a special case tho
         //it doesn't like sharing (though it did with sepia)
@@ -110,12 +127,9 @@ export const WalkAround = () => {
         const eye_styles = [`filter: contrast(200%);`];
         const lonely_styles = [`filter: saturate(30%);`, `filter: contrast(70%) grayscale(70%);`, `filter: contrast(50%) grayscale(90%);`, `filter: contrast(50%);`, `filter: contrast(50%) brightness(50%);`];
         const dark_styles = [`filter: brightness(50%);`, `filter: brightness(20%);`];
-        const light_styles = [`filter: contrast(60%) brightness(300%);`, `filter: brightness(300%);`, `filter: brightness(200%);`];
-        const twisting_styles = [`filter: hue-rotate(10deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`,`filter: hue-rotate(5deg);`, `filter: hue-rotate(5deg);`, `filter: hue-rotate(19deg);`];
-        const clown_themes = [`filter: invert(100%);`,`filter: hue-rotate(10deg);`, `filter: hue-rotate(5deg);`, `filter: hue-rotate(19deg);`, `filter: hue-rotate(190deg);`, `filter: hue-rotate(90deg);`];
-
         const time_styles = [`filter: sepia(50%);`, `filter: sepia(75%);`, `filter: sepia(100%);`];
-        const test_style = pickFrom(twisting_styles);
+        let spiral_style = '';
+        
         let mask = '';
         if (themeKeys.includes(DARKNESS)) {
             mask = dark_mask;
@@ -124,7 +138,20 @@ export const WalkAround = () => {
         } else if (themeKeys.includes(LONELY) || themeKeys.includes(OBFUSCATION)) {
             mask = lonely_mask;
         }
-        const theme_style = `${mask}${base_room_stylings}${test_style}`;
+
+        let filter = ``;
+        if(filters.current){
+            filter = 'filter: '
+            for(let f of filters.current){
+                filter += '${f} ';
+            }
+            if(themeKeys.includes(TWISTING)){
+                const twisting_styles = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`filter: hue-rotate(5deg)`,`filter: hue-rotate(5deg)`,`filter: hue-rotate(5deg)`, `filter: hue-rotate(5deg)`, `filter: hue-rotate(19deg)`];
+                filter += pickFrom(twisting_styles);
+            }
+            filter += ";"
+        }
+        const theme_style = `${mask}${base_room_stylings}${filter !== '' ?filter:''}`;
         setRoomStyle(theme_style);
 
     }, [themeKeys, wandererLoc])
@@ -145,6 +172,7 @@ export const WalkAround = () => {
     //an array of theme keys used to populate quotidians
     const quotidiansRef = useRef<string[][]>([]);
     const wandaTakeMemoryRef = useRef<Function>();
+    const filters = useRef<string[]>([]);
 
     /*
         NOTE:
