@@ -7,7 +7,7 @@ import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage } from '../..';
 import SeededRandom from "../../Utils/SeededRandom";
 import { getRandomNumberBetween, pickFrom } from "../../Utils/NonSeededRandUtils";
-import { FLOOR, FLOORBACKGROUND, FLOORFOREGROUND, WALL, WALLBACKGROUND, WALLFOREGROUND } from "../../Modules/ThemeStorage";
+import { FLOOR, FLOORBACKGROUND, FLOORFOREGROUND, TWISTING, WALL, WALLBACKGROUND, WALLFOREGROUND } from "../../Modules/ThemeStorage";
 
 import coffin1 from './../../images/Walkabout/oh_god.png';
 import coffin2 from './../../images/Walkabout/oh_god2.png';
@@ -83,8 +83,12 @@ export const Room: React.FC<RoomProps> = ({ coffinTime, themeKeys, seed, canvasR
 
     const drawRoom = async (canvas: HTMLCanvasElement, bgCanvas: HTMLCanvasElement, baseCanvas: HTMLCanvasElement, themes: Theme[]) => {
         initBlack(baseCanvas);
-        initClear(canvas);
-        initClear(bgCanvas);
+        //it would be a downright shame if you couldn't trust your own senses, up to and including seeing false doors.
+        if(!themes.includes(all_themes[TWISTING])){
+            initClear(canvas);
+            initClear(bgCanvas);
+        }
+
 
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
         let floor_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FLOOR)
