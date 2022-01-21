@@ -45,11 +45,14 @@ export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number
 }
 
 export const initBlack = (canvas: HTMLCanvasElement) => {
-    console.log("JR NOTE: initing black ", canvas.width, canvas.height)
+
     const context = canvas.getContext("2d");
     if (!context) {
+        console.log("JR NOTE: can not init black, no context");
+
         return;
     }
+    console.log("JR NOTE: initing black with context ", canvas.width, canvas.height)
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
@@ -58,6 +61,8 @@ export const initClear = (canvas: HTMLCanvasElement) => {
     if (!context) {
         return;
     }
+    console.log("JR NOTE: initing clear with context ", canvas.width, canvas.height)
+
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
 

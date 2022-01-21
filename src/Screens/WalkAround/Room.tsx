@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Fragment, MutableRefObject, RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { all_themes, Theme } from "../../Modules/Theme"
-import { drawDoors, drawFloor, drawBackground, drawForeground, spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem, spawnVentObject, spawnCoffinObject } from "./canvas_shit";
+import { drawDoors, drawFloor, drawBackground, drawForeground, spawnFloorObjects, drawWall, spawnWallObjects, initBlack, RenderedItem, spawnVentObject, spawnCoffinObject, initClear } from "./canvas_shit";
 
 import { addImageProcess } from "../../Utils/URLUtils";
 import { loadSecretImage } from '../..';
@@ -83,6 +83,9 @@ export const Room: React.FC<RoomProps> = ({ coffinTime, themeKeys, seed, canvasR
 
     const drawRoom = async (canvas: HTMLCanvasElement, bgCanvas: HTMLCanvasElement, baseCanvas: HTMLCanvasElement, themes: Theme[]) => {
         initBlack(baseCanvas);
+        initClear(canvas);
+        initClear(bgCanvas);
+
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
         let floor_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FLOOR)
         if (!floor_choice || floor_choice.includes("ERROR")) {

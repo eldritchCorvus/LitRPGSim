@@ -225,8 +225,6 @@ export const Wanderer: React.FC<WandererProps> = ({setWandererLoc,setDisplayCoff
                 }else if(item.flavorText?.includes("TheWanderersFinalRestingPlace")){
                    return processCoffin();
                 }
-                console.log("JR NOTE: its not the closer", item.name)
-
                 if (item.layer === 1) { //don't remember the birbs plz
                     addMemoryToWanderer(item.flavorText);
                 }
