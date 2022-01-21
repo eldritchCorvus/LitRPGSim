@@ -82,7 +82,6 @@ export const Room: React.FC<RoomProps> = ({ coffinTime, themeKeys, seed, canvasR
 
 
     const drawRoom = async (canvas: HTMLCanvasElement, bgCanvas: HTMLCanvasElement, baseCanvas: HTMLCanvasElement, themes: Theme[]) => {
-        console.log("JR NOTE: drawing a room for the first time")
         initBlack(baseCanvas);
         const floor_default_choices = ["woodfloor.png", "chevronfloor.png", "metalfloor.png"];
         let floor_choice = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FLOOR)
@@ -122,7 +121,6 @@ export const Room: React.FC<RoomProps> = ({ coffinTime, themeKeys, seed, canvasR
 
     //a blink progresses based on what the current image is
     const blink = useCallback(() => {
-        console.log("JR NOTE: blink")
         setFlavorText(undefined);
         if (coffinImageSrc === coffin1) {
             setTimeout(() => { setCoffinImageSrc(coffin2); }, 100);

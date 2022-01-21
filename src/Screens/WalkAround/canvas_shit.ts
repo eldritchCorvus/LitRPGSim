@@ -17,7 +17,6 @@ export interface RenderedItem {
     name?: string; //only living creatures have names, not items, its used to update them
 }
 export const redrawForeground = async (canvas: HTMLCanvasElement, items: RenderedItem[]) => {
-    console.log("JR NOTE: redrawing just the foreground.")
     initClear(canvas);
     await drawForeground(canvas, items);
 }
@@ -46,6 +45,7 @@ export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number
 }
 
 export const initBlack = (canvas: HTMLCanvasElement) => {
+    console.log("JR NOTE: initing black ", canvas.width, canvas.height)
     const context = canvas.getContext("2d");
     if (!context) {
         return;

@@ -6,7 +6,6 @@ export const isStringInArrayWithKey =(key:string,target:string)=>{
 
 export const addStringToArrayWithKey =(key:string,target:string)=>{
   const tmp = valueAsArray(key);
-  console.log("JR NOTE: going to add", target, "to array", tmp)
   tmp.push(target);
   localStorage[key] = JSON.stringify(tmp);
 }

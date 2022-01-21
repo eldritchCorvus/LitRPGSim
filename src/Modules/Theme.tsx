@@ -3,22 +3,22 @@ import { Memory } from './ObserverBot/Memory';
 import * as Stat from './Stat';
 import * as ThemeStorage from './ThemeStorage';
 interface ThemeMap {
-    [details: string] : Theme;
+    [details: string]: Theme;
 }
 
 interface PossibilitiesListMap {
-    [details: string] : any[];
+    [details: string]: any[];
 }
 
 
 //auto populated by creating themes. 
-export const all_themes:ThemeMap = {};
+export const all_themes: ThemeMap = {};
 
-export   class Theme{
+export class Theme {
     //TODO refactor solo/first/second/super to instead by parts of speect like
     //TODO ing, 's, ed, etc.
     key: string;
-    stats: Stat.StatMap={};
+    stats: Stat.StatMap = {};
 
     /*will look like this: 
     nouns: [],
@@ -34,7 +34,7 @@ export   class Theme{
     tier: number;
 
 
-    constructor(key: string, tier: number,stats: Stat.StatMap,  string_possibilities: PossibilitiesListMap, opinions:ThemeStorage.ThemePossibilitiesNumberMap, memories: Memory[]){
+    constructor(key: string, tier: number, stats: Stat.StatMap, string_possibilities: PossibilitiesListMap, opinions: ThemeStorage.ThemePossibilitiesNumberMap, memories: Memory[]) {
         this.key = key;
         this.tier = tier;
         this.initStats(stats);
@@ -44,54 +44,54 @@ export   class Theme{
         all_themes[key] = this;
     }
 
-    getOpinionOfTheme =(key: string)=>{
-        if(!this.opinions){
+    getOpinionOfTheme = (key: string) => {
+        if (!this.opinions) {
             return 0;
         }
-        if(key in this.opinions){
+        if (key in this.opinions) {
             return this.opinions[key];
         }
         return 0;
     }
 
-    pickPossibilityFor=(rand: SeededRandom, key: string)=>{
+    pickPossibilityFor = (rand: SeededRandom, key: string) => {
         return rand.pickFrom(this.getPossibilitiesFor(key));
     }
 
     //takes in things like noun, adj, insult etc etc
-    getPossibilitiesFor=(key: string)=>{
-        if(!this.string_possibilities){
+    getPossibilitiesFor = (key: string) => {
+        if (!this.string_possibilities) {
             return ["[ERROR: DATA NOT FOUND]"];
         }
-        if((key in this.string_possibilities) && this.string_possibilities[key] ){
-            return  this.string_possibilities[key];
-        }else{
+        if ((key in this.string_possibilities) && this.string_possibilities[key]) {
+            return this.string_possibilities[key];
+        } else {
             //console.error(`[ERROR: ${key} NOT FOUND ]`, this.string_possibilities);
             return [`[ERROR: ${key} NOT FOUND]`];
-        }        
+        }
     }
 
-    initializeIfNecessary =(tier: number)=>{
-        if(!this.tier || this.tier === 0){
+    initializeIfNecessary = (tier: number) => {
+        if (!this.tier || this.tier === 0) {
             this.tier = tier;
         }
     }
 
-    initStats = (stats: Stat.StatMap) =>{
-        for(const key of Object.keys(stats)){
+    initStats = (stats: Stat.StatMap) => {
+        for (const key of Object.keys(stats)) {
             //whatever direction and magnitude the sample stat is, do it too
             const skill = stats[key].copy(null);
             this.stats[skill.key] = skill;
         }
     }
 
-    debug = ()=>{
+    debug = () => {
         console.log("debug theme");
     }
 
-    myOpinionOnThemes= (themes: Theme[])=>{
+    myOpinionOnThemes = (themes: Theme[]) => {
         let ret = 0;
-        for(let theme of themes){
+        for (let theme of themes) {
             ret += this.getOpinionOfTheme(theme.key.toUpperCase());
         }
         return ret;
@@ -99,31 +99,30 @@ export   class Theme{
 
 }
 
-export const aggregateOpinionsOnThemes= (judgingThemes: Theme[], judgedThemes: Theme[])=>{
+export const aggregateOpinionsOnThemes = (judgingThemes: Theme[], judgedThemes: Theme[]) => {
     let ret = 0;
-    for(let theme of judgingThemes){
+    for (let theme of judgingThemes) {
         ret += theme.myOpinionOnThemes(judgedThemes);
     }
     return ret;
 }
 
-export const keysToThemes = (theme_keys: string[])=>{
-        let themes: Theme[] = [];
-        for (let theme of theme_keys) {
-            themes.push(all_themes[theme]);
-        }
-        return themes;
+export const keysToThemes = (theme_keys: string[]) => {
+    let themes: Theme[] = [];
+    for (let theme of theme_keys) {
+        themes.push(all_themes[theme]);
     }
+    return themes;
 }
 
 //tiers of 0 will be initialized when in use 
 //(YES this means that if the first player to use "Healing" theme has it high tier it will be high for EVERYONE. deal with tihs. )
-export function initThemes(){
+export function initThemes() {
     //TODO eventually have each of these maps be a separate json file by key
     ThemeStorage.initThemes();
     ThemeStorage.checkIfAllKeysPresent();
-    for(let key of ThemeStorage.keys){
-        const string_possibilities:PossibilitiesListMap = {};
+    for (let key of ThemeStorage.keys) {
+        const string_possibilities: PossibilitiesListMap = {};
         string_possibilities[ThemeStorage.PERSON] = ThemeStorage.person_posibilities[key];
         string_possibilities[ThemeStorage.LOCATION] = ThemeStorage.location_possibilities[key];
         string_possibilities[ThemeStorage.OBJECT] = ThemeStorage.object_possibilities[key];
@@ -156,8 +155,8 @@ export function initThemes(){
 
         const opinions = ThemeStorage.theme_opinions[key];
 
-        const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
-        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,opinions,memories);
+        const memories = ThemeStorage.memories[key] ? ThemeStorage.memories[key] : [];
+        new Theme(key, 0, Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]), string_possibilities, opinions, memories);
     }
 
 

@@ -427,9 +427,21 @@ const initSongs = () => {
 }
 
 const initFilters = () => {
-    filter_possibilities[TWISTING] = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(19deg)`];
-    filter_possibilities[CLOWNS] = [`invert(100%)`, `hue-rotate(190deg)`, `hue-rotate(90deg)`];
-    filter_possibilities[LIGHT] = [`brightness(300%)`,`contrast(60%)`, `filter: brightness(300%)`, `brightness(200%)`];
+    filter_possibilities[TWISTING] = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(19deg)`]; //subtle
+    filter_possibilities[CLOWNS] = [`invert(100%)`, `hue-rotate(190deg)`, `hue-rotate(90deg)`]; //whimsy
+    filter_possibilities[LIGHT] = [`brightness(300%)`,`contrast(60%)`, `filter: brightness(300%)`, `brightness(200%)`]; //the futures so bright you need to wear shades
+    filter_possibilities[ANGER] = [`grayscale(100%) sepia(100%) contrast(454%) saturate(651%) hue-rotate(669deg) blur(1px)`];// tint it red
+    filter_possibilities[TIME] =[`sepia(50%);`, `sepia(75%);`, `sepia(100%);`]; //we all know the past is brown
+    filter_possibilities[APOCALYPSE] = [`brightness(300%)`,`contrast(60%)`, `filter: brightness(300%)`, `brightness(200%)`]; //the futures so bright you need to wear shades
+    filter_possibilities[FLESH] = [`grayscale(70%) sepia(100%) contrast(100%) saturate(157%) hue-rotate(310deg)`];// tint it pink
+    filter_possibilities[OCEAN] = [`grayscale(70%) sepia(100%) contrast(100%) saturate(157%) hue-rotate(178deg)`];// tint it blue
+    filter_possibilities[OBFUSCATION] = [`blur(5)`];
+    filter_possibilities[SPYING] = [`contrast(200%)`];
+    filter_possibilities[LONELY] = [`contrast(70%)`,'saturate(30%)','grayscale(70%)','contrast(50%)','grayscale(90%)'];
+    filter_possibilities[DARKNESS] = [`brightness(20%)`];
+
+
+
 }
 
 const initFloorPossibilities = () => {
