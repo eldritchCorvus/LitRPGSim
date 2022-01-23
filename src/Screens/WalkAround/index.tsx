@@ -117,6 +117,8 @@ export const WalkAround = () => {
         const dark_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  10%, rgba(0, 0, 0, 0.15) 25%);`;
         const light_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, white 0%,  50%, rgba(0, 0, 0, 0.15) 75%);`;
         const lonely_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  25%, rgba(0, 0, 0, 0.15) 50%);`;
+        //extremely subtle
+        const twisting_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  65%, rgba(0, 0, 0, 0.65) 75%);`;
 
             
         let mask = '';
@@ -126,6 +128,8 @@ export const WalkAround = () => {
             mask = light_mask
         } else if (themeKeys.includes(LONELY) || themeKeys.includes(OBFUSCATION)) {
             mask = lonely_mask;
+        } else if (themeKeys.includes(TWISTING)) {
+            mask = twisting_mask
         }
 
         let filter = ``;
@@ -302,7 +306,7 @@ export const WalkAround = () => {
                         {quotidiansRef.current?.map((qq, index) => <Quotidian key={`birb${index}`} themeKeys={qq} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>)}
                         <Wanderer setWandererLoc={setWandererLoc} setDisplayCoffinOption={setDisplayCoffinOption} wandaTakeMemoryRef={wandaTakeMemoryRef} canvasRef={canvasRef} numberDoors={numberDoors} itemsRef={itemsRef} seededRandom={seededRandom} makeChild={makeChild}></Wanderer>
                     </div>
-                    {themeKeys.includes(DARKNESS) ? <DarkBG /> : null}
+                    {themeKeys.includes(DARKNESS) || themeKeys.includes(TWISTING) ? <DarkBG /> : null}
                     {themeKeys.includes(LIGHT) ? <LightBG /> : null}
 
                 </Fragment>)
