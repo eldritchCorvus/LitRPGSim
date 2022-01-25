@@ -2,7 +2,8 @@ import { TBDChatType } from "../../TBD/PreCoffinChats";
 
 export const ttChats:TBDChatType[] = [];
 
-ttChats.push({timestamp: new Date(1992, 4,13,16,24 ),lines: `CEBro: WE DID IT
+//TODO: ceo and cfo discussing wasting, loss pass, the intern, the birbs
+ttChats.push({timestamp: new Date(1992, 4,1,16,24 ),lines: `CEBro: WE DID IT
 CEBro: WE FINALLY HAVE REJOINED THE MODERN ERA
 CEBro: CHAT CLIENTS FOR ALL
 CEBro: NOW THE TYRANNY OF IN PERSON COMMUNICATION HAS FINALLY BEEN DEFEATED
@@ -44,5 +45,10 @@ CEBro: CAN YOU FIGURE OUT HOW MUCH MONEY WE'LL NEED TO SPIN OFF A SHELL COMPANY?
 troveTextravaganza: that i can certainlyyyy do
 troveTextravaganza: but you owe me a pizza because it's super late
 CEBro: DEAL`})
-
+ttChats.push({timestamp: new Date(1999, 12,31,23,54 ),lines: `CEBro: I HAVE ALWAYS BEEN CURIOUS AT THE IDEA OF A REVERSE BANG AND AFTER REALIZING THAT MY THOUGHTS WOULD ONLY BECOME REALITY IF I MADE IT HAPPEN, I HAVE DECIDED TO CREATE THIS EVENT MYSELF
+CEBro: BEFORE I GET TOO FAR INTO THIS PROCESS THOUGH I AM LOOKING FOR FEEDBACK
+troveTextravaganza: why call it the reverse bang it sounds so lame
+CEBro: BECAUSE ITS LIKE THE BIG BANG IN REVERSE, I SAW IT ON TUMBLR IT'LL BE HILARIOUS
+CEBro: AND IF WE CAN'T STOP IT
+CEBro: WE MIGHT AS WELL MAKE IT AS FUNNY AS POSSIBLE`});
 

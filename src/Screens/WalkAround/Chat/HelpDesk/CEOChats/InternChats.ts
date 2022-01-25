@@ -2,7 +2,7 @@ import { TBDChatType } from "../../TBD/PreCoffinChats";
 
 //https://odinsrazor.tumblr.com/  but the password has changed.
 export const internChats:TBDChatType[] = [];
-
+//ceo and intern discussing various corporatey stuff, prophecies, intern fucking CALLING ceo on her bullshit 
 internChats.push({timestamp: new Date(1994, 8,13,16,24 ),lines: `CEBro: HEY
 CEBro: JUST WANTED TO CHECK IN WITH YOU
 CEBro: SEE HOW YOU'RE SETTLING IN

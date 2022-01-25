@@ -78,5 +78,5 @@ export function initClasses(seeded_random: SeededRandom){
     new RPGClass("witch", ["Vulture","Witch","Hag","Crone", "Beldam","Apothecary"],2.0, seeded_random, [all_themes[MAGIC],all_themes[PLANTS]]);
     new RPGClass("null", ["Null"],0.0, seeded_random, [all_themes[WASTE], all_themes[NULL]]);
 
-    new RPGClass("waste", ["Waste"],0.0, seeded_random, [all_themes[WASTE], all_themes[APOCALYPSE]]);
+    new RPGClass("waste", ["West"],0.0, seeded_random, [all_themes[WASTE], all_themes[APOCALYPSE]]);
 }
