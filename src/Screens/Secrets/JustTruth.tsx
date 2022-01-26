@@ -4,6 +4,8 @@ import { justTruthSong } from "../..";
 import { Memory } from "../../Modules/ObserverBot/Memory";
 import { Player } from "../../Modules/Player";
 import { all_themes, Theme } from "../../Modules/Theme";
+import { STORAGE_KEY } from "../../Utils/constants";
+import { addNumToArrayWithKey } from "../../Utils/LocalStorageUtils";
 import { pickFrom, shuffle } from "../../Utils/NonSeededRandUtils";
 import { TruthContainer } from "../Styles";
 import { FrameTime } from "./FrameTime";
@@ -175,6 +177,7 @@ export const JustTruth = (props: StatusProps) => {
     const goInfinite = () => { setMode(INFINITE) };
 
     useEffect(() => {
+        addNumToArrayWithKey(STORAGE_KEY, 2);
         if (mode === SIMPLECONTENT1) {
             handleSimpleContent1();
         } else if (mode === SIMPLECONTENT2) {

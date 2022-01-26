@@ -11,7 +11,8 @@ import { getRandomNumberBetween, pickFrom } from "../../Utils/NonSeededRandUtils
 import { PHILOSOPHY } from "../../Modules/ThemeStorage";
 import { Popup, PopupTitle, PopupContent } from "../../Modules/ObserverBot/AchivementPopup";
 import { BuildingMetaData } from "../../Modules/Building";
-import { HORROR_KEY } from "../../Utils/constants";
+import { HORROR_KEY, STORAGE_KEY } from "../../Utils/constants";
+import { addNumToArrayWithKey } from "../../Utils/LocalStorageUtils";
 //the point of ThisIsAGame is to punish the player for forcing dear sweet precious Truth to lie like that and pretend to be a game
 //horror jail for you.
 interface RoomProps {
@@ -37,6 +38,7 @@ export const ActualGame = (props: StatusProps) => {
 
 
   const changeRoom = (room_key: string, direction: string) => {
+    addNumToArrayWithKey(STORAGE_KEY, 1);
     if (player.companions.length === 0) {
       player.spawnNotAMinotaur();
     }

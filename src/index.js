@@ -10,6 +10,8 @@ import voice from './Voice/truthtake3.mp3';
 import true_jr from './Voice/true_final_jr.mp3';
 import game_jr from './Voice/game_final_jr.mp3';
 import main_jr from './Voice/main_final_jr.mp3';
+import { addNumToArrayWithKey } from "./Utils/LocalStorageUtils";
+import { STORAGE_KEY } from "./Utils/constants";
 
 import blame from './SecretMusic/youbrokeit.mp3';
 
@@ -19,7 +21,7 @@ import clickSound from "./Music/web_SoundFX_254286__jagadamba__mechanical-switch
 import ghost from "./Voice/507451__horroraudio__ghost-kid-sigh-less-verb.mp3";
 
 import AppWrapper from './AppWrapper';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals'; 
 
 
 const audio = new Audio(generic_menu_music);
@@ -144,6 +146,9 @@ window.localStorage["zampanio"]=true;
 
 
 document.getElementById('ThisIsNotAGame')
+window.addEventListener('beforeunload', function(e) {
+  addNumToArrayWithKey(STORAGE_KEY, 13); //not a real direction
+});
 
 ReactDOM.render(
   <React.StrictMode>
