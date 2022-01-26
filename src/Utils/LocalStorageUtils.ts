@@ -10,6 +10,12 @@ export const addStringToArrayWithKey =(key:string,target:string)=>{
   localStorage[key] = JSON.stringify(tmp);
 }
 
+export const addNumToArrayWithKey =(key:string,target:number)=>{
+  const tmp = valueAsArray(key);
+  tmp.push(target);
+  localStorage[key] = JSON.stringify(tmp);
+}
+
 
 export const removeStringFromArrayWithKey =(key:string,target:string)=>{
   let tmp = valueAsArray(key);

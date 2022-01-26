@@ -18,6 +18,7 @@ import ChoicePopup from "./ChoicePopup";
 import { fuckUpBG } from "../../CanvasFuckery/fuckery";
 import { CeoChats } from "./Chat/HelpDesk/CEOChats";
 import { css, jsx } from "@emotion/react";
+import { addNumToArrayWithKey } from "../../Utils/LocalStorageUtils";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -185,6 +186,7 @@ export const WalkAround = () => {
     */
 
     const childRoomThemes = (rand: SeededRandom) => {
+        addNumToArrayWithKey("lp_route",1);
         const roll = seededRandom.nextDouble();
         if (roll > 0.6) {
             //add a theme, but don't go over 6
