@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { TBDChatBox } from './TBDChatBox';
 import help_icon from './../../../../images/Walkabout/icons8-chat-64_green.png';
 import { precoffinChats, TBDChatType } from "./PreCoffinChats";
-import { beepEffect } from "../../../..";
+import { beepEffect, playCoffin } from "../../../..";
 import { postCoffinChats } from "./PostCoffinChats";
 
 interface TBDChatProps{

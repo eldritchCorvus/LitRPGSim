@@ -19,6 +19,7 @@ import { fuckUpBG } from "../../CanvasFuckery/fuckery";
 import { CeoChats } from "./Chat/HelpDesk/CEOChats";
 import { css, jsx } from "@emotion/react";
 import { addNumToArrayWithKey } from "../../Utils/LocalStorageUtils";
+import { playCoffin } from "../..";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -280,6 +281,7 @@ export const WalkAround = () => {
     const beginingOfTheEnd = () => {
         console.log("JR NOTE: The Wanderer is no more. The End is Never The End.")
         setTrappedInCoffin(true)
+        playCoffin();
         fuckUpBG();
         const body = document.querySelector("body");
         if (body) {

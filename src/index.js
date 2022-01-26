@@ -9,6 +9,8 @@ import answerer from './Music/answerer.mp3';
 import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
+import tap from './Music/tap.mp3';
+
 import voice from './Voice/truthtake3.mp3';
 import true_jr from './Voice/true_final_jr.mp3';
 import chompSrc from './Voice/543386__nillyplays__nom-noise.mp3'
@@ -78,6 +80,11 @@ export function loadCloserText(location){
 
  export function rageModeSong(){
   audio.src = heart;
+  audio.play();
+}
+
+export function playCoffin(){
+  audio.src = tap;
   audio.play();
 }
 
