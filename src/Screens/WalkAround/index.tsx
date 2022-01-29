@@ -91,10 +91,10 @@ export const WalkAround = () => {
     //number of themes/2 is how many doors to have.
     const url_themes = getParameterByName("themes", null);
     const url_seed = getParameterByName("seed", null);
-    const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? url_themes.split(",") : [all_themes[BUGS].key, all_themes[DECAY].key, all_themes[LOVE].key]);
+    const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? [...url_themes.split(","),SPYING] : [all_themes[SPYING].key, all_themes[ADDICTION].key, all_themes[KNOWING].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [coffinTime, setCoffinTime] = useState(false);
+    const [coffinTime, setCoffinTime] = useState(new Date().getDay()===5);
     const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
     const [trappedInCoffin, setTrappedInCoffin] = useState(false);
     const [roomStyle, setRoomStyle] = useState(base_room_stylings);
@@ -246,7 +246,8 @@ export const WalkAround = () => {
 
     const makeChild = (tmpRand: SeededRandom) => {
         setFlavorText(undefined);
-        setThemeKeys(childRoomThemes(tmpRand));
+        //ubiquitous floating eyes plz
+        setThemeKeys([...childRoomThemes(tmpRand),SPYING]);
     }
 
     //spawn quotidians
