@@ -247,7 +247,11 @@ export const WalkAround = () => {
     const makeChild = (tmpRand: SeededRandom) => {
         setFlavorText(undefined);
         //ubiquitous floating eyes plz
-        setThemeKeys([...childRoomThemes(tmpRand),SPYING]);
+        let child_themes = childRoomThemes(tmpRand)
+        if(!child_themes.includes(SPYING)){
+            child_themes = [...child_themes, SPYING]
+        }
+        setThemeKeys(child_themes);
     }
 
     //spawn quotidians

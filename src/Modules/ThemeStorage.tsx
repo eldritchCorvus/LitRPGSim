@@ -506,6 +506,7 @@ const initWallForegrounds = () => {
     wall_foregrounds[WEB] = [{ src: "Web_Object.png", desc: "Ah... An uh... Friend..." },{ src: "webcurtains2.png", desc: "TODO" }, { src: "webcurtains.png", desc: "TODO" }, { src: "webbing5.png", desc: "TODO" }, { src: "webbing4.png", desc: "TODO" }, { src: "webbing3.png", desc: "TODO" }, { src: "webbing2.png", desc: "TODO" }, { src: "webbing.png", desc: "TODO" }];
     wall_foregrounds[KILLING] = [{ src: "drippingblood.png", desc: "TODO" }];
     wall_foregrounds[SPYING] = [{ src: "eye13.png", desc: "IT LOOKS."},{ src: "eye12.png", desc: "IT TREMBLES."},{ src: "eye11.png", desc: "IT GAZES."},{ src: "eye10.png", desc: "IT FOCUSES."},{ src: "eye9.png", desc: "IT WAITS."},{ src: "eye8.png", desc: "IT WATCHES."},{ src: "eye7.png", desc: "IT GLISTENS."},{ src: "eye6.png", desc: "IT SEES."},{ src: "eye5.png", desc: "IT CANNOT BLINK."},{ src: "eye4.png", desc: "IT CRIES."},{ src: "eye3.png", desc: "IT SEES."},{ src: "eye2.png", desc: "IT STARES."},{ src: "eye1.png", desc: "IT WEEPS."}];
+    wall_foregrounds[LONELY] = [{ src: "lonely_figure.png", desc: "Alone..." }];
 
     /*wall_possibilities[LOVE] = ["stonewalls.png","roses.png"];
     wall_foregrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
@@ -659,6 +660,7 @@ const initFloorForegrounds = () => {
     floor_foregrounds[ADDICTION] = [{ src: "webwine2.png", desc: "you really don't want to touch it."},{ src: "webwine.png", desc: "Its a good thing this wine looks so gross."},{ src: "wineshelves.png", desc: "You're not tempted by these."},{ src: "beer.png", desc: "Probably shouldn't."},{ src: "morewine.png", desc: "Best not to."},{ src: "teapot.png", desc: "Caffeine is bad for you."},{ src: "Addiction_Object.png", desc: "A difficult subject."}];
     floor_foregrounds[LIGHT] = [{ src: "lamppost.png", desc: "It spreads its light over a vast area. It makes you feel safe."},{ src: "lamp.png", desc: "It's soothing and bright."},{ src: "Light_Object.png", desc: "How enlightening..."}];
     floor_foregrounds[OCEAN] =  [{ src: "hydrationstation3.png", desc: "Such a tiny bucket of water compared to the vast ocean..."},{ src: "hydrationstation2.png", desc: "The water looks so cool and refreshing..."},{ src: "hydration_station.png", desc: "The water looks refreshing, you almost didn't realize how thirsty you were."},{ src: "fishcrate.png", desc: "Fish freshly caught from the ocean."},{ src: "barrel.png", desc: "Filled with salt pork for a long sea journey."},{ src: "Ocean_Object_2.png", desc: "Why is the Baltic Sea Anomaly an Ocean Object? Don't ask me..."},{ src: "Ocean_Object_1.png", desc: "The fish gasps for breath."}];
+    floor_foregrounds[LONELY] = [{ src: "lonely_figure.png", desc: "Alone..." }];
 
     //JR NOTE: from here down are just ghoul objects, need to go back and add things from sprite sheets as well
     floor_foregrounds[FREEDOM] =  [{ src: "Freedom_Object.png", desc: "Have you seen the freedom object? It seems to have gotten out..." }];
