@@ -105,6 +105,7 @@ odinsRazor: BUT IT WAS A cipher
 odinsRazor: BRO, IT READS OUT 'THE TRUTH IS LAYERED'
 theBestDude72: shit.
 theBestDude72: nice work dude.
+theBestDude72: (also if you just slept at ALL during the week you wouldn't need fridays off.)
 theBestDude72: whats it mean.
 odinsRazor: I DON'T KNOW
 odinsRazor: YET
