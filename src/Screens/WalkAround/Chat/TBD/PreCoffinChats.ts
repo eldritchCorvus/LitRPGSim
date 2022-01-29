@@ -91,10 +91,14 @@ theBestDude72: were you tracking down more info on our Killer?
 odinsRazor: YEAH
 odinsRazor: MY BAD`});
 
-precoffinChats.push({timestamp: new Date(1994, 3, 15, 10, 22, 0), lines: `theBestDude72: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
+precoffinChats.push({timestamp: new Date(1994, 3, 11, 10, 22, 0), lines: `theBestDude72: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
 theBestDude72: all hail the orb.
 theBestDude72: ...
 theBestDude72: you there dude?
+odinsRazor: OF COURSE I AM
+odinsRazor: I REFUSE TO LEAVE THE HOUSE ON A FRIDAY
+odinsRazor: NO CLASSES
+odinsRazor: WHICH IS EXTRA GREAT BECAUSE THAT MEANS I CAN FOCUS ON WHATS REALLY IMPORTANT
 odinsRazor: THE LATEST DEATH HAD ACTUAL WORDS LEFT BEHIND
 odinsRazor: AT FIRST I THOUGHT IT WAS JUST GIBBERISH
 odinsRazor: BUT IT WAS A cipher

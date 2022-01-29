@@ -90,7 +90,7 @@ function NewspostDom(props: PostProps) {
 }
 function About(props: AppProps) {
   const newsposts = [
-    new Newspost("01/28/2021","Arc 2 aproaches.")
+    new Newspost("01/28/2021","Arc 2 aproaches.","The Wanderer needs to rest too.  Fridays seem nice. They never did like friday classes...")
     ,new Newspost("12/18/2021","nerfed the closers raps","theres only room for one smug faceless bastard in these parts")
     ,new Newspost("12/12/2021","they eat what you want to have.","but did you ever deserve it?")
     ,new Newspost("12/5/2021","you no longer wander alone.","but then, did you ever?")
