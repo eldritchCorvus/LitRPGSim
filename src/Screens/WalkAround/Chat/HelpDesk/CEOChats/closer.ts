@@ -32,7 +32,7 @@ theCloser: Is there anything else you wish to discuss?
 CEBro: NAH BRO
 CEBro: AS YOU WERE`})
 
-tcChats.push({timestamp: new Date(1995, 1,12,08,58 ),lines: `CEBro: SORRY TO INTERUPT YOUR LUNCH BREAK
+tcChats.push({timestamp: new Date(1995, 1,14,12,8 ),lines: `CEBro: SORRY TO INTERUPT YOUR LUNCH BREAK
 CEBro: BUT THE INTERN JUST FOUND JEPE CAMPING OUT IN THAT MEETING ROOM
 CEBro: CAN YOU TAKE CARE OF IT?
 theCloser: Will do.
@@ -53,7 +53,7 @@ theCloser: I... can certainly keep them out of the way, yes. I will do as such, 
 theCloser: Will report on anything else I happen to find out in that room, as well.
 CEBro: I'LL LEAVE YOU TO IT THEN`})
 
-tcChats.push({timestamp: new Date(1995, 1,12,08,58 ),lines: `theCloser: Ma'am, I'm reporting back with the information you had requested.
+tcChats.push({timestamp: new Date(1995, 1,14,1,58 ),lines: `theCloser: Ma'am, I'm reporting back with the information you had requested.
 theCloser: Jepe has been successfully evacuated from the perimeter. They will have a significantly harder time re-entering that room without me knowing about it.
 theCloser: Besides that, the report on the disturbance is as follows: There was a green-cloaked individual loudly ranting about some cereal from a brand commonly known as 'Lucky Charms', as well as assembling a board of presumed relationships in the office, as well are some other unknowns.
 theCloser: It includes, in no particular order: Yourself, the CFO, some robot I have identified as an obscure TTRPG character, the Eye Killer, for some reason, and myself, among others.
@@ -63,7 +63,10 @@ theCloser: That should be all the immediately relevant information.
 CEBro: I SHOULD HAVE KNOWN
 CEBro: MAKE SURE THAT GREEN ASSHOLE DOESN'T SNEAK BACK IN HERE
 CEBro: IS THERE no  LAYER OF REALITY THEY WON'T FUCK WITH?
-`})
+theCloser: Is this a common occurrence?
+CEBro: NEVER AT THIS COMPANY BEFORE
+CEBro: AND IF I HAVE ANYTHING TO SAY ABOUT IT
+CEBro: NEVER AGAIN`})
 
 
 
