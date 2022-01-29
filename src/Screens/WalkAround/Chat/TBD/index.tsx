@@ -105,6 +105,9 @@ export const TBDChat : React.FC<TBDChatProps> = ({trappedInCoffin, setCoffinTime
     //what are the tokens for? smug points, probably
     //i don't know what yall do with your findings
     //write a story so i find out
+    if(new Date().getDay()===5){
+        return; //nothing on fridays
+    }
     return (
         <div style={{height: "600px"}}>
             <TBDChatIcon onClick={() => toggleChat()}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}><IconImage greyed={grayIcon} src={help_icon} /> theBestDude72 chat</div></TBDChatIcon>

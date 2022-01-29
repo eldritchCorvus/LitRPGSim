@@ -114,6 +114,18 @@ odinsRazor: TIP OF THE TONGUE
 odinsRazor: I FEEL LIKE I should`});
 
 
+precoffinChats.push({timestamp: new Date(1994, 3, 21, 18, 18, 0), lines: `theBestDude72: wodin.
+theBestDude72: http://knucklessux.com/Blog/
+theBestDude72: what the hell dude?
+theBestDude72: what did you do to your site?
+odinsRazor: I NEEDED A PLACE TO ORGANIZE MY THOUGHTS
+theBestDude72: im not sure that counts as organized...
+odinsRazor: WELL I DON'T WANT STRANGERS MAKING SENSE OF IT
+odinsRazor: TRYING TO STEAL MY INSIGHTS
+odinsRazor: BEAT ME TO THE PUNCH
+theBestDude72: as long as it makes sense to you, I guess?`});
+
+
 precoffinChats.push({timestamp: new Date(1994, 4, 2, 2, 1, 0), lines: `theBestDude72: dude
 theBestDude72: wodin.
 theBestDude72: i can see you're still active.
