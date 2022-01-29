@@ -106,7 +106,9 @@ export const TBDChat : React.FC<TBDChatProps> = ({trappedInCoffin, setCoffinTime
     //i don't know what yall do with your findings
     //write a story so i find out
     if(new Date().getDay()===5){
-        return; //nothing on fridays
+        return(
+            <div></div>
+        )
     }
     return (
         <div style={{height: "600px"}}>
