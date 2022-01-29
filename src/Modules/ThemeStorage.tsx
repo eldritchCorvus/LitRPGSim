@@ -505,6 +505,7 @@ const initWallForegrounds = () => {
     wall_foregrounds[BUGS] = [{ src: "waspnest2.png", desc: "TODO" }, { src: "bees4.png", desc: "TODO" }, { src: "bees.png", desc: "TODO" }, { src: "bees3.png", desc: "TODO" }, { src: "bees2.png", desc: "TODO" }, { src: "waspnest.png", desc: "TODO" }];
     wall_foregrounds[WEB] = [{ src: "Web_Object.png", desc: "Ah... An uh... Friend..." },{ src: "webcurtains2.png", desc: "TODO" }, { src: "webcurtains.png", desc: "TODO" }, { src: "webbing5.png", desc: "TODO" }, { src: "webbing4.png", desc: "TODO" }, { src: "webbing3.png", desc: "TODO" }, { src: "webbing2.png", desc: "TODO" }, { src: "webbing.png", desc: "TODO" }];
     wall_foregrounds[KILLING] = [{ src: "drippingblood.png", desc: "TODO" }];
+    wall_foregrounds[SPYING] = [{ src: "eye13.png", desc: "IT LOOKS."},{ src: "eye12.png", desc: "IT TREMBLES."},{ src: "eye11.png", desc: "IT GAZES."},{ src: "eye10.png", desc: "IT FOCUSES."},{ src: "eye9.png", desc: "IT WAITS."},{ src: "eye8.png", desc: "IT WATCHES."},{ src: "eye7.png", desc: "IT GLISTENS."},{ src: "eye6.png", desc: "IT SEES."},{ src: "eye5.png", desc: "IT CANNOT BLINK."},{ src: "eye4.png", desc: "IT CRIES."},{ src: "eye3.png", desc: "IT SEES."},{ src: "eye2.png", desc: "IT STARES."},{ src: "eye1.png", desc: "IT WEEPS."}];
 
     /*wall_possibilities[LOVE] = ["stonewalls.png","roses.png"];
     wall_foregrounds[BUGS] =  ["dirtwall.png","darkcorruption.png"];
@@ -672,7 +673,7 @@ const initFloorForegrounds = () => {
     floor_foregrounds[ANGER] = [{ src: "Anger_Object.png", desc: "Seems to have been pushed into the floor pretty hard..."}];
     floor_foregrounds[GUIDING] = [{ src: "Guiding_Object.png", desc: "Do you ever wish somebody else would point the way for you?"}];
     floor_foregrounds[HEALING] = [{ src: "Healing_Object.png", desc: "It's important to know what your innards are doing."}];
-
+    floor_foregrounds[SPYING] = [{ src: "eye13.png", desc: "IT LOOKS."},{ src: "eye12.png", desc: "IT TREMBLES."},{ src: "eye11.png", desc: "IT GAZES."},{ src: "eye10.png", desc: "IT FOCUSES."},{ src: "eye9.png", desc: "IT WAITS."},{ src: "eye8.png", desc: "IT WATCHES."},{ src: "eye7.png", desc: "IT GLISTENS."},{ src: "eye6.png", desc: "IT SEES."},{ src: "eye5.png", desc: "IT CANNOT BLINK."},{ src: "eye4.png", desc: "IT CRIES."},{ src: "eye3.png", desc: "IT SEES."},{ src: "eye2.png", desc: "IT STARES."},{ src: "eye1.png", desc: "IT WEEPS."}];
     //note to future jr doing two at once is p sustainable
     /*
     floor_foregrounds[MATH] =  ["blackboard.png"];
