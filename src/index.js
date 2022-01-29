@@ -10,6 +10,7 @@ import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import tap from './Music/tap.mp3';
+import there from './Music/THERE.mp3';
 
 import voice from './Voice/truthtake3.mp3';
 import true_jr from './Voice/true_final_jr.mp3';
@@ -86,6 +87,14 @@ export function loadCloserText(location){
 export function playCoffin(){
   audio.src = tap;
   audio.play();
+}
+
+export function playCredits(){
+  if(audio.src !== there){
+    audio.src = there;
+    audio.loop = true;
+    audio.play();
+  }
 }
 
 export function blameSong(){

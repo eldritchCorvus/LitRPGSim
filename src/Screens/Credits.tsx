@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Player } from "../Modules/Player";
 import styled from "@emotion/styled";
 import { getRandomNumberBetween } from "../Utils/NonSeededRandUtils";
+import { playCredits } from "..";
 
 interface StatusProps {
     player: Player;
@@ -97,6 +98,9 @@ export const CreditsScreen = (props: StatusProps) => {
             window.requestAnimationFrame(() => { gaslight() })
         }, 5000);
     }, []);
+    useEffect(()=>{
+        playCredits();
+    })
 
     useEffect(() => {
         gaslight();
