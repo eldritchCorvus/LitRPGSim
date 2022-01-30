@@ -70,9 +70,15 @@ CEBro: I PROMISE`})
 
 ttChats.push({timestamp: new Date(1996, 5,2,9,1 ),lines: `troveTextravaganza: wanda
 troveTextravaganza: whhhhhhhhhhhy am i seeing on the news
-troveTextravaganza: the fact that you are going to represent the EYE KILLER in court
+troveTextravaganza: the fact that you are going to represent the
+troveTextravaganza: hold on let me get my reading glasses
+troveTextravaganza: *puts on obscenely large old timey binoculars*
+troveTextavaganza: ah yes. where were we
+troveTextravaganza: THE EYE KILLER?
 CEBro: BECAUSE ITS HILARIOUS
-troveTextravaganza: i'll call the PR team...`});
+troveTextravaganza: i'll
+troveTextravaganza: i’m just gonna call pr now
+troveTextravaganza: glhf with that`});
 
 
 ttChats.push({timestamp: new Date(1999, 12,31,23,54 ),lines: `CEBro: I HAVE ALWAYS BEEN CURIOUS AT THE IDEA OF A REVERSE BANG AND AFTER REALIZING THAT MY THOUGHTS WOULD ONLY BECOME REALITY IF I MADE IT HAPPEN, I HAVE DECIDED TO CREATE THIS EVENT MYSELF
