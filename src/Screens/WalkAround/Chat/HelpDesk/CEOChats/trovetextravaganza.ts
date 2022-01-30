@@ -88,39 +88,49 @@ CEBro: BECAUSE ITS LIKE THE BIG BANG IN REVERSE, I SAW IT ON TUMBLR IT'LL BE HIL
 CEBro: AND IF WE CAN'T STOP IT
 CEBro: WE MIGHT AS WELL MAKE IT AS FUNNY AS POSSIBLE`});
 
-ttChats.push({timestamp: new Date(2000, 4,1,22,12 ),lines: `CEBro: BRO
-troveTextravaganza: happy birthay wanda
+ttChats.push({timestamp: new Date(2000, 4,1,22,12 ),lines: `CEBro: CEBro: BRO
+troveTextravaganza: happy birthday wanda!
 troveTextravaganza: the big 110010 +/- x
+troveTextravaganza: not many make it to that age
+troveTextravaganza: probably like. zero people, actually
+troveTextravaganza: but look at you, pioneer
 CEBro: BRO
 CEBro: I JUST GOT BACK FROM THAT SHITTY THEME PARK
-troveTextravaganza: was it fun??
+troveTextravaganza: okay i’m going to assume that because it was shitty it wasn’t like FUN fun
+troveTextravaganza: but was it like… ironic fun
 CEBro: NO
 CEBro: IT WAS TERRIBLE
 CEBro: DID YOU KNOW THEY GOT RID OF THE LINES?
 CEBro: YOU JUST WALK RIGHT ONTO THE RIDE
 CEBro: AFTER GETTING A LITTLE TICKET
-troveTextravaganza: omg
+troveTextravaganza: ohhh my god
+troveTextravaganza: okay
 troveTextravaganza: is this going to be that 'open office plan' all over again?
 CEBro: NO
 CEBro: ITS WORSE
 CEBro: WHO GOES TO A THEME PARK TO JUST WALK STRAIGHT ONTO RIDES
 CEBro: WHERES THE MYSTIQUE
-CEBro: WHERES THE CONFUNSION
+CEBro: WHERES THE CONFUSION
 CEBro: WHERES THE CREEPING FEAR THAT MAYBE THE LINE YOU'RE IN IS GOING TO SOMETHING BESIDES WHAT YOU THOUGHT IT DID
-troveTextravaganza: yes yes, wheres the whole 'being lost' vibe you love so much
+troveTextravaganza: yeah we get it you love being lost, lol
 troveTextravaganza: what are you gonna do, like, replace them in the next loop?
 CEBro: GIVE YOURSELF A RAISE
 CEBro: THATS GENIUS
 CEBro: OR HELL
 CEBro: WE CAN PROBABLY AFFORD TO JUST BUY THEM AND FIX THEIR SHITTY SYSTEM
-troveTextravaganza: wanda, babe
+troveTextravaganza: wanda
+troveTextravaganza: babe
+troveTextravaganza: sweet cinnamon apple
+troveTextravaganza: lone bush rolling down the desert
 troveTextravaganza: im the chief financial officer
 troveTextravaganza: i don't need to give myself a raise
-troveTextravaganza: but i DO need to tell you that if you pull money out of your ass those poor auditors are going to show up again
+troveTextravaganza: but i DO need to tell you that if you pull money out of your ass those poor auditors are going to show up again, and then WHAT am i gonna tell them, wanda?
+troveTextravaganza: “no, yes, we just HAD this money laying around in my sixteenth pant pocket, would you like to come in for a fallout new vegas speedrun? i assure you it’s great even if it hasn’t come out yet”
+troveTextravaganza: if you’re going to push me between the rock and the wall at LEAST just fucking hit me with it
 CEBro: NAH BRO ITS FINE
 CEBro: I HAVE A PLAN FOR THIS
 troveTextravaganza: why does this already upset me
-CEBro: WHAT DO YOU REMEMBER ABOUT CRYPTOCURRENCY?`})
+CEBro: WHAT DO YOU REMEMBER ABOUT CRYPTOCURRENCY`})
 
 ttChats.push({timestamp: new Date(2000, 4,1,22,12 ),lines: `CEBro: http://knucklessux.com/LossPass/
 troveTextravaganza: thanks i hate it
