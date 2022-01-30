@@ -219,3 +219,51 @@ CEBro: HOW HARD COULD IT BE?
 theIntern: i'll go run some ibuprofen up to the CFO then, huh.
 CEBro: PROBABLY FOR THE BEST`})
 
+internChats.push({timestamp: new Date(1996, 6,22,17,56),lines: `theIntern: wanda?
+theIntern: wanda.
+theIntern: if you haven't checked the news.
+theIntern: don't.
+theIntern: talk to me, dude.
+theIntern: wanda?
+CEBro: ITS JUST WEIRD
+CEBro: SEEING MY BODY
+CEBro: I MEAN
+CEBro: I GUESS I EXPECTED IT
+CEBro: I KNOW HOW THAT RAZOR WORKS
+CEBro: OF COURSE I DO
+CEBro: BUT
+theIntern: yeah.
+theIntern: 8 divines, i'm so sorry wanda
+CEBro: IN A VERY REAL WAY
+CEBro: THAT'S NOT EVEN ME
+CEBro: RIP WODIN
+CEBro: I GUESS
+CEBro: BUT
+CEBro: KINDA PISSED AT THE KILLER NOW
+CEBro: HER SHIT IS ONLY FUNNY WHEN IT HAPPENS TO OTHER PEOPLE
+theIntern: how the hell did...it go unfound for so long?
+theIntern: it must have happened 2 YEARS ago by now...
+CEBro: RIGHT
+CEBro: YEAH
+CEBro: THE KILLER HAS THIS
+CEBro: RAZOR THING
+CEBro: SOMETIMES IF YOU GET KILLED BY IT
+CEBro: NO ONE ACTUALLY KNOWS
+CEBro: UNTIL THE RAZOR TURNS OFF
+theIntern: please don't take this the wrong way.
+theIntern: but is that a joke?
+CEBro: WHAT DO YOU MEAN
+theIntern: you were killed by a razor?
+CEBro: YEAH?
+theIntern: you.
+theIntern: the CEO formerlly known as 'odinsRazor'
+theIntern: were killed by a magical razor.
+CEBro: BRO?
+CEBro: THATS HILARIOUS?
+CEBro: I TAKE EVERYTHING BACK?
+CEBro: HUNT CHICK IS THE FUNNIEST CLOWN EVER?
+CEBro: SHIT
+CEBro: I JUST REALIZED
+CEBro: THIS IS GOING TO COMPLICATE MY ARGUMENT FOR HER DEFENSE`})
+
+
