@@ -45,6 +45,28 @@ troveTextravaganza: that i can certainlyyyy do
 troveTextravaganza: but you owe me a pizza because it's super late
 CEBro: DEAL`})
 
+ttChats.push({timestamp: new Date(1994, 12,4,1,3 ),lines: `troveTextravaganza: oh my GOD waaaaaaaanda
+troveTextravaganza: just!
+troveTextravaganza: TELL him who you are
+troveTextravaganza: like, it not THAT hard
+troveTextravaganza: it's like you're going around doing every sidequest! and alduin is just, like
+troveTextravaganza: chilling in Sovngarde eating souls because you AREN'T DOING THE THING??
+CEBro: I WILL
+CEBro: JUST
+CEBro: WHEN THE TIME IS RIGHT
+troveTextravaganza: THAT'S LITERALLY WHAT ALDUIN WOULD WANT YOU TO THINK! THAT WAS IT THAT WAS THE PLOT
+troveTextravaganza: and like even if it's not ACTUALLY a time dragon, there is LITERALLY no right time to tell someone you accidentally faked your own death
+CEBro: OR MAYBE I ACTUALLY DID DIE?
+CEBro: IT'S KIND OF UNCLEAR
+CEBro: EVEN TO ME
+troveTextravaganza: that's not the point! 
+troveTextracaganza: >:C
+troveTextravaganza: god. screw the skyrim metaphor, it's way past me at this point
+troveTextravaganza: just! please just tell him already
+CEBro: I WILL
+CEBro: NO LATTER THAN Y2K
+CEBro: I PROMISE`})
+
 
 ttChats.push({timestamp: new Date(1996, 5,2,9,1 ),lines: `troveTextravaganza: wanda
 troveTextravaganza: whhhhhhhhhhhy am i seeing on the news
