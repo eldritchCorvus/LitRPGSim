@@ -3,7 +3,7 @@ import { TBDChatType } from "../../TBD/PreCoffinChats";
 //https://odinsrazor.tumblr.com/  but the password has changed.
 export const internChats:TBDChatType[] = [];
 //ceo and intern discussing various corporatey stuff, prophecies, intern fucking CALLING ceo on her bullshit 
-internChats.push({timestamp: new Date(1994, 8,13,16,24 ),lines: `CEBro: HEY
+internChats.push({timestamp: new Date(1994, 8,15,16,24 ),lines: `CEBro: HEY
 CEBro: JUST WANTED TO CHECK IN WITH YOU
 CEBro: SEE HOW YOU'RE SETTLING IN
 CEBro: 100% LESS MURDER THAN YOU WERE PROBABLY EXPECTING
@@ -34,6 +34,15 @@ theIntern: oh...
 theIntern: um...
 theIntern: I haven't set up direct deposit yet?
 CEBro: DON'T WORRY ABOUT IT`})
+
+internChats.push({timestamp: new Date(1994, 8,17,16,24 ),lines: `CEBro: https://www.angelfire.com/falcon/fcs/weirdanimals/funny.jpeg
+theIntern: did you need something, ma'am?
+CEBro: JUST THOUGHT YOU WOULD LIKE THIS JOKE
+theIntern: oh.
+theIntern: thank you, ma'am.
+CEBro: NO PROBLEM.
+`})
+
 
 internChats.push({timestamp: new Date(1994, 10,30,11,14 ),lines: `CEBro: DON'T EAT THE COOKIES IN THE BREAK ROOM, BRO
 CEBro: SOMEONE MISLABELED THEM
@@ -157,6 +166,7 @@ theIntern: and for making me think you were some kind of stalker
 CEBro: YOU GOT IT BRO
 theIntern: good night, dude
 theIntern: get some sleep`})
+// the end is never the end
 
 internChats.push({timestamp: new Date(1994, 3, 10, 17, 22, 0), lines: `theIntern: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
 theIntern: you never did tell me what you thought about this lil guy.

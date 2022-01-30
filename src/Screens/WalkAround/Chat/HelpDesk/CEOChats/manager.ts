@@ -2,7 +2,7 @@ import { TBDChatType } from "../../TBD/PreCoffinChats";
 
 export const managerChats:TBDChatType[] = [];
 
-managerChats.push({timestamp: new Date(1994, 8,13,9,45 ),lines: `CEBro: HEY
+managerChats.push({timestamp: new Date(1994, 8,15,9,45 ),lines: `CEBro: HEY
 jSmith: What can I do for you, boss?
 CEBro: JUST WANTED TO THANK YOU FOR HANDLING JEPE BACK THERE.
 jSmith: Certainly! Just takes a calm attitude is all.

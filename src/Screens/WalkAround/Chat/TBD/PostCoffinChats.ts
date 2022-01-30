@@ -87,7 +87,7 @@ theBestDude72: show up at the HQ, all eager to work or whatever it is people do 
 theBestDude72: if it was you, you'd do it, right?
 theBestDude72: go the extra mile for a laugh and to get more info...`})
 
-postCoffinChats.push({timestamp: new Date(1994, 8,13,19,1 ),lines: `theBestDude72: holy shit.
+postCoffinChats.push({timestamp: new Date(1994, 8,15,19,1 ),lines: `theBestDude72: holy shit.
 theBestDude72: dude.
 theBestDude72: the DAY i have had.
 theBestDude72: you would not BELIEVE it.
@@ -171,7 +171,7 @@ theBestDude72: which at Eyedol games.
 theBestDude72: apparently means being lost in a hedge maze together for hours.
 theBestDude72: the CEO lured us in with the promise of getting options in a hedge fund if we reach the center.
 theBestDude72: but she neglected to inform us that only the person who made it out with the fucking fruit basket the options are kept in got to keep them.
-theBestDude72: so i spent my day fighting of sqwawking idiot clones.
+theBestDude72: so i spent my day fighting ofF sqwawking idiot clones.
 theBestDude72: and at least one actual person.
 theBestDude72: and on the one hand?
 theBestDude72: yeah i worked out some MONDO frustrations today, wodin.
@@ -193,6 +193,3 @@ theBestDude72: wtf.
 odinsRazor: LIKE I'D GIVE YOU WORTHLESS MAZE PRIZES
 theBestDude72: what.
 odinsRazor: SHIT`});
-
-
-//don't forget, final fic has odinsRazor accidentally respond, then panic.

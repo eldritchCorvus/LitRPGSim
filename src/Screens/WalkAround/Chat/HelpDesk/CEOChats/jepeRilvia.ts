@@ -2,7 +2,7 @@ import { TBDChatType } from "../../TBD/PreCoffinChats";
 
 export const jrChats:TBDChatType[] = [];
 
-jrChats.push({timestamp: new Date(1994, 8,13,9,17 ),lines: `CEBro: HEY
+jrChats.push({timestamp: new Date(1994, 8,15,9,17 ),lines: `CEBro: HEY
 mcdonaldsLover1994: HEY
 CEBro: COULD YOU TELL THE TOMS TO COOL IT ON THE WHOLE CREEPY 19-TUPLETS THING
 CEBro: I THINK THEY ARE FREAKING OUT THE NEW INTERN
