@@ -67,11 +67,7 @@ export const TBDChat : React.FC<TBDChatProps> = ({trappedInCoffin, setCoffinTime
             setUnseenChat(false);
             setChatOpen(false);
             setTimeout(() => {
-                if(!chatOpen){
-                    setUnseenChat(true);
-                }else{
-                    setUnseenChat(false);
-                }
+                setUnseenChat(true);
                 beepEffect();
                 const array = trappedInCoffin? postCoffinChats: precoffinChats;
                 const index = array.indexOf(allChats[allChats.length - 1]) + 1;

@@ -36,4 +36,28 @@ CEBro: JUST CHILL TILL THEN
 CEBro: YOU'RE MAKING ME LOOK BAD IN FRONT OF THE INTERN
 mcdonaldsLover1994: THE SQWAWKS OF THE REVOLUTION WILL NOT BE SILENCED!!`})
 
+jrChats.push({timestamp: new Date(1994, 11,14,8,43  ),lines: `CEBro: HEY
+CEBro: REPORT ON THE INTERNS CURRENT STATUS
+wendysCEO1994: SURE THING BRO
+wendysCEO1994: To: Wanda, CEO of Eyedol Games
+wendysCEO1994: From: JR, Leader of the Quotidian Quorom
+wendysCEO1994: Subject: Corporate Espionage
+wendysCEO1994: Quotidian morale is steadily improving with the increase in fruit rations.
+wendysCEO1994: It is expected information based import/exports to increase commiserately over the next three quarters.
+wendysCEO1994: [[Small Talk Concluded]]
+wendysCEO1994: Note: All information provided is protected by the Terms and Conditions of Eyedol Games employment contract and may be subject to extrenal laws or regulations.
+wendysCEO1994: The Intern has been settling in to Eyedol Games well.
+wendysCEO1994: Instances of complaints have been reduced by 81% month over month.
+wendysCEO1994: He appears to have befriended his Manager, as well as 3 of the Tom's (see supplement regarding Tom Identification)
+wendysCEO1994: The Intern's grades are at a steady C ranking, two rankings lower than previous averages.
+wendysCEO1994: The Intern's Quitting Quotient is currently at a steady 38%, and falling.
+CEBro: THANK YOU JEPE
+wendysCEO1994: SURE THING BRO
+wendysCEO1994: BRO
+wendysCEO1994: CAN WE BUY WENDY'S?
+CEBro: MAYBE NEXT YEAR
+CEBro: THE CFO HAS BEEN ON MY CASE ABOUT 'UNNECESSARY EXPENSES'
+CEBro: EVER SINCE WE BOUGHT THAT CARD COMPANY`})
+
+
 
