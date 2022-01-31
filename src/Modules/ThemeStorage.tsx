@@ -175,87 +175,87 @@ export let super_name_possibilities_map: ThemePossibilitiesMap = {};
 export const checkIfAllKeysPresent = () => {
     for (let key of keys) {
         if (!(key in stats_map)) {
-            console.error("JR NOTE: key", key, "not found in stats_map");
+           // console.error("JR NOTE: key", key, "not found in stats_map");
         }
 
         if (!(key in person_posibilities)) {
-            console.error("JR NOTE: key", key, "not found in noun_possibilities");
+        //    console.error("JR NOTE: key", key, "not found in noun_possibilities");
         }
 
         if (!(key in adj_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in adj_possibilities");
+          //  console.error("JR NOTE: key", key, "not found in adj_possibilities");
         }
 
         if (!(key in super_name_possibilities_map)) {
-            console.error("JR NOTE: key", key, "not found in super_name_possibilities_map");
+            //console.error("JR NOTE: key", key, "not found in super_name_possibilities_map");
         }
 
         if (!(key in insult_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in insult_possibilities");
+           // console.error("JR NOTE: key", key, "not found in insult_possibilities");
         }
 
         if (!(key in compliment_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in compliment_possibilities");
+            //console.error("JR NOTE: key", key, "not found in compliment_possibilities");
         }
 
         if (!(key in location_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in location_possibilities");
+        //    console.error("JR NOTE: key", key, "not found in location_possibilities");
         }
 
         if (!(key in object_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in object_possibilities");
+          //  console.error("JR NOTE: key", key, "not found in object_possibilities");
         }
 
         if (!(key in child_backstories)) {
-            console.error("JR NOTE: key", key, "not found in child_backstories");
+            //console.error("JR NOTE: key", key, "not found in child_backstories");
         }
 
         if (!(key in general_backstories)) {
-            console.error("JR NOTE: key", key, "not found in general_backstories");
+           // console.error("JR NOTE: key", key, "not found in general_backstories");
         }
 
         if (!(key in miracles)) {
-            console.error("JR NOTE: key", key, "not found in miracles");
+            //console.error("JR NOTE: key", key, "not found in miracles");
         }
 
         if (!(key in loc_desc)) {
-            console.error("JR NOTE: key", key, "not found in loc_desc");
+            //console.error("JR NOTE: key", key, "not found in loc_desc");
         }
 
         if (!(key in philosophy)) {
-            console.error("JR NOTE: key", key, "not found in your philosophy");
+            //console.error("JR NOTE: key", key, "not found in your philosophy");
         }
 
         if (!(key in monster_desc)) {
-            console.error("JR NOTE: key", key, "not found in monster_desc");
+           // console.error("JR NOTE: key", key, "not found in monster_desc");
         }
 
         if (!(key in smell_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in smell_possibilities");
+           // console.error("JR NOTE: key", key, "not found in smell_possibilities");
         }
 
         if (!(key in taste_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in taste_possibilities");
+           // console.error("JR NOTE: key", key, "not found in taste_possibilities");
         }
 
         if (!(key in sound_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in sound_possibilities");
+           // console.error("JR NOTE: key", key, "not found in sound_possibilities");
         }
 
         if (!(key in feeling_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in feeling_possibilities");
+           // console.error("JR NOTE: key", key, "not found in feeling_possibilities");
         }
 
         if (!(key in effect_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in effect_possibilities");
+           // console.error("JR NOTE: key", key, "not found in effect_possibilities");
         }
 
         if (!(key in wall_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in wall_possibilities");
+           // console.error("JR NOTE: key", key, "not found in wall_possibilities");
         }
 
         if (!(key in floor_possibilities)) {
-            console.error("JR NOTE: key", key, "not found in floor_possibilities");
+           // console.error("JR NOTE: key", key, "not found in floor_possibilities");
         }
     }
 }

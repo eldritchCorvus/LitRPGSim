@@ -422,6 +422,10 @@ export const CreditsScreen = (props: StatusProps) => {
                     <CreditLeft>Next Custom,Sister Spray,Urban Heroes Fonts: </CreditLeft> <CreditRight><span>imagex</span></CreditRight>
                 </CreditLine>
 
+                <CreditLine>
+                    <CreditLeft>Blood Scratch Font: </CreditLeft> <CreditRight><span>Creaditive Design</span></CreditRight>
+                </CreditLine>
+
                 <CreditHeader>And Most of All:</CreditHeader>
 
                 <CreditParagraph>

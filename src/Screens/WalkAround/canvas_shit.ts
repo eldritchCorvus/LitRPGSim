@@ -52,7 +52,6 @@ export const initBlack = (canvas: HTMLCanvasElement) => {
 
         return;
     }
-    console.log("JR NOTE: initing black with context ", canvas.width, canvas.height)
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
@@ -61,7 +60,6 @@ export const initClear = (canvas: HTMLCanvasElement) => {
     if (!context) {
         return;
     }
-    console.log("JR NOTE: initing clear with context ", canvas.width, canvas.height)
 
     context.clearRect(0, 0, canvas.width, canvas.height);
 }

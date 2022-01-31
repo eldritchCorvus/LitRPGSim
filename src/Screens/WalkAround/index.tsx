@@ -20,6 +20,7 @@ import { CeoChats } from "./Chat/HelpDesk/CEOChats";
 import { css, jsx } from "@emotion/react";
 import { addNumToArrayWithKey } from "../../Utils/LocalStorageUtils";
 import { playCoffin } from "../..";
+import { TapCode } from "./Chat/TapCode";
 
 //a memory can NOT be in both places at once.
 export const MEMORY_KEY = "WANDERER_MEMORY";
@@ -91,28 +92,28 @@ export const WalkAround = () => {
     //number of themes/2 is how many doors to have.
     const url_themes = getParameterByName("themes", null);
     const url_seed = getParameterByName("seed", null);
-    const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? [...url_themes.split(","),SPYING] : [all_themes[SPYING].key, all_themes[ADDICTION].key, all_themes[KNOWING].key]);
+    const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? [...url_themes.split(","), SPYING] : [all_themes[SPYING].key, all_themes[ADDICTION].key, all_themes[KNOWING].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [coffinTime, setCoffinTime] = useState(new Date().getDay()===5);
+    const [coffinTime, setCoffinTime] = useState(new Date().getDay() === 5);
     const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
     const [trappedInCoffin, setTrappedInCoffin] = useState(false);
     const [roomStyle, setRoomStyle] = useState(base_room_stylings);
-    const [wandererLoc, setWandererLoc] = useState({x:'250px',y:'450px'});
+    const [wandererLoc, setWandererLoc] = useState({ x: '250px', y: '450px' });
 
 
-    useEffect(()=>{
-        const picked_filters:string[] = [];
-        const themes:Theme[] = keysToThemes(themeKeys);
-        const amount = seededRandom.getRandomNumberBetween(0,3);
-        for(let i = 0; i< amount; i++){
-            const filter = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom,FILTERS);
-            if(filter && !filter.includes("ERROR")){
+    useEffect(() => {
+        const picked_filters: string[] = [];
+        const themes: Theme[] = keysToThemes(themeKeys);
+        const amount = seededRandom.getRandomNumberBetween(0, 3);
+        for (let i = 0; i < amount; i++) {
+            const filter = seededRandom.pickFrom(themes).pickPossibilityFor(seededRandom, FILTERS);
+            if (filter && !filter.includes("ERROR")) {
                 picked_filters.push(filter);
             }
         }
         filters.current = picked_filters;
-    },[themeKeys])
+    }, [themeKeys])
 
 
     useEffect(() => {
@@ -122,7 +123,7 @@ export const WalkAround = () => {
         //extremely subtle
         const twisting_mask = `mask-image: radial-gradient(ellipse at ${wandererLoc.x} ${wandererLoc.y}, black 0%,  65%, rgba(0, 0, 0, 0.65) 75%);`;
 
-            
+
         let mask = '';
         if (themeKeys.includes(DARKNESS)) {
             mask = dark_mask;
@@ -135,24 +136,24 @@ export const WalkAround = () => {
         }
 
         let filter = ``;
-        if(filters.current && filters.current.length){
+        if (filters.current && filters.current.length) {
             filter = 'filter: '
-            for(let f of filters.current){
+            for (let f of filters.current) {
                 filter += `${f} `;
             }
-            if(themeKeys.includes(TWISTING)){
-                const twisting_styles = [`hue-rotate(10deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(-5deg)`];
+            if (themeKeys.includes(TWISTING)) {
+                const twisting_styles = [`hue-rotate(10deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(-5deg)`];
                 filter += ` ${pickFrom(twisting_styles)}`;
             }
             filter += ";"
-        }else if(themeKeys.includes(TWISTING)){
+        } else if (themeKeys.includes(TWISTING)) {
             filter = 'filter: '
-            const twisting_styles = [`hue-rotate(-2deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`,`hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(-5deg)`];
+            const twisting_styles = [`hue-rotate(-2deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(5deg)`, `hue-rotate(-5deg)`];
             filter += pickFrom(twisting_styles);
             filter += ";"
 
         }
-        const theme_style = `${mask}${base_room_stylings}${filter !== '' ?filter:''}`;
+        const theme_style = `${mask}${base_room_stylings}${filter !== '' ? filter : ''}`;
         setRoomStyle(theme_style);
 
     }, [themeKeys, wandererLoc])
@@ -187,7 +188,7 @@ export const WalkAround = () => {
     */
 
     const childRoomThemes = (rand: SeededRandom) => {
-        addNumToArrayWithKey("lp_route",1);
+        addNumToArrayWithKey("lp_route", 1);
         const roll = seededRandom.nextDouble();
         if (roll > 0.6) {
             //add a theme, but don't go over 6
@@ -248,7 +249,7 @@ export const WalkAround = () => {
         setFlavorText(undefined);
         //ubiquitous floating eyes plz
         let child_themes = childRoomThemes(tmpRand)
-        if(!child_themes.includes(SPYING)){
+        if (!child_themes.includes(SPYING)) {
             child_themes = [...child_themes, SPYING]
         }
         setThemeKeys(child_themes);
@@ -328,63 +329,16 @@ export const WalkAround = () => {
                 <Quotidian trappedInCoffin={trappedInCoffin} themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
                 <Quotidian trappedInCoffin={trappedInCoffin} themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
                 <Quotidian trappedInCoffin={trappedInCoffin} themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
-
-                <Quotidian themeKeys={themeKeys} canvasRef={canvasRef} numberDoors={numberDoors} wandaTakeMemoryRef={wandaTakeMemoryRef} itemsRef={itemsRef} seededRandom={seededRandom}></Quotidian>
             </RoomContainer> : null}
             {trappedInCoffin ? <CeoChats /> : null}
+            {trappedInCoffin ? <TapCode /> : null}
 
             <TBDChat trappedInCoffin={trappedInCoffin} setCoffinTime={setCoffinTime} />
             <HelpDesk />
 
             <div style={{ display: "none" }}>TODO:
-
-                Five Minute TODO:
-                * https://farragofiction.com/%E1%9B%96%E1%9B%9F%E1%9B%92%E1%9A%BA%E1%9A%B1%E1%9A%A2 knucklessux
-                * post coffin chats
-                *post coffin spyware
-                * you can get into the rabbit hole???
-
                 <li>post coffin trial of killer plus live blogging of a tgifradys</li>
-
-                *tiny version of this where going thru a door loads one of the arcs???
-                (not react, just an image map???)
-                code rot as art. you can always reach the rot
-
-
-                HIgh Level
-                *corporate spyware. "Currently Viewing Employee #22917's chat history"  You're the CEO looking at chat windows from the Interns perspective, with various partners (minimized unless new content but you can re-open them).  They can be messaged by, or send messages to The CEO, Wodin, The Closer, The CFO, Jepe Rilvia, Tom Peyote, The Manager, etc.
-                * post coffin chat LOGS (not live) where the Intern's boss (both the CEO and the Closer) (closer is mostly trying to figure out why the CEO is giving the Intern special attention) keeps texting them to ask if they liked their fruit basket, if they liked the weird worm baby the Closer gave them, to complain about "that asshole snake" and how its hilarious his stupid spawn keep getting put into gift baskets, and to suggest he invest in this whole "cryptocurrency" tihng
-                * sometimes the co owner texts the intern as well but it's just like "man kinda crazy how everyone is messaging you rn huh"
-                *final tape recorder with mystery next to coffin, others are random
-                * you go in the coffin to remember your past (geocities) and journey to your future
-                * before and after coffin content (coffin at zero , before is geocities, after is newspaper articles and blogs)
-                * styled spiral;
-                * letter to the flower girl from weaver
-
-                *support phone resolutions
-                * record major secrets found in this path and the prev path, for use in JustTruth path. closer window. vent tapes. coffin.
-
-
-
-                Other MINUTE TODO.
-                <li>shitty geocities parody website about unraveling the identity of the Eye Killer, Eyedol, people vanishing. make sure to link to google if you mention using it</li>
-                <li>killer in vents</li>
-                *turns out if you switch black vs white for Truth rapidly it seems to be spiralling. (herald discovered)
-                * canon way to get to apocalypse plz
-                <li>429044 is important number</li>
-                <li>20h:14m:36s on the stopwatch</li>
-                <li>jr in attic, but its a lobster. this is never explained.</li>
-                <li>tweak item placement alg (bookshelves are good example to show how current alg has layering)</li>
-                <li>spawn hydration stations</li>
-                <li>pick a  effect for the room rarely (tint for many of them (red for fire, blue for ocean for example), completely opaque black for dark and obfuscations, spiral has weirdness, ocean and lonely has fog, stranger, dark etc, corruption has bugs overlaid)</li>
-                <li>secret hax coffin to the left,endless dream, credits, apocalyse</li>
-                <li>post coffin the ai brings all the items its eaten and gives it to you, link to infotoken hoard with memories, plus friendship with [redacted]</li>
-
-
-                <li>endless dream inside the coffin</li>
-                <li>after ten minutes you reach the closer who actually listens to what you say, is in a new chat window entirely and wants to know what they need to do to make you go away.</li>
             </div>
-
         </Fragment>
 
     )

@@ -52,6 +52,12 @@ export function playSecret(location){
   audio.play();
 }
 
+export function playSecretScratch(location){
+  audio.src = require(`./SecretMusic/${location}`).default
+  audio.loop = false;
+  audio.play();
+}
+
 export function playSecretCloser(player,location){
   player.src = require(`./Voice/TheCloser/${location}`).default
   player.play();
@@ -85,8 +91,8 @@ export function loadCloserText(location){
 }
 
 export function playCoffin(){
-  audio.src = tap;
-  audio.play();
+  //audio.src = tap;
+  audio.pause();
 }
 
 export function playCredits(){

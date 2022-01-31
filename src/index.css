@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: bloodscratch;
+  src: url("./Fonts/BloodScratchPersonalUse.ttf");
+}
+
+@font-face {
   font-family: graffiti_city;
   src: url("./Fonts/graffiti_city/Graffiti_City.otf");
 }
