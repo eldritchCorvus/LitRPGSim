@@ -1,6 +1,7 @@
 
 export const text = `
 
-INVESTIGATORS CULL LEADS BUT EYE KILLER REMAINS AT LARGE
+Spiralling ever downward, how do things connect?
 
+In what order? In what layer?
 `
