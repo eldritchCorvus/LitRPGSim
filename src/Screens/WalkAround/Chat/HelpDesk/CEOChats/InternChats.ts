@@ -168,7 +168,7 @@ theIntern: good night, dude
 theIntern: get some sleep`})
 // the end is never the end
 
-internChats.push({timestamp: new Date(1994, 3, 10, 17, 22, 0), lines: `theIntern: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
+internChats.push({timestamp: new Date(1994, 10, 17, 22, 0), lines: `theIntern: https://www.angelfire.com/falcon/fcs/weirdanimals/ballofsin.jpeg
 theIntern: you never did tell me what you thought about this lil guy.
 CEBro: AN ABSOLUTE UNIT
 CEBro: A DISGUSTING CREATURE

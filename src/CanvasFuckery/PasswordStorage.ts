@@ -81,7 +81,7 @@ export const passwords:PasswordMap = {
     "THE END IS NEVER THE END": new Secret("Eye Killer Saga",[new SourceDurationPair("Secrets/the_end_is_never_the_end/0.png",113),new SourceDurationPair("Secrets/the_end_is_never_the_end/1.jpg",1)],undefined,"Secrets/the_end_is_never_the_end/0.js")
     ,"THE TRUTH IS LAYERED": new Secret("Eye Killer Saga",[new SourceDurationPair("Secrets/the_truth_is_layered/0.png",24)],undefined,"Secrets/the_truth_is_layered/0.js")
     ,"YOU IS NEEDED TO END THE WORLD": new Secret("Eye Killer Saga",[new SourceDurationPair("Secrets/you_is_needed_to_end_the_world/0.png",113),new SourceDurationPair("Secrets/you_is_needed_to_end_the_world/1.jpg",1)],undefined,"Secrets/you_is_needed_to_end_the_world/0.js")
-    ,"PLANT MORE TREES": new Secret("Eye Killer Saga",[new SourceDurationPair("Secrets/plant_more_trees/0.png",24),new SourceDurationPair("Secrets/plant_more_trees/1.png",3)],undefined,"Secrets/plant_more_trees/0.js")
+    ,"PLANT MORE TREES": new Secret("Eye Killer Saga",[new SourceDurationPair("Secrets/plant_more_trees/1.png",24),new SourceDurationPair("Secrets/plant_more_trees/1.png",3)],undefined,"Secrets/plant_more_trees/0.js")
     ,"HOW MUCH DO YOU THINK WAFFLES COST": new Secret("Eye Killer Saga",[new SourceDurationPair("Secrets/how_much_do_you_think_waffles_cost/0.png",113),new SourceDurationPair("Secrets/how_much_do_you_think_waffles_cost/1.jpg",3)],undefined,"Secrets/how_much_do_you_think_waffles_cost/0.js")
 
 };
