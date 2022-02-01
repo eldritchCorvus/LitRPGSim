@@ -102,7 +102,7 @@ CEBro: I'LL BE BACK IN FIVE MINUTES
 CEBro: JUST
 CEBro: I'LL TELL YOU EVERYTHING
 `})
-
+//trickster candy is a hell of a thing. wonder how wanda got it
 internChats.push({timestamp: new Date(1995, 10,13,19,18 ),lines: `CEBro: BRO!!!!!!!!!!!
 CEBro: YOURE RIGHT!!!!!!!!!!!
 CEBro: YOU SHOULD KNOW EVERYTHING!!!!!!!!!!!
