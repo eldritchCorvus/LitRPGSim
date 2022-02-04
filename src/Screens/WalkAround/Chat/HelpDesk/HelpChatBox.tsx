@@ -198,7 +198,6 @@ export const HelpChatBox = () => {
         return false;
     }
 
-    console.log("JR NOTE: rerendering help desk")
     return (
         <ChatContainer>
 
