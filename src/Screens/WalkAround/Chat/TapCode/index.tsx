@@ -7,6 +7,7 @@ export const TapCode: React.FC = () => {
     const TapCodeContainer = styled.div`
         height: 100%;
         width: 90%;
+        pointer-events: none;
         position: fixed;
         top: 0px;
         left: 0px;
