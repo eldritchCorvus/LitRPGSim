@@ -111,42 +111,12 @@ function AppWrapper() {
   }, [seed, setSeed]);
 
 
-  if (mode === BIRTHDAY && (seed === undefined || seed === null)) {
-    return (
-      <Birthday setMode={setMode} />
-    )
-  } else if (mode === ABOUT) {
-    return (
-      <About setMode={setMode} />
-    )
-  } else if (mode === APOCALYPSE) {
-    return (
-      <ApocalypseScreen/>
-    )
-  } else if (mode === GHOST) {
-    return (
-      <CCTVScreen ghosts={true}/>  
-    )
-  } else if (mode === PW) {
-    return (
-      <CCTVScreen ghosts={false}/> 
-    )
-  } else if (mode === TRUTH) {
-    return( <AtticSim pathType={PathType.Truth}/>)
+  return (
+    <Fragment>
+            <App seed={3} />
 
-  } else if (mode === LIE) {
-    return( <AtticSim pathType={PathType.Game}/>)
-
-  }else if (seed) {
-    return (
-      <Fragment>
-              <App seed={seed} />
-
-      </Fragment>
-    )
-  }else if (seed === 0){ //:) :) :)
-     return( <AtticSim pathType={PathType.NotGame}/>)
-  }
+    </Fragment>
+  )
 }
 
 export default AppWrapper;

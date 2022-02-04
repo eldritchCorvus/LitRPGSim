@@ -19,9 +19,8 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ setChatOpen,newChat, allC
     const chatRef = useRef<HTMLDivElement>(null);
 
     const ChatContainer = styled.div`
-        position: fixed;
-        right: 15px;
-        top: 15px;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 65px;
         height: 355px;
         width: 550px;
@@ -51,7 +50,7 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ setChatOpen,newChat, allC
         background-color: red;
         color: white;
         padding-top: 2px;
-        margin-left: 270px;
+        margin-left: 27px;
         cursor: pointer;
         font-size: 10px;
         height: 25px;
@@ -89,7 +88,7 @@ export const TBDChatBox: React.FC<TBDChatBoxType> = ({ setChatOpen,newChat, allC
         <ChatContainer>
 
             <ChatHeader>
-                <div>theBestDude72 -- Instant Messaging</div><XButton onClick={()=>{setChatOpen(false)}}>X</XButton>
+                <div style={{width: "480px"}}>troveTextravaganza -- Instant Messaging</div><XButton onClick={()=>{setChatOpen(false)}}>X</XButton>
             </ChatHeader>
             <ChatBody ref={chatRef} >
                 <div>

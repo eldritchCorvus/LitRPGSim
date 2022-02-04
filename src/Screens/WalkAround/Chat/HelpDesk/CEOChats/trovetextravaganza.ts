@@ -68,6 +68,7 @@ CEBro: NO LATTER THAN Y2K
 CEBro: I PROMISE`})
 
 
+
 ttChats.push({timestamp: new Date(1996, 5,2,9,1 ),lines: `troveTextravaganza: wanda
 troveTextravaganza: whhhhhhhhhhhy am i seeing on the news
 troveTextravaganza: the fact that you are going to represent the

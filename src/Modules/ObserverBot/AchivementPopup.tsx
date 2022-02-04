@@ -98,7 +98,6 @@ const AchivementPopupKickoff = (props: AchivementProps)=>{
     }
     ReactDOM.render(
         <React.StrictMode>
-          <AchivementPopup skillPoints={props.skillPoints} title={props.title} text={props.text} reward={props.reward} />
         </React.StrictMode>,
         ele
       );

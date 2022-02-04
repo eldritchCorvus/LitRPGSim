@@ -40,59 +40,31 @@ export const TBDChat : React.FC<TBDChatProps> = ({trappedInCoffin, setCoffinTime
 
 `
 
-    const [chatOpen, setChatOpen] = useState(false);
+    const [chatOpen, setChatOpen] = useState(true);
     const [allChats, setAllChats] = useState([precoffinChats[0]])
-    const [unseenChat, setUnseenChat] = useState(false);
 
     const [newChat, setNewChat] = useState<TBDChatType | undefined>();
-    const [grayIcon, setGrayIcon] = useState(true);
 
     const toggleChat = () => {
-        if (!chatOpen) {
-            setUnseenChat(false);
-            setGrayIcon(false);
-        }
         setChatOpen(!chatOpen);
     }
 
-    useEffect(()=>{
-        if(trappedInCoffin){
-            setNewChat(postCoffinChats[0]);
-            setUnseenChat(true);
-        }
-    },[trappedInCoffin])
-
     useEffect(() => {
         if (!newChat) {
-            setUnseenChat(false);
-            setChatOpen(false);
             setTimeout(() => {
-                setUnseenChat(true);
                 beepEffect();
                 const array = trappedInCoffin? postCoffinChats: precoffinChats;
                 const index = array.indexOf(allChats[allChats.length - 1]) + 1;
                 if (array.length > index) {
                     setNewChat(array[index]);
                 } else {
-                    setCoffinTime(true);
+                    //setCoffinTime(true);
                 }
 
-            }, 60 * 1000)
+            }, 1 * 1000)
         }
     }, [newChat])
 
-    useEffect(() => {
-        if (unseenChat && !chatOpen) {
-            const flash = () => {
-                setGrayIcon(!grayIcon)
-            }
-            let timeoutId = setTimeout(flash, 1000);
-            return () => {
-                clearTimeout(timeoutId);
-            };
-        }
-
-    }, [unseenChat, grayIcon]);
     //flamingchickens
     //if you care about angelfire i mean
     //and then you'll have one of two needed tokens, probably? maybe?
@@ -108,9 +80,7 @@ export const TBDChat : React.FC<TBDChatProps> = ({trappedInCoffin, setCoffinTime
     }
     return (
         <div style={{height: "600px"}}>
-            <TBDChatIcon onClick={() => toggleChat()}><div style={{ display: "inline-block", verticalAlign: "top", textAlign: "center" }}><IconImage greyed={grayIcon} src={help_icon} /> theBestDude72 chat</div></TBDChatIcon>
-
-            {chatOpen ? <TBDChatBox setChatOpen={setChatOpen} allChats={allChats} newChat={newChat} setAllChats={setAllChats} setNewChat={setNewChat} /> : null}
+            <TBDChatBox setChatOpen={setChatOpen} allChats={allChats} newChat={newChat} setAllChats={setAllChats} setNewChat={setNewChat} />
         </div>
     )
 }

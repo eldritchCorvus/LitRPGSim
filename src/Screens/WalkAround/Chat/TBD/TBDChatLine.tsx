@@ -28,7 +28,7 @@ export const ProcessedChatLine: React.FC<TBDChatLineType> = ({line}) => {
     const text = parts.join(":");
     return (
         <ChatLine>
-            {username !== "odinsRazor"? <TheBestDude>{username}</TheBestDude>:<OdinsRazor>{username}</OdinsRazor>}
+            {username !== "CEBro"? <TheBestDude>{username}</TheBestDude>:<OdinsRazor>{username}</OdinsRazor>}
             <TextContent>:{text}</TextContent>
         </ChatLine>
     )

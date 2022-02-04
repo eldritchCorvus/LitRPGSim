@@ -272,22 +272,13 @@ function App(props: AppProps) {
     return <div>LOADING FOR REALSIES</div>
   }else{
     //there is nothing wrong here. is fine
-    const displayMenu = !justTruthMode && !actualGameMode  && !creditsMode && !walkMode;
     return (
       <Fragment>
-        {rageMode && displayMenu ? <RageMode/>:null}
-        {rageMode && displayMenu?  <Menu player={player} angle={30}/>:null}
-        {rageMode && displayMenu?  <Menu player={player} angle={130}/>:null}
-        {displayMenu?  <Menu player={player} angle={angle}/>:null}      
-        {justTruthMode && !actualGameMode?  <JustTruth player={player}/>:null}      
-        {actualGameMode?  <ActualGame player={player}/>:null}
-        {walkMode?  <WalkAround/>:null}      
+        <WalkAround/>   
       
-        {creditsMode ?  <CreditsScreen player={player}/>:null}      
 
       
 
-      Fast TODO (yeah)
       <ul style={{display: "none"}}>
         pretend to know facts about the user, such as they play cookie clicker
         slow owl sounds in cctv mode
