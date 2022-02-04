@@ -331,18 +331,18 @@ export const Wanderer: React.FC<WandererProps> = ({setWandererLoc,setDisplayCoff
 
             if ((key === "s" || key === "ArrowDown") && prevTop < maxTop) {
                 prevTop += 10;
-            }
-            if ((key === "w" || key === "ArrowUp") && prevTop > minTop) {
+            }else if ((key === "w" || key === "ArrowUp") && prevTop > minTop) {
 
                 prevTop += -10
-            }
-            if ((key === "a" || key === "ArrowLeft") && prevLeft > minLeft) {
+            }else if ((key === "a" || key === "ArrowLeft") && prevLeft > minLeft) {
 
                 prevLeft += -10;
-            }
-            if ((key === "d" || key === "ArrowRight") && prevLeft < maxLeft) {
+            }else if ((key === "d" || key === "ArrowRight") && prevLeft < maxLeft) {
 
                 prevLeft += 10;
+            }else{
+                //no valid button was pressed, ignore this.
+                return;
             }
             setPlayerLocation({ top: prevTop, left: prevLeft });
             const centerX = prevLeft + playerWidth / 2;

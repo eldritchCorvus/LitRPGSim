@@ -40,9 +40,8 @@ useEffect(() => {
 
 useEffect(() => {
     if(chatHelp === true){
-        console.log("JR NOTE: setting timeout");
         const deployTheCloser = ()=>{
-            console.log("JR NOTE: deploying the closer");
+            console.log("JR NOTE: deploying The Closer");
             setCloserHelp(true);
         }
         const timeoutId = setTimeout(deployTheCloser, 10*1000*60);
