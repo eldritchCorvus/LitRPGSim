@@ -37,9 +37,9 @@ export const CurrentChatSection: React.FC<CurrentChatSectionType> = ({ newChat, 
             setPendingLines(pendingLines.slice(1))
             
         }else if(pastLines.length>0){
-            setPastLines([]);
+            /*setPastLines([]);
             setAllChats([...allChats,newChat])
-            setNewChat(undefined);
+            setNewChat(undefined);*/
         }
     },[pastLines, pendingLines])
 
