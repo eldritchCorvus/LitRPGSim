@@ -95,7 +95,7 @@ export const WalkAround = () => {
     const [themeKeys, setThemeKeys] = useState<string[]>(url_themes ? [...url_themes.split(","), SPYING] : [all_themes[SPYING].key, all_themes[ADDICTION].key, all_themes[KNOWING].key]);
     const [seededRandom] = useState(new SeededRandom(url_seed ? parseInt(url_seed, 10) : 216));
     const [flavorText, setFlavorText] = useState<string | undefined>()
-    const [coffinTime, setCoffinTime] = useState(true || new Date().getDay() === 5);
+    const [coffinTime, setCoffinTime] = useState(new Date().getDay() === 5);
     const [displayCoffinOption, setDisplayCoffinOption] = useState(false);
     const [trappedInCoffin, setTrappedInCoffin] = useState(false);
     const [roomStyle, setRoomStyle] = useState(base_room_stylings);
