@@ -1,151 +1,23 @@
-import { Fragment, useEffect, useState } from "react";
-import About from "./About";
-import App from "./App";
 import Birthday from "./Birthday";
-import { ApocalypseScreen } from "./Screens/Apocalypse/ApocalypseScreen";
-import { AtticSim, PathType } from "./Screens/Attic/AtticSim";
-import { CCTVScreen } from "./Screens/Secrets/CCTV";
-import { isNumeric, stringtoseed } from "./Utils/StringUtils";
+import Truth from "./Truth";
 import { getParameterByName } from "./Utils/URLUtils";
-import help_icon from './images/Walkabout/icons8-chat-64.png';
-import styled from "@emotion/styled";
 
-/*
-as simple as possible, handles the three main screens of "enter your birthday", 
-"play the game", "jr rambles about dev log shit"
-maybe an "about" page too
-four then.
-*/
 
-export const BIRTHDAY = "BIRTHDAY";
-export const ABOUT = "ABOUT";
-export const APOCALYPSE = "APOCALYPSE";
-export const GHOST = "GHOST";
-export const PW = "PW";
-export const TRUTH = "Truth";
-export const LIE = "LIE";
+
 
 //game mode is just "is there a seed";
 
 
 function AppWrapper() {
-  const [seed, setSeed] = useState<number>();
-  const [mode, setMode] = useState<string>(BIRTHDAY);
-
-  //handle param hacks
-  useEffect (()=>{
-    const ghost = getParameterByName("cctv", null);
-    const pw = getParameterByName("pw", null);
-    const end = getParameterByName("end", null);
-    const jr = getParameterByName("jr", null);
-
-    if(ghost){
-      (window as any).ghost = true;
-      setMode(GHOST);
-    }else if(pw){
-      (window as any).pwMode = true;
-      setMode(PW);
-    }else if(end){
-      (window as any).apocalypse = true;
-      setMode(APOCALYPSE);
-    }else if (jr === "truth"){
-      setMode(TRUTH);
-    }else if (jr === "lies"){
-      setMode(LIE);
-    }
-  },[]);
   
-  //handle regular waste hacking
-  useEffect(()=>{
-    if(!(window as any).setGhostMode){
-      // :) :) :)
-      (window as any).setGhostMode = ()=>{
-        setMode(GHOST);
-      };
-    }
-
-    if(!(window as any).setPWMode){
-      // :) :) :)
-      (window as any).setPWMode = ()=>{
-        setMode(PW);
-      };
-    }
-
-    if(!(window as any).setLie){
-      // :) :) :)
-      (window as any).setLie = ()=>{
-        setMode(LIE);
-      };
-    }
-
-    if(!(window as any).setTruth){
-      // :) :) :)
-      (window as any).setTruth = ()=>{
-        setMode(TRUTH);
-      };
-    }
-
-    if(!(window as any).triggerApocalypse){
-      // :) :) :)
-      (window as any).triggerApocalypse = (value:boolean)=>{
-        setMode(APOCALYPSE);
-        (window as any).apocalypse = true;
-      };
-    }
-  },[])
-
-
-  useEffect(() => {
-    if (!seed) {
-      let initial_seed;
-      let urlseed: string | number | null = getParameterByName("seed", null);
-      if (urlseed) {
-        if (!isNumeric(urlseed)) {
-          initial_seed = stringtoseed(urlseed);
-        } else {
-          initial_seed = parseInt(urlseed);
-        }
-        setSeed(initial_seed);
-      }
-    }
-  }, [seed, setSeed]);
-
-
-  if (mode === BIRTHDAY && (seed === undefined || seed === null)) {
+  if (!getParameterByName("seed", null)) {
     return (
-      <Birthday setMode={setMode} />
+      <Birthday/>
     )
-  } else if (mode === ABOUT) {
+  } else {
     return (
-      <About setMode={setMode} />
+      <Truth />
     )
-  } else if (mode === APOCALYPSE) {
-    return (
-      <ApocalypseScreen/>
-    )
-  } else if (mode === GHOST) {
-    return (
-      <CCTVScreen ghosts={true}/>  
-    )
-  } else if (mode === PW) {
-    return (
-      <CCTVScreen ghosts={false}/> 
-    )
-  } else if (mode === TRUTH) {
-    return( <AtticSim pathType={PathType.Truth}/>)
-
-  } else if (mode === LIE) {
-    return( <AtticSim pathType={PathType.Game}/>)
-
-  }else if (seed) {
-    return (
-      <Fragment>
-              <App seed={seed} />
-
-      </Fragment>
-    )
-  }else if (seed === 0){ //:) :) :)
-     return( <AtticSim pathType={PathType.NotGame}/>)
   }
 }
 
