@@ -1,18 +1,19 @@
 import styled from "@emotion/styled";
 import { useEffect } from "react";
-import { doorEffect } from ".";
-import room from './images/empty.PNG';
-import north from './images/northdoor.PNG';
-import south from './images/southdoor.PNG';
+import ConcretePresent from "./ConcretePresent";
+import HintOfFuture from "./HintOfFuture";
+import HintOfPast from "./HintOfPast";
+
 import Layer1 from "./Layer1";
 
-import SeededRandom from "./Utils/SeededRandom";
-
-export const Content = styled.div`
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+export const Train = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-image: url("http://farragofiction.com/ZampanioEmbeddedSource/train.png");
+    background-repeat-x: no-repeat;
+    background-position-x: 50%;
 `
+
 function Truth() {
 
   useEffect(() => {
@@ -22,19 +23,16 @@ function Truth() {
     }
   }, [])
 
-  const goSouth = () => {
-    doorEffect();
-    console.log("JR NOTE: TDOO")
-  }
 
   return (
     <div>
-      <Layer1/>
-      <div style={{ "position": "relative", "display": "block", "width": "600px", marginLeft: "auto", marginRight: "auto" }} id="container">
-        <img style={{ display: "block", width: "600px" }} id="room" src={room} />
-        <img onClick={goSouth} style={{ display: "block", width: "75px", position: "absolute", top: "20px", left: "300px", cursor: "pointer" }} id="north" src={north} />
-        <img onClick={goSouth} style={{width: "75px", position: "absolute", bottom: "0px", left: "300px", cursor: "pointer" }} id="south" src={south} />
-      </div>
+      <Layer1 />
+      <Train>
+        <HintOfPast />
+        <ConcretePresent />
+        <HintOfFuture />
+      </Train>
+
     </div>
   );
 }
