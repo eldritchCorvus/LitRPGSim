@@ -18,7 +18,12 @@ function Layer1() {
 
 * make it so past is half off screen and future is half off as well in the other direction. both are dim.
 * get ambient train sounds
-* change tint of each room as you enter it
+* minor train trembles animation (in time to music)
+* train car object has: 
+    * room tint
+    * central object
+    (rot is NOT part of it, its true random. the rot of chaos)
+* past and future and present all know what their train car object is and consistently know what the next one is
 * in the center of each room is an object, stored in ZampanioHotlink
 * if jr walks up to the object, you get: 
      * jr within's surface thoughts on it as a thought bubble
