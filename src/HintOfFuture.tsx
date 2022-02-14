@@ -1,14 +1,16 @@
 import styled from "@emotion/styled";
+import {RoomParams } from "./Truth";
 
-function HintOfFuture() {
+const HintOfFuture:React.FC<RoomParams> =({room}) =>{
 
+  const filter = ()=>{
+    return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%) brightness(${room.brightness}%) contrast(${room.contrast}%)`;
+  }
 
   return (
-    <div>
+    <div style={{filter: filter()}}>
       <div style={{"position": "relative", "display": "block", "width": "600px", marginLeft: "auto", marginRight: "auto" }} id="future">
       <img style={{ display: "block", width: "600px" }} id="future_room" src={"http://farragofiction.com/ZampanioEmbeddedSource/empty.PNG"} />
-      <img  style={{ display: "block", width: "75px", position: "absolute", top: "20px", left: "300px", cursor: "pointer" }} id="northFuture" src={"http://farragofiction.com/ZampanioEmbeddedSource/southdoor.PNG"} />
-
       </div>
     </div>
   );

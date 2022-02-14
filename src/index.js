@@ -11,6 +11,7 @@ import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import tap from './Music/tap.mp3';
 import there from './Music/THERE.mp3';
+import train from './Music/432373__fedor-ogon__suburban-train-2.mp3';
 
 import voice from './Voice/truthtake3.mp3';
 import true_jr from './Voice/true_final_jr.mp3';
@@ -98,6 +99,14 @@ export function playCoffin(){
 export function playCredits(){
   if(audio.src !== there){
     audio.src = there;
+    audio.loop = true;
+    audio.play();
+  }
+}
+
+export function playTrain(){
+  if(audio.src !== train){
+    audio.src = train;
     audio.loop = true;
     audio.play();
   }

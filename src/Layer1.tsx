@@ -17,13 +17,9 @@ function Layer1() {
         <li>You can move backwards to revisit previous Truths, but the Rot is coming.</li>
 
 * make it so past is half off screen and future is half off as well in the other direction. both are dim.
-* get ambient train sounds
-* minor train trembles animation (in time to music)
 * train car object has: 
-    * room tint
     * central object
     (rot is NOT part of it, its true random. the rot of chaos)
-* past and future and present all know what their train car object is and consistently know what the next one is
 * in the center of each room is an object, stored in ZampanioHotlink
 * if jr walks up to the object, you get: 
      * jr within's surface thoughts on it as a thought bubble
@@ -32,7 +28,6 @@ function Layer1() {
      * jr-who-found-the-object's thoughts in the EmbeddedSource
 * you can see a bit of the next room in front of you
 * you can see a bit of the previous room behind you
-* you can go backwards
 * if you go too far backwards the Rot sets in
       </ul>
     </Content>
