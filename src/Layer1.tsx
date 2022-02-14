@@ -16,7 +16,6 @@ function Layer1() {
         <li>In Each Car, reveal one Truth, at random. (examples, why things are in React not dart, the nature of the maze that is the code base, my experience with corporate life, the sources of various characters)</li>
         <li>You can move backwards to revisit previous Truths, but the Rot is coming.</li>
 
-* make it so past is half off screen and future is half off as well in the other direction. both are dim.
 * train car object has: 
     * central object
     (rot is NOT part of it, its true random. the rot of chaos)
@@ -26,10 +25,11 @@ function Layer1() {
      * truth's "thoughts" on it in the background
      * jr-who-was-coding's thoughts on it in the console
      * jr-who-found-the-object's thoughts in the EmbeddedSource
-* you can see a bit of the next room in front of you
-* you can see a bit of the previous room behind you
 * if you go too far backwards the Rot sets in
       </ul>
+      
+      <img src="http://farragofiction.com/ZampanioEmbeddedSource/this_file_is_red.png"/>
+
     </Content>
   );
 }
