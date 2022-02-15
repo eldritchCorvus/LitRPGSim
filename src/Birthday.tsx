@@ -17,16 +17,16 @@ function Birthday() {
       <div className="section">
         Only you can decide what is in your heart:
         <select>
-          {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key) => { return (<option value={key}>{key}</option>) })}
+          {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key,index) => { return (<option key={`first${index}`} value={key}>{key}</option>) })}
         </select>
         <select>
-        {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key) => { return (<option value={key}>{key}</option>) })}
+        {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key,index) => { return (<option key={`second${index}`}  value={key}>{key}</option>) })}
         </select>
         <select>
-        {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key) => { return (<option value={key}>{key}</option>) })}
+        {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key,index) => { return (<option key={`third${index}`} value={key}>{key}</option>) })}
         </select>
         <select>
-        {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key) => { return (<option value={key}>{key}</option>) })}
+        {["Your Truth","Is More Complex","Than Can Be Conveyed","By Four Words"].map((key,index) => { return (<option key={`fourth${index}`} value={key}>{key}</option>) })}
         </select>
       </div>
 

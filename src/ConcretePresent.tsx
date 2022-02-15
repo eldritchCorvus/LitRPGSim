@@ -24,11 +24,12 @@ const ConcretePresent:React.FC<RoomParamsPlusTravel> =({room, goSouth, goNorth, 
     return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%) brightness(${room.brightness}%) contrast(${room.contrast}%)`;
   }
 
+  console.log("JR NOE: render concrete");
   return (
-    <div style={{filter: filter()}}>
+    <div>
       <div style={{marginBottom: "50px",marginTop: "50px", "position": "relative", "display": "block", "width": "600px", marginLeft: "auto", marginRight: "auto" }} id="present">
-        <div style={{fontSize:"30px", color: "white", position: "absolute", "left":"15px", "top":"15px"}}>Car {`${index+1}`}</div>
-        <img style={{ display: "block", width: "600px" }} id="current_room" src={"http://farragofiction.com/ZampanioEmbeddedSource/empty.PNG"} />
+        <div style={{zIndex: 33,fontSize:"30px", color: "white", position: "absolute", "left":"15px", "top":"15px"}}>Car {`${index+1}`}</div>
+        <img style={{filter: filter(), display: "block", width: "600px" }} id="current_room" src={"http://farragofiction.com/ZampanioEmbeddedSource/empty.PNG"} />
         {index!==0?<img onClick={()=>goNorth()} style={{ display: "block", width: "75px", position: "absolute", top: "20px", left: "300px", cursor: "pointer" }} id="north" src={"http://farragofiction.com/ZampanioEmbeddedSource/northdoor.PNG"} />:null}
         <img onClick={()=>goSouth()} style={{width: "75px", position: "absolute", bottom: "0px", left: "300px", cursor: "pointer" }} id="south" src={"http://farragofiction.com/ZampanioEmbeddedSource/southdoor.PNG"} />
       </div>

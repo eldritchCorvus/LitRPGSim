@@ -1,13 +1,42 @@
 import styled from "@emotion/styled";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { doorEffect, playTrain } from ".";
 import ConcretePresent from "./ConcretePresent";
 import HintOfFuture from "./HintOfFuture";
 import HintOfPast from "./HintOfPast";
 
 import Layer1 from "./Layer1";
-import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 import SeededRandom from "./Utils/SeededRandom";
+
+const moveBoundedUpOrDown =(seededRandom: SeededRandom, source:number, step: number,max:number, min:number)=>{
+  const amount = seededRandom.getRandomNumberBetween(0,step);
+  const direction = seededRandom.nextDouble()>0.5?1:-1;
+  const test_amount = source  + amount*direction;
+  if(test_amount> min && test_amount < max){
+    return test_amount
+  }
+  return source;
+}
+
+const makeNextTint = (seededRandom: SeededRandom,tint: number)=>{
+  return moveBoundedUpOrDown(seededRandom,tint, 10, 360,0)
+}
+
+const makeNextGrey= (seededRandom: SeededRandom,tint: number)=>{
+  return moveBoundedUpOrDown(seededRandom,tint, 10, 100,0)
+}
+
+const makeNextBright = (seededRandom: SeededRandom,tint: number)=>{
+  return moveBoundedUpOrDown(seededRandom,tint, 10, 85,35)
+}
+
+const makeNextContrast = (seededRandom: SeededRandom,tint: number)=>{
+  return moveBoundedUpOrDown(seededRandom,tint, 10, 150,90)
+}
+
+const makeNextRoom = (seededRandom: SeededRandom,room: Room)=>{
+  return({tint: makeNextTint(seededRandom,room.tint), greyscale: makeNextGrey(seededRandom,room.greyscale), brightness: makeNextBright(seededRandom,room.brightness), contrast: makeNextContrast(seededRandom,room.contrast)})
+}
 
 export type Room = {
   tint: number; //degrees
@@ -51,60 +80,32 @@ function Truth() {
   const [roomIndex, setRoomIndex] = useState(0);
   const seededRandomRef = useRef(new SeededRandom(13));
 
-  const moveBoundedUpOrDown =(source:number, step: number,max:number, min:number)=>{
-    const amount = seededRandomRef.current.getRandomNumberBetween(0,step);
-    const direction = seededRandomRef.current.nextDouble()>0.5?1:-1;
-    const test_amount = source  + amount*direction;
-    if(test_amount> min && test_amount < max){
-      return test_amount
-    }
-    return source;
-  }
 
-  const makeNextTint = (tint: number)=>{
-    return moveBoundedUpOrDown(tint, 10, 360,0)
-  }
-
-  const makeNextGrey= (tint: number)=>{
-    return moveBoundedUpOrDown(tint, 10, 100,0)
-  }
-
-  const makeNextBright = (tint: number)=>{
-    return moveBoundedUpOrDown(tint, 10, 85,35)
-  }
-
-  const makeNextContrast = (tint: number)=>{
-    return moveBoundedUpOrDown(tint, 10, 150,90)
-  }
-
-  const makeNextRoom = (room: Room)=>{
-    return({tint: makeNextTint(room.tint), greyscale: makeNextGrey(room.greyscale), brightness: makeNextBright(room.brightness), contrast: makeNextContrast(room.contrast)})
-  }
 
   useEffect(()=>{
-      if(!rooms){
+      if(!rooms && seededRandomRef.current){
         const firstRoom = {tint: 0, greyscale: 0, contrast: 100, brightness: 100};
-        setRooms([firstRoom,makeNextRoom(firstRoom)]);
+        setRooms([firstRoom,makeNextRoom(seededRandomRef.current, firstRoom)]);
       }
   },[]);
 
   useEffect(()=>{
-    if(rooms && roomIndex < rooms.length-1){
-      setRooms([...rooms, makeNextRoom(rooms[rooms.length-1])]);
+    if(rooms && roomIndex +1 === rooms.length && seededRandomRef.current){
+      setRooms([...rooms, makeNextRoom(seededRandomRef.current,rooms[rooms.length-1])]);
     }
   },[rooms, roomIndex])
 
-  const goSouth = ()=>{
+  const goSouth = useCallback(()=>{
     doorEffect();
     setRoomIndex(roomIndex + 1); 
-  }
+  }, [roomIndex]);
 
-  const goNorth = ()=>{
+  const goNorth = useCallback(()=>{
     doorEffect();
     if(roomIndex > 0){
       setRoomIndex(roomIndex - 1); 
     }
-  }
+  },[roomIndex]);
 
 
   return (
