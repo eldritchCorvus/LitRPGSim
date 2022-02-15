@@ -24,7 +24,6 @@ const ConcretePresent:React.FC<RoomParamsPlusTravel> =({room, goSouth, goNorth, 
     return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%) brightness(${room.brightness}%) contrast(${room.contrast}%)`;
   }
 
-  console.log("JR NOE: render concrete");
   return (
     <div>
       <div style={{marginBottom: "50px",marginTop: "50px", "position": "relative", "display": "block", "width": "600px", marginLeft: "auto", marginRight: "auto" }} id="present">
