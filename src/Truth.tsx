@@ -54,6 +54,7 @@ export type RoomParamsPlusTravel = {
   goNorth: Function;
   goSouth: Function;
   index: number;
+  rotLevel: number;
 }
 
 const Train = styled.div`
@@ -113,7 +114,7 @@ function Truth() {
       <Layer1 />
       <Train>
         {rooms && roomIndex > 0? <HintOfPast room={rooms[roomIndex-1]} />:null}
-        {rooms  ?<ConcretePresent index={roomIndex} room={rooms[roomIndex]} goSouth={goSouth} goNorth={goNorth}/>:null}
+        {rooms  ?<ConcretePresent rotLevel={rooms.length-roomIndex-1 } index={roomIndex} room={rooms[roomIndex]} goSouth={goSouth} goNorth={goNorth}/>:null}
         {rooms && roomIndex < rooms.length-1? <HintOfFuture  room={rooms[roomIndex+1]} />:null}
       </Train>
 

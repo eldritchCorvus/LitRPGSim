@@ -15,6 +15,7 @@ function Layer1() {
         <li>In Layer 3 (console), I mention my coding thoughts.</li>
         <li>In Each Car, reveal one Truth, at random. (examples, why things are in React not dart, the nature of the maze that is the code base, my experience with corporate life, the sources of various characters)</li>
         <li>You can move backwards to revisit previous Truths, but the Rot is coming.</li>
+        <li>rot makes the room gradually darker, then starts glitching it out (try out the text effects). spooky images start phasing in if you go far enough back. eventually, you can't go back anymore. jr refuses.</li>
         <li>In addition to corrupting the room, the Rot does a RotX cipher on it. For nearly no reason other than to make things harder on everyone. Code rot makes it harder and harder to debug wigglersim</li>
 
 * train car object has: 
