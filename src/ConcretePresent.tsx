@@ -19,8 +19,10 @@ const ConcretePresent:React.FC<RoomParamsPlusTravel> =({rotLevel,room, goSouth, 
   useEffect(()=>{
     if(rotLevel <1){
       setSrc("http://farragofiction.com/ZampanioEmbeddedSource/empty.PNG")
-    }if(rotLevel> 1){
+    }else if(rotLevel > 1 && rotLevel < 5){
       setSrc("http://farragofiction.com/ZampanioEmbeddedSource/emptyWithMirror.PNG")
+    }else if(rotLevel > 5){
+      setSrc("http://farragofiction.com/ZampanioEmbeddedSource/fuckedUpRoom2.gif")
     }
   },[rotLevel])
 
