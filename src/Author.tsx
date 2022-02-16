@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { RoomParams } from "./Truth";
+import {useEffect, useRef, useState } from "react";
+import { feetEffect } from ".";
+
 
 
 
@@ -51,7 +52,7 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
 
   const disableDoorDisregarding= ()=>{
     setTimeout(()=>{
-      window.requestAnimationFrame(()=>{travelingRef.current = false})}, 3000)
+      window.requestAnimationFrame(()=>{travelingRef.current = false})}, 500)
   }
 
   const processWalk = (key: string) => {
@@ -72,8 +73,9 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
 
       if ((key === "s" || key === "ArrowDown") && prevTop < maxTop) {
         prevTop += 10;
+        window.scrollBy(0,10);
       } else if ((key === "w" || key === "ArrowUp") && prevTop > minTop) {
-
+        window.scrollBy(0,-10);
         prevTop += -10
       } else if ((key === "a" || key === "ArrowLeft") && prevLeft > minLeft) {
         prevLeft += -10;
@@ -83,6 +85,7 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
         //no valid button was pressed, ignore this.
         return;
       }
+      feetEffect();
       setPlayerLocation({ top: prevTop, left: prevLeft });
       const centerX = prevLeft + playerWidth / 2;
       const centerY = prevTop + playerHeight / 2;
@@ -95,19 +98,24 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
     if (travelingRef.current) {
       return;
     }
-    const SOUTH = [310, 530, 48, 15];
-    const NORTH = [310, 125, 48, 15]; //x,y,width,height
+    const SOUTH = [310, 530, 100, 15];
+    const NORTH = [310, 125, 100, 15]; //x,y,width,height
 
     //there will ALWAYS be a door to the south at the very minimum
     if (southRef.current && pointWithinBoundingBox(left, top, SOUTH[0], SOUTH[1], SOUTH[2], SOUTH[3])) {
       southRef.current();
       travelingRef.current = true;
+      setPlayerLocation({ left: 290, top: 150 });
+      window.scrollBy(0,-250);
+
       return;
     }
 
     if (northRef.current && pointWithinBoundingBox(left, top, NORTH[0], NORTH[1], NORTH[2], NORTH[3])) {
       travelingRef.current = true;
       northRef.current();
+      setPlayerLocation({ left: 290, top: 450 });
+      window.scrollBy(0,250);
       return;
     }
 

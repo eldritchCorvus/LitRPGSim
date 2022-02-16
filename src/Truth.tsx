@@ -19,19 +19,19 @@ const moveBoundedUpOrDown =(seededRandom: SeededRandom, source:number, step: num
 }
 
 const makeNextTint = (seededRandom: SeededRandom,tint: number)=>{
-  return moveBoundedUpOrDown(seededRandom,tint, 10, 360,0)
+  return moveBoundedUpOrDown(seededRandom,tint, 50, 360,0)
 }
 
 const makeNextGrey= (seededRandom: SeededRandom,tint: number)=>{
-  return moveBoundedUpOrDown(seededRandom,tint, 10, 100,0)
+  return moveBoundedUpOrDown(seededRandom,tint, 50, 100,0)
 }
 
 const makeNextBright = (seededRandom: SeededRandom,tint: number)=>{
-  return moveBoundedUpOrDown(seededRandom,tint, 10, 85,35)
+  return moveBoundedUpOrDown(seededRandom,tint, 50, 85,35)
 }
 
 const makeNextContrast = (seededRandom: SeededRandom,tint: number)=>{
-  return moveBoundedUpOrDown(seededRandom,tint, 10, 150,90)
+  return moveBoundedUpOrDown(seededRandom,tint, 50, 150,90)
 }
 
 const makeNextRoom = (seededRandom: SeededRandom,room: Room)=>{

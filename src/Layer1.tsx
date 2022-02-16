@@ -9,9 +9,6 @@ function Layer1() {
     <Content>
       TRUTH.
       <ul>
-        <li>JR, walking around</li>
-        <li>footstep sounds</li>
-        <li>always scroll to top of present car in new room</li>
         <li>eyes are real so mirrors are real.(extra empty room with transparent mirror, but a second jr behind it) after car 13 a mirror is built into the walls, jr can see themself in it, and think about themself</li>
         <li>In each car is a single object. Investigating it gives you my surface thoughts on it.</li>
         <li>In Layer 2, Truth the character discusses the object as well on a philosophical level.</li>

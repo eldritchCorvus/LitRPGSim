@@ -5,11 +5,15 @@ import generic_menu_music from './Music/generic_menu_music.mp3';
 import helen_kin_song from './Music/helen_kin_song.mp3';
 import seeking_help from './Music/seeking_help.mp3';
 import answerer from './Music/answerer.mp3';
-
+import {pickFrom} from './Utils/NonSeededRandUtils';
 import subtle_heart from './Music/subtle_heart.mp3';
 import heart from './Music/heart.mp3';
 import heartbeat from './Music/heartbeat.mp3';
 import tap from './Music/tap.mp3';
+import feet1 from './Music/feet1.mp3';
+import feet2 from './Music/feet2.mp3';
+import feet3 from './Music/feet3.mp3';
+
 import there from './Music/THERE.mp3';
 import train from './Music/432373__fedor-ogon__suburban-train-2.mp3';
 
@@ -37,6 +41,7 @@ const audio = new Audio(generic_menu_music);
 export const voiceAudio = new Audio(voice);//exported so the closer can use this
 const clickAudio = new Audio(clickSound);
 const beepAudio = new Audio(beepSound);
+const feetAudio = new Audio(feet1);
 
 const soundEffectAudio = new Audio(doorSound);
 
@@ -200,6 +205,13 @@ export const clickEffect = () =>{
 export const doorEffect = () =>{
   soundEffectAudio.src = doorSound;
   soundEffectAudio.play();
+}
+
+export const feetEffect = () =>{
+  if(feetAudio.paused){
+    feetAudio.src = pickFrom([feet1, feet2, feet3]);
+    feetAudio.play();
+  }
 }
 
 window.localStorage["zampanio"]=true;
