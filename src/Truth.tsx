@@ -53,6 +53,8 @@ export type Item = {
   left: number;
   top: number;
   quip?: string;
+  width?: number; //if no width and height, you can just walk through it
+  height?: number; 
 }
 
 export type ItemMap = {
@@ -124,7 +126,7 @@ function Truth() {
       <Layer1 />
       <Train>
         {rooms && roomIndex > 0? <HintOfPast room={rooms[roomIndex-1]} />:null}
-        {rooms  ?<ConcretePresent rotLevel={rooms.length-roomIndex-1 } index={roomIndex} room={rooms[roomIndex]} goSouth={goSouth} goNorth={goNorth}/>:null}
+        {rooms  ?<ConcretePresent rotLevel={(2**(rooms.length-roomIndex-2)) } index={roomIndex} room={rooms[roomIndex]} goSouth={goSouth} goNorth={goNorth}/>:null}
         {rooms && roomIndex < rooms.length-1? <HintOfFuture  room={rooms[roomIndex+1]} />:null}
       </Train>
 

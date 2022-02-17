@@ -50,12 +50,12 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   const items = {
     southDoor: { left: 231, top: 516 },
     northDoor: { left: 231, top: 4 },
-    bench1: { left: 314, top: 175 },
-    bench2: { left: 314, top: 295 },
-    bench3: { left: 314, top: 450-25 },
-    bench4: { left: 25, top: 175 },
-    bench5: { left: 25, top: 295 },
-    bench6: { left: 25, top: 450-25 },
+    bench1: { left: 314, top: 175,width: 200,height:100 },
+    bench2: { left: 314, top: 295,width: 200,height:100 },
+    bench3: { left: 314, top: 450-25,width: 200,height:100 },
+    bench4: { left: 25, top: 175,width: 200,height:100 },
+    bench5: { left: 25, top: 295,width: 200,height:100 },
+    bench6: { left: 25, top: 450-25,width: 200,height:100 },
   }
 
 
