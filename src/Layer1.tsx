@@ -11,6 +11,7 @@ function Layer1() {
       <ul>
         <li>(but a second jr and false floor  behind mirror. second jr is in a hidden room and uses the opposite of the up/down that jr uses)</li>
         <li>if mirrors are real , jr can think about themself</li>
+        <li>further you get, the faster the rot becomes. til you get to the point where even the present is rotting</li>
         <li>In each car is a single object. Investigating it gives you my surface thoughts on it.</li>
         <li>In Layer 2, Truth the character discusses the object as well on a philosophical level.</li>
         <li>In Layer 3 (console), I mention my coding thoughts.</li>

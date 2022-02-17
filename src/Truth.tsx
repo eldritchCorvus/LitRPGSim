@@ -49,6 +49,16 @@ export type RoomParams = {
   room: Room;
 }
 
+export type Item = {
+  left: number;
+  top: number;
+  quip?: string;
+}
+
+export type ItemMap = {
+  [key: string] : Item;
+}
+
 export type RoomParamsPlusTravel = {
   room: Room;
   goNorth: Function;

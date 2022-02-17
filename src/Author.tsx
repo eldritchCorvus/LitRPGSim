@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import {useEffect, useRef, useState } from "react";
 import { feetEffect } from ".";
+import { Item, ItemMap } from "./Truth";
 
 
 
@@ -8,6 +9,7 @@ import { feetEffect } from ".";
 export type AuthorParams = {
   goNorth: Function | null;
   goSouth: Function;
+  items: ItemMap;
 
 }
 
@@ -26,10 +28,11 @@ export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number
   return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
-const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
+const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
   const [src, setSrc] = useState("http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif");
-  const [playerLocation, setPlayerLocation] = useState({ left: 290, top: 150 });
-
+  const [playerLocation, setPlayerLocation] = useState({left: 215, top: 150 });
+  const playerWidth = 100;
+  const playerHeight = 100;
   //because a ref is MORE accessible to static things like window events than a state would be rip
   //terrible and disgusting (east didn't need this cuz it rerendered from the top)
   const playerRef = useRef(playerLocation);
@@ -57,11 +60,9 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
 
   const processWalk = (key: string) => {
     const minTop = 85;
-    const maxTop = 500 - 15;
+    const maxTop = 440 - 15;
     const maxLeft = 495;
     const minLeft = 15;
-    const playerWidth = 100;
-    const playerHeight = 100;
     if(travelingRef.current){
       disableDoorDisregarding();
     }
@@ -98,15 +99,15 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
     if (travelingRef.current) {
       return;
     }
-    const SOUTH = [310, 530, 100, 15];
-    const NORTH = [310, 125, 100, 15]; //x,y,width,height
+    const SOUTH = [items.southDoor.left, items.southDoor.top, 100, 10];
+    const NORTH = [items.northDoor.left, items.northDoor.top, 100, 150]; //x,y,width,height
 
-    //there will ALWAYS be a door to the south at the very minimum
-    if (southRef.current && pointWithinBoundingBox(left, top, SOUTH[0], SOUTH[1], SOUTH[2], SOUTH[3])) {
+    //add your height because we care about your feet, not your head
+    if (southRef.current && pointWithinBoundingBox(left, top+playerHeight/2, SOUTH[0], SOUTH[1], SOUTH[2], SOUTH[3])) {
       southRef.current();
       travelingRef.current = true;
-      setPlayerLocation({ left: 290, top: 150 });
-      window.scrollBy(0,-250);
+      setPlayerLocation({ left: 215, top: 125 });
+      window.scrollBy(0,-200);
 
       return;
     }
@@ -114,8 +115,8 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
     if (northRef.current && pointWithinBoundingBox(left, top, NORTH[0], NORTH[1], NORTH[2], NORTH[3])) {
       travelingRef.current = true;
       northRef.current();
-      setPlayerLocation({ left: 290, top: 450 });
-      window.scrollBy(0,250);
+      setPlayerLocation({ left: 215, top: 375 });
+      window.scrollBy(0,200);
       return;
     }
 
@@ -136,7 +137,6 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth }) => {
     };
   }, [])
 
-  console.log("JR NOTE: player loc is", playerLocation)
   return (
     <img style={{ width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src} />
   );
