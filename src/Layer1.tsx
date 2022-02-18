@@ -9,6 +9,8 @@ function Layer1() {
     <Content>
       TRUTH.
       <ul>
+      * if jr legs are within item boundary, cannot walk
+* have world bounding box grow with the rot (if over a certain size just don't check edges of the map at all)
         <li>jr can't walk over benches</li>
         <li>(but a second jr and false floor  behind mirror. second jr is in a hidden room and uses the opposite of the up/down that jr uses)</li>
         <li>if mirrors are real , jr can think about themself</li>
@@ -26,6 +28,7 @@ Object Ideas:
 *moon (maze madness and lunar colony)
 * silver cat
 * pigeons
+*the 9 artifacts
 
 
 
