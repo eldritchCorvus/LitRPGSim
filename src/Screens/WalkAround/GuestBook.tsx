@@ -83,6 +83,11 @@ export const GuestBook = () => {
         { quip: "Please give me a quip to post here.", title: "Chronicler" },
         { quip: "Please give me a quip to post here.", title: "Speaker" },
         { quip: "Please give me a quip to post here.", title: "Forsaken" },
+        { quip: "Okay!", title: "Wwatt Mann" },//i wonder what makes the below different than the above???
+        { quip: "...", title: "Piper Rusting" },
+        { quip: "I'm sure you'll understand if I want to make sure everything is in order before I sign.", title: "Jasna" },
+        { quip: "Jeeeeeez, fine, its not like I was doing anything with it anyways! Can I have Skyrim now?", title: "Amelie Blightheart" },
+        { quip: "Uh. Sure. I can sign that...", title: "Todd Brian Davidson" }
     ];
     const [signatures, setSignatures] = useState(inititialSignatures);
     const quipRef = useRef<HTMLTextAreaElement>(null);
