@@ -29,7 +29,11 @@ export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number
 }
 
 const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
-  const [src, setSrc] = useState("http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif");
+  const left = "http://farragofiction.com/ZampanioHotlink/JRmoveleft.gif";
+  const down = "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif";
+  const up = "http://farragofiction.com/ZampanioHotlink/jrwalkgoup.gif";
+
+  const [src, setSrc] = useState({loc:"http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip:false});
   const [playerLocation, setPlayerLocation] = useState({left: 215, top: 150 });
   const playerWidth = 100;
   const playerHeight = 100;
@@ -74,14 +78,18 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
 
       if ((key === "s" || key === "ArrowDown") && prevTop < maxTop) {
         prevTop += 10;
+        setSrc({loc:down,flip:false});
         window.scrollBy(0,10);
       } else if ((key === "w" || key === "ArrowUp") && prevTop > minTop) {
         window.scrollBy(0,-10);
+        setSrc({loc:up,flip:false});
         prevTop += -10
       } else if ((key === "a" || key === "ArrowLeft") && prevLeft > minLeft) {
         prevLeft += -10;
+        setSrc({loc:left,flip:false});
       } else if ((key === "d" || key === "ArrowRight") && prevLeft < maxLeft) {
         prevLeft += 10;
+        setSrc({loc:left,flip:true});
       } else {
         //no valid button was pressed, ignore this.
         return;
@@ -138,7 +146,7 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
   }, [])
 
   return (
-    <img style={{ width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src} />
+    <img style={{transform: src.flip?"scaleX(-1)":"scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
   );
 }
 
