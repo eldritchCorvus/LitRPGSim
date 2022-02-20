@@ -62,7 +62,8 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
 
   return (
     <div>
-      <div style={{ marginBottom: "50px", marginTop: "50px", "position": "relative", "display": "block", "width": "546px", marginLeft: "auto", marginRight: "auto" }} id="present">
+
+      <div style={{overflow: "hidden", marginBottom: "50px", marginTop: "50px", "position": "relative", "display": "block", "width": "546px", marginLeft: "auto", marginRight: "auto" }} id="present">
         <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "15px" }}>Car {`${index + 1}`}</div>
         {rotLevel > 0 ? <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>Rot Level {`${rotLevel}`}</div> : null}
 
@@ -79,7 +80,9 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
         })}
 
         <Author items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} />
+        {rotLevel > 100?<div className="filmgrain" style={{opacity: rotLevel/1000}}/>:null}
       </div>
+
     </div>
   );
 }

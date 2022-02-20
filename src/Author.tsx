@@ -22,8 +22,8 @@ export const withinX = (myX: number, objectX: number, objectWidth: number) => {
 }
 
 export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number, objectY: number, objectWidth: number, objectHeight: number) => {
-  console.log("JR NOTE: is x ", myX, "within", objectX, objectX + objectWidth)
-  console.log("JR NOTE: is y", myY, "within", objectY, objectY + objectHeight)
+  //console.log("JR NOTE: is x ", myX, "within", objectX, objectX + objectWidth)
+  //console.log("JR NOTE: is y", myY, "within", objectY, objectY + objectHeight)
 
   return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
