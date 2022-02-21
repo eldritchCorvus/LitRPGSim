@@ -65,8 +65,8 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
   const processWalk = (key: string) => {
     const minTop = 85;
     const maxTop = 440 - 15;
-    const maxLeft = 495;
-    const minLeft = 15;
+    const maxLeft = 460;
+    const minLeft = 0;
     if(travelingRef.current){
       disableDoorDisregarding();
     }
@@ -76,20 +76,22 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
 
       let prevLeft = playerRef.current.left;
 
-      if ((key === "s" || key === "ArrowDown") && prevTop < maxTop) {
-        prevTop += 10;
+      if ((key === "s" || key === "ArrowDown")) {
+        if(prevTop < maxTop){
+          prevTop += 10;
+          window.scrollBy(0,10);
+        }
         setSrc({loc:down,flip:false});
-        window.scrollBy(0,10);
       } else if ((key === "w" || key === "ArrowUp") && prevTop > minTop) {
-        window.scrollBy(0,-10);
         setSrc({loc:up,flip:false});
+        window.scrollBy(0,-10);
         prevTop += -10
       } else if ((key === "a" || key === "ArrowLeft") && prevLeft > minLeft) {
-        prevLeft += -10;
         setSrc({loc:left,flip:false});
+        prevLeft += -10;
       } else if ((key === "d" || key === "ArrowRight") && prevLeft < maxLeft) {
-        prevLeft += 10;
         setSrc({loc:left,flip:true});
+        prevLeft += 10;
       } else {
         //no valid button was pressed, ignore this.
         return;
