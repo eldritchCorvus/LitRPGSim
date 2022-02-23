@@ -12,7 +12,9 @@ export type AuthorParams = {
   setMirrorPlayerLocation: Function;
   setMirrorSrc: Function;
   items: ItemMap;
-  mirrorLocationRef:MutableRefObject<{top: number, left: number}>;
+  mirrorOffset: number;
+  rotRef: MutableRefObject <number>;
+  mirrorLocationRef: MutableRefObject<{ top: number, left: number }>;
 
 }
 
@@ -31,7 +33,7 @@ export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number
   return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
-const Author: React.FC<AuthorParams> = ({mirrorLocationRef, setMirrorSrc, setMirrorPlayerLocation, goNorth, goSouth, items }) => {
+const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef, setMirrorSrc, setMirrorPlayerLocation, goNorth, goSouth, items }) => {
   const left = "http://farragofiction.com/ZampanioHotlink/JRmoveleft.gif";
   const down = "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif";
   const up = "http://farragofiction.com/ZampanioHotlink/jrwalkgoup.gif";
@@ -84,29 +86,37 @@ const Author: React.FC<AuthorParams> = ({mirrorLocationRef, setMirrorSrc, setMir
 
       if ((key === "s" || key === "ArrowDown")) {
         setSrc({ loc: down, flip: false });
-        setMirrorSrc({ loc: up, flip: false });
+        if (rotRef.current < 10 || Math.random()>0.9) {
+          setMirrorSrc({ loc: up, flip: false });
+        }
         if (prevTop < maxTop) {
           speedY = 10;
         }
-      } else if ((key === "w" || key === "ArrowUp") ) {
+      } else if ((key === "w" || key === "ArrowUp")) {
         setSrc({ loc: up, flip: false });
-        setMirrorSrc({ loc: down, flip: false });
-        if(prevTop > minTop){
+        if (rotRef.current  < 10 || Math.random()>0.9) {
+          setMirrorSrc({ loc: down, flip: false });
+        }
+        if (prevTop > minTop) {
           speedY = -10
         }
       } else if ((key === "a" || key === "ArrowLeft")) {
-        if(prevLeft > minLeft){
+        if (prevLeft > minLeft) {
           speedX = -10;
         }
         setSrc({ loc: left, flip: false });
-        setMirrorSrc({ loc: left, flip: false });
+        if (rotRef.current  < 10 || Math.random()>0.9) {
+          setMirrorSrc({ loc: left, flip: false });
+        }
 
       } else if ((key === "d" || key === "ArrowRight")) {
-        if(prevLeft < maxLeft){
+        if (prevLeft < maxLeft) {
           speedX = 10;
         }
         setSrc({ loc: left, flip: true });
-        setMirrorSrc({ loc: left, flip: true });
+        if (rotRef.current  < 10 || Math.random()>0.9) {
+          setMirrorSrc({ loc: left, flip: true });
+        }
       } else {
         //no valid button was pressed, ignore this.
         return;
@@ -116,11 +126,11 @@ const Author: React.FC<AuthorParams> = ({mirrorLocationRef, setMirrorSrc, setMir
 
       const centerX = proposedX + playerWidth / 2;
       const centerY = proposedY + playerHeight;
-      if (!checkCollisions(centerY-playerWidth/4, centerX)) {
+      if (!checkCollisions(centerY - playerWidth / 4+10, centerX)) {
         window.scrollBy(0, speedY);
         feetEffect();
-        setPlayerLocation({ top: proposedY, left:proposedX});
-        setMirrorPlayerLocation({ top: mirrorLocationRef.current.top - speedY, left:proposedX});
+        setPlayerLocation({ top: proposedY, left: proposedX });
+        setMirrorPlayerLocation({ top: mirrorLocationRef.current.top - speedY, left: proposedX });
 
         checkForDoor(centerY, centerX);
       }
@@ -128,16 +138,16 @@ const Author: React.FC<AuthorParams> = ({mirrorLocationRef, setMirrorSrc, setMir
     }
   };
 
-  const checkCollisions= (top: number, left: number)=>{
-      for(let item of Object.values(items)){
-        if(pointWithinBoundingBox(left, top, item.left, item.top, item.width?item.width:0, item.height?item.height:0)){
-          return true;
-        }
+  const checkCollisions = (top: number, left: number) => {
+    for (let item of Object.values(items)) {
+      if (pointWithinBoundingBox(left, top, item.left, item.top, item.width ? item.width : 0, item.height ? item.height : 0)) {
+        return true;
       }
-      return false;
+    }
+    return false;
   }
-  
-  
+
+
   //where is the player? are they near a door?
   const checkForDoor = (top: number, left: number) => {
     console.log("JR NOTE: checking for door")
@@ -152,15 +162,17 @@ const Author: React.FC<AuthorParams> = ({mirrorLocationRef, setMirrorSrc, setMir
       southRef.current();
       travelingRef.current = true;
       setPlayerLocation({ left: 215, top: 125 });
+      setMirrorPlayerLocation({left: 215, top: 150-mirrorOffset })
       window.scrollBy(0, -200);
 
       return;
     }
 
-    if (northRef.current && pointWithinBoundingBox(left, top-playerHeight/2, NORTH[0], NORTH[1], NORTH[2], NORTH[3])) {
+    if (northRef.current && pointWithinBoundingBox(left, top - playerHeight / 2, NORTH[0], NORTH[1], NORTH[2], NORTH[3])) {
       travelingRef.current = true;
       northRef.current();
       setPlayerLocation({ left: 215, top: 375 });
+      setMirrorPlayerLocation({left: 215, top: -100-mirrorOffset })
       window.scrollBy(0, 200);
       return;
     }

@@ -25,9 +25,9 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     const src3 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/fuckedUpRoom2.gif";
     if (rotLevel < 1 && src != src1) {
       setSrc(src1)
-    } else if (rotLevel > 1 && rotLevel < 5 && src != src2) {
+    } else if (rotLevel > 1 && rotLevel < 5000 && src != src2) {
       setSrc(src2)
-    } else if (rotLevel > 5 && src != src3) {
+    } else if (rotLevel > 5000 && src != src3) {
       setSrc(src3)
     }
   }, [rotLevel, src])
@@ -66,10 +66,15 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   const [mirrorPlayerLocation, setMirrorPlayerLocation] = useState({left: 215, top: 150-offset });
   const [mirrorSrc, setMirrorSrc] = useState({loc:"http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip:false});
   const mirrorRef = useRef(mirrorPlayerLocation);
-
+  const rotRef  = useRef(rotLevel);//needed for player
   useEffect(() => {
     mirrorRef.current = mirrorPlayerLocation;
   }, [mirrorPlayerLocation])
+
+  useEffect(() => {
+    rotRef.current = rotLevel;
+  }, [rotLevel])
+
 
   return (
     <div>
@@ -90,8 +95,8 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
           return null;
         })}
 
-        <Author mirrorLocationRef={mirrorRef} items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} setMirrorPlayerLocation={setMirrorPlayerLocation} setMirrorSrc={setMirrorSrc} />
-        <MirrorAuthor items={items} src={mirrorSrc} playerLocation={mirrorPlayerLocation} />
+        <Author mirrorOffset={offset} rotRef={rotRef} mirrorLocationRef={mirrorRef} items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} setMirrorPlayerLocation={setMirrorPlayerLocation} setMirrorSrc={setMirrorSrc} />
+        <MirrorAuthor rotRef={rotRef} items={items} src={mirrorSrc} playerLocation={mirrorPlayerLocation} />
 
         {rotLevel > 100?<div className="filmgrain" style={{opacity: rotLevel/1000}}/>:null}
       </div>

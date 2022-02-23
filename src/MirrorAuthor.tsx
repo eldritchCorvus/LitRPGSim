@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import {useEffect, useRef, useState } from "react";
+import {MutableRefObject, useEffect, useRef, useState } from "react";
 import { feetEffect } from ".";
 import { pointWithinBoundingBox } from "./Author";
 import { Item, ItemMap } from "./Truth";
@@ -12,9 +12,10 @@ export type MirrorAuthorParams = {
   items: ItemMap;
   playerLocation:{top:number, left: number};
   src: {loc: string, flip: boolean};
+  rotRef: MutableRefObject<number>;
 }
 
-const MirrorAuthor: React.FC<MirrorAuthorParams> = ({items, playerLocation,src}) => {
+const MirrorAuthor: React.FC<MirrorAuthorParams> = ({rotRef, playerLocation,src}) => {
   const left = "http://farragofiction.com/ZampanioHotlink/JRmoveleft.gif";
   const down = "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif";
   const up = "http://farragofiction.com/ZampanioHotlink/jrwalkgoup.gif";
@@ -33,7 +34,7 @@ const MirrorAuthor: React.FC<MirrorAuthorParams> = ({items, playerLocation,src})
 
 
   return (
-    <img style={{zIndex: -1,transform: src.flip?"scaleX(-1)":"scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
+    <img style={{filter:rotRef.current> 1000?"brightness(25%)":"", zIndex: -1,transform: src.flip?"scaleX(-1)":"scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
   );
 }
 

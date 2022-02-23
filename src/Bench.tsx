@@ -33,7 +33,6 @@ const rotEffects = (rot: number, baseline: string) => {
       ret += pickFrom(mildOptions);
     }
   }
-  console.log("JR NOTE: ret is", ret)
   return ret;
 
 }
@@ -54,7 +53,6 @@ const Bench: React.FC<BenchParam> = ({ rotLevel, room, left, top }) => {
   `;
 
   const [roomStyle, setRoomStyle] = useState(baseline_css);
-  console.log("JR NOTE: roomStyle",roomStyle)
 
   useEffect(() => {
     setRoomStyle(rotEffects(rotLevel,baseline_css));
