@@ -22,6 +22,7 @@ Object Ideas:
 * flaming chicken
 *moon (maze madness and lunar colony)
 * silver cat
+grape pie:  http://farragofiction.com/GrapePie/  (link in the console layer)
 * pigeons
 *the 9 artifacts
 
@@ -35,7 +36,7 @@ Object Ideas:
      * jr within's surface thoughts on it as a thought bubble
      * truth's "thoughts" on it in the background
      * jr-who-was-coding's thoughts on it in the console
-     * jr-who-found-the-object's thoughts in the GoshShouldYouTrustThis
+     * unrelated truths in the GoshShouldYouTrustThis
       </ul>
       
       <img src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png"/>
