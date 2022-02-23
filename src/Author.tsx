@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { feetEffect } from ".";
 import { Item, ItemMap } from "./Truth";
+import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 
 
 
@@ -130,7 +131,11 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
         window.scrollBy(0, speedY);
         feetEffect();
         setPlayerLocation({ top: proposedY, left: proposedX });
-        setMirrorPlayerLocation({ top: mirrorLocationRef.current.top - speedY, left: proposedX });
+        if(rotRef.current <10000){
+          setMirrorPlayerLocation({ top: mirrorLocationRef.current.top - speedY, left: proposedX });
+        }else{
+          setMirrorPlayerLocation({ top: getRandomNumberBetween(minTop, maxTop) - speedY, left: getRandomNumberBetween(minLeft, maxLeft) });  
+        }
 
         checkForDoor(centerY, centerX);
       }
