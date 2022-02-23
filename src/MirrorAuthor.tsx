@@ -34,7 +34,7 @@ const MirrorAuthor: React.FC<MirrorAuthorParams> = ({rotRef, playerLocation,src}
 
 
   return (
-    <img style={{filter:rotRef.current> 1000?"brightness(25%)":"", zIndex: -1,transform: src.flip?"scaleX(-1)":"scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
+    <img style={{filter:rotRef.current> 1000?"brightness(25%)":"", zIndex: rotRef.current>1000?1000:-1,transform: src.flip?"scaleX(-1)":"scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
   );
 }
 

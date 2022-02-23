@@ -51,13 +51,14 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   const items = {
     southDoor: { left: 231, top: 516 },
     northDoor: { left: 231, top: 4 },
-    bench1: { left: 314, top: 190,width: 200,height:100 },
-    bench2: { left: 314, top: 310,width: 200,height:100 },
-    bench3: { left: 314, top: 450-25,width: 200,height:100 },
-    bench4: { left: 25, top: 190,width: 200,height:100 },
-    bench5: { left: 25, top: 310,width: 200,height:100 },
-    bench6: { left: 25, top: 450-25,width: 200,height:100 },
+    bench1: { left: 314, top: 210,width: 200,height:75 },
+    bench2: { left: 314, top: 320,width: 200,height:75 },
+    bench3: { left: 314, top: 450-25,width: 200,height:75 },
+    bench4: { left: 25, top: 210,width: 200,height:75 },
+    bench5: { left: 25, top: 320,width: 200,height:75 },
+    bench6: { left: 25, top: 450-25,width: 200,height:75 },
   }
+
 
   const offset = 200;
   const [mirrorPlayerLocation, setMirrorPlayerLocation] = useState({left: 215, top: 150-offset });
