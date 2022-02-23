@@ -121,12 +121,14 @@ function Truth() {
   },[roomIndex]);
 
 
+  let rotLevel = rooms? 2**(rooms.length-roomIndex-2+Math.floor(rooms.length/10)):0;
+
   return (
     <div>
       <Layer1 />
       <Train>
         {rooms && roomIndex > 0? <HintOfPast room={rooms[roomIndex-1]} />:null}
-        {rooms  ?<ConcretePresent rotLevel={(2**(rooms.length-roomIndex-2)) } index={roomIndex} room={rooms[roomIndex]} goSouth={goSouth} goNorth={goNorth}/>:null}
+        {rooms  ?<ConcretePresent rotLevel={rotLevel} index={roomIndex} room={rooms[roomIndex]} goSouth={goSouth} goNorth={goNorth}/>:null}
         {rooms && roomIndex < rooms.length-1? <HintOfFuture  room={rooms[roomIndex+1]} />:null}
       </Train>
 
