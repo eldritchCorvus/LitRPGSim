@@ -9,17 +9,12 @@ function Layer1() {
     <Content>
       TRUTH.
       <ul>
-      * if jr legs are within item boundary, cannot walk
-* have world bounding box grow with the rot (if over a certain size just don't check edges of the map at all)
-        <li>jr can't walk over benches</li>
-        <li>(but a second jr and false floor  behind mirror. second jr is in a hidden room and uses the opposite of the up/down that jr uses)</li>
         <li>if mirrors are real , jr can think about themself</li>
-        <li>further you get, the faster the rot becomes. til you get to the point where even the present is rotting</li>
+        <li>you never know what bits of the past leak into the present</li>
         <li>In each car is a single object. Investigating it gives you my surface thoughts on it.</li>
         <li>In Layer 2, Truth the character discusses the object as well on a philosophical level.</li>
         <li>In Layer 3 (console), I mention my coding thoughts.</li>
         <li>In Each Car, reveal one Truth, at random. (examples, why things are in React not dart, the nature of the maze that is the code base, my experience with corporate life, the sources of various characters)</li>
-        <li>You can move backwards to revisit previous Truths, but the Rot is coming.</li>
         <li>rot makes the room gradually darker, then starts glitching it out (try out the text effects). spooky images start phasing in if you go far enough back. eventually, you can't go back anymore. jr refuses.</li>
         <li>In addition to corrupting the room, the Rot does a RotX cipher on it. For nearly no reason other than to make things harder on everyone. Code rot makes it harder and harder to debug wigglersim</li>
 
@@ -41,7 +36,6 @@ Object Ideas:
      * truth's "thoughts" on it in the background
      * jr-who-was-coding's thoughts on it in the console
      * jr-who-found-the-object's thoughts in the GoshShouldYouTrustThis
-* if you go too far backwards the Rot sets in
       </ul>
       
       <img src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png"/>
