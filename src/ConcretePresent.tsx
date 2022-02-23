@@ -59,9 +59,6 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     bench6: { left: 25, top: 450-25,width: 200,height:100 },
   }
 
-
-  setMirrorPlayerLocation: Function;
-  setMirrorSrc: Function;
   const offset = 200;
   const [mirrorPlayerLocation, setMirrorPlayerLocation] = useState({left: 215, top: 150-offset });
   const [mirrorSrc, setMirrorSrc] = useState({loc:"http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip:false});
