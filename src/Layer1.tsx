@@ -40,11 +40,11 @@ Object Ideas:
      * jr within's surface thoughts on it as a thought bubble
      * truth's "thoughts" on it in the background
      * jr-who-was-coding's thoughts on it in the console
-     * jr-who-found-the-object's thoughts in the EmbeddedSource
+     * jr-who-found-the-object's thoughts in the GoshShouldYouTrustThis
 * if you go too far backwards the Rot sets in
       </ul>
       
-      <img src="http://farragofiction.com/ZampanioEmbeddedSource/this_file_is_red.png"/>
+      <img src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png"/>
 
     </Content>
   );

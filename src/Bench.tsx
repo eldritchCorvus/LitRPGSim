@@ -40,7 +40,7 @@ const rotEffects = (rot: number, baseline: string) => {
 
 
 const Bench: React.FC<BenchParam> = ({ rotLevel, room, left, top }) => {
-  const [src, setSrc] = useState("http://farragofiction.com/ZampanioEmbeddedSource/bench.png");
+  const [src, setSrc] = useState("http://farragofiction.com/ZampanioGoshShouldYouTrustThis/bench.png");
   const filter = () => {
     return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%)`;
   }

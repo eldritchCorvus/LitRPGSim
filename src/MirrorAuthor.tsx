@@ -31,38 +31,72 @@ const MirrorAuthor: React.FC<MirrorAuthorParams> = ({items}) => {
   }, [playerLocation])
 
   const processWalk = (key: string) => {
-    const minTop = 85-offset;
-    const maxTop = 440 - 15-offset;
+    const minTop = 85;
+    const maxTop = 440 - 15;
     const maxLeft = 460;
     const minLeft = 0;
+    let speedX = 0;
+    let speedY = 0;
+    if (travelingRef.current) {
+      disableDoorDisregarding();
+    }
 
     if (playerLocation) {
       let prevTop = playerRef.current.top;
 
       let prevLeft = playerRef.current.left;
 
-      if ((key === "w" || key === "ArrowUp") && prevTop < maxTop) {
-        prevTop += 10;
-        setSrc({loc:down,flip:false});
-      } else if ((key === "s" || key === "ArrowDown") && prevTop > minTop) {
-        setSrc({loc:up,flip:false});
-        prevTop += -10
-      } else if ((key === "a" || key === "ArrowLeft") && prevLeft > minLeft) {
-        prevLeft += -10;
-        setSrc({loc:left,flip:false});
-      } else if ((key === "d" || key === "ArrowRight") && prevLeft < maxLeft) {
-        prevLeft += 10;
-        setSrc({loc:left,flip:true});
+      if ((key === "s" || key === "ArrowDown")) {
+        setSrc({ loc: down, flip: false });
+        if (prevTop < maxTop) {
+          speedY = 10;
+        }
+      } else if ((key === "w" || key === "ArrowUp") ) {
+        setSrc({ loc: up, flip: false });
+        if(prevTop > minTop){
+          speedY = -10
+        }
+      } else if ((key === "a" || key === "ArrowLeft")) {
+        if(prevLeft > minLeft){
+          speedX = -10;
+        }
+        setSrc({ loc: left, flip: false });
+      } else if ((key === "d" || key === "ArrowRight")) {
+        if(prevLeft < maxLeft){
+          speedX = 10;
+        }
+        setSrc({ loc: left, flip: true });
       } else {
         //no valid button was pressed, ignore this.
         return;
       }
-      setPlayerLocation({ top: prevTop, left: prevLeft });
-      const centerX = prevLeft + playerWidth / 2;
-      const centerY = prevTop + playerHeight / 2;
-      //checkForDoor(centerY, centerX);
+      const proposedX = prevLeft + speedX;
+      const proposedY = prevTop + speedY;
+
+      const centerX = proposedX + playerWidth / 2;
+      const centerY = proposedY + playerHeight;
+      if (!checkCollisions(centerY, centerX)) {
+        //window.scrollBy(0, speedY);
+        //feetEffect();
+        setPlayerLocation({ top: proposedY, left:proposedX});
+        //checkForDoor(centerY, centerX);
+      }
     }
-  };//where is the player? are they near a door?
+  };
+
+  const checkCollisions= (top: number, left: number)=>{
+    console.log("JR NOTE: checking for collissions between ", {top: top, left: left, items:items});
+      for(let item of Object.values(items)){
+        console.log("JR NOTE: checking", item)
+        if(pointWithinBoundingBox(left, top, item.left, item.top, item.width?item.width:0, item.height?item.height:0)){
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  
+  //where is the player? are they near a door?
   const checkForDoor = (top: number, left: number) => {
     const SOUTH = [items.southDoor.left, items.southDoor.top, 100, 10];
     const NORTH = [items.northDoor.left, items.northDoor.top, 100, 150]; //x,y,width,height

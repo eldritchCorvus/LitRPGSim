@@ -72,7 +72,7 @@ export type RoomParamsPlusTravel = {
 const Train = styled.div`
     display: flex;
     flex-direction: column;
-    background-image: url("http://farragofiction.com/ZampanioEmbeddedSource/train.png");
+    background-image: url("http://farragofiction.com/ZampanioGoshShouldYouTrustThis/train.png");
     background-repeat-x: no-repeat;
     background-position-x: 50%;
 `

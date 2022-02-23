@@ -17,12 +17,12 @@ export const Content = styled.div`
 `
 const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSouth, goNorth, index }) => {
   //fuck up the present as the rot sets in
-  const [src, setSrc] = useState("http://farragofiction.com/ZampanioEmbeddedSource/empty.PNG");
+  const [src, setSrc] = useState("http://farragofiction.com/ZampanioGoshShouldYouTrustThis/empty.PNG");
 
   useEffect(() => {
-    const src1 = "http://farragofiction.com/ZampanioEmbeddedSource/empty.PNG";
-    const src2 = "http://farragofiction.com/ZampanioEmbeddedSource/emptyWithMirror.PNG";
-    const src3 = "http://farragofiction.com/ZampanioEmbeddedSource/fuckedUpRoom2.gif";
+    const src1 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/empty.PNG";
+    const src2 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/emptyWithMirror.PNG";
+    const src3 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/fuckedUpRoom2.gif";
     if (rotLevel < 1 && src != src1) {
       setSrc(src1)
     } else if (rotLevel > 1 && rotLevel < 5 && src != src2) {
@@ -51,11 +51,11 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   const items = {
     southDoor: { left: 231, top: 516 },
     northDoor: { left: 231, top: 4 },
-    bench1: { left: 314, top: 175,width: 200,height:100 },
-    bench2: { left: 314, top: 295,width: 200,height:100 },
+    bench1: { left: 314, top: 190,width: 200,height:100 },
+    bench2: { left: 314, top: 310,width: 200,height:100 },
     bench3: { left: 314, top: 450-25,width: 200,height:100 },
-    bench4: { left: 25, top: 175,width: 200,height:100 },
-    bench5: { left: 25, top: 295,width: 200,height:100 },
+    bench4: { left: 25, top: 190,width: 200,height:100 },
+    bench5: { left: 25, top: 310,width: 200,height:100 },
     bench6: { left: 25, top: 450-25,width: 200,height:100 },
   }
 
@@ -69,8 +69,8 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
         {rotLevel > 0 ? <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>Rot Level {`${rotLevel}`}</div> : null}
         <img style={{filter: filter(),zIndex: -2,position: "absolute",top:"-20px",left:"0px", width: "546px"}} src ="http://farragofiction.com/ZampanioHotlink/mirrorfloor.PNG"/>
         <img style={{ filter: filter(), display: "block", width: "546px" }} id="current_room" src={src} />
-        {canGoNorth ? <Door rotLevel={rotLevel} onClick={() => goNorth()} style={{ display: "block", width: "75px", position: "absolute", top:`${items.northDoor.top}px`, left: `${items.northDoor.left}px`, cursor: "pointer" }} sourceLocation={"http://farragofiction.com/ZampanioEmbeddedSource/northdoor.PNG"} /> : null}
-        <Door rotLevel={rotLevel}  onClick={() => goSouth()} style={{ width: "75px", position: "absolute", top:`${items.southDoor.top}px`, left: `${items.southDoor.left}px`, cursor: "pointer" }} sourceLocation={"http://farragofiction.com/ZampanioEmbeddedSource/southdoor.PNG"} />
+        {canGoNorth ? <Door rotLevel={rotLevel} onClick={() => goNorth()} style={{ display: "block", width: "75px", position: "absolute", top:`${items.northDoor.top}px`, left: `${items.northDoor.left}px`, cursor: "pointer" }} sourceLocation={"http://farragofiction.com/ZampanioGoshShouldYouTrustThis/northdoor.PNG"} /> : null}
+        <Door rotLevel={rotLevel}  onClick={() => goSouth()} style={{ width: "75px", position: "absolute", top:`${items.southDoor.top}px`, left: `${items.southDoor.left}px`, cursor: "pointer" }} sourceLocation={"http://farragofiction.com/ZampanioGoshShouldYouTrustThis/southdoor.PNG"} />
         {Object.entries(items).map((item: any, index) => {
           if (item[0].includes("bench")) {
             return (

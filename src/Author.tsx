@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import {useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { feetEffect } from ".";
 import { Item, ItemMap } from "./Truth";
 
@@ -22,19 +22,19 @@ export const withinX = (myX: number, objectX: number, objectWidth: number) => {
 }
 
 export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number, objectY: number, objectWidth: number, objectHeight: number) => {
-  //console.log("JR NOTE: is x ", myX, "within", objectX, objectX + objectWidth)
-  //console.log("JR NOTE: is y", myY, "within", objectY, objectY + objectHeight)
+  console.log("JR NOTE: is x ", myX, "within", objectX, objectX + objectWidth)
+  console.log("JR NOTE: is y", myY, "within", objectY, objectY + objectHeight)
 
   return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
-const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
+const Author: React.FC<AuthorParams> = ({ goNorth, goSouth, items }) => {
   const left = "http://farragofiction.com/ZampanioHotlink/JRmoveleft.gif";
   const down = "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif";
   const up = "http://farragofiction.com/ZampanioHotlink/jrwalkgoup.gif";
 
-  const [src, setSrc] = useState({loc:"http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip:false});
-  const [playerLocation, setPlayerLocation] = useState({left: 215, top: 150 });
+  const [src, setSrc] = useState({ loc: "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip: false });
+  const [playerLocation, setPlayerLocation] = useState({ left: 215, top: 150 });
   const playerWidth = 100;
   const playerHeight = 100;
   //because a ref is MORE accessible to static things like window events than a state would be rip
@@ -57,9 +57,10 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
     southRef.current = goSouth;
   }, [goSouth])
 
-  const disableDoorDisregarding= ()=>{
-    setTimeout(()=>{
-      window.requestAnimationFrame(()=>{travelingRef.current = false})}, 500)
+  const disableDoorDisregarding = () => {
+    setTimeout(() => {
+      window.requestAnimationFrame(() => { travelingRef.current = false })
+    }, 500)
   }
 
   const processWalk = (key: string) => {
@@ -67,7 +68,9 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
     const maxTop = 440 - 15;
     const maxLeft = 460;
     const minLeft = 0;
-    if(travelingRef.current){
+    let speedX = 0;
+    let speedY = 0;
+    if (travelingRef.current) {
       disableDoorDisregarding();
     }
 
@@ -77,35 +80,59 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
       let prevLeft = playerRef.current.left;
 
       if ((key === "s" || key === "ArrowDown")) {
-        if(prevTop < maxTop){
-          prevTop += 10;
-          window.scrollBy(0,10);
+        setSrc({ loc: down, flip: false });
+        if (prevTop < maxTop) {
+          speedY = 10;
         }
-        setSrc({loc:down,flip:false});
-      } else if ((key === "w" || key === "ArrowUp") && prevTop > minTop) {
-        setSrc({loc:up,flip:false});
-        window.scrollBy(0,-10);
-        prevTop += -10
-      } else if ((key === "a" || key === "ArrowLeft") && prevLeft > minLeft) {
-        setSrc({loc:left,flip:false});
-        prevLeft += -10;
-      } else if ((key === "d" || key === "ArrowRight") && prevLeft < maxLeft) {
-        setSrc({loc:left,flip:true});
-        prevLeft += 10;
+      } else if ((key === "w" || key === "ArrowUp") ) {
+        setSrc({ loc: up, flip: false });
+        if(prevTop > minTop){
+          speedY = -10
+        }
+      } else if ((key === "a" || key === "ArrowLeft")) {
+        if(prevLeft > minLeft){
+          speedX = -10;
+        }
+        setSrc({ loc: left, flip: false });
+      } else if ((key === "d" || key === "ArrowRight")) {
+        if(prevLeft < maxLeft){
+          speedX = 10;
+        }
+        setSrc({ loc: left, flip: true });
       } else {
         //no valid button was pressed, ignore this.
         return;
       }
-      feetEffect();
-      setPlayerLocation({ top: prevTop, left: prevLeft });
-      const centerX = prevLeft + playerWidth / 2;
-      const centerY = prevTop + playerHeight / 2;
+      const proposedX = prevLeft + speedX;
+      const proposedY = prevTop + speedY;
 
-      checkForDoor(centerY, centerX);
+      const centerX = proposedX + playerWidth / 2;
+      const centerY = proposedY + playerHeight;
+      if (!checkCollisions(centerY, centerX)) {
+        window.scrollBy(0, speedY);
+        feetEffect();
+        setPlayerLocation({ top: proposedY, left:proposedX});
+        checkForDoor(centerY, centerX);
+      }
       //checkForItems(centerY, centerX);
     }
-  };//where is the player? are they near a door?
+  };
+
+  const checkCollisions= (top: number, left: number)=>{
+    console.log("JR NOTE: checking for collissions between ", {top: top, left: left, items:items});
+      for(let item of Object.values(items)){
+        console.log("JR NOTE: checking", item)
+        if(pointWithinBoundingBox(left, top, item.left, item.top, item.width?item.width:0, item.height?item.height:0)){
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  
+  //where is the player? are they near a door?
   const checkForDoor = (top: number, left: number) => {
+    console.log("JR NOTE: checking for door")
     if (travelingRef.current) {
       return;
     }
@@ -113,20 +140,20 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
     const NORTH = [items.northDoor.left, items.northDoor.top, 100, 150]; //x,y,width,height
 
     //add your height because we care about your feet, not your head
-    if (southRef.current && pointWithinBoundingBox(left, top+playerHeight/2, SOUTH[0], SOUTH[1], SOUTH[2], SOUTH[3])) {
+    if (southRef.current && pointWithinBoundingBox(left, top, SOUTH[0], SOUTH[1], SOUTH[2], SOUTH[3])) {
       southRef.current();
       travelingRef.current = true;
       setPlayerLocation({ left: 215, top: 125 });
-      window.scrollBy(0,-200);
+      window.scrollBy(0, -200);
 
       return;
     }
 
-    if (northRef.current && pointWithinBoundingBox(left, top, NORTH[0], NORTH[1], NORTH[2], NORTH[3])) {
+    if (northRef.current && pointWithinBoundingBox(left, top-playerHeight/2, NORTH[0], NORTH[1], NORTH[2], NORTH[3])) {
       travelingRef.current = true;
       northRef.current();
       setPlayerLocation({ left: 215, top: 375 });
-      window.scrollBy(0,200);
+      window.scrollBy(0, 200);
       return;
     }
 
@@ -148,7 +175,7 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth,items }) => {
   }, [])
 
   return (
-    <img style={{transform: src.flip?"scaleX(-1)":"scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
+    <img style={{ transform: src.flip ? "scaleX(-1)" : "scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
   );
 }
 
