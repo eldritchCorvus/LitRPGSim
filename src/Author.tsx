@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { feetEffect } from ".";
 import { Item, ItemMap } from "./Truth";
 
@@ -9,7 +9,10 @@ import { Item, ItemMap } from "./Truth";
 export type AuthorParams = {
   goNorth: Function | null;
   goSouth: Function;
+  setMirrorPlayerLocation: Function;
+  setMirrorSrc: Function;
   items: ItemMap;
+  mirrorLocationRef:MutableRefObject<{top: number, left: number}>;
 
 }
 
@@ -22,13 +25,13 @@ export const withinX = (myX: number, objectX: number, objectWidth: number) => {
 }
 
 export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number, objectY: number, objectWidth: number, objectHeight: number) => {
-  console.log("JR NOTE: is x ", myX, "within", objectX, objectX + objectWidth)
-  console.log("JR NOTE: is y", myY, "within", objectY, objectY + objectHeight)
+  //console.log("JR NOTE: is x ", myX, "within", objectX, objectX + objectWidth)
+  //console.log("JR NOTE: is y", myY, "within", objectY, objectY + objectHeight)
 
   return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
-const Author: React.FC<AuthorParams> = ({ goNorth, goSouth, items }) => {
+const Author: React.FC<AuthorParams> = ({mirrorLocationRef, setMirrorSrc, setMirrorPlayerLocation, goNorth, goSouth, items }) => {
   const left = "http://farragofiction.com/ZampanioHotlink/JRmoveleft.gif";
   const down = "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif";
   const up = "http://farragofiction.com/ZampanioHotlink/jrwalkgoup.gif";
@@ -81,11 +84,13 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth, items }) => {
 
       if ((key === "s" || key === "ArrowDown")) {
         setSrc({ loc: down, flip: false });
+        setMirrorSrc({ loc: up, flip: false });
         if (prevTop < maxTop) {
           speedY = 10;
         }
       } else if ((key === "w" || key === "ArrowUp") ) {
         setSrc({ loc: up, flip: false });
+        setMirrorSrc({ loc: down, flip: false });
         if(prevTop > minTop){
           speedY = -10
         }
@@ -94,11 +99,14 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth, items }) => {
           speedX = -10;
         }
         setSrc({ loc: left, flip: false });
+        setMirrorSrc({ loc: left, flip: false });
+
       } else if ((key === "d" || key === "ArrowRight")) {
         if(prevLeft < maxLeft){
           speedX = 10;
         }
         setSrc({ loc: left, flip: true });
+        setMirrorSrc({ loc: left, flip: true });
       } else {
         //no valid button was pressed, ignore this.
         return;
@@ -108,10 +116,12 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth, items }) => {
 
       const centerX = proposedX + playerWidth / 2;
       const centerY = proposedY + playerHeight;
-      if (!checkCollisions(centerY, centerX)) {
+      if (!checkCollisions(centerY-playerWidth/4, centerX)) {
         window.scrollBy(0, speedY);
         feetEffect();
         setPlayerLocation({ top: proposedY, left:proposedX});
+        setMirrorPlayerLocation({ top: mirrorLocationRef.current.top - speedY, left:proposedX});
+
         checkForDoor(centerY, centerX);
       }
       //checkForItems(centerY, centerX);
@@ -119,9 +129,7 @@ const Author: React.FC<AuthorParams> = ({ goNorth, goSouth, items }) => {
   };
 
   const checkCollisions= (top: number, left: number)=>{
-    console.log("JR NOTE: checking for collissions between ", {top: top, left: left, items:items});
       for(let item of Object.values(items)){
-        console.log("JR NOTE: checking", item)
         if(pointWithinBoundingBox(left, top, item.left, item.top, item.width?item.width:0, item.height?item.height:0)){
           return true;
         }

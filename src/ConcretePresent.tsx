@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { doorEffect } from ".";
 import Author from "./Author";
 import Bench from "./Bench";
@@ -60,6 +60,16 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   }
 
 
+  setMirrorPlayerLocation: Function;
+  setMirrorSrc: Function;
+  const offset = 200;
+  const [mirrorPlayerLocation, setMirrorPlayerLocation] = useState({left: 215, top: 150-offset });
+  const [mirrorSrc, setMirrorSrc] = useState({loc:"http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip:false});
+  const mirrorRef = useRef(mirrorPlayerLocation);
+
+  useEffect(() => {
+    mirrorRef.current = mirrorPlayerLocation;
+  }, [mirrorPlayerLocation])
 
   return (
     <div>
@@ -80,8 +90,8 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
           return null;
         })}
 
-        <Author items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} />
-        <MirrorAuthor items={items} />
+        <Author mirrorLocationRef={mirrorRef} items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} setMirrorPlayerLocation={setMirrorPlayerLocation} setMirrorSrc={setMirrorSrc} />
+        <MirrorAuthor items={items} src={mirrorSrc} playerLocation={mirrorPlayerLocation} />
 
         {rotLevel > 100?<div className="filmgrain" style={{opacity: rotLevel/1000}}/>:null}
       </div>
