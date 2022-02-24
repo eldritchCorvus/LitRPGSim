@@ -39,8 +39,13 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     }
   }, [])
 
+  //50% brightness at 1k, 0 brightness at 100k
+  const brightnessEquation = ()=>{
+    return (rotLevel * -.001) + 100;
+
+  }
   const filter = () => {
-    return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%) brightness(${rotLevel <10000?room.brightness:(100000-rotLevel)/100000}%) contrast(${room.contrast}%)`;
+    return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%) brightness(${rotLevel <1000?room.brightness:(brightnessEquation())}%) contrast(${room.contrast}%)`;
   }
 
   const canGoNorth = index !== 0;

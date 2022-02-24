@@ -131,7 +131,7 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
         window.scrollBy(0, speedY);
         feetEffect();
         setPlayerLocation({ top: proposedY, left: proposedX });
-        if(rotRef.current <10000){
+        if(rotRef.current <75000){
           setMirrorPlayerLocation({ top: mirrorLocationRef.current.top - speedY, left: proposedX });
         }else{
           setMirrorPlayerLocation({ top: getRandomNumberBetween(minTop, maxTop) - speedY, left: getRandomNumberBetween(minLeft, maxLeft) });  

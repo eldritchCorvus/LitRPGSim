@@ -14,7 +14,7 @@ export type BenchParam = {
 
 //glitch effects:  way too big, way too small, css glitch animation. shaking. file missing.
 
-const rotEffects = (rot: number, baseline: string) => {
+export const rotEffects = (rot: number, baseline: string) => {
   let ret = baseline;
   if (rot < 10) {
     return ret;
@@ -40,8 +40,20 @@ const rotEffects = (rot: number, baseline: string) => {
 
 const Bench: React.FC<BenchParam> = ({ rotLevel, room, left, top }) => {
   const [src, setSrc] = useState("http://farragofiction.com/ZampanioGoshShouldYouTrustThis/bench.png");
+
+  const shadowEffect = ()=>{
+    //drop-shadow(5px 5px 5px #000)
+    if(rotLevel >1000 && Math.random()>0.5){
+      return ` drop-shadow(${getRandomNumberBetween(15,150)}px ${getRandomNumberBetween(15,150)}px ${getRandomNumberBetween(15,150)}px #000)`;
+    }else if(rotLevel > 100 && Math.random()>0.5){
+      return ` drop-shadow(${getRandomNumberBetween(1,15)}px ${getRandomNumberBetween(1,15)}px ${getRandomNumberBetween(1,15)}px #000)`;
+    }else if(rotLevel > 10 && Math.random()>0.5){
+      return ` drop-shadow(${getRandomNumberBetween(1,5)}px ${getRandomNumberBetween(1,5)}px ${getRandomNumberBetween(1,5)}px #000)`;
+    }
+    return '';
+  }
   const filter = () => {
-    return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%)`;
+    return `hue-rotate(${room.tint}deg) grayscale(${room.greyscale}%)${shadowEffect()} brightness(${rotLevel <10000?"100%":"33%"})`;
   }
 
   const baseline_css = `

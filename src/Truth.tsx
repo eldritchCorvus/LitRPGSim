@@ -108,20 +108,25 @@ function Truth() {
     }
   },[rooms, roomIndex])
 
+  let rotLevel = rooms? 2**(rooms.length-roomIndex-2+Math.floor(rooms.length/10)):0;
+
+
   const goSouth = useCallback(()=>{
     doorEffect();
     setRoomIndex(roomIndex + 1); 
   }, [roomIndex]);
 
   const goNorth = useCallback(()=>{
+    if(rotLevel>500000){
+      return;//the rot takes all, in the end
+    }
     doorEffect();
     if(roomIndex > 0){
       setRoomIndex(roomIndex - 1); 
     }
-  },[roomIndex]);
+  },[roomIndex, rotLevel]);
 
 
-  let rotLevel = rooms? 2**(rooms.length-roomIndex-2+Math.floor(rooms.length/10)):0;
 
   return (
     <div>
