@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { feetEffect } from ".";
+import { CoreConcept } from "./CoreConcept";
 import { Item, ItemMap } from "./Truth";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 
@@ -31,6 +32,7 @@ export type AuthorParams = {
   setMirrorSrc: Function;
   items: ItemMap;
   mirrorOffset: number;
+  conceptRef: MutableRefObject<CoreConcept>;
   rotRef: MutableRefObject <number>;
   mirrorLocationRef: MutableRefObject<{ top: number, left: number }>;
 
@@ -51,7 +53,7 @@ export const pointWithinBoundingBox = (myX: number, myY: number, objectX: number
   return withinX(myX, objectX, objectWidth) && withinY(myY, objectY, objectHeight);
 }
 
-const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef, setMirrorSrc, setMirrorPlayerLocation, goNorth, goSouth, items }) => {
+const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirrorLocationRef, setMirrorSrc, setMirrorPlayerLocation, goNorth, goSouth, items }) => {
   const left = "http://farragofiction.com/ZampanioHotlink/JRmoveleft.gif";
   const down = "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif";
   const up = "http://farragofiction.com/ZampanioHotlink/jrwalkgoup.gif";
@@ -59,6 +61,7 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
   const [src, setSrc] = useState({ loc: "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip: false });
   const [playerLocation, setPlayerLocation] = useState({ left: 215, top: 150 });
   const [flavorText, setFlavorText]= useState<string|null>("Test JR is thinking and introspecting about a topic.");
+  
   const playerWidth = 100;
   const playerHeight = 100;
   //because a ref is MORE accessible to static things like window events than a state would be rip
@@ -170,10 +173,40 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
         }
 
         checkForDoor(centerY, centerX);
+        checkCoreConcept(centerY, centerX);
+        checkMirror(centerY, centerX);
+
       }
       //checkForItems(centerY, centerX);
     }
   };
+
+  //they do not move
+  const checkCoreConcept = (top: number, left: number) => {
+    if(!conceptRef.current){
+      return;
+    }
+    const objLeft = 245;
+    const objTop = 360;
+    const objWidth = 50;
+    const objHeight = 50;
+    if (pointWithinBoundingBox(left, top, objLeft, objTop, objWidth, objHeight)) {
+      setFlavorText(conceptRef.current.surfaceThought);
+    }
+  }
+
+  const checkMirror =(top: number, left: number) => {
+    if(!conceptRef.current){
+      return;
+    }
+    const objLeft = 95;
+    const objTop = 135;
+    const objWidth = 50;
+    const objHeight = 50;
+    if (pointWithinBoundingBox(left, top, objLeft, objTop, objWidth, objHeight)) {
+      setFlavorText(conceptRef.current.mirrorThought);
+    }
+  }
 
   const checkCollisions = (top: number, left: number) => {
     for (let item of Object.values(items)) {
@@ -187,7 +220,6 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
 
   //where is the player? are they near a door?
   const checkForDoor = (top: number, left: number) => {
-    console.log("JR NOTE: checking for door")
     if (travelingRef.current) {
       return;
     }
@@ -201,7 +233,7 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
       setPlayerLocation({ left: 215, top: 125 });
       setMirrorPlayerLocation({left: 215, top: 150-mirrorOffset })
       window.scrollBy(0, -200);
-
+      setFlavorText(null)
       return;
     }
 
@@ -211,6 +243,7 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
       setPlayerLocation({ left: 215, top: 375 });
       setMirrorPlayerLocation({left: 215, top: -100-mirrorOffset })
       window.scrollBy(0, 200);
+      setFlavorText(null)
       return;
     }
 

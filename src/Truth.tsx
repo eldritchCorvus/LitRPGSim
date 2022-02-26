@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { doorEffect, playTrain } from ".";
 import ConcretePresent from "./ConcretePresent";
+import { all_concepts, CoreConcept } from "./CoreConcept";
 import HintOfFuture from "./HintOfFuture";
 import HintOfPast from "./HintOfPast";
 
@@ -34,8 +35,12 @@ const makeNextContrast = (seededRandom: SeededRandom,tint: number)=>{
   return moveBoundedUpOrDown(seededRandom,tint, 50, 150,90)
 }
 
+const pickNextCoreConcept = (seededRandom: SeededRandom)=>{
+  return seededRandom.pickFrom(all_concepts);
+}
+
 const makeNextRoom = (seededRandom: SeededRandom,room: Room)=>{
-  return({tint: makeNextTint(seededRandom,room.tint), greyscale: makeNextGrey(seededRandom,room.greyscale), brightness: makeNextBright(seededRandom,room.brightness), contrast: makeNextContrast(seededRandom,room.contrast)})
+  return({coreConcept: pickNextCoreConcept(seededRandom), tint: makeNextTint(seededRandom,room.tint), greyscale: makeNextGrey(seededRandom,room.greyscale), brightness: makeNextBright(seededRandom,room.brightness), contrast: makeNextContrast(seededRandom,room.contrast)})
 }
 
 export type Room = {
@@ -43,6 +48,7 @@ export type Room = {
   greyscale: number; //percent
   contrast: number; //percent
   brightness: number; //percent
+  coreConcept: CoreConcept;
 }
 
 export type RoomParams = {
@@ -97,7 +103,7 @@ function Truth() {
 
   useEffect(()=>{
       if(!rooms && seededRandomRef.current){
-        const firstRoom = {tint: 0, greyscale: 0, contrast: 100, brightness: 100};
+        const firstRoom = {tint: 0, greyscale: 0, contrast: 100, brightness: 100, coreConcept: all_concepts[0]};
         setRooms([firstRoom,makeNextRoom(seededRandomRef.current, firstRoom)]);
       }
   },[]);

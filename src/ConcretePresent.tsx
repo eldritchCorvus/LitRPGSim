@@ -69,10 +69,16 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   const [mirrorPlayerLocation, setMirrorPlayerLocation] = useState({left: 215, top: 150-offset });
   const [mirrorSrc, setMirrorSrc] = useState({loc:"http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip:false});
   const mirrorRef = useRef(mirrorPlayerLocation);
+  const conceptRef = useRef(room.coreConcept);
+
   const rotRef  = useRef(rotLevel);//needed for player
   useEffect(() => {
     mirrorRef.current = mirrorPlayerLocation;
   }, [mirrorPlayerLocation])
+
+  useEffect(() => {
+    conceptRef.current = room.coreConcept;
+  }, [room])
 
   useEffect(() => {
     rotRef.current = rotLevel;
@@ -97,8 +103,8 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
           }
           return null;
         })}
-
-        <Author mirrorOffset={offset} rotRef={rotRef} mirrorLocationRef={mirrorRef} items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} setMirrorPlayerLocation={setMirrorPlayerLocation} setMirrorSrc={setMirrorSrc} />
+        <img style={{width: "50px",position: "absolute", "left":"245px", top: "360px"}} src = {room.coreConcept.src}/>
+        <Author conceptRef={conceptRef} mirrorOffset={offset} rotRef={rotRef} mirrorLocationRef={mirrorRef} items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} setMirrorPlayerLocation={setMirrorPlayerLocation} setMirrorSrc={setMirrorSrc} />
         <MirrorAuthor rotRef={rotRef} items={items} src={mirrorSrc} playerLocation={mirrorPlayerLocation} />
 
         {rotLevel > 100?<div className="filmgrain" style={{opacity: rotLevel/1000}}/>:null}
