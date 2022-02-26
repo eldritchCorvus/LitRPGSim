@@ -136,7 +136,7 @@ function Truth() {
 
   return (
     <div>
-      <Layer1 />
+      {rooms&& <Layer1 concept={rooms[roomIndex].coreConcept} />}
       <Train>
         {rooms && roomIndex > 0? <HintOfPast room={rooms[roomIndex-1]} />:null}
         {rooms  ?<ConcretePresent rotLevel={rotLevel} index={roomIndex} room={rooms[roomIndex]} goSouth={goSouth} goNorth={goNorth}/>:null}
