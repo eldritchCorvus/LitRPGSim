@@ -4,7 +4,22 @@ import { feetEffect } from ".";
 import { Item, ItemMap } from "./Truth";
 import { getRandomNumberBetween } from "./Utils/NonSeededRandUtils";
 
-
+export const Popup = styled.div`
+    border: 2px solid black;
+    z-index: 5;
+    border-radius: 13px;
+    padding: 5px;
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    font-weight: bolder;
+    padding-left: 13px;
+    font-family: 'Courier New', monospace;
+    padding-right: 13px;
+    margin: 10px;
+    background: #346F3F;
+    color: #06FFC9;
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);`
 
 
 export type AuthorParams = {
@@ -200,7 +215,10 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
   }, [])
 
   return (
-    <img style={{ transform: src.flip ? "scaleX(-1)" : "scaleX(1)", width: "100px", imageRendering: "pixelated", position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px` }} src={src.loc} />
+    <div style={{ position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px`}}>
+    <img style={{position: "absolute",left:"0px",top: "0px", transform: src.flip ? "scaleX(-1)" : "scaleX(1)", width: "100px", imageRendering: "pixelated", }} src={src.loc} />
+    <Popup>test</Popup>
+    </div>
   );
 }
 
