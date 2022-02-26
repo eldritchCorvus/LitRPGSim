@@ -10,8 +10,10 @@ export const Popup = styled.div`
     border-radius: 13px;
     padding: 5px;
     position: absolute;
-    top: -50px;
-    left: 10px;
+    bottom: -20px;
+    width: 150px;
+    height: 75px;
+    left: -40px;
     font-weight: bolder;
     padding-left: 13px;
     font-family: 'Courier New', monospace;
@@ -56,6 +58,7 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
 
   const [src, setSrc] = useState({ loc: "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip: false });
   const [playerLocation, setPlayerLocation] = useState({ left: 215, top: 150 });
+  const [flavorText, setFlavorText]= useState<string|null>("Test JR is thinking and introspecting about a topic.");
   const playerWidth = 100;
   const playerHeight = 100;
   //because a ref is MORE accessible to static things like window events than a state would be rip
@@ -69,6 +72,20 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
   useEffect(() => {
     playerRef.current = playerLocation;
   }, [playerLocation])
+
+  
+  useEffect(() => {
+    if (flavorText) {
+        const timer = setTimeout(() => {
+            setFlavorText(null);
+        }, 3000)
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }
+
+}, [flavorText])
 
   useEffect(() => {
     northRef.current = goNorth;
@@ -217,7 +234,7 @@ const Author: React.FC<AuthorParams> = ({mirrorOffset, rotRef, mirrorLocationRef
   return (
     <div style={{ position: "absolute", left: `${playerLocation.left}px`, top: `${playerLocation.top}px`}}>
     <img style={{position: "absolute",left:"0px",top: "0px", transform: src.flip ? "scaleX(-1)" : "scaleX(1)", width: "100px", imageRendering: "pixelated", }} src={src.loc} />
-    <Popup>test</Popup>
+    {flavorText? <Popup>{flavorText}</Popup>:null}
     </div>
   );
 }
