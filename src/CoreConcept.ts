@@ -99,8 +99,26 @@ all_concepts.push(new CoreConcept(
   "How do I handle the fact that those who best enjoy my work are harmed by it?",
 ))
 
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/naga.png",
+  "It is impossible to say anything bad about the [DATA EXPUNGED].",
+  "I honestly don't know why so many otherwise rational living beings think its funny to pretend these are real.",
+  "Honestly, I could repurpose the gaslight engine to handle these things? Or just manually edit the PuzzleBox...but I'm not that cruel.",
+  "I really can't say anything much about these creatures, but here's some people who have tried: http://knucklessux.com/PuzzleBox/Secrets/QQ/PublicDocs/AnIncompleteInvestigationOfNagaOperationalSecrecy.pdf and http://knucklessux.com/PuzzleBox/Secrets/AlDaric/By_%20%5bdata%20lost%5d%20R6.pdf",
+  "How would I even know If I had a cognito hazard?",
+))
+
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/humanoid_crow.gif",
+  "It's my dumb lil crow bois! <3 <3 <3",
+  "In Truth, everything created by the same Author has a common root.<br><br>Are you surprised, then, to discover that the Author of all of this repurposes from many sources? <br><br>The Quotidians were created for a letter writing RP, where the hook was 'what would the psychology BE of a species so unbalanced to use only one of the core mechanics', that mechanic, of course, being Spying. <br><br>The result? A neural net gone wrong, left to stagnate unto insanity. The Truth of them pleases me, as, at times, a real neural net (AI Dungeon) was used to play them rather than a flawed human brain.",
+  "I love those lil scrimblos so damn much. They really added a layer of 'what the fuck' to the Eastern Path.",
+  "You can learn more about them here: http://knucklessux.com/PuzzleBox/Secrets/QuotidianQuoromQuickStartGuide.pdf But be warned, what applies to one layer might not wholly apply to another.  Zampanio has a way of twisting things.",
+  "How terrifying must it be to be an Egg Quotidian?",
+))
+
 /*all_concepts.push(new CoreConcept(
-  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/flowerequisde.png",
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/naga.png",
   "surface",
   "truth. ",
   "code",
