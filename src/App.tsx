@@ -88,6 +88,13 @@ function App(props: AppProps) {
         (window as any).creditsMode = value;
       };
     }
+
+    if(!(window as any).pauseButton){
+      (window as any).pauseButton = (value:boolean)=>{
+        setActualGameMode(value);
+        (window as any).game = value;
+      };
+    }
   },[])
 
   const fuckupstuffforspiral = useCallback(()=>{
