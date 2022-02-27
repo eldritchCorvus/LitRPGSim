@@ -28,6 +28,7 @@ Object Ideas:
 * flaming chicken
 *moon (maze madness and lunar colony)
 * silver cat
+*HeartlessBot
 * the aspects/fears
 *the sources of various characters
 * my experience with corporate life

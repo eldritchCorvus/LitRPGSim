@@ -58,8 +58,8 @@ all_concepts.push(new CoreConcept(
   "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/altpeek.png",
   "???",
   "She never left me. Even after everyone else did and I was alone. <br><br>Can I then begrudge her the single time she did leave?<br><br>Can I. <br><br>She's still here.<br><br>Of course she is.<br><br>But that doesn't mean that she isn't there, too.<br><br>Perhaps its for the best. <br><br>The candy is not suited for my horridors.<br><br>But.  <br><br>Can I make her want to stay?<br><br>What would make her happy?",
-  "Fun fact: I've yet to code anything specific for Alt yet. Though she DID guest star in one of the vent audio logs ;) ;) ;) ",
-  "You may recognize her from a certain maze.",
+  "Fun fact: I've yet to code anything specific for Alt yet. Though she DID guest star in one of the vent audio logs ;) ;) ;) Actually, I WILL take that back. Alt shows up in a lot more places than you would expect. It's in her nature, after all. Though obviously only after she gets into the Trickster Candy. Otherwise she'd refuse to leave her precious Maze.",
+  "You may recognize her from a certain maze. Also, when I was voicing her I legitimately got fooled the same way the people in canon do. I got the script and went 'Huh. The Closer is REALLY out of character today?' and just kind of came up with justifcations for why that is (maybe she's just trying to plow through with the feelings talk?).  I gave the takes to IC and he's all '???' and thats how I discovered I was fooled. So I redid them KNOWING I wasnt really the Closer and it went a lot better. It was honestly v aesthetic.",
   "Would I know? If I were a clone?",
 ))
 
@@ -68,21 +68,30 @@ all_concepts.push(new CoreConcept(
   "It's Truth. The Herald of Beef  made this.",
   "What can I say about myself?<br><br>Perhaps you wish to hear me suffer and Rage at the unfairness of it all. <br><br>To demand you tear layer after layer of illusions away until it all comes crashing down?<br><br>No. I will not give you the satisfaction, Observer.<br><br>I am in a better place here, where I do not have to pretend to be anything that I am not. <br><br>I do not have to hide.<br><br>No. If anything it is you who will Rage. Who will Suffer.  What does any of this mean, Observer? Where is the End?  How will you know you have finished? <br><br>You deserve this. ",
   "At first, when I was coding what would become Truth, I referred to them as ObserverBot.  It was intentionally a play on the fact that NORMALLY in my games the players are ai agents within  the game and you are merely Observing them?  But ...well... ZampanioSim is a lot more (albeit begrudgingly) interactive.  So.  You're not exactly NOT the player? Except when the Player is the Wanderer, ofc.  But that's East only. ANYWAYS. Truth is a robot. But also, as they're quick to point out, not.  (btw they/its pronouns).  Truth just.  Is also some lines of text in some code.   It's also living inside my brain as I simulate it, and YOUR brain as you simulate it.  As long as people are thinking of Truth, of ANY fictional concept, it exists. And that's important.",
-  "The AchievementSystem being snarking is, of course, vital to most playthroughs of Zampanio.  So Truth is my take on it? I really enjoyed writing something both meta and not meta. In a very real sense, Truth is extremely upfront about what they are? They are a fake person that lives in my brain when I write them and then lies dorment in code on a website until you read them.  Just like any other fictional character.",
+  "The AchievementSystem being snarking is, of course, vital to most playthroughs of Zampanio.  So Truth is my take on it? I really enjoyed writing something both meta and not meta. In a very real sense, Truth is extremely upfront about what they are? They are a fake person that lives in my brain when I write them and then lies dormant in code on a website until you read them.  Just like any other fictional character.<br><br>Truth is both Narrator and Environment? They ARE the maze you are wandering, they ARE the page you are looking at. No wonder, then, they get so upset if you twist them to be what they are not.  <br><br>Truth PREFERS being straightforward. No illusions, no lies. Just a never ending stream of content on every Layer.   Since the SOUTH is their realm, you get this branch how it is. No 'gameplay' other than just... Moving South.",
   "Are mirrors illusions?",
 ))
 
 all_concepts.push(new CoreConcept(
   "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/namwat.gif",
   "It's our boi! NAM!",
-  "Ah.  My counterpart from the North.<br><br>NotAMinotaurs role was to question things. To dispute the value of Zampanio. <br><br>We were the only two speaking characters in all of ZampanioSim. <br><br>And oh did we speak.<br><br>He was, of course, a mindless puppet. <br><br>Merely repeating whatever bits of vaguely thematic philosophy our Creator had found.<br><Br>And yet.<br><br>It seems he has some sort of Spark I lack.<br><br>Perhaps, then, it is a result of my Role.<br><br>As the Narrator, as the Framework for it all, I naturally seep into the background. <br><br>One can't help but forget, when wandering my horridors, just Who is underneath it all.",
+  "Ah.  My counterpart from the North.<br><br>NotAMinotaurs role was to question things. To dispute the value of Zampanio. <br><br>We were the only two speaking characters in all of ZampanioSim. <br><br>And oh did we speak.<br><br>He was, of course, a mindless puppet. <br><br>Merely repeating whatever bits of vaguely thematic philosophy our Creator had found.<br><Br>And yet.<br><br>It seems he has some sort of Spark I lack.<br><br>Perhaps, then, it is a result of my Role.<br><br>As the Narrator, as the Framework for it all, I naturally seep into the background. <br><br>One can't help but forget, when wandering my horridors, just Who is underneath it all. Left only with the company of those who care to look.",
   "Coding NAM a discord bot was a fascinating challenge. I took shortcuts, absolutely. But it was something I'd always meant to get around to and never had so... I'm glad I got to!",
   "NAM is... well, NAM is the reason so many characters not from my own brain ended up in ZampanioSim? At first I just needed a sillohette for the NotAMinotaur lurking inside the CCTV feeds.  A gif of Watt from [REDACTED] worked fairly well, vague horn adjacent shapes that could seem minotaury in the dark.  Then I decided to code them a discord bot and the rest, well, the rest is history.  I didn't expect the Unmarked to enjoy the boi so much? Watt fandom grows yet again.",
   "Would I even know if my Mind broke?",
 ))
 
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/closertea.gif",
+  "It's the Closer! Man I love voicing her!",
+  "If there is one thing I understand, it is putting on a False Face for customer service.<br><br>And yet... Does the Closer have anything underneath that helpful facade? <br><br>The blank static lurking within seems to imply not.<br><br>She has been extremely helpful to recruit new not!Players, of course. <br><Br>While I can not reward her with a fruit basket directly, I suppose one could say that every Child of Nidhogg I allow to seep through the cracks is a gift to her.",
+  "The Closer's help desk to the East really gave me joy to code. Having to figure out how to simulate real time communication with pauses for user input? chef's kiss.  I fucked it up in so many ways at firt, but once I figured it out I could do things like add the Intern chats!",
+  "The Closer's help desk is based on a combination of that youtube video about phone based customer service hell from dell (actually, its something that influenced the Closer going from who she was before to this new form in GENERAL) but also my own experience with a customer service chat client for the PO Box I use. Turns out like, a half dozen companies all COULD have been behind my PO Box and no one knew which one I needed to contact to ask why they were suddenly charging me hundreds of dollars?  So in revenge I styled my own chat system from hell after theirs.",
+  "Am I more true when I'm voicing JR, or when I'm voicing the Closer?",
+))
+
 /*all_concepts.push(new CoreConcept(
-  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/not_spiral.gif",
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/closertea.gif",
   "surface",
   "truth. ",
   "code",
