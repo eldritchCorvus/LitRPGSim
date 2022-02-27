@@ -26,15 +26,15 @@ const Layer1:React.FC<LayerParams> =({concept})=> {
 
 Object Ideas:
 * flaming chicken
-*why things are in React not dart
 *moon (maze madness and lunar colony)
 * silver cat
+* the aspects/fears
 *the sources of various characters
 * my experience with corporate life
 *the nature of the maze that is the code base
-grape pie:  http://farragofiction.com/GrapePie/  (link in the console layer)
 * pigeons
 *the 9 artifacts
+
       </ul>
       
       <img src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png"/>
