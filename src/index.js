@@ -13,6 +13,7 @@ import tap from './Music/tap.mp3';
 import feet1 from './Music/feet1.mp3';
 import feet2 from './Music/feet2.mp3';
 import feet3 from './Music/feet3.mp3';
+import  announcement from './Music/249523__pearcewilsonking__announcement-sound.mp3';
 
 import there from './Music/THERE.mp3';
 import train from './Music/432373__fedor-ogon__suburban-train-2.mp3';
@@ -42,6 +43,7 @@ export const voiceAudio = new Audio(voice);//exported so the closer can use this
 const clickAudio = new Audio(clickSound);
 const beepAudio = new Audio(beepSound);
 const feetAudio = new Audio(feet1);
+const announcementAudio = new Audio(announcement);
 
 const soundEffectAudio = new Audio(doorSound);
 
@@ -205,6 +207,10 @@ export const clickEffect = () =>{
 export const doorEffect = () =>{
   soundEffectAudio.src = doorSound;
   soundEffectAudio.play();
+}
+
+export const announcementEffect = () =>{
+  announcementAudio.play();
 }
 
 export const feetEffect = () =>{

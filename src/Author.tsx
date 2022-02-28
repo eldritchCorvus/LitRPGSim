@@ -60,7 +60,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
 
   const [src, setSrc] = useState({ loc: "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip: false });
   const [playerLocation, setPlayerLocation] = useState({ left: 215, top: 150 });
-  const [flavorText, setFlavorText]= useState<string|null>("Test JR is thinking and introspecting about a topic.");
+  const [flavorText, setFlavorText]= useState<string|null>();
   
   const playerWidth = 100;
   const playerHeight = 100;

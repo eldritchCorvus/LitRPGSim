@@ -51,7 +51,7 @@ all_concepts.push(new CoreConcept(
   "The difference between coding in Dart and coding in Javascript, I always imagine as being similar to the difference between speaking Portugese and Spanish? I'm given to understand the languages are extremely similar on the surface, but the second you try to do anything in them they're wildly different?  If I try to pick dart back up after having done javascript I stumble over myself. Things are just slightly off enough that I feel confident I know what is going on as I fall down all those stairs.",
   "Honestly? It sucks that Dart rotted away on my computer. It sucks that I can't maintain the pre ZampanioSim Sims. But... It's hard, using two languages equally? Using Dart for hobbies and Javascript for my job was...not sustainable? Now that it's Javascript all the time I'm a lot less stressed...",
   "One JR codes Dart. The other, Javascript.",
-  "A small explosive device has been discovered in first class. If you have not purchased your ticket yet, please do so now.Your name will appear in a big red banner along with the words: 'You are a terrible person.'Have a nice day."
+  "A small explosive device has been discovered in first class. If you have not purchased your ticket yet, please do so now."
 ))
 
 all_concepts.push(new CoreConcept(
