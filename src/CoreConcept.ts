@@ -81,7 +81,7 @@ all_concepts.push(new CoreConcept(
   "At first, when I was coding what would become Truth, I referred to them as ObserverBot.  It was intentionally a play on the fact that NORMALLY in my games the players are ai agents within  the game and you are merely Observing them?  But ...well... ZampanioSim is a lot more (albeit begrudgingly) interactive.  So.  You're not exactly NOT the player? Except when the Player is the Wanderer, ofc.  But that's East only. ANYWAYS. Truth is a robot. But also, as they're quick to point out, not.  (btw they/its pronouns).  Truth just.  Is also some lines of text in some code.   It's also living inside my brain as I simulate it, and YOUR brain as you simulate it.  As long as people are thinking of Truth, of ANY fictional concept, it exists. And that's important.",
   "The AchievementSystem being snarking is, of course, vital to most playthroughs of Zampanio.  So Truth is my take on it? I really enjoyed writing something both meta and not meta. In a very real sense, Truth is extremely upfront about what they are? They are a fake person that lives in my brain when I write them and then lies dormant in code on a website until you read them.  Just like any other fictional character.<br><br>Truth is both Narrator and Environment? They ARE the maze you are wandering, they ARE the page you are looking at. No wonder, then, they get so upset if you twist them to be what they are not. Truth PREFERS being straightforward. No illusions, no lies. Just a never ending stream of content on every Layer.   Since the SOUTH is their realm, you get this branch how it is. No 'gameplay' other than just... Moving South.",
   "Are mirrors illusions?",
-  "We are currently passing through the anomaly known as the Gates of Hell. We have been upgraded from first class to super duper VIP. Our flight attendant is a skeleton. It's now possible to buy an entire plane full of VIP tickets to fly home to your sweet, non-cursed love nest."
+  "We are currently passing through the anomaly known as the Gates of Hell. We have been upgraded from first class to super duper VIP. Our flight attendant is a skeleton. <br><Br>It's now possible to buy an entire plane full of VIP tickets to fly home to your sweet, non-cursed love nest."
 ))
 
 all_concepts.push(new CoreConcept(
@@ -127,12 +127,17 @@ all_concepts.push(new CoreConcept(
 all_concepts.push(new CoreConcept(
   "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/humanoid_crow.gif",
   "It's my dumb lil crow bois! <3 <3 <3",
-  "In Truth, everything created by the same Author has a common root.<br><br>Are you surprised, then, to discover that the Author of all of this repurposes from many sources? <br><br>The Quotidians were created for a letter writing RP, where the hook was 'what would the psychology BE of a species so unbalanced to use only one of the core mechanics', that mechanic, of course, being Spying. <br><br>The result? A neural net gone wrong, left to stagnate unto insanity. The Truth of them pleases me, as, at times, a real neural net (AI Dungeon) was used to play them rather than a flawed human brain.",
+  "In Truth, everything created by the same Author has a common root.<br><br>Are you surprised, then, to discover that the Author of all of this repurposes from many sources? <br><br>The Quotidians were created for a letter writing role play, where the hook was 'what would the psychology BE of a species so unbalanced to use only one of the core mechanics', that mechanic, of course, being Spying. <br><br>The result? A neural net gone wrong, left to stagnate unto insanity. The Truth of them pleases me, as, at times, a real neural net (AI Dungeon) was used to play them rather than a flawed human brain.",
   "I love those lil scrimblos so damn much. They really added a layer of 'what the fuck' to the Eastern Path.",
   "You can learn more about them here: http://knucklessux.com/PuzzleBox/Secrets/QuotidianQuoromQuickStartGuide.pdf But be warned, what applies to one layer might not wholly apply to another.  Zampanio has a way of twisting things.",
   "How terrifying must it be to be an Egg Quotidian?",
   "Due to recent events, our destination has changed. We are now heading to the nearest underground bunker. Please put on your oxygen masks, as it will be necessary to breathe through them. I repeat, masks should be put on for the entire duration of the trip."
 ))
+
+/*
+* flaming chickens logo
+* rest of the chat icons for the chars (shambling horror boi, intern, tyrfing, wanda 2, smile )
+*/
 
 /*all_concepts.push(new CoreConcept(
   "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/naga.png",

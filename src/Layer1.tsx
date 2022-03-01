@@ -20,15 +20,14 @@ const Layer1:React.FC<LayerParams> =({concept})=> {
     <Content>
       <div dangerouslySetInnerHTML={{__html:concept.truthThought}}/>
       <ul>
-        <li>occasional intercom messages from Jaimie</li>
+        <li>have shambling horror boi in places occasionally. don't worry about it</li>
         <li>you never know what bits of the past leak into the present</li>
-        <li>In Layer 2, Truth the character discusses the object as well on a philosophical level.</li>
         <li>In addition to corrupting the room, the Rot does a RotX cipher on it. For nearly no reason other than to make things harder on everyone. Code rot makes it harder and harder to debug wigglersim</li>
 
 Object Ideas:
 * flaming chicken
 *moon (maze madness and lunar colony)
-* silver cat
+* jaimie
 *HeartlessBot
 * the aspects/fears
 *the sources of various characters

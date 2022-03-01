@@ -40,12 +40,14 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     const src1 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/empty.PNG";
     const src2 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/emptyWithMirror.PNG";
     const src3 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/fuckedUpRoom2.gif";
-    if (rotLevel < 1 && src != src1) {
-      setSrc(src1)
-    } else if (rotLevel > 1 && rotLevel < 5000 && src != src2) {
-      setSrc(src2)
-    } else if (rotLevel > 5000 && src != src3) {
+    const src4 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/bloody.png";
+
+    if(rotLevel > 250 && src === src3){
+      setSrc(src4)
+    }else if(rotLevel > 100 && src ===src2){
       setSrc(src3)
+    }else if(rotLevel > 1 && src===src1){
+      setSrc(src2);
     }
   }, [rotLevel, src])
 
@@ -109,7 +111,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     if (jaimieTime) {
       const timer = setTimeout(() => {
         setJaimieTime(false);
-      }, 10000)
+      }, 25000)
 
       return () => {
         clearTimeout(timer);
