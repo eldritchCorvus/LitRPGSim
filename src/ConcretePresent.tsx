@@ -111,7 +111,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     if (jaimieTime) {
       const timer = setTimeout(() => {
         setJaimieTime(false);
-      }, 25000)
+      }, 20000)
 
       return () => {
         clearTimeout(timer);
