@@ -154,7 +154,18 @@ all_concepts.push(new CoreConcept(
   "There is a good chance that we will be making another announcement shortly. <br><br>For your own safety, we ask that you remain seated with your seatbelt on.<br><Br>Thank you."
 ))
 
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/HeartlessBot.png",
+  "HeartlessBot! They're a clone of BB that runs AdventureSim!",
+  "HeartlessBot is fairly straightforward. <br><br>A robot without feelings. Without pretenses. <br><br>He dutifully does exactly as he is told, with no surprises.<br><br>I do not know why you Observers continue to insist he is 'suffering'.",
+  "Seriously. Dart won't work for me locally. Node won't work on my remote server. Dart DOES work on the remote server.  So before you know it rather than figuring out some new and better server scheme ....I just...repurposed ButlerBot and cloned him.  Since I can't code locally it had to have as few changes as possible.  So. It's literally just Butlerbot with some core functionality ripped out and replaced with passthroughs and file i/o.",
+  "SO much HeartlessBot fanart is stored here: https://github.com/FarragoFiction/AdventureSimulator/tree/master/public  Essentially, I had to rip Feelings.dart out of a clone of ButlerBot I made. This isn't a joke. This isn't a fictional layer. This is literally what I had to do to make the AdventureSim Server.  Needless to say this got personified extremely quickly.  The Herald of Beef in particular got obsesed with the boi. ",
+  "Do I have a Feelings.dart?",
+  "We are currently passing through a bizarre wormhole, that has led us to a parallel universe where crows talk, and trains don't move, and everyone is happy.<br><Br>Please remain calm. I repeat, calm. We are currently in a wormhole, and must pass through to safety. <br><br>Thank you for cooperating. <br><br>You are now authorized to use any and all weapons on board."
+))
+
 /*
+*butler bot (and his radio station)
 * rest of the chat icons for the chars (shambling horror boi, tyrfing, wanda 2, smile )
 */
 
