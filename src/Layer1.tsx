@@ -20,12 +20,12 @@ const Layer1:React.FC<LayerParams> =({concept})=> {
     <Content>
       <div dangerouslySetInnerHTML={{__html:concept.truthThought}}/>
       <ul>
-        <li>have shambling horror boi in places occasionally. don't worry about it</li>
+        <li>add truth fic link (raw html page like losspass)</li>
+        <li>need to show the spiral behind it all</li>
         <li>you never know what bits of the past leak into the present</li>
         <li>In addition to corrupting the room, the Rot does a RotX cipher on it. For nearly no reason other than to make things harder on everyone. Code rot makes it harder and harder to debug wigglersim</li>
 
 Object Ideas:
-* flaming chicken
 *moon (maze madness and lunar colony)
 * jaimie
 *HeartlessBot

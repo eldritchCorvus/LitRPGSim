@@ -40,7 +40,7 @@ all_concepts.push(new CoreConcept(
   "Oh hey. It's Wanda! Ghoul made this!",
   "I wonder, then, if you understand your role in all of this. If you cannot truly play any of this.  If only JR can have Choice in this realm. You are a HorrorTerror, of course. You ooze into the cracks and alter that which was previously immutable. The Observers wait beyond the threshold of reality, from the point of view of that which is fictional.<br><br>Wanda? Well. What is there to say about her. Why should she be the only character in this face with a 'True Name?'. All are reflections of a Truth, but none are of themselves True.  Why feed your attention there. Why did your gaze move so swiftly from the North?  Will you stay here? With me? <br><br>Wanda leveraged my own Relevance and yet somehow my reward is to be backburnered? To be ignored? I think, Observer, that I could grow to hate you again. ",
   "I mean, its p obvious that Wanda is short for 'Wanderer', right?",
-  "Wanda's first appearance was this Zampanio/Magnus Archives cross over fic: https://archiveofourown.org/works/34647190",
+  "Wanda's first appearance was this Zampanio/Magnus Archives cross over fic: https://archiveofourown.org/works/34647190   (I actually wrote that one and just treated it as a rando, cuz that was back when I was trying to encourage people more? )  Plus...It actually was the first fanfiction I ever wrote, and I was nervous, I'll admit. I based the Magnus Archives opening off that dream avatar game? But once it got in it was more about emphasizing Wanda's obsession and how it helps nothing, and certainly not what they thought was WORTH of their obsession.  It IS still fan fiction though, more Magnus Archives than Zampanio. But I like that it gave me the concept of shortening the Wanderer's name to Wanda.  And from THERE I realized that if they have two names, why not three?  Why not have them be the Creator of the Quotidians, their odin?  Norse gods are ALWAYS changing gender anyways. Don't worry about it.",
   "Does the mirror reflect me truly? Or is it my opposite?",
   "We regret to inform you that Wanda has been taken ill, and she will be unable to attend the game show.<i>You hear laughter on the other end of the intercom.<i>"
 ))
@@ -144,9 +144,18 @@ all_concepts.push(new CoreConcept(
   "Due to an apparent malfunction of the train's software, no one may leave the train. If you are in immediate danger, feel free to pull the emergency brake. We apologize for this inconvenience. Thank you for riding with us.",
 ))
 
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/internquestions.png",
+  "It's the Intern! I created them to react to Wanda's bullshit!",
+  "If one's entire reason for existing is in relation to another person. Are you actually a real person?<br><Br>The Intern exists so that someone might react to Wodin's descent into obession. So that someone might mourn him as he is lost in my horridors.  And, ultimately, so someone can be shocked that Wodin is now Wanda, CEO of eyedol games and twenty years older.  <br><Br>Who is the Intern without Wodin?<br><br>I suppose it does not matter.",
+  "I am really proud of how good the Intern's chat client looks like to the East. ",
+  "I first came up with them here: https://archiveofourown.org/works/35075182 . One challenge for me was threading the needle between 'someone who would reign Wanda in' and 'someone who would convievably be wanda's best friend'. Moirails, kinda?",
+  "It's a very lonely thing, to lose your best friend...",
+  "There is a good chance that we will be making another announcement shortly. <br><br>For your own safety, we ask that you remain seated with your seatbelt on.<br><Br>Thank you."
+))
+
 /*
-* flaming chickens logo
-* rest of the chat icons for the chars (shambling horror boi, intern, tyrfing, wanda 2, smile )
+* rest of the chat icons for the chars (shambling horror boi, tyrfing, wanda 2, smile )
 */
 
 /*all_concepts.push(new CoreConcept(
