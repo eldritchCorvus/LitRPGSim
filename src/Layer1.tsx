@@ -20,6 +20,9 @@ const Layer1:React.FC<LayerParams> =({concept})=> {
     <Content>
       <div dangerouslySetInnerHTML={{__html:concept.truthThought}}/>
       <ul>
+        <li>shout out to weaver if you get more than 1000 cars</li>
+        <li>idlegame mode (jr walks south on their own)</li>
+        <li>loss pass intergration (all south)</li>
         <li>add truth fic link (raw html page like losspass)</li>
         <li>need to show the spiral behind it all</li>
         <li>you never know what bits of the past leak into the present</li>
@@ -38,7 +41,7 @@ Object Ideas:
 
       </ul>
       
-      <img src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png"/>
+      <img onClick={()=>{(window as any).toggleIdleGameMode()}} src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png" style={{cursor:"pointer"}} alt="This Is Not A Lie"/>
 
     </Content>
   );

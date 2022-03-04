@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { clearInterval } from "timers";
 import { feetEffect } from ".";
 import { CoreConcept } from "./CoreConcept";
 import { Item, ItemMap } from "./Truth";
@@ -71,6 +72,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
   const southRef = useRef(goSouth);
   //don't spam doors.
   const travelingRef = useRef(false);
+  const autoWalk = useRef(false);
 
   useEffect(() => {
     playerRef.current = playerLocation;
@@ -120,7 +122,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
 
       let prevLeft = playerRef.current.left;
 
-      if ((key === "s" || key === "ArrowDown")) {
+      if ((key === "S" || key === "ArrowDown")) {
         setSrc({ loc: down, flip: false });
         if (rotRef.current < 10 || Math.random()>0.9) {
           setMirrorSrc({ loc: up, flip: false });
@@ -128,7 +130,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
         if (prevTop < maxTop) {
           speedY = 10;
         }
-      } else if ((key === "w" || key === "ArrowUp")) {
+      } else if ((key === "W" || key === "ArrowUp")) {
         setSrc({ loc: up, flip: false });
         if (rotRef.current  < 10 || Math.random()>0.9) {
           setMirrorSrc({ loc: down, flip: false });
@@ -136,7 +138,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
         if (prevTop > minTop) {
           speedY = -10
         }
-      } else if ((key === "a" || key === "ArrowLeft")) {
+      } else if ((key === "A" || key === "ArrowLeft")) {
         if (prevLeft > minLeft) {
           speedX = -10;
         }
@@ -145,7 +147,7 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
           setMirrorSrc({ loc: left, flip: false });
         }
 
-      } else if ((key === "d" || key === "ArrowRight")) {
+      } else if ((key === "D" || key === "ArrowRight")) {
         if (prevLeft < maxLeft) {
           speedX = 10;
         }
@@ -251,8 +253,26 @@ const Author: React.FC<AuthorParams> = ({conceptRef, mirrorOffset, rotRef, mirro
 
 
 
+
+  useEffect(()=>{
+    console.log("JR NOTE: toggleIdleGameMode() will have JR walk south forever  (we can make the Weaver's time more simple) :) :) :)");
+      (window as any).toggleIdleGameMode = ()=>{
+        autoWalk.current = !autoWalk.current;
+        console.log("JR NOTE: autowalk is", autoWalk.current)
+      }
+      //time to shamble
+      const timer = setInterval(() => {
+        if(autoWalk.current){
+          processWalk("S");
+        }
+    }, 100)
+    return () => {
+      clearInterval(timer);
+  };  },[]);
+
+
   const handleUserKeyPress = ((event: KeyboardEvent) => {
-    processWalk(event.key);
+    processWalk(event.key.toUpperCase());
   });
 
   useEffect(() => {
