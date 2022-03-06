@@ -62,6 +62,7 @@ const Bench: React.FC<BenchParam> = ({ rotLevel, room, left, top }) => {
     top: ${top}px;
     filter: ${filter()};
     display: block;
+    pointer-events: none;
   `;
 
   const [roomStyle, setRoomStyle] = useState(baseline_css);

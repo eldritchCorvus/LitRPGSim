@@ -98,11 +98,24 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
 
   useEffect(() => {
     conceptRef.current = room.coreConcept;
+    if(index > 1000){
+      const ICsversionoftoday = `Dear Princess Celestia,
+
+      Good heavens, JR got scammed twice today- or at least in the last reported 24-hour-cycle, which still remains incredibly hard to define. The first time, they appeared to want to get rid of bamboo, for some reason-- there is no bamboo anywhere in the relative vicinity that I am aware of. As of now, there are zero bamboo-related rooms in the maze, and goodness forgive that they are in fact talking about removing the concept of bamboo out of the echidna for all of time. Either way, though, it led them to an early development website for bamboo clearing that was composed entirely of images containing links to other images. I am not entirely sure on how they managed to give them money in the first place.
+      
+      The second time was, presumably, because they wanted to make sure they were still alive. They heard a rumour that they had died from a cult (this does not even remotely narrow it down) and it APPEARS they needed to make sure. The vandal got away with around an incremental american dollar, which also means nothing, as coin is entirely a man-made construct, but according to JR, so are names, which is also something that was stolen in the exchange-- again, somehow. I am not going to ask. I have learned absolutely nothing from this encounter, and I doubt they have either. The eternal present continues to reign eternal.
+      
+      -IC`;
+      console.log(`%c${ICsversionoftoday}`, "font-weight: bold;font-family: 'Courier New', monospace;color:white; background: black; padding:10px; border-radius: 13px; font-size:13px;");
+    }
   }, [room])
 
   useEffect(() => {
     rotRef.current = rotLevel;
+
   }, [rotLevel])
+
+
 
 
   //if its jaimie time, you have 5 seconds to read it

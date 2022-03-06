@@ -20,8 +20,10 @@ const Layer1:React.FC<LayerParams> =({concept})=> {
     <Content>
       <div dangerouslySetInnerHTML={{__html:concept.truthThought}}/>
       <ul>
+        <li>button to disable the shaking to make it easier to read</li>
+        <li>holy fuck blast from the past: http://demo.vhost.pandorabots.com/pandora/talk?botid=b24e32038e35520c</li>
+        <li>tricks people into watching yugioh rps.  literally.  fake contractor website (it is not a website) based on my Enemy that changes based on what you're searching for and is entirely fake, just trying to get you to fill out a form saying you're ready to enter Zampanio, shubbery repair</li>
         <li>shout out to weaver if you get more than 1000 cars</li>
-        <li>idlegame mode (jr walks south on their own)</li>
         <li>loss pass intergration (all south)</li>
         <li>add truth fic link (raw html page like losspass)</li>
         <li>need to show the spiral behind it all</li>
@@ -38,6 +40,7 @@ Object Ideas:
 *the nature of the maze that is the code base
 * pigeons
 *the 9 artifacts
+* the rot itself (the past is corrupting faster and faste rand all you can do is hope to outrun it)
 
       </ul>
       
