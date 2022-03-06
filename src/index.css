@@ -83,10 +83,6 @@ iframe {
   animation: shake 0.5s linear infinite;
 }
 
-#present{
-  animation: shake 0.5s linear infinite;
-}
-
 body {
   margin: 0;
   font-family: 'nunito', sans-serif;

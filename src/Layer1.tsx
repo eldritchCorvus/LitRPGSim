@@ -22,8 +22,7 @@ const Layer1:React.FC<LayerParams> =({concept})=> {
       <ul>
         <li>button to disable the shaking to make it easier to read</li>
         <li>holy fuck blast from the past: http://demo.vhost.pandorabots.com/pandora/talk?botid=b24e32038e35520c</li>
-        <li>tricks people into watching yugioh rps.  literally.  fake contractor website (it is not a website) based on my Enemy that changes based on what you're searching for and is entirely fake, just trying to get you to fill out a form saying you're ready to enter Zampanio, shubbery repair</li>
-        <li>shout out to weaver if you get more than 1000 cars</li>
+        <li>tricks people into watching yugioh rps. literally. also steals their name, ofc.  fake contractor website (or people searches) (it is not a website) based on my Enemy that changes based on what you're searching for and is entirely fake, just trying to get you to fill out a form saying you're ready to enter Zampanio, shubbery repair</li>
         <li>loss pass intergration (all south)</li>
         <li>add truth fic link (raw html page like losspass)</li>
         <li>need to show the spiral behind it all</li>
@@ -44,7 +43,10 @@ Object Ideas:
 
       </ul>
       
-      <img onClick={()=>{(window as any).toggleIdleGameMode()}} src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png" style={{cursor:"pointer"}} alt="This Is Not A Lie"/>
+      <img width="50" onClick={()=>{(window as any).toggleIdleGameMode()}} src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png" style={{cursor:"pointer"}} alt="This Is Not A Lie"/>
+      <br></br>
+      <br></br>
+      <img width="50" onClick={()=>{(window as any).toggleShake()}} src="http://farragofiction.com/ZampanioGoshShouldYouTrustThis/this_file_is_red.png" style={{cursor:"pointer"}} alt="This Is Not A Lie"/>
 
     </Content>
   );

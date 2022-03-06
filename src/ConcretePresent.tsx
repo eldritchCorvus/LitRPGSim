@@ -87,6 +87,9 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   const offset = 200;
   const [mirrorPlayerLocation, setMirrorPlayerLocation] = useState({ left: 215, top: 150 - offset });
   const [jaimieTime, setJaimieTime] = useState(false);
+  const [shake, setShake] = useState(true);
+  const shakeRef = useRef(true);
+
   const [mirrorSrc, setMirrorSrc] = useState({ loc: "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip: false });
   const mirrorRef = useRef(mirrorPlayerLocation);
   const conceptRef = useRef(room.coreConcept);
@@ -98,7 +101,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
 
   useEffect(() => {
     conceptRef.current = room.coreConcept;
-    if(index > 1000){
+    if(index === 1000){
       const ICsversionoftoday = `Dear Princess Celestia,
 
       Good heavens, JR got scammed twice today- or at least in the last reported 24-hour-cycle, which still remains incredibly hard to define. The first time, they appeared to want to get rid of bamboo, for some reason-- there is no bamboo anywhere in the relative vicinity that I am aware of. As of now, there are zero bamboo-related rooms in the maze, and goodness forgive that they are in fact talking about removing the concept of bamboo out of the echidna for all of time. Either way, though, it led them to an early development website for bamboo clearing that was composed entirely of images containing links to other images. I am not entirely sure on how they managed to give them money in the first place.
@@ -114,6 +117,15 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
     rotRef.current = rotLevel;
 
   }, [rotLevel])
+
+  useEffect(()=>{
+    console.log("JR NOTE: if the shaking is bothering you: toggleShake()");
+    (window as any).toggleShake = ()=>{
+      console.log("JR NOTE: shake is", shakeRef.current)
+      shakeRef.current = !shakeRef.current;
+      setShake(shakeRef.current);
+    }
+  },[])
 
 
 
@@ -146,7 +158,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   return (
     <div>
 
-      <div style={{ overflow: "hidden", marginBottom: "50px", marginTop: "50px", "position": "relative", "display": "block", "width": "546px", marginLeft: "auto", marginRight: "auto" }} id="present">
+      <div style={{ overflow: "hidden", marginBottom: "50px", marginTop: "50px", "position": "relative", "display": "block", "width": "546px", marginLeft: "auto", marginRight: "auto", animation: shake? `shake 0.5s linear infinite`:`` }} id="present">
         <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "15px" }}>Car {`${index + 1}`}</div>
         {rotLevel > 0 ? <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>Rot Level {`${rotLevel}`}</div> : null}
         <img style={{ filter: filter(), zIndex: -2, position: "absolute", top: "-20px", left: "0px", width: "546px" }} src="http://farragofiction.com/ZampanioHotlink/mirrorfloor.PNG" />
