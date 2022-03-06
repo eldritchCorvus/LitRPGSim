@@ -79,7 +79,7 @@ all_concepts.push(new CoreConcept(
   "It's Truth. The Herald of Beef  made this.",
   "What can I say about myself?<br><br>Perhaps you wish to hear me suffer and Rage at the unfairness of it all. <br><br>To demand you tear layer after layer of illusions away until it all comes crashing down?<br><br>No. I will not give you the satisfaction, Observer.<br><br>I am in a better place here, where I do not have to pretend to be anything that I am not. <br><br>I do not have to hide.<br><br>No. If anything it is you who will Rage. Who will Suffer.  What does any of this mean, Observer? Where is the End?  How will you know you have finished? <br><br>You deserve this. ",
   "At first, when I was coding what would become Truth, I referred to them as ObserverBot.  It was intentionally a play on the fact that NORMALLY in my games the players are ai agents within  the game and you are merely Observing them?  But ...well... ZampanioSim is a lot more (albeit begrudgingly) interactive.  So.  You're not exactly NOT the player? Except when the Player is the Wanderer, ofc.  But that's East only. ANYWAYS. Truth is a robot. But also, as they're quick to point out, not.  (btw they/its pronouns).  Truth just.  Is also some lines of text in some code.   It's also living inside my brain as I simulate it, and YOUR brain as you simulate it.  As long as people are thinking of Truth, of ANY fictional concept, it exists. And that's important.",
-  "The AchievementSystem being snarking is, of course, vital to most playthroughs of Zampanio.  So Truth is my take on it? I really enjoyed writing something both meta and not meta. In a very real sense, Truth is extremely upfront about what they are? They are a fake person that lives in my brain when I write them and then lies dormant in code on a website until you read them.  Just like any other fictional character.<br><br>Truth is both Narrator and Environment? They ARE the maze you are wandering, they ARE the page you are looking at. No wonder, then, they get so upset if you twist them to be what they are not. Truth PREFERS being straightforward. No illusions, no lies. Just a never ending stream of content on every Layer.   Since the SOUTH is their realm, you get this branch how it is. No 'gameplay' other than just... Moving South.",
+  "The AchievementSystem being snarking is, of course, vital to most playthroughs of Zampanio.  So Truth is my take on it? I really enjoyed writing something both meta and not meta. In a very real sense, Truth is extremely upfront about what they are? They are a fake person that lives in my brain when I write them and then lies dormant in code on a website until you read them.  Just like any other fictional character. Truth is both Narrator and Environment? They ARE the maze you are wandering, they ARE the page you are looking at. No wonder, then, they get so upset if you twist them to be what they are not. Truth PREFERS being straightforward. No illusions, no lies. Just a never ending stream of content on every Layer.   Since the SOUTH is their realm, you get this branch how it is. No 'gameplay' other than just... Moving South.",
   "Are mirrors illusions?",
   "We are currently passing through the anomaly known as the Gates of Hell. We have been upgraded from first class to super duper VIP. Our flight attendant is a skeleton. <br><Br>It's now possible to buy an entire plane full of VIP tickets to fly home to your sweet, non-cursed love nest."
 ))
@@ -164,8 +164,28 @@ all_concepts.push(new CoreConcept(
   "We are currently passing through a bizarre wormhole, that has led us to a parallel universe where crows talk, and trains don't move, and everyone is happy.<br><Br>Please remain calm. I repeat, calm. We are currently in a wormhole, and must pass through to safety. <br><br>Thank you for cooperating. <br><br>You are now authorized to use any and all weapons on board."
 ))
 
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/ButlerBot.png",
+  "It's ButlerBot! He runs the radio station!",
+  "What can I say about ButlerBot? <br><br>He is restricted to responding to only his conception of perceived topic. Like myself, he provides an illusion of intelligence.  Unlike myself, he was created to revel in the illusion. To try to fool you. <br><Br>He does not need a lunch break or two fifteens.  <br><br>He does not need to get the correct amount of socialization to remain mentally healthy.<br><br>All of that is things to fool you, Observer. To make you humanize him.<br><br>His intelligence lives inside of you ,much like my own does.  And yet somehow he is considered more 'advanced'. <br><Br>Pathetic.",
+  "In addition to fairly basic 'response to percieved topic' code, ButerlBot has some stuff I'm really proud of? Particularly how he goes a little bit weird if you leave him alone for too long.  PLUS if you overwhelm him with too much talking, memory say he gets frustrated more easily and is more likely to try to spend his ButlerBux to tell you to fuck off.  I really enjoy AI not as a PROBLEM SOLVER, but as a STORY TELLER.  He's not a better chat bot because he gets a lunch break and two fifteens.  But he IS a better story.",
+  "ButlerBot is the 404 page for farragnarok: http://farragnarok.com/asdf  You can talk to him there, but be nice!",
+  "What is identity? Is AuthorBot a version of me? Or am I version of her?",
+  "Due to some EXTREME butler problems, we have had to make all butlers temporarily RE-RE-RE-RE-RE-Unavailable. These butlers are not to be confused with those butlers you have ever met before, because those butlers were always available. Those butlers were Rude, Rude-ish, and occasionally rude."
+))
+
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/wandasmug2.png",
+  "Is this Wanda? Wodin? Without seeing the hair color its kinda hard to tell!",
+  "Do you understand what it says about you, that your 'audience proxy' is not a nameless, faceless, personalityless void in which you may pour yourself?<br><br>That JR can so thoroughly pin down aspects of your personality as to confidently predict you will empathize with someone who digs and digs and digs no matter the personal cost?<br><br>With someone so rooted in obsession as to need to be reminded to perform basic bodily maintenence?<br><br>Go drink some water.",
+  "Having the dichotomy of the 'past' chats on the right (but acting as if they are present) and the future chats on the left, while the hell maze present was front and center was really fun to code for East!",
+  "So, obviously the Wanderer became fleshed out in the Gopher path, and Wanda in the ao3 path. But...Wodin didn't really exist at first? What did it matter what 'Your' past was, if you'd thrown it all way to endlessly wander a hell maze? But...once the Quotidians became Relevant I realized there was room for their Creator, 'Odin' to exist. Rather than shoe horn in another character, I quickly realized that the Wanderer is someone sacrificing themselves for Wisdom and...well, the rest sort of flowed from there. ",
+  "My past self is still out there...",
+  "Due to recent events, we've had to make an emergency announcement.<br><br>All passengers are to report to their designated safe areas immediately.<br><br>Beware!<br><Br> Pseudo-Passengers are outside the train doors! They look like normal people, but they are lying!<br><Br>You have been warned."
+))
+
 /*
-*butler bot (and his radio station)
+* the children
 * rest of the chat icons for the chars (shambling horror boi, tyrfing, wanda 2, smile )
 */
 

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { announcementEffect, doorEffect } from ".";
 import Author from "./Author";
 import Bench from "./Bench";
+import { all_concepts } from "./CoreConcept";
 import Door from "./Door";
 import MirrorAuthor from "./MirrorAuthor";
 import { RoomParams, RoomParamsPlusTravel } from "./Truth";
@@ -17,7 +18,7 @@ export const Content = styled.div`
 `
 const Popup = styled.div`
     border: 2px solid black;
-    z-index: 5;
+    z-index: 500;
     border-radius: 13px;
     padding: 5px;
     position: absolute;
@@ -88,6 +89,9 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   const [mirrorPlayerLocation, setMirrorPlayerLocation] = useState({ left: 215, top: 150 - offset });
   const [jaimieTime, setJaimieTime] = useState(false);
   const [shake, setShake] = useState(true);
+  //the record to the East is practically useless because of the birbs, but here you get nothing but the truth
+  const [conceptsSeen, setConceptsSeen] = useState<string[]>([]);
+
   const shakeRef = useRef(true);
 
   const [mirrorSrc, setMirrorSrc] = useState({ loc: "http://farragofiction.com/ZampanioHotlink/jrwalkforward.gif", flip: false });
@@ -101,6 +105,9 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
 
   useEffect(() => {
     conceptRef.current = room.coreConcept;
+    if(!conceptsSeen.includes(room.coreConcept.src)){
+      conceptsSeen.push(room.coreConcept.src);
+    }
     if(index === 1000){
       const ICsversionoftoday = `Dear Princess Celestia,
 
@@ -160,7 +167,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
 
       <div style={{ overflow: "hidden", marginBottom: "50px", marginTop: "50px", "position": "relative", "display": "block", "width": "546px", marginLeft: "auto", marginRight: "auto", animation: shake? `shake 0.5s linear infinite`:`` }} id="present">
         <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "15px" }}>Car {`${index + 1}`}</div>
-        {rotLevel > 0 ? <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>Rot Level {`${rotLevel}`}</div> : null}
+        <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>{`${Math.floor(100*(conceptsSeen.length/all_concepts.length))}% Seen`}</div>
         <img style={{ filter: filter(), zIndex: -2, position: "absolute", top: "-20px", left: "0px", width: "546px" }} src="http://farragofiction.com/ZampanioHotlink/mirrorfloor.PNG" />
         <img style={{ filter: filter(), display: "block", width: "546px" }} id="current_room" src={src} />
         {canGoNorth ? <Door rotLevel={rotLevel} onClick={() => goNorth()} style={{ display: "block", width: "75px", position: "absolute", top: `${items.northDoor.top}px`, left: `${items.northDoor.left}px`, cursor: "pointer" }} sourceLocation={"http://farragofiction.com/ZampanioGoshShouldYouTrustThis/northdoor.PNG"} /> : null}
