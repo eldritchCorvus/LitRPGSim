@@ -67,8 +67,8 @@ all_concepts.push(new CoreConcept(
 all_concepts.push(new CoreConcept(
   "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/altpeek.png",
   "???",
-  "She never left me. Even after everyone else did and I was alone. <br><br>Can I then begrudge her the single time she did leave?<br><br>Can I. <br><br>She's still here.<br><br>Of course she is.<br><br>But that doesn't mean that she isn't there, too.<br><br>Perhaps its for the best. <br><br>The candy is not suited for my horridors.<br><br>But.  <br><br>Can I make her want to stay?<br><br>What would make her happy?",
-  "Fun fact: I've yet to code anything specific for Alt yet. Though she DID guest star in one of the vent audio logs ;) ;) ;) Actually, I WILL take that back. Alt shows up in a lot more places than you would expect. It's in her nature, after all. Though obviously only after she gets into the Trickster Candy. Otherwise she'd refuse to leave her precious Maze.",
+  "She never left me. Even after everyone else did and I was alone. <br><br>Can I then begrudge her the single time she did leave?<br><br>Can I. <br><br>She's still here.<br><br>Of course she is.<br><br>But that doesn't mean that she isn't there, too.<br><br>Perhaps its for the best. <br><br>The candy is not suited for my horridors.<br><br>But.  <br><br>Can I make her want to stay?<br><br>What would make her happy?<br><br>Perhaps <a href = 'http://farragofiction.com/TheTruthAboutAlt/'>this fic written by IC and JR</a>?",
+  "Fun fact: I've yet to code anything specific for Alt yet. (Wait, update: I coded TheTruthAbout Alt and it was a blast making a lil ficlet pure javascript toy. I might make more) Though she DID guest star in one of the vent audio logs ;) ;) ;) Actually, I WILL take that back. Alt shows up in a lot more places than you would expect. It's in her nature, after all. Though obviously only after she gets into the Trickster Candy. Otherwise she'd refuse to leave her precious Maze.",
   "You may recognize her from a certain maze. Also, when I was voicing her I legitimately got fooled the same way the people in canon do. I got the script and went 'Huh. The Closer is REALLY out of character today?' and just kind of came up with justifcations for why that is (maybe she's just trying to plow through with the feelings talk?).  I gave the takes to IC and he's all '???' and thats how I discovered I was fooled. So I redid them KNOWING I wasnt really the Closer and it went a lot better. It was honestly v aesthetic.",
   "Would I know? If I were a clone?",
   "Due to 'an incident' a drunk, and, to be quite honest, a rather inebriated Jaimie Rook, some of the train cars will be detached from the rest of the train. This is a temporary measure and all train personnel will be briefed as to what exactly is going on. There will be a meeting place for all passengers in the baggage area."
@@ -184,9 +184,25 @@ all_concepts.push(new CoreConcept(
   "Due to recent events, we've had to make an emergency announcement.<br><br>All passengers are to report to their designated safe areas immediately.<br><br>Beware!<br><Br> Pseudo-Passengers are outside the train doors! They look like normal people, but they are lying!<br><Br>You have been warned."
 ))
 
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/hostage.PNG",
+  "Is that...the hostage from AdventureSimWest Intermission2?",
+  "The plain and raw Truth of the matter is that all of us are background characters in someone else's story. <br><br>Is that, then, a cause for despair?  <br><br>I think not.<br><Br>Equally are we all of us protagonists.<br><br>Your Relevance is given wholly by you and the people you care for.<br><Br>And that is all there is to say on the matter.",
+  "Coding ATranscript was really fun! I really like brushing off my raw javascript powers.",
+  "http://farragofiction.com/ATranscript/ is a very mysterious fic IC wrote :) :) :)  But yeah, the entire Intermission IC and I sort of high level pre-rped out. I was the DM so I was hostage and himbo and etc and IC was the Eye Killer. Shenanigans ensued.  We accidentally adopted the npcs.  It happens.",
+  "How would I know if I were an ascended NPC?",
+  "Due to a personal matter I have to attend to, I will unfortunately have to ask that you put up with me being gone for a short time."
+))
+
 /*
+* bloody benches and doors for rot effects
+* jaimie
+*friendly_little_trash_creature (credit herald)
 * the children
-* rest of the chat icons for the chars (shambling horror boi, tyrfing, wanda 2, smile )
+* the two magainzes (links to each so you can see bigger, credit source)
+* lil naga dating sim tie in
+* himbo 
+* rest of the chat icons for the chars (shambling horror boi, tyrfing, smile )
 */
 
 /*all_concepts.push(new CoreConcept(
