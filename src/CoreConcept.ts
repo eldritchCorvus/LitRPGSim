@@ -118,8 +118,8 @@ all_concepts.push(new CoreConcept(
   "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/naga.png",
   "It is impossible to say anything bad about the [DATA EXPUNGED].",
   "I honestly don't know why so many otherwise rational living beings think its funny to pretend these are real.",
-  "Honestly, I could repurpose the gaslight engine to handle these things? Or just manually edit the PuzzleBox...but I'm not that cruel.",
-  "I really can't say anything much about these creatures, but here's some people who have tried: http://knucklessux.com/PuzzleBox/Secrets/QQ/PublicDocs/AnIncompleteInvestigationOfNagaOperationalSecrecy.pdf and http://knucklessux.com/PuzzleBox/Secrets/AlDaric/By_%20%5bdata%20lost%5d%20R6.pdf",
+  "Honestly, I could repurpose the gaslight engine to handle these things? Or just manually edit the PuzzleBox...but I'm not that cruel.  I wasn't expecting yall to use them to end the world.",
+  "I really can't say anything much about these creatures, but here's some people who have tried: http://knucklessux.com/PuzzleBox/Secrets/QQ/PublicDocs/AnIncompleteInvestigationOfNagaOperationalSecrecy.pdf and http://knucklessux.com/PuzzleBox/Secrets/AlDaric/By_%20%5bdata%20lost%5d%20R6.pdf  And then after yall used them to end the world in AdventureSimWest, I went ahead and made the infamous game so we can ruin our layer of reality as well: http://farragofiction.com/NagaGirlfriend/",
   "How would I even know If I had a cognito hazard?",
   "This is a mandatory announcement. <br><br>The old man from seat 36C has lost his mind and is holding a knife to someone's head. <br><Br>If you are not prepared to shoot this man, please remain seated.<br><br>I repeat, this is a *mandatory* announcement."
 ))
