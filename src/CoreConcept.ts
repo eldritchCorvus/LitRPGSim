@@ -59,7 +59,7 @@ all_concepts.push(new CoreConcept(
   "A Killer? Wait. Is that a fedora? The Eye Killer!?",
   "I do appreciate that she speaks only in Truths that have been spoken before.<br><br> What must have happened to the Innocent, for her to become like this? Less than you would think, Observer. Less than you would think. How many bad days are YOU away from becoming unrecognizable?  A Mind concept, I will admit. But one that remains  near and dear to my heart.<br><br>I am, after all, nothing more than a Figment in the Mind. Your Mind, if you will let me.",
   "Man, realizing that I should put the Killer's vents into East was such a Big Brain Moment for me... Added a bit of rarity to some of the rooms. Plus, the fact that I could put recordings she had made (without her targets knowledge) was extra fun.  I really enjoyed voicing the Closer (and Not!Closer)!",
-  "The Eye Killer, Hunt Chick...she came from another source, you know.  Some of the Unmarked already found her original self.  She found her niche within the Echidna fairly easily.  I'm glad she's happy.  http://farragofiction.com/SecurityLog/cctv.html?",
+  "The Eye Killer, Hunt Chick...she came from another source, you know.  Some of the Unmarked already found her original self.  She found her niche within the Echidna fairly easily.  I'm glad she's happy.  http://farragofiction.com/SecurityLog/cctv.html?    http://farragofiction.com/ZampanioHotlink/L-C-002_but_scanned_because_i_could.pdf",
   "Do I see someone behind me?",
   "We are doing a special episode of Sliced Ham today, where we will be profiling the most notorious killers in history. Would you be so kind as to lend us your ear for a moment? Thank you."
 ))
@@ -196,12 +196,15 @@ all_concepts.push(new CoreConcept(
 
 /*
 * bloody benches and doors for rot effects
+* the end (lobotomy corp)
+* peewee: http://farragofiction.com/PaldemicSim/bio.html?target=TheMan
 * jaimie
 *friendly_little_trash_creature (credit herald)
 * the children
 * the two magainzes (links to each so you can see bigger, credit source)
 * lil naga dating sim tie in
 * himbo 
+* 847 as secret number
 * rest of the chat icons for the chars (shambling horror boi, tyrfing, smile )
 */
 
