@@ -4,6 +4,7 @@ import { css, jsx } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { Room } from "./Truth";
 import { getRandomNumberBetween, pickFrom } from "./Utils/NonSeededRandUtils";
+import SeededRandom from "./Utils/SeededRandom";
 
 export type BenchParam = {
   room: Room;
@@ -40,7 +41,23 @@ export const rotEffects = (rot: number, baseline: string) => {
 
 const Bench: React.FC<BenchParam> = ({ rotLevel, room, left, top }) => {
   const [src, setSrc] = useState("http://farragofiction.com/ZampanioGoshShouldYouTrustThis/bench.png");
+  useEffect(()=>{
+    const normal = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/bench.png";
+    const bloody1 = "http://farragofiction.com/ZampanioHotlink/benchbloody1.png";
+    const bloody2 = "http://farragofiction.com/ZampanioHotlink/benchbloody2.png";
+    const staticbench = "http://farragofiction.com/ZampanioHotlink/benchstatic.gif";
+    const rand = new SeededRandom(Math.round(room.tint*100)+left+top);
 
+    if(rotLevel>100 && src !== staticbench && rand.nextDouble()>0.8 ){
+      setSrc(staticbench);
+    }else if(rotLevel > 10 && src != bloody1 && rand.nextDouble()>0.8){
+      setSrc(bloody1)
+    }else if(rotLevel > 10 && src != bloody2 && rand.nextDouble()>0.8){
+      setSrc(bloody2)
+    }else if(rotLevel < 500000 && src != normal){
+      setSrc(normal)
+    }
+  },[rotLevel]);
   const shadowEffect = ()=>{
     //drop-shadow(5px 5px 5px #000)
     if(rotLevel >1000 && Math.random()>0.5){

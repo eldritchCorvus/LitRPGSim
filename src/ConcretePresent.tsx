@@ -37,20 +37,25 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   //fuck up the present as the rot sets in
   const [src, setSrc] = useState("http://farragofiction.com/ZampanioGoshShouldYouTrustThis/empty.PNG");
 
-  useEffect(() => {
-    const src1 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/empty.PNG";
-    const src2 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/emptyWithMirror.PNG";
-    const src3 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/fuckedUpRoom2.gif";
-    const src4 = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/bloody.png";
 
-    if(rotLevel > 250 && src === src3){
-      setSrc(src4)
-    }else if(rotLevel > 100 && src ===src2){
-      setSrc(src3)
-    }else if(rotLevel > 1 && src===src1){
-      setSrc(src2);
+  useEffect(() => {
+    const normal = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/empty.PNG";
+    const emptyWithMirror = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/emptyWithMirror.PNG";
+    const twitchingMirror = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/fuckedUpRoom2.gif";
+    const bloody = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/bloody.png";
+    const staticRoom = "http://farragofiction.com/ZampanioHotlink/static.gif";
+    const rand = new SeededRandom(index);
+
+    if(rotLevel > 1000 && src === bloody){
+      setSrc(staticRoom)
+    }else if(rotLevel > 100 && src === twitchingMirror){
+      setSrc(bloody)
+    }else if(rotLevel > 10 && src === emptyWithMirror){
+      setSrc(twitchingMirror)
+    }else if(rotLevel > 1 && src === normal){
+      setSrc(emptyWithMirror);
     }
-  }, [rotLevel, src])
+  }, [rotLevel, src,index])
 
   useEffect(() => {
     const body = document.querySelector("body");
@@ -167,7 +172,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
 
       <div style={{ overflow: "hidden", marginBottom: "50px", marginTop: "50px", "position": "relative", "display": "block", "width": "546px", marginLeft: "auto", marginRight: "auto", animation: shake? `shake 0.5s linear infinite`:`` }} id="present">
         <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "15px" }}>Car {`${index + 1}`}</div>
-        <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>{`${Math.floor(100*(conceptsSeen.length/all_concepts.length))}% Seen`}</div>
+        <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>{`Rot: ${rotLevel} ${Math.floor(100*(conceptsSeen.length/all_concepts.length))}% Seen`}</div>
         <img style={{ filter: filter(), zIndex: -2, position: "absolute", top: "-20px", left: "0px", width: "546px" }} src="http://farragofiction.com/ZampanioHotlink/mirrorfloor.PNG" />
         <img style={{ filter: filter(), display: "block", width: "546px" }} id="current_room" src={src} />
         {canGoNorth ? <Door rotLevel={rotLevel} onClick={() => goNorth()} style={{ display: "block", width: "75px", position: "absolute", top: `${items.northDoor.top}px`, left: `${items.northDoor.left}px`, cursor: "pointer" }} sourceLocation={"http://farragofiction.com/ZampanioGoshShouldYouTrustThis/northdoor.PNG"} /> : null}

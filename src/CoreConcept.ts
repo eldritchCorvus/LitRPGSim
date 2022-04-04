@@ -197,6 +197,7 @@ all_concepts.push(new CoreConcept(
 /*
 * bloody benches and doors for rot effects
 * the end (lobotomy corp)
+* lobster sim for the catalyst as a reward (weird broken waste effects if you engage with lobsters) (assets in hotlinking)
 * peewee: http://farragofiction.com/PaldemicSim/bio.html?target=TheMan
 * jaimie
 *friendly_little_trash_creature (credit herald)
@@ -204,6 +205,7 @@ all_concepts.push(new CoreConcept(
 * the two magainzes (links to each so you can see bigger, credit source)
 * lil naga dating sim tie in
 * himbo 
+* update shipping fic
 * 847 as secret number
 * rest of the chat icons for the chars (shambling horror boi, tyrfing, smile )
 */
