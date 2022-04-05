@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { announcementEffect, doorEffect } from ".";
 import Author from "./Author";
 import Bench from "./Bench";
+import CentralImage from "./CentralImage";
 import { all_concepts } from "./CoreConcept";
 import Door from "./Door";
 import MirrorAuthor from "./MirrorAuthor";
@@ -167,6 +168,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
   }, [jaimieTime])
 
 
+
   return (
     <div>
 
@@ -185,7 +187,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
           }
           return null;
         })}
-        <img style={{ width: "50px", position: "absolute", "left": "245px", top: "360px" }} src={room.coreConcept.src} />
+        <CentralImage source={room.coreConcept.src}/>
         <Author conceptRef={conceptRef} mirrorOffset={offset} rotRef={rotRef} mirrorLocationRef={mirrorRef} items={items} goNorth={canGoNorth ? goNorth : null} goSouth={goSouth} setMirrorPlayerLocation={setMirrorPlayerLocation} setMirrorSrc={setMirrorSrc} />
         <MirrorAuthor rotRef={rotRef} items={items} src={mirrorSrc} playerLocation={mirrorPlayerLocation} />
         {jaimieTime ? <Popup dangerouslySetInnerHTML={{ __html: `<p><i>The intercome crackles to life: </i></p>${room.coreConcept.jaimieThought}` }}></Popup> : null}

@@ -194,16 +194,26 @@ all_concepts.push(new CoreConcept(
   "Due to a personal matter I have to attend to, I will unfortunately have to ask that you put up with me being gone for a short time."
 ))
 
+all_concepts.push(new CoreConcept(
+  "http://farragofiction.com/ZampanioHotlink/catalysts_lobsters/puzzledLobster.png",
+  "When did Lobsters become associated with particularly destructive Wastes?",
+  "The Truth of the matter is that JR enjoys working ideas in through collaboration.<br><br>All JR headcanons are canon because it is their preference to 'yes and' thsoe around them. <br><br>The result is a highly unstable reality filled with a never ending spiralling rabbit hole of content.<br><br>Take care, Observer, that you do not lose yourself in it.",
+  "I had ideas for Lobster mode, things they could do to exemplify the Waste Arc, (like if you click on them random destructive functions get called), but in the end, what I wanted was to highlight their instability. And also maybe i'll still do that at some point but this is the spoons i got rn.",
+  "The Catalyst is both the one who inspired the 'no shake mode' and made all the amazing lobster sonas.  PLUS they wrecked their wigglersim save more than any i'd ever seen before, it was honestly a work of art.",
+  "Am I finished in my Waste Arc?",
+  "Due to the recent incident on board with the lobster that turned everyone into a human prawn, we are going to have to follow a few rules. First of all, no one can enter or exit through any open doors or windows."
+  ))
+
+
 /*
-* bloody benches and doors for rot effects
+* there actually is room with jaimie in it. its different than the others and you can talk to him (he responds with prebaked ai dungeon quotes)
+*http://www.purplefrog.com/~thoth/art/uzumaki/uvsquare.html
 * the end (lobotomy corp)
-* lobster sim for the catalyst as a reward (weird broken waste effects if you engage with lobsters) (assets in hotlinking)
 * peewee: http://farragofiction.com/PaldemicSim/bio.html?target=TheMan
 * jaimie
 *friendly_little_trash_creature (credit herald)
 * the children
 * the two magainzes (links to each so you can see bigger, credit source)
-* lil naga dating sim tie in
 * himbo 
 * update shipping fic
 * 847 as secret number
@@ -217,5 +227,5 @@ all_concepts.push(new CoreConcept(
   "code",
   "console",
   "mirror",
-  ""
+  "jaimie"
 ))*/
