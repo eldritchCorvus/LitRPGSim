@@ -43,7 +43,7 @@ export const CrowSim = () => {
 
 
         return (
-            <StyledImage src = {caw_caw}/>
+            <StyledImage alt="Before only God and I knew why this was here. Now only God knows." src = {caw_caw}/>
         )
 
 
