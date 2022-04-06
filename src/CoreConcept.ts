@@ -139,7 +139,7 @@ all_concepts.push(new CoreConcept(
   "Oh hey, it's my old websites logo!",
   "The death of identities that no longer serve a purpose is a tragedy, it's true.<br><br>What can one say in the face of witnesing the hollowed out husk of one's own past? In seeing the mindless, shambling, horror of one's own past actions repeated ad infinitum with no ability to change?<br><br>Is cringe, then, simply the recognition of the horror that is the prison of the past? 'That is not me!' you cry out with your very being. 'I do not recognize them!'<br><Br>But, Observer. Why do they wear your face?",
   "Going back to look at past me's javascript is so surreal. I had NO idea what I was doing and was just copying others. But. It was enough to get me started? I had SO much fun and was so obsessed...  I'm really glad I had that.",
-  "Before Farrago (and the bit of purplefrog DM lent me), the last web thing I'd done had been my shitty angelfire site.  I SAY shitty but...honestly? I still am proud of it. I learned how to code javascript by adapting quizes and virtual pets I found online for my own purposes. And I just kind of threw everything I found in a big pile on the site. I've REALLY changed since then? But at the same time. Well. Let me list out what past me's biggest goals were:  'I want to make/design video games or virtual pets or robots or AI in general. Sure, I suck at math. I'm a verbal person. But I'll do what it takes to have some say in the production process of the almighty videogame, etc.'. That might not be my day job (and in fact I have made a conscious decision to NEVER have my day job be creative like that), but it's definitely something I can safely say I've reached? In any case, yeah, turns out everyone thinks past me died? There's like, a not-quite-ARG about people trying to track me down from teh angelfire site, and finding other people doing the same thing and all concluding I died after some ominous Deviant Art post I made? When really my dumb ass just got locked out of hotmail and that locked me out of a buncha other accounts. Ah. Horseshoes. Oh right, here's some blatant nostalgia: http://farragofiction.com/SecurityLog/cctv.html?truth=yes",
+  "Before Farrago (and the bit of purplefrog DM lent me), the last web thing I'd done had been my shitty angelfire site.  I SAY shitty but...honestly? I still am proud of it. I learned how to code javascript by adapting quizes and virtual pets I found online for my own purposes. And I just kind of threw everything I found in a big pile on the site. I've REALLY changed since then? But at the same time. Well. Let me list out what past me's biggest goals were:  'I want to make/design video games or virtual pets or robots or AI in general. Sure, I suck at math. I'm a verbal person. But I'll do what it takes to have some say in the production process of the almighty videogame, etc.'. That might not be my day job (and in fact I have made a conscious decision to NEVER have my day job be creative like that), but it's definitely something I can safely say I've reached? In any case, yeah, turns out everyone thinks past me died? There's like, a not-quite-ARG about people trying to track me down from teh angelfire site, and finding other people doing the same thing and all concluding I died after some ominous Deviant Art post I made? When really my dumb ass just got locked out of hotmail and that locked me out of a buncha other accounts. Ah. Horseshoes. Oh right, here's some blatant nostalgia: http://farragofiction.com/SecurityLog/cctv.html?truth=yes   Oh ALSO: http://demo.vhost.pandorabots.com/pandora/talk?botid=b24e32038e35520c  A chat bot I'd made back then, captureing my teenage personality still exists, apparently.  My own Lil Hal, when you get right down to it.",
   "Would past me even RECOGNIZE current me?",
   "Due to an apparent malfunction of the train's software, no one may leave the train. If you are in immediate danger, feel free to pull the emergency brake. We apologize for this inconvenience. Thank you for riding with us.",
 ))
@@ -195,7 +195,7 @@ all_concepts.push(new CoreConcept(
 ))
 
 all_concepts.push(new CoreConcept(
-  "http://farragofiction.com/ZampanioHotlink/catalysts_lobsters/puzzledLobster.png",
+  "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/catalysts_lobsters/puzzledLobster.png",
   "When did Lobsters become associated with particularly destructive Wastes?",
   "The Truth of the matter is that JR enjoys working ideas in through collaboration.<br><br>All JR headcanons are canon because it is their preference to 'yes and' thsoe around them. <br><br>The result is a highly unstable reality filled with a never ending spiralling rabbit hole of content.<br><br>Take care, Observer, that you do not lose yourself in it.",
   "I had ideas for Lobster mode, things they could do to exemplify the Waste Arc, (like if you click on them random destructive functions get called), but in the end, what I wanted was to highlight their instability. And also maybe i'll still do that at some point but this is the spoons i got rn.",
@@ -204,20 +204,38 @@ all_concepts.push(new CoreConcept(
   "Due to the recent incident on board with the lobster that turned everyone into a human prawn, we are going to have to follow a few rules. First of all, no one can enter or exit through any open doors or windows."
   ))
 
+  all_concepts.push(new CoreConcept(
+    "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/cute-sleepy.gif",
+    "It's Jaimie's Ratsona! He's the best crow-rat-train of all time!",
+    "Jaimie is the Truest creation of JR.<br><br>In essence, he is merely Ai Dungeon, being told the plot and responding accordingly.<br><Br>JR prunes down his responses to those most Relevant to the situation at hand, it can be said.<br><Br>But ultimately Jaimie is a creation wholly outside of JR's mind, unlike the rest of us.<br><br>As such, I will be the first to admit that they...can be a bit erratic.<br><br>Reality is stranger than Fiction.",
+    "Jaimie is a quotidian crow who wants to be a rat (sadly the rat king refused to recognize him no matter HOW MUCH he stalked) and eventually decided to become a train. This train. You're riding him now. He's speaking to you in your mind. Or on the intercom. It's not clear.",
+    "Back when I was playing in the Letters rp (you may know it from the Puzzlebox), another Player had offended and scared my nation to the point we couldn't actually write letters to them. Quotidians broadly mimic whoever they are talking to, and trying to mimic belligerence was NOT going well for us.  So we joked that we should have an Intern answer, and one thing lead to another and before you know it I have Jaimie the Intern (who eventually chose the last name Rook just to confuse everyone) being written by AI Dungeon and just causing an honestly glorious mess.  Since Quotidians are biological neural networks, not sapient or even conscious, per se, but absoultely able to have basic, if empty headed conversations...Well, it was a match made in heaven. Or at least Bellor.  Eventually the Quotidians found there way into Zampanio, in a slightly new form, its true, but still blindly trying to gather data to report to Not!Odin.  Even Odin being who created them was something that built up over time in the RP, they originally were me just trying to figure out what actual narrative reason there could be for a terribly min/maxed species that could only do one thing: spy.",
+    "Would I even know if I were conscious inside?",
+    "I am a great rat train, and I am proud to serve this great company.<br><br>I'm a great rat train.<br><br>That is all."
+  ))
+
 
 /*
 * there actually is room with jaimie in it. its different than the others and you can talk to him (he responds with prebaked ai dungeon quotes)
 *http://www.purplefrog.com/~thoth/art/uzumaki/uvsquare.html
-* the end (lobotomy corp)
+* rest of the chat icons for the chars (shambling horror boi, tyrfing, smile,himbo )
+
 * peewee: http://farragofiction.com/PaldemicSim/bio.html?target=TheMan
-* jaimie
-*friendly_little_trash_creature (credit herald)
-* the children
-* the two magainzes (links to each so you can see bigger, credit source)
 * himbo 
+
+* the children
+
+* the two magainzes (links to each so you can see bigger, credit source)
+
+
+* the end (lobotomy corp)
+* devona
+* witherby
+*friendly_little_trash_creature (credit herald)
+
 * update shipping fic
 * 847 as secret number
-* rest of the chat icons for the chars (shambling horror boi, tyrfing, smile )
+* mall elevator sim
 */
 
 /*all_concepts.push(new CoreConcept(
