@@ -2,9 +2,9 @@ import {Player} from "./Modules/Player";
 import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
-import {useEffect, useState,Fragment, useMemo, useCallback} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS} from "./Utils/constants";
-import { useTabState, Tab, TabList, TabPanel } from "reakit/Tab";
+import {useEffect, useState,Fragment, useCallback} from 'react';
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS, QUESTS} from "./Utils/constants";
+import { useTabState, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
 import { AchivementsScreen } from "./Screens/Achivements";
@@ -16,6 +16,8 @@ import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { CompanionsScreen } from "./Screens/CompanionsScreen";
 import { GodScreen } from "./Screens/GodScreen";
 import { blameSong } from ".";
+import { AchievementsTab, CityTab, CompanionTab, GodTab, OptionsTab, QuestTab, SkillsTab, StatisticsTab, StatusTab, TruthTab } from "./MenuTabs";
+import { QuestScreen } from "./Screens/Quests";
 
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
@@ -54,121 +56,6 @@ interface TabProps{
   setNextScreen: any;
   setCurrentScreen: any;
 }
-
-
-function StatusTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === STATUS?selectedTab:unSelectedTab} id={STATUS} {...tab}  onClick={() => {
-      //warning: since these are async this might not be the best idea.
-      setNextScreen(STATUS);
-      setCurrentScreen(LOADING)}
-      }>Status{props.observer.statusMenuLevel}</Tab>
-  )
-}
-function AchievementsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === ACHIEVEMENTS?selectedTab:unSelectedTab} id={ACHIEVEMENTS} onClick={() =>
-      {
-        setNextScreen(ACHIEVEMENTS);
-        setCurrentScreen(LOADING)}
-      } {...tab}>
-      Achivements{props.observer.achievementMenuLevel}
-    </Tab>
-  )
-}
-
-function SkillsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === SKILLGRAPH?selectedTab:unSelectedTab} id={SKILLGRAPH} onClick={() =>
-      {
-        setNextScreen(SKILLGRAPH);
-        setCurrentScreen(LOADING)}
-      } {...tab}>
-      Skills{props.observer.skillGraphLevel}
-    </Tab>
-  )
-}
-
-function OptionsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === OPTIONS?selectedTab:unSelectedTab} id={OPTIONS} onClick={() =>
-      {
-        setNextScreen(OPTIONS);
-        setCurrentScreen(LOADING)}
-      } {...tab}>
-      Options{props.observer.optionsMenuLevel}
-    </Tab>
-  )
-}
-
-function StatisticsTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={STATISTICS} onClick={() =>
-      {
-        setNextScreen(STATISTICS);
-        setCurrentScreen(LOADING)}
-      } {...tab}>
-      Statistics{props.observer.statisticsMenuLevel}
-    </Tab>
-  )
-}
-
-function CityTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === CITYBUILDING?selectedTab:unSelectedTab} id={CITYBUILDING} onClick={() =>
-      {
-        setNextScreen(CITYBUILDING);
-        setCurrentScreen(LOADING)}
-      } {...tab}>
-      CityBuilding{props.observer.cityBuildingMenuLevel}
-    </Tab>
-  )
-}
-
-function CompanionTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === COMPANIONS?selectedTab:unSelectedTab} id={COMPANIONS} onClick={() =>
-      {
-        setNextScreen(COMPANIONS);
-        setCurrentScreen(LOADING)}
-      } {...tab}>
-      Companions{props.observer.companionsMenuLevel}
-    </Tab>
-  )
-}
-
-function GodTab(props: TabProps){
-  const {tab, setNextScreen, setCurrentScreen} = props;
-  return(
-    <Tab style={tab.selectedId === GODS?selectedTab:unSelectedTab} id={GODS} onClick={() =>
-      {
-        setNextScreen(GODS);
-        setCurrentScreen(LOADING)}
-      } {...tab}>
-      Gods{props.observer.godsMenuLevel}
-    </Tab>
-  )
-}
-
-function TruthTab(props: TabProps){
-  const {tab} = props;
-  return(
-    <Tab style={tab.selectedId === STATISTICS?selectedTab:unSelectedTab} id={TRUTH} onClick={() =>
-      {
-        (window as any).setJustTruthMode(true);
-      }} {...tab}>
-      Just Truth{props.observer.truthMenuLevel}
-    </Tab>
-  )
-}
-
 function Menu(props: MenuProps) {
   //order matters, themes are needed for aspects, etc;
   const [currentScreen, setCurrentScreen] = useState(LOADING);
@@ -254,6 +141,7 @@ function Menu(props: MenuProps) {
               {observer.companionsMenuLevel>0 || player.chaos || player.order?<CompanionTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
               {observer.godsMenuLevel>0 || player.chaos || player.order?<GodTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
+              {observer.questsMenuLevel>0 || player.chaos || player.order?<QuestTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
 
               {observer.optionsMenuLevel>0|| player.chaos || player.order?<OptionsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
@@ -277,22 +165,22 @@ function Menu(props: MenuProps) {
 
             {observer.statisticsMenuLevel>0 || player.chaos || player.order?<TabPanel {...tab}>
               {currentScreen === STATISTICS?<StatisticsScreen  loadScreen={handleLoading} player={player}></StatisticsScreen>:null}
-
             </TabPanel>:null}
 
             {observer.cityBuildingMenuLevel>0 || player.chaos || player.order?<TabPanel {...tab}>
               {currentScreen === CITYBUILDING?<CityBuildingScreen  loadScreen={handleLoading} player={player}></CityBuildingScreen>:null}
-
             </TabPanel>:null}
 
             {observer.companionsMenuLevel>0 || player.chaos || player.order?<TabPanel {...tab}>
               {currentScreen === COMPANIONS?<CompanionsScreen  loadScreen={handleLoading} player={player}></CompanionsScreen>:null}
-
             </TabPanel>:null}
 
             {observer.godsMenuLevel>0 || player.chaos || player.order?<TabPanel {...tab}>
               {currentScreen === GODS?<GodScreen  loadScreen={handleLoading} player={player}></GodScreen>:null}
+            </TabPanel>:null}
 
+            {observer.questsMenuLevel>0 || player.chaos || player.order?<TabPanel {...tab}>
+              {currentScreen === QUESTS?<QuestScreen  loadScreen={handleLoading} player={player}></QuestScreen>:null}
             </TabPanel>:null}
 
 

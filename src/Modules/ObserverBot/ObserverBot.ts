@@ -77,12 +77,12 @@ export class ObserverBot{
     backstoryMenuLevel =0;
     cityBuildingMenuLevel =0;
     codeMenuLevel =0;
-    godsMenuLevel =0;
+    godsMenuLevel =100;
     inventoryMenuLevel =0;
     skillPointsGainedFromMenu =0;
     skillPointsGainedFromBattle = 0;
     loreMenuLevel =0;
-    questsMenuLevel =0;
+    questsMenuLevel =100;
     resistancesMenuLevel=0;
     skillGraphLevel = 1;
     successfulHaxAttempts = 0;

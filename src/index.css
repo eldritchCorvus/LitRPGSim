@@ -43,6 +43,11 @@
   src: url("./Fonts/urban_heroes/Urban_Heroes.ttf");
 }
 
+iframe {
+  pointer-events: none;
+}
+
+
 body {
   margin: 0;
   font-family: 'nunito', sans-serif;
