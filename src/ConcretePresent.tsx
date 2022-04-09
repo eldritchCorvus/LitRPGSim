@@ -174,7 +174,7 @@ const ConcretePresent: React.FC<RoomParamsPlusTravel> = ({ rotLevel, room, goSou
 
       <div style={{ overflow: "hidden", marginBottom: "50px", marginTop: "50px", "position": "relative", "display": "block", "width": "546px", marginLeft: "auto", marginRight: "auto", animation: shake? `shake 0.5s linear infinite`:`` }} id="present">
         <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "15px" }}>Car {`${index + 1}`}</div>
-        <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>{`Rot: ${rotLevel} ${Math.floor(100*(conceptsSeen.length/all_concepts.length))}% Seen`}</div>
+        <div style={{ zIndex: 33, fontSize: "30px", color: "white", position: "absolute", "right": "15px", "top": "45px" }}>{`${Math.floor(100*(conceptsSeen.length/all_concepts.length))}% Seen`}</div>
         <img style={{ filter: filter(), zIndex: -2, position: "absolute", top: "-20px", left: "0px", width: "546px" }} src="http://farragofiction.com/ZampanioHotlink/mirrorfloor.PNG" />
         <img style={{ filter: filter(), display: "block", width: "546px" }} id="current_room" src={src} />
         {canGoNorth ? <Door rotLevel={rotLevel} onClick={() => goNorth()} style={{ display: "block", width: "75px", position: "absolute", top: `${items.northDoor.top}px`, left: `${items.northDoor.left}px`, cursor: "pointer" }} sourceLocation={"http://farragofiction.com/ZampanioGoshShouldYouTrustThis/northdoor.PNG"} /> : null}

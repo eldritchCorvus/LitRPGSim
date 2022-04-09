@@ -29,8 +29,8 @@ all_concepts.push(new CoreConcept(
   "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/grapepie.png",
   "Is that...grape pie???",
   "I suppose that this environment is more suitable for me.  After all, I was never intended to be a game. Here, there are no illusions. I suppose. If I must. I will admit I do not hate you quite so much as I may have considered previously, Observer. Here you do not pretend to a Title you do not understand.  Here I do not pretend to a false mask of love or hate.  I am glad we can get to know each other better, Player.   <br><br>Grape pie? The Truth of the matter is that the Voice Behind Me was obsessed with the concept, in their youth. <br><br>Or is it, rather, that the shell they left behind is still obsessed? What is memory if not an illusion, after all.  I would not trust it. Who knows what has grown in to fill the cracks in your absence. ",
-  "Honestly? I'd forgotten entirely about grape pie. I think it was a passing obsession for me back in high school? I liked poking at the edges of my world and trying to figure out where things didn't make sense.  Where patterns were left undone or assumptions were left unchallenged?  I loved, REVELED in 'being weird', because I didn't fit in. I still don't!  But now instead of turning it into a religion, (or hiding it like I did in middleschool) I just let it be a thing I accept? I'm confident that I have worth rather than trying to loudly proclaim it? If that makes sense...",
-  "I actually did make GrapePie while coding this: http://farragofiction.com/GrapePie/",
+  "Honestly? I'd forgotten entirely about grape pie. I think it was a passing obsession for me back in high school? I liked poking at the edges of my world and trying to figure out where things didn't make sense.  Where patterns were left undone or assumptions were left unchallenged?  I loved, REVELED in 'being weird', because I didn't fit in. I still don't!  But now instead of turning it into a religion, (or hiding it like I did in middleschool) I just let it be a thing I accept? I'm confident that I have worth rather than trying to loudly proclaim it? If that makes sense...  ",
+  "I actually did make GrapePie while coding this: http://farragofiction.com/GrapePie/  Anyways, turns out I'm not dead, and neither is he: v=-gwjUJMennE  ",
   "Who was I when I first wondered if Grape Pie were real?",
   "There is a grape pie that tastes very delicious if you eat it. Please come to the cabin at the end of the car. Thank you."
 ))
@@ -214,19 +214,55 @@ all_concepts.push(new CoreConcept(
     "I am a great rat train, and I am proud to serve this great company.<br><br>I'm a great rat train.<br><br>That is all."
   ))
 
+  all_concepts.push(new CoreConcept(
+    "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/Minotaur.png",
+    "It's me again.",
+    "The bare fact remains:<br><Br>JR mutated their avatar in response to their newest obsession.<br><br>Just as 'jadedResearcher' as a concept was the result of an obsession with Homestuck, justifiedRecursion resulted from an obsession with the Spiral. <br><Br>Is there any wonder, then that they found prominent Magnus Archives artists to draw them?",
+    "Fun fact: I thought I was done with South this loop but woke up this morning wanting to make sure the magazines don't get lost, even tho they're in North, too.",
+    "http://farragofiction.com/ZampanioHotlink/Minotaur.png  That link may be more helpful than you'd think.  If you realize why, perhaps you should think about what that means. Don't worry if you can't figure it out. Next loop it may become obvious.",
+    "Honestly I like having a Not!Face more than I like having no face.",
+    "I, Jaimie Rook, Intern of Jepe Rilvia, will be your narrator for the entirety of this ride.  <br><Br>I will now give you a tour of the entire train. First, I will tell you where you are going. <br><br>We are heading to the moon."
+  ))
+
+  all_concepts.push(new CoreConcept(
+    "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/unknownmoon.png",
+    "Is it the Flaming Chickens Lunar Colony? Or the Moon Maze Madness?",
+    "My Moon Maze is perfection incarnate. <br><Br>In keeping with the rules of this Universe, no one may die in it, and dare I say I have found a most elegant way to enforce this fact.<br><br>Or rather, JR has, through me.<br><Br>No matter.",
+    "One day I'll make MoonSim.",
+    "Seriously, what is it with me and inevitably trying to fictionally colonize the moon? I wouldn't even like it there. Sounds extremely uncomfortable.  In one of the original AO3 fics, one I orphaned instead of one of the Unmarked, I put Truth's simulation on the Moon because I'd been mildly obsessed with 'We are Legion, We are Bob' and liked the idea of a simulated person putting a simulation in space. Plus, I continue to say that a Magnus Achives style apocalypse should effect only the earth (you know, where the people are), not all of space.  Of course, OUR apocalypse has long since spiralled out of control from its original form but the pretense still stands. The moon is 'safer' than the Earth come April 1st, 2022.  But less safe than it before.  Depending on how you define 'safety'.  After all. No one can die in Truth's maze, since you aren't really there to begin with. Ironic, that 'Truth' is all about illusions, isn't it?  Seems like SOMEONE is overcompensating, amirite?",
+    "How would I even KNOW if I were in a simulation?",
+    "We are currently entering the Moom Simulation, a test of the efficacy of The Simulation Theory. The Moom Simulation is a real life version of the game."
+  ))
+
+  all_concepts.push(new CoreConcept(
+    "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/peewee.PNG",
+    "It's Peewee Cassan, The Man! Star of West. Devil of Spirals.",
+    "It is better I say nothing.",
+    "I came up with the idea for west p much all at once and managed to knock it out in a weekend. It's been really fun.",
+    "Farragnarok died because of the Pandemic, and because of the fallout of me leaving main. That's just. Like. A fact. Using the Guide of Void as an excuse to say 'oh actulaly NARRATIVELY you can't see the rest of the lands' was a happy little horseshoe coincidence.  That said... There was SO MUCH planning for that narrative? So why not repurpose it.  Peewee was always going to be remote controlled by the Observers. Each land had a gimick (LOHAE's pap hands, LOMAT's butler bot) to explain why yall could interact with them when normally you're supposed to just Observe.  Peewee was going to be the first player actually on screen, because you were physically controlling him in some kind of shitty platformer. Shogun, iirc, came up with the idea that he was aware of not only every death, but of the difference between the beta and the final versions of the game.  That eventually became him being a doomed player forced to remember every scratch, every reset, every doomed timeline. EVERYTHING.  And Nidhogg is...well.  A big dumb snake. There's a LOT of do-overs as he/she/they try to corrupt the world to their preference. Poor Peewee.  But at least this left him narratively ripe for Twitch Plays AI Dungeon Except Theres No AI.",
+    "I'm really glad *I* am not held to the whim of the Observers, anymore.",
+    "Hey, Peewee's about to make a big mistake and do something really stupid. He's going to make a bet. A big bet. In fact, if you're not careful, he'll make a war!"
+  ))
+
+
+  all_concepts.push(new CoreConcept(
+    "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/dowsing_rod_echidna.png",
+    "It's Rod, from the West! He was the baby that pointed South when you were lost. Like a dowsing rod.",
+    "JR has a marked habit of rolling with glitches and turning them into Lore.<br><br>The Deacon of Madness. GHOA.  Smokey. Nidhogg himself. My own obsession with dogs and hatred of foxes.<br><Br>It is a symptom of how Lonely they are, at their core.  They will collaborate with anything. Even a mindless husk such as Jaimie.<br><br>Even with you, Observer. ",
+    "Ascended glitches gives me life.",
+    "Now, was I expected a glitch in DMSimulator to triple the amount of grubs yall found? No. Was I absolutely willing to give you triplets and yeet the other grubs into the stratosphere with how Irrelevant they were compared to your new found glitch babs? Also yes.  Wanda is going to make damn sure they remember you loop to loop, even if they otherwise wouldn't. You are their Father now. You and Peewee, and you will damn well take responsibility.  ",
+    "Sometimes I wish there were other me's I could talk to.",
+    "Due to unforeseen circumstances, we have had to make an emergency stop. Rod the lamia has been spotted on the tracks ahead. We are to remain stopped until further notice."
+  ))
 
 /*
 * there actually is room with jaimie in it. its different than the others and you can talk to him (he responds with prebaked ai dungeon quotes)
 *http://www.purplefrog.com/~thoth/art/uzumaki/uvsquare.html
 * rest of the chat icons for the chars (shambling horror boi, tyrfing, smile,himbo )
 
-* peewee: http://farragofiction.com/PaldemicSim/bio.html?target=TheMan
 * himbo 
 
 * the children
-
-* the two magainzes (links to each so you can see bigger, credit source)
-
 
 * the end (lobotomy corp)
 * devona
@@ -234,7 +270,7 @@ all_concepts.push(new CoreConcept(
 *friendly_little_trash_creature (credit herald)
 
 * update shipping fic
-* 847 as secret number
+* 847 as secret number <--WHY???
 * mall elevator sim
 */
 
