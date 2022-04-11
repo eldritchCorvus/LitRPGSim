@@ -28,7 +28,7 @@ export const QuestScreen = (props: StatusProps) => {
                     FulfillCondition (if met,turn in button enabled)
 
                     Reward (item for now, but eventually change companion loyalty, add a new one, change stats, unlock skills, etc)
-
+                    Bonus Reward (Game mode only (extra lore, passwords for the rabbit hole, etc))
                     flavor text
 
                     completion text
