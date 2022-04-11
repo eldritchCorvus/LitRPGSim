@@ -26,6 +26,13 @@ export const right_password = async (canvas:HTMLCanvasElement, secret:Secret) =>
 }
 
 const storyConsole = (title: string, text: string)=>{
+    const body = document.querySelector("body");
+    if(body){
+        const ele = document.createElement("div");
+        ele.className="lore"
+        ele.innerHTML = `<h1>${title}</h1><p>${text}</p>`;
+        body.appendChild(ele);
+    }
     console.log(`%c${title}:\n\n%c  ${text}`, "font-weight: bold;font-family: 'cabin', monospace;color:black; font-size:25px;text-decoration:underline;","font-weight: bold;font-family: 'cabin', monospace;color:black; font-size:13px;");
 }
 
