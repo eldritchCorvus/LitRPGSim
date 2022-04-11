@@ -217,7 +217,7 @@ all_concepts.push(new CoreConcept(
   all_concepts.push(new CoreConcept(
     "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/Minotaur.png",
     "It's me again.",
-    "The bare fact remains:<br><Br>JR mutated their avatar in response to their newest obsession.<br><br>Just as 'jadedResearcher' as a concept was the result of an obsession with Homestuck, justifiedRecursion resulted from an obsession with the Spiral. <br><Br>Is there any wonder, then that they found prominent Magnus Archives artists to draw them?",
+    "The bare fact remains:<br><Br>JR mutated their avatar in response to their newest obsession.<br><br>Just as 'jadedResearcher' as a concept was the result of an obsession with Homestuck, justifiedRecursion resulted from an obsession with the Spiral. <br><Br>Is there any wonder, then that they found prominent Magnus Archives artists to draw them? <a href='https://foxy-alien.tumblr.com'>https://foxy-alien.tumblr.com</a><Br><br>Two Truths for your collection: <a target='_blank' href = 'http://www.farragofiction.com/AudioLogs/?passPhrase=outruntherot'>outruntherot</a>  <a target='_blank' href = 'http://www.farragofiction.com/AudioLogs/?passPhrase=thankyou'>thankyou</a>",
     "Fun fact: I thought I was done with South this loop but woke up this morning wanting to make sure the magazines don't get lost, even tho they're in North, too.",
     "http://farragofiction.com/ZampanioHotlink/Minotaur.png  That link may be more helpful than you'd think.  If you realize why, perhaps you should think about what that means. Don't worry if you can't figure it out. Next loop it may become obvious.",
     "Honestly I like having a Not!Face more than I like having no face.",
