@@ -95,11 +95,11 @@ export const passwords:PasswordMap = {
     ,"MINOTAUR": new Secret("A Series of IDS: 13",[new SourceDurationPair("Secrets/JR/0.jpg",2)],undefined, "Secrets/JR/0.js")
     ,"NOT A MINOTAUR": new Secret("A Series of IDS: 14",[new SourceDurationPair("Secrets/NAM/0.jpg",2)],undefined, "Secrets/NAM/0.js")
     ,"THE NEIGHBOR": new Secret("A Series of IDS: 15",[new SourceDurationPair("Secrets/NEIGHBOR/0.jpg",2)],undefined, "Secrets/NEIGHBOR/0.js")
+    ,"TYRFING": new Secret("A Poem",[new SourceDurationPair("Secrets/TYRFING/0.jpg",2)],undefined, "Secrets/TYRFING/0.js")
 
 
 
 
-    ,"TYRFING": new Secret("Unknown",[new SourceDurationPair("Secrets/TYRFING/0.jpg",2)],undefined, "Secrets/TYRFING/0.js")
     ,"TRUTH": new Secret("Unknown",[new SourceDurationPair("Secrets/TRUTH/0.jpg",2)],undefined, "Secrets/TRUTH/0.js")
     ,"RONIN": new Secret("Unknown",[new SourceDurationPair("Secrets/RONIN/0.jpg",2)],undefined, "Secrets/RONIN/0.js")
     ,"THE WIGGLER EATER": new Secret("Unknown",[new SourceDurationPair("Secrets/THEWIGGLEREATER/0.jpg",2)],undefined, "Secrets/THEWIGGLEREATER/0.js")
