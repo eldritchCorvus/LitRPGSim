@@ -47,6 +47,20 @@ iframe {
   pointer-events: none;
 }
 
+.styled_button{
+  display: block;
+  margin-top: 20px;
+  background-color: rgb(209, 176, 86);
+  border: 1px solid rgb(186, 151, 58);
+  padding: 10px;
+  border-radius: 13px;
+  box-shadow: 1px 1px 1px black;
+}
+
+.styled_button:active{
+  transform: translateY(5px);
+}
+
 
 body {
   margin: 0;

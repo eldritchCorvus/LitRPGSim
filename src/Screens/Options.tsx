@@ -151,7 +151,7 @@ export const OptionsScreen = (props: StatusProps) => {
             <StatusRow>
                 <StatusHeader></StatusHeader>
                 <StatusContent>
-                    <button onClick={submit}>Submit</button>
+                    <button className="styled_button" onClick={submit}>Submit</button>
                 </StatusContent>
             </StatusRow>
 
