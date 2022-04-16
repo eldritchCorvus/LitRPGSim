@@ -12,6 +12,7 @@ import { ItemReward } from './Quests/Rewards/ItemReward';
 import {EndReward } from './Quests/Rewards/EndReward';
 import * as Stat from './Stat';
 import { CompanionReward } from './Quests/Rewards/PartyMemberReward';
+import { ItemInInventory } from './ObserverBot/AchievementTriggers/ItemInInventory';
 
 //categories within a theme
 export const PERSON="person";
@@ -1428,8 +1429,8 @@ export const testQuestObjects = ()=>{ return [
         , new QuestObject("A Sudden Turn Redux!",
             `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to <INSERTGODNAMEHERE>, god of <INSERT GOD DOMAINS HERE>  to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
             "With a tear of genuine emotion, Doc Slaughter turns the page of the PHOTO ALBULM. 'You're right.', she whispers. 'Of course you're right. We're friends.'",
-            new ExceedValueTrigger(10, "numClicks"),
-            new MenuClicksTrigger(OPTIONS),
+            new ItemInInventory("SWORD"),
+            new ItemInInventory("PHOTO"),
             new CompanionReward(randomCompanion(new SeededRandom("KEY".length),false,"Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood"))
         )
         , new QuestObject("An Exciting Finish!",
