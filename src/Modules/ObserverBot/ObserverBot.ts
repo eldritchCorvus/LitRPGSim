@@ -78,7 +78,7 @@ export class ObserverBot{
     cityBuildingMenuLevel =0;
     codeMenuLevel =0;
     godsMenuLevel =100;
-    inventoryMenuLevel =0;
+    inventoryMenuLevel =100;
     skillPointsGainedFromMenu =0;
     skillPointsGainedFromBattle = 0;
     loreMenuLevel =0;
@@ -86,7 +86,9 @@ export class ObserverBot{
     resistancesMenuLevel=0;
     skillGraphLevel = 1;
     successfulHaxAttempts = 0;
-    companionsMenuLevel = 0;
+    numberQuestsCompleted = 0;
+
+    companionsMenuLevel = 100;
     timeSinceYouFuckedUp = 0;
     timesWalked = 0; //wasd or arrows
     enemiesDefeated = 0;
@@ -366,6 +368,12 @@ export class ObserverBot{
             this.timeSpentInCombat = value * 1000;
             (window as any).refresh();
         }
+
+        (window as any).numberQuestsCompleted = (value:number)=>{
+            this.numberQuestsCompleted = value ;
+            (window as any).refresh();
+        }
+        
 
         (window as any).hackTimeCutscenesInSeconds = (value:number)=>{
             console.log("JR NOTE: lol your funeral");

@@ -1,6 +1,17 @@
+import { humanJoining } from '../Utils/ArrayUtils';
 import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, WARROOM } from '../Utils/constants';
+import SeededRandom from '../Utils/SeededRandom';
+import { AchievementTrigger } from './ObserverBot/AchievementTriggers/AchievementTrigger';
+import { ExceedValueTrigger } from './ObserverBot/AchievementTriggers/ExceedValue';
+import { MenuClicksTrigger } from './ObserverBot/AchievementTriggers/MenuClicks';
 import { Memory } from './ObserverBot/Memory';
+import { randomCompanion } from './Player';
+import { QuestObject } from './Quests/QuestObject';
+import { Reward } from './Quests/Rewards/GenericReward';
+import { ItemReward } from './Quests/Rewards/ItemReward';
+import {EndReward } from './Quests/Rewards/EndReward';
 import * as Stat from './Stat';
+import { CompanionReward } from './Quests/Rewards/PartyMemberReward';
 
 //categories within a theme
 export const PERSON="person";
@@ -1395,3 +1406,36 @@ export const initThemes = ()=>{
     initEffectPossibilities();
 
 }
+
+
+//MAKE IT A FUNCTION SO ITS CALLED ONLY AFTER COMPANIONS CAN BE CREATED
+export const testQuestObjects = ()=>{ return [
+        new QuestObject(
+            "A New Begining!",
+            "After finally joining the wild world of Zampanio, the TUTORIAL NPC has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!",
+            "The TUTORIAL NPC scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, he hands you ten rabbit skins. You.... guess he just really likes rabbit?",
+            new AchievementTrigger(), //auto unlock
+            new AchievementTrigger(),
+            new ItemReward("Rabbit Pelts")
+        )
+        , new QuestObject("A Sudden Turn!",
+            "Oh no! Doc Slaughter has betrayed the party! No one could possibly have predicted this! Now the race is on to see who will be first to the TOWER OF ETERNITY to claim the EIGHTFOLD SWORD! ",
+            "As DOC SLAUGHTER grips the EIGHTFOLD SWORD, all seems lost. To your surprise, she turns and hands it to you. 'I'm sorry to have scared you so much. Actually, I am a double agent. I've been on your side the whole time', she explains, apologetically.",
+            new ExceedValueTrigger(1, "numClicks"),
+            new ExceedValueTrigger(10, "numClicks"),
+            new ItemReward("EIGHTFOLD SWORD")
+        )
+        , new QuestObject("A Sudden Turn Redux!",
+            `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to <INSERTGODNAMEHERE>, god of <INSERT GOD DOMAINS HERE>  to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
+            "With a tear of genuine emotion, Doc Slaughter turns the page of the PHOTO ALBULM. 'You're right.', she whispers. 'Of course you're right. We're friends.'",
+            new ExceedValueTrigger(10, "numClicks"),
+            new MenuClicksTrigger(OPTIONS),
+            new CompanionReward(randomCompanion(new SeededRandom("KEY".length),false,"Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood"))
+        )
+        , new QuestObject("An Exciting Finish!",
+            "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
+            "THE END",
+            new ExceedValueTrigger(1, "numberQuestsCompleted"),
+            new ExceedValueTrigger(2, "numberQuestsCompleted"),
+            new EndReward()
+        )]};

@@ -9,13 +9,14 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, TWISTING } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, testQuestObjects, TWISTING } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
 import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
 import { BuildingMetaData, spawnTempleForGod } from "./Building";
 import { HORROR_KEY } from "../Utils/constants";
+import { QuestObject } from "./Quests/QuestObject";
 
 export interface BuildingMetaMap {
     [name: string]: BuildingMetaData
@@ -43,6 +44,7 @@ export class Player {
     current_location: string = "";
     companions: Companion[] = [];
     inventory: string[] = [];
+    quests: QuestObject[];
     order = false;
     chaos = false;
 
@@ -52,6 +54,7 @@ export class Player {
         this.chaos = chaos;
         this.class_name = class_name;
         this.aspect = aspect;
+        this.quests = [];
         this.interests = interests;
         this.rootSkill = new CoreSkill("NPC", 0);
         this.lastUnlockedSkill = this.rootSkill;
@@ -80,6 +83,8 @@ export class Player {
 
         this.skillGenAlg = new BonesFirstAlg();
         let themes: Theme[] = [];
+        console.log("JR NOTE: rip out test quest objects from player");
+        this.quests = testQuestObjects();
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
         //a god from your first three themes, a god for your back three, you are supposed to pick ones
@@ -186,13 +191,8 @@ export class Player {
             max = max * 2;
         }
         for (let i = 0; i < max; i++) {
-            const friend = new Companion(rand);
-            if(this.order){
-                friend.fullName = "Friend";
-                friend.backstory = "They are an NPC in a video game. They have no memory.";
-                friend.title = "NPC";
-            }
-            this.companions.push(friend);
+
+            this.companions.push(randomCompanion(rand,this.order));
         }
     }
 
@@ -478,4 +478,24 @@ export   class Companion{
 
 
 
+}
+
+export const randomCompanion = (rand: SeededRandom,order: boolean, fullName?:string, backstory?:string, title?: string)=>{
+    const friend = new Companion(rand);
+    if(order){
+        friend.fullName = "Friend";
+        friend.backstory = "They are an NPC in a video game. They have no memory.";
+        friend.title = "NPC";
+    }else{
+        if(fullName){
+            friend.fullName = fullName;
+        }
+        if(backstory){
+            friend.backstory = backstory;
+        }
+        if(title){
+            friend.title = title;
+        }
+    }
+    return friend;
 }
