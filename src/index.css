@@ -57,8 +57,12 @@ iframe {
   box-shadow: 1px 1px 1px black;
 }
 
-.styled_button:active{
+.styled_button:active:enabled{
   transform: translateY(5px);
+}
+
+.styled_button:disabled {
+  background: #c4c4c4;
 }
 
 

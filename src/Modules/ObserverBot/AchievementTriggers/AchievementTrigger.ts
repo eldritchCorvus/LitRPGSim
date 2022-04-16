@@ -24,6 +24,10 @@ export  class AchievementTrigger{
    * calling any of the hack methods in window
    */
 
+   toString = ()=>{
+       return "AUTO UNLOCK";
+   }
+
    triggered = (observer: ObserverBot )=>{
        return true; //JR NOTE: children will overwrite this
    }

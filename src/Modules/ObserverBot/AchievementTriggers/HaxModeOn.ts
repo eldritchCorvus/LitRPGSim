@@ -8,6 +8,10 @@ export  class HaxModeOn extends AchievementTrigger{
         super();
     }
 
+    toString = ()=>{
+        return `HAXMODE MUST BE ON`;
+    }
+
     triggered = (observer: ObserverBot )=>{
         return (window as any).haxMode;
     }

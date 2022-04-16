@@ -11,6 +11,10 @@ export  class ExceedValueTriggerButItsClearlyHax extends AchievementTrigger{
         this.variableKey = variableKey;
     }
 
+    toString = ()=>{
+        return `${[this.variableKey]} MUST BE MORE THAN ${this.valueToExceed} AND YOU ARE A FILTHY CHEATER`;
+    }
+
     triggered = (observer: ObserverBot )=>{
 
         const ret =  (observer as any)[this.variableKey] > this.valueToExceed;

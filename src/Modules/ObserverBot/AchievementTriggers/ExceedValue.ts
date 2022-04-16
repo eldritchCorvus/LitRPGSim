@@ -11,6 +11,10 @@ export  class ExceedValueTrigger extends AchievementTrigger{
         this.variableKey = variableKey;
     }
 
+    toString = ()=>{
+        return `${[this.variableKey]} MUST BE MORE THAN ${this.valueToExceed}`;
+    }
+
     triggered = (observer: ObserverBot )=>{
         return (observer as any)[this.variableKey] > this.valueToExceed;
     }

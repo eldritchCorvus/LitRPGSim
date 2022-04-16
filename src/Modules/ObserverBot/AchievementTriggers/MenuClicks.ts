@@ -9,6 +9,10 @@ export  class MenuClicksTrigger extends AchievementTrigger{
         this.menuName  = menuName;
     }
 
+    toString = ()=>{
+        return `MUST HAVE VISITED THE ${this.menuName} MENU`;
+    }
+
     triggered = (observer: ObserverBot )=>{
         return observer.menuItemsClicked.includes(this.menuName);
     }
