@@ -3,7 +3,7 @@ import {StatusScreen} from "./Screens/Status";
 import {LoadingScreen} from "./Screens/Loading";
 import {SkillGraphScreen} from "./Screens/SkillsGraph";
 import {useEffect, useState,Fragment, useCallback} from 'react';
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS, QUESTS} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS, QUESTS, RECAP} from "./Utils/constants";
 import { useTabState, TabList, TabPanel } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 import { StatisticsScreen } from "./Screens/Statisics";
@@ -16,8 +16,9 @@ import { domWordMeaningFuckery } from "./Utils/StringUtils";
 import { CompanionsScreen } from "./Screens/CompanionsScreen";
 import { GodScreen } from "./Screens/GodScreen";
 import { blameSong } from ".";
-import { AchievementsTab, CityTab, CompanionTab, GodTab, OptionsTab, QuestTab, SkillsTab, StatisticsTab, StatusTab, TruthTab } from "./MenuTabs";
+import { AchievementsTab, CityTab, CompanionTab, GodTab, OptionsTab, QuestTab,RecapTab, SkillsTab, StatisticsTab, StatusTab, TruthTab } from "./MenuTabs";
 import { QuestScreen } from "./Screens/Quests";
+import { PlotRecap } from "./Screens/PlotRecap";
 
 const selectedTab = {
   "border": `1px solid ${FONTCOLOR}`,
@@ -142,6 +143,7 @@ function Menu(props: MenuProps) {
               {observer.godsMenuLevel>0 || player.chaos || player.order?<GodTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
               {observer.questsMenuLevel>0 || player.chaos || player.order?<QuestTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
+              {observer.recapMenuLevel>0 || player.chaos || player.order?<RecapTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
 
 
               {observer.optionsMenuLevel>0|| player.chaos || player.order?<OptionsTab observer={observer} tab={tab} setNextScreen={setNextScreen} setCurrentScreen={setCurrentScreen}/>:null}
@@ -181,6 +183,10 @@ function Menu(props: MenuProps) {
 
             {observer.questsMenuLevel>0 || player.chaos || player.order?<TabPanel {...tab}>
               {currentScreen === QUESTS?<QuestScreen  loadScreen={handleLoading} player={player}></QuestScreen>:null}
+            </TabPanel>:null}
+
+            {observer.recapMenuLevel>0 || player.chaos || player.order?<TabPanel {...tab}>
+              {currentScreen === RECAP?<PlotRecap  loadScreen={handleLoading} player={player}></PlotRecap>:null}
             </TabPanel>:null}
 
 

@@ -47,6 +47,7 @@ export class Player {
     quests: QuestObject[];
     order = false;
     chaos = false;
+    storySoFar:QuestObject[] = [];
 
     constructor(class_name: RPGClass, aspect: Aspect, interests: Interest[], rand: SeededRandom, shadowPlayer: boolean,order = false, chaos=false, ) {
         this.rand = rand;

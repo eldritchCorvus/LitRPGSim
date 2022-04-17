@@ -81,6 +81,7 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
 
     const giveReward = () => {
         player.observer.numberQuestsCompleted++;
+        player.storySoFar.push(quest);
         quest.setCompleted();
         setCompleted(true);
         const rewardRes = quest.gatherRewards(player);

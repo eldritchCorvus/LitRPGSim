@@ -1,5 +1,5 @@
 //the best part about NorthNorth is i'll forget how North works, so this is a spiralling labyrinth for my future self
-import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS, QUESTS} from "./Utils/constants";
+import {STATUS, LOADING, SKILLGRAPH, ACHIEVEMENTS, STATISTICS, OPTIONS, TRUTH, CITYBUILDING, COMPANIONS, GODS, QUESTS, RECAP} from "./Utils/constants";
 import { Tab } from "reakit/Tab";
 import { BGCOLOR, BORDERRADIUSROUND, FONTCOLOR, FONTSIZE, MenuBox, MENU_OPACITY } from "./Screens/Styles";
 
@@ -39,6 +39,17 @@ interface TabProps{
   tab: any;
   setNextScreen: any;
   setCurrentScreen: any;
+}
+
+export function RecapTab(props: TabProps){
+  const {tab, setNextScreen, setCurrentScreen} = props;
+  return(
+    <Tab style={tab.selectedId === RECAP?selectedTab:unSelectedTab} id={RECAP} {...tab}  onClick={() => {
+      //warning: since these are async this might not be the best idea.
+      setNextScreen(RECAP);
+      setCurrentScreen(LOADING)}
+      }>Recap{props.observer.recapMenuLevel}</Tab>
+  )
 }
 
 export function QuestTab(props: TabProps){

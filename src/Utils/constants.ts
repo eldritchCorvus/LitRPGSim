@@ -33,7 +33,7 @@ export const LORE = "LORE"; //whats the actual setting you're in? who is the big
 export const BACKSTORY = "BACKSTORY"; //does your char have amnesia? are you a stranger?
 export const RESISTANCES = "RESISTANCES"; //are you weak to blunt? strong against heresy?
 export const WARROOM = "WARROOM"; //either a soldier or a commander, what you can do in response to a war plot
-
+export const RECAP = "RECAP";
 export const CODE = "CODE"; //have a fake error console that prints out all the fake errors (such as when you hit escape)
 //only accessible if in RAGE MODE
 export const TRUTH = "TRUTH";

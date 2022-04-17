@@ -1,5 +1,5 @@
 import { humanJoining } from '../Utils/ArrayUtils';
-import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, WARROOM } from '../Utils/constants';
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LORE, OPTIONS, QUESTS, RECAP, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, WARROOM } from '../Utils/constants';
 import SeededRandom from '../Utils/SeededRandom';
 import { AchievementTrigger } from './ObserverBot/AchievementTriggers/AchievementTrigger';
 import { ExceedValueTrigger } from './ObserverBot/AchievementTriggers/ExceedValue';
@@ -544,21 +544,21 @@ const initMenuOptions = () =>{
     menu_options[ART] =  [INVENTORY,BACKSTORY];
     menu_options[TECHNOLOGY] =  [CODE];
     menu_options[SPACE] =  [CITYBUILDING];
-    menu_options[TIME] =  [STATISTICS];
+    menu_options[TIME] =  [STATISTICS, QUESTS, RECAP];
     menu_options[STEALING] =  [INVENTORY,BACKSTORY];
-    menu_options[FREEDOM] =  [QUESTS];
+    menu_options[FREEDOM] =  [QUESTS, RECAP];
     menu_options[FIRE] =  [WARROOM];
     menu_options[LONELY] =  [BACKSTORY,INVENTORY];
     menu_options[OCEAN] =  [CITYBUILDING];
     menu_options[FLESH] =  [STATUS];
-    menu_options[BURIED] =  [LORE];
+    menu_options[BURIED] =  [LORE,QUESTS, RECAP];
     menu_options[MATH] =  [STATISTICS];
-    menu_options[SCIENCE] =  [LORE];
+    menu_options[SCIENCE] =  [LORE,QUESTS, RECAP];
     menu_options[TWISTING] =  [OPTIONS];
     menu_options[DEATH] =  [GODS];
     menu_options[APOCALYPSE] =  [WARROOM];
     menu_options[ANGELS] =  [GODS];
-    menu_options[SERVICE] =  [QUESTS];
+    menu_options[SERVICE] =  [QUESTS, RECAP];
     menu_options[FAMILY] =  [CITYBUILDING];
     menu_options[MAGIC] =  [RESISTANCES];
     menu_options[LIGHT] =  [ACHIEVEMENTS,BACKSTORY];
@@ -573,22 +573,22 @@ const initMenuOptions = () =>{
     menu_options[ANGER] = [BACKSTORY,INVENTORY] ;
     menu_options[WEB] =  [COMPANIONS] ;
     menu_options[ROYALTY] =  [CITYBUILDING] ;
-    menu_options[ENDINGS] =  [LORE] ;
+    menu_options[ENDINGS] =  [LORE,QUESTS, RECAP] ;
     menu_options[KNOWING] = [STATISTICS] ;
-    menu_options[GUIDING] = [QUESTS] ;
+    menu_options[GUIDING] = [QUESTS, RECAP] ;
     menu_options[CRAFTING] =  [CITYBUILDING];
-    menu_options[LANGUAGE] = [LORE] ;
+    menu_options[LANGUAGE] = [LORE,QUESTS, RECAP] ;
     menu_options[BUGS] =  [CODE]; //get it? code? bugs? i refuse to appologize.
     menu_options[ADDICTION] = [SKILLGRAPH]; //addicted to leveling up now are we?
     menu_options[SPYING] =[STATISTICS] ;
-    menu_options[CLOWNS] =[LORE] ;
+    menu_options[CLOWNS] =[LORE,QUESTS, RECAP] ;
     menu_options[DOLLS] = [CITYBUILDING] ;
-    menu_options[OBFUSCATION] = [LORE] ;
+    menu_options[OBFUSCATION] = [LORE,QUESTS, RECAP] ;
     menu_options[DARKNESS] =  [BACKSTORY,INVENTORY] ;
     menu_options[KILLING] =  [BACKSTORY,INVENTORY];
     menu_options[MUSIC] =  [INVENTORY] ;
     menu_options[DEFENSE] =  [INVENTORY,BACKSTORY] ;
-    menu_options[QUESTING] = [QUESTS] ;
+    menu_options[QUESTING] = [QUESTS, RECAP] ;
 }
 
 //TODO fill in ALL of these, use them to assign a True Classpect at the end

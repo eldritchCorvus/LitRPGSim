@@ -27,7 +27,7 @@ import { CinqueCloak, CustomSkill, DuoMask, NovumMirror, Octome, QuatroBlade, Se
 import { Memory } from "./Memory";
 import { shuffle } from "../../Utils/NonSeededRandUtils";
 import { all_themes } from "../Theme";
-import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/constants";
+import { ACHIEVEMENTS, BACKSTORY, CITYBUILDING, CODE, COMPANIONS, GODS, INVENTORY, LOADING, LORE, OPTIONS, QUESTS, RECAP, RESISTANCES, SKILLGRAPH, STATISTICS, STATUS, TRUTH } from "../../Utils/constants";
 import { scrawlOverBG } from "../../CanvasFuckery/fuckery";
 import { blameSong } from "../..";
 
@@ -83,6 +83,8 @@ export class ObserverBot{
     skillPointsGainedFromBattle = 0;
     loreMenuLevel =0;
     questsMenuLevel =100;
+    recapMenuLevel =100;
+
     resistancesMenuLevel=0;
     skillGraphLevel = 1;
     successfulHaxAttempts = 0;
@@ -212,6 +214,8 @@ export class ObserverBot{
             this.loreMenuLevel ++;
         }else if (name.includes(QUESTS)){
             this.questsMenuLevel ++;
+        }else if (name.includes(RECAP)){
+            this.recapMenuLevel ++;
         }else if (name.includes(RESISTANCES)){
             this.resistancesMenuLevel ++;
         }else if (name.includes(TRUTH)){
