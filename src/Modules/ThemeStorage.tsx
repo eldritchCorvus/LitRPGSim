@@ -6,7 +6,7 @@ import { ExceedValueTrigger } from './ObserverBot/AchievementTriggers/ExceedValu
 import { MenuClicksTrigger } from './ObserverBot/AchievementTriggers/MenuClicks';
 import { Memory } from './ObserverBot/Memory';
 import { randomCompanion } from './Player';
-import { GODDOMAINS1, GODDOMAINS2, GODNAME1, GODNAME2, QuestObject } from './Quests/QuestObject';
+import { COMPANIONNAME, COMPANIONTITLE, GodDescription, GODDOMAINS, GODNAME, QuestObject } from './Quests/QuestObject';
 import { Reward } from './Quests/Rewards/GenericReward';
 import { ItemReward } from './Quests/Rewards/ItemReward';
 import {EndReward } from './Quests/Rewards/EndReward';
@@ -1399,22 +1399,24 @@ const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
     quest_possibilities[ANGELS] = [
         new QuestObject(
-            `${GODNAME1}'s favor!`,
-            `${GODNAME1}, the God of ${GODDOMAINS1} wishes you to swear fealty to them and not their rival. Will you do this?`,
-            `With a flash of divine power, you are now an adherent to ${GODNAME1}.`,
+            `${GODNAME}'s favor!`,
+            `${GODNAME}, the God of ${GODDOMAINS} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME}.`,
             "ALT is a password.",
             [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
-            [new AchievementTrigger(false)],
-            [new GodReward(1)]
+            [new HasChosenGod(true)],
+            [new GodReward(0)]
+            ,GodDescription.FIRST
         ),
         new QuestObject(
-            `${GODNAME2}'s favor!`,
-            `${GODNAME2}, the God of ${GODDOMAINS2} wishes you to swear fealty to them and not their rival. Will you do this?`,
-            `With a flash of divine power, you are now an adherent to ${GODNAME2}.`,
+            `${GODNAME}'s favor!`,
+            `${GODNAME}, the God of ${GODDOMAINS} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME}.`,
             "ALT is a password.",
             [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
-            [new AchievementTrigger(false)],
-            [new GodReward(2)]
+            [new HasChosenGod(true)],
+            [new GodReward(1)]
+            ,GodDescription.SECOND
         ),
     ];
 
@@ -1454,9 +1456,9 @@ export const genericStartingQuests = ()=>{
     const ret = [
         new QuestObject(
             "A New Begining!",
-            "After finally joining the wild world of Zampanio, the TUTORIAL NPC has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!",
-            "The TUTORIAL NPC scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, he hands you ten rabbit skins. You.... guess he just really likes rabbit?",
-            "ALT is a password.",
+            `After finally joining the wild world of Zampanio, the ${COMPANIONTITLE} has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!`,
+            `${COMPANIONNAME} scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, they hand you ten rabbit skins. You.... guess he just really likes rabbit?`,
+            "this text is game only",
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
@@ -1485,11 +1487,11 @@ export const genericEndingQuests = ()=>{
 export const testQuestObjects = ()=>{ return [
         new QuestObject(
             "A New Begining!",
-            "After finally joining the wild world of Zampanio, the TUTORIAL NPC has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!",
-            "The TUTORIAL NPC scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, he hands you ten rabbit skins. You.... guess he just really likes rabbit?",
+            `After finally joining the wild world of Zampanio, the ${COMPANIONTITLE} has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!`,
+            `${COMPANIONNAME} scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, they hand you ten rabbit skins. You.... guess he just really likes rabbit?`,
             "this text is game only",
             [new AchievementTrigger(false)], //auto unlock
-            [new SkillAcquired(false,"Signal")], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts"), new StatReward(Stat.BLOOD(3))]
         )
         , new QuestObject("A Sudden Turn!",
@@ -1497,11 +1499,11 @@ export const testQuestObjects = ()=>{ return [
             "As DOC SLAUGHTER grips the EIGHTFOLD SWORD, all seems lost. To your surprise, she turns and hands it to you. 'I'm sorry to have scared you so much. Actually, I am a double agent. I've been on your side the whole time', she explains, apologetically.",
             "this text is game only",
             [new ExceedValueTrigger(false,1, "numClicks")],
-            [new ExceedValueTrigger(false,3, "numClicks"),new StatExceedValueTrigger(Stat.BLOOD(3))],
+            [new ExceedValueTrigger(false,3, "numClicks"),new StatExceedValueTrigger(false,Stat.BLOOD(3))],
             [new ItemReward("EIGHTFOLD SWORD")]
         )
         , new QuestObject("A Sudden Turn Redux!",
-            `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to <INSERTGODNAMEHERE>, god of <INSERT GOD DOMAINS HERE>  to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
+            `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to ${GODNAME}, god of ${GODDOMAINS} to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
             "With a tear of genuine emotion, Doc Slaughter turns the page of the PHOTO ALBULM. 'You're right.', she whispers. 'Of course you're right. We're friends.'",
             "this text is game only",
             [new StatExceedValueTrigger(false,Stat.BLOOD(3))],
@@ -1509,22 +1511,24 @@ export const testQuestObjects = ()=>{ return [
             [new SkillReward(new CustomSkill("The Power Of Friendship", 3,"As long as you have your friends by your side, no one, not even your former betrayer Doc Slaughter can stand against you.")), new CompanionReward(randomCompanion(new SeededRandom("KEY".length),false,"Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood"))]
         ),
         new QuestObject(
-            `${GODNAME1}'s favor!`,
-            `${GODNAME1}, the God of ${GODDOMAINS1} wishes you to swear fealty to them and not their rival. Will you do this?`,
-            `With a flash of divine power, you are now an adherent to ${GODNAME1}.`,
+            `${GODNAME}'s favor!`,
+            `${GODNAME}, the God of ${GODDOMAINS} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME}.`,
             "ALT is a password.",
             [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
-            [new AchievementTrigger(false)],
-            [new GodReward(1)]
+            [new HasChosenGod(true)],
+            [new GodReward(0)],
+            GodDescription.FIRST
         ),
         new QuestObject(
-            `${GODNAME2}'s favor!`,
-            `${GODNAME2}, the God of ${GODDOMAINS2} wishes you to swear fealty to them and not their rival. Will you do this?`,
-            `With a flash of divine power, you are now an adherent to ${GODNAME2}.`,
+            `${GODNAME}'s favor!`,
+            `${GODNAME}, the God of ${GODDOMAINS} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME}.`,
             "ALT is a password.",
             [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
-            [new AchievementTrigger(false)],
-            [new GodReward(2)]
+            [new HasChosenGod(true)],
+            [new GodReward(1)]
+            ,GodDescription.SECOND
         )
         , new QuestObject("An Exciting Finish!",
             "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",

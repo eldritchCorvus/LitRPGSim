@@ -67,10 +67,10 @@ const StoryItem: React.FC<StoryItemProps> = ({ storyItem }) => {
     return (
         <QuestLine>
             <QuestHeader>
-                {storyItem.title}
+                {storyItem.replaceTags(storyItem.title)}
             </QuestHeader>
             <QuestSection>
-                {storyItem.flavorText}
+                {storyItem.replaceTags(storyItem.flavorText)}
             </QuestSection>
 
             <QuestSection>
@@ -78,7 +78,7 @@ const StoryItem: React.FC<StoryItemProps> = ({ storyItem }) => {
             </QuestSection>
 
             <QuestSection>
-                {storyItem.completionText}
+                {storyItem.replaceTags(storyItem.completionText)}
             </QuestSection>
         </QuestLine>
     )

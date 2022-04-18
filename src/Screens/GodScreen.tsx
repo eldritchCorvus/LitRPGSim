@@ -49,12 +49,13 @@ export const GodSection = (props: GodProps) => {
 
 
     const { god, observer } = props;
+    console.log("JR NOTE: on god screen, god is", god)
 
     return (
 
             <StyledGodSection>
                 <Name><b>{god.name}</b></Name>
-                <Section><b>Status</b>: Unfollowed</Section>
+                <Section><b>Status</b>: {observer.player.chosen_god===god?"Followed":"Unfollowed"}</Section>
                 <Section><b>Domains:</b> {(god.domains.map((domain)=>{return titleCase(domain.key)}).join(", "))}</Section>
                 {god.acolyteBonuses.map((bonus,index)=>{
                     return(

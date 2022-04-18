@@ -85,7 +85,7 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
         quest.setCompleted();
         setCompleted(true);
         const rewardRes = quest.gatherRewards(player);
-        AchivementPopupKickoff({ title: "Quest Reward!", text: quest.completionText, skillPoints: 10, reward: rewardRes });
+        AchivementPopupKickoff({ title: "Quest Reward!", text: quest.replaceTags(quest.completionText), skillPoints: 10, reward: rewardRes });
     }
 
     console.log("JR NOTE: quest is", quest)
@@ -95,16 +95,18 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
     return (
         <QuestLine>
             <QuestHeader>
-                {quest.title}
+                {quest.replaceTags(quest.title)}
             </QuestHeader>
             <QuestSection>
-                {quest.flavorText}
+                {quest.replaceTags(quest.flavorText)}
                 {completed ?
 
                     <Conditions> COMPLETED!</Conditions>
                     :
                     <Fragment>
-                        <Conditions>To Turn In: {quest.turnInTriggers.join(". ")+"."}</Conditions>
+                        <Conditions>Unlocked via: {quest.unlockTriggers.join(". ") + "."}</Conditions>
+
+                        <Conditions>To Turn In: {quest.turnInTriggers.join(". ") + "."}</Conditions>
                         <button onClick={giveReward} disabled={!quest.canTurnIn(player.observer)} className="styled_button"> TURN IN!</button>
                     </Fragment>
                 }

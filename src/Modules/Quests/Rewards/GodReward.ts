@@ -17,7 +17,7 @@ export  class GodReward extends Reward{
     giveReward = (player: Player )=>{
         const god = player.gods[this.godIndex];
         let ret = `${god.name} blesses you!`;
-        player.chosen_god = god;
+        player.chooseGod(god);
         player.observer.godsMenuLevel ++;
         return ret;
     }

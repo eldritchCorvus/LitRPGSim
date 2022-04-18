@@ -16,7 +16,7 @@ import { getParameterByName } from "../Utils/URLUtils";
 import { removeItemOnce, uniq } from "../Utils/ArrayUtils";
 import { BuildingMetaData, spawnTempleForGod } from "./Building";
 import { HORROR_KEY } from "../Utils/constants";
-import { QuestObject } from "./Quests/QuestObject";
+import { GodDescription, QuestObject } from "./Quests/QuestObject";
 
 export interface BuildingMetaMap {
     [name: string]: BuildingMetaData
@@ -40,6 +40,8 @@ export class Player {
     title: string = "BROKEN";
     gods: God[];
     chosen_god: God|undefined;
+    rival_god: God|undefined;
+
     buildings: string[] = [];
     backstory = "";
     current_location: string = "";
@@ -81,12 +83,22 @@ export class Player {
         return themes;
     }
 
+    //this might have unintended behaivor if theres more than two gods, but thats the point
+    chooseGod(god: God){
+        this.chosen_god = god;
+        const index = this.gods.indexOf(god);
+        if(index === 0){
+            this.rival_god = this.gods[1]
+        }else{
+            this.rival_god = this.gods[0]
+        }
+    }
+
     fullInit = (class_name: RPGClass, aspect: Aspect, interests: Interest[]) => {
 
         this.skillGenAlg = new BonesFirstAlg();
         let themes: Theme[] = [];
         console.log("JR NOTE: rip out test quest objects from player");
-        this.quests = testQuestObjects();
         themes = themes.concat(class_name.themes)
         themes = themes.concat(aspect.themes);
         //a god from your first three themes, a god for your back three, you are supposed to pick ones
@@ -116,6 +128,29 @@ export class Player {
         //you really can't escape it. if it hasn't caught you yet, it will. even if you've restarted.
         if(window.localStorage[HORROR_KEY]){
             this.companions.push(this.spawnAMonster());
+        }
+        
+        for(let quest of testQuestObjects()){
+            this.addQuest(quest);
+        };
+
+    }
+
+    addQuest = (quest: QuestObject)=>{
+        this.quests.push(quest);
+        quest.companion = this.rand.pickFrom(this.companions)
+        if(quest.god_index ){
+            if(quest.god_index === GodDescription.CHOSEN){
+                quest.god = this.chosen_god;
+            }else if(quest.god_index === GodDescription.RIVAL) {
+                quest.god = this.rival_god;
+            }else if(quest.god_index === GodDescription.FIRST) {
+                quest.god = this.gods[0]
+            }else if(quest.god_index === GodDescription.SECOND) {
+                quest.god = this.gods[1]
+            }
+        }else{
+            quest.god = this.rand.pickFrom(this.gods);
         }
     }
 
