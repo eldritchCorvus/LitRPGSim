@@ -6,7 +6,7 @@ import { ExceedValueTrigger } from './ObserverBot/AchievementTriggers/ExceedValu
 import { MenuClicksTrigger } from './ObserverBot/AchievementTriggers/MenuClicks';
 import { Memory } from './ObserverBot/Memory';
 import { randomCompanion } from './Player';
-import { QuestObject } from './Quests/QuestObject';
+import { GODDOMAINS1, GODDOMAINS2, GODNAME1, GODNAME2, QuestObject } from './Quests/QuestObject';
 import { Reward } from './Quests/Rewards/GenericReward';
 import { ItemReward } from './Quests/Rewards/ItemReward';
 import {EndReward } from './Quests/Rewards/EndReward';
@@ -18,6 +18,8 @@ import { StatReward } from './Quests/Rewards/StatReward';
 import { SkillAcquired } from './ObserverBot/AchievementTriggers/SkillAcquired';
 import { CustomSkill } from './Skill';
 import { SkillReward } from './Quests/Rewards/SkillReward';
+import { HasChosenGod } from './ObserverBot/AchievementTriggers/HasChosenGod';
+import { GodReward } from './Quests/Rewards/GodReward';
 
 //categories within a theme
 export const PERSON="person";
@@ -36,6 +38,7 @@ export const CHILDBACKSTORY = "CHILDBACKSTORY";
 export const GENERALBACKSTORY = "GENERALBACKSTORY";
 export const MIRACLE = "MIRACLE";
 export const SONG = "SONG";
+export const QUEST = "QUEST";
 export const PHILOSOPHY = "PHILOSOPHY";
 export const LOC_DESC = "LOCATION DESCRIPTION";
 export const MONSTER_DESC = "MONSTER DESCRIPTION";
@@ -105,6 +108,10 @@ interface ThemeStatMap {
     [details: string] : Stat.Stat[];
 }
 
+interface QuestMap {
+    [details: string] : QuestObject[];
+}
+
 export interface ThemePossibilitiesMap {
     [details: string] : string[];
 }
@@ -134,6 +141,7 @@ export let menu_options:ThemePossibilitiesMap = {};
 export let adj_possibilities:ThemePossibilitiesMap = {};
 export let insult_possibilities:ThemePossibilitiesMap = {};
 export let song_possibilities:ThemePossibilitiesMap = {};
+export let quest_possibilities:QuestMap = {};
 
 export let compliment_possibilities:ThemePossibilitiesMap = {};
 export let memories:MemoryMap = {};
@@ -383,7 +391,6 @@ const initSongs = ()=>{
     song_possibilities[LONELY] = ["Finish.mp3"];
     song_possibilities[DARKNESS] = ["turntablist.mp3"];
     song_possibilities[DECAY] = ["dear_god.mp3"];
-
 }
 
 const initSuperNames = () =>{
@@ -1387,6 +1394,32 @@ const initChildBackstories = () =>{
     child_backstories[QUESTING] = ["were an obsessive child","came up with the best games as a child","loved playing scavenger hunts as a child"] ;
 }
 
+
+const initQuests = ()=>{
+    //don't forget to also grab genericStartingQuests and genericEndingQuests
+    quest_possibilities[ANGELS] = [
+        new QuestObject(
+            `${GODNAME1}'s favor!`,
+            `${GODNAME1}, the God of ${GODDOMAINS1} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME1}.`,
+            "ALT is a password.",
+            [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
+            [new AchievementTrigger(false)],
+            [new GodReward(1)]
+        ),
+        new QuestObject(
+            `${GODNAME2}'s favor!`,
+            `${GODNAME2}, the God of ${GODDOMAINS2} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME2}.`,
+            "ALT is a password.",
+            [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
+            [new AchievementTrigger(false)],
+            [new GodReward(2)]
+        ),
+    ];
+
+}
+
 export const initThemes = ()=>{
     initStatsMap();
     initPeople();
@@ -1410,9 +1443,43 @@ export const initThemes = ()=>{
     initFeelings();
     initSounds();
     initEffectPossibilities();
+    initQuests();
 
 }
 
+
+//none of these should have unlock requirements
+// but can have minor trigger requirements.
+export const genericStartingQuests = ()=>{
+    const ret = [
+        new QuestObject(
+            "A New Begining!",
+            "After finally joining the wild world of Zampanio, the TUTORIAL NPC has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!",
+            "The TUTORIAL NPC scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, he hands you ten rabbit skins. You.... guess he just really likes rabbit?",
+            "ALT is a password.",
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new ItemReward("Rabbit Pelts")]
+        )
+    ];
+    return ret;
+}
+
+//turning in any of these should roll credits
+export const genericEndingQuests = ()=>{
+    const ret = [
+        new QuestObject("An Exciting Finish!",
+            "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
+            "THE END",
+            "APOCALYPSECHICK is a password.",
+            [new ExceedValueTrigger(false,1, "numberQuestsCompleted")],
+            [new ExceedValueTrigger(false,2, "numberQuestsCompleted")],
+            [new EndReward()]
+        )
+    ]
+
+    return ret;
+}
 
 //MAKE IT A FUNCTION SO ITS CALLED ONLY AFTER COMPANIONS CAN BE CREATED
 export const testQuestObjects = ()=>{ return [
@@ -1421,31 +1488,49 @@ export const testQuestObjects = ()=>{ return [
             "After finally joining the wild world of Zampanio, the TUTORIAL NPC has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!",
             "The TUTORIAL NPC scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, he hands you ten rabbit skins. You.... guess he just really likes rabbit?",
             "this text is game only",
-            [new AchievementTrigger()], //auto unlock
-            [new SkillAcquired("Signal")], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new SkillAcquired(false,"Signal")], //auto unlock
             [new ItemReward("Rabbit Pelts"), new StatReward(Stat.BLOOD(3))]
         )
         , new QuestObject("A Sudden Turn!",
             "Oh no! Doc Slaughter has betrayed the party! No one could possibly have predicted this! Now the race is on to see who will be first to the TOWER OF ETERNITY to claim the EIGHTFOLD SWORD! ",
             "As DOC SLAUGHTER grips the EIGHTFOLD SWORD, all seems lost. To your surprise, she turns and hands it to you. 'I'm sorry to have scared you so much. Actually, I am a double agent. I've been on your side the whole time', she explains, apologetically.",
             "this text is game only",
-            [new ExceedValueTrigger(1, "numClicks")],
-            [new ExceedValueTrigger(3, "numClicks"),new StatExceedValueTrigger(Stat.BLOOD(3))],
+            [new ExceedValueTrigger(false,1, "numClicks")],
+            [new ExceedValueTrigger(false,3, "numClicks"),new StatExceedValueTrigger(Stat.BLOOD(3))],
             [new ItemReward("EIGHTFOLD SWORD")]
         )
         , new QuestObject("A Sudden Turn Redux!",
             `Oh no! Doc Slaughter has betrayed the party! Again! No one could possibly have predicted that her dramatic revelation of being a double agent who was only PRETENDING to betray the party was itself a ruse to cover up the fact that she was a QUINTUPLE agent in service to <INSERTGODNAMEHERE>, god of <INSERT GOD DOMAINS HERE>  to fake betray the party only to real betray the party when it mattered most! Can you recover her PHOTO ALBULM in time to remind her of all the real friendships you've all shared? `,
             "With a tear of genuine emotion, Doc Slaughter turns the page of the PHOTO ALBULM. 'You're right.', she whispers. 'Of course you're right. We're friends.'",
             "this text is game only",
-            [new StatExceedValueTrigger(Stat.BLOOD(3))],
-            [new ItemInInventory("PHOTO")],
+            [new StatExceedValueTrigger(false,Stat.BLOOD(3))],
+            [new ItemInInventory(false,"PHOTO")],
             [new SkillReward(new CustomSkill("The Power Of Friendship", 3,"As long as you have your friends by your side, no one, not even your former betrayer Doc Slaughter can stand against you.")), new CompanionReward(randomCompanion(new SeededRandom("KEY".length),false,"Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood"))]
+        ),
+        new QuestObject(
+            `${GODNAME1}'s favor!`,
+            `${GODNAME1}, the God of ${GODDOMAINS1} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME1}.`,
+            "ALT is a password.",
+            [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
+            [new AchievementTrigger(false)],
+            [new GodReward(1)]
+        ),
+        new QuestObject(
+            `${GODNAME2}'s favor!`,
+            `${GODNAME2}, the God of ${GODDOMAINS2} wishes you to swear fealty to them and not their rival. Will you do this?`,
+            `With a flash of divine power, you are now an adherent to ${GODNAME2}.`,
+            "ALT is a password.",
+            [new MenuClicksTrigger(false,GODS),new HasChosenGod(true)],
+            [new AchievementTrigger(false)],
+            [new GodReward(2)]
         )
         , new QuestObject("An Exciting Finish!",
             "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
             "THE END",
             "this text is game only",
-            [new ExceedValueTrigger(1, "numberQuestsCompleted")],
-            [new ExceedValueTrigger(2, "numberQuestsCompleted")],
+            [new ExceedValueTrigger(false,1, "numberQuestsCompleted")],
+            [new ExceedValueTrigger(false,2, "numberQuestsCompleted")],
             [new EndReward()]
         )]};

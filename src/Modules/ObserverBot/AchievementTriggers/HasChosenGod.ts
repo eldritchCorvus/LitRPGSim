@@ -1,7 +1,7 @@
 import { ObserverBot } from "../ObserverBot";
 import { AchievementTrigger } from "./AchievementTrigger";
 
-export  class HaxModeOn extends AchievementTrigger{
+export  class HasChosenGod extends AchievementTrigger{
 
 
     constructor(invert:boolean,){
@@ -10,13 +10,13 @@ export  class HaxModeOn extends AchievementTrigger{
 
     toString = ()=>{
         if(this.invert){
-            return `HAXMODE MUST BE OFF`;
+            return `A GOD MUST BE NOT YET BE CHOSEN`;
         }
-        return `HAXMODE MUST BE ON`;
+        return `A GOD MUST BE CHOSEN`;
     }
 
     triggered = (observer: ObserverBot )=>{
-        const ret =  (window as any).haxMode;
+        const ret =  !!observer.player.chosen_god;
         if(this.invert){
             return !ret;
         }else{

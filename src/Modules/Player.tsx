@@ -39,6 +39,7 @@ export class Player {
     observer: ObserverBot;
     title: string = "BROKEN";
     gods: God[];
+    chosen_god: God|undefined;
     buildings: string[] = [];
     backstory = "";
     current_location: string = "";

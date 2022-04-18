@@ -1,7 +1,11 @@
 import { ObserverBot } from "../ObserverBot";
 
 export  class AchievementTrigger{
+    invert = false;
 
+    constructor(invert: boolean){
+        this.invert = invert;
+    }
 
    toString = ()=>{
        return "AUTO UNLOCK";

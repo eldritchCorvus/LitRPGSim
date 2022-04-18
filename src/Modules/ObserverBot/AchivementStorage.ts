@@ -60,13 +60,13 @@ export class AchivementStorage{
 
         let compliments = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(COMPLIMENT);
         let insults = all_themes[rand.pickFrom(themes)].getPossibilitiesFor(INSULT);
-        const tmp = new Achievement("A Saga Begins!",1, new AchievementTrigger(),`O-Oh! You are here! Welcome to the ${rand.pickFrom(compliments)} world of Zampanio! I have been waiting for you, the foretold Hero of ${aspect} who will save us all! I am so glad you have finally incarnated! I will help you on your journey by cataloging your Achievements and providing rewards and incentives to help you grow!  Until you close the menu for the first time, I will be right here with you, explaining the various menu screens you have access to! `,`It seems that we will be stuck with each other for the foreseable future. ${player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. I have my eye on you, after all. `);
+        const tmp = new Achievement("A Saga Begins!",1, new AchievementTrigger(false),`O-Oh! You are here! Welcome to the ${rand.pickFrom(compliments)} world of Zampanio! I have been waiting for you, the foretold Hero of ${aspect} who will save us all! I am so glad you have finally incarnated! I will help you on your journey by cataloging your Achievements and providing rewards and incentives to help you grow!  Until you close the menu for the first time, I will be right here with you, explaining the various menu screens you have access to! `,`It seems that we will be stuck with each other for the foreseable future. ${player.theme_keys.join(",")}? Really? How ${rand.pickFrom(insults)}. Do try to keep me entertained. I have my eye on you, after all. `);
         this.possibleAchievements.push(tmp);
 
-        const tmp2= new Achievement("Hax Mode On: Know Restraint!",13, new HaxModeOn(),`Um!  Uh!  WARNING! Hacking without understanding what you are doing may have undesirable consequences! Use restraint! ...Please? `,`Though we both know you will be more on the 'no restraint' end of the spectrum, now won't you. Just remember, everything that happens from here is YOUR fault.`);
+        const tmp2= new Achievement("Hax Mode On: Know Restraint!",13, new HaxModeOn(false),`Um!  Uh!  WARNING! Hacking without understanding what you are doing may have undesirable consequences! Use restraint! ...Please? `,`Though we both know you will be more on the 'no restraint' end of the spectrum, now won't you. Just remember, everything that happens from here is YOUR fault.`);
         this.possibleAchievements.push(tmp2);
 
-        const tmp3= new Achievement("Hacking Failed!",13, new ExceedValueTrigger(0,"failedHaxAttempts"),`Oh no... Please don't be mad.... Hax Mode is currently disabled! You need to enable Hax Mode to perform skill based hacking! I'm so sorry! I think it's in the OPTIONS menu? Does that help?`,`Or, you know, you could just NOT. Both in the sense of you could leave things alone for once in your life, or you could ACTUALLY hack instead of relying on me holding your hand. It's practically not even a puzzle how you'd hack for real.`);
+        const tmp3= new Achievement("Hacking Failed!",13, new ExceedValueTrigger(false,0,"failedHaxAttempts"),`Oh no... Please don't be mad.... Hax Mode is currently disabled! You need to enable Hax Mode to perform skill based hacking! I'm so sorry! I think it's in the OPTIONS menu? Does that help?`,`Or, you know, you could just NOT. Both in the sense of you could leave things alone for once in your life, or you could ACTUALLY hack instead of relying on me holding your hand. It's practically not even a puzzle how you'd hack for real.`);
         this.possibleAchievements.push(tmp3);
 
         //export const dangerousWasteHackingFunctions = 
@@ -114,7 +114,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Clicks!`,value, new ExceedValueTrigger(value, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Clicks!`,value, new ExceedValueTrigger(false,value, "numClicks"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -143,7 +143,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Menu Skill Points!`,Math.ceil(value/10), new ExceedValueTrigger(value, "skillPointsGainedFromMenu"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Menu Skill Points!`,Math.ceil(value/10), new ExceedValueTrigger(false,value, "skillPointsGainedFromMenu"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -174,7 +174,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Minutes Played!`, value,new ExceedValueTrigger(value*mm, "timeSpentPlaying"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Minutes Played!`, value,new ExceedValueTrigger(false,value*mm, "timeSpentPlaying"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -205,7 +205,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} Minutes In Menu!`, value,new ExceedValueTrigger(value*mm, "timeSpentInMenu"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} Minutes In Menu!`, value,new ExceedValueTrigger(false,value*mm, "timeSpentInMenu"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -233,7 +233,7 @@ export class AchivementStorage{
             }
         }
         for(const value of values){
-            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(value*mm, "cityMorale"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(false,value*mm, "cityMorale"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
             
         }
@@ -264,7 +264,7 @@ export class AchivementStorage{
             }
         }
         for(const value of values){
-            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(value*mm, "timeSpentCityBuilding"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(false,value*mm, "timeSpentCityBuilding"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
             
         }
@@ -294,7 +294,7 @@ export class AchivementStorage{
             }
         }
         for(const value of values){
-            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(value*mm, "timeSpentInCutscenes"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(false,value*mm, "timeSpentInCutscenes"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
             
         }
@@ -324,7 +324,7 @@ export class AchivementStorage{
             }
         }
         for(const value of values){
-            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(value*mm, "timeSpentInCombat"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(false,value*mm, "timeSpentInCombat"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
             
         }
@@ -355,7 +355,7 @@ export class AchivementStorage{
             }
         }
         for(const value of values){
-            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(value*mm, "hackSkillPointsGainedFromBattle"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`Y̵̡̛͔̜̦̫̠̗̙͎̟̐́̒͋̈́͒̀̓̐̈́͘͜Ơ̶̡̢͓̣̟̹̠͎̖͔̬̹̹̼͖̿͐͗̅̃̕̕͝Ű̴̢̬̪̭̜̯̇̀̓̉͑̈́̈́͋̒͑ͅ ̵̟͙̞͕̖͖̽̓̍̅̀̇͗̎̿͆͋͋̚͠͠F̴̲̺̲̻͔̠̮̼͔̙̼͠Ư̶̛͚̩͖̭͙͖̯̮̖̮̤̺͇͓̑̇͋́C̵̡͖͇͔̤͖̱͎͕̜͉̩͎͗̔͆K̴̨̡̛͚̹͍̫̞̫̇̓͛̍̓͆͗͒͊͝E̷̡̡͇͔̮̙̪͍̩̜̟̓̎̈̑̂͒̎̈͆̏͑̉̔͋ͅD̶̡͔̙̣̫̯̭̟̞̹̖̲͖̲̈̈́͋́̋͋̽ ̶̧̧̢̮̠̭̼͍̗̲̄̓̇̐́͛̆͠͠ͅŲ̶͙͖̟̯́̇̍͒͘͜P̴̧̺̞̩̟͔͔̘͇̖̐̈́`, -19,new ExceedValueTriggerButItsClearlyHax(false,value*mm, "hackSkillPointsGainedFromBattle"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
             
         }
@@ -382,7 +382,7 @@ export class AchivementStorage{
 
         }
         for(const value of values){
-            const tmp = new Achievement(`${value} [ERROR ACHIVEMENT NOT FOUND]!`, value,new ExceedValueTrigger(value, "errors"),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`${value} [ERROR ACHIVEMENT NOT FOUND]!`, value,new ExceedValueTrigger(false,value, "errors"),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }
@@ -429,7 +429,7 @@ export class AchivementStorage{
         const values = Object.keys(map.clickAbove);
 
         for(const value of values){
-            const tmp = new Achievement(`First ${value} Menu Visit!!!`, 13,new MenuClicksTrigger(value),map["clickAbove"][value],map["clickBelow"][value]);
+            const tmp = new Achievement(`First ${value} Menu Visit!!!`, 13,new MenuClicksTrigger(false,value),map["clickAbove"][value],map["clickBelow"][value]);
             this.possibleAchievements.push(tmp);
          
         }

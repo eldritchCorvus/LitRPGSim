@@ -3,6 +3,19 @@ import { ObserverBot } from "../ObserverBot/ObserverBot";
 import { Player } from "../Player";
 import { Reward } from "./Rewards/GenericReward";
 
+export const GODNAME1 = "<GODNAME1>"
+export const GODNAME2 = "<GODNAME2>"
+export const GODDOMAINS1 = "<GODDOMAINS1>"
+export const GODDOMAINS2 = "<GODDOMAINS2>"
+export const PARTYMEMBER1 = "<PARTYMEMBER1>"
+export const PARTYMEMBER2 = "<PARTYMEMBER2>"
+export const PARTYMEMBER3 = "<PARTYMEMBER3>"
+//PLUS ALL CONSTANTS FROM THE THEME LIST ITSELF.
+// SUCH AS LOCATION OR TASTE
+
+
+
+
 export  class QuestObject{
     title: string;
     flavorText: string;
@@ -56,5 +69,6 @@ export  class QuestObject{
         return ret;
     }
 }
+
 
 
