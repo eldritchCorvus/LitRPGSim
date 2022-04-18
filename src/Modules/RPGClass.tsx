@@ -70,7 +70,7 @@ export function initClasses(seeded_random: SeededRandom){
     new RPGClass("knight", ["Armadillo","Pangolin","Angel","Guardian","Knight", "Warrior", "Protector", "Defender", "Swordsman","Soldier","Paladin"],2.0, seeded_random, [all_themes.defense, all_themes.questing]);
     new RPGClass("page", ["Harbinger","Kitten","Puppy","Minion","Child","Student","Page", "Acolyte", "Attendant", "Aprentice"],3.0, seeded_random, [all_themes[QUESTING],all_themes[SERVICE]]);
     new RPGClass("mage", ["Daedalus","Duck","Raven","Mage","Wizard","Sorcerer", "Scholar", "Magus", "Enchanter","Warlock","Herald"],1.5, seeded_random, [all_themes[MAGIC],all_themes[KNOWING]]);
-    new RPGClass("heir", ["Parrot","Heir","Succesor","Inheiritor", "Scion", "Descendant"],2.0, seeded_random, [all_themes[FAMILY],all_themes[ROYALTY]]);
+    new RPGClass("heir", ["Pot","Parrot","Heir","Succesor","Inheiritor", "Scion", "Descendant"],2.0, seeded_random, [all_themes[FAMILY],all_themes[ROYALTY]]);
     new RPGClass("maid", ["Taxonomist","Castor","Pollux","Dog","Canine","Maid","Butler","Servant", "Shield-Maiden", "Valkyrie","Einherjar","Saint"],2.0, seeded_random, [all_themes[SERVICE],all_themes[DEFENSE]]);
     new RPGClass("rogue", ["Ferret","Rogue","Scoundrel","Villain", "Rascal", "Rat","Wretch","Reprobate"],2.0, seeded_random, [all_themes[STEALING],all_themes[HUNTING]]);
     new RPGClass("thief", ["Raccoon","Thief","Robber","Burglar", "Mugger", "Pick-Pocket","Cat"],2.0, seeded_random, [all_themes[STEALING],all_themes[DARKNESS]]);

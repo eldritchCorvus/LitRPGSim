@@ -15,7 +15,7 @@ export  class ItemInInventory extends AchievementTrigger{
 
     triggered = (observer: ObserverBot )=>{
         for(let item of observer.player.inventory){
-            if(item.includes(this.itemPart)){
+            if(item.toUpperCase().includes(this.itemPart.toUpperCase())){
                 return true;
             }
         }

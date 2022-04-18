@@ -4,7 +4,7 @@ import { Reward } from "./GenericReward";
 export  class ItemReward extends Reward{
     item: string;
     toString = ()=>{
-        return `${this.item} reward!`;
+        return `${this.item} obtained!`;
     }
 
     constructor(item: string){

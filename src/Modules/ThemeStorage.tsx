@@ -15,6 +15,9 @@ import { CompanionReward } from './Quests/Rewards/PartyMemberReward';
 import { ItemInInventory } from './ObserverBot/AchievementTriggers/ItemInInventory';
 import { StatExceedValueTrigger } from './ObserverBot/AchievementTriggers/StatExceedValue';
 import { StatReward } from './Quests/Rewards/StatReward';
+import { SkillAcquired } from './ObserverBot/AchievementTriggers/SkillAcquired';
+import { CustomSkill } from './Skill';
+import { SkillReward } from './Quests/Rewards/SkillReward';
 
 //categories within a theme
 export const PERSON="person";
@@ -1419,7 +1422,7 @@ export const testQuestObjects = ()=>{ return [
             "The TUTORIAL NPC scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, he hands you ten rabbit skins. You.... guess he just really likes rabbit?",
             "this text is game only",
             [new AchievementTrigger()], //auto unlock
-            [new AchievementTrigger()], //auto unlock
+            [new SkillAcquired("Signal")], //auto unlock
             [new ItemReward("Rabbit Pelts"), new StatReward(Stat.BLOOD(3))]
         )
         , new QuestObject("A Sudden Turn!",
@@ -1436,7 +1439,7 @@ export const testQuestObjects = ()=>{ return [
             "this text is game only",
             [new StatExceedValueTrigger(Stat.BLOOD(3))],
             [new ItemInInventory("PHOTO")],
-            [new CompanionReward(randomCompanion(new SeededRandom("KEY".length),false,"Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood"))]
+            [new SkillReward(new CustomSkill("The Power Of Friendship", 3,"As long as you have your friends by your side, no one, not even your former betrayer Doc Slaughter can stand against you.")), new CompanionReward(randomCompanion(new SeededRandom("KEY".length),false,"Doc Slaughter", "Doc Slaughter spent 8 years training in therapy only to discover that no one can ever be helped. It was only with your party's resolute friendship that her burnout has been addressed and she finally has hope again.", "Therapist of Blood"))]
         )
         , new QuestObject("An Exciting Finish!",
             "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
