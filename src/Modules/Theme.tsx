@@ -1,5 +1,6 @@
 import SeededRandom from '../Utils/SeededRandom';
 import { Memory } from './ObserverBot/Memory';
+import { QuestObject } from './Quests/QuestObject';
 import * as Stat from './Stat';
 import * as ThemeStorage from './ThemeStorage';
 interface ThemeMap {
@@ -29,13 +30,15 @@ export   class Theme{
     */
     string_possibilities: PossibilitiesListMap;
     memories: Memory[];
+    quests: QuestObject[];
 
     tier: number;
 
 
-    constructor(key: string, tier: number,stats: Stat.StatMap,  string_possibilities: PossibilitiesListMap, memories: Memory[]){
+    constructor(key: string, tier: number,stats: Stat.StatMap,  string_possibilities: PossibilitiesListMap, memories: Memory[], quests: QuestObject[]){
         this.key = key;
         this.tier = tier;
+        this.quests = quests ? quests : [];
         this.initStats(stats);
         this.string_possibilities = string_possibilities;
         this.memories = memories;
@@ -108,9 +111,10 @@ export function initThemes(){
         string_possibilities[ThemeStorage.SOUND] = ThemeStorage.sound_possibilities[key];
         string_possibilities[ThemeStorage.FEELING] = ThemeStorage.feeling_possibilities[key];
         string_possibilities[ThemeStorage.EFFECTS] = ThemeStorage.effect_possibilities[key];
+        const quests = ThemeStorage.quest_possibilities[key];
 
         const memories = ThemeStorage.memories[key]?ThemeStorage.memories[key]:[];
-        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories);
+        new Theme(key, 0,Stat.WrapStatsToStatMap(ThemeStorage.stats_map[key]),string_possibilities,memories,quests);
     }
 
 

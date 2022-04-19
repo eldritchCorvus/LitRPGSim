@@ -23,21 +23,6 @@ export const QuestScreen = (props: StatusProps) => {
     return (
 
         <StatusBlock>
-
-            <div>test</div>
-            hey quest objects are {questObjects.length}
-            JR NOTE: TODO
-            QuestObject
-
-            UnlockCondition (if met, added to player list
-            FulfillCondition (if met,turn in button enabled)
-
-            Reward (item for now, but eventually change companion loyalty, add a new one, change stats, unlock skills, etc)
-            Bonus Reward (Game mode only (extra lore, passwords for the rabbit hole, etc))
-            flavor text
-
-            completion text
-            its vital it feels like HALF a game, just like the skill graph
             {
                 questObjects.map((item, index) => {
                     if(!item.unlocked(props.player.observer) || item.completed){

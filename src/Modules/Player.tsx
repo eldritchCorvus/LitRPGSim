@@ -9,7 +9,7 @@ import { BonesFirstAlg } from "./SkillGenerationAlgorithms/BonesFirstAlg";
 import { all_stats, LOYAL, Stat, StatMap } from "./Stat";
 import { HAX_FAIL, ObserverBot } from "./ObserverBot/ObserverBot";
 import { Memory } from "./ObserverBot/Memory";
-import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, testQuestObjects, TWISTING } from "./ThemeStorage";
+import { ADJ, CHILDBACKSTORY, FAMILY, FEELING, GENERALBACKSTORY, genericEndingQuests, genericStartingQuests, LOCATION, LOC_DESC, LONELY, MONSTER_DESC, OBJECT, PHILOSOPHY, SMELL, SOUND, TASTE, testQuestObjects, TWISTING } from "./ThemeStorage";
 import { titleCase } from "../Utils/StringUtils";
 import { God } from "./God";
 import { getParameterByName } from "../Utils/URLUtils";
@@ -129,10 +129,25 @@ export class Player {
         if(window.localStorage[HORROR_KEY]){
             this.companions.push(this.spawnAMonster());
         }
-        
-        for(let quest of testQuestObjects()){
+        this.generateQuests(themes);
+
+    }
+
+    generateQuests = (themes: Theme[])=>{
+        console.log("JR NOTE: generating quests, quest are", this.quests)
+        let quests = [...genericStartingQuests()];
+
+        for(let theme of themes){
+            quests = [...quests, ...theme.quests];
+        }
+        quests = [...quests, ...genericEndingQuests()];
+        quests = uniq(quests);
+
+        for(let quest of quests){
             this.addQuest(quest);
-        };
+        }
+
+        console.log("JR NOTE: generating quests, quest are", this.quests)
 
     }
 
