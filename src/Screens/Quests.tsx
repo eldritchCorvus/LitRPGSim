@@ -40,6 +40,9 @@ export const QuestScreen = (props: StatusProps) => {
             its vital it feels like HALF a game, just like the skill graph
             {
                 questObjects.map((item, index) => {
+                    if(!item.unlocked(props.player.observer) || item.completed){
+                        return null;
+                    }
                     return (<QuestItem key={`quest${index}`} quest={item} player={props.player}></QuestItem>)
                 })
             }
@@ -85,6 +88,7 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
         quest.setCompleted();
         setCompleted(true);
         const rewardRes = quest.gatherRewards(player);
+        (window as any).refresh();
         AchivementPopupKickoff({ title: "Quest Reward!", text: quest.replaceTags(quest.completionText), skillPoints: 10, reward: rewardRes });
     }
 

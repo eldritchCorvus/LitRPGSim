@@ -1473,7 +1473,7 @@ export const genericEndingQuests = ()=>{
         new QuestObject("An Exciting Finish!",
             "The End is upon us. She stares you down, a gentle smile betraying nothing. Certainly not you. Can you meet your promised fate with a smile in return? Or will you defy it. WARNING: TURNING IN THIS QUEST WILL COMPLETE YOUR ARC.",
             "THE END",
-            "APOCALYPSECHICK is a password.",
+            "https://www.youtube.com/watch?v=WOrF94annCY",
             [new ExceedValueTrigger(false,1, "numberQuestsCompleted")],
             [new ExceedValueTrigger(false,2, "numberQuestsCompleted")],
             [new EndReward()]
