@@ -1395,6 +1395,8 @@ const initChildBackstories = () =>{
 }
 
 
+//don't forget to work in the fandom concepts from here in :
+// https://archiveofourown.org/works/37392859/chapters/93313978
 const initQuests = ()=>{
     //don't forget to also grab genericStartingQuests and genericEndingQuests
     quest_possibilities[ANGELS] = [
