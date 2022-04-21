@@ -331,7 +331,7 @@ export const RenderedRoom = (props: RoomProps) => {
       let parts = item.title.split(" ");
       for (let part of parts) {
         if (input.toUpperCase().includes(part.toUpperCase())) {
-          const gigglesnorts = Object.keys(passwords);
+          const gigglesnorts = [...Object.keys(passwords),"https://www.youtube.com/watch?v=WOrF94annCY"];
           const bonus = `It is important to remember the phrase '${pickFrom(gigglesnorts)}'.`;
           let template = `You turn in ${item.title} by loudly announcing to the empty air that you have completed it. The air whispers back gently: ${bonus} `;
           props.turnInQuest(item, bonus);
