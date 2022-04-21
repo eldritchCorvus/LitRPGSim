@@ -7,7 +7,7 @@ interface ThemeMap {
     [details: string] : Theme;
 }
 
-interface PossibilitiesListMap {
+ interface PossibilitiesListMap {
     [details: string] : string[];
 }
 
@@ -119,6 +119,14 @@ export function initThemes(){
 
 
 
+}
+
+export const collateThemes = (theme_keys: string[]) => {
+    let themes: Theme[] = [];
+    for (let theme of theme_keys) {
+        themes.push(all_themes[theme]);
+    }
+    return themes;
 }
 
 

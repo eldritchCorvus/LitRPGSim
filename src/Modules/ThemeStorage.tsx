@@ -20,33 +20,34 @@ import { CustomSkill } from './Skill';
 import { SkillReward } from './Quests/Rewards/SkillReward';
 import { HasChosenGod } from './ObserverBot/AchievementTriggers/HasChosenGod';
 import { GodReward } from './Quests/Rewards/GodReward';
+import { LoyaltyReward } from './Quests/Rewards/LoyaltyReward';
 
 //categories within a theme
-export const PERSON="person";
-export const ADJ = "adj";
-export const COMPLIMENT = "compliment";
-export const INSULT = "insult";
-export const SUPERMOVE = "supermove";
-export const OBJECT = "object";
-export const LOCATION = "location";
-export const MEMORIES = "memories";
-export const MENU = "menu";
-export const CLASS = "CLASS";
-export const ASPECT = "ASPECT";
-export const CITYNAME = "CITYNAME";
-export const CHILDBACKSTORY = "CHILDBACKSTORY";
-export const GENERALBACKSTORY = "GENERALBACKSTORY";
-export const MIRACLE = "MIRACLE";
-export const SONG = "SONG";
-export const QUEST = "QUEST";
-export const PHILOSOPHY = "PHILOSOPHY";
-export const LOC_DESC = "LOCATION DESCRIPTION";
-export const MONSTER_DESC = "MONSTER DESCRIPTION";
-export const SMELL = "SMELL";
-export const TASTE = "TASTE";
-export const FEELING = "FEELING";
-export const SOUND = "SOUND";
-export const EFFECTS = "EFFECTS";
+export const PERSON="person-key";
+export const ADJ = "adj-key";
+export const COMPLIMENT = "compliment-key";
+export const INSULT = "insult-key";
+export const SUPERMOVE = "supermove-key";
+export const OBJECT = "object-key";
+export const LOCATION = "location-key";
+export const MEMORIES = "memories-key";
+export const MENU = "menu-key";
+export const CLASS = "CLASS-key";
+export const ASPECT = "ASPECT-key";
+export const CITYNAME = "CITYNAME-key";
+export const CHILDBACKSTORY = "CHILDBACKSTORY-key";
+export const GENERALBACKSTORY = "GENERALBACKSTORY-key";
+export const MIRACLE = "MIRACLE-key";
+export const SONG = "SONG-key";
+export const QUEST = "QUEST-key";
+export const PHILOSOPHY = "PHILOSOPHY-key";
+export const LOC_DESC = "LOCATION DESCRIPTION-key";
+export const MONSTER_DESC = "MONSTER DESCRIPTION-key";
+export const SMELL = "SMELL-key";
+export const TASTE = "TASTE-key";
+export const FEELING = "FEELING-key";
+export const SOUND = "SOUND-key";
+export const EFFECTS = "EFFECTS-key";
 
 
 //themes
@@ -301,28 +302,28 @@ const initPeople = () =>{
     person_posibilities[DEATH] = ["reaper","psychopomp","shinigami","grave-digger","undertaker","thanatologist","embalmer"];
     person_posibilities[APOCALYPSE] = ["horseman","rider","messiahs","heisenberg"];
     person_posibilities[SERVICE] = ["butler","maid","lackey","minion","attendant","cleaner"];
-    person_posibilities[ANGELS] = ["angel","feather","guardian","cherub","arch-angel","messenger","spirit","blessing"];
-    person_posibilities[LIGHT] = ["light","glow","glare","illumination","gleam"];
+    person_posibilities[ANGELS] = ["angel","guardian","cherub","arch-angel","messenger","spirit"];
+    person_posibilities[LIGHT] = ["lamp-lighter","star"];
     person_posibilities[FAMILY] = ["ancestor","father","mother","brother","sister","aunt","uncle","cousin","family"];
-    person_posibilities[MAGIC] = ["spell-circle","ritual","magic","spell","witchcraft","enchantment","incantation","spellbook","tome","incantation","glamour"];
+    person_posibilities[MAGIC] = ["witch","wizard","enchanter","alchemist","sorcerer"];
     person_posibilities[HUNTING] = ["hunter","stalker","predator","pursuer"];
-    person_posibilities[HEALING] = ["potion","bandage","doctor","nurse","healer","panacea","curative"];
-    person_posibilities[PLANTS] =["leaf","flower","root","vine","branch","tree","meadow","forest"];
-    person_posibilities[DECAY] = ["rot","decay","corruption","entropy"];
-    person_posibilities[CHOICES] = ["choice","selection","option","janus","facet","aspect"];
-    person_posibilities[ZAP] = ["zap","bolt","stroke","lightning","ozone"];
-    person_posibilities[LOVE] = ["love","heart","soulmate","kiss","hug","caress","touch","romance"];
-    person_posibilities[SOUL] = ["self","soulmate","core","soul","heart","spirit","essence"];
+    person_posibilities[HEALING] = ["doctor","nurse","healer"];
+    person_posibilities[PLANTS] =["druid","fairy","ent","elf"];
+    person_posibilities[DECAY] = ["zombie","skeleton","ghoul","gravedigger","necromancer"];
+    person_posibilities[CHOICES] = ["cyclops","hydra"];
+    person_posibilities[ZAP] = ["robot","elemental"];
+    person_posibilities[LOVE] = ["soulmate","girlfriend","boyfriend","lover"];
+    person_posibilities[SOUL] = ["self","soulmate"];
     person_posibilities[ANGER] = ["beserker","rebel","hater"];
-    person_posibilities[WEB] = ["destiny","web","spider","fate","tapestry","promise","providence","arachnid","puppet"];
-    person_posibilities[ROYALTY] = ["decree","doctrine","law","king","queen","lord","crown","empire"];
-    person_posibilities[ENDINGS] =["finale","coda","epilogue","curtain","applause","bow"];
-    person_posibilities[KNOWING] = ["instinct","knowledge","truth","gnosis","awareness","sense","idea"];
-    person_posibilities[GUIDING] = ["path","road","journey","guide","destination","trip"];
-    person_posibilities[CRAFTING] = ["needle","wood","metal","ore","crystal","rock","log","cloth","ax","pickax","gem","anvil","crucible","hammer","needle"];
-    person_posibilities[LANGUAGE] = ["word","rune","speech","book","scroll","tongue","ink","paper","letter"];
+    person_posibilities[WEB] = ["arachnid","puppet","spider","spiderling"];
+    person_posibilities[ROYALTY] = ["king","queen","lord","noble","baron","count"];
+    person_posibilities[ENDINGS] =["prince","reaper","conductor","gravedigger"];
+    person_posibilities[KNOWING] = ["scholar","professor","teacher","scientist"];
+    person_posibilities[GUIDING] = ["guide","sherpa","guide","tourguide","leader"];
+    person_posibilities[CRAFTING] = ["smith", "blacksmith","craftsmen","tradesmen"];
+    person_posibilities[LANGUAGE] = ["wordsmith","writer","author","teacher","librarian","bard","skald","storyteller"];
     person_posibilities[BUGS] = ["bug","worm","fly","maggot","roach","swarm","plague","hive","locusts"];
-    person_posibilities[ADDICTION] = ["compulsion","habit","high","addiction","dependence","stoner"];
+    person_posibilities[ADDICTION] = ["adict","gambler","stoner"];
     person_posibilities[SPYING] = ["eye","watcher","observer","listener","spy"];
     person_posibilities[CLOWNS] = ["clown","mime","jester","acrobat","performer","harlequin","ringmaster"];
     person_posibilities[DOLLS] = ["doll","mannequin","dressform","statue","dummy","puppet","marionette","figure","figurine","toy"];
@@ -1456,11 +1457,19 @@ export const genericStartingQuests = ()=>{
     const ret = [
         new QuestObject(
             "A New Beginning!",
-            `After finally joining the wild world of Zampanio, the ${COMPANIONTITLE} has given you a starter Quest! Bring him 4 COOKED RABBITS! You can find them in STARTER MEADOW during the DAY!`,
-            `${COMPANIONNAME} scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, they hand you ten rabbit skins. You.... guess he just really likes rabbit?`,
+            `After finally joining the wild world of Zampanio, a ${PERSON} has given you a starter Quest! Bring him 4 ${ADJ} RABBITS! You can find them in STARTER ${LOCATION} during the DAY!`,
+            `The ${PERSON} scarfs down all four rabbits whole while you watch. It's a little weird. After the grisly meal is completed, they hand you ten rabbit skins. You.... guess they just really like rabbit?`,
             [new AchievementTrigger(false)], //auto unlock
             [new AchievementTrigger(false)], //auto unlock
             [new ItemReward("Rabbit Pelts")]
+        ),
+        new QuestObject(
+            "A New Friend!",
+            `${COMPANIONNAME} introduces themselves to you as the ${COMPANIONTITLE}. They offer to join your party if you can retrieve their  ${ADJ} ${OBJECT} from a local gang of ${PERSON}s.`,
+            `${COMPANIONNAME}  gives you a big grin and says you're simply the best there is at killing ${PERSON}s.`,
+            [new AchievementTrigger(false)], //auto unlock
+            [new AchievementTrigger(false)], //auto unlock
+            [new LoyaltyReward()]
         )
     ];
     return ret;

@@ -144,26 +144,25 @@ export class Player {
     }
 
     generateQuests = (themes: Theme[])=>{
-        console.log("JR NOTE: generating quests, quest are", this.quests)
-        let quests = [...genericStartingQuests()];
+        let quests = [...this.rand.pickXFrom(genericStartingQuests(),5)];
 
         for(let theme of themes){
             quests = [...quests, ...theme.quests];
         }
-        quests = [...quests, ...genericEndingQuests()];
-        quests = uniq(quests);
+        quests = [...quests, ...this.rand.pickXFrom(genericEndingQuests(),5)];
+       // quests = uniq(quests);
 
         for(let quest of quests){
             this.addQuest(quest);
         }
-
-        console.log("JR NOTE: generating quests, quest are", this.quests)
 
     }
 
     addQuest = (quest: QuestObject)=>{
         this.quests.push(quest);
         quest.companion = this.rand.pickFrom(this.companions)
+        quest.theme_keys = this.theme_keys;
+        quest.rand = this.rand;
         if(quest.god_index ){
             if(quest.god_index === GodDescription.CHOSEN){
                 quest.god = this.chosen_god;

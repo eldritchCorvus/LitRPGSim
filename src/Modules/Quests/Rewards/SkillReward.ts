@@ -1,5 +1,6 @@
 import { Player } from "../../Player";
 import { CustomSkill } from "../../Skill";
+import { QuestObject } from "../QuestObject";
 import { Reward } from "./GenericReward";
 
 export  class SkillReward extends Reward{
@@ -13,7 +14,7 @@ export  class SkillReward extends Reward{
         this.skill = skill;
     }
 
-    giveReward = (player: Player )=>{
+    giveReward = (player: Player, quest:QuestObject)=>{
         this.skill.unlocked = true;
         player.skills.push(this.skill);
         return this.toString();

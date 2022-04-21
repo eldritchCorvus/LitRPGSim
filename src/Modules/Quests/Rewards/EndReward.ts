@@ -1,4 +1,5 @@
 import {Player } from "../../Player";
+import { QuestObject } from "../QuestObject";
 import { Reward } from "./GenericReward";
 
 export  class EndReward extends Reward{
@@ -7,7 +8,7 @@ export  class EndReward extends Reward{
         return `THE END`;
     }
 
-    giveReward = (player: Player )=>{
+    giveReward = (player: Player, quest:QuestObject)=>{
         (window as any).setCreditsMode(true);
         return "THE END";
 

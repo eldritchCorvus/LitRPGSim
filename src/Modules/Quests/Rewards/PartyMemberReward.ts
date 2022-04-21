@@ -1,4 +1,5 @@
 import { Companion, Player } from "../../Player";
+import { QuestObject } from "../QuestObject";
 import { Reward } from "./GenericReward";
 
 export  class CompanionReward extends Reward{
@@ -13,7 +14,7 @@ export  class CompanionReward extends Reward{
         this.companion = companion;
     }
 
-    giveReward = (player: Player )=>{
+    giveReward = (player: Player, quest:QuestObject)=>{
         let ret = this.toString();
         player.companions.push(this.companion);
         return ret;

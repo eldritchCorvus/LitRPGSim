@@ -1,5 +1,6 @@
 import { Player } from "../../Player";
 import { all_stats, Stat } from "../../Stat";
+import { QuestObject } from "../QuestObject";
 import { Reward } from "./GenericReward";
 
 export  class StatReward extends Reward{
@@ -13,7 +14,7 @@ export  class StatReward extends Reward{
         this.stat = stat;
     }
 
-    giveReward = (player: Player )=>{
+    giveReward = (player: Player, quest:QuestObject)=>{
         player.addStat(this.stat);
         return this.toString();
     }

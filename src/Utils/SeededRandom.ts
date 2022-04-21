@@ -25,6 +25,14 @@ export default class SeededRandom {
     return array[this.getRandomNumberBetween(0, array.length - 1)];
   }
 
+  pickXFrom =(array: any[], amount: number)=>{
+    let ret:any[] = [];
+    for(let i = 0; i< amount; i++){
+      ret.push(this.pickFrom(array));
+    }
+    return ret;
+  }
+
   shuffle = (array: any[]) => {
     var currentIndex = array.length, temporaryValue, randomIndex;
 

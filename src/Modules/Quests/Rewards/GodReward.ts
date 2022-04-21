@@ -1,4 +1,5 @@
 import { Companion, Player } from "../../Player";
+import { QuestObject } from "../QuestObject";
 import { Reward } from "./GenericReward";
 
 export  class GodReward extends Reward{
@@ -14,7 +15,7 @@ export  class GodReward extends Reward{
     }
 
     //your chosen god is now this god and your gods menu level has increased
-    giveReward = (player: Player )=>{
+    giveReward = (player: Player, quest:QuestObject)=>{
         const god = player.gods[this.godIndex];
         let ret = `${god.name} blesses you!`;
         player.chooseGod(god);
