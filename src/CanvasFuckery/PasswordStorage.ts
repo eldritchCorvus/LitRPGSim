@@ -107,5 +107,5 @@ export const passwords:PasswordMap = {
     ,"THE TWINS": new Secret("Unknown",[new SourceDurationPair("Secrets/TWINS/0.jpg",2)],undefined, "Secrets/TWINS/0.js")
     ,"THE SOLEMN ": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
 
-
+    //more passwords: 7342 (caretaker in wigglersim), 1365, the end is never the end, the truth is layered, the fool is hurt, the end is never the end, everything is connected, you is needed to end the world
 };//omg easter egg lolol!!!!!!111!!1

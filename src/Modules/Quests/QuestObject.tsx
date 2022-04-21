@@ -1,6 +1,7 @@
 import { humanJoining } from "../../Utils/ArrayUtils";
 import { God } from "../God";
 import { AchievementTrigger } from "../ObserverBot/AchievementTriggers/AchievementTrigger";
+import AchivementPopupKickoff from "../ObserverBot/AchivementPopup";
 import { ObserverBot } from "../ObserverBot/ObserverBot";
 import { Companion, Player } from "../Player";
 import { Reward } from "./Rewards/GenericReward";
@@ -23,7 +24,6 @@ export  class QuestObject{
     title: string;
     flavorText: string;
     completionText: string;
-    gameText: string;
     turnInTriggers: AchievementTrigger[];
     unlockTriggers: AchievementTrigger[];
     rewards: Reward[];
@@ -34,20 +34,28 @@ export  class QuestObject{
     god_index : GodDescription | undefined;
 
 
-    constructor(title:string, flavorText: string, completionText: string, gameText: string, unlockTrigger: AchievementTrigger[],turnInTrigger: AchievementTrigger[], reward: Reward[], god_index?: GodDescription){
+    constructor(title:string, flavorText: string, completionText: string, unlockTrigger: AchievementTrigger[],turnInTrigger: AchievementTrigger[], reward: Reward[], god_index?: GodDescription){
         this.title = title;
         this.god_index = god_index;
         this.flavorText = flavorText;
         this.completionText = completionText;
         this.turnInTriggers = turnInTrigger;
         this.unlockTriggers = unlockTrigger;
-        this.gameText = gameText;
         this.rewards = reward;
         this.completed = false;
     }
 
     setCompanion = (companions: Companion[])=>{
 
+    }
+
+    giveReward = (player: Player, bonus: string) => {
+        player.observer.numberQuestsCompleted++;
+        player.storySoFar.push(this);
+        this.setCompleted();
+        const rewardRes = this.gatherRewards(player);
+        (window as any).refresh();
+        AchivementPopupKickoff({ title: "Quest Reward!", text: this.replaceTags(this.completionText) + " "+ bonus, skillPoints: 10, reward: rewardRes });
     }
 
     setCompleted = ()=>{

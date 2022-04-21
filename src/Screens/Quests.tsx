@@ -68,13 +68,8 @@ const QuestItem: React.FC<QuestItemProps> = ({ quest, player }) => {
     `
 
     const giveReward = () => {
-        player.observer.numberQuestsCompleted++;
-        player.storySoFar.push(quest);
-        quest.setCompleted();
+        quest.giveReward(player,"");
         setCompleted(true);
-        const rewardRes = quest.gatherRewards(player);
-        (window as any).refresh();
-        AchivementPopupKickoff({ title: "Quest Reward!", text: quest.replaceTags(quest.completionText), skillPoints: 10, reward: rewardRes });
     }
 
     console.log("JR NOTE: quest is", quest)

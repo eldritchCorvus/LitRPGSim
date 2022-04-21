@@ -90,7 +90,7 @@ function NewspostDom(props: PostProps) {
 }
 function About(props: AppProps) {
   const newsposts = [
-    new Newspost("04/18/2022", "Quest engine actually went faster than i thought, hell yes")];
+    new Newspost("04/18/2022", "Quest engine actually went faster than i thought, hell yes")
 
      ,new Newspost("04/15/2022", "MAN is it nostalgic coming back here? i've spent so much time wandering the fandom I forgot about my lil corner of it. anyways i'm gonna dust this off and see if i can get the quest system from zampanio working here")];
 

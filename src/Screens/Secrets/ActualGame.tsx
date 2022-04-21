@@ -13,10 +13,13 @@ import { Popup, PopupTitle, PopupContent } from "../../Modules/ObserverBot/Achiv
 import { BuildingMetaData } from "../../Modules/Building";
 import { HORROR_KEY, STORAGE_KEY } from "../../Utils/constants";
 import { addNumToArrayWithKey } from "../../Utils/LocalStorageUtils";
+import { QuestObject } from "../../Modules/Quests/QuestObject";
+import { passwords } from "../../CanvasFuckery/PasswordStorage";
 //the point of ThisIsAGame is to punish the player for forcing dear sweet precious Truth to lie like that and pretend to be a game
 //horror jail for you.
 interface RoomProps {
   room: BuildingMetaData;
+  turnInQuest: Function;
   changeRoom: any;
   direction: string;
   pickupItem: any;
@@ -80,6 +83,10 @@ export const ActualGame = (props: StatusProps) => {
     }
   }
 
+  const turnInQuest = (quest: QuestObject, bonus: string)=>{
+    quest.giveReward(player,bonus);
+  }
+
   const useItem = (item: string) => {
     checkDeath();
     //if there is a locked door nearby, unlock it
@@ -134,7 +141,7 @@ export const ActualGame = (props: StatusProps) => {
 
         <br></br>
 
-        <RenderedRoom player={player} checkDeath={checkDeath} room={currentRoom} numberFriends={player.companions.length} changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem} />
+        <RenderedRoom player={player} checkDeath={checkDeath} room={currentRoom} numberFriends={player.companions.length} changeRoom={changeRoom} direction={direction} useItem={useItem} useCompanion={useCompanion} pickupItem={pickupItem} turnInQuest={turnInQuest} />
       </MenuBox>
     </div>
 
@@ -203,6 +210,10 @@ export const RenderedRoom = (props: RoomProps) => {
     }
 
     if (checkRoomName(input)) {
+      return true;
+    }
+
+    if(checkQuest(input)){
       return true;
     }
 
@@ -308,6 +319,24 @@ export const RenderedRoom = (props: RoomProps) => {
             setError(`You cannot use the ${item}. You are not near a locked door!`);
             return true;
           }
+        }
+      }
+
+    }
+    return false;
+  }
+
+  const checkQuest = (input: string) => {
+    for (let item of props.player.questsAvailableToTurnIn()) {
+      let parts = item.title.split(" ");
+      for (let part of parts) {
+        if (input.toUpperCase().includes(part.toUpperCase())) {
+          const gigglesnorts = Object.keys(passwords);
+          const bonus = `It is important to remember the phrase '${pickFrom(gigglesnorts)}'.`;
+          let template = `You turn in ${item.title} by loudly announcing to the empty air that you have completed it. The air whispers back gently: ${bonus} `;
+          props.turnInQuest(item, bonus);
+          setMessage(template);
+          return true;
         }
       }
 
@@ -488,6 +517,7 @@ export const RenderedRoom = (props: RoomProps) => {
 
       {props.player.inventory.length > 0 && props.player.observer.inventoryMenuLevel > 0 ? <RoomSection>Your inventory is: {props.player.inventory.join(", ")}.</RoomSection> : null}
       <RoomSection>You have the following skills unlocked: {props.player.unlocked_skills_no_stats().map((skill) => { return skill.name }).join(", ")}.</RoomSection>
+      <RoomSection>You have the following quests available to turn in: {props.player.questsAvailableToTurnIn().map((quest) => { return quest.title }).join(", ")}.</RoomSection>
 
       <RoomSection>You have: {props.numberFriends} friends remaining.</RoomSection>
       {error.trim() !== "" ? <ErrorSection>Error: {error}</ErrorSection> : null}

@@ -133,6 +133,16 @@ export class Player {
 
     }
 
+    questsAvailableToTurnIn = ()=>{
+        let ret:QuestObject[] = [];
+        for(let quest of this.quests){
+            if(quest.canTurnIn(this.observer)){
+                ret.push(quest);
+            }
+        }
+        return ret;
+    }
+
     generateQuests = (themes: Theme[])=>{
         console.log("JR NOTE: generating quests, quest are", this.quests)
         let quests = [...genericStartingQuests()];
