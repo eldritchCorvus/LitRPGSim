@@ -55,21 +55,21 @@ export const StyledInput = styled(Input)`
     margin-left: 60px;
 `
 
-    //real ghost hours
-    const startGhostCCTV = async (canvas: HTMLCanvasElement) => {
-            const bg1 = await addImageProcess(cctv) as HTMLImageElement;
-            const bg2 = await addImageProcess(cctv2) as HTMLImageElement;
-            //TODO pick a different monster out depending on your themes
-            //obvs we won't have a monster for EVERY scene, but enough.
-            //enough to build the vibe of gaslighting and *why* and difficulty communicating
-            const mon1 = await addImageProcess(monster1) as HTMLImageElement;
-            const mon2 = await addImageProcess(monster2) as HTMLImageElement;
-            cctv_ghost_loop(canvas, bg1, bg2, mon1, mon2);
-    
-    }
+//real ghost hours
+const startGhostCCTV = async (canvas: HTMLCanvasElement) => {
+    const bg1 = await addImageProcess(cctv) as HTMLImageElement;
+    const bg2 = await addImageProcess(cctv2) as HTMLImageElement;
+    //TODO pick a different monster out depending on your themes
+    //obvs we won't have a monster for EVERY scene, but enough.
+    //enough to build the vibe of gaslighting and *why* and difficulty communicating
+    const mon1 = await addImageProcess(monster1) as HTMLImageElement;
+    const mon2 = await addImageProcess(monster2) as HTMLImageElement;
+    cctv_ghost_loop(canvas, bg1, bg2, mon1, mon2);
+
+}
 
 export const CCTVScreen = (props: StatusProps) => {
-    const {ghosts } = props;
+    const { ghosts } = props;
 
     (window as any).dontrotatemusic = true;
 
@@ -104,7 +104,7 @@ export const CCTVScreen = (props: StatusProps) => {
                 div.innerText = "You arrive in the BASEMENT TUNNELS.  You do not want to be here. There is a single CCTV monitor and a button. You feel like you are being watched.";
                 startGhostCCTV(canvas);
             } else {
-                PasswordFuckeryKickoff(canvas,new SeededRandom((window as any).seed));
+                PasswordFuckeryKickoff(canvas, new SeededRandom((window as any).seed));
             }
         }
 
@@ -143,12 +143,12 @@ const PasswordFuckery = (props: PWProps) => {
         return ret;
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         feed?.play();
-    },[feed]);
+    }, [feed]);
 
-    const setFeedWithSideEffects= async(new_feed: CCTV)=>{
-        if(feed){
+    const setFeedWithSideEffects = async (new_feed: CCTV) => {
+        if (feed) {
             feed.stop();
         }
         setFeed(new_feed);
@@ -158,14 +158,16 @@ const PasswordFuckery = (props: PWProps) => {
     const onSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
-        if (Object.keys(passwords).includes(pw)) {
-            
-            setFeedWithSideEffects(await right_password(props.canvas, passwords[pw]));
-        } else {
-            const troll_pw = translate(pw);
-            setFeedWithSideEffects(await wrong_password(props.canvas, troll_pw, props.rand));
-            //use effect will play it.
+        for (let key of Object.keys(passwords)) {
+            if (key.toUpperCase() === pw.toUpperCase()) {
+                setFeedWithSideEffects(await right_password(props.canvas, passwords[pw]));
+                return true;
+            }
+
         }
+        const troll_pw = translate(pw);
+        setFeedWithSideEffects(await wrong_password(props.canvas, troll_pw, props.rand));
+        //use effect will play it.
         return false;
     }
     return (
@@ -190,7 +192,7 @@ const PasswordFuckeryKickoff = (canvas: HTMLCanvasElement, rand: SeededRandom) =
 
     ReactDOM.render(
         <React.StrictMode>
-            <PasswordFuckery canvas={canvas} rand={rand}/>
+            <PasswordFuckery canvas={canvas} rand={rand} />
         </React.StrictMode>,
         ele
     );
