@@ -106,6 +106,13 @@ export const passwords:PasswordMap = {
     ,"THE WANDERER": new Secret("Unknown",[new SourceDurationPair("Secrets/WANDERER/0.jpg",2)],undefined, "Secrets/WANDERER/0.js")
     ,"THE TWINS": new Secret("Unknown",[new SourceDurationPair("Secrets/TWINS/0.jpg",2)],undefined, "Secrets/TWINS/0.js")
     ,"THE SOLEMN ": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
-
-    //more passwords: 7342 (caretaker in wigglersim), 1365, the end is never the end, the truth is layered, the fool is hurt, the end is never the end, everything is connected, you is needed to end the world
+    ,"https://www.youtube.com/watch?v=WOrF94annCY ": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"THE END IS NEVER THE END ": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"YOU IS NEEDED TO END THE WORLD ": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"THE TRUTH IS LAYERED ": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"7342": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"1365": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"216": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"the fool is hurt": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
+    ,"everything is connected": new Secret("Unknown",[new SourceDurationPair("Secrets/SOLEMN/0.jpg",2)],undefined, "Secrets/SOLEMN/0.js")
 };//omg easter egg lolol!!!!!!111!!1
