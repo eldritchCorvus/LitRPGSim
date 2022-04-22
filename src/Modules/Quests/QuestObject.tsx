@@ -56,6 +56,10 @@ export  class QuestObject{
         this.string_possibilities = {};
     }
 
+    copy = ()=>{
+        return new QuestObject(this.title, this.flavorText, this.completionText, this.unlockTriggers, this.turnInTriggers, this.rewards, this.god_index)
+    }
+
 
     giveReward = (player: Player, bonus: string) => {
         player.observer.numberQuestsCompleted++;
