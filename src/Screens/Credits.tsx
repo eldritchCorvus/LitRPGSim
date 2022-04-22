@@ -363,10 +363,18 @@ export const CreditsScreen = (props: StatusProps) => {
                     </CreditDoubleLine>
                 </CreditLine>
 
-
                 <CreditLine>
+                    <CreditDoubleLine>
                     <CreditLeft>Next Custom,Sister Spray,Urban Heroes Fonts: </CreditLeft> <CreditRight><span>imagex</span></CreditRight>
+                    </CreditDoubleLine>
+
+                    <CreditDoubleLine>
+                        <CreditLeft>Mall Muzak: </CreditLeft> <CreditRight><span>CURTIS8516: https://archive.org/details/MallMusicMuzakMallOf1974/Mall+Music+Muzak+-+Mall+Of+1974+-+13+Parking+Lot+Lost.wav</span></CreditRight>
+                    </CreditDoubleLine>
                 </CreditLine>
+
+
+
 
                 <CreditHeader>And Most of All:</CreditHeader>
 

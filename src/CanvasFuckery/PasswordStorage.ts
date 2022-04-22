@@ -78,22 +78,22 @@ export interface PasswordMap {
 each password has a cctv feed (or at least a list of animation frames loaders (src and duration)?), an optional voice section, an optional text section (print out under cctv ffed)
 */
 export const passwords:PasswordMap = {
-    //quest rewards, both real and game mode drop these. you can't get ALL of them without going into game mode
+    //quest rewards, both real and game mode drop these. you can't get ALL of them without going into game mode  "MallMusicMuzakMallOf1974/"
     
-    "ALT": new Secret("A Series of IDS: 1",[new SourceDurationPair("Secrets/ALT/0.jpg",2)],undefined, "Secrets/ALT/0.js")
-    ,"APOCALYPSE CHICK": new Secret("A Series of IDS: 2",[new SourceDurationPair("Secrets/APOCALYPSECHICK/0.jpg",2)],undefined, "Secrets/APOCALYPSECHICK/0.js")
-    ,"THE CLOSER": new Secret("A Series of IDS: 3",[new SourceDurationPair("Secrets/THECLOSER/0.jpg",2)],undefined, "Secrets/THECLOSER/0.js")
-    ,"THE DEVIL OF SPIRALS": new Secret("A Series of IDS: 4",[new SourceDurationPair("Secrets/DEVILOFSPIRALS/0.jpg",2)],undefined, "Secrets/DEVILOFSPIRALS/0.js")
-    ,"THE END": new Secret("A Series of IDS: 5",[new SourceDurationPair("Secrets/END/0.jpg",2)],undefined, "Secrets/END/0.js")
-    ,"THE EYE KILLER": new Secret("A Series of IDS: 6",[new SourceDurationPair("Secrets/EYEKILLER/0.jpg",2)],undefined, "Secrets/EYEKILLER/0.js")
-    ,"FLOWER CHICK": new Secret("A Series of IDS: 7",[new SourceDurationPair("Secrets/FLOWERCHICK/0.jpg",2)],undefined, "Secrets/FLOWERCHICK/0.js")
-    ,"HIMBO": new Secret("A Series of IDS: 8",[new SourceDurationPair("Secrets/HIMBO/0.jpg",2)],undefined, "Secrets/HIMBO/0.js")
-    ,"HOSTAGE": new Secret("A Series of IDS: 9",[new SourceDurationPair("Secrets/HOSTAGE/0.jpg",2)],undefined, "Secrets/HOSTAGE/0.js")
-    ,"THE INTERN": new Secret("A Series of IDS: 10",[new SourceDurationPair("Secrets/INTERN/0.jpg",2)],undefined, "Secrets/INTERN/0.js")
-    ,"INVERTED CENTAUR": new Secret("A Series of IDS: 11",[new SourceDurationPair("Secrets/MATCH/0.jpg",2)],undefined, "Secrets/INVERTEDCENTAUR/0.js")
-    ,"THE MATCH": new Secret("A Series of IDS: 12",[new SourceDurationPair("Secrets/MATCH/0.jpg",2)],undefined, "Secrets/MATCH/0.js")
-    ,"MINOTAUR": new Secret("A Series of IDS: 13",[new SourceDurationPair("Secrets/JR/0.jpg",2)],undefined, "Secrets/JR/0.js")
-    ,"NOT A MINOTAUR": new Secret("A Series of IDS: 14",[new SourceDurationPair("Secrets/NAM/0.jpg",2)],undefined, "Secrets/NAM/0.js")
+    "ALT": new Secret("A Series of IDS: 1",[new SourceDurationPair("Secrets/ALT/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 01 Mall Open.mp3", "Secrets/ALT/0.js")
+    ,"APOCALYPSE CHICK": new Secret("A Series of IDS: 2",[new SourceDurationPair("Secrets/APOCALYPSECHICK/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 02 Sale Of The Seventies.mp3", "Secrets/APOCALYPSECHICK/0.js")
+    ,"THE CLOSER": new Secret("A Series of IDS: 3",[new SourceDurationPair("Secrets/THECLOSER/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 03 Third Floor Spending Spree.mp3", "Secrets/THECLOSER/0.js")
+    ,"THE DEVIL OF SPIRALS": new Secret("A Series of IDS: 4",[new SourceDurationPair("Secrets/DEVILOFSPIRALS/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 04 Food Court Calling.mp3", "Secrets/DEVILOFSPIRALS/0.js")
+    ,"THE END": new Secret("A Series of IDS: 5",[new SourceDurationPair("Secrets/END/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 05 Grocery Grabbing.mp3", "Secrets/END/0.js")
+    ,"THE EYE KILLER": new Secret("A Series of IDS: 6",[new SourceDurationPair("Secrets/EYEKILLER/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 06 The Fountain Of Life.mp3", "Secrets/EYEKILLER/0.js")
+    ,"FLOWER CHICK": new Secret("A Series of IDS: 7",[new SourceDurationPair("Secrets/FLOWERCHICK/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 07 Phonebooth Call To Home.mp3", "Secrets/FLOWERCHICK/0.js")
+    ,"HIMBO": new Secret("A Series of IDS: 8",[new SourceDurationPair("Secrets/HIMBO/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 08 Restroom Retreat.mp3", "Secrets/HIMBO/0.js")
+    ,"HOSTAGE": new Secret("A Series of IDS: 9",[new SourceDurationPair("Secrets/HOSTAGE/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 09 Impulse Purchase (Part 1).mp3", "Secrets/HOSTAGE/0.js")
+    ,"THE INTERN": new Secret("A Series of IDS: 10",[new SourceDurationPair("Secrets/INTERN/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 10 Cash Or Cheque.mp3", "Secrets/INTERN/0.js")
+    ,"INVERTED CENTAUR": new Secret("A Series of IDS: 11",[new SourceDurationPair("Secrets/MATCH/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 11 Checkout 2 Now Open.mp3", "Secrets/INVERTEDCENTAUR/0.js")
+    ,"THE MATCH": new Secret("A Series of IDS: 12",[new SourceDurationPair("Secrets/MATCH/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 12 Impulse Purchase (Part 2).mp3", "Secrets/MATCH/0.js")
+    ,"MINOTAUR": new Secret("A Series of IDS: 13",[new SourceDurationPair("Secrets/JR/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 13 Parking Lot Lost.mp3", "Secrets/JR/0.js")
+    ,"NOT A MINOTAUR": new Secret("A Series of IDS: 14",[new SourceDurationPair("Secrets/NAM/0.jpg",2)],"MallMusicMuzakMallOf1974/Mall Music Muzak - Mall Of 1974 - 14 Mall Closed.mp3", "Secrets/NAM/0.js")
     ,"THE NEIGHBOR": new Secret("A Series of IDS: 15",[new SourceDurationPair("Secrets/NEIGHBOR/0.jpg",2)],undefined, "Secrets/NEIGHBOR/0.js")
     ,"TYRFING": new Secret("Thoughts.",[new SourceDurationPair("Secrets/TYRFING/0.jpg",2)],undefined, "Secrets/TYRFING/0.js")
 
