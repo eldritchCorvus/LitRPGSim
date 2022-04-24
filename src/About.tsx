@@ -84,13 +84,16 @@ function NewspostDom(props: PostProps) {
       }
     }}>
       <Content>{showSecretFace ? <img width="75" alt="jr" src={jr}></img> : <img width="75" alt="jr" src={fakejr}></img>}</Content>
-      <Content>     <Date>{props.post.date}: </Date> {showSecret ? props.post.secret : props.post.post}</Content>
+      <Content>     <Date>{props.post.date}: </Date> <div dangerouslySetInnerHTML={{__html:`${showSecret ? props.post.secret : props.post.post}`}}></div></Content>
     </Post>
   )
 }
 function About(props: AppProps) {
   const newsposts = [
-    new Newspost("04/18/2022", "Quest engine actually went faster than i thought, hell yes")
+    
+    new Newspost("04/22/2022", "Good news: the muzak i found probably has hypnotic qualities.  Also good news, i can't stop listening it.","Ria warned me. <a href = 'http://farragofiction.com/BlorboBio/?data=N4IgdghgtgpiBcICyBVAWgQQNIgDQgBMYBnASwHNIAXUgezARAGUBaAYRYCUBWPEAJ1LEA1owwAZAKIAFABJ8qACxixiY6QHk2EgJrSmk3AAIAjCYDMxpJOsAVAJJtjZy0dRNHzi8YBinDGy2EvCm3kbSKNLSkrYh5uZ8xFQQVGqI9gBytpKcGRK4AJyW0hgOklm4Lrj2ACKSEvZMDk4muAFsMg4ZAOKV3uIaOvlV2uJIfQn4MAAeEADGVAA2AJ4A+kr8MDDrpAAOaSAYYMtGTACuAEYAVjALRrQAZkbmRvZgZOSKVPf8RuK0AHcYL8hEZSGA5hBdhALosYPcnnN6MQ5nQzsQVkZdsC5jBSAA3cHkU7sLjcADkxCMxHo5AAdMZ7E8lDAThBNkYZrtaMQYAQjFRaCSODwjA9aL8oBL4UoIGAjNwjEj3rczjR8fCoOC1SQBcoTgDSItFkYLvCkVBsca+QKhcRdpsIPzWCLFYL7izfuyYBBiAyjBgqYtaUZfcKyWCqbtFhBlkSwd9Dcaxfx5sljScqIaknr4cHITR6AnI2D5bQNV75Vz6DAwDQIBnS3NHWQwMTUwRSOi6XxwUlwQtGAA1YEnf4A3Aj-hjwGT0d-WdTmcTpcLgG994UL7D+fjufTtf75dHw+yLd8FLJOaKWB1ncHverx+7xcvldvvibB0kMj0e-Hp9XwfIDjzPT5EmSC4jVIKg1jhDVFkYAAGOkkM-PlViIB5a15ZDUL4AFFBg7YsJwuBEBQ3h8FheZhEwmBsJVPC0PwaE4XoxjcMQAAmfD8FIKByFWYh+DmRgvioXZ4AAemkh52VTchHlIBY6DAOkLWktBoGhMA6FkWglnBYRpIdWhoXIOUCAgOldjbCCJTWIhkiNA5o3mGBFFoRYiH4EAAF8gA'>  Tho she still listens to it too.</a>")
+
+    ,new Newspost("04/18/2022", "Quest engine actually went faster than i thought, hell yes")
 
      ,new Newspost("04/15/2022", "MAN is it nostalgic coming back here? i've spent so much time wandering the fandom I forgot about my lil corner of it. anyways i'm gonna dust this off and see if i can get the quest system from zampanio working here")];
 
