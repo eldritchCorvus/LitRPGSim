@@ -22,7 +22,7 @@ Eg'g egg eg'g egg egg egg egg egg egg egg egg. Egg egg egg egg egg egg egg, egg 
 
 Egg egg...egg eg'g egg egg egg...
 
-Wouldn't egg egg egg egg... egg egg.
+Eg'g egg egg egg egg... egg egg.
 
 Egg egg?
 
